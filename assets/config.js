@@ -13,6 +13,8 @@ const SITE = {
   linkedin: "https://www.linkedin.com/in/varun-pm01",
   instagram: "",
   youtube: "",
+  // Community link, e.g. a WhatsApp community or LinkedIn group. "" hides "Community" in the menu.
+  community: "",
   // Counselling call booking link (Calendly or Cal.com). Empty = WhatsApp.
   booking: "",
   // Free key from web3forms.com so contact-form messages reach your inbox.
@@ -155,7 +157,15 @@ const FAQS = [
   { c: "Career", q: "I have more questions. Where can I ask?", a: "Message us on WhatsApp or book a free counselling session, and we'll answer everything." }
 ];
 
-/* ---- Testimonials (add real quotes, with permission). Hidden while empty.
+/* ---- Public events (Events page). Add one per event; past ones move to "Past events".
+   { title: "Build agentic workflows with n8n", date: "2027-01-18", time: "5:00 PM – 6:30 PM",
+     text: "Live build-along for beginners.", register: "https://forms.gle/..." },
+   register: sign-up link (Google Form, Luma, Zoom). Empty opens WhatsApp. */
+const EVENTS = [
+];
+
+/* ---- Testimonials (add real quotes, with permission). The Reviews page and
+   menu item stay hidden until you add one.
    { name: "Priya S.", role: "Associate PM, fintech", quote: "...", photo: "" } */
 const TESTIMONIALS = [
 ];

@@ -94,10 +94,30 @@
   /* ---- Career support ---- */
   const sup = $("support");
   const SUP_ICO = ['<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/>', '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>', '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>', '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'];
-  if (sup && typeof SUPPORT !== "undefined") sup.innerHTML = SUPPORT.map((s, i) => `<div class="card"><div class="ico${i % 2 ? " g" : ""}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${SUP_ICO[i % 4]}</svg></div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>`).join("");
+  if (sup && typeof SUPPORT !== "undefined") sup.innerHTML = SUPPORT.map((s, i) => `<div class="card"><div class="ico${i % 2 ? " g" : ""}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${SUP_ICO[i % 4]}</svg></div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>`).join("");
+
+  /* ---- Public events ---- */
+  const EV = typeof EVENTS !== "undefined" ? EVENTS.filter(e => e && e.title && e.date) : [];
+  const evCard = (e, past) => { const d = new Date(e.date + "T00:00:00");
+    const reg = e.register ? url(e.register) : waLink("Hi SkillNavora, please register me for " + e.title + " on " + e.date + ".");
+    return `<div class="event"><div class="top-row"><div class="cal"><small>${d.toLocaleDateString("en-IN", { month: "short" })}</small><b>${d.getDate()}</b></div><div><h4>${esc(e.title)}</h4>${e.time ? `<div class="meta">${esc(e.time)}</div>` : ""}${e.text ? `<p class="meta" style="margin:6px 0 0">${esc(e.text)}</p>` : ""}</div></div>
+      <div class="bottom">${past ? '<span class="meta">Completed</span>' : `<span>Free</span><a class="btn btn-primary btn-sm" href="${esc(reg)}" target="_blank" rel="noopener">Register</a>`}</div></div>`; };
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  if ($("pub-events")) {
+    const up = EV.filter(e => new Date(e.date + "T00:00:00") >= today).sort((a, b) => a.date.localeCompare(b.date));
+    const past = EV.filter(e => new Date(e.date + "T00:00:00") < today).sort((a, b) => b.date.localeCompare(a.date));
+    $("pub-events").innerHTML = up.length ? up.map(e => evCard(e)).join("") : `<p class="empty" style="grid-column:1/-1">New events are announced soon. <a href="${esc(waLink("Hi SkillNavora, please tell me about upcoming events."))}" target="_blank" rel="noopener">Get updates on WhatsApp</a>.</p>`;
+    $("pub-past").innerHTML = past.length ? past.map(e => evCard(e, true)).join("") : '<p class="empty" style="grid-column:1/-1">Past events will appear here.</p>';
+  }
+
+  /* ---- Community link ---- */
+  document.querySelectorAll("[data-community]").forEach(a => { if (S.community) { a.href = url(S.community); a.target = "_blank"; a.rel = "noopener"; a.hidden = false; } });
 
   /* ---- Testimonials ---- */
   const tl = $("testimonials-list"), ts = $("testimonials"), T = (typeof TESTIMONIALS !== "undefined" ? TESTIMONIALS : []).filter(t => t && t.quote);
+  if (T.length) document.querySelectorAll("[data-reviews-nav]").forEach(a => a.hidden = false);
+  const card = t => `<figure class="card" style="margin:0"><blockquote style="margin:0 0 14px;font:600 17px/1.55 var(--display)">“${esc(t.quote)}”</blockquote><figcaption class="meta"><b style="color:var(--ink)">${esc(t.name)}</b> · ${esc(t.role)}</figcaption></figure>`;
+  if ($("reviews-list")) $("reviews-list").innerHTML = T.length ? T.map(card).join("") : '<p class="empty" style="grid-column:1/-1">Reviews from our learners will appear here soon.</p>';
   if (tl && ts && T.length) { tl.innerHTML = T.map(t => `<figure class="card" style="margin:0"><blockquote style="margin:0 0 14px;font:600 17px/1.55 var(--display)">“${esc(t.quote)}”</blockquote><figcaption class="meta"><b style="color:var(--ink)">${esc(t.name)}</b> · ${esc(t.role)}</figcaption></figure>`).join(""); ts.hidden = false; }
 
   /* ---- FAQ with search and categories ---- */
@@ -124,7 +144,7 @@
     set("p-for", (P.for || []).map(x => `<li>${esc(x)}</li>`).join(""));
     set("p-outcomes", (P.outcomes || []).map(x => `<li>${esc(x)}</li>`).join(""));
     set("p-curriculum", (P.curriculum || []).map((m, i) => `<details class="mod"${i === 0 ? " open" : ""}><summary><span class="n">${String(i + 1).padStart(2, "0")}</span><span>${esc(m.title)}</span></summary><ul>${(m.topics || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul></details>`).join(""));
-    set("p-projects", (P.projects || []).map((x, i) => `<div class="card"><div class="ico${i % 2 ? " g" : ""}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div><h3>${esc(x)}</h3></div>`).join(""));
+    set("p-projects", (P.projects || []).map((x, i) => `<div class="card"><div class="ico${i % 2 ? " g" : ""}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div><h3>${esc(x)}</h3></div>`).join(""));
     set("p-tools", (P.tools || []).map(x => `<span>${esc(x)}</span>`).join(""));
     set("p-price", esc(P.fee || "Fees on request"));
     set("p-feenote", esc(P.feeNote || (P.fee ? "Talk to a counsellor about payment options." : "Fees are shared when enrolment opens. Talk to a counsellor for details.")));
@@ -156,7 +176,7 @@
   const ICON = { mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/>', phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>', chat: '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>', cal: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/>', pin: '<path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>' };
   const clist = $("clist");
   if (clist) {
-    const add = (ic, label, text, href) => clist.insertAdjacentHTML("beforeend", `<li>${href ? `<a href="${esc(href)}"${ext(href)}>` : "<div>"}<span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICON[ic]}</svg></span><span><small>${label}</small><b>${esc(text)}</b></span>${href ? "</a>" : "</div>"}</li>`);
+    const add = (ic, label, text, href) => clist.insertAdjacentHTML("beforeend", `<li>${href ? `<a href="${esc(href)}"${ext(href)}>` : "<div>"}<span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICON[ic]}</svg></span><span><small>${label}</small><b>${esc(text)}</b></span>${href ? "</a>" : "</div>"}</li>`);
     if (wa) add("chat", "WhatsApp", "Chat now · " + pretty(wa), waLink("Hi SkillNavora, I'd like to know more."));
     add("cal", "Counselling", "Book a free counselling session", booking || waLink("Hi SkillNavora, I'd like a free counselling session."));
     if (phone) add("phone", "Call", pretty(phone), "tel:+" + phone);
@@ -168,7 +188,7 @@
     if (!S.web3formsKey && !S.email) form.hidden = true;
     form.addEventListener("submit", async e => {
       e.preventDefault(); const d = new FormData(form), topic = d.get("interest") || "General";
-      if (!S.web3formsKey) { location.href = "mailto:" + S.email + "?subject=" + encodeURIComponent("SkillNavora enquiry: " + topic) + "&body=" + encodeURIComponent(d.get("message") + "\n\n" + d.get("name") + " · " + d.get("email") + (d.get("phone") ? " · " + d.get("phone") : "")); return; }
+      if (!S.web3formsKey) { location.href = "mailto:" + S.email + "?subject=" + encodeURIComponent("SkillNavora enquiry: " + topic) + "&body=" + encodeURIComponent(d.get("message") + "\n\n" + d.get("name") + " · " + d.get("email") + (d.get("company") ? " · " + d.get("company") : "") + (d.get("phone") ? " · " + d.get("phone") : "")); return; }
       d.append("access_key", S.web3formsKey); d.append("subject", "New SkillNavora enquiry: " + topic); msg.textContent = "Sending…";
       try { const r = await fetch("https://api.web3forms.com/submit", { method: "POST", body: d }); const j = await r.json();
         msg.textContent = j.success ? "Thanks! We'll get back to you soon." : "Couldn't send. Please WhatsApp or email us instead."; if (j.success) form.reset();
