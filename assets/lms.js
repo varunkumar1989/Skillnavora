@@ -50,7 +50,7 @@
     const attended = regs.filter(r => { const e = events.find(x => x.id === r.event_id); return e && past(e); }).length;
     return [
       { t: "Getting started", d: "Complete your profile: name, phone and goal", v: prof, n: 3, c: ["#f6c66d", "#e8a93a"] },
-      { t: "First steps", d: "Complete your first course module", v: Math.min(anyMod, 1), n: 1, c: ["#a78bfa", "#7457ff"] },
+      { t: "First steps", d: "Complete your first course module", v: Math.min(anyMod, 1), n: 1, c: ["#a78bfa", "#1f5eff"] },
       { t: "Halfway there", d: "Reach 50% in any course", v: Math.min(maxPct, 50), n: 50, c: ["#7dd3fc", "#3b82f6"], unit: "%" },
       { t: "Course finisher", d: "Complete every module of a course", v: maxPct, n: 100, c: ["#6ee7b7", "#0f9f6e"], unit: "%" },
       { t: "Folio maker", d: "Submit 3 projects or challenges", v: Math.min(subs.length, 3), n: 3, c: ["#fca5a5", "#e25d8f"] },
@@ -95,7 +95,10 @@
   /* ---------- My courses ---------- */
   function courses() {
     const active = enr.map(e => COURSE(e.course_id)).filter(Boolean);
-    $("mc-list").innerHTML = active.length ? active.map(learnerCard).join("") : `<p class="empty">No courses yet. Once you enrol, your program appears here with its recordings, materials and assignments.</p>`;
+    const pre = active.map(c => [c, mats.filter(m => m.course_id === c.id && m.kind === "preread")]).filter(([, m]) => m.length);
+    $("mc-list").innerHTML = active.length ? active.map(learnerCard).join("") + pre.map(([c, m]) => `<div class="learner"><div class="top-row"><span class="badge-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></span><div><small>You are a learner in</small><b>Pre-course material</b><span class="meta">${esc(c.name)}</span></div></div>
+      <ul class="mats" style="padding:0 22px 18px">${m.map(x => `<li><span class="k">Pre-read</span> <a href="${safeUrl(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.title)} ↗</a></li>`).join("")}</ul></div>`).join("")
+      : `<p class="empty">No courses yet. Once you enrol, your program, its pre-course material, recordings and assignments appear here.</p>`;
     $("mc-all").innerHTML = COURSES.filter(c => !enr.some(e => e.course_id === c.id)).map((c, i) => `<article class="course">${SNcover(COURSES.indexOf(c), c.name, c.badge)}<div class="body"><h3>${esc(c.name)}</h3><p>${esc(c.short)}</p><div class="acts"><a class="btn btn-primary btn-sm" href="${esc(c.page)}">Learn more →</a></div></div></article>`).join("");
   }
 
@@ -108,7 +111,7 @@
     const done = modsDone(cid), KIND = { recording: "Recording", slides: "Slides", reading: "Reading", assignment: "Assignment", link: "Link" };
     $("cv-name").textContent = c.name;
     $("cv-prog").innerHTML = `<div class="meta" style="margin-bottom:6px">${done.size} of ${c.curriculum.length} modules complete · ${pct(cid)}%</div><div class="bar"><span style="width:${pct(cid)}%"></span></div>`;
-    $("cv-mods").innerHTML = c.curriculum.map((m, i) => { const mm = mats.filter(x => x.course_id === cid && x.module === i);
+    $("cv-mods").innerHTML = c.curriculum.map((m, i) => { const mm = mats.filter(x => x.course_id === cid && x.module === i && x.kind !== "preread");
       return `<details class="mod${done.has(i) ? " done" : ""}"${i === 0 ? " open" : ""}><summary><input type="checkbox" data-mod="${i}" aria-label="Mark module ${i + 1} complete"${done.has(i) ? " checked" : ""}><span class="n">${String(i + 1).padStart(2, "0")}</span><span>${esc(m.title)}</span></summary>
         <ul>${(m.topics || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul>
         <ul class="mats">${mm.map(x => `<li><span class="k">${KIND[x.kind] || "Link"}</span> <a href="${safeUrl(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.title)} ↗</a></li>`).join("") || '<li class="meta">Materials appear here after each live class.</li>'}

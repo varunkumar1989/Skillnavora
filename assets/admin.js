@@ -12,7 +12,7 @@
   $("app").hidden = false;
 
   const COURSE = id => COURSES.find(c => c.id === id);
-  const cname = id => (COURSE(id) || {}).name || id;
+  const cname = id => (COURSE(id) || {}).name || id || "";
   const STATUS = { submitted: ["Awaiting review", "wait"], reviewed: ["Reviewed", "good"], needs_changes: ["Needs changes", "warn"], open: ["Open", "wait"], done: ["Done", "good"] };
   const chip = st => { const [t, c] = STATUS[st] || [st, ""]; return `<span class="chip ${c}">${esc(t)}</span>`; };
   const ok = (el, error, text) => { notice($(el), error ? "error" : "ok", error ? errText(error) : text); return !error; };
@@ -24,7 +24,7 @@
   const openTab = n => { tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.tab === n)); document.querySelectorAll(".panel").forEach(p => p.hidden = p.id !== "p-" + n); };
   tabs.forEach(t => t.addEventListener("click", () => openTab(t.dataset.tab)));
 
-  let people = {}, enr = [], prog = [], subs = [], reqs = [], events = [], regs = [], mats = [], news = [];
+  let people = {}, enr = [], prog = [], subs = [], reqs = [], events = [], regs = [], mats = [], news = [], apps = [], jobs = [];
   const who = id => people[id] ? (people[id].full_name || people[id].email) : "Unknown";
   async function load() {
     const q = await Promise.all([
@@ -35,10 +35,12 @@
       client.from("events").select("*").order("starts_at", { ascending: false }),
       client.from("event_registrations").select("*"),
       client.from("materials").select("*").order("created_at", { ascending: true }),
-      client.from("announcements").select("*").order("created_at", { ascending: false })
+      client.from("announcements").select("*").order("created_at", { ascending: false }),
+      client.from("applications").select("*").order("created_at", { ascending: false }),
+      client.from("jobs").select("*").order("posted_on", { ascending: false })
     ]);
     const bad = q.find(r => r.error); if (bad) notice(msg, "error", errText(bad.error));
-    let p; [p, enr, prog, subs, reqs, events, regs, mats, news] = q.map(r => r.data || []);
+    let p; [p, enr, prog, subs, reqs, events, regs, mats, news, apps, jobs] = q.map(r => r.data || []);
     people = Object.fromEntries(p.map(x => [x.id, x]));
     paint();
   }
@@ -51,7 +53,9 @@
     $("n-subs").textContent = waiting || ""; $("n-subs").hidden = !waiting; $("n-reqs").textContent = open || ""; $("n-reqs").hidden = !open;
     $("o-courses").innerHTML = COURSES.map(c => { const e = enr.filter(x => x.course_id === c.id);
       return `<tr><td><b>${esc(c.name)}</b><div class="meta">${esc(c.id)}</div></td><td>${e.length}</td><td>${mats.filter(m => m.course_id === c.id).length}</td><td>${subs.filter(x => x.course_id === c.id).length}</td></tr>`; }).join("");
-    students(); enrolments(); materials(); submissions(); eventsTab(); requests(); announcements(); admins();
+    const fresh = apps.filter(a => a.status === "new").length;
+    $("o-apps").textContent = fresh; $("n-apps").textContent = fresh || ""; $("n-apps").hidden = !fresh;
+    students(); enrolments(); materials(); submissions(); eventsTab(); requests(); announcements(); admins(); applications(); jobsTab();
   }
 
   /* ---------- Students ---------- */
@@ -155,6 +159,45 @@
     if (error) return notice(msg, "error", errText(error));
     load();
   });
+
+
+  /* ---------- Applications and counselling requests ---------- */
+  const APP = { new: ["New", "wait"], contacted: ["Contacted", ""], enrolled: ["Enrolled", "good"], closed: ["Closed", ""] };
+  function applications() {
+    const k = $("app-kind").value, st = $("app-status").value;
+    const rows = apps.filter(a => (k === "all" || a.kind === k) && (st === "all" || a.status === st));
+    const tel = p => String(p || "").replace(/[^0-9+]/g, "");
+    $("app-list").innerHTML = rows.length ? rows.map(a => `<div class="item"><div class="item-h"><b>${esc([a.first_name, a.last_name].filter(Boolean).join(" "))} · ${a.kind === "counselling" ? "Counselling call" : "Application"}</b><span class="chip ${APP[a.status][1]}">${APP[a.status][0]}</span></div>
+      <div class="meta">${esc(cname(a.course_id) || "Program not chosen")} · ${date(a.created_at)}${a.preferred_time ? " · Prefers " + esc(a.preferred_time) : ""}${a.source ? " · Source: " + esc(a.source) : ""}</div>
+      <p>${[a.experience && "Experience: " + a.experience, a.role && "Role: " + a.role].filter(Boolean).map(esc).join(" · ")}${a.message ? "\n" + esc(a.message) : ""}</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">
+        <a class="btn btn-primary btn-sm" href="tel:${esc(tel(a.phone))}">Call ${esc(a.phone)}</a>
+        <a class="btn btn-line btn-sm" href="https://wa.me/${esc(tel(a.phone).replace(/^\+/, "").replace(/^(\d{10})$/, "91$1"))}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        ${a.email ? `<a class="btn btn-line btn-sm" href="mailto:${esc(a.email)}">Email</a>` : ""}
+        ${a.linkedin ? `<a class="btn btn-line btn-sm" href="${safeUrl(/^https?:/i.test(a.linkedin) ? a.linkedin : "https://" + a.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>` : ""}
+        <select data-appstatus="${a.id}" style="width:auto;margin-left:auto" aria-label="Status">${Object.entries(APP).map(([v, [t]]) => `<option value="${v}"${a.status === v ? " selected" : ""}>${t}</option>`).join("")}</select></div></div>`).join("") : '<p class="empty">No applications here yet.</p>';
+  }
+  ["app-kind", "app-status"].forEach(id => $(id).addEventListener("change", applications));
+  $("app-list").addEventListener("change", async e => { const id = e.target.dataset.appstatus; if (!id) return;
+    const { error } = await client.from("applications").update({ status: e.target.value }).eq("id", id);
+    if (error) return notice(msg, "error", errText(error));
+    apps.find(x => String(x.id) === id).status = e.target.value; paint(); });
+
+  /* ---------- Job board ---------- */
+  function jobsTab() {
+    $("job-rows").innerHTML = jobs.length ? jobs.map(j => `<div class="item"><div class="item-h"><b>${esc(j.title)} · ${esc(j.company)}</b><span class="chip ${j.active ? "good" : ""}">${j.active ? "Live" : "Hidden"}</span></div>
+      <div class="meta">${esc(j.category)} · ${esc(j.location || "")} · ${esc(j.experience || "")} · posted ${esc(j.posted_on)} · <a href="${safeUrl(j.url)}" target="_blank" rel="noopener noreferrer">Open</a></div>
+      <div style="display:flex;gap:12px;margin-top:8px"><button class="link-btn" style="color:var(--brand-ink)" data-jobtoggle="${j.id}" data-on="${j.active ? "0" : "1"}">${j.active ? "Hide" : "Show"}</button><button class="link-btn" data-deljob="${j.id}">Delete</button></div></div>`).join("") : '<p class="empty">No jobs yet. Add openings you find on LinkedIn or company career pages.</p>';
+  }
+  $("f-job").addEventListener("submit", async e => { e.preventDefault(); const f = e.target;
+    const row = { title: f.title.value.trim(), company: f.company.value.trim(), location: f.location.value.trim() || null, category: f.category.value, experience: f.experience.value.trim() || null, job_type: f.job_type.value, url: f.url.value.trim(), logo: f.logo.value.trim() || null };
+    const { error } = await client.from("jobs").insert(row);
+    if (ok("job-msg", error, "Job added. It's live on the Job board.")) { f.reset(); load(); } });
+  document.addEventListener("click", async e => { const t = e.target; let error;
+    if (t.dataset.jobtoggle) ({ error } = await client.from("jobs").update({ active: t.dataset.on === "1" }).eq("id", t.dataset.jobtoggle));
+    else if (t.dataset.deljob) { if (!confirm("Delete this job?")) return; ({ error } = await client.from("jobs").delete().eq("id", t.dataset.deljob)); }
+    else return;
+    if (error) return notice(msg, "error", errText(error)); load(); });
 
   $("refresh").addEventListener("click", load);
   openTab("overview");

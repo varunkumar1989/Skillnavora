@@ -29,6 +29,15 @@ Never paste the **secret** or **service_role** key anywhere on the website. The 
    ```
 3. Log in again: you'll land on the **Admin panel**. Add more admins from its **Admins** tab.
 
+## Email one-time code (the default login)
+The login page sends a 6-digit code by email. Supabase's default email sends a link instead, so add the code to the template once:
+1. **Authentication → Emails → Templates → Magic link** (also **Confirm signup**).
+2. Replace the body with, for example: `Your SkillNavora login code is <b>{{ .Token }}</b>. It expires in 1 hour.` → **Save**.
+
+## Optional: mobile number + OTP
+1. **Authentication → Sign In / Providers → Phone** → enable, and connect an SMS provider (Twilio, MessageBird, Vonage or Textlocal; each charges per SMS). For India, SMS senders also need DLT registration with your provider.
+2. In `assets/config.js`, set `phone: true` in `AUTH`.
+
 ## Optional: "Continue with Google"
 1. In Google Cloud Console, create an **OAuth client ID** (type: Web application). Add the redirect URL Supabase shows under **Authentication → Sign In / Providers → Google**.
 2. Paste the client ID and secret into that Supabase Google provider and enable it. The Google secret goes only into Supabase, never into the website.
@@ -38,3 +47,12 @@ Never paste the **secret** or **service_role** key anywhere on the website. The 
 - **Emails:** Supabase's built-in email sender is limited to a few emails an hour and is meant for testing. Before you open sign-ups to many students, set up your own sender under **Authentication → Emails → SMTP Settings** (for example a free Brevo or Resend account).
 - **Free plan:** free projects pause after a week with no activity. Open the Supabase dashboard to resume, or upgrade when you have regular students.
 - **Backups:** download student data any time from **Table Editor → profiles / submissions → Export to CSV**.
+
+## AI chat assistant ("Ask AI" button)
+The assistant answers visitors' questions from `assets/config.js` using Claude. Your API key stays on Cloudflare and is never shown to visitors.
+1. Create an API key at **console.anthropic.com → API keys**, and set a monthly spend limit under **Billing → Limits** (for example ₹2,000).
+2. In Cloudflare: **Workers & Pages → skillnavora → Settings → Variables and secrets → Add** → type **Secret**, name `ANTHROPIC_API_KEY`, paste the key → **Save**.
+3. Go to **Deployments → ⋯ → Retry deployment** on the latest one, so the key takes effect.
+4. Open the site and click **Ask AI**. Until the key is set, the assistant answers from your FAQs and offers WhatsApp and counselling.
+
+It uses Claude Opus 5.5 at low effort. To spend less, add a second variable `CHAT_MODEL` = `claude-haiku-5-5`.

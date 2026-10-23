@@ -75,7 +75,7 @@ create table if not exists public.materials (
   module      int  not null check (module between 0 and 99),
   title       text not null check (length(title) between 1 and 200),
   url         text not null check (url ~* '^https?://' and length(url) <= 1000),
-  kind        text not null default 'link' check (kind in ('recording', 'slides', 'reading', 'assignment', 'link')),
+  kind        text not null default 'link' check (kind in ('recording', 'slides', 'reading', 'assignment', 'link', 'preread')),
   created_at  timestamptz not null default now()
 );
 
@@ -143,6 +143,47 @@ create table if not exists public.announcements (
   created_at  timestamptz not null default now()
 );
 
+-- ---------- Applications and counselling requests (from the public website) ----------
+-- Anyone can submit (no login needed); only admins can read them.
+create table if not exists public.applications (
+  id             bigint generated always as identity primary key,
+  kind           text not null default 'application' check (kind in ('application', 'counselling')),
+  course_id      text check (course_id ~ '^[a-z0-9-]{1,40}$'),
+  first_name     text not null check (length(first_name) between 1 and 80),
+  last_name      text check (length(last_name) <= 80),
+  email          text check (email ~* '^[^@\s]+@[^@\s]+\.[^@\s]+$' and length(email) <= 200),
+  phone          text not null check (phone ~ '^[0-9+ ()-]{7,20}$'),
+  linkedin       text check (length(linkedin) <= 300),
+  experience     text check (length(experience) <= 40),
+  role           text check (length(role) <= 80),
+  message        text check (length(message) <= 2000),
+  preferred_time text check (length(preferred_time) <= 80),
+  source         text check (length(source) <= 200),
+  status         text not null default 'new' check (status in ('new', 'contacted', 'enrolled', 'closed')),
+  created_at     timestamptz not null default now()
+);
+
+-- ---------- Job board: openings added by admins, visible to everyone ----------
+create table if not exists public.jobs (
+  id          bigint generated always as identity primary key,
+  title       text not null check (length(title) between 1 and 160),
+  company     text not null check (length(company) between 1 and 120),
+  location    text check (length(location) <= 120),
+  category    text not null default 'product' check (category in ('product', 'engineering', 'ai')),
+  experience  text check (length(experience) <= 40),
+  job_type    text not null default 'Full time' check (length(job_type) <= 40),
+  url         text not null check (url ~* '^https?://' and length(url) <= 1000),
+  logo        text check (logo is null or (logo ~* '^https?://' and length(logo) <= 1000)),
+  posted_on   date not null default current_date,
+  active      boolean not null default true,
+  created_at  timestamptz not null default now()
+);
+
+-- Upgrades for projects set up with an earlier version of this file.
+alter table public.applications add column if not exists source text check (length(source) <= 200);
+alter table public.materials drop constraint if exists materials_kind_check;
+alter table public.materials add constraint materials_kind_check check (kind in ('recording', 'slides', 'reading', 'assignment', 'link', 'preread'));
+
 -- ---------- Turn on row level security ----------
 alter table public.profiles            enable row level security;
 alter table public.enrollments         enable row level security;
@@ -154,10 +195,12 @@ alter table public.event_registrations enable row level security;
 alter table public.quiz_attempts       enable row level security;
 alter table public.requests            enable row level security;
 alter table public.announcements       enable row level security;
+alter table public.applications        enable row level security;
+alter table public.jobs                enable row level security;
 
 -- ---------- Table permissions (which columns each signed-in user may touch) ----------
 revoke all on public.profiles, public.enrollments, public.course_progress, public.materials, public.submissions,
-  public.events, public.event_registrations, public.quiz_attempts, public.requests, public.announcements from anon, authenticated;
+  public.events, public.event_registrations, public.quiz_attempts, public.requests, public.announcements, public.applications, public.jobs from anon, authenticated;
 
 grant select on public.profiles to authenticated;
 grant update (full_name, phone, linkedin, goal) on public.profiles to authenticated;
@@ -177,11 +220,16 @@ grant select on public.requests to authenticated;
 grant insert (topic, message) on public.requests to authenticated;
 grant update (status) on public.requests to authenticated;
 grant select, insert, delete on public.announcements to authenticated;
+grant insert (kind, course_id, first_name, last_name, email, phone, linkedin, experience, role, message, preferred_time, source) on public.applications to anon, authenticated;
+grant select on public.jobs to anon, authenticated;
+grant insert, update, delete on public.jobs to authenticated;
+grant select on public.applications to authenticated;
+grant update (status) on public.applications to authenticated;
 
 -- ---------- Policies (which rows) ----------
 do $$ declare r record; begin
   for r in select policyname, tablename from pg_policies where schemaname = 'public' and tablename in
-    ('profiles','enrollments','course_progress','materials','submissions','events','event_registrations','quiz_attempts','requests','announcements')
+    ('profiles','enrollments','course_progress','materials','submissions','events','event_registrations','quiz_attempts','requests','announcements','applications','jobs')
   loop execute format('drop policy %I on public.%I', r.policyname, r.tablename); end loop;
 end $$;
 
@@ -239,6 +287,18 @@ create policy "admin update"       on public.requests for update to authenticate
 create policy "signed-in read"     on public.announcements for select to authenticated using (true);
 create policy "admin insert"       on public.announcements for insert to authenticated with check (public.is_admin());
 create policy "admin delete"       on public.announcements for delete to authenticated using (public.is_admin());
+
+-- applications: anyone may submit; only admins read and update
+create policy "anyone submits"     on public.applications for insert to anon, authenticated with check (status = 'new');
+create policy "admin read"         on public.applications for select to authenticated using (public.is_admin());
+create policy "admin update"       on public.applications for update to authenticated using (public.is_admin()) with check (public.is_admin());
+
+-- jobs: everyone sees active openings; admins manage
+create policy "visitors read active" on public.jobs for select to anon using (active);
+create policy "signed-in read"     on public.jobs for select to authenticated using (active or public.is_admin());
+create policy "admin insert"       on public.jobs for insert to authenticated with check (public.is_admin());
+create policy "admin update"       on public.jobs for update to authenticated using (public.is_admin()) with check (public.is_admin());
+create policy "admin delete"       on public.jobs for delete to authenticated using (public.is_admin());
 
 -- ---------- Admin-only helpers ----------
 create or replace function public.set_role(target_email text, new_role text)
