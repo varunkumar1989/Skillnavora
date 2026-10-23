@@ -177,6 +177,21 @@ const COURSES = [
   }
 ];
 
+/* ---- Stats band under the "What makes us different" section.
+   show: false keeps it hidden. Only switch it on with numbers you can prove:
+   India's consumer protection rules (CCPA) penalise misleading placement claims.
+   note: short source line shown under the numbers, e.g. "Placements of learners mentored by Varun Kumar since 2019". */
+const STATS = {
+  show: false,
+  items: [
+    { n: "100+", t: "Students placed" },
+    { n: "50 LPA", t: "Highest package" },
+    { n: "50+", t: "Industry experts" },
+    { n: "500+", t: "Hiring companies" }
+  ],
+  note: ""
+};
+
 /* ---- Who is this for (home and program pages) ---- */
 const AUDIENCE = [
   { title: "Students and freshers", text: "Build real PM skills and a portfolio before your first job, and aim for APM and analyst roles." },
