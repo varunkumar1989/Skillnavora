@@ -52,13 +52,10 @@
   const w = $("wa");
   if (w && wa) { w.href = waLink("Hi SkillNavora, I'd like to know more about your programs."); w.hidden = false; }
   document.querySelectorAll("[data-wa]").forEach(a => { a.href = waLink(a.dataset.wa || "Hi SkillNavora"); if (/^https?:/.test(a.href)) { a.target = "_blank"; a.rel = "noopener"; } });
-  document.querySelectorAll("[data-counsel]").forEach(a => {
-    const c = C.find(x => x.id === a.dataset.counsel);
-    a.href = booking || waLink("Hi SkillNavora, I'd like a free counselling session" + (c ? " for " + c.name : "") + ".");
-    a.target = "_blank"; a.rel = "noopener";
-  });
-  const enrollHref = c => c.enroll ? url(c.enroll) : waLink("Hi SkillNavora, I'd like to enrol in " + c.name + (c.cohort ? " (" + c.cohort + ")" : "") + ".");
-  document.querySelectorAll("[data-enroll]").forEach(a => { const c = C.find(x => x.id === a.dataset.enroll); if (c) { a.href = enrollHref(c); a.target = "_blank"; a.rel = "noopener"; } });
+  document.querySelectorAll("[data-counsel]").forEach(a => { a.href = "#counselling"; a.removeAttribute("target"); });
+  // "Enroll now" opens the application form for that program.
+  const enrollHref = c => R + "apply.html?program=" + encodeURIComponent(c.id);
+  document.querySelectorAll("[data-enroll]").forEach(a => { const c = C.find(x => x.id === a.dataset.enroll); if (c) a.href = enrollHref(c); });
 
   /* ---- Announcement pill ---- */
   const ann = $("announce");
@@ -75,7 +72,7 @@
   setInterval(() => document.querySelectorAll("[data-deadline]").forEach(el => { el.textContent = left(el.dataset.deadline) || "closed"; }), 1000);
 
   /* ---- Course cover art ---- */
-  const PAL = [["#3b1d8f", "#7457ff", "#34d399"], ["#0e3b4a", "#1e8a8a", "#a78bfa"], ["#5b1d4e", "#e2589b", "#f6c66d"]];
+  const PAL = [["#07205e", "#1f5eff", "#ff8a3d"], ["#4a1d05", "#ea6a0a", "#ffd2a8"], ["#06324a", "#0ea5e9", "#ffb04d"]];
   window.SNcover = (i, title, badge) => { const p = PAL[i % PAL.length];
     return `<div class="cover"><svg class="art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="cg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p[0]}"/><stop offset="1" stop-color="${p[1]}"/></linearGradient></defs><rect width="400" height="210" fill="url(#cg${i})"/><circle cx="330" cy="40" r="120" fill="${p[2]}" opacity=".18"/><circle cx="360" cy="180" r="70" fill="#fff" opacity=".08"/><g transform="translate(300 118)" opacity=".9"><circle r="46" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/><path d="M0-38l8 30-8 8-8-8z" fill="${p[2]}"/><path d="M0 38l-8-30 8-8 8 8z" fill="#fff"/><circle r="5" fill="${p[0]}" stroke="${p[2]}" stroke-width="3"/></g></svg>${badge ? `<span class="ribbon">${esc(badge)}</span>` : ""}<span class="ct">${esc(title)}</span></div>`; };
 
@@ -86,7 +83,7 @@
     <div class="strip"><span>${strip(c)}</span>${c.cohort ? `<span class="tag g">${esc(c.cohort)}</span>` : ""}</div>
     <div class="body"><h3>${esc(c.name)}</h3><p>${esc(c.short)}</p>
       <div class="facts">${[c.duration, c.format, c.fee].filter(Boolean).map(f => `<span>${esc(f)}</span>`).join("")}</div>
-      <div class="acts"><a class="btn btn-primary btn-sm" href="${R + esc(c.page)}">Learn more →</a><a class="btn btn-line btn-sm" href="${esc(enrollHref(c))}" target="_blank" rel="noopener">Enrol now</a></div></div></article>`).join("");
+      <div class="acts"><a class="btn btn-primary btn-sm" href="${R + esc(c.page)}">Learn more →</a><a class="btn btn-line btn-sm" href="${esc(enrollHref(c))}">Enroll now</a></div></div></article>`).join("");
 
   /* ---- Program menu (keeps names in sync with config) ---- */
   document.querySelectorAll("[data-course-name]").forEach(el => { const c = C.find(x => x.id === el.dataset.courseName); if (c) el.textContent = c.name; });
@@ -116,9 +113,6 @@
   /* ---- Testimonials ---- */
   const tl = $("testimonials-list"), ts = $("testimonials"), T = (typeof TESTIMONIALS !== "undefined" ? TESTIMONIALS : []).filter(t => t && t.quote);
   if (T.length) document.querySelectorAll("[data-reviews-nav]").forEach(a => a.hidden = false);
-  const card = t => `<figure class="card" style="margin:0"><blockquote style="margin:0 0 14px;font:600 17px/1.55 var(--display)">“${esc(t.quote)}”</blockquote><figcaption class="meta"><b style="color:var(--ink)">${esc(t.name)}</b> · ${esc(t.role)}</figcaption></figure>`;
-  if ($("reviews-list")) $("reviews-list").innerHTML = T.length ? T.map(card).join("") : '<p class="empty" style="grid-column:1/-1">Reviews from our learners will appear here soon.</p>';
-  if (tl && ts && T.length) { tl.innerHTML = T.map(t => `<figure class="card" style="margin:0"><blockquote style="margin:0 0 14px;font:600 17px/1.55 var(--display)">“${esc(t.quote)}”</blockquote><figcaption class="meta"><b style="color:var(--ink)">${esc(t.name)}</b> · ${esc(t.role)}</figcaption></figure>`).join(""); ts.hidden = false; }
 
   /* ---- FAQ with search and categories ---- */
   const fq = $("faq");
@@ -141,12 +135,11 @@
     set("p-name", esc(P.name)); set("p-tagline", esc(P.tagline));
     set("p-fine", P.deadline && left(P.deadline) ? `⚡ Enrolment closes in <b data-deadline="${esc(P.deadline)}">${left(P.deadline)}</b>` : P.start ? `⚡ ${P.cohort ? esc(P.cohort) + " · " : ""}Live classes start <b>${esc(P.start)}</b>` : "⚡ Enrolments opening soon. Talk to a counsellor to reserve your seat.");
     set("p-facts", [["Duration", P.duration], ["Format", P.format], ["Time needed", P.effort], ["Next cohort", P.start || "Opening soon"]].map(([k, v]) => `<div class="fact"><small>${k}</small><b>${esc(v || "—")}</b></div>`).join(""));
-    set("p-for", (P.for || []).map(x => `<li>${esc(x)}</li>`).join(""));
     set("p-outcomes", (P.outcomes || []).map(x => `<li>${esc(x)}</li>`).join(""));
     set("p-curriculum", (P.curriculum || []).map((m, i) => `<details class="mod"${i === 0 ? " open" : ""}><summary><span class="n">${String(i + 1).padStart(2, "0")}</span><span>${esc(m.title)}</span></summary><ul>${(m.topics || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul></details>`).join(""));
     set("p-projects", (P.projects || []).map((x, i) => `<div class="card"><div class="ico${i % 2 ? " g" : ""}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div><h3>${esc(x)}</h3></div>`).join(""));
-    set("p-tools", (P.tools || []).map(x => `<span>${esc(x)}</span>`).join(""));
     set("p-price", esc(P.fee || "Fees on request"));
+    if (P.earlyBird && $("p-early")) { $("p-early").textContent = "🎉 " + P.earlyBird; $("p-early").hidden = false; }
     set("p-feenote", esc(P.feeNote || (P.fee ? "Talk to a counsellor about payment options." : "Fees are shared when enrolment opens. Talk to a counsellor for details.")));
     set("p-schedule", [["Cohort", P.cohort || "Next cohort"], ["Starts", P.start || "Opening soon"], ["Duration", P.duration], ["Format", P.format], ["Time needed", P.effort]].map(([k, v]) => `<li><span class="meta" style="min-width:110px;display:inline-block">${k}</span> <b>${esc(v || "—")}</b></li>`).join(""));
   }
@@ -159,18 +152,17 @@
       st.querySelector(".cohort span").textContent = c.cohort || "Enrolling";
       st.querySelector(".info b").textContent = c.name;
       st.querySelector(".info span").textContent = [c.duration, c.format, c.start ? "Starts " + c.start : ""].filter(Boolean).join(" · ");
-      st.querySelector("[data-st-enroll]").href = enrollHref(c);
-      st.querySelector("[data-st-counsel]").href = booking || waLink("Hi SkillNavora, I'd like a free counselling session for " + c.name + ".");
+      st.querySelector("[data-st-enroll]").href = enrollHref(c); st.querySelector("[data-st-enroll]").removeAttribute("target");
+      st.querySelector("[data-st-counsel]").href = "#counselling";
       document.body.classList.add("has-sticky");
-      const onScroll = () => st.classList.toggle("show", scrollY > 500);
-      addEventListener("scroll", onScroll, { passive: true }); onScroll();
+      st.classList.add("show");
     }
   }
 
   /* ---- Footer and contact ---- */
   if ($("yr")) $("yr").textContent = new Date().getFullYear();
   const social = $("social");
-  if (social) [["LinkedIn", url(S.linkedin)], ["Instagram", url(S.instagram)], ["YouTube", url(S.youtube)]].filter(x => x[1]).forEach(([n, u]) => social.insertAdjacentHTML("beforeend", `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`));
+  if (social) [["LinkedIn", url(S.linkedin)], ["Instagram", url(S.instagram)], ["YouTube", url(S.youtube)], ["X", url(S.twitter)], ["Facebook", url(S.facebook)], ["Telegram", url(S.telegram)], ["WhatsApp", wa ? waLink("Hi SkillNavora") : ""]].filter(x => x[1]).forEach(([n, u]) => social.insertAdjacentHTML("beforeend", `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`));
   const fc = $("fcontact");
   if (fc) fc.innerHTML = [S.email ? `<li><a href="mailto:${esc(S.email)}">${esc(S.email)}</a></li>` : "", phone ? `<li><a href="tel:+${phone}">${pretty(phone)}</a></li>` : "", S.address ? `<li>${esc(S.address)}</li>` : ""].join("");
   const ICON = { mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/>', phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>', chat: '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>', cal: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/>', pin: '<path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>' };

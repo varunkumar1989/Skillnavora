@@ -1,68 +1,102 @@
-/* Log in, create account, forgot password, and Google sign-in. */
+/* Log in / sign up: email one-time code (default), mobile OTP, Google, or password.
+   After signing in, shows "What are you looking for?" (LMS, programs, admin). */
 (async function () {
   const { client, $, notice, setupMessage, errText } = SN;
-  const msg = $("auth-msg");
-  const params = new URLSearchParams(location.search);
+  const msg = $("auth-msg"), params = new URLSearchParams(location.search);
   const want = params.get("next") || "";
   const safeNext = /^(lms|admin)\.html(\?[^#<>"']*)?$/.test(want) ? want : "";
+  const A = typeof AUTH !== "undefined" ? AUTH : {};
+  const say = (k, t) => notice(msg, k, t);
+  const steps = ["s-email", "s-code", "s-phone", "s-pcode", "s-pass", "s-forgot", "s-choose"];
+  const show = id => { steps.forEach(s => { const el = $(s); if (el) el.hidden = s !== id; }); msg.hidden = true; $("methods").hidden = ["s-choose", "s-code", "s-pcode"].includes(id); };
 
-  if (!client) { setupMessage(msg); document.querySelectorAll(".form,.seg,.gbtn,.or").forEach(f => f.hidden = true); return; }
+  if (!client) { setupMessage(msg); $("auth-forms").hidden = true; return; }
 
-  // Admins go to the admin panel unless they asked for a specific page.
-  async function goHome() {
+  async function done() {
     if (safeNext) return location.replace(safeNext);
     const { data: admin } = await client.rpc("is_admin");
-    location.replace(admin ? "admin.html" : "lms.html");
+    $("go-admin").hidden = !admin;
+    $("auth-title").textContent = "What are you looking for?"; $("auth-sub").hidden = true; $("switch").hidden = true;
+    show("s-choose");
   }
-  if (await SN.session()) return goHome();
+  if (await SN.session()) return done();
 
-  const g = $("google");
-  if (typeof AUTH !== "undefined" && AUTH.google) {
-    g.hidden = false; $("or").hidden = false;
-    g.addEventListener("click", async () => {
-      const { error } = await client.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + "/" + (safeNext || "lms.html") } });
-      if (error) notice(msg, "error", errText(error));
-    });
-  }
-
-  const show = name => {
-    ["signin", "signup", "forgot"].forEach(n => { $("f-" + n).hidden = n !== name; const t = $("t-" + n); if (t) t.setAttribute("aria-selected", n === name); });
-    $("auth-title").textContent = name === "signup" ? "Create your account" : name === "forgot" ? "Reset your password" : "Welcome back";
-    notice(msg, "", ""); msg.hidden = true;
+  // Sign up vs log in only changes the wording and the name field.
+  let signup = params.get("mode") === "signup";
+  const mode = () => {
+    $("auth-title").textContent = signup ? "Create your account" : "Log in to your account";
+    $("auth-sub").textContent = signup ? "Enter your details to get a one-time code." : "Please enter your email to receive a one-time code.";
+    $("name-row").hidden = !signup;
+    $("switch").innerHTML = signup ? 'Already have an account? <button type="button" class="linkbtn" id="sw">Log in</button>' : 'Don\'t have an account? <button type="button" class="linkbtn" id="sw">Sign up</button>';
+    $("sw").addEventListener("click", () => { signup = !signup; mode(); show("s-email"); });
   };
-  document.querySelectorAll("[data-show]").forEach(b => b.addEventListener("click", e => { e.preventDefault(); show(b.dataset.show); }));
-  show(params.get("mode") === "signup" ? "signup" : "signin");
+  mode(); show("s-email");
 
-  const busy = (form, on) => { const b = form.querySelector("button[type=submit]"); b.disabled = on; b.dataset.label = b.dataset.label || b.textContent; b.textContent = on ? "Please wait…" : b.dataset.label; };
+  const busy = (b, on, t) => { b.disabled = on; b.dataset.l = b.dataset.l || b.textContent; b.textContent = on ? (t || "Please wait…") : b.dataset.l; };
+  const meta = () => signup && $("f-email").full_name.value.trim() ? { data: { full_name: $("f-email").full_name.value.trim() } } : {};
 
-  $("f-signin").addEventListener("submit", async e => {
-    e.preventDefault(); const f = e.target; busy(f, true);
-    const { error } = await client.auth.signInWithPassword({ email: f.email.value.trim(), password: f.password.value });
-    busy(f, false);
-    if (error) return notice(msg, "error", errText(error));
-    goHome();
+  // ---- Email one-time code ----
+  let email = "";
+  $("f-email").addEventListener("submit", async e => {
+    e.preventDefault(); const f = e.target, b = f.querySelector("button[type=submit]");
+    email = f.email.value.trim(); busy(b, true, "Sending code…");
+    const { error } = await client.auth.signInWithOtp({ email, options: { shouldCreateUser: true, emailRedirectTo: location.origin + "/lms.html", ...meta() } });
+    busy(b, false);
+    if (error) return say("error", errText(error));
+    $("code-to").textContent = email; show("s-code"); $("f-code").token.focus();
+  });
+  $("f-code").addEventListener("submit", async e => {
+    e.preventDefault(); const f = e.target, b = f.querySelector("button[type=submit]"); busy(b, true, "Verifying…");
+    const { error } = await client.auth.verifyOtp({ email, token: f.token.value.trim(), type: "email" });
+    busy(b, false);
+    if (error) return say("error", /expired|invalid/i.test(error.message) ? "That code is wrong or has expired. Check it, or send a new one." : errText(error));
+    done();
   });
 
-  $("f-signup").addEventListener("submit", async e => {
-    e.preventDefault(); const f = e.target;
-    if (f.password.value.length < 8) return notice(msg, "error", "Please use a password of at least 8 characters.");
-    busy(f, true);
-    const { data, error } = await client.auth.signUp({
-      email: f.email.value.trim(), password: f.password.value,
-      options: { data: { full_name: f.full_name.value.trim() }, emailRedirectTo: location.origin + "/lms.html" }
+  // ---- Mobile OTP ----
+  let phone = "";
+  if (A.phone) $("m-phone").hidden = false;
+  $("f-phone").addEventListener("submit", async e => {
+    e.preventDefault(); const f = e.target, b = f.querySelector("button[type=submit]");
+    phone = f.cc.value + f.phone.value.replace(/\D/g, "");
+    if (phone.replace(/\D/g, "").length < 10) return say("error", "Please enter a valid mobile number.");
+    busy(b, true, "Sending OTP…");
+    const { error } = await client.auth.signInWithOtp({ phone, options: meta() });
+    busy(b, false);
+    if (error) return say("error", errText(error));
+    $("pcode-to").textContent = phone; show("s-pcode"); $("f-pcode").token.focus();
+  });
+  $("f-pcode").addEventListener("submit", async e => {
+    e.preventDefault(); const f = e.target, b = f.querySelector("button[type=submit]"); busy(b, true, "Verifying…");
+    const { error } = await client.auth.verifyOtp({ phone, token: f.token.value.trim(), type: "sms" });
+    busy(b, false);
+    if (error) return say("error", /expired|invalid/i.test(error.message) ? "That OTP is wrong or has expired. Try again." : errText(error));
+    done();
+  });
+
+  // ---- Google ----
+  if (A.google) {
+    $("m-google").hidden = false;
+    $("m-google").addEventListener("click", async () => {
+      const { error } = await client.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + "/" + (safeNext || "lms.html") } });
+      if (error) say("error", errText(error));
     });
-    busy(f, false);
-    if (error) return notice(msg, "error", errText(error));
-    if (data.session) return location.replace(safeNext || "lms.html");
-    f.reset();
-    notice(msg, "ok", "Almost done! We've sent a confirmation link to your email. Click it to activate your account.");
+  }
+
+  // ---- Password (optional) ----
+  $("f-pass").addEventListener("submit", async e => {
+    e.preventDefault(); const f = e.target, b = f.querySelector("button[type=submit]"); busy(b, true);
+    const { error } = await client.auth.signInWithPassword({ email: f.email.value.trim(), password: f.password.value });
+    busy(b, false);
+    if (error) return say("error", errText(error));
+    done();
+  });
+  $("f-forgot").addEventListener("submit", async e => {
+    e.preventDefault(); const f = e.target, b = f.querySelector("button[type=submit]"); busy(b, true);
+    const { error } = await client.auth.resetPasswordForEmail(f.email.value.trim(), { redirectTo: location.origin + "/reset.html" });
+    busy(b, false);
+    say(error ? "error" : "ok", error ? errText(error) : "If an account exists for that email, we've sent a link to reset your password.");
   });
 
-  $("f-forgot").addEventListener("submit", async e => {
-    e.preventDefault(); const f = e.target; busy(f, true);
-    const { error } = await client.auth.resetPasswordForEmail(f.email.value.trim(), { redirectTo: location.origin + "/reset.html" });
-    busy(f, false);
-    if (error) return notice(msg, "error", errText(error));
-    notice(msg, "ok", "If an account exists for that email, we've sent a link to reset your password.");
-  });
+  document.querySelectorAll("[data-step]").forEach(b => b.addEventListener("click", e => { e.preventDefault(); show(b.dataset.step); }));
 })();

@@ -1,0 +1,9 @@
+{
+  "name": "skillnavora",
+  "private": true,
+  "type": "module",
+  "description": "SkillNavora website. The only dependency is for the AI chat assistant in functions/api/chat.js.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.132.1"
+  }
+}
