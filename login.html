@@ -48,16 +48,17 @@
   <div class="auth-card">
     <a class="logo mob" href="index.html" aria-label="SkillNavora home"><img src="assets/logo-mark.svg" alt="" width="36" height="36"><span>Skill<em>Navora</em></span></a>
     <h1 id="auth-title">Log in to your account</h1>
-    <p class="meta" id="auth-sub" style="margin:0">Please enter your email to receive a one-time code.</p>
+    <p class="meta" id="auth-sub" style="margin:0">Enter your email and we'll send you a sign-in link.</p>
     <p id="auth-msg" class="notice" hidden role="status" style="margin-top:16px;text-align:left"></p>
     <div id="auth-forms">
       <div id="s-email"><form id="f-email" class="form">
         <label id="name-row" hidden>Full name<input name="full_name" maxlength="120" autocomplete="name"></label>
         <label>Email<input name="email" type="email" required autocomplete="email" placeholder="you@gmail.com"></label>
-        <button type="submit">Get OTP</button></form></div>
+        <button type="submit">Email me a sign-in link</button></form></div>
       <div id="s-code" hidden><form id="f-code" class="form">
-        <p class="meta" style="margin:0">We sent a 6-digit code to <b id="code-to"></b>.</p>
-        <label>One-time code<input name="token" required inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,8}" maxlength="8" placeholder="123456" class="otp"></label>
+        <div class="notice info" style="text-align:left">📩 We've emailed a sign-in link to <b id="code-to"></b>. Open the email and click <b>Sign in</b>. You'll be logged in automatically.</div>
+        <p class="meta" style="margin:0">Didn't get it? Check your spam folder. If your email shows a code instead, enter it here:</p>
+        <label>Code from the email<input name="token" required inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6,8}" maxlength="8" placeholder="123456" class="otp"></label>
         <button type="submit">Verify and continue</button>
         <button type="button" class="linkbtn" data-step="s-email">← Use a different email</button></form></div>
       <div id="s-phone" hidden><form id="f-phone" class="form">
@@ -87,7 +88,7 @@
         <button class="gbtn alt" id="m-google" type="button" hidden><svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.2-2.1 3.5-5.1 3.5-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1c.9-2.8 3.6-4.9 6.7-4.9z"/></svg>Continue with Google</button>
         <button class="gbtn alt" id="m-phone" type="button" hidden data-step="s-phone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>Continue with mobile number</button>
         <button class="gbtn alt" type="button" data-step="s-pass"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Log in with password</button>
-        <button class="gbtn alt" type="button" data-step="s-email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>Continue with email OTP</button>
+        <button class="gbtn alt" type="button" data-step="s-email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>Continue with email</button>
       </div>
       <p class="meta" id="switch" style="margin:18px 0 0"></p>
     </div>
@@ -101,6 +102,6 @@
 
 
 <script src="assets/config.js?v=e01c8c28"></script>
-<script src="assets/site.js?v=53bb8686"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script><script src="assets/auth.js?v=01684b0e"></script><script src="assets/login.js?v=8415fb93"></script>
+<script src="assets/site.js?v=53bb8686"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script><script src="assets/auth.js?v=01684b0e"></script><script src="assets/login.js?v=edcce5ed"></script>
 </body>
 </html>
