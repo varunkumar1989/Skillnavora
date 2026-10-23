@@ -8,7 +8,7 @@
 
 const SITE = {
   name: "SkillNavora",
-  email: "varunebix@gmail.com",
+  email: "support@skillnavora.in",
   phone: "919211315006",          // with or without 91 in front
   whatsapp: "919211315006",
   address: "",                    // e.g. "Bengaluru, Karnataka, India" (shown in the footer)
