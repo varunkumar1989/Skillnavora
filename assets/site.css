@@ -431,3 +431,7 @@ table.fw th{font:700 12.5px var(--body);letter-spacing:.06em;text-transform:uppe
 .prose p,.prose li{color:var(--mu)}
 .faq,.faq-tools{text-align:left}.center .support{text-align:left}
 @media (max-width:440px){.top .wrap{gap:10px}.brand{font-size:19px;gap:8px}.brand img{width:32px;height:32px}.tools{gap:6px}.tools .btn-login{padding:7px 10px;font-size:13.5px}.icon-btn{width:38px;height:38px}}
+/* Wider menu: switch to the phone menu a little earlier */
+@media (max-width:1180px) and (min-width:1021px){.nav>a,.dd>button{padding:9px 8px;font-size:14.5px}.top .wrap{gap:12px}}
+.dd-menu a{padding:11px 14px}
+.dd-menu small{margin-top:2px}
