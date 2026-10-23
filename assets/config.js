@@ -26,6 +26,18 @@ const SITE = {
   web3formsKey: ""
 };
 
+/* ---- Student and admin logins (Supabase) ------------------------------
+   1. Create a free project at supabase.com.
+   2. Project Settings -> API: copy the Project URL and the publishable
+      (or "anon public") key and paste them below. These two values are
+      meant to be public; your data is protected by the database rules in
+      supabase/schema.sql. NEVER paste the secret or service_role key here.
+   Leave them "" and the Log in pages show "coming soon".               */
+const AUTH = {
+  supabaseUrl: "",
+  supabaseKey: ""
+};
+
 /* ---- Programs page: courses and prices -------------------------------
    price: text shown on the card, e.g. "Free", "₹2,999", "₹9,999 / month".
           Leave "" to show "Ask for fees".

@@ -15,6 +15,9 @@ Website for [skillnavora.in](https://www.skillnavora.in), by Varun Kumar. Plain 
 | About | `about.html` |
 | Contact | `contact.html` |
 | Privacy policy, 404 | `privacy.html`, `404.html` |
+| Log in, reset password | `login.html`, `reset.html` |
+| Student dashboard | `dashboard.html` |
+| Admin panel | `admin.html` |
 
 ## Change most things in one file: `assets/config.js`
 
@@ -23,6 +26,10 @@ Website for [skillnavora.in](https://www.skillnavora.in), by Varun Kumar. Plain 
 - **`TESTIMONIALS`**: real quotes from students. The section appears on Home and Mentoring once you add one.
 
 Phone numbers work with or without `91`, and links with or without `https://`.
+
+## Student and admin logins
+
+Powered by Supabase (free). Follow [`supabase/README.md`](supabase/README.md) to switch them on: create a project, run `supabase/schema.sql`, and paste the project URL and publishable key into `AUTH` in `assets/config.js`.
 
 ## Change text on a page
 
