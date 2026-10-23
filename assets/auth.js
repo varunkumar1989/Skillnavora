@@ -17,7 +17,7 @@ const SN = (function () {
   else if (isSecret(cfg.supabaseKey)) problem = "secret";
   else if (!window.supabase) problem = "library";
   else client = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey, {
-    auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+    auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "implicit" }
   });
 
   function notice(el, kind, text) {

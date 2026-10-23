@@ -23,7 +23,7 @@
     if (A.supabaseUrl && A.supabaseKey && !/^sb_secret_/.test(A.supabaseKey)) {
       try {
         const r = await fetch(A.supabaseUrl.replace(/\/$/, "") + "/rest/v1/applications", { method: "POST",
-          headers: { apikey: A.supabaseKey, Authorization: "Bearer " + A.supabaseKey, "Content-Type": "application/json", Prefer: "return=minimal" },
+          headers: { apikey: A.supabaseKey, ...(A.supabaseKey.startsWith("sb_") ? {} : { Authorization: "Bearer " + A.supabaseKey }), "Content-Type": "application/json", Prefer: "return=minimal" },
           body: JSON.stringify(row) });
         saved = r.ok;
       } catch {}

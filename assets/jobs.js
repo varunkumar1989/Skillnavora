@@ -6,7 +6,7 @@
   let jobs = (typeof JOBS !== "undefined" ? JOBS : []).filter(j => j && j.title && j.url).map(j => ({ ...j, category: j.category || "product", posted_on: j.posted_on || j.posted || "" }));
   if (A.supabaseUrl && A.supabaseKey && !/^sb_secret_/.test(A.supabaseKey)) {
     try {
-      const r = await fetch(A.supabaseUrl.replace(/\/$/, "") + "/rest/v1/jobs?select=*&active=eq.true&order=posted_on.desc", { headers: { apikey: A.supabaseKey, Authorization: "Bearer " + A.supabaseKey } });
+      const r = await fetch(A.supabaseUrl.replace(/\/$/, "") + "/rest/v1/jobs?select=*&active=eq.true&order=posted_on.desc", { headers: { apikey: A.supabaseKey, ...(A.supabaseKey.startsWith("sb_") ? {} : { Authorization: "Bearer " + A.supabaseKey }) } });
       if (r.ok) jobs = jobs.concat(await r.json());
     } catch {}
   }
