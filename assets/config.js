@@ -51,7 +51,7 @@ const TOPBAR = {
 const AUTH = {
   supabaseUrl: "https://rnncabqtcxxivuyjwoja.supabase.co",
   supabaseKey: "sb_publishable_9sKPYxU3MHQfNT43n3d95A_bVLZi7BP",
-  google: false,
+  google: true,
   phone: false,
   whatsapp: false
 };
