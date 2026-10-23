@@ -3,63 +3,170 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Skillnavora · Learn product management and AI tools</title>
-<meta name="description" content="Skillnavora: practical product management and AI tools learning by Varun Kumar. Handbook, case studies, weekly assignments.">
-<link rel="icon" href="assets/varun.jpg">
+<title>SkillNavora · Navigate your career in product management</title>
+<meta name="description" content="SkillNavora by Varun Kumar: learn product management and AI tools with a free handbook, real case studies, weekly assignments and 1:1 mentoring.">
+<meta property="og:title" content="SkillNavora · Navigate your career in product management">
+<meta property="og:description" content="Free PM handbook, AI Tools Lab, real case studies and 1:1 mentoring by Varun Kumar.">
+<link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap">
 <style>
-:root{--bg:#f6f7f4;--card:#fff;--ink:#16201b;--mu:#58635d;--line:#e1e5df;--brand:#0f7a5a;--brand-ink:#0b5c44;--on-brand:#fff;--soft:#e6f2ec;
-  --display:Fraunces,Georgia,serif;--body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1512;--card:#17201b;--ink:#eef3ef;--mu:#a3aea7;--line:#2a3530;--brand:#3fcf9b;--brand-ink:#7fe0bb;--on-brand:#06140e;--soft:#16302a;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0f1512;--card:#17201b;--ink:#eef3ef;--mu:#a3aea7;--line:#2a3530;--brand:#3fcf9b;--brand-ink:#7fe0bb;--on-brand:#06140e;--soft:#16302a;color-scheme:dark}
+/* Layout: sticky navy header; navy hero with a compass motif; alternating light sections; contact on navy. */
+:root{
+  --bg:#f5f8f6;--card:#ffffff;--ink:#0f2233;--mu:#506270;--line:#dce5e1;
+  --navy:#0b2a3c;--navy-2:#123a52;--on-navy:#eef6f1;--on-navy-mu:#a9c2b4;
+  --green:#1f8f48;--green-ink:#1d7d40;--green-soft:#e3f4e9;--on-green:#ffffff;--glow:#3ccf6e;
+  --display:"Plus Jakarta Sans",Inter,system-ui,sans-serif;--body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:18px;--shadow:0 1px 2px rgba(11,42,60,.06),0 8px 28px rgba(11,42,60,.07);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0a161e;--card:#102230;--ink:#e9f2ee;--mu:#9fb3aa;--line:#1f3646;
+  --navy:#071c28;--navy-2:#0e2e40;--green:#3ccf6e;--green-ink:#6fe39a;--green-soft:#123527;--on-green:#04140b;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.25);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0a161e;--card:#102230;--ink:#e9f2ee;--mu:#9fb3aa;--line:#1f3646;
+  --navy:#071c28;--navy-2:#0e2e40;--green:#3ccf6e;--green-ink:#6fe39a;--green-soft:#123527;--on-green:#04140b;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.25);color-scheme:dark}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body)}
-.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
-a{color:var(--brand-ink)}
-header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
-.logo{font:800 22px var(--display);text-decoration:none;color:var(--ink)}
-.logo span{color:var(--brand)}
-nav a{color:var(--mu);text-decoration:none;font-weight:600;font-size:14px;margin-left:18px}
-nav a:hover{color:var(--ink)}
-@media (max-width:640px){nav a:not(.cta){display:none}}
-.btn{display:inline-block;text-decoration:none;font:700 15px var(--body);padding:11px 18px;border-radius:10px;border:1px solid var(--line);color:var(--ink);background:var(--card)}
-.btn.p,nav a.cta{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
-nav a.cta{padding:8px 14px;border-radius:9px}
-.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2.5px solid var(--brand);outline-offset:2px}
-.hero{padding-top:72px;padding-bottom:56px}
-.eyebrow{font:700 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--brand-ink)}
-h1{font:800 clamp(36px,6.5vw,64px)/1.04 var(--display);letter-spacing:-.02em;margin:10px 0 16px;max-width:16ch;text-wrap:balance}
-.lead{font-size:18px;color:var(--mu);max-width:58ch;margin:0 0 26px}
-.acts{display:flex;gap:10px;flex-wrap:wrap}
-section{padding:56px 0;border-top:1px solid var(--line)}
-h2{font:800 clamp(26px,4vw,36px)/1.15 var(--display);margin:0 0 8px}
-.sub{color:var(--mu);margin:0 0 28px;max-width:60ch}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
-.card h3{margin:0 0 6px;font-size:18px}
-.card p{margin:0 0 12px;color:var(--mu);font-size:15px}
-.card a{font-weight:700;font-size:14px}
-.about{display:grid;grid-template-columns:160px 1fr;gap:28px;align-items:center}
-.about img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid var(--soft)}
-@media (max-width:560px){.about{grid-template-columns:1fr}.about img{width:120px;height:120px}}
-.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:24px}
-@media (max-width:760px){.contact{grid-template-columns:1fr}}
-.clist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.clist li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-.clist small{display:block;color:var(--mu);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.clist a,.clist span{font-weight:600;word-break:break-word}
-form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--green-ink)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+:focus-visible{outline:2.5px solid var(--glow);outline-offset:3px;border-radius:6px}
+
+header.top{position:sticky;top:0;z-index:20;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--on-navy);font:800 21px var(--display);letter-spacing:-.01em}
+.brand img{width:38px;height:38px}
+.brand .wm span{color:var(--glow)}
+nav{display:flex;align-items:center;gap:22px}
+nav a{color:var(--on-navy-mu);text-decoration:none;font-weight:600;font-size:14.5px}
+nav a:hover{color:var(--on-navy)}
+nav a.cta{background:var(--glow);color:#04140b;padding:9px 16px;border-radius:10px}
+nav a.cta:hover{color:#04140b}
+@media (max-width:760px){nav a:not(.cta){display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 15.5px var(--body);padding:13px 20px;border-radius:12px;border:1.5px solid transparent;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.g{background:var(--glow);color:#04140b}
+.btn.o{border-color:rgba(255,255,255,.28);color:var(--on-navy)}
+.btn.o:hover{border-color:var(--on-navy)}
+
+.hero{background:radial-gradient(1200px 500px at 85% -10%,#18506b 0%,transparent 60%),linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--on-navy);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-top:84px;padding-bottom:96px}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;padding-top:56px;padding-bottom:64px}.hero-art{display:none}}
+.pill{display:inline-flex;align-items:center;gap:8px;font:600 13px var(--body);color:var(--on-navy);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:6px 12px;border-radius:99px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--glow);box-shadow:0 0 0 4px rgba(60,207,110,.2)}
+h1{font:800 clamp(38px,6vw,64px)/1.04 var(--display);letter-spacing:-.03em;margin:18px 0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--glow)}
+.hero p.lead{font-size:18.5px;color:var(--on-navy-mu);max-width:54ch;margin:0 0 30px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:18px 34px;margin-top:42px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12)}
+.stats b{display:block;font:800 28px var(--display);color:var(--on-navy)}
+.stats span{font-size:13.5px;color:var(--on-navy-mu)}
+@media (max-width:520px){.stats{grid-template-columns:1fr 1fr}}
+.hero-art{aspect-ratio:1;max-width:440px;justify-self:center;width:100%}
+.hero-art svg{width:100%;height:100%}
+.spin{transform-origin:200px 200px;animation:spin 60s linear infinite}
+.needle{transform-origin:200px 200px;animation:sway 6s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
+@media (prefers-reduced-motion:reduce){.spin,.needle{animation:none}}
+
+section{padding:88px 0}
+section.alt{background:var(--card);border-block:1px solid var(--line)}
+.kicker{font:700 12.5px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--green-ink)}
+h2{font:800 clamp(28px,4vw,42px)/1.12 var(--display);letter-spacing:-.02em;margin:10px 0 12px;text-wrap:balance}
+.sub{color:var(--mu);max-width:62ch;margin:0 0 40px;font-size:17px}
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:960px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.g4,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;min-width:0}
+section.alt .card{background:var(--bg)}
+.card h3{font:800 20px/1.25 var(--display);margin:0}
+.card p{margin:0;color:var(--mu);font-size:15.5px}
+.card ul{margin:4px 0 0;padding-left:18px;color:var(--mu);font-size:15px}
+.card .more{margin-top:auto;padding-top:8px;font-weight:700;font-size:15px;text-decoration:none}
+.card .more:hover{text-decoration:underline}
+.ico{width:46px;height:46px;border-radius:13px;background:var(--green-soft);color:var(--green-ink);display:grid;place-items:center}
+.ico svg{width:24px;height:24px}
+.tag{align-self:flex-start;font:700 12px var(--body);padding:4px 10px;border-radius:99px;background:var(--green-soft);color:var(--green-ink)}
+.card.feature{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);border-color:transparent;color:var(--on-navy)}
+.card.feature p,.card.feature ul{color:var(--on-navy-mu)}
+.card.feature .more{color:var(--glow)}
+.card.feature .tag,.card.feature .ico{background:rgba(60,207,110,.16);color:var(--glow)}
+
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media (max-width:960px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.steps{grid-template-columns:1fr}}
+.step{padding:24px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg)}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font:800 34px var(--display);color:var(--green);display:block;margin-bottom:6px}
+.step h3{margin:0 0 6px;font:800 18px var(--display)}
+.step p{margin:0;color:var(--mu);font-size:15px}
+
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:860px){.road{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.road{grid-template-columns:1fr}}
+.wk{border-radius:14px;padding:16px;background:var(--card);border:1px solid var(--line)}
+.wk small{font:700 12px var(--body);color:var(--green-ink);letter-spacing:.08em;text-transform:uppercase}
+.wk b{display:block;font:700 15.5px/1.35 var(--display);margin-top:4px}
+
+a.case{text-decoration:none;color:inherit;padding:22px;transition:border-color .15s,transform .15s}
+a.case:hover{border-color:var(--green);transform:translateY(-2px)}
+.case .co{font:800 22px var(--display)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.chips span{font-size:12.5px;font-weight:600;color:var(--mu);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+.note{font-size:13.5px;color:var(--mu);margin-top:18px}
+
+.founder{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:center}
+@media (max-width:760px){.founder{grid-template-columns:1fr;gap:24px}}
+.photo img{width:240px;height:240px;object-fit:cover;border-radius:28px;box-shadow:0 0 0 8px var(--green-soft),var(--shadow)}
+.founder blockquote{margin:18px 0 22px;font:700 clamp(19px,2.4vw,23px)/1.45 var(--display)}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.links a{font-weight:700;font-size:14.5px;text-decoration:none;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 14px;border-radius:10px}
+.links a:hover{border-color:var(--green)}
+
+.faq{max-width:780px;display:flex;flex-direction:column;gap:10px}
+details{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:4px 20px}
+summary{cursor:pointer;font:700 17px var(--display);padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--green-ink);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin:0 0 16px;color:var(--mu)}
+
+.contact{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--on-navy)}
+.contact .kicker{color:var(--glow)}
+.contact .sub{color:var(--on-navy-mu)}
+.cgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:28px}
+@media (max-width:820px){.cgrid{grid-template-columns:1fr}}
+.clist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.clist a,.clist div{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--on-navy);text-decoration:none;min-width:0}
+.clist a:hover{border-color:var(--glow)}
+.clist .ci{flex:none;width:40px;height:40px;border-radius:11px;background:rgba(60,207,110,.16);color:var(--glow);display:grid;place-items:center}
+.clist .ci svg{width:20px;height:20px}
+.clist small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--on-navy-mu);font-weight:700}
+.clist b{font-weight:600;word-break:break-word}
+form{background:var(--card);color:var(--ink);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow)}
+form h3{margin:0;font:800 20px var(--display)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
 label{font-weight:600;font-size:14px;display:flex;flex-direction:column;gap:6px}
-input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:10px 12px}
-textarea{min-height:120px;resize:vertical}
-button{font:700 15px var(--body);border:0;border-radius:10px;padding:12px;background:var(--brand);color:var(--on-brand);cursor:pointer}
+input,textarea,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 12px;width:100%}
+textarea{min-height:110px;resize:vertical}
+form button{font:700 16px var(--body);border:0;border-radius:12px;padding:14px;background:var(--green);color:var(--on-green);cursor:pointer}
 .msg{font-size:14px;color:var(--mu);margin:0}
-.wa{position:fixed;right:16px;bottom:16px;background:#25d366;color:#06140e;text-decoration:none;font-weight:700;padding:12px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
-footer{border-top:1px solid var(--line);padding:28px 0 80px;color:var(--mu);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.wa{position:fixed;right:16px;bottom:16px;z-index:30;display:flex;align-items:center;gap:8px;background:#25d366;color:#04140b;text-decoration:none;font-weight:700;padding:12px 16px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.wa svg{width:20px;height:20px}
+footer{background:var(--navy);color:var(--on-navy-mu);padding:30px 0 90px;font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--on-navy);text-decoration:none;font-weight:600}
+footer a:hover{color:var(--glow)}
+footer .brand{font-size:17px}
+footer .brand img{width:28px;height:28px}
+.fl{display:flex;gap:16px;flex-wrap:wrap}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -67,15 +174,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <script>
 /* ===== EDIT YOUR DETAILS HERE =====
    Leave a value as "" to hide it on the site.
-   phone / whatsapp: country code + number, digits only, e.g. "919876543210".
+   phone / whatsapp: with or without 91 in front, e.g. "9211315006" or "919211315006".
+   linkedin / instagram / youtube: full link, e.g. "https://www.linkedin.com/in/your-name".
    web3formsKey: free access key from web3forms.com (sent to your email). Without it,
    the form opens the visitor's email app instead. */
 const SITE = {
   email: "varunebix@gmail.com",
-  phone: "9211315006",
-  whatsapp: "9211315006",
-  city: "India",
-  linkedin: "www.linkedin.com/in/varun-pm01",
+  phone: "919211315006",
+  whatsapp: "919211315006",
+  city: "India · sessions online",
+  linkedin: "https://www.linkedin.com/in/varun-pm01",
   instagram: "",
   youtube: "",
   web3formsKey: ""
@@ -83,59 +191,179 @@ const SITE = {
 </script>
 
 <header class="top"><div class="wrap">
-  <a class="logo" href="#"><img src="assets/skillnavora-logo.svg" alt="SkillNavora" style="height:48px;"></a>
-  <nav><a href="#learn">Learn</a><a href="#work">Case studies</a><a href="#about">About</a><a class="cta" href="#contact">Contact</a></nav>
+  <a class="brand" href="#top" aria-label="SkillNavora home"><img src="assets/logo-mark.svg" alt="" width="38" height="38"><span class="wm">Skill<span>Navora</span></span></a>
+  <nav aria-label="Main">
+    <a href="#programs">Programs</a><a href="#roadmap">Roadmap</a><a href="#work">Case studies</a><a href="#about">About</a><a class="cta" href="#contact">Get in touch</a>
+  </nav>
 </div></header>
 
-<main>
-  <div class="wrap hero">
-    <div class="eyebrow">Product management · AI tools</div>
-    <h1>Learn product management by building real things</h1>
-    <p class="lead">Skillnavora is a free, practical path into product management: a 23-module handbook, an AI Tools Lab, case studies you can copy, and one portfolio-ready assignment every week.</p>
-    <div class="acts">
-      <a class="btn p" href="https://pm-master-handbook-varun.netlify.app" target="_blank" rel="noopener">Open the PM Handbook</a>
-      <a class="btn" href="#contact">Talk to us</a>
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="pill"><i></i>Product management · AI tools · Career</span>
+        <h1>Navigate your career into <em>product management</em></h1>
+        <p class="lead">SkillNavora helps students and professionals become product managers by doing the work: a free 23-module handbook, an AI Tools Lab, real case studies and 1:1 mentoring from Varun Kumar.</p>
+        <div class="acts">
+          <a class="btn g" href="https://pm-master-handbook-varun.netlify.app" target="_blank" rel="noopener">Start learning free →</a>
+          <a class="btn o" href="#contact">Book a mentoring call</a>
+        </div>
+        <div class="stats">
+          <div><b>23</b><span>handbook modules</span></div>
+          <div><b>11</b><span>AI tool classes</span></div>
+          <div><b>9</b><span>case studies</span></div>
+          <div><b>12</b><span>weekly assignments</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <defs><radialGradient id="hg"><stop offset="0" stop-color="#3ccf6e" stop-opacity=".28"/><stop offset="1" stop-color="#3ccf6e" stop-opacity="0"/></radialGradient></defs>
+          <circle cx="200" cy="200" r="196" fill="url(#hg)"/>
+          <g class="spin" fill="none" stroke="#a9c2b4" stroke-opacity=".35">
+            <circle cx="200" cy="200" r="168" stroke-dasharray="2 10" stroke-width="3"/>
+            <circle cx="200" cy="200" r="132"/>
+          </g>
+          <circle cx="200" cy="200" r="104" fill="#0b2a3c" stroke="#3ccf6e" stroke-opacity=".5" stroke-width="2"/>
+          <g font-family="Plus Jakarta Sans,Arial" font-weight="800" font-size="15" fill="#a9c2b4" text-anchor="middle">
+            <text x="200" y="56">LEARN</text><text x="350" y="205">BUILD</text><text x="200" y="358">SHIP</text><text x="50" y="205">GROW</text>
+          </g>
+          <path d="M112 200l72-16 16 16-16 16z" fill="#eef6f1" opacity=".5"/>
+          <path d="M288 200l-72 16-16-16 16-16z" fill="#3ccf6e" opacity=".5"/>
+          <g class="needle">
+            <path d="M200 112l16 72-16 16-16-16z" fill="#3ccf6e"/>
+            <path d="M200 288l-16-72 16-16 16 16z" fill="#eef6f1"/>
+          </g>
+          <circle cx="200" cy="200" r="9" fill="#0b2a3c" stroke="#3ccf6e" stroke-width="4"/>
+        </svg>
+      </div>
     </div>
   </div>
 
-  <section id="learn"><div class="wrap">
-    <h2>What you can learn</h2>
-    <p class="sub">Start with the fundamentals, then use AI tools to research, write and prototype faster.</p>
-    <div class="grid">
-      <div class="card"><h3>PM foundations</h3><p>Discovery, user research, PRDs, prioritisation, metrics and launch, across 12 core modules with quizzes.</p><a href="https://pm-master-handbook-varun.netlify.app" target="_blank" rel="noopener">Start module 1 →</a></div>
-      <div class="card"><h3>AI Tools Lab</h3><p>Claude, Claude Code, Lovable, Replit, Figma, Notion, Zapier, Make, n8n, chatbots and voice agents, from basic to advanced.</p><a href="https://github.com/varunkumar1989/Product-Management-Handbook" target="_blank" rel="noopener">See the classes →</a></div>
-      <div class="card"><h3>Weekly assignments</h3><p>A 12-week plan with one assignment a week, each one ready to publish on LinkedIn, GitHub or your portfolio.</p><a href="https://github.com/varunkumar1989/Product-Management-Handbook" target="_blank" rel="noopener">View the plan →</a></div>
+  <section id="programs"><div class="wrap">
+    <div class="kicker">Programs</div>
+    <h2>Everything you need to land and grow in a PM role</h2>
+    <p class="sub">Start free with the handbook and AI Tools Lab. When you want feedback and a plan made for you, work with a mentor.</p>
+    <div class="grid g4">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div>
+        <span class="tag">Free</span>
+        <h3>PM Master Handbook</h3>
+        <p>12 core modules on discovery, research, PRDs, prioritisation, metrics and launch, with quizzes and PDFs.</p>
+        <a class="more" href="https://pm-master-handbook-varun.netlify.app" target="_blank" rel="noopener">Open the handbook →</a>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></div>
+        <span class="tag">Free</span>
+        <h3>AI Tools Lab</h3>
+        <p>11 classes, basic to advanced: Claude, Claude Code, Lovable, Replit, Figma, Notion, Zapier, Make, n8n, chatbots and voice agents.</p>
+        <a class="more" href="https://github.com/varunkumar1989/Product-Management-Handbook" target="_blank" rel="noopener">See the classes →</a>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
+        <span class="tag">Free</span>
+        <h3>12-week assignments</h3>
+        <p>One portfolio-ready assignment a week, from your first AI workflow to a capstone product case study.</p>
+        <a class="more" href="#roadmap">View the roadmap →</a>
+      </div>
+      <div class="card feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="tag">1:1</span>
+        <h3>Mentoring and interview prep</h3>
+        <ul><li>Resume and portfolio review</li><li>Case study and product sense practice</li><li>Mock PM interviews</li></ul>
+        <a class="more" href="#contact">Ask about mentoring →</a>
+      </div>
     </div>
   </div></section>
 
-  <section id="work"><div class="wrap">
-    <h2>Case studies</h2>
-    <p class="sub">Worked examples with prototypes and decks. Concept work only: not affiliated with the companies named.</p>
-    <div class="grid">
-      <div class="card"><h3>Consumer apps</h3><p>OYO, Zomato, Uber, Zepto AOV, Nykaa: user flows, prototypes and metric plans.</p><a href="https://github.com/varunkumar1989/Case-studies" target="_blank" rel="noopener">Browse on GitHub →</a></div>
-      <div class="card"><h3>Travel and SaaS</h3><p>Klook, Noon, Slack and SkillOS: onboarding audits, growth ideas and PRDs.</p><a href="https://github.com/varunkumar1989/Case-studies" target="_blank" rel="noopener">Browse on GitHub →</a></div>
-      <div class="card"><h3>Portfolio and resume</h3><p>Every case study in one place, with live prototypes and PDFs.</p><a href="https://final-varun-resume.netlify.app" target="_blank" rel="noopener">Open the portfolio →</a></div>
+  <section class="alt"><div class="wrap">
+    <div class="kicker">How it works</div>
+    <h2>Learn it, build it, show it</h2>
+    <p class="sub">Every topic ends with something you make, so you finish with proof of skill, not just certificates.</p>
+    <div class="steps">
+      <div class="step"><h3>Learn the concept</h3><p>Short, practical modules with examples and quick quizzes.</p></div>
+      <div class="step"><h3>Build with AI tools</h3><p>Use Claude, Figma, Lovable and n8n to turn ideas into prototypes fast.</p></div>
+      <div class="step"><h3>Publish your work</h3><p>Write up each assignment as a case study for LinkedIn, GitHub and your portfolio.</p></div>
+      <div class="step"><h3>Get feedback</h3><p>Review your work with a mentor, practise interviews and apply with confidence.</p></div>
     </div>
   </div></section>
 
-  <section id="about"><div class="wrap about">
-    <img src="assets/varun.jpg" alt="Varun Kumar" width="160" height="160">
+  <section id="roadmap"><div class="wrap">
+    <div class="kicker">12-week roadmap</div>
+    <h2>About 5 hours a week, one assignment at a time</h2>
+    <p class="sub">The plan from the AI Tools Lab. Each week links to a handbook class and ends with a project you can share.</p>
+    <div class="road">
+      <div class="wk"><small>Week 1</small><b>Set up your AI toolkit and personal AI policy</b></div>
+      <div class="wk"><small>Week 2</small><b>Claude projects and an interview-synthesis artifact</b></div>
+      <div class="wk"><small>Week 3</small><b>Gmail and Calendar morning brief, Slack weekly update</b></div>
+      <div class="wk"><small>Week 4</small><b>Landing page in Claude Code, deployed from GitHub</b></div>
+      <div class="wk"><small>Week 5</small><b>Three-screen Figma prototype tested with two users</b></div>
+      <div class="wk"><small>Week 6</small><b>Lovable MVP with database and login</b></div>
+      <div class="wk"><small>Week 7</small><b>Notion product hub and a PRD with tickets</b></div>
+      <div class="wk"><small>Week 8</small><b>Zapier and Make automations</b></div>
+      <div class="wk"><small>Week 9</small><b>n8n AI email triage and an MCP tool</b></div>
+      <div class="wk"><small>Week 10</small><b>Telegram and WhatsApp bot with human handoff</b></div>
+      <div class="wk"><small>Week 11</small><b>Voice receptionist with a booking tool</b></div>
+      <div class="wk"><small>Week 12</small><b>Capstone: AI front desk, case study and demo</b></div>
+    </div>
+  </div></section>
+
+  <section id="work" class="alt"><div class="wrap">
+    <div class="kicker">Case studies</div>
+    <h2>Real products, worked end to end</h2>
+    <p class="sub">Prototypes, decks and metric plans you can study and use as a template for your own portfolio.</p>
+    <div class="grid g3">
+      <a class="card case" href="https://github.com/varunkumar1989/Case-studies/tree/main/OYO" target="_blank" rel="noopener"><span class="co">OYO</span><p>Booking-flow redesign with a clickable prototype.</p><div class="chips"><span>Prototype</span><span>UX</span></div></a>
+      <a class="card case" href="https://github.com/varunkumar1989/Case-studies/tree/main/Zomato" target="_blank" rel="noopener"><span class="co">Zomato</span><p>Login-to-tracking customer flow, with 10- and 19-page decks.</p><div class="chips"><span>Prototype</span><span>Deck</span></div></a>
+      <a class="card case" href="https://github.com/varunkumar1989/Case-studies/tree/main/Zepto-AOV" target="_blank" rel="noopener"><span class="co">Zepto</span><p>Raising average order value in quick commerce.</p><div class="chips"><span>Growth</span><span>Metrics</span></div></a>
+      <a class="card case" href="https://github.com/varunkumar1989/Case-studies/tree/main/Uber" target="_blank" rel="noopener"><span class="co">Uber</span><p>Rider experience problem and solution design.</p><div class="chips"><span>Product sense</span></div></a>
+      <a class="card case" href="https://github.com/varunkumar1989/Case-studies/tree/main/Slack" target="_blank" rel="noopener"><span class="co">Slack</span><p>Onboarding audit and channel-flow lab.</p><div class="chips"><span>SaaS</span><span>Onboarding</span></div></a>
+      <a class="card case" href="https://github.com/varunkumar1989/Case-studies" target="_blank" rel="noopener"><span class="co">Nykaa, Klook, Noon, SkillOS</span><p>More teardowns, PRDs and growth ideas.</p><div class="chips"><span>All case studies →</span></div></a>
+    </div>
+    <p class="note">Concept work for learning. Not affiliated with or endorsed by the companies named.</p>
+  </div></section>
+
+  <section id="about"><div class="wrap founder">
+    <div class="photo"><img src="assets/varun.jpg" alt="Varun Kumar, founder of SkillNavora" width="240" height="240"></div>
     <div>
-      <div class="eyebrow">Founder</div>
+      <div class="kicker">Meet your mentor</div>
       <h2>Varun Kumar</h2>
-      <p class="sub" style="margin:0">Product manager and author of the Product Management Master Handbook. Skillnavora shares the material, tools and case studies I wish I'd had when I started, so anyone can learn product management by doing.</p>
+      <p class="sub" style="margin-bottom:0">Product manager, founder of SkillNavora and author of the Product Management Master Handbook.</p>
+      <blockquote>“I built SkillNavora to share the material, tools and case studies I wish I'd had when I started, so anyone can learn product management by doing.”</blockquote>
+      <div class="links">
+        <a href="https://final-varun-resume.netlify.app" target="_blank" rel="noopener">Portfolio</a>
+        <a id="li" href="#" target="_blank" rel="noopener" hidden>LinkedIn</a>
+        <a href="https://github.com/varunkumar1989" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
   </div></section>
 
-  <section id="contact"><div class="wrap">
-    <h2>Contact</h2>
-    <p class="sub">Questions about learning PM, mentoring or collaborations? Send a message and we'll reply by email.</p>
-    <div class="contact">
+  <section class="alt"><div class="wrap">
+    <div class="kicker">FAQ</div>
+    <h2>Common questions</h2>
+    <div class="faq">
+      <details><summary>Is the learning material really free?</summary><p>Yes. The handbook, AI Tools Lab and case studies are free to read and download. Mentoring is separate; get in touch for details.</p></details>
+      <details><summary>Do I need a technical background?</summary><p>No. The handbook starts from the basics, and the AI tools classes show you how to build prototypes and automations without writing code.</p></details>
+      <details><summary>Who is SkillNavora for?</summary><p>Students, early-career professionals and people switching into product management from engineering, design, sales, operations or other roles.</p></details>
+      <details><summary>How does mentoring work?</summary><p>Sessions are online. Send a message with your background and goal, and we'll suggest a plan: resume and portfolio review, case practice or mock interviews.</p></details>
+    </div>
+  </div></section>
+
+  <section id="contact" class="contact"><div class="wrap">
+    <div class="kicker">Contact</div>
+    <h2>Let's plan your next step</h2>
+    <p class="sub">Questions about learning PM, mentoring or collaborations? Message on WhatsApp for the fastest reply, or use the form.</p>
+    <div class="cgrid">
       <ul class="clist" id="clist"></ul>
       <form id="form">
-        <label>Name<input name="name" required autocomplete="name"></label>
-        <label>Email<input name="email" type="email" required autocomplete="email"></label>
-        <label>Message<textarea name="message" required></textarea></label>
+        <h3>Send a message</h3>
+        <div class="row2">
+          <label>Name<input name="name" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <label>I'm interested in
+          <select name="interest"><option>Mentoring and interview prep</option><option>Learning PM with the handbook</option><option>AI tools for PMs</option><option>Collaboration or speaking</option><option>Something else</option></select>
+        </label>
+        <label>Message<textarea name="message" required placeholder="Tell us a little about your background and goal"></textarea></label>
         <input type="checkbox" name="botcheck" hidden>
         <button type="submit">Send message</button>
         <p class="msg" id="msg" aria-live="polite"></p>
@@ -144,33 +372,49 @@ const SITE = {
   </div></section>
 </main>
 
-<a class="wa" id="wa" hidden target="_blank" rel="noopener">WhatsApp us</a>
+<a class="wa" id="wa" hidden target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a>
 
 <footer><div class="wrap">
-  <span>© <span id="yr"></span> Skillnavora · by Varun Kumar</span>
-  <span id="social"></span>
+  <a class="brand" href="#top"><img src="assets/logo-mark.svg" alt="" width="28" height="28"><span class="wm">Skill<span>Navora</span></span></a>
+  <span>© <span id="yr"></span> SkillNavora · by Varun Kumar</span>
+  <span class="fl" id="social"></span>
 </div></footer>
 
 <script>
 (function(){
   const S = SITE, $ = id => document.getElementById(id);
-  $("yr").textContent = new Date().getFullYear();
-  const rows = [];
-  const add = (label, text, href) => {
-    const li = document.createElement("li"), sm = document.createElement("small");
-    sm.textContent = label; li.appendChild(sm);
-    const el = document.createElement(href ? "a" : "span");
-    el.textContent = text; if (href) { el.href = href; if (/^http/.test(href)) { el.target = "_blank"; el.rel = "noopener"; } }
-    li.appendChild(el); rows.push(li);
+  const num = v => { const d = String(v || "").replace(/\D/g, ""); return d.length === 10 ? "91" + d : d; };
+  const url = v => !v ? "" : /^https?:\/\//.test(v) ? v : "https://" + v.replace(/^\/+/, "");
+  const phone = num(S.phone), wa = num(S.whatsapp);
+  const li = url(S.linkedin), ig = url(S.instagram), yt = url(S.youtube);
+  const icon = {
+    mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/>',
+    phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',
+    chat: '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>',
+    pin: '<path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+    in: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>'
   };
-  if (S.email) add("Email", S.email, "mailto:" + S.email);
-  if (S.phone) add("Phone", "+" + S.phone, "tel:+" + S.phone);
-  if (S.whatsapp) add("WhatsApp", "Chat with us", "https://wa.me/" + S.whatsapp);
-  if (S.city) add("Location", S.city);
-  rows.forEach(r => $("clist").appendChild(r));
-  if (S.whatsapp) { const w = $("wa"); w.href = "https://wa.me/" + S.whatsapp + "?text=" + encodeURIComponent("Hi Skillnavora"); w.hidden = false; }
-  const soc = [["LinkedIn", S.linkedin], ["Instagram", S.instagram], ["YouTube", S.youtube]].filter(x => x[1]);
-  soc.forEach(([n, u], i) => { const a = document.createElement("a"); a.href = u; a.textContent = n; a.target = "_blank"; a.rel = "noopener"; if (i) $("social").append(" · "); $("social").appendChild(a); });
+  const add = (ic, label, text, href) => {
+    const item = document.createElement("li");
+    const el = document.createElement(href ? "a" : "div");
+    if (href) { el.href = href; if (/^http/.test(href)) { el.target = "_blank"; el.rel = "noopener"; } }
+    el.innerHTML = '<span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + icon[ic] + '</svg></span><span><small></small><b></b></span>';
+    el.querySelector("small").textContent = label; el.querySelector("b").textContent = text;
+    item.appendChild(el); $("clist").appendChild(item);
+  };
+  const pretty = d => d.length === 12 && d.startsWith("91") ? "+91 " + d.slice(2, 7) + " " + d.slice(7) : "+" + d;
+  if (wa) add("chat", "WhatsApp", "Chat now · " + pretty(wa), "https://wa.me/" + wa + "?text=" + encodeURIComponent("Hi SkillNavora, I'd like to know more."));
+  if (phone) add("phone", "Call", pretty(phone), "tel:+" + phone);
+  if (S.email) add("mail", "Email", S.email, "mailto:" + S.email);
+  if (li) add("in", "LinkedIn", "Connect with Varun", li);
+  if (S.city) add("pin", "Location", S.city);
+
+  if (wa) { const w = $("wa"); w.href = "https://wa.me/" + wa + "?text=" + encodeURIComponent("Hi SkillNavora"); w.hidden = false; }
+  if (li) { $("li").href = li; $("li").hidden = false; }
+  $("yr").textContent = new Date().getFullYear();
+  [["LinkedIn", li], ["Instagram", ig], ["YouTube", yt], ["GitHub", "https://github.com/varunkumar1989"]].filter(x => x[1]).forEach(([n, u]) => {
+    const a = document.createElement("a"); a.href = u; a.textContent = n; a.target = "_blank"; a.rel = "noopener"; $("social").appendChild(a);
+  });
 
   const form = $("form"), msg = $("msg");
   if (!S.web3formsKey && !S.email) form.hidden = true;
@@ -178,17 +422,17 @@ const SITE = {
     e.preventDefault();
     const d = new FormData(form);
     if (!S.web3formsKey) {
-      location.href = "mailto:" + S.email + "?subject=" + encodeURIComponent("Skillnavora enquiry from " + d.get("name")) + "&body=" + encodeURIComponent(d.get("message") + "\n\n" + d.get("name") + " · " + d.get("email"));
+      location.href = "mailto:" + S.email + "?subject=" + encodeURIComponent("SkillNavora enquiry: " + d.get("interest")) + "&body=" + encodeURIComponent(d.get("message") + "\n\n" + d.get("name") + " · " + d.get("email"));
       return;
     }
-    d.append("access_key", S.web3formsKey); d.append("subject", "New Skillnavora enquiry");
+    d.append("access_key", S.web3formsKey); d.append("subject", "New SkillNavora enquiry: " + d.get("interest"));
     msg.textContent = "Sending…";
     try {
       const r = await fetch("https://api.web3forms.com/submit", { method: "POST", body: d });
       const j = await r.json();
-      msg.textContent = j.success ? "Thanks! We'll reply by email soon." : "Couldn't send. Please email us instead.";
+      msg.textContent = j.success ? "Thanks! We'll reply by email soon." : "Couldn't send. Please email or WhatsApp us instead.";
       if (j.success) form.reset();
-    } catch { msg.textContent = "Couldn't send. Please email us instead."; }
+    } catch { msg.textContent = "Couldn't send. Please email or WhatsApp us instead."; }
   });
 })();
 </script>
