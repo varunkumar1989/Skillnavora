@@ -47,8 +47,8 @@ const TOPBAR = {
    google: true shows "Continue with Google" (turn it on in Supabase first).
    phone:  true shows "Mobile number + OTP" (needs an SMS provider in Supabase). */
 const AUTH = {
-  supabaseUrl: "",
-  supabaseKey: "",
+  supabaseUrl: "https://rnncabqtcxxivuyjwoja.supabase.co",
+  supabaseKey: "sb_publishable_9sKPYxU3MHQfNT43n3d95A_bVLZi7BP",
   google: false,
   phone: false
 };
