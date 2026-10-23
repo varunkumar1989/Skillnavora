@@ -38,6 +38,13 @@ The login page sends a 6-digit code by email. Supabase's default email sends a l
 1. **Authentication → Sign In / Providers → Phone** → enable, and connect an SMS provider (Twilio, MessageBird, Vonage or Textlocal; each charges per SMS). For India, SMS senders also need DLT registration with your provider.
 2. In `assets/config.js`, set `phone: true` in `AUTH`.
 
+## Optional: OTP on WhatsApp
+WhatsApp codes need **Twilio** (or Twilio Verify) as the provider above; the other providers send SMS only.
+1. In Twilio, set up a WhatsApp sender (this links a WhatsApp Business account, verified through Meta).
+2. In Supabase **Phone** settings, choose Twilio or Twilio Verify and paste the Account SID, Auth Token and the Message Service SID (or Verify Service SID).
+3. In `assets/config.js`, set `whatsapp: true` in `AUTH` (and `phone: true` if you also want SMS).
+4. Test with your own number before announcing it. Learners get the code in WhatsApp and type it on the login page.
+
 ## Optional: "Continue with Google"
 1. In Google Cloud Console, create an **OAuth client ID** (type: Web application). Add the redirect URL Supabase shows under **Authentication → Sign In / Providers → Google**.
 2. Paste the client ID and secret into that Supabase Google provider and enable it. The Google secret goes only into Supabase, never into the website.
