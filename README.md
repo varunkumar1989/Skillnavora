@@ -1,47 +1,39 @@
 # SkillNavora
 
-Website for [skillnavora.in](https://www.skillnavora.in), by Varun Kumar. Plain HTML, hosted free on Cloudflare Pages. Every commit to `main` goes live in about a minute.
+Website and LMS for [skillnavora.in](https://www.skillnavora.in). Plain HTML, hosted free on Cloudflare Pages; logins and course data on Supabase. Every commit to `main` goes live in about a minute.
 
 ## Pages
 
-| Page | File |
-|---|---|
-| Home | `index.html` |
-| Programs (courses, prices, 12-week roadmap) | `programs.html` |
-| Mentoring (booking) | `mentoring.html` |
-| Free resources (handbook PDFs) | `resources.html` |
-| Case studies | `case-studies.html` |
-| Blog and posts | `blog.html`, `blog/*.html` |
-| About | `about.html` |
-| Contact | `contact.html` |
-| Privacy policy, 404 | `privacy.html`, `404.html` |
-| Log in, reset password | `login.html`, `reset.html` |
-| Student dashboard | `dashboard.html` |
-| Admin panel | `admin.html` |
+| Menu | Page | File |
+|---|---|---|
+| Home | Hero, programs, career support, free tools, FAQs | `index.html` |
+| Programs ▾ | All programs | `programs.html` |
+| | AI-First Product Management | `program/ai-product-management.html` |
+| | AI-First Software Engineering | `program/ai-software-engineering.html` |
+| | GenAI Launchpad | `program/genai-launchpad.html` |
+| Upskill for free ▾ | Quiz zone · Challenges · Practice with AI · Resources | `quiz.html`, `challenges.html`, `practice.html`, `resources.html` |
+| LMS | Overview · My courses · My events · Submissions · Achievements · Profile | `lms.html` |
+| (admins) | Admin panel | `admin.html` |
+| Contact us | Contact | `contact.html` |
+| Footer | Privacy, terms, refund policy, login | `privacy.html`, `terms.html`, `refund.html`, `login.html` |
 
-## Change most things in one file: `assets/config.js`
+## Edit almost everything in `assets/config.js`
 
-- **`SITE`**: email, phone, WhatsApp, city, LinkedIn, Instagram, YouTube, booking link (Calendly or Cal.com), Web3Forms key.
-- **`PROGRAMS`**: the course cards on the Programs page: name, price, what's included and the button link. Leave `price` empty to show "Ask for fees".
-- **`TESTIMONIALS`**: real quotes from students. The section appears on Home and Mentoring once you add one.
+- **`SITE`**: email, phone, WhatsApp, address, social links, counselling booking link, the announcement banner.
+- **`AUTH`**: Supabase project URL and publishable key (see `supabase/README.md`), Google login on/off.
+- **`COURSES`**: each program's name, cohort, start date, enrolment deadline (shows a countdown), fee, enrol/payment link, duration, who it's for, outcomes, curriculum modules, projects and tools.
+- **`SUPPORT`**, **`FAQS`**, **`TESTIMONIALS`**: career support cards, FAQs and real reviews.
 
-Phone numbers work with or without `91`, and links with or without `https://`.
+Quizzes, challenges and practice questions are in **`assets/content.js`**.
 
-## Student and admin logins
+## Running the LMS
 
-Powered by Supabase (free). Follow [`supabase/README.md`](supabase/README.md) to switch them on: create a project, run `supabase/schema.sql`, and paste the project URL and publishable key into `AUTH` in `assets/config.js`.
-
-## Change text on a page
-
-Open the page's `.html` file, click the pencil icon, use Ctrl+F to find the words, edit them and commit.
-
-## Add a blog post
-
-Copy one of the files in `blog/`, rename it, change the title, description and text, then add a card for it in `blog.html` and a line in `sitemap.xml`.
-
-## Logo
-
-`assets/logo-mark.svg` is the compass icon (header, footer and browser tab). `assets/skillnavora-logo.svg` is the full logo with the wordmark. `assets/compass-original.png` is the original icon.
+1. Set up Supabase once: [`supabase/README.md`](supabase/README.md).
+2. A student creates an account (Log in → Create account).
+3. In **Admin → Enrolments**, enrol them in a program after they pay.
+4. After each class, add the recording and slides in **Admin → Course materials**. Only enrolled students can see them.
+5. Schedule live sessions in **Admin → Events**; students register and rate them in **My events**.
+6. Review submissions in **Admin → Submissions**; students see your feedback in their LMS.
 
 ## Cloudflare Pages settings
 

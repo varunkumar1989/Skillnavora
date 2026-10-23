@@ -15,7 +15,7 @@
     if (f.password.value !== f.confirm.value) return notice(msg, "error", "The two passwords don't match.");
     const { error } = await client.auth.updateUser({ password: f.password.value });
     if (error) return notice(msg, "error", errText(error));
-    notice(msg, "ok", "Password updated. Taking you to your dashboard…");
-    setTimeout(() => location.replace("dashboard.html"), 1200);
+    notice(msg, "ok", "Password updated. Taking you to your LMS…");
+    setTimeout(() => location.replace("lms.html"), 1200);
   });
 })();
