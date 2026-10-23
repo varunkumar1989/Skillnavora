@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My dashboard · SkillNavora</title>
+<meta name="description" content="Your SkillNavora student dashboard.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SkillNavora">
+<meta property="og:title" content="My dashboard · SkillNavora">
+<meta property="og:description" content="Your SkillNavora student dashboard.">
+<meta property="og:url" content="https://www.skillnavora.in/dashboard">
+<link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="SkillNavora home"><img src="assets/logo-mark.svg" alt="" width="38" height="38"><span class="wm">Skill<span>Navora</span></span></a>
+  <nav aria-label="Main">
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <div class="menu" id="menu"><a href="index.html">Home</a><a href="programs.html">Programs</a><a href="mentoring.html">Mentoring</a><a href="resources.html">Resources</a><a href="case-studies.html">Case studies</a><a href="blog.html">Blog</a><a href="about.html">About</a><a class="login" id="nav-login" href="login.html" aria-current="page">Log in</a><a class="cta" href="contact.html">Get in touch</a></div>
+  </nav>
+</div></header>
+
+<main>
+<div class="page-hero"><div class="wrap app-hero">
+  <div><div class="kicker" style="color:var(--glow)">Student dashboard</div><h1 id="hello">Welcome!</h1></div>
+  <div class="acts"><a class="btn o" id="to-admin" href="admin.html" hidden>Admin panel</a><button class="btn o" id="signout" type="button">Log out</button></div>
+</div></div>
+<section style="padding-top:36px"><div class="wrap">
+  <p id="app-msg" class="notice" hidden role="status"></p>
+  <div id="app" hidden>
+    <div class="stat-row">
+      <div class="card stat"><small>12-week plan</small><b id="p-count">0 / 12</b><div class="bar" role="progressbar" aria-label="Plan progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="p-bar"></span></div><span class="meta" id="p-pct">0% complete</span></div>
+      <div class="card stat"><small>Assignments submitted</small><b id="s-count">0</b><span class="meta" id="s-wait"></span></div>
+      <div class="card stat"><small>Open requests</small><b id="r-open">0</b><span class="meta">Sessions and help</span></div>
+    </div>
+
+    <div class="dgrid">
+      <div class="col">
+        <div class="card"><h2 class="h3">My 12-week plan</h2><p class="meta">Tick each week when you finish its assignment. Briefs are in the <a href="resources.html#ai-tools-lab">AI Tools Lab</a>.</p><div id="weeks" class="weeks"></div></div>
+        <div class="card"><h2 class="h3">Submit an assignment</h2>
+          <form id="f-submit" class="plain">
+            <label>Week<select name="week"></select></label>
+            <label>Title<input name="title" required maxlength="200" placeholder="e.g. Figma prototype for a meal-planning app"></label>
+            <label>Link to your work<input name="link" type="url" required placeholder="https://… (Google Drive, Figma, GitHub, Notion)"></label>
+            <label>Notes <span class="meta">(optional)</span><textarea name="notes" maxlength="4000" placeholder="What you'd like feedback on"></textarea></label>
+            <button type="submit">Submit for review</button>
+            <p id="submit-msg" class="notice" hidden role="status"></p>
+          </form>
+        </div>
+        <div class="card"><h2 class="h3">My submissions</h2><div id="subs" class="list"></div></div>
+      </div>
+      <div class="col">
+        <div class="card"><h2 class="h3">Announcements</h2><div id="news" class="list"></div></div>
+        <div class="card"><h2 class="h3">Request a session or help</h2>
+          <form id="f-request" class="plain">
+            <label>Topic<select name="topic"><option>1:1 mentoring session</option><option>Resume and portfolio review</option><option>Mock PM interview</option><option>Help with an assignment</option><option>Something else</option></select></label>
+            <label>Message<textarea name="message" required maxlength="4000" placeholder="Your goal, and times that suit you"></textarea></label>
+            <button type="submit">Send request</button>
+            <p id="request-msg" class="notice" hidden role="status"></p>
+          </form>
+          <div id="reqs" class="list" style="margin-top:14px"></div>
+        </div>
+        <div class="card"><h2 class="h3">My profile</h2>
+          <form id="f-profile" class="plain">
+            <label>Full name<input name="full_name" maxlength="120" autocomplete="name"></label>
+            <label>Email<input name="email" disabled></label>
+            <label>Phone or WhatsApp<input name="phone" maxlength="30" autocomplete="tel"></label>
+            <label>LinkedIn<input name="linkedin" maxlength="300" placeholder="https://www.linkedin.com/in/…"></label>
+            <label>My goal<textarea name="goal" maxlength="1000" placeholder="e.g. Move from engineering to an associate PM role in 6 months"></textarea></label>
+            <button type="submit">Save profile</button>
+            <p id="profile-msg" class="notice" hidden role="status"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<a class="wa" id="wa" hidden target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a>
+
+<footer><div class="wrap">
+  <div class="fcols">
+    <div>
+      <a class="brand" href="index.html"><img src="assets/logo-mark.svg" alt="" width="28" height="28"><span class="wm">Skill<span>Navora</span></span></a>
+      <p>Learn product management by doing: a free handbook, AI tools classes, real case studies and 1:1 mentoring.</p>
+    </div>
+    <div><h4>Learn</h4><ul><li><a href="programs.html">Programs</a></li><li><a href="resources.html">Free resources</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+    <div><h4>SkillNavora</h4><ul><li><a href="mentoring.html">Mentoring</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="login.html">Student login</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+    <div><h4>Follow</h4><ul id="social"></ul></div>
+  </div>
+  <div class="base"><span>© <span id="yr"></span> SkillNavora · by Varun Kumar</span><span>Made in India</span></div>
+</div></footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="assets/auth.js"></script>
+<script src="assets/dashboard.js"></script>
+</body>
+</html>

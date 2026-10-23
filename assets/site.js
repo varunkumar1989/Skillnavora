@@ -16,6 +16,14 @@
     burger.setAttribute("aria-expanded", open);
   });
 
+  // "Log in" becomes "My dashboard" once someone is signed in (Supabase keeps the session in localStorage).
+  const nl = $("nav-login");
+  try {
+    if (nl && Object.keys(localStorage).some(k => /^sb-.+-auth-token$/.test(k))) {
+      nl.textContent = "My dashboard"; nl.href = nl.getAttribute("href").replace("login.html", "dashboard.html");
+    }
+  } catch (e) { /* storage blocked: keep "Log in" */ }
+
   // Floating WhatsApp button
   const w = $("wa");
   if (w && wa) { w.href = waLink("Hi SkillNavora"); w.hidden = false; }
