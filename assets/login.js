@@ -25,7 +25,7 @@
   let signup = params.get("mode") === "signup";
   const mode = () => {
     $("auth-title").textContent = signup ? "Create your account" : "Log in to your account";
-    $("auth-sub").textContent = signup ? "Enter your details to get a one-time code." : "Please enter your email to receive a one-time code.";
+    $("auth-sub").textContent = signup ? "Enter your details and we'll email you a sign-in link." : "Enter your email and we'll send you a sign-in link.";
     $("name-row").hidden = !signup;
     $("switch").innerHTML = signup ? 'Already have an account? <button type="button" class="linkbtn" id="sw">Log in</button>' : 'Don\'t have an account? <button type="button" class="linkbtn" id="sw">Sign up</button>';
     $("sw").addEventListener("click", () => { signup = !signup; mode(); show("s-email"); });
@@ -39,7 +39,7 @@
   let email = "";
   $("f-email").addEventListener("submit", async e => {
     e.preventDefault(); const f = e.target, b = f.querySelector("button[type=submit]");
-    email = f.email.value.trim(); busy(b, true, "Sending code…");
+    email = f.email.value.trim(); busy(b, true, "Sending…");
     const { error } = await client.auth.signInWithOtp({ email, options: { shouldCreateUser: true, emailRedirectTo: location.origin + "/lms.html", ...meta() } });
     busy(b, false);
     if (error) return say("error", errText(error));
