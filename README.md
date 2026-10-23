@@ -50,5 +50,5 @@ Quizzes, challenges and practice questions are in **`assets/content.js`**.
 |---|---|
 | Production branch | `main` |
 | Framework preset | None |
-| Build command | `npm install` *(needed for the AI chat assistant)* |
+| Build command | *(leave empty)* |
 | Build output directory | `/` *(leave empty)* |

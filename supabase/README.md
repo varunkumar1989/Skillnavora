@@ -52,7 +52,7 @@ The login page sends a 6-digit code by email. Supabase's default email sends a l
 The assistant answers visitors' questions from `assets/config.js` using Claude. Your API key stays on Cloudflare and is never shown to visitors.
 1. Create an API key at **console.anthropic.com → API keys**, and set a monthly spend limit under **Billing → Limits** (for example ₹2,000).
 2. In Cloudflare: **Workers & Pages → skillnavora → Settings → Variables and secrets → Add** → type **Secret**, name `ANTHROPIC_API_KEY`, paste the key → **Save**.
-3. Same project: **Settings → Build → Build command** → `npm install` → **Save**, then **Deployments → Retry deployment** on the latest one.
+3. Go to **Deployments → ⋯ → Retry deployment** on the latest one, so the key takes effect.
 4. Open the site and click **Ask AI**. Until the key is set, the assistant answers from your FAQs and offers WhatsApp and counselling.
 
 It uses Claude Opus 5.5 at low effort. To spend less, add a second variable `CHAT_MODEL` = `claude-haiku-5-5`.
