@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skillnavora · Learn product management and AI tools</title>
+<meta name="description" content="Skillnavora: practical product management and AI tools learning by Varun Kumar. Handbook, case studies, weekly assignments.">
+<link rel="icon" href="assets/varun.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f6f7f4;--card:#fff;--ink:#16201b;--mu:#58635d;--line:#e1e5df;--brand:#0f7a5a;--brand-ink:#0b5c44;--on-brand:#fff;--soft:#e6f2ec;
+  --display:Fraunces,Georgia,serif;--body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1512;--card:#17201b;--ink:#eef3ef;--mu:#a3aea7;--line:#2a3530;--brand:#3fcf9b;--brand-ink:#7fe0bb;--on-brand:#06140e;--soft:#16302a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1512;--card:#17201b;--ink:#eef3ef;--mu:#a3aea7;--line:#2a3530;--brand:#3fcf9b;--brand-ink:#7fe0bb;--on-brand:#06140e;--soft:#16302a;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+a{color:var(--brand-ink)}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+.logo{font:800 22px var(--display);text-decoration:none;color:var(--ink)}
+.logo span{color:var(--brand)}
+nav a{color:var(--mu);text-decoration:none;font-weight:600;font-size:14px;margin-left:18px}
+nav a:hover{color:var(--ink)}
+@media (max-width:640px){nav a:not(.cta){display:none}}
+.btn{display:inline-block;text-decoration:none;font:700 15px var(--body);padding:11px 18px;border-radius:10px;border:1px solid var(--line);color:var(--ink);background:var(--card)}
+.btn.p,nav a.cta{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+nav a.cta{padding:8px 14px;border-radius:9px}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2.5px solid var(--brand);outline-offset:2px}
+.hero{padding-top:72px;padding-bottom:56px}
+.eyebrow{font:700 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--brand-ink)}
+h1{font:800 clamp(36px,6.5vw,64px)/1.04 var(--display);letter-spacing:-.02em;margin:10px 0 16px;max-width:16ch;text-wrap:balance}
+.lead{font-size:18px;color:var(--mu);max-width:58ch;margin:0 0 26px}
+.acts{display:flex;gap:10px;flex-wrap:wrap}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(26px,4vw,36px)/1.15 var(--display);margin:0 0 8px}
+.sub{color:var(--mu);margin:0 0 28px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 6px;font-size:18px}
+.card p{margin:0 0 12px;color:var(--mu);font-size:15px}
+.card a{font-weight:700;font-size:14px}
+.about{display:grid;grid-template-columns:160px 1fr;gap:28px;align-items:center}
+.about img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid var(--soft)}
+@media (max-width:560px){.about{grid-template-columns:1fr}.about img{width:120px;height:120px}}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:24px}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+.clist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.clist li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.clist small{display:block;color:var(--mu);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.clist a,.clist span{font-weight:600;word-break:break-word}
+form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+label{font-weight:600;font-size:14px;display:flex;flex-direction:column;gap:6px}
+input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:10px 12px}
+textarea{min-height:120px;resize:vertical}
+button{font:700 15px var(--body);border:0;border-radius:10px;padding:12px;background:var(--brand);color:var(--on-brand);cursor:pointer}
+.msg{font-size:14px;color:var(--mu);margin:0}
+.wa{position:fixed;right:16px;bottom:16px;background:#25d366;color:#06140e;text-decoration:none;font-weight:700;padding:12px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+footer{border-top:1px solid var(--line);padding:28px 0 80px;color:var(--mu);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<script>
+/* ===== EDIT YOUR DETAILS HERE =====
+   Leave a value as "" to hide it on the site.
+   phone / whatsapp: country code + number, digits only, e.g. "919876543210".
+   web3formsKey: free access key from web3forms.com (sent to your email). Without it,
+   the form opens the visitor's email app instead. */
+const SITE = {
+  email: "",
+  phone: "",
+  whatsapp: "",
+  city: "India",
+  linkedin: "",
+  instagram: "",
+  youtube: "",
+  web3formsKey: ""
+};
+</script>
+
+<header class="top"><div class="wrap">
+  <a class="logo" href="#">Skill<span>navora</span></a>
+  <nav><a href="#learn">Learn</a><a href="#work">Case studies</a><a href="#about">About</a><a class="cta" href="#contact">Contact</a></nav>
+</div></header>
+
+<main>
+  <div class="wrap hero">
+    <div class="eyebrow">Product management · AI tools</div>
+    <h1>Learn product management by building real things</h1>
+    <p class="lead">Skillnavora is a free, practical path into product management: a 23-module handbook, an AI Tools Lab, case studies you can copy, and one portfolio-ready assignment every week.</p>
+    <div class="acts">
+      <a class="btn p" href="https://pm-master-handbook-varun.netlify.app" target="_blank" rel="noopener">Open the PM Handbook</a>
+      <a class="btn" href="#contact">Talk to us</a>
+    </div>
+  </div>
+
+  <section id="learn"><div class="wrap">
+    <h2>What you can learn</h2>
+    <p class="sub">Start with the fundamentals, then use AI tools to research, write and prototype faster.</p>
+    <div class="grid">
+      <div class="card"><h3>PM foundations</h3><p>Discovery, user research, PRDs, prioritisation, metrics and launch, across 12 core modules with quizzes.</p><a href="https://pm-master-handbook-varun.netlify.app" target="_blank" rel="noopener">Start module 1 →</a></div>
+      <div class="card"><h3>AI Tools Lab</h3><p>Claude, Claude Code, Lovable, Replit, Figma, Notion, Zapier, Make, n8n, chatbots and voice agents, from basic to advanced.</p><a href="https://github.com/varunkumar1989/Product-Management-Handbook" target="_blank" rel="noopener">See the classes →</a></div>
+      <div class="card"><h3>Weekly assignments</h3><p>A 12-week plan with one assignment a week, each one ready to publish on LinkedIn, GitHub or your portfolio.</p><a href="https://github.com/varunkumar1989/Product-Management-Handbook" target="_blank" rel="noopener">View the plan →</a></div>
+    </div>
+  </div></section>
+
+  <section id="work"><div class="wrap">
+    <h2>Case studies</h2>
+    <p class="sub">Worked examples with prototypes and decks. Concept work only: not affiliated with the companies named.</p>
+    <div class="grid">
+      <div class="card"><h3>Consumer apps</h3><p>OYO, Zomato, Uber, Zepto AOV, Nykaa: user flows, prototypes and metric plans.</p><a href="https://github.com/varunkumar1989/Case-studies" target="_blank" rel="noopener">Browse on GitHub →</a></div>
+      <div class="card"><h3>Travel and SaaS</h3><p>Klook, Noon, Slack and SkillOS: onboarding audits, growth ideas and PRDs.</p><a href="https://github.com/varunkumar1989/Case-studies" target="_blank" rel="noopener">Browse on GitHub →</a></div>
+      <div class="card"><h3>Portfolio and resume</h3><p>Every case study in one place, with live prototypes and PDFs.</p><a href="https://final-varun-resume.netlify.app" target="_blank" rel="noopener">Open the portfolio →</a></div>
+    </div>
+  </div></section>
+
+  <section id="about"><div class="wrap about">
+    <img src="assets/varun.jpg" alt="Varun Kumar" width="160" height="160">
+    <div>
+      <div class="eyebrow">Founder</div>
+      <h2>Varun Kumar</h2>
+      <p class="sub" style="margin:0">Product manager and author of the Product Management Master Handbook. Skillnavora shares the material, tools and case studies I wish I'd had when I started, so anyone can learn product management by doing.</p>
+    </div>
+  </div></section>
+
+  <section id="contact"><div class="wrap">
+    <h2>Contact</h2>
+    <p class="sub">Questions about learning PM, mentoring or collaborations? Send a message and we'll reply by email.</p>
+    <div class="contact">
+      <ul class="clist" id="clist"></ul>
+      <form id="form">
+        <label>Name<input name="name" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        <label>Message<textarea name="message" required></textarea></label>
+        <input type="checkbox" name="botcheck" hidden>
+        <button type="submit">Send message</button>
+        <p class="msg" id="msg" aria-live="polite"></p>
+      </form>
+    </div>
+  </div></section>
+</main>
+
+<a class="wa" id="wa" hidden target="_blank" rel="noopener">WhatsApp us</a>
+
+<footer><div class="wrap">
+  <span>© <span id="yr"></span> Skillnavora · by Varun Kumar</span>
+  <span id="social"></span>
+</div></footer>
+
+<script>
+(function(){
+  const S = SITE, $ = id => document.getElementById(id);
+  $("yr").textContent = new Date().getFullYear();
+  const rows = [];
+  const add = (label, text, href) => {
+    const li = document.createElement("li"), sm = document.createElement("small");
+    sm.textContent = label; li.appendChild(sm);
+    const el = document.createElement(href ? "a" : "span");
+    el.textContent = text; if (href) { el.href = href; if (/^http/.test(href)) { el.target = "_blank"; el.rel = "noopener"; } }
+    li.appendChild(el); rows.push(li);
+  };
+  if (S.email) add("Email", S.email, "mailto:" + S.email);
+  if (S.phone) add("Phone", "+" + S.phone, "tel:+" + S.phone);
+  if (S.whatsapp) add("WhatsApp", "Chat with us", "https://wa.me/" + S.whatsapp);
+  if (S.city) add("Location", S.city);
+  rows.forEach(r => $("clist").appendChild(r));
+  if (S.whatsapp) { const w = $("wa"); w.href = "https://wa.me/" + S.whatsapp + "?text=" + encodeURIComponent("Hi Skillnavora"); w.hidden = false; }
+  const soc = [["LinkedIn", S.linkedin], ["Instagram", S.instagram], ["YouTube", S.youtube]].filter(x => x[1]);
+  soc.forEach(([n, u], i) => { const a = document.createElement("a"); a.href = u; a.textContent = n; a.target = "_blank"; a.rel = "noopener"; if (i) $("social").append(" · "); $("social").appendChild(a); });
+
+  const form = $("form"), msg = $("msg");
+  if (!S.web3formsKey && !S.email) form.hidden = true;
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const d = new FormData(form);
+    if (!S.web3formsKey) {
+      location.href = "mailto:" + S.email + "?subject=" + encodeURIComponent("Skillnavora enquiry from " + d.get("name")) + "&body=" + encodeURIComponent(d.get("message") + "\n\n" + d.get("name") + " · " + d.get("email"));
+      return;
+    }
+    d.append("access_key", S.web3formsKey); d.append("subject", "New Skillnavora enquiry");
+    msg.textContent = "Sending…";
+    try {
+      const r = await fetch("https://api.web3forms.com/submit", { method: "POST", body: d });
+      const j = await r.json();
+      msg.textContent = j.success ? "Thanks! We'll reply by email soon." : "Couldn't send. Please email us instead.";
+      if (j.success) form.reset();
+    } catch { msg.textContent = "Couldn't send. Please email us instead."; }
+  });
+})();
+</script>
+</body>
+</html>
