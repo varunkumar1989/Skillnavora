@@ -767,3 +767,70 @@ body.has-sticky .chat-fab{bottom:164px}
   .sticky .acts{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .sticky .acts .btn{padding:10px 8px;font-size:13.5px}
 }
+
+/* ===================== v5: educational light theme (light mode only; dark mode unchanged) ===================== */
+:root{
+  --h-bg:radial-gradient(700px 420px at 0% 0%,rgba(59,130,246,.16),transparent 60%),radial-gradient(640px 420px at 100% 0%,rgba(249,115,22,.13),transparent 60%),radial-gradient(600px 380px at 60% 120%,rgba(139,92,246,.12),transparent 60%),linear-gradient(180deg,#f3f7ff 0%,#fffaf5 100%);
+  --h-ink:#0d1630;--h-mu:#4a5672;--h-line:rgba(13,22,48,.12);--h-glass:rgba(255,255,255,.75);--h-hover:rgba(37,99,235,.08);
+  --h-top:rgba(255,255,255,.94);--h-menu:#ffffff;--h-dot:rgba(13,22,48,.07);--h-kicker:#1d4ed8;--h-ghost:rgba(13,22,48,.22);--h-ico:#e9efff;--h-ico-ink:#1d4ed8;
+  --h-g:linear-gradient(90deg,#2563eb,#7c3aed 55%,#ea580c);--h-shadow:0 20px 50px rgba(30,58,138,.14);
+  --c-bg:#ffffff;--c-head:#f3f6fc;--c-us-head:linear-gradient(180deg,#e9efff,#f1ecff);--c-line:#e4e9f3;--c-ink:#0d1630;--c-mu:#62708c;
+  --c-them-bg:#fdeceb;--c-them-ink:#b42318;--c-us-bg:#f5f8ff;--c-us-ink:#0b7a52;--c-us-th:#c2410c;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --h-bg:radial-gradient(800px 480px at 8% -10%,rgba(59,130,246,.45),transparent 60%),radial-gradient(700px 460px at 95% 0%,rgba(139,92,246,.40),transparent 60%),radial-gradient(600px 400px at 70% 110%,rgba(236,72,153,.18),transparent 60%),linear-gradient(180deg,#050b24 0%,#0a1440 100%);
+  --h-ink:#f4f2ff;--h-mu:#b9b5d1;--h-line:rgba(255,255,255,.12);--h-glass:rgba(255,255,255,.06);--h-hover:rgba(255,255,255,.08);
+  --h-top:rgba(5,12,34,.94);--h-menu:#0d1838;--h-dot:rgba(255,255,255,.07);--h-kicker:#9fbaff;--h-ghost:rgba(255,255,255,.35);--h-ico:rgba(31,94,255,.22);--h-ico-ink:#9fbaff;
+  --h-g:linear-gradient(90deg,#60a5fa,#c084fc 50%,#fb923c);--h-shadow:0 30px 80px rgba(0,0,0,.35);
+  --c-bg:#081431;--c-head:#06102a;--c-us-head:linear-gradient(180deg,#132a63,#0d1f4a);--c-line:#1c2b52;--c-ink:#ffffff;--c-mu:#8f9bbb;
+  --c-them-bg:rgba(255,99,99,.1);--c-them-ink:#ff9b9b;--c-us-bg:rgba(31,94,255,.08);--c-us-ink:#8ff0c1;--c-us-th:#ff9a4d}}
+:root[data-theme="dark"]{
+  --h-bg:radial-gradient(800px 480px at 8% -10%,rgba(59,130,246,.45),transparent 60%),radial-gradient(700px 460px at 95% 0%,rgba(139,92,246,.40),transparent 60%),radial-gradient(600px 400px at 70% 110%,rgba(236,72,153,.18),transparent 60%),linear-gradient(180deg,#050b24 0%,#0a1440 100%);
+  --h-ink:#f4f2ff;--h-mu:#b9b5d1;--h-line:rgba(255,255,255,.12);--h-glass:rgba(255,255,255,.06);--h-hover:rgba(255,255,255,.08);
+  --h-top:rgba(5,12,34,.94);--h-menu:#0d1838;--h-dot:rgba(255,255,255,.07);--h-kicker:#9fbaff;--h-ghost:rgba(255,255,255,.35);--h-ico:rgba(31,94,255,.22);--h-ico-ink:#9fbaff;
+  --h-g:linear-gradient(90deg,#60a5fa,#c084fc 50%,#fb923c);--h-shadow:0 30px 80px rgba(0,0,0,.35);
+  --c-bg:#081431;--c-head:#06102a;--c-us-head:linear-gradient(180deg,#132a63,#0d1f4a);--c-line:#1c2b52;--c-ink:#ffffff;--c-mu:#8f9bbb;
+  --c-them-bg:rgba(255,99,99,.1);--c-them-ink:#ff9b9b;--c-us-bg:rgba(31,94,255,.08);--c-us-ink:#8ff0c1;--c-us-th:#ff9a4d}
+.top,.hero,.sticky{--on-hero:var(--h-ink);--on-hero-mu:var(--h-mu);--hero-line:var(--h-line)}
+.top{background:var(--h-top);box-shadow:0 1px 0 var(--h-line)}
+.hero{background:var(--h-bg)}
+.hero::after{background-image:radial-gradient(var(--h-dot) 1px,transparent 1px)}
+.hero .kicker{color:var(--h-kicker)}
+.hero h1 .g{background:var(--h-g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pill,.quick,.hl span{background:var(--h-glass)}
+.nav>a:hover,.dd>button:hover,.nav>a[aria-current="page"],.dd.on>button,.quick a:hover,.icon-btn:hover,.btn-login:hover,.dd-menu a:hover,.dd-menu a[aria-current="page"]{background:var(--h-hover)}
+.dd-menu{background:var(--h-menu);box-shadow:var(--h-shadow)}
+.dd-ico{background:var(--h-ico);color:var(--h-ico-ink)}
+.btn-login{border-color:var(--h-ghost)}
+.top .btn-ghost,.hero .btn-ghost,.sticky .btn-ghost{border-color:var(--h-ghost);background:var(--h-glass)}
+.top .btn-ghost:hover,.hero .btn-ghost:hover,.sticky .btn-ghost:hover{border-color:var(--h-ink);background:var(--h-hover)}
+.sticky{background:var(--h-top);border-top-color:var(--h-line);box-shadow:0 -8px 30px rgba(13,22,48,.08)}
+.sticky .cohort{border-color:var(--h-line)}
+.hero-form{box-shadow:var(--h-shadow);border:1px solid var(--line)}
+@media (max-width:1020px){.nav{background:var(--h-menu)}.dd-menu{background:var(--h-glass);box-shadow:none}}
+/* Comparison table follows the theme */
+.cmp{background:var(--c-bg);border-color:var(--c-line);color:var(--c-ink);box-shadow:var(--shadow)}
+.cmp th{background:var(--c-head);color:var(--c-mu);border-bottom-color:var(--c-line)}
+.cmp th.us{background:var(--c-us-head);color:var(--c-us-th)}
+.cmp td{border-bottom-color:var(--c-line)}
+.cmp td b{color:var(--c-ink)}
+.cmp td small{color:var(--c-mu)}
+.cmp td.them span{background:var(--c-them-bg);color:var(--c-them-ink)}
+.cmp td.us{background:var(--c-us-bg);color:var(--c-us-ink)}
+/* "How you'll learn" strip under the hero */
+.learn{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.learn div{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.learn svg{flex:none;width:40px;height:40px;padding:9px;border-radius:11px;background:var(--brand-soft);color:var(--brand-ink)}
+.learn div:nth-child(2) svg{background:var(--accent-soft);color:var(--accent-ink)}
+.learn div:nth-child(3) svg{background:#f1ebff;color:#6d28d9}
+.learn div:nth-child(4) svg{background:var(--ok-soft);color:var(--ok-ink)}
+.learn div:nth-child(5) svg{background:#fdecf4;color:#be185d}
+.learn b{display:block;font:700 15px var(--display);line-height:1.3}
+.learn small{display:block;color:var(--mu);font-size:13.5px;line-height:1.45;margin-top:2px}
+:root[data-theme="dark"] .learn div:nth-child(3) svg,:root[data-theme="dark"] .learn div:nth-child(5) svg{background:var(--surface-2)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .learn div:nth-child(3) svg,:root:not([data-theme="light"]) .learn div:nth-child(5) svg{background:var(--surface-2)}}
+@media (max-width:1100px){.learn{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.learn{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.learn{grid-template-columns:1fr}}
+section.learn-s{padding:36px 0 8px}
+.g,.hl span::before{background:var(--h-g);-webkit-background-clip:text;background-clip:text;color:transparent}
