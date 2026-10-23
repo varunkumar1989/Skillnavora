@@ -1,6 +1,6 @@
-# Turning on student and admin logins
+# Turning on the LMS (student and admin logins)
 
-The login, dashboard and admin pages are already on the site. They show "coming soon" until you connect a free Supabase project. This takes about 15 minutes.
+The login, LMS and admin pages are already on the site. They show "coming soon" until you connect a free Supabase project. This takes about 15 minutes.
 
 ## 1. Create the project
 1. Go to **supabase.com** → **Start your project** → sign in with GitHub.
@@ -8,7 +8,7 @@ The login, dashboard and admin pages are already on the site. They show "coming 
 
 ## 2. Create the tables and security rules
 1. In the project, open **SQL Editor** → **New query**.
-2. Paste everything from `supabase/schema.sql` → **Run**. You should see "Success. No rows returned".
+2. Paste everything from `supabase/schema.sql` → **Run**. You should see "Success. No rows returned". If `schema.sql` changes in a later update, run it again: it keeps your data.
 
 ## 3. Set the website address
 **Authentication → URL Configuration**:
@@ -28,6 +28,11 @@ Never paste the **secret** or **service_role** key anywhere on the website. The 
    update public.profiles set role = 'admin' where email = 'varunebix@gmail.com';
    ```
 3. Log in again: you'll land on the **Admin panel**. Add more admins from its **Admins** tab.
+
+## Optional: "Continue with Google"
+1. In Google Cloud Console, create an **OAuth client ID** (type: Web application). Add the redirect URL Supabase shows under **Authentication → Sign In / Providers → Google**.
+2. Paste the client ID and secret into that Supabase Google provider and enable it. The Google secret goes only into Supabase, never into the website.
+3. In `assets/config.js`, set `google: true` in `AUTH`.
 
 ## Good to know
 - **Emails:** Supabase's built-in email sender is limited to a few emails an hour and is meant for testing. Before you open sign-ups to many students, set up your own sender under **Authentication → Emails → SMTP Settings** (for example a free Brevo or Resend account).
