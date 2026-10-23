@@ -45,12 +45,15 @@ const TOPBAR = {
    See supabase/README.md. Paste the Project URL and the publishable
    ("anon public") key. NEVER paste the secret / service_role key.
    google: true shows "Continue with Google" (turn it on in Supabase first).
-   phone:  true shows "Mobile number + OTP" (needs an SMS provider in Supabase). */
+   phone:  true shows "Mobile number + OTP" (needs an SMS provider in Supabase).
+   whatsapp: true shows "Continue with WhatsApp" (needs Twilio or Twilio Verify
+             with a WhatsApp sender, set up as the SMS provider in Supabase). */
 const AUTH = {
   supabaseUrl: "https://rnncabqtcxxivuyjwoja.supabase.co",
   supabaseKey: "sb_publishable_9sKPYxU3MHQfNT43n3d95A_bVLZi7BP",
   google: false,
-  phone: false
+  phone: false,
+  whatsapp: false
 };
 
 /* ---- Programs ----------------------------------------------------------

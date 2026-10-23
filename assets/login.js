@@ -53,18 +53,22 @@
     done();
   });
 
-  // ---- Mobile OTP ----
-  let phone = "";
+  // ---- Mobile OTP, by SMS or WhatsApp (both are verified as type "sms") ----
+  let phone = "", channel = "sms";
   if (A.phone) $("m-phone").hidden = false;
+  if (A.whatsapp) $("m-wa").hidden = false;
+  const via = c => { channel = c; $("phone-go").textContent = c === "whatsapp" ? "Get OTP on WhatsApp" : "Get OTP"; delete $("phone-go").dataset.l; show("s-phone"); $("f-phone").phone.focus(); };
+  $("m-phone").addEventListener("click", () => via("sms"));
+  $("m-wa").addEventListener("click", () => via("whatsapp"));
   $("f-phone").addEventListener("submit", async e => {
     e.preventDefault(); const f = e.target, b = f.querySelector("button[type=submit]");
     phone = f.cc.value + f.phone.value.replace(/\D/g, "");
     if (phone.replace(/\D/g, "").length < 10) return say("error", "Please enter a valid mobile number.");
     busy(b, true, "Sending OTP…");
-    const { error } = await client.auth.signInWithOtp({ phone, options: meta() });
+    const { error } = await client.auth.signInWithOtp({ phone, options: { ...meta(), channel } });
     busy(b, false);
     if (error) return say("error", errText(error));
-    $("pcode-to").textContent = phone; show("s-pcode"); $("f-pcode").token.focus();
+    $("pcode-to").textContent = phone + (channel === "whatsapp" ? " on WhatsApp" : ""); show("s-pcode"); $("f-pcode").token.focus();
   });
   $("f-pcode").addEventListener("submit", async e => {
     e.preventDefault(); const f = e.target, b = f.querySelector("button[type=submit]"); busy(b, true, "Verifying…");
