@@ -15,7 +15,7 @@
 <link rel="icon" href="assets/logo-mark.svg?v=10111fe6" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=939468d5">
+<link rel="stylesheet" href="assets/site.css?v=7cb54690">
 </head>
 <body data-root="">
 <div class="topbar" id="topbar" hidden><div class="wrap"><span class="dot"></span><b></b><a class="cta" href="#">Apply now →</a><span class="tag"></span><button class="x" type="button" aria-label="Close announcement">×</button></div></div>
@@ -60,22 +60,40 @@
 </div></footer>
 
 <a class="wa" id="wa" hidden target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg></span><em class="t">Chat on WhatsApp</em></a>
-<div class="modal" id="m-counsel" role="dialog" aria-modal="true" aria-labelledby="mc-h"><div class="mbox">
-  <button class="mclose" type="button" data-close aria-label="Close">×</button>
-  <div class="art"><svg viewBox="0 0 200 120" aria-hidden="true"><circle cx="40" cy="30" r="18" fill="#fff" stroke="#e1e6f0"/><circle cx="40" cy="25" r="6" fill="#55607a"/><path d="M29 41a11 11 0 0 1 22 0" fill="#55607a"/><circle cx="53" cy="42" r="5" fill="#22c55e" stroke="#fff" stroke-width="2"/>
-<rect x="55" y="38" width="88" height="48" rx="14" fill="#0d1630"/><path d="M70 86l-4 16 18-16z" fill="#0d1630"/><circle cx="84" cy="62" r="5" fill="#8a96b5"/><circle cx="99" cy="62" r="5" fill="#8a96b5"/><circle cx="114" cy="62" r="5" fill="#8a96b5"/>
-<rect x="120" y="62" width="76" height="42" rx="12" fill="#fff" stroke="#e1e6f0"/><rect x="132" y="75" width="48" height="5" rx="2.5" fill="#cdd5e6"/><rect x="132" y="87" width="34" height="5" rx="2.5" fill="#cdd5e6"/>
-<path d="M165 26l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#ff8a3d"/><path d="M22 74l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" fill="#ff8a3d" opacity=".7"/></svg></div>
-  <div class="in"><h2 id="mc-h">Book a free counselling call</h2><div class="rule"></div>
-    <p>Talk 1:1 with our team about your background, goals and the right program. 15 minutes, no sales pitch.</p>
-    <a class="btn btn-dark" id="counsel-book" href="#" target="_blank" rel="noopener" hidden>Pick a time on our calendar →</a>
-    <form id="f-counsel" class="form" style="margin-top:4px">
-      <div class="row2"><label>Name<input name="name" required maxlength="80" autocomplete="name"></label><label>Phone<input name="phone" required inputmode="tel" pattern="[0-9+ ()-]{7,20}" maxlength="20" autocomplete="tel" placeholder="98765 43210"></label></div>
-      <label>Email <span class="meta">(optional)</span><input name="email" type="email" maxlength="200" autocomplete="email"></label>
-      <div class="row2"><label>Program<select name="course"></select></label><label>Best time to call<select name="time"><option>Morning (9–12)</option><option>Afternoon (12–5)</option><option selected>Evening (5–9)</option><option>Weekend</option></select></label></div>
-      <button class="btn btn-primary" type="submit">Book my free call</button>
+<div class="modal" id="m-counsel" role="dialog" aria-modal="true" aria-labelledby="mc-h"><div class="mbox wide">
+  <div class="mside">
+    <h2>Have questions about the course unanswered?</h2>
+    <div class="kicker" style="color:#cfe0ff">Our recommendation</div>
+    <p class="mside-sub">Talk to the founder</p>
+    <div class="mperson"><div class="ring"><img src="assets/varun.jpg" alt="Varun Kumar" width="150" height="150"></div>
+      <div class="pcard"><div class="pt">Free 1:1 · 15 minutes · No sales pitch</div><div class="pb"><b>Varun Kumar</b><span>Founder, SkillNavora · Product Manager</span></div></div></div>
+  </div>
+  <div class="mform">
+    <div class="mhead"><h2 id="mc-h">Talk to a counsellor</h2><button class="mclose" type="button" data-close aria-label="Close">×</button></div>
+    <div class="mprog"><span id="mc-bar"></span></div>
+    <form id="f-counsel" novalidate>
+      <div class="mstep" data-step="1">
+        <fieldset><legend><span class="req">Select your highest qualification</span></legend><div class="radios">
+          <label><input type="radio" name="qual" value="12th"> 12th</label><label><input type="radio" name="qual" value="Diploma"> Diploma</label><label><input type="radio" name="qual" value="Undergraduate"> Undergraduate</label><label><input type="radio" name="qual" value="Postgraduate"> Postgraduate</label></div></fieldset>
+        <fieldset><legend><span class="req">Select your graduation year</span></legend><div class="radios">
+          <label><input type="radio" name="grad" value="Before 2015"> Before 2015</label><label><input type="radio" name="grad" value="2015 – 2020"> 2015 – 2020</label><label><input type="radio" name="grad" value="2021 – 2025"> 2021 – 2025</label><label><input type="radio" name="grad" value="2026 or later"> 2026 or later</label><label><input type="radio" name="grad" value="Haven't joined college yet"> Haven't joined college yet</label></div></fieldset>
+      </div>
+      <div class="mstep" data-step="2" hidden>
+        <fieldset><legend><span class="req">Your work experience</span></legend><div class="radios">
+          <label><input type="radio" name="exp" value="Student / Fresher"> Student / Fresher</label><label><input type="radio" name="exp" value="0 – 2 years"> 0 – 2 years</label><label><input type="radio" name="exp" value="2 – 5 years"> 2 – 5 years</label><label><input type="radio" name="exp" value="5 – 10 years"> 5 – 10 years</label><label><input type="radio" name="exp" value="10+ years"> 10+ years</label></div></fieldset>
+        <fieldset><legend><span class="req">Which program interests you?</span></legend><div class="radios" id="mc-courses"></div></fieldset>
+      </div>
+      <div class="mstep" data-step="3" hidden>
+        <label><span class="req">Name</span><input name="name" maxlength="80" autocomplete="name" placeholder="Enter your name"></label>
+        <label><span class="req">Phone number</span><span class="phone"><select name="cc" aria-label="Country code"><option value="+91">🇮🇳 +91</option><option value="+971">🇦🇪 +971</option><option value="+1">🇺🇸 +1</option><option value="+44">🇬🇧 +44</option></select><input name="phone" inputmode="tel" maxlength="15" autocomplete="tel-national" placeholder="98765 43210"></span></label>
+        <label>Email <span class="meta">(optional)</span><input name="email" type="email" maxlength="200" autocomplete="email" placeholder="you@gmail.com"></label>
+        <label>Best time to call<select name="time"><option>Morning (9–12)</option><option>Afternoon (12–5)</option><option selected>Evening (5–9)</option><option>Weekend</option></select></label>
+      </div>
+      <p class="notice error" id="mc-err" hidden role="alert"></p>
+      <div class="mfoot"><button class="btn btn-line" type="button" id="mc-back" hidden>← Back</button><button class="btn btn-primary" type="submit" id="mc-next">Next →</button></div>
+      <a class="meta" id="counsel-book" href="#" target="_blank" rel="noopener" hidden style="display:block;text-align:center;margin-top:10px">Or pick a time on our calendar →</a>
     </form>
-    <div id="counsel-done" class="done-box" hidden><div class="big">🎉</div><h3>You're booked in!</h3><p>Our counsellor will call you at your preferred time. You can also message us on WhatsApp any time.</p></div>
+    <div id="counsel-done" class="done-box" hidden><div class="big">🎉</div><h3>You're booked in!</h3><p class="meta">We'll call you at your preferred time. You can also message us on WhatsApp any time.</p></div>
   </div></div></div>
 <div class="modal" id="m-unsure" role="dialog" aria-modal="true" aria-labelledby="mu-h"><div class="mbox">
   <button class="mclose" type="button" data-close aria-label="Close">×</button>
@@ -97,7 +115,7 @@
   <form class="chat-f" id="chat-f"><textarea id="chat-in" rows="1" maxlength="1500" placeholder="Ask a question…" aria-label="Your question"></textarea><button type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></form>
   <div class="chat-n">AI answers can be wrong. Confirm fees and dates with a counsellor.</div>
 </div>
-<script src="assets/config.js?v=5d01b3df"></script>
-<script src="assets/site.js?v=53bb8686"></script><script src="assets/engage.js?v=34f8ebe2"></script>
+<script src="assets/config.js?v=be14bfe7"></script>
+<script src="assets/site.js?v=7c701bce"></script><script src="assets/engage.js?v=b729cbd5"></script>
 </body>
 </html>

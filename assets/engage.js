@@ -57,26 +57,82 @@
   });
   document.addEventListener("keydown", e => { if (e.key === "Escape") document.querySelectorAll(".modal.open").forEach(close); });
 
-  // Counselling: every "counselling" button opens the booking form (or the booking link if set).
+  // Counselling: every "counselling" button opens a 3-step form (qualification → experience
+  // and program → contact details).
   const cf = $("f-counsel");
-  if (cf) cf.course.innerHTML = C.map(c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join("") + '<option value="">Not sure yet</option>';
+  let step = 1;
+  const STEPS = 3;
+  const goStep = n => { step = n;
+    cf.querySelectorAll(".mstep").forEach(x => x.hidden = +x.dataset.step !== n);
+    $("mc-bar").style.width = Math.round(n / STEPS * 100) + "%";
+    $("mc-back").hidden = n === 1; $("mc-next").textContent = n === STEPS ? "Book my free call" : "Next →";
+    ok($("mc-err"), "", ""); };
+  if (cf) {
+    $("mc-courses").innerHTML = C.map(c => `<label><input type="radio" name="course" value="${esc(c.id)}"> ${esc(c.name)}</label>`).join("") + '<label><input type="radio" name="course" value=""> Not sure yet</label>';
+    if (S.booking) { $("counsel-book").hidden = false; $("counsel-book").href = /^https?:/.test(S.booking) ? S.booking : "https://" + S.booking; }
+    $("mc-back").addEventListener("click", () => goStep(step - 1));
+  }
   document.addEventListener("click", e => {
     const t = e.target.closest("[data-counsel],[data-st-counsel],[data-open-counsel]"); if (!t || !cf) return;
     e.preventDefault();
     const id = t.dataset.counsel || document.body.dataset.course || "";
-    if (id && [...cf.course.options].some(o => o.value === id)) cf.course.value = id;
+    const r = cf.querySelector(`input[name=course][value="${CSS.escape(id)}"]`); if (id && r) r.checked = true;
+    cf.hidden = false; $("counsel-done").hidden = true; goStep(1);
     open("m-counsel");
   });
-  if (cf) {
-    if (S.booking) { $("counsel-book").hidden = false; $("counsel-book").href = /^https?:/.test(S.booking) ? S.booking : "https://" + S.booking; }
-    cf.addEventListener("submit", async e => {
+  if (cf) cf.addEventListener("submit", async e => {
+    e.preventDefault();
+    const val = n => (cf.querySelector(`input[name=${n}]:checked`) || {}).value;
+    const need = { 1: [["qual", "your qualification"], ["grad", "your graduation year"]], 2: [["exp", "your experience"], ["course", "a program"]] }[step] || [];
+    const miss = need.find(([n]) => val(n) === undefined);
+    if (miss) return ok($("mc-err"), "error", "Please choose " + miss[1] + ".");
+    if (step < STEPS) return goStep(step + 1);
+    const phone = (cf.cc.value + " " + cf.phone.value.trim()).trim();
+    if (!cf.name.value.trim()) return ok($("mc-err"), "error", "Please enter your name.");
+    if (!/^[0-9+ ()-]{7,20}$/.test(phone) || cf.phone.value.replace(/\D/g, "").length < 7) return ok($("mc-err"), "error", "Please enter a valid phone number.");
+    const row = { kind: "counselling", course_id: val("course") || null, first_name: cf.name.value.trim(), phone, email: cf.email.value.trim() || null,
+      experience: val("exp"), role: val("qual"), message: "Graduation year: " + val("grad"), preferred_time: cf.time.value };
+    const b = $("mc-next"); b.disabled = true; b.textContent = "Booking…";
+    const saved = await saveLead(row); b.disabled = false; b.textContent = "Book my free call";
+    if (saved) { cf.hidden = true; $("counsel-done").hidden = false; }
+    else window.open(waLink("Hi SkillNavora, I'd like a free counselling call.\n" + summary(row)), "_blank", "noopener");
+  });
+
+  // Hero sign-up card: Google sign-up (when switched on) or the quick form.
+  const lf = $("f-lead");
+  if (lf) {
+    if (A.google && A.supabaseUrl) {
+      $("lead-google").hidden = false; $("lead-or").hidden = false;
+      const loadLib = () => window.supabase ? Promise.resolve() : new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = R + "assets/vendor/supabase-2.117.3.js"; sc.onload = res; sc.onerror = rej; document.head.appendChild(sc); });
+      $("lead-google").addEventListener("click", async () => {
+        const c = (lf.querySelector("input[name=course]:checked") || {}).value || "";
+        store.set("signupCourse", c);
+        try { await loadLib(); } catch { return ok($("lead-err"), "error", "Couldn't start Google sign-in. Please check your connection and try again."); }
+        const sb = window.supabase.createClient(A.supabaseUrl, A.supabaseKey, { auth: { flowType: "implicit" } });
+        await sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + "/lms.html" } });
+      });
+    }
+    lf.addEventListener("submit", async e => {
       e.preventDefault();
-      const row = { kind: "counselling", course_id: cf.course.value || null, first_name: cf.name.value.trim(), phone: cf.phone.value.trim(), email: cf.email.value.trim() || null, preferred_time: cf.time.value };
-      const b = cf.querySelector("button[type=submit]"); b.disabled = true; b.textContent = "Booking…";
-      const saved = await saveLead(row); b.disabled = false; b.textContent = "Book my free call";
-      if (saved) { cf.hidden = true; $("counsel-done").hidden = false; }
-      else window.open(waLink("Hi SkillNavora, I'd like a free counselling call.\n" + summary(row)), "_blank", "noopener");
+      const phone = (lf.cc.value + " " + lf.phone.value.trim()).trim();
+      if (!lf.name.value.trim()) return ok($("lead-err"), "error", "Please enter your name.");
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(lf.email.value.trim())) return ok($("lead-err"), "error", "Please enter a valid email.");
+      if (!/^[0-9+ ()-]{7,20}$/.test(phone) || lf.phone.value.replace(/\D/g, "").length < 7) return ok($("lead-err"), "error", "Please enter a valid phone number.");
+      const row = { kind: "counselling", course_id: (lf.querySelector("input[name=course]:checked") || {}).value || null, first_name: lf.name.value.trim(), email: lf.email.value.trim(), phone,
+        message: "Free live class + counselling (home page)." + (lf.wa.checked ? " OK to send WhatsApp updates." : " No WhatsApp updates.") };
+      const b = lf.querySelector("button[type=submit]"); b.disabled = true; b.textContent = "Booking…";
+      const saved = await saveLead(row); b.disabled = false; b.textContent = "Book my free session →";
+      if (saved) { lf.hidden = true; $("lead-google").hidden = true; $("lead-or").hidden = true; $("lead-done").hidden = false; }
+      else window.open(waLink("Hi SkillNavora, I'd like a free live class and counselling session.\n" + summary(row)), "_blank", "noopener");
     });
+  }
+
+  // Stats band (only when switched on in config.js)
+  const ST = typeof STATS !== "undefined" ? STATS : null;
+  if (ST && ST.show && $("stats")) {
+    $("statgrid").innerHTML = (ST.items || []).map(x => `<div><b>${esc(x.n)}</b><span>${esc(x.t)}</span></div>`).join("");
+    if (ST.note) $("stats-note").textContent = ST.note;
+    $("stats").hidden = false;
   }
 
   // "Not sure if this is for you?" after N minutes on the site (once a day).
