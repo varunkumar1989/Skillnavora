@@ -147,7 +147,7 @@ create table if not exists public.announcements (
 -- Anyone can submit (no login needed); only admins can read them.
 create table if not exists public.applications (
   id             bigint generated always as identity primary key,
-  kind           text not null default 'application' check (kind in ('application', 'counselling')),
+  kind           text not null default 'application' check (kind in ('application', 'counselling', 'mentor', 'career')),
   course_id      text check (course_id ~ '^[a-z0-9-]{1,40}$'),
   first_name     text not null check (length(first_name) between 1 and 80),
   last_name      text check (length(last_name) <= 80),
@@ -181,6 +181,9 @@ create table if not exists public.jobs (
 
 -- Upgrades for projects set up with an earlier version of this file.
 alter table public.applications add column if not exists source text check (length(source) <= 200);
+-- Mentor and careers applications (also run on existing projects)
+alter table public.applications drop constraint if exists applications_kind_check;
+alter table public.applications add constraint applications_kind_check check (kind in ('application', 'counselling', 'mentor', 'career'));
 alter table public.materials drop constraint if exists materials_kind_check;
 alter table public.materials add constraint materials_kind_check check (kind in ('recording', 'slides', 'reading', 'assignment', 'link', 'preread'));
 

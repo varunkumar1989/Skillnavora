@@ -178,6 +178,33 @@
     });
   }
 
+  /* ---------- Mentor and careers applications ---------- */
+  document.querySelectorAll("form[data-lead]").forEach(f => {
+    const kind = f.dataset.lead, msg = f.querySelector("[data-lead-msg]");
+    f.addEventListener("submit", async e => {
+      e.preventDefault();
+      const v = n => f.elements[n].value.trim();
+      const phone = (f.cc.value + " " + v("phone")).trim();
+      if (!v("name")) return ok(msg, "error", "Please enter your name.");
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("email"))) return ok(msg, "error", "Please enter a valid email.");
+      if (!/^[0-9+ ()-]{7,20}$/.test(phone) || v("phone").replace(/\D/g, "").length < 7) return ok(msg, "error", "Please enter a valid contact number.");
+      if (!/^https?:\/\/\S+$/i.test(v("linkedin"))) return ok(msg, "error", "Please add your LinkedIn profile URL (starting with https://).");
+      if (!v("role") || !v("experience")) return ok(msg, "error", "Please choose an option in each list.");
+      const extra = v("extra"), label = kind === "mentor" ? "Current role" : "Resume / portfolio";
+      const row = { kind, first_name: v("name"), email: v("email"), phone, linkedin: v("linkedin"), role: v("role"), experience: v("experience"),
+        message: [extra ? label + ": " + extra : "", v("message")].filter(Boolean).join("\n\n").slice(0, 2000) || null };
+      const b = f.querySelector("button[type=submit]"), t = b.textContent; b.disabled = true; b.textContent = "Submitting…";
+      const saved = await saveLead(row); b.disabled = false; b.textContent = t;
+      if (!saved) { window.open(waLink((kind === "mentor" ? "Hi SkillNavora, I'd like to become a mentor.\n" : "Hi SkillNavora, I'd like to join your team.\n") + summary(row)), "_blank", "noopener"); return ok(msg, "info", "We opened WhatsApp with your details. Just press send."); }
+      f.hidden = true; f.parentNode.querySelector("[data-lead-done]").hidden = false;
+    });
+  });
+  const ROLES = (typeof CAREERS !== "undefined" ? CAREERS : []).filter(r => r && r.title);
+  if (ROLES.length && $("open-roles")) {
+    $("open-roles").innerHTML = (ROLES.map(r => `<div class="card role"><div><b>${esc(r.title)}</b><div class="meta">${esc([r.team, r.type, r.location].filter(Boolean).join(" · "))}</div>${r.text ? `<p>${esc(r.text)}</p>` : ""}</div><a class="btn btn-line btn-sm" href="#career-form">Apply</a></div>`).join(""));
+    $("roles-empty").hidden = true;
+  }
+
   /* ---------- Program sections from config ---------- */
   const set = (id, h) => { const el = $(id); if (el) el.innerHTML = h; };
   const P = C.find(x => x.id === document.body.dataset.course);

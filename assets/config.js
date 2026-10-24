@@ -269,6 +269,12 @@ const EVENTS = [
    { title: "Product Manager", company: "Company", location: "Bengaluru, India", category: "product",
      experience: "3-5 years", job_type: "Full time", posted_on: "2027-01-10",
      url: "https://www.linkedin.com/jobs/view/...", logo: "" } */
+/* ---- Careers page: open roles at SkillNavora ------------------------------
+   Leave empty to show "send a general application". Example:
+   { title: "Teaching assistant (AI PM)", team: "Teaching", type: "Part time", location: "Remote", text: "Help learners with assignments and doubts." } */
+const CAREERS = [
+];
+
 const JOBS = [
 ];
 

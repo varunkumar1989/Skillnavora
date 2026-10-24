@@ -1,38 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="SkillNavora">
   <title>SkillNavora</title>
   <defs>
-    <linearGradient id="bz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#c9d1de"/><stop offset="1" stop-color="#6b778f"/></linearGradient>
-    <linearGradient id="bi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4b5670"/><stop offset="1" stop-color="#e6ebf2"/></linearGradient>
-    <radialGradient id="fc" cx=".42" cy=".32" r=".8"><stop offset="0" stop-color="#22355f"/><stop offset=".6" stop-color="#0e1b3a"/><stop offset="1" stop-color="#060d20"/></radialGradient>
-    <linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".32"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-    <radialGradient id="cp" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#8794ab"/></radialGradient>
+    <linearGradient id="sf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb35c"/><stop offset="1" stop-color="#f07f12"/></linearGradient>
+    <linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1fa32a"/><stop offset="1" stop-color="#0d6b14"/></linearGradient>
+    <radialGradient id="fc" cx=".4" cy=".3" r=".85"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e3e8f0"/></radialGradient>
+    <linearGradient id="sn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a4fae"/><stop offset=".55" stop-color="#0b2a78"/><stop offset="1" stop-color="#071a4d"/></linearGradient>
+    <linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
     <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#0b1530" flood-opacity=".35"/></filter>
-    <filter id="ns" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="1.2" dy="2" stdDeviation="1.2" flood-color="#000" flood-opacity=".45"/></filter>
+    <filter id="ts" x="-20%" y="-30%" width="140%" height="160%"><feDropShadow dx="0" dy="1.6" stdDeviation=".6" flood-color="#000" flood-opacity=".35"/></filter>
+    <clipPath id="top"><rect x="0" y="0" width="128" height="64"/></clipPath>
+    <clipPath id="bot"><rect x="0" y="64" width="128" height="64"/></clipPath>
     <style>
-      .ndl{transform-origin:64px 64px;animation:sway 6s ease-in-out infinite}
-      @keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(6deg)}}
-      @media (prefers-reduced-motion:reduce){.ndl{animation:none}}
+      .rose{transform-origin:64px 47px;animation:spin 40s linear infinite}
+      @keyframes spin{to{transform:rotate(360deg)}}
+      @media (prefers-reduced-motion:reduce){.rose{animation:none}}
     </style>
   </defs>
   <g filter="url(#sh)">
-    <circle cx="64" cy="64" r="60" fill="url(#bz)"/>
-    <circle cx="64" cy="64" r="54" fill="url(#bi)"/>
-    <circle cx="64" cy="64" r="51.5" fill="url(#fc)"/>
+    <circle cx="64" cy="64" r="60" fill="url(#sf)" clip-path="url(#top)"/>
+    <circle cx="64" cy="64" r="60" fill="url(#gr)" clip-path="url(#bot)"/>
+    <circle cx="64" cy="64" r="51" fill="#fff"/>
+    <circle cx="64" cy="64" r="49" fill="url(#fc)"/>
   </g>
-  <g fill="none" transform="rotate(-90 64 64)">
-    <circle cx="64" cy="64" r="45" stroke="#fff" stroke-opacity=".38" stroke-width="5" stroke-dasharray=".9 3.027"/>
-    <circle cx="64" cy="64" r="45" stroke="#fff" stroke-width="7" stroke-dasharray="1.8 33.543" stroke-dashoffset=".9"/>
+  <g class="rose">
+    <circle cx="64" cy="47" r="17" fill="none" stroke="#0b2a78" stroke-width="1.6"/>
+    <g stroke="#0b2a78" stroke-width="1.1"><line x1="64.00" y1="30.00" x2="64.00" y2="33.20"/><line x1="67.32" y1="30.33" x2="66.93" y2="32.29"/><line x1="70.51" y1="31.29" x2="69.74" y2="33.14"/><line x1="73.44" y1="32.87" x2="72.33" y2="34.53"/><line x1="76.02" y1="34.98" x2="73.76" y2="37.24"/><line x1="78.13" y1="37.56" x2="76.47" y2="38.67"/><line x1="79.71" y1="40.49" x2="77.86" y2="41.26"/><line x1="80.67" y1="43.68" x2="78.71" y2="44.07"/><line x1="81.00" y1="47.00" x2="77.80" y2="47.00"/><line x1="80.67" y1="50.32" x2="78.71" y2="49.93"/><line x1="79.71" y1="53.51" x2="77.86" y2="52.74"/><line x1="78.13" y1="56.44" x2="76.47" y2="55.33"/><line x1="76.02" y1="59.02" x2="73.76" y2="56.76"/><line x1="73.44" y1="61.13" x2="72.33" y2="59.47"/><line x1="70.51" y1="62.71" x2="69.74" y2="60.86"/><line x1="67.32" y1="63.67" x2="66.93" y2="61.71"/><line x1="64.00" y1="64.00" x2="64.00" y2="60.80"/><line x1="60.68" y1="63.67" x2="61.07" y2="61.71"/><line x1="57.49" y1="62.71" x2="58.26" y2="60.86"/><line x1="54.56" y1="61.13" x2="55.67" y2="59.47"/><line x1="51.98" y1="59.02" x2="54.24" y2="56.76"/><line x1="49.87" y1="56.44" x2="51.53" y2="55.33"/><line x1="48.29" y1="53.51" x2="50.14" y2="52.74"/><line x1="47.33" y1="50.32" x2="49.29" y2="49.93"/><line x1="47.00" y1="47.00" x2="50.20" y2="47.00"/><line x1="47.33" y1="43.68" x2="49.29" y2="44.07"/><line x1="48.29" y1="40.49" x2="50.14" y2="41.26"/><line x1="49.87" y1="37.56" x2="51.53" y2="38.67"/><line x1="51.98" y1="34.98" x2="54.24" y2="37.24"/><line x1="54.56" y1="32.87" x2="55.67" y2="34.53"/><line x1="57.49" y1="31.29" x2="58.26" y2="33.14"/><line x1="60.68" y1="30.33" x2="61.07" y2="32.29"/></g>
+    <polygon points="64.00,33.50 65.22,44.04 70.01,40.99 66.96,45.78 77.50,47.00 66.96,48.22 70.01,53.01 65.22,49.96 64.00,60.50 62.78,49.96 57.99,53.01 61.04,48.22 50.50,47.00 61.04,45.78 57.99,40.99 62.78,44.04" fill="#0b2a78"/>
+    <circle cx="64" cy="47" r="2.4" fill="#fff" stroke="#0b2a78" stroke-width="1.2"/>
   </g>
-  <g font-family="Outfit,'Plus Jakarta Sans','Segoe UI',Arial,sans-serif" font-weight="800" text-anchor="middle">
-    <text x="64" y="37" font-size="17" fill="#ff7a1a">N</text>
-    <text x="64" y="104" font-size="17" fill="#ffffff">S</text>
-    <text x="99" y="68" font-size="9" fill="#fff" fill-opacity=".55">E</text>
-    <text x="29" y="68" font-size="9" fill="#fff" fill-opacity=".55">W</text>
-  </g>
-  <g class="ndl" filter="url(#ns)">
-    <path d="M64 41L57.5 64H64z" fill="#ff8f45"/><path d="M64 41L70.5 64H64z" fill="#d9480f"/>
-    <path d="M64 87L57.5 64H64z" fill="#ffffff"/><path d="M64 87L70.5 64H64z" fill="#b8c2d3"/>
-    <circle cx="64" cy="64" r="5" fill="url(#cp)" stroke="#55627d" stroke-width=".8"/>
-  </g>
-  <path d="M18 58a46 46 0 0 1 92 0c-14-10-30-14-46-14s-32 4-46 14z" fill="url(#gl)"/>
+  <text x="64" y="101" text-anchor="middle" font-family="Outfit,'Plus Jakarta Sans','Segoe UI',Arial,sans-serif" font-weight="800" font-size="32" letter-spacing="-1" fill="url(#sn)" filter="url(#ts)">SN</text>
+  <path d="M14 60a50 50 0 0 1 100 0c-15-10-33-14-50-14s-35 4-50 14z" fill="url(#gl)"/>
 </svg>
