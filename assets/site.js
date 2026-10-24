@@ -25,7 +25,10 @@
 
   /* ---- Menu: drop-downs and phone menu ---- */
   const nav = $("nav"), burger = $("burger");
-  if (burger) burger.addEventListener("click", () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); document.body.style.overflow = o ? "hidden" : ""; });
+  // The open phone menu fills the screen below the header.
+  const fit = () => { if (nav.classList.contains("open")) nav.style.height = Math.max(200, innerHeight - nav.parentNode.closest(".top").getBoundingClientRect().bottom) + "px"; };
+  if (burger) burger.addEventListener("click", () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); document.body.style.overflow = o ? "hidden" : ""; nav.style.height = ""; fit(); });
+  addEventListener("resize", fit);
   const hoverMode = matchMedia("(hover: hover) and (min-width: 1021px)").matches;
   document.querySelectorAll(".dd").forEach(dd => {
     const btn = dd.querySelector("button");

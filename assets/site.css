@@ -1003,3 +1003,23 @@ section.tint{background:linear-gradient(180deg,rgba(255,153,51,.035),rgba(19,136
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span{-webkit-text-stroke:0;--wm-a:linear-gradient(180deg,#ffc27a 0%,#ff9933 45%,#f07f12 100%);--wm-x:rgba(0,0,0,.6)}}
 :root[data-theme="dark"] .brand>span em,footer .brand>span em,.auth-side .logo>span em{--wm-b:linear-gradient(180deg,#6ee07a 0%,#2fbf3f 50%,#16a02a 100%)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span em{--wm-b:linear-gradient(180deg,#6ee07a 0%,#2fbf3f 50%,#16a02a 100%)}}
+@media (min-width:1021px){.nav>.dd:nth-of-type(3) .dd-menu{left:auto;right:0}}
+
+/* v10: tricolour name (saffron, white, green bands) with a bigger capital S and N */
+.brand>span,.auth-side .logo>span,.auth-card .logo>span,
+.brand>span em,.auth-side .logo>span em,.auth-card .logo>span em,
+.brand i.c,.auth-side .logo i.c,.auth-card .logo i.c{
+  --tri3:linear-gradient(180deg,#ffa43f 0%,#ff8c1a 36%,#ffffff 40%,#ffffff 60%,#16a02a 64%,#0e7a1c 100%);
+  background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.85) 50%,transparent 58%) no-repeat,var(--tri3);
+  background-size:250% 100%,100% 100%;background-position:160% 0,0 0;
+  -webkit-background-clip:text;background-clip:text;color:transparent!important;
+  -webkit-text-stroke:.55px #0b2a78;animation:wm-shine 5s ease-in-out infinite}
+.brand>span,.auth-side .logo>span,.auth-card .logo>span{filter:drop-shadow(0 1px 0 rgba(11,42,120,.75)) drop-shadow(0 2px 0 rgba(11,42,120,.35)) drop-shadow(0 3px 4px rgba(6,24,74,.25));letter-spacing:.005em}
+.brand i.c,.auth-side .logo i.c,.auth-card .logo i.c{font-size:1.36em;line-height:0;letter-spacing:-.01em;-webkit-text-stroke:.7px #0b2a78}
+:root[data-theme="dark"] .brand>span,:root[data-theme="dark"] .brand>span em,:root[data-theme="dark"] .brand i.c,footer .brand>span,footer .brand>span em,footer .brand i.c,.auth-side .logo>span,.auth-side .logo>span em,.auth-side .logo i.c{-webkit-text-stroke-color:rgba(255,255,255,.55)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span,:root:not([data-theme="light"]) .brand>span em,:root:not([data-theme="light"]) .brand i.c{-webkit-text-stroke-color:rgba(255,255,255,.55)}}
+@media (prefers-reduced-motion:reduce){.brand i.c,.auth-side .logo i.c,.auth-card .logo i.c{animation:none}}
+:root[data-theme="dark"] .brand>span,footer .brand>span,.auth-side .logo>span{filter:drop-shadow(0 1px 0 rgba(0,0,0,.8)) drop-shadow(0 2px 0 rgba(0,0,0,.5)) drop-shadow(0 3px 4px rgba(0,0,0,.4))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span{filter:drop-shadow(0 1px 0 rgba(0,0,0,.8)) drop-shadow(0 2px 0 rgba(0,0,0,.5)) drop-shadow(0 3px 4px rgba(0,0,0,.4))}}
+@media (max-width:1020px){.nav.open{bottom:auto}}
+@media (min-width:1021px){.nav{height:auto!important}}
