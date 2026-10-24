@@ -29,6 +29,16 @@ Never paste the **secret** or **service_role** key anywhere on the website. The 
    ```
 3. Log in again: you'll land on the **Admin panel**. Add more admins from its **Admins** tab.
 
+## Update: mentor and careers applications (run once)
+The "Become a mentor" and "Careers" forms save into the same Applications list. On a project set up before 24 October 2026, run this once in **SQL Editor → New query → Run**:
+
+```sql
+alter table public.applications drop constraint if exists applications_kind_check;
+alter table public.applications add constraint applications_kind_check check (kind in ('application', 'counselling', 'mentor', 'career'));
+```
+
+Until you run it, those two forms fall back to opening WhatsApp with the applicant's details.
+
 ## Email one-time code (the default login)
 The login page sends a 6-digit code by email. Supabase's default email sends a link instead, so add the code to the template once:
 1. **Authentication → Emails → Templates → Magic link** (also **Confirm signup**).

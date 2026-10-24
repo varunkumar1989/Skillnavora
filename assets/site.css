@@ -886,3 +886,54 @@ footer .brand em,.auth-side .logo em{color:#60a5fa}
 .hb-n{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand-ink);font:700 13px var(--display)}
 @media (max-width:760px){.hb-list{grid-template-columns:1fr}.hb-hero{flex-direction:column}.hb-hero img{width:56px;height:56px}}
 .brand img{width:40px;height:40px}
+
+/* ===================== v7: shining 3D wordmark ===================== */
+.brand>span,.auth-side .logo>span,.auth-card .logo>span{
+  --wm-a:linear-gradient(180deg,#3056c9 0%,#0b2a78 55%,#06184a 100%);
+  --wm-b:linear-gradient(180deg,#ffb04d 0%,#f07f12 55%,#c75f06 100%);
+  --wm-x:rgba(6,24,74,.45);
+  position:relative;color:transparent;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.9) 50%,transparent 58%) no-repeat,var(--wm-a);
+  background-size:250% 100%,100% 100%;background-position:160% 0,0 0;
+  -webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(0 1px 0 var(--wm-x)) drop-shadow(0 1px 0 var(--wm-x)) drop-shadow(0 3px 4px rgba(6,24,74,.22));
+  animation:wm-shine 5s ease-in-out infinite}
+.brand>span em,.auth-side .logo>span em,.auth-card .logo>span em{color:transparent;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%) no-repeat,var(--wm-b);
+  background-size:250% 100%,100% 100%;background-position:160% 0,0 0;
+  -webkit-background-clip:text;background-clip:text;animation:wm-shine 5s ease-in-out infinite;animation-delay:.25s}
+.brand i.c,.auth-side .logo i.c,.auth-card .logo i.c{color:transparent;font-style:normal}
+@keyframes wm-shine{0%,55%{background-position:160% 0,0 0}100%{background-position:-60% 0,0 0}}
+/* Light text on dark headers, the footer and the login side panel */
+:root[data-theme="dark"] .brand>span,footer .brand>span,.auth-side .logo>span{--wm-a:linear-gradient(180deg,#ffffff 0%,#dbe6ff 50%,#9db8ff 100%);--wm-x:rgba(0,0,0,.55)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span{--wm-a:linear-gradient(180deg,#ffffff 0%,#dbe6ff 50%,#9db8ff 100%);--wm-x:rgba(0,0,0,.55)}}
+@media (prefers-reduced-motion:reduce){.brand>span,.brand>span em,.auth-side .logo>span,.auth-side .logo>span em,.auth-card .logo>span,.auth-card .logo>span em{animation:none}}
+/* Mentor and careers pages */
+.mgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+@media (max-width:980px){.mgrid{grid-template-columns:1fr}}
+.mflow{counter-reset:f;list-style:none;padding:0;margin:14px 0 0;display:grid;gap:12px}
+.mflow li{counter-increment:f;display:grid;grid-template-columns:36px 1fr;column-gap:12px;align-items:start}
+.mflow li::before{content:counter(f);grid-row:span 2;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand-ink);font:700 14px var(--display)}
+.mflow b{font:700 15.5px var(--display)}.mflow span{color:var(--mu);font-size:14.5px}
+.roles{display:grid;gap:10px;margin:16px 0}
+.role{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:16px 18px}
+.role p{margin:6px 0 0;color:var(--mu);font-size:14.5px}
+/* Free courses and workshops */
+.fcourse,.wshop{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink)}
+.fcourse h3,.wshop h3{margin:4px 0 0}.fcourse p,.wshop p{margin:0;color:var(--mu);flex:1}
+.ftag{align-self:flex-start;font:700 11.5px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--brand-ink);background:var(--brand-soft);padding:4px 10px;border-radius:99px}
+.fmeta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.fmeta span{font-size:12.5px;font-weight:600;color:var(--mu);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+.fmeta span:first-child{color:var(--ok-ink);border-color:transparent;background:var(--ok-soft)}
+.fcourse .go{margin-top:8px;font-weight:700;color:var(--brand-ink)}
+.fcourse:hover{border-color:var(--brand)}
+.live{align-self:flex-start;font-size:12.5px;font-weight:700;color:#dc2626}
+.wacts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.brand>span em,.brand i.c,.auth-side .logo>span em,.auth-card .logo>span em,.auth-side .logo i.c,.auth-card .logo i.c{color:transparent!important}
+/* v8: SkillNavora name in the Indian tricolour (saffron, white, green) with a navy outline */
+.brand>span,.auth-side .logo>span,.auth-card .logo>span{
+  --wm-a:linear-gradient(180deg,#ff9933 0%,#ff9933 34%,#ffffff 44%,#ffffff 58%,#138808 68%,#138808 100%);
+  --wm-x:rgba(11,42,120,.55);-webkit-text-stroke:.6px #0b2a78;letter-spacing:.01em}
+.brand>span em,.auth-side .logo>span em,.auth-card .logo>span em{--wm-b:var(--wm-a)}
+.brand>span em,.auth-side .logo>span em,.auth-card .logo>span em{animation-delay:0s}
+:root[data-theme="dark"] .brand>span,footer .brand>span,.auth-side .logo>span{--wm-a:linear-gradient(180deg,#ff9933 0%,#ff9933 34%,#ffffff 44%,#ffffff 58%,#1fa32a 68%,#1fa32a 100%);--wm-x:rgba(0,0,0,.6);-webkit-text-stroke:.5px rgba(255,255,255,.35)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span{--wm-a:linear-gradient(180deg,#ff9933 0%,#ff9933 34%,#ffffff 44%,#ffffff 58%,#1fa32a 68%,#1fa32a 100%);--wm-x:rgba(0,0,0,.6);-webkit-text-stroke:.5px rgba(255,255,255,.35)}}
