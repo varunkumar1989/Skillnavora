@@ -72,10 +72,14 @@ const CHALLENGES = [
     title: "PRD for a clinic WhatsApp assistant",
     brief: "Write a one-page PRD for a WhatsApp assistant that answers patient questions and books appointments for a small clinic.",
     deliver: ["Users and top 5 questions to handle", "Conversation flow with handoff to staff", "What the bot must never do", "Launch checklist"] },
-  { id: "rag-faq-bot", track: "Engineering", level: "Intermediate", time: "5–6 hours",
+  { id: "rag-faq-bot", track: "AI", level: "Intermediate", time: "5–6 hours",
     title: "Build a RAG FAQ bot",
     brief: "Build a small app that answers questions from a set of PDFs or web pages, cites its sources and says 'I don't know' when the answer isn't there.",
     deliver: ["GitHub repo with a README", "10-question eval set with results", "Short demo video", "Notes on cost and latency"] },
+  { id: "churn-analysis", track: "Data Science", level: "Intermediate", time: "4–5 hours",
+    title: "Predict customer churn",
+    brief: "Use a public telecom or subscription churn dataset (for example from Kaggle) to find what drives churn and build a simple model that flags customers at risk.",
+    deliver: ["Notebook with cleaning and exploratory analysis", "A baseline model and how you evaluated it", "Top 3 churn drivers in plain words", "One recommendation the business could test"] },
   { id: "inbox-automation", track: "GenAI", level: "Beginner", time: "2–3 hours",
     title: "Automate an inbox with AI",
     brief: "Use n8n, Zapier or Make to read incoming emails, label them with AI (sales, support, other) and post a daily summary to Slack or email.",
@@ -91,11 +95,12 @@ const PRACTICE = {
     "AI product": ["Design an AI assistant for customer support at a bank. What guardrails would you add?", "How would you evaluate whether an AI summary feature is good enough to launch?", "Your AI feature's cost per user is higher than the revenue. What would you do?"],
     "Behavioural": ["Tell me about a time you disagreed with an engineer. What happened?", "Describe a product decision you made with incomplete data.", "Tell me about a launch that didn't go as planned."]
   },
-  "Software engineer": {
-    "System design": ["Design a URL shortener that handles 10,000 requests per second.", "Design a chat assistant that answers questions from a company's internal docs.", "Design a rate limiter for a public API."],
-    "AI engineering": ["How would you reduce hallucinations in a RAG system?", "How would you test a prompt change before deploying it?", "How do you keep LLM costs under control at scale?"],
-    "Coding concepts": ["Explain the difference between a process and a thread.", "When would you choose a SQL database over a NoSQL one?", "How does an index speed up a database query, and what does it cost?"],
-    "Behavioural": ["Tell me about a production bug you fixed. How did you find it?", "Describe a time you improved a team's development process."]
+  "Data scientist": {
+    "SQL and analytics": ["Write a query to find the top 3 products by revenue in each category last month.", "Daily active users dropped 8% yesterday. How would you investigate with SQL?", "Explain the difference between a LEFT JOIN and an INNER JOIN with an example."],
+    "Statistics": ["Explain p-values to a product manager in plain words.", "How would you design an A/B test for a new checkout button, and how long would you run it?", "What is the difference between correlation and causation? Give an example."],
+    "Machine learning": ["How would you build a model to predict which customers will churn next month?", "Your model has 95% accuracy but the business says it's useless. What could be wrong?", "How do you explain a model's predictions to non-technical stakeholders?"],
+    "AI and LLMs": ["How would you use an LLM to classify thousands of customer reviews, and check it's accurate?", "When would you choose a classic ML model over an LLM?"],
+    "Behavioural": ["Tell me about an analysis that changed a business decision.", "Describe a time your data told a different story than stakeholders expected."]
   },
   "GenAI professional": {
     "Prompting": ["Write a prompt that turns meeting notes into action items with owners and dates.", "How would you get consistent, structured output from an AI model?"],
