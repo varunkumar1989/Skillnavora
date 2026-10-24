@@ -118,34 +118,41 @@ const COURSES = [
     ]
   },
   {
-    id: "ai-swe",
-    page: "program/ai-software-engineering.html",
-    name: "AI-First Software Engineering",
-    short: "Build AI-native apps, automate your workflow with coding agents and learn to design systems with LLMs at the core.",
-    tagline: "Learn to build, test and ship like an AI-native engineer",
+    id: "ai-ds",
+    page: "program/ai-data-science.html",
+    name: "AI-First Data Science",
+    short: "Learn Python, SQL, statistics and machine learning, then use AI to analyse data faster and build models that drive decisions.",
+    tagline: "Go from raw data to insights, models and AI-powered analytics",
     badge: "Flagship",
     cohort: "", start: "", deadline: "", fee: "$1,500", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and job assistance.", earlyBird: "", pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "10–12 hours a week",
     highlights: ["Real-world projects", "Capstone project", "Mock interviews", "Job assistance"],
-    outcomes: ["Ship faster with Claude Code and AI pair programming", "Build LLM apps with RAG, tools and agents",
-               "Design scalable systems with AI components", "Test, evaluate and monitor AI features",
-               "Deploy securely and control cost", "Ship a portfolio-grade AI product"],
+    outcomes: ["Clean, explore and visualise data with Python and SQL", "Apply statistics and A/B testing with confidence",
+               "Build, evaluate and explain machine learning models", "Use LLMs and AI assistants to speed up analysis",
+               "Build dashboards that tell a clear story", "Ship a portfolio-grade data science project"],
     curriculum: [
-      { title: "AI-native development workflow", topics: ["Coding agents and AI pair programming", "Claude Code: plan, edit, test", "Prompting for code"] },
-      { title: "LLM fundamentals for engineers", topics: ["Tokens, context and sampling", "Model choice and cost", "Structured outputs"] },
-      { title: "Building with LLM APIs", topics: ["Messages and streaming", "Tool use and function calling", "Error handling and retries"] },
-      { title: "Retrieval-augmented generation", topics: ["Embeddings and vector search", "Chunking and ranking", "Citations and grounding"] },
-      { title: "Agents and MCP", topics: ["Agent loops and planning", "MCP servers and tools", "Multi-agent patterns"] },
-      { title: "Evaluation and testing", topics: ["Eval sets and LLM judges", "Regression tests for prompts", "Red-teaming"] },
-      { title: "System design with AI", topics: ["Caching, queues and rate limits", "Latency and cost trade-offs", "Designing for failure"] },
-      { title: "Shipping to production", topics: ["Deployment and CI/CD", "Observability and monitoring", "Security, privacy and abuse"] },
-      { title: "Capstone, interviews and job assistance", topics: ["Build and demo an AI product", "DSA and system design mock interviews", "Resume, portfolio and referrals"] }
+      { title: "Python for data", topics: ["Python basics, Jupyter and notebooks", "pandas and NumPy", "Data cleaning and wrangling"] },
+      { title: "SQL for analytics", topics: ["Joins, aggregations and window functions", "Writing analysis queries", "Working with real datasets"] },
+      { title: "Statistics and probability", topics: ["Distributions and sampling", "Hypothesis testing", "A/B testing and experiment design"] },
+      { title: "Exploratory analysis and visualisation", topics: ["Matplotlib and Seaborn", "Finding patterns and outliers", "Storytelling with data"] },
+      { title: "Machine learning foundations", topics: ["Regression and classification", "scikit-learn workflow", "Train, validate and test"] },
+      { title: "Advanced machine learning", topics: ["Trees, random forests and boosting", "Feature engineering", "Model evaluation and explainability"] },
+      { title: "AI for data science", topics: ["LLMs for analysis with Claude and ChatGPT", "Text data, embeddings and RAG basics", "AI-assisted coding in notebooks"] },
+      { title: "Dashboards and business analytics", topics: ["Power BI and Tableau", "Metrics, KPIs and funnels", "Presenting insights to stakeholders"] },
+      { title: "Capstone, interviews and job assistance", topics: ["End-to-end data science capstone", "SQL, statistics and ML mock interviews", "Resume, portfolio and referrals"] }
     ],
-    projects: ["RAG assistant over your own documents", "Agent that uses tools through MCP", "Production-ready capstone app"],
+    audience: [
+      { title: "Students and freshers", text: "Learn Python, SQL and machine learning with real projects, and aim for data analyst and junior data scientist roles." },
+      { title: "Working professionals", text: "Learn on weekends alongside your job, with live classes, recordings and flexible schedules." },
+      { title: "Career switchers", text: "Move into data from engineering, finance, operations, marketing or any role that works with numbers." },
+      { title: "Salary hike and promotion", text: "Grow into data scientist and ML roles with stronger skills, a portfolio and interview preparation." }
+    ],
+    projects: ["Customer churn prediction model", "A/B test analysis with a recommendation", "Sales dashboard with an AI-written insights summary"],
     toolGroups: [
-      { name: "Build", tools: ["Claude Code", "Cursor", "GitHub", "VS Code"] },
-      { name: "AI", tools: ["Claude API", "Embeddings", "pgvector", "MCP"] },
-      { name: "Ship", tools: ["Python", "TypeScript", "Postgres", "Docker", "GitHub Actions", "Cloudflare"] }
+      { name: "Analyse", tools: ["Python", "pandas", "NumPy", "Jupyter", "SQL"] },
+      { name: "Model", tools: ["scikit-learn", "XGBoost", "Statsmodels"] },
+      { name: "Visualise", tools: ["Power BI", "Tableau", "Matplotlib", "Seaborn", "Excel"] },
+      { name: "AI", tools: ["Claude", "ChatGPT", "Gemini", "GitHub Copilot"] }
     ]
   },
   {
@@ -170,6 +177,12 @@ const COURSES = [
       { title: "Chatbots and voice agents", topics: ["WhatsApp and website bots", "Voice receptionists", "Handoff to humans"] },
       { title: "Responsible AI", topics: ["Privacy and data safety", "Bias and accuracy", "Company AI policies"] },
       { title: "Capstone", topics: ["Solve a real problem with AI", "Demo day", "Certificate"] }
+    ],
+    audience: [
+      { title: "Students and freshers", text: "Learn the AI tools employers expect and build projects you can show, with no coding needed." },
+      { title: "Working professionals", text: "Save hours every week with AI assistants and automations, on weekends alongside your job." },
+      { title: "Business owners", text: "Build chatbots, voice agents and automations that help your business serve customers." },
+      { title: "Career switchers", text: "Add practical AI skills that make you stand out in any role or industry." }
     ],
     projects: ["Personal AI assistant setup", "Website or no-code app for a real use case", "Automation or chatbot capstone"],
     toolGroups: [
@@ -252,7 +265,7 @@ const FAQS = [
   { c: "Program", q: "Which tools will I learn?", a: "Delivery tools like Jira, Confluence, Asana and Notion; design tools like Figma and Miro; analytics like Mixpanel, Amplitude, GA4 and SQL; and AI tools including Claude, Claude Code, ChatGPT, Gemini, Lovable and n8n." },
   { c: "Program", q: "Can I ask instructors and mentors questions directly?", a: "Yes, during live classes, in 1:1 mentorship, and through the LMS. You also get a monthly 1:1 session with a CEO or Head of Product." },
   { c: "Schedule", q: "What are the timings and schedule?", a: "Live classes run on weekends. Exact timings are shared before each cohort starts; talk to a counsellor for the current schedule." },
-  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $2,000, AI-First Software Engineering is $1,500 and GenAI Launchpad is $1,000. The first cohort gets an inaugural early-bird discount. Talk to a counsellor for payment options." },
+  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $2,000, AI-First Data Science is $1,500 and GenAI Launchpad is $1,000. The first cohort gets an inaugural early-bird discount. Talk to a counsellor for payment options." },
   { c: "Career", q: "Do you help with jobs?", a: "Yes, through the job assistance program: resume and LinkedIn reviews, portfolio, intensive interview preparation and referrals through our network. No one can honestly guarantee a job, but we work with you until you're job-ready." },
   { c: "Career", q: "Will I get a certificate?", a: "Yes, you get a certificate when you complete the program and capstone." },
   { c: "Career", q: "I have more questions. Where can I ask?", a: "Ask our AI assistant, message us on WhatsApp, or book a free counselling session." }
@@ -265,7 +278,7 @@ const EVENTS = [
 ];
 
 /* ---- Job board extras. Jobs are easiest to manage in Admin → Job board; you can
-   also list them here. category: "product", "ai" or "engineering".
+   also list them here. category: "product", "ai" or "data".
    { title: "Product Manager", company: "Company", location: "Bengaluru, India", category: "product",
      experience: "3-5 years", job_type: "Full time", posted_on: "2027-01-10",
      url: "https://www.linkedin.com/jobs/view/...", logo: "" } */

@@ -9,12 +9,14 @@ Website and LMS for [skillnavora.in](https://www.skillnavora.in). Plain HTML, ho
 | Home | Hero, programs, career support, free tools, FAQs | `index.html` |
 | Programs ▾ | All programs | `programs.html` |
 | | AI-First Product Management | `program/ai-product-management.html` |
-| | AI-First Software Engineering | `program/ai-software-engineering.html` |
+| | AI-First Data Science | `program/ai-data-science.html` |
 | | GenAI Launchpad | `program/genai-launchpad.html` |
+| | For business | `business.html` |
 | Upskill for free ▾ | Quiz zone · Challenges · Practice with AI · Resources | `quiz.html`, `challenges.html`, `practice.html`, `resources.html` |
-| LMS | Overview · My courses · My events · Submissions · Achievements · Profile | `lms.html` |
+| LMS | Overview · My courses · PM Handbook · My events · Submissions · Achievements · Profile | `lms.html` |
 | (admins) | Admin panel | `admin.html` |
-| Events · Job board · Reviews · Business | Events, PM/AI job board, reviews, team training | `events.html`, `jobs.html`, `reviews.html`, `business.html` |
+| Events · Job board · Reviews | Events, PM/AI/Data Science job board, reviews | `events.html`, `jobs.html`, `reviews.html` |
+| Careers ▾ | Join our team · Become a mentor | `careers.html`, `mentor.html` |
 | Enroll now | Application form | `apply.html` |
 | Contact | Contact | `contact.html` |
 | Footer | Privacy, terms, refund policy, login | `privacy.html`, `terms.html`, `refund.html`, `login.html` |

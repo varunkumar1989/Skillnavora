@@ -169,7 +169,7 @@ create table if not exists public.jobs (
   title       text not null check (length(title) between 1 and 160),
   company     text not null check (length(company) between 1 and 120),
   location    text check (length(location) <= 120),
-  category    text not null default 'product' check (category in ('product', 'engineering', 'ai')),
+  category    text not null default 'product' check (category in ('product', 'data', 'ai', 'engineering')),
   experience  text check (length(experience) <= 40),
   job_type    text not null default 'Full time' check (length(job_type) <= 40),
   url         text not null check (url ~* '^https?://' and length(url) <= 1000),
@@ -184,6 +184,9 @@ alter table public.applications add column if not exists source text check (leng
 -- Mentor and careers applications (also run on existing projects)
 alter table public.applications drop constraint if exists applications_kind_check;
 alter table public.applications add constraint applications_kind_check check (kind in ('application', 'counselling', 'mentor', 'career'));
+-- Job board: "Data Science" category (also run on existing projects)
+alter table public.jobs drop constraint if exists jobs_category_check;
+alter table public.jobs add constraint jobs_category_check check (category in ('product', 'data', 'ai', 'engineering'));
 alter table public.materials drop constraint if exists materials_kind_check;
 alter table public.materials add constraint materials_kind_check check (kind in ('recording', 'slides', 'reading', 'assignment', 'link', 'preread'));
 

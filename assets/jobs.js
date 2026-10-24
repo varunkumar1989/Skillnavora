@@ -10,9 +10,10 @@
       if (r.ok) jobs = jobs.concat(await r.json());
     } catch {}
   }
+  jobs.forEach(j => { if (j.category === "engineering") j.category = "data"; }); // older openings
   jobs.sort((a, b) => String(b.posted_on).localeCompare(String(a.posted_on)));
 
-  const CATS = [["product", "Product"], ["ai", "AI"], ["engineering", "Engineering"]];
+  const CATS = [["product", "Product"], ["ai", "AI"], ["data", "Data Science"]];
   let cat = new URLSearchParams(location.search).get("c") || "product";
   if (!CATS.some(c => c[0] === cat)) cat = "product";
   $("job-tabs").innerHTML = CATS.map(([v, t]) => `<button type="button" data-c="${v}" aria-pressed="${v === cat}">${t}</button>`).join("");
@@ -21,7 +22,7 @@
   const exps = [...new Set(jobs.map(j => j.experience).filter(Boolean))];
   $("job-exp").innerHTML = '<option value="">Experience</option>' + exps.map(x => `<option>${esc(x)}</option>`).join("");
 
-  const LI = { product: "Product Manager", ai: "AI Product Manager", engineering: "AI Engineer" };
+  const LI = { product: "Product Manager", ai: "AI Product Manager", data: "Data Scientist" };
   const liUrl = (kw, extra = "") => "https://www.linkedin.com/jobs/search/?keywords=" + encodeURIComponent(kw) + "&location=India&f_TPR=r604800" + extra;
   const days = d => { const n = Math.floor((Date.now() - new Date(d)) / 864e5); return isNaN(n) ? "" : n <= 0 ? "Posted today" : n === 1 ? "Posted 1 day ago" : n < 7 ? `Posted ${n} days ago` : "Posted on " + new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short" }); };
   const PIN = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
@@ -44,7 +45,7 @@
   ["job-q", "job-loc", "job-exp"].forEach(id => $(id).addEventListener("input", render));
 
   // Quick LinkedIn searches
-  const SEARCHES = [["Product Manager", ""], ["Associate Product Manager", ""], ["AI Product Manager", ""], ["Senior Product Manager", ""], ["Product Analyst", ""], ["Technical Product Manager", ""], ["AI Engineer", ""], ["Machine Learning Engineer", ""], ["Generative AI", ""], ["Product Manager (remote)", "&f_WT=2"]];
+  const SEARCHES = [["Product Manager", ""], ["Associate Product Manager", ""], ["AI Product Manager", ""], ["Senior Product Manager", ""], ["Product Analyst", ""], ["Technical Product Manager", ""], ["Data Scientist", ""], ["Data Analyst", ""], ["Machine Learning Engineer", ""], ["Generative AI", ""], ["Product Manager (remote)", "&f_WT=2"]];
   $("li-searches").innerHTML = SEARCHES.map(([k, x]) => `<a href="${esc(liUrl(k.replace(" (remote)", ""), x))}" target="_blank" rel="noopener noreferrer">${esc(k)} ↗</a>`).join("");
   $("job-alerts").href = waLink("Hi SkillNavora, please send me updates about new PM and AI job openings.");
   render();

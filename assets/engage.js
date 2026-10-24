@@ -208,7 +208,8 @@
   /* ---------- Program sections from config ---------- */
   const set = (id, h) => { const el = $(id); if (el) el.innerHTML = h; };
   const P = C.find(x => x.id === document.body.dataset.course);
-  if (typeof AUDIENCE !== "undefined") set("audience", AUDIENCE.map(a => `<div class="card"><h3>${esc(a.title)}</h3><p>${esc(a.text)}</p></div>`).join(""));
+  const AUD = (P && P.audience) || (typeof AUDIENCE !== "undefined" ? AUDIENCE : null);
+  if (AUD) set("audience", AUD.map(a => `<div class="card"><h3>${esc(a.title)}</h3><p>${esc(a.text)}</p></div>`).join(""));
   if (typeof MOAT !== "undefined") set("moat", MOAT.map((m, i) => `<div class="card"><span class="num">0${i + 1}</span><h3>${esc(m.title)}</h3><p>${esc(m.text)}</p></div>`).join(""));
   if (typeof COMPARE !== "undefined") set("compare", `<table><thead><tr><th>What you get</th><th class="them">Typical PM programs</th><th class="us">SkillNavora</th></tr></thead><tbody>${COMPARE.map(r => `<tr><td><b>${esc(r.what)}</b><small>${esc(r.sub)}</small></td><td class="them"><span>${esc(r.others)}</span></td><td class="us">${esc(r.us)}</td></tr>`).join("")}</tbody></table>`);
   if (typeof JOB_ASSIST !== "undefined") { set("ja-program", JOB_ASSIST.program.map(x => `<li>${esc(x)}</li>`).join("")); set("ja-interview", JOB_ASSIST.interview.map(x => `<li>${esc(x)}</li>`).join("")); }
