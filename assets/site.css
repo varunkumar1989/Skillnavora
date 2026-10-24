@@ -1,3 +1,5 @@
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:600 800;font-display:swap;src:url(fonts/playfair-700.woff2) format("woff2")}
+@font-face{font-family:"Playfair Display";font-style:italic;font-weight:600 800;font-display:swap;src:url(fonts/playfair-700-italic.woff2) format("woff2")}
 /* SkillNavora design system: a dark hero and header with a light (or dark) body.
    Purple is the main brand colour; emerald (from the compass logo) is the accent. */
 :root{
@@ -937,3 +939,67 @@ footer .brand em,.auth-side .logo em{color:#60a5fa}
 .brand>span em,.auth-side .logo>span em,.auth-card .logo>span em{animation-delay:0s}
 :root[data-theme="dark"] .brand>span,footer .brand>span,.auth-side .logo>span{--wm-a:linear-gradient(180deg,#ff9933 0%,#ff9933 34%,#ffffff 44%,#ffffff 58%,#1fa32a 68%,#1fa32a 100%);--wm-x:rgba(0,0,0,.6);-webkit-text-stroke:.5px rgba(255,255,255,.35)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span{--wm-a:linear-gradient(180deg,#ff9933 0%,#ff9933 34%,#ffffff 44%,#ffffff 58%,#1fa32a 68%,#1fa32a 100%);--wm-x:rgba(0,0,0,.6);-webkit-text-stroke:.5px rgba(255,255,255,.35)}}
+
+/* ===================== v9: premium serif headings + tricolour accents (saffron, white, green with navy and gold) ===================== */
+:root{--serif:"Playfair Display",Georgia,"Times New Roman",serif;--saffron:#ff9933;--saffron-ink:#c2410c;--green:#138808;--green-ink:#0f6e1a;--navy:#0b2a78;--gold:#c99a2e;
+  --tri:linear-gradient(90deg,#ff9933 0 33.4%,#ffffff 33.4% 66.6%,#138808 66.6% 100%);
+  --h-g:linear-gradient(90deg,#e8590c 0%,#c2410c 45%,#0f7a1d 100%);
+  --h-bg:radial-gradient(720px 420px at 0% 0%,rgba(255,153,51,.16),transparent 60%),radial-gradient(680px 420px at 100% 100%,rgba(19,136,8,.10),transparent 60%),radial-gradient(600px 360px at 85% 0%,rgba(11,42,120,.08),transparent 60%),linear-gradient(180deg,#fffaf3 0%,#ffffff 55%,#f5fbf5 100%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--saffron-ink:#ffb366;--green-ink:#4ade80;--gold:#e9c46a;
+  --h-g:linear-gradient(90deg,#ffb366,#ff9933 45%,#4ade80);
+  --h-bg:radial-gradient(760px 460px at 0% 0%,rgba(255,153,51,.20),transparent 60%),radial-gradient(680px 420px at 100% 100%,rgba(19,136,8,.20),transparent 60%),linear-gradient(180deg,#050b1f 0%,#0a1638 100%)}}
+:root[data-theme="dark"]{--saffron-ink:#ffb366;--green-ink:#4ade80;--gold:#e9c46a;
+  --h-g:linear-gradient(90deg,#ffb366,#ff9933 45%,#4ade80);
+  --h-bg:radial-gradient(760px 460px at 0% 0%,rgba(255,153,51,.20),transparent 60%),radial-gradient(680px 420px at 100% 100%,rgba(19,136,8,.20),transparent 60%),linear-gradient(180deg,#050b1f 0%,#0a1638 100%)}
+/* Premium serif for the big headings only (sizes unchanged) */
+.hero h1,.sec-h,.apply-head h1,.lms-head h1{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
+.hero h1 .g,.sec-h .g{font-style:italic;padding-right:.06em}
+/* Tricolour stripes: under the top bar, under the header, above the footer */
+.topbar{background:var(--navy);box-shadow:inset 0 -3px 0 0 transparent;position:relative}
+.topbar::after,footer::before{content:"";position:absolute;left:0;right:0;height:3px;background:var(--tri)}
+.topbar::after{bottom:0}
+footer{position:relative}footer::before{top:0}
+.top{box-shadow:0 1px 0 var(--h-line)}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--tri);opacity:.9}
+/* Kickers in saffron, ticks in green, numbers in saffron to green */
+.kicker{color:var(--saffron-ink)}
+.hero .kicker{color:var(--saffron-ink)}
+.hl span::before{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--green-ink)}
+.checks li::before{color:var(--green-ink)}
+.step::before,.moat .num{background:linear-gradient(90deg,#ff9933,#e8590c 40%,#138808);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:#12379a;color:#fff}
+:root[data-theme="dark"] .btn-primary{background:#1d4ed8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-primary{background:#1d4ed8}}
+.aud .card:nth-child(1),.support .card:nth-child(1){border-top-color:#ff9933}
+.aud .card:nth-child(2),.support .card:nth-child(2){border-top-color:var(--navy)}
+.aud .card:nth-child(3),.support .card:nth-child(3){border-top-color:#138808}
+.aud .card:nth-child(4){border-top-color:var(--gold)}
+.learn div:nth-child(1) svg{background:#fff1e3;color:#c2410c}
+.learn div:nth-child(2) svg{background:#e8eefc;color:var(--navy)}
+.learn div:nth-child(3) svg{background:#e7f6e9;color:#0f6e1a}
+.learn div:nth-child(4) svg{background:#fbf3df;color:#8a6412}
+.learn div:nth-child(5) svg{background:#fff1e3;color:#c2410c}
+.ftag{color:var(--saffron-ink);background:rgba(255,153,51,.13)}
+.fcourse:nth-child(3n+2) .ftag{color:var(--navy);background:#e8eefc}
+.fcourse:nth-child(3n) .ftag{color:var(--green-ink);background:rgba(19,136,8,.10)}
+.pill i{background:#ff9933;box-shadow:0 0 0 4px rgba(255,153,51,.25)}
+.hb-n{background:rgba(255,153,51,.14);color:var(--saffron-ink)}
+section.tint{background:linear-gradient(180deg,rgba(255,153,51,.035),rgba(19,136,8,.035)),var(--surface-2)}
+.dd-ico{background:rgba(255,153,51,.13);color:var(--saffron-ink)}
+.band{background:radial-gradient(600px 300px at 0% 0%,rgba(255,153,51,.30),transparent 60%),radial-gradient(600px 300px at 100% 100%,rgba(19,136,8,.30),transparent 60%),#0b1a4a}
+.lms-head{background:radial-gradient(700px 300px at 0% 120%,rgba(255,153,51,.25),transparent 60%),radial-gradient(500px 260px at 100% 0%,rgba(19,136,8,.25),transparent 60%),linear-gradient(120deg,#081430,#0f2152)}
+.auth-side{background:radial-gradient(500px 300px at 0% 0%,rgba(255,153,51,.28),transparent 60%),radial-gradient(500px 300px at 100% 100%,rgba(19,136,8,.28),transparent 60%),linear-gradient(160deg,#081430,#0f2152)}
+.cmp th.us{color:var(--saffron-ink)}
+.brand img{width:44px;height:44px}
+.nav>a,.dd>button{white-space:nowrap}
+@media (min-width:1021px) and (max-width:1320px){.nav>a,.dd>button{padding:9px 8px;font-size:14.5px}.top .wrap{gap:12px}.nav{gap:0}.brand{font-size:20px}.brand img{width:40px;height:40px}}
+@media (min-width:1021px) and (max-width:1160px){.nav>a,.dd>button{padding:8px 6px;font-size:13.5px}.dd>button svg{width:12px;height:12px}.tools{gap:6px}.tools .btn-login{padding:8px 12px}}
+/* v9b: crisper tricolour name: "Skill" saffron, "Navora" green, the header itself is the white */
+.brand>span,.auth-side .logo>span,.auth-card .logo>span{-webkit-text-stroke:0;letter-spacing:-.005em;
+  --wm-a:linear-gradient(180deg,#ffb45e 0%,#ff9933 40%,#e0700a 100%);--wm-x:rgba(80,36,0,.35)}
+.brand>span em,.auth-side .logo>span em,.auth-card .logo>span em{--wm-b:linear-gradient(180deg,#35c043 0%,#138808 50%,#0b5e10 100%)}
+:root[data-theme="dark"] .brand>span,footer .brand>span,.auth-side .logo>span{-webkit-text-stroke:0;--wm-a:linear-gradient(180deg,#ffc27a 0%,#ff9933 45%,#f07f12 100%);--wm-x:rgba(0,0,0,.6)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span{-webkit-text-stroke:0;--wm-a:linear-gradient(180deg,#ffc27a 0%,#ff9933 45%,#f07f12 100%);--wm-x:rgba(0,0,0,.6)}}
+:root[data-theme="dark"] .brand>span em,footer .brand>span em,.auth-side .logo>span em{--wm-b:linear-gradient(180deg,#6ee07a 0%,#2fbf3f 50%,#16a02a 100%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span em{--wm-b:linear-gradient(180deg,#6ee07a 0%,#2fbf3f 50%,#16a02a 100%)}}
