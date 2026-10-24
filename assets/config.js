@@ -61,7 +61,7 @@ const AUTH = {
    cohort:    e.g. "Cohort 1". start: e.g. "15 Jan 2027".
    deadline:  enrolment closing date-time, e.g. "2027-01-10T23:59:00+05:30".
               Shows a live countdown like "Enrolment closes in 2d : 4h".
-   fee:       e.g. "₹1,50,000". Empty shows "Fees on request".
+   fee:       e.g. "$2,000". Empty shows "Fees on request".
    earlyBird: early-bird offer text. Empty hides it.
    pay:       payment link (Razorpay, Instamojo...), shown after someone applies.
    Everything below is a starting draft: edit it to match your program. */
@@ -74,7 +74,7 @@ const COURSES = [
     tagline: "The end-to-end program to become a confident, job-ready AI product manager",
     badge: "Flagship",
     cohort: "Inaugural cohort", start: "", deadline: "",
-    fee: "Starting from ₹1,50,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and the job assistance program.",
+    fee: "$2,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and the job assistance program.",
     earlyBird: "Inaugural early-bird discount for the first cohort. Talk to a counsellor for the early-bird price.",
     pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "8–10 hours a week",
@@ -124,7 +124,7 @@ const COURSES = [
     short: "Build AI-native apps, automate your workflow with coding agents and learn to design systems with LLMs at the core.",
     tagline: "Learn to build, test and ship like an AI-native engineer",
     badge: "Flagship",
-    cohort: "", start: "", deadline: "", fee: "", feeNote: "", earlyBird: "", pay: "",
+    cohort: "", start: "", deadline: "", fee: "$1,500", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and job assistance.", earlyBird: "", pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "10–12 hours a week",
     highlights: ["Real-world projects", "Capstone project", "Mock interviews", "Job assistance"],
     outcomes: ["Ship faster with Claude Code and AI pair programming", "Build LLM apps with RAG, tools and agents",
@@ -155,7 +155,7 @@ const COURSES = [
     short: "A beginner-friendly program to use generative AI at work: prompting, AI assistants, no-code apps, automations, chatbots and voice agents.",
     tagline: "Go from AI-curious to AI-confident, with no coding needed",
     badge: "Beginner friendly",
-    cohort: "", start: "", deadline: "", fee: "", feeNote: "", earlyBird: "", pay: "",
+    cohort: "", start: "", deadline: "", fee: "$1,000", feeNote: "Includes live classes, hands-on projects, a capstone and demo day.", earlyBird: "", pay: "",
     duration: "8 weeks", format: "Live online classes with recordings", effort: "5–6 hours a week",
     highlights: ["Hands-on projects", "No coding needed", "Capstone and demo day", "Certificate"],
     outcomes: ["Write prompts that get reliable results", "Use Claude daily for writing, research and analysis",
@@ -252,7 +252,7 @@ const FAQS = [
   { c: "Program", q: "Which tools will I learn?", a: "Delivery tools like Jira, Confluence, Asana and Notion; design tools like Figma and Miro; analytics like Mixpanel, Amplitude, GA4 and SQL; and AI tools including Claude, Claude Code, ChatGPT, Gemini, Lovable and n8n." },
   { c: "Program", q: "Can I ask instructors and mentors questions directly?", a: "Yes, during live classes, in 1:1 mentorship, and through the LMS. You also get a monthly 1:1 session with a CEO or Head of Product." },
   { c: "Schedule", q: "What are the timings and schedule?", a: "Live classes run on weekends. Exact timings are shared before each cohort starts; talk to a counsellor for the current schedule." },
-  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management starts from ₹1,50,000, with an inaugural early-bird discount for the first cohort. Talk to a counsellor for the current price and payment options." },
+  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $2,000, AI-First Software Engineering is $1,500 and GenAI Launchpad is $1,000. The first cohort gets an inaugural early-bird discount. Talk to a counsellor for payment options." },
   { c: "Career", q: "Do you help with jobs?", a: "Yes, through the job assistance program: resume and LinkedIn reviews, portfolio, intensive interview preparation and referrals through our network. No one can honestly guarantee a job, but we work with you until you're job-ready." },
   { c: "Career", q: "Will I get a certificate?", a: "Yes, you get a certificate when you complete the program and capstone." },
   { c: "Career", q: "I have more questions. Where can I ask?", a: "Ask our AI assistant, message us on WhatsApp, or book a free counselling session." }

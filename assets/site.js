@@ -72,7 +72,7 @@
   setInterval(() => document.querySelectorAll("[data-deadline]").forEach(el => { el.textContent = left(el.dataset.deadline) || "closed"; }), 1000);
 
   /* ---- Course cover art ---- */
-  const PAL = [["#0a1a5c", "#2563eb", "#fb923c"], ["#2a1170", "#7c3aed", "#f0abfc"], ["#0b2d5c", "#0891b2", "#fdba74"]];
+  const PAL = [["#0b1f4f", "#1d4ed8", "#fb923c"], ["#0b1736", "#334e8a", "#fdba74"], ["#083344", "#0e7490", "#fdba74"]];
   window.SNcover = (i, title, badge) => { const p = PAL[i % PAL.length];
     return `<div class="cover"><svg class="art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="cg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p[0]}"/><stop offset="1" stop-color="${p[1]}"/></linearGradient></defs><rect width="400" height="210" fill="url(#cg${i})"/><circle cx="330" cy="40" r="120" fill="${p[2]}" opacity=".18"/><circle cx="360" cy="180" r="70" fill="#fff" opacity=".08"/><g transform="translate(300 118)" opacity=".9"><circle r="46" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/><path d="M0-38l8 30-8 8-8-8z" fill="${p[2]}"/><path d="M0 38l-8-30 8-8 8 8z" fill="#fff"/><circle r="5" fill="${p[0]}" stroke="${p[2]}" stroke-width="3"/></g></svg>${badge ? `<span class="ribbon">${esc(badge)}</span>` : ""}<span class="ct">${esc(title)}</span></div>`; };
 

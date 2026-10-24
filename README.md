@@ -44,6 +44,11 @@ Quizzes, challenges and practice questions are in **`assets/content.js`**.
 5. Schedule live sessions in **Admin → Events**; students register and rate them in **My events**.
 6. Review submissions in **Admin → Submissions**; students see your feedback in their LMS.
 
+## PM Master Handbook (login only)
+- The LMS has a **PM Handbook** tab with the interactive handbook (a shared Claude artifact) and the PDFs in `handbook/`.
+- `functions/handbook/_middleware.js` only serves `/handbook/*` to logged-in learners: the site stores the learner's Supabase login in a cookie, and the function checks it with Supabase before sending the PDF. Visitors who aren't logged in go to the login page.
+- To update the PDFs, replace the files in `handbook/` (keep the same names) and push.
+
 ## Cloudflare Pages settings
 
 | Setting | Value |
