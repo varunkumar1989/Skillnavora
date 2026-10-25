@@ -52,9 +52,8 @@ Every form (apply, counselling, sign-up card, mentor, careers, contact, business
 - **Email (Web3Forms, free, alternative):** `WEB3FORMS_KEY`.
 - **WhatsApp (CallMeBot, free):** `CALLMEBOT_PHONE` (e.g. 919211315006) and `CALLMEBOT_APIKEY`.
 
-## PM Master Handbook (login only)
-- The LMS has a **PM Handbook** tab with the interactive handbook (a shared Claude artifact) and the PDFs in `handbook/`.
-- `functions/handbook/_middleware.js` only serves `/handbook/*` to logged-in learners: the site stores the learner's Supabase login in a cookie, and the function checks it with Supabase before sending the PDF. Visitors who aren't logged in go to the login page.
+## PM Master Handbook (free for everyone)
+- The handbook PDFs are in `handbook/` and are linked from **Resources for AI Tools** (`resources.html`) and the LMS **PM Handbook** tab, with the interactive handbook (a shared Claude artifact). No login needed.
 - To update the PDFs, replace the files in `handbook/` (keep the same names) and push.
 
 ## Cloudflare Pages settings
