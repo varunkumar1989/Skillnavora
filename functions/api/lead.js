@@ -6,8 +6,12 @@
 //                                  domain it can only send to your own Resend login email)
 //   CALLMEBOT_PHONE, CALLMEBOT_APIKEY  WhatsApp message to your own number via callmebot.com
 //   WEB3FORMS_KEY                  email via web3forms.com (alternative to Resend)
+//   NOTIFY_EMAIL alone             email via formsubmit.co (used automatically when no key is set;
+//                                  defaults to NOTIFY_FALLBACK below; FORMSUBMIT_OFF=1 turns it off)
 const SUPABASE_URL = "https://rnncabqtcxxivuyjwoja.supabase.co";
 const SUPABASE_KEY = "sb_publishable_9sKPYxU3MHQfNT43n3d95A_bVLZi7BP"; // publishable key, safe to include
+
+const NOTIFY_FALLBACK = "varunebix@gmail.com";
 
 const FIELDS = { kind: 20, course_id: 40, first_name: 80, last_name: 80, email: 200, phone: 20, linkedin: 300, experience: 40, role: 80, message: 2000, preferred_time: 80, source: 200 };
 const BASE_KINDS = ["application", "counselling"];
@@ -61,6 +65,17 @@ export async function onRequestPost({ request, env }) {
     body: JSON.stringify({ access_key: env.WEB3FORMS_KEY, subject, from_name: "SkillNavora website", message: text, replyto: row.email }) }).then(r => r.ok));
   if (env.CALLMEBOT_PHONE && env.CALLMEBOT_APIKEY) jobs.push(fetch("https://api.callmebot.com/whatsapp.php?phone=" + encodeURIComponent(env.CALLMEBOT_PHONE) +
     "&text=" + encodeURIComponent(text.slice(0, 1500)) + "&apikey=" + encodeURIComponent(env.CALLMEBOT_APIKEY)).then(r => r.ok));
+  // Fallback so every submission still reaches the team by email when no email key is set:
+  // FormSubmit (free). The first submission sends a one-time "Activate form" email to the address.
+  if (!(env.RESEND_API_KEY && env.NOTIFY_EMAIL) && !env.WEB3FORMS_KEY && env.FORMSUBMIT_OFF !== "1") {
+    const to = (env.NOTIFY_EMAIL || NOTIFY_FALLBACK).split(",")[0].trim();
+    jobs.push(fetch("https://formsubmit.co/ajax/" + encodeURIComponent(to), { method: "POST",
+      headers: { "content-type": "application/json", accept: "application/json", referer: "https://www.skillnavora.in/" },
+      body: JSON.stringify({ _subject: subject, _template: "table", _captcha: "false", ...(row.email ? { _replyto: row.email } : {}),
+        Type: LABEL[row.kind], Name: [row.first_name, row.last_name].filter(Boolean).join(" "), Phone: row.phone, Email: row.email || "",
+        Program: row.course_id || "", Role: row.role || "", Experience: row.experience || "", LinkedIn: row.linkedin || "",
+        "Preferred time": row.preferred_time || "", Message: row.message || "", Source: row.source || "" }) }).then(r => r.ok));
+  }
   const sent = (await Promise.all(jobs.map(j => j.catch(() => false)))).filter(Boolean).length;
 
   return json({ ok: saved || sent > 0, saved, notified: sent });

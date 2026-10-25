@@ -62,6 +62,7 @@ const AUTH = {
    deadline:  enrolment closing date-time, e.g. "2027-01-10T23:59:00+05:30".
               Shows a live countdown like "Enrolment closes in 2d : 4h".
    fee:       e.g. "$2,000". Empty shows "Fees on request".
+   feeINR:    the rupee price shown next to it, e.g. "₹1,74,000" (approximate; update if your price differs).
    earlyBird: early-bird offer text. Empty hides it.
    pay:       payment link (Razorpay, Instamojo...), shown after someone applies.
    Everything below is a starting draft: edit it to match your program. */
@@ -74,7 +75,7 @@ const COURSES = [
     tagline: "The end-to-end program to become a confident, job-ready AI product manager",
     badge: "Flagship",
     cohort: "Inaugural cohort", start: "", deadline: "",
-    fee: "$2,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and the job assistance program.",
+    fee: "$2,000", feeINR: "₹1,74,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and the job assistance program.",
     earlyBird: "",
     pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "8–10 hours a week",
@@ -124,7 +125,7 @@ const COURSES = [
     short: "Learn Python, SQL, statistics and machine learning, then use AI to analyse data faster and build models that drive decisions.",
     tagline: "Go from raw data to insights, models and AI-powered analytics",
     badge: "Flagship",
-    cohort: "", start: "", deadline: "", fee: "$1,500", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and job assistance.", earlyBird: "", pay: "",
+    cohort: "", start: "", deadline: "", fee: "$1,500", feeINR: "₹1,30,000", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and job assistance.", earlyBird: "", pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "10–12 hours a week",
     highlights: ["Real-world projects", "Capstone project", "Mock interviews", "Job assistance"],
     outcomes: ["Clean, explore and visualise data with Python and SQL", "Apply statistics and A/B testing with confidence",
@@ -162,7 +163,7 @@ const COURSES = [
     short: "A beginner-friendly program to use generative AI at work: prompting, AI assistants, no-code apps, automations, chatbots and voice agents.",
     tagline: "Go from AI-curious to AI-confident, with no coding needed",
     badge: "Beginner friendly",
-    cohort: "", start: "", deadline: "", fee: "$1,000", feeNote: "Includes live classes, hands-on projects, a capstone and demo day.", earlyBird: "", pay: "",
+    cohort: "", start: "", deadline: "", fee: "$1,000", feeINR: "₹87,000", feeNote: "Includes live classes, hands-on projects, a capstone and demo day.", earlyBird: "", pay: "",
     duration: "8 weeks", format: "Live online classes with recordings", effort: "5–6 hours a week",
     highlights: ["Hands-on projects", "No coding needed", "Capstone and demo day", "Certificate"],
     outcomes: ["Write prompts that get reliable results", "Use Claude daily for writing, research and analysis",
