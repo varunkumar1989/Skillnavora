@@ -20,13 +20,6 @@ const SN = (function () {
     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "implicit" }
   });
 
-  // Lets the handbook PDFs (/handbook/*) check that the visitor is logged in.
-  if (client && client.auth.onAuthStateChange) client.auth.onAuthStateChange((_e, s) => {
-    const sec = location.protocol === "https:" ? "; Secure" : "";
-    document.cookie = s && s.access_token ? "sn_hb=" + encodeURIComponent(s.access_token) + "; Path=/handbook; Max-Age=" + Math.max(60, (s.expires_at || 0) - Math.floor(Date.now() / 1000)) + "; SameSite=Lax" + sec
-                        : "sn_hb=; Path=/handbook; Max-Age=0; SameSite=Lax" + sec;
-  });
-
   function notice(el, kind, text) {
     if (!el) return;
     el.className = "notice " + kind; el.textContent = text; el.hidden = !text;
