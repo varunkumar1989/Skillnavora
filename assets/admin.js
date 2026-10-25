@@ -7,8 +7,17 @@
   const s = await SN.session();
   if (!s) return location.replace("login.html?next=admin.html");
   document.querySelectorAll("[data-signout]").forEach(b => b.addEventListener("click", SN.signOut));
-  const { data: isAdmin } = await client.rpc("is_admin");
-  if (!isAdmin) { $("denied").hidden = false; return; }
+  const { data: isAdmin, error: adminErr } = await client.rpc("is_admin");
+  if (!isAdmin) {
+    // Show which account is signed in, and the exact SQL that makes it an admin.
+    const email = (s.user && s.user.email) || "";
+    $("denied-email").textContent = email || "(no email on this account)";
+    $("denied-sql").textContent = adminErr
+      ? "-- The database tables are missing. Run supabase/schema.sql first, then run this again."
+      : "insert into public.profiles (id, email)\n  select id, email from auth.users where email = '" + email.replace(/'/g, "''") + "'\n  on conflict (id) do nothing;\nupdate public.profiles set role = 'admin'\n  where id = (select id from auth.users where email = '" + email.replace(/'/g, "''") + "');";
+    $("refresh").addEventListener("click", () => location.reload());
+    $("denied").hidden = false; return;
+  }
   $("app").hidden = false;
 
   const COURSE = id => COURSES.find(c => c.id === id);
