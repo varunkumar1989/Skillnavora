@@ -125,7 +125,7 @@
     ${SNcover(i, c.name, c.badge)}
     <div class="strip"><span>${strip(c)}</span>${c.cohort ? `<span class="tag g">${esc(c.cohort)}</span>` : ""}</div>
     <div class="body"><h3>${esc(c.name)}</h3><p>${esc(c.short)}</p>
-      <div class="facts">${[c.duration, c.format, c.fee].filter(Boolean).map(f => `<span>${esc(f)}</span>`).join("")}</div>
+      <div class="facts">${[c.duration, c.format, c.fee && (c.fee + (c.feeINR ? " (" + c.feeINR + ")" : ""))].filter(Boolean).map(f => `<span>${esc(f)}</span>`).join("")}</div>
       <div class="acts"><a class="btn btn-primary btn-sm" href="${R + esc(c.page)}">Learn more →</a><a class="btn btn-line btn-sm" href="${esc(enrollHref(c))}">Enroll now</a></div></div></article>`).join("");
 
   /* ---- Program menu (keeps names in sync with config) ---- */
@@ -181,7 +181,10 @@
     set("p-outcomes", (P.outcomes || []).map(x => `<li>${esc(x)}</li>`).join(""));
     set("p-curriculum", (P.curriculum || []).map((m, i) => `<details class="mod"${i === 0 ? " open" : ""}><summary><span class="n">${String(i + 1).padStart(2, "0")}</span><span>${esc(m.title)}</span></summary><ul>${(m.topics || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul></details>`).join(""));
     set("p-projects", (P.projects || []).map((x, i) => `<div class="card"><div class="ico${i % 2 ? " g" : ""}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div><h3>${esc(x)}</h3></div>`).join(""));
-    set("p-price", esc(P.fee || "Fees on request"));
+    if ($("p-cover")) $("p-cover").innerHTML = SNcover(C.indexOf(P), P.name, P.badge);
+    set("p-glance", [["Duration", P.duration], ["Format", P.format], ["Time needed", P.effort], ["Fee", P.fee && (P.fee + (P.feeINR ? " · " + P.feeINR : ""))], ["Next cohort", P.start || "Opening soon"]]
+      .filter(x => x[1]).map(([k, v]) => `<li><small>${esc(k)}</small><b>${esc(v)}</b></li>`).join(""));
+    set("p-price", esc(P.fee || "Fees on request") + (P.feeINR ? `<small class="inr">${esc(P.feeINR)} approx. · EMI options available</small>` : ""));
     if (P.earlyBird && $("p-early")) { $("p-early").textContent = "🎉 " + P.earlyBird; $("p-early").hidden = false; }
     set("p-feenote", esc(P.feeNote || (P.fee ? "Talk to a counsellor about payment options." : "Fees are shared when enrolment opens. Talk to a counsellor for details.")));
     set("p-schedule", [["Cohort", P.cohort || "Next cohort"], ["Starts", P.start || "Opening soon"], ["Duration", P.duration], ["Format", P.format], ["Time needed", P.effort]].map(([k, v]) => `<li><span class="meta" style="min-width:110px;display:inline-block">${k}</span> <b>${esc(v || "—")}</b></li>`).join(""));
@@ -198,9 +201,14 @@
       st.querySelector("[data-st-enroll]").href = enrollHref(c); st.querySelector("[data-st-enroll]").removeAttribute("target");
       st.querySelector("[data-st-counsel]").href = "#counselling";
       document.body.classList.add("has-sticky");
-      st.classList.add("show");
+      // Appears once the visitor scrolls past the top section, so it never covers it.
+      const hero = document.querySelector(".hero");
+      const sync = () => st.classList.toggle("show", !hero || hero.getBoundingClientRect().bottom < 80);
+      addEventListener("scroll", sync, { passive: true }); sync();
     }
   }
+
+  document.querySelectorAll("[data-li]").forEach(a => { if (S.linkedin) a.href = S.linkedin; else a.hidden = true; });
 
   /* ---- Footer and contact ---- */
   if ($("yr")) $("yr").textContent = new Date().getFullYear();
