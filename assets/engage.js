@@ -214,9 +214,10 @@
       if (!/^[0-9+ ()-]{7,20}$/.test(phone) || v("phone").replace(/\D/g, "").length < 7) return ok(msg, "error", "Please enter a valid contact number.");
       if (!/^https?:\/\/\S+$/i.test(v("linkedin"))) return ok(msg, "error", "Please add your LinkedIn profile URL (starting with https://).");
       if (!v("role") || !v("experience")) return ok(msg, "error", "Please choose an option in each list.");
-      const extra = v("extra"), label = kind === "mentor" ? "Current role" : "Resume / portfolio";
+      if (f.elements.consent && !f.elements.consent.checked) return ok(msg, "error", "Please tick the box to agree to publishing your review.");
+      const extra = v("extra"), label = kind === "mentor" ? "Current role" : kind === "career" ? "Resume / portfolio" : "Before → after";
       const row = { kind, first_name: v("name"), email: v("email"), phone, linkedin: v("linkedin"), role: v("role"), experience: v("experience"),
-        message: [extra ? label + ": " + extra : "", v("message")].filter(Boolean).join("\n\n").slice(0, 2000) || null };
+        message: [f.dataset.kindLabel ? "[" + f.dataset.kindLabel + "]" : "", extra ? label + ": " + extra : "", v("message")].filter(Boolean).join("\n\n").slice(0, 2000) || null };
       const b = f.querySelector("button[type=submit]"), t = b.textContent; b.disabled = true; b.textContent = "Submitting…";
       const saved = await saveLead(row); b.disabled = false; b.textContent = t;
       if (!saved) { window.open(waLink((kind === "mentor" ? "Hi SkillNavora, I'd like to become a mentor.\n" : "Hi SkillNavora, I'd like to join your team.\n") + summary(row)), "_blank", "noopener"); return ok(msg, "info", "We opened WhatsApp with your details. Just press send."); }
@@ -252,9 +253,13 @@
   const TS = (typeof TESTIMONIALS !== "undefined" ? TESTIMONIALS : []).filter(t => t && t.quote);
   const YT = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.7 3.1z"/></svg>';
   const LI = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>';
-  const rv = t => `<figure class="review-card"><p>${esc(t.quote)}</p>${t.video ? `<a class="yt" href="${esc(t.video)}" target="_blank" rel="noopener">${YT}Watch story on YouTube</a>` : ""}
-    <figcaption class="who2">${t.photo ? `<img src="${esc(R + t.photo)}" alt="" width="40" height="40">` : `<span class="av">${esc(t.name.trim()[0])}</span>`}<span><b>${esc(t.name)}</b><span>${esc([t.role, t.company].filter(Boolean).join(" · "))}</span></span>${t.linkedin ? `<a class="li" href="${esc(t.linkedin)}" target="_blank" rel="noopener" aria-label="${esc(t.name)} on LinkedIn">${LI}</a>` : ""}</figcaption></figure>`;
-  if ($("reviews-wall")) $("reviews-wall").innerHTML = TS.length ? TS.map(rv).join("") : '<p class="empty">Reviews from our first learners will appear here soon.</p>';
+  // Quote text can mark highlights with ==like this==.
+  const marks = q => { let n = 0; return esc(q).replace(/==(.+?)==/g, (m, x) => `<mark class="h${n++ % 2}">${x}</mark>`); };
+  const side = x => x ? `<div><small>${esc(x.role || "")}</small><b>${esc(x.company || "")}</b></div>` : "";
+  const rv = t => `<figure class="rv2"><figcaption class="rv2-h">${t.photo ? `<img src="${esc(R + t.photo)}" alt="" width="40" height="40">` : `<span class="av">${esc(t.name.trim()[0])}</span>`}<b>${esc(t.name)}</b>${t.linkedin ? `<a class="li" href="${esc(t.linkedin)}" target="_blank" rel="noopener" aria-label="${esc(t.name)} on LinkedIn">${LI}</a>` : ""}</figcaption>
+    <blockquote>${marks(t.quote)}</blockquote>${t.video ? `<a class="yt" href="${esc(t.video)}" target="_blank" rel="noopener">${YT}Watch story</a>` : ""}
+    ${t.from || t.to ? `<div class="rv2-move">${side(t.from)}<span class="arr" aria-hidden="true">››››</span>${side(t.to)}</div>` : (t.role || t.company ? `<div class="rv2-move"><div><small>${esc(t.role || "")}</small><b>${esc(t.company || "")}</b></div></div>` : "")}</figure>`;
+  if ($("reviews-wall")) $("reviews-wall").innerHTML = TS.length ? TS.map(rv).join("") : '<p class="empty">Reviews from our first learners will appear here soon. Are you a learner? Share your story below.</p>';
   if (TS.length && $("home-reviews")) { set("home-reviews-list", TS.slice(0, 6).map(rv).join("")); $("home-reviews").hidden = false; }
 
   /* ---------- AI chat assistant ---------- */
