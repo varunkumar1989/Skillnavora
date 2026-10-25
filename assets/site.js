@@ -69,6 +69,8 @@
     return Math.floor(s / 86400) + "d : " + Math.floor(s % 86400 / 3600) + "h : " + String(Math.floor(s % 3600 / 60)).padStart(2, "0") + "m : " + String(s % 60).padStart(2, "0") + "s"; };
   function strip(c) {
     if (c.deadline && left(c.deadline)) return `Enrolment closes in <span class="cd" data-deadline="${esc(c.deadline)}">${left(c.deadline)}</span>`;
+    const eb = typeof OFFERS !== "undefined" && c.earlyBird && OFFERS.earlyBirdEnds;
+    if (eb && left(eb)) return `Early-bird ends in <span class="cd" data-deadline="${esc(eb)}">${left(eb)}</span>`;
     if (c.start) return `Next cohort starts <b>${esc(c.start)}</b>`;
     return "Enrolments opening soon";
   }
@@ -76,8 +78,15 @@
 
   /* ---- Course cover art ---- */
   const PAL = [["#0b1f4f", "#1d4ed8", "#fb923c"], ["#0b1736", "#334e8a", "#fdba74"], ["#083344", "#0e7490", "#fdba74"]];
+  // Course icons: rocket (product), chart (data science), sparkles (GenAI)
+  const ART = {
+    "ai-pm": p => `<g transform="rotate(40)"><path d="M-7 18Q0 44 7 18Z" fill="#ff9933"/><path d="M-3.5 18Q0 33 3.5 18Z" fill="#ffe08a"/><path d="M-12 6L-24 20L-12 17Z" fill="${p[2]}"/><path d="M12 6L24 20L12 17Z" fill="${p[2]}"/><path d="M0-36C13-24 15-6 12 18H-12C-15-6-13-24 0-36Z" fill="#fff"/><path d="M0-36C6-30 9-24 10-18H-10C-9-24-6-30 0-36Z" fill="#ff9933"/><circle cy="-4" r="6.5" fill="${p[0]}" stroke="#138808" stroke-width="2.5"/></g>`,
+    "ai-ds": p => `<g><rect x="-30" y="6" width="11" height="22" rx="2" fill="#fff" fill-opacity=".85"/><rect x="-14" y="-6" width="11" height="34" rx="2" fill="#ff9933"/><rect x="2" y="-16" width="11" height="44" rx="2" fill="#fff" fill-opacity=".85"/><rect x="18" y="-28" width="11" height="56" rx="2" fill="#138808"/><path d="M-26-4L-8-18L8-12L24-36" fill="none" stroke="#ffe08a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g fill="#ffe08a"><circle cx="-26" cy="-4" r="3.5"/><circle cx="-8" cy="-18" r="3.5"/><circle cx="8" cy="-12" r="3.5"/><circle cx="24" cy="-36" r="3.5"/></g></g>`,
+    "genai-launchpad": p => `<g><path d="M-4-30C-1-10 4-5 24-2C4 1-1 6-4 26C-7 6-12 1-32-2C-12-5-7-10-4-30Z" fill="#fff"/><path d="M22-34C23-26 25-24 33-23C25-22 23-20 22-12C21-20 19-22 11-23C19-24 21-26 22-34Z" fill="#ff9933"/><path d="M20 12C21 18 22 19 28 20C22 21 21 22 20 28C19 22 18 21 12 20C18 19 19 18 20 12Z" fill="#35c043"/></g>`,
+    compass: p => `<path d="M0-38l8 30-8 8-8-8z" fill="${p[2]}"/><path d="M0 38l-8-30 8-8 8 8z" fill="#fff"/><circle r="5" fill="${p[0]}" stroke="${p[2]}" stroke-width="3"/>`
+  };
   window.SNcover = (i, title, badge) => { const p = PAL[i % PAL.length];
-    return `<div class="cover"><svg class="art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="cg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p[0]}"/><stop offset="1" stop-color="${p[1]}"/></linearGradient></defs><rect width="400" height="210" fill="url(#cg${i})"/><circle cx="330" cy="40" r="120" fill="${p[2]}" opacity=".18"/><circle cx="360" cy="180" r="70" fill="#fff" opacity=".08"/><g transform="translate(300 118)" opacity=".9"><circle r="46" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/><path d="M0-38l8 30-8 8-8-8z" fill="${p[2]}"/><path d="M0 38l-8-30 8-8 8 8z" fill="#fff"/><circle r="5" fill="${p[0]}" stroke="${p[2]}" stroke-width="3"/></g></svg>${badge ? `<span class="ribbon">${esc(badge)}</span>` : ""}<span class="ct">${esc(title)}</span></div>`; };
+    return `<div class="cover"><svg class="art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="cg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p[0]}"/><stop offset="1" stop-color="${p[1]}"/></linearGradient></defs><rect width="400" height="210" fill="url(#cg${i})"/><circle cx="330" cy="40" r="120" fill="${p[2]}" opacity=".18"/><circle cx="360" cy="180" r="70" fill="#fff" opacity=".08"/><g transform="translate(300 118)"><circle r="50" fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>${ART[(C.find(c => c.name === title) || {}).id] ? ART[(C.find(c => c.name === title) || {}).id](p) : ART.compass(p)}</g></svg>${badge ? `<span class="ribbon">${esc(badge)}</span>` : ""}<span class="ct">${esc(title)}</span></div>`; };
 
   /* ---- Program cards ---- */
   const cl = $("courses");
