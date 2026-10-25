@@ -1278,3 +1278,6 @@ section{padding:96px 0}
 .offer h3{font-size:17px!important}
 @media (max-width:760px){.dgrid2{grid-template-columns:1fr!important}}
 .offer:nth-child(2) .pct{background:var(--brand-soft)!important;color:var(--brand-ink)!important}.offer:nth-child(1){border:1.5px solid var(--brand)!important;box-shadow:0 14px 34px rgba(109,74,255,.14)}.offer:nth-child(1) .pct{background:var(--grad)!important;color:#fff!important}
+/* Sign-up card: white on the dark (night) page */
+:root[data-theme="dark"] .hero-form{--bg:#f6f5fb;--surface:#ffffff;--surface-2:#f7f6fc;--line:#e4e1f0;--ink:#0f1222;--mu:#5d6478;--brand:#6d4aff;--brand-ink:#5534e6;color-scheme:light;background:#ffffff!important;color:#0f1222;border-color:#ffffff;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(124,92,255,.25)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero-form{--bg:#f6f5fb;--surface:#ffffff;--surface-2:#f7f6fc;--line:#e4e1f0;--ink:#0f1222;--mu:#5d6478;--brand:#6d4aff;--brand-ink:#5534e6;color-scheme:light;background:#ffffff!important;color:#0f1222;border-color:#ffffff;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(124,92,255,.25)}}
