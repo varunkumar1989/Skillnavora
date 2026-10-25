@@ -1105,3 +1105,14 @@ section .sec-h::after{content:"";display:block;width:72px;height:4px;border-radi
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .portal:first-child b{color:#70b5f9}}
 .login-dd .btn-login{border:1px solid var(--h-ghost);padding:9px 14px;border-radius:10px}
 @media (max-width:440px){.login-dd .btn-login{padding:7px 10px;font-size:13.5px}}
+/* v13: discounts as scholarship cards */
+.offers{grid-template-columns:1fr}
+.offers .eb{display:grid;grid-template-columns:1.2fr 1fr;gap:10px 28px;align-items:center}
+.offers .eb>.kicker,.offers .eb>.sec-h{grid-column:1}.offers .eb .cdbig{grid-column:2;grid-row:1/span 2;margin:0}
+.offers .eb .meta,.offers .eb .acts{grid-column:1/-1}
+.dgrid2{grid-template-columns:repeat(4,1fr)}
+.offer{flex-direction:column;align-items:stretch;gap:10px;padding:18px;text-align:left;background:var(--surface);border-top:4px solid #ff9933}
+.offer:nth-child(2){border-top-color:#0b2a78}.offer:nth-child(3){border-top-color:#138808}.offer:nth-child(4){border-top-color:#c99a2e}
+.offer .pct{align-self:flex-start;min-width:0;font-size:22px;padding:6px 12px}
+@media (max-width:980px){.dgrid2{grid-template-columns:1fr 1fr}.offers .eb{grid-template-columns:1fr}.offers .eb .cdbig{grid-column:1;grid-row:auto}}
+@media (max-width:560px){.dgrid2{grid-template-columns:1fr}}
