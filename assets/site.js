@@ -54,7 +54,24 @@
 
   /* ---- "Log in" becomes "My learning" when signed in ---- */
   const nl = $("nav-login");
-  try { if (nl && Object.keys(localStorage).some(k => /^sb-.+-auth-token$/.test(k))) { nl.querySelector("span").textContent = "Account"; const st = $("nav-student"); st.href = R + "lms.html"; st.querySelector("b").textContent = "My learning (LMS)"; } } catch (e) {}
+  // Signed in: show "My courses" and an avatar menu, like Airtribe.
+  try {
+    const key = nl && Object.keys(localStorage).find(k => /^sb-.+-auth-token$/.test(k));
+    const ses = key && JSON.parse(localStorage.getItem(key)), u = ses && (ses.user || (ses.currentSession || {}).user);
+    if (u) {
+      const md = u.user_metadata || {}, nm = md.full_name || md.name || u.email || "?", pic = md.avatar_url || md.picture;
+      nl.classList.add("signed"); nl.setAttribute("aria-label", "Account menu for " + nm);
+      nl.querySelector("span").outerHTML = pic ? `<img class="ava" src="${esc(pic)}" alt="" width="32" height="32" referrerpolicy="no-referrer">` : `<span class="ava">${esc(nm.trim()[0].toUpperCase())}</span>`;
+      const menu = nl.parentNode.querySelector(".dd-menu");
+      menu.innerHTML = `<div class="who-m"><b>${esc(nm)}</b><small>${esc(u.email || "")}</small></div>
+        <a href="${R}lms.html?tab=courses"><span><b>My courses</b></span></a><a href="${R}lms.html"><span><b>Dashboard</b></span></a>
+        <a href="${R}lms.html?tab=handbook"><span><b>PM Handbook</b></span></a><a href="${R}lms.html?tab=achievements"><span><b>Achievements</b></span></a>
+        <a href="${R}admin.html"><span><b>Admin panel</b></span></a><a href="#" data-out><span><b>Log out</b></span></a>`;
+      menu.querySelector("[data-out]").addEventListener("click", e => { e.preventDefault(); try { localStorage.removeItem(key); } catch {} location.href = R + "index.html"; });
+      const mc = document.createElement("a"); mc.className = "my-courses"; mc.href = R + "lms.html?tab=courses"; mc.textContent = "My courses";
+      nl.parentNode.parentNode.insertBefore(mc, nl.parentNode);
+    }
+  } catch (e) {}
 
   /* ---- WhatsApp, counselling and enrol links ---- */
   const w = $("wa");
@@ -82,12 +99,12 @@
   setInterval(() => document.querySelectorAll("[data-deadline]").forEach(el => { el.textContent = left(el.dataset.deadline) || "closed"; }), 1000);
 
   /* ---- Course cover art ---- */
-  const PAL = [["#0b1f4f", "#1d4ed8", "#fb923c"], ["#0b1736", "#334e8a", "#fdba74"], ["#083344", "#0e7490", "#fdba74"]];
+  const PAL = [["#1a1040", "#5b3df5", "#a78bfa"], ["#0f1530", "#3b4fd8", "#67e8f9"], ["#0a1f2e", "#0e7490", "#34d399"]];
   // Course icons: rocket (product), chart (data science), sparkles (GenAI)
   const ART = {
-    "ai-pm": p => `<g transform="rotate(40)"><path d="M-7 18Q0 44 7 18Z" fill="#ff9933"/><path d="M-3.5 18Q0 33 3.5 18Z" fill="#ffe08a"/><path d="M-12 6L-24 20L-12 17Z" fill="${p[2]}"/><path d="M12 6L24 20L12 17Z" fill="${p[2]}"/><path d="M0-36C13-24 15-6 12 18H-12C-15-6-13-24 0-36Z" fill="#fff"/><path d="M0-36C6-30 9-24 10-18H-10C-9-24-6-30 0-36Z" fill="#ff9933"/><circle cy="-4" r="6.5" fill="${p[0]}" stroke="#138808" stroke-width="2.5"/></g>`,
-    "ai-ds": p => `<g><rect x="-30" y="6" width="11" height="22" rx="2" fill="#fff" fill-opacity=".85"/><rect x="-14" y="-6" width="11" height="34" rx="2" fill="#ff9933"/><rect x="2" y="-16" width="11" height="44" rx="2" fill="#fff" fill-opacity=".85"/><rect x="18" y="-28" width="11" height="56" rx="2" fill="#138808"/><path d="M-26-4L-8-18L8-12L24-36" fill="none" stroke="#ffe08a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g fill="#ffe08a"><circle cx="-26" cy="-4" r="3.5"/><circle cx="-8" cy="-18" r="3.5"/><circle cx="8" cy="-12" r="3.5"/><circle cx="24" cy="-36" r="3.5"/></g></g>`,
-    "genai-launchpad": p => `<g><path d="M-4-30C-1-10 4-5 24-2C4 1-1 6-4 26C-7 6-12 1-32-2C-12-5-7-10-4-30Z" fill="#fff"/><path d="M22-34C23-26 25-24 33-23C25-22 23-20 22-12C21-20 19-22 11-23C19-24 21-26 22-34Z" fill="#ff9933"/><path d="M20 12C21 18 22 19 28 20C22 21 21 22 20 28C19 22 18 21 12 20C18 19 19 18 20 12Z" fill="#35c043"/></g>`,
+    "ai-pm": p => `<g transform="rotate(40)"><path d="M-7 18Q0 44 7 18Z" fill="#a78bfa"/><path d="M-3.5 18Q0 33 3.5 18Z" fill="#67e8f9"/><path d="M-12 6L-24 20L-12 17Z" fill="${p[2]}"/><path d="M12 6L24 20L12 17Z" fill="${p[2]}"/><path d="M0-36C13-24 15-6 12 18H-12C-15-6-13-24 0-36Z" fill="#fff"/><path d="M0-36C6-30 9-24 10-18H-10C-9-24-6-30 0-36Z" fill="#a78bfa"/><circle cy="-4" r="6.5" fill="${p[0]}" stroke="#22d3ee" stroke-width="2.5"/></g>`,
+    "ai-ds": p => `<g><rect x="-30" y="6" width="11" height="22" rx="2" fill="#fff" fill-opacity=".85"/><rect x="-14" y="-6" width="11" height="34" rx="2" fill="#a78bfa"/><rect x="2" y="-16" width="11" height="44" rx="2" fill="#fff" fill-opacity=".85"/><rect x="18" y="-28" width="11" height="56" rx="2" fill="#22d3ee"/><path d="M-26-4L-8-18L8-12L24-36" fill="none" stroke="#67e8f9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g fill="#67e8f9"><circle cx="-26" cy="-4" r="3.5"/><circle cx="-8" cy="-18" r="3.5"/><circle cx="8" cy="-12" r="3.5"/><circle cx="24" cy="-36" r="3.5"/></g></g>`,
+    "genai-launchpad": p => `<g><path d="M-4-30C-1-10 4-5 24-2C4 1-1 6-4 26C-7 6-12 1-32-2C-12-5-7-10-4-30Z" fill="#fff"/><path d="M22-34C23-26 25-24 33-23C25-22 23-20 22-12C21-20 19-22 11-23C19-24 21-26 22-34Z" fill="#a78bfa"/><path d="M20 12C21 18 22 19 28 20C22 21 21 22 20 28C19 22 18 21 12 20C18 19 19 18 20 12Z" fill="#34d399"/></g>`,
     compass: p => `<path d="M0-38l8 30-8 8-8-8z" fill="${p[2]}"/><path d="M0 38l-8-30 8-8 8 8z" fill="#fff"/><circle r="5" fill="${p[0]}" stroke="${p[2]}" stroke-width="3"/>`
   };
   window.SNcover = (i, title, badge) => { const p = PAL[i % PAL.length];

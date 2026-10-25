@@ -1130,3 +1130,151 @@ section .sec-h::after{content:"";display:block;width:72px;height:4px;border-radi
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand img{filter:drop-shadow(0 0 1.5px rgba(255,255,255,.75)) drop-shadow(0 2px 3px rgba(0,0,0,.4))}}
 .biglogo img{border-radius:0;max-width:220px;animation:float3d 7s ease-in-out infinite;filter:drop-shadow(0 18px 24px rgba(11,23,54,.28))}
 @media (prefers-reduced-motion:reduce){.biglogo img{animation:none}}
+
+/* =====================================================================
+   v15: premium redesign. Airtribe / Newton School palette (violet + near-black),
+   Plus Jakarta Sans headings with Inter body, no tricolour.
+   ===================================================================== */
+:root{
+  --display:"Plus Jakarta Sans",Inter,system-ui,sans-serif;--serif:var(--display);
+  --bg:#ffffff;--surface:#ffffff;--surface-2:#f7f6fc;--ink:#0f1222;--mu:#5d6478;--line:#e9e7f3;
+  --brand:#6d4aff;--brand-ink:#5534e6;--brand-soft:#f1edff;--on-brand:#fff;
+  --accent:#6d4aff;--accent-ink:#5534e6;--accent-soft:#f1edff;--ok:#12a36a;--ok-ink:#0b7a4e;--ok-soft:#e5f7ef;
+  --saffron-ink:var(--brand-ink);--green-ink:var(--ok-ink);--gold:#6d4aff;
+  --grad:linear-gradient(135deg,#7c5cff 0%,#5b3df5 100%);
+  --iri:linear-gradient(100deg,#7c5cff 0%,#3b82f6 45%,#22d3ee 75%,#34d399 100%);
+  --h-g:var(--iri);
+  --h-bg:radial-gradient(800px 420px at 85% -10%,rgba(124,92,255,.16),transparent 60%),radial-gradient(700px 400px at 0% 0%,rgba(34,211,238,.10),transparent 60%),linear-gradient(180deg,#faf9ff 0%,#ffffff 100%);
+  --h-top:rgba(255,255,255,.88);--h-menu:#ffffff;--h-ink:#0f1222;--h-mu:#5d6478;--h-line:rgba(15,18,34,.08);--h-glass:rgba(255,255,255,.7);--h-hover:rgba(109,74,255,.07);--h-kicker:#5534e6;--h-ghost:rgba(15,18,34,.16);--h-ico:#f1edff;--h-ico-ink:#5534e6;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 12px 32px rgba(16,24,40,.06);--h-shadow:0 24px 60px rgba(46,26,120,.14);
+  --c-bg:#fff;--c-head:#f7f6fc;--c-us-head:linear-gradient(180deg,#f1edff,#ece7ff);--c-line:#e9e7f3;--c-ink:#0f1222;--c-mu:#5d6478;--c-us-ink:#0b7a4e;--c-us-th:#5534e6;--c-us-bg:#faf8ff;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#09090f;--surface:#13131c;--surface-2:#191925;--ink:#f4f4fa;--mu:#a2a5b8;--line:#25253a;
+  --brand:#8b6cff;--brand-ink:#b7a6ff;--brand-soft:#211b44;--accent:#8b6cff;--accent-ink:#b7a6ff;--accent-soft:#211b44;--ok:#34d399;--ok-ink:#6ee7b7;--ok-soft:#0f2a22;
+  --h-bg:radial-gradient(900px 480px at 85% -10%,rgba(124,92,255,.35),transparent 60%),radial-gradient(700px 420px at 0% 10%,rgba(34,211,238,.12),transparent 60%),linear-gradient(180deg,#120e24 0%,#09090f 100%);
+  --h-top:rgba(9,9,15,.85);--h-menu:#14141f;--h-ink:#f4f4fa;--h-mu:#a2a5b8;--h-line:rgba(255,255,255,.08);--h-glass:rgba(255,255,255,.04);--h-hover:rgba(255,255,255,.06);--h-kicker:#b7a6ff;--h-ghost:rgba(255,255,255,.22);--h-ico:#211b44;--h-ico-ink:#b7a6ff;
+  --c-bg:#13131c;--c-head:#0f0f17;--c-us-head:linear-gradient(180deg,#221a4a,#1a1538);--c-line:#25253a;--c-ink:#fff;--c-mu:#a2a5b8;--c-us-ink:#6ee7b7;--c-us-th:#b7a6ff;--c-us-bg:rgba(139,108,255,.07);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.35);--h-shadow:0 30px 70px rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{
+  --bg:#09090f;--surface:#13131c;--surface-2:#191925;--ink:#f4f4fa;--mu:#a2a5b8;--line:#25253a;
+  --brand:#8b6cff;--brand-ink:#b7a6ff;--brand-soft:#211b44;--accent:#8b6cff;--accent-ink:#b7a6ff;--accent-soft:#211b44;--ok:#34d399;--ok-ink:#6ee7b7;--ok-soft:#0f2a22;
+  --h-bg:radial-gradient(900px 480px at 85% -10%,rgba(124,92,255,.35),transparent 60%),radial-gradient(700px 420px at 0% 10%,rgba(34,211,238,.12),transparent 60%),linear-gradient(180deg,#120e24 0%,#09090f 100%);
+  --h-top:rgba(9,9,15,.85);--h-menu:#14141f;--h-ink:#f4f4fa;--h-mu:#a2a5b8;--h-line:rgba(255,255,255,.08);--h-glass:rgba(255,255,255,.04);--h-hover:rgba(255,255,255,.06);--h-kicker:#b7a6ff;--h-ghost:rgba(255,255,255,.22);--h-ico:#211b44;--h-ico-ink:#b7a6ff;
+  --c-bg:#13131c;--c-head:#0f0f17;--c-us-head:linear-gradient(180deg,#221a4a,#1a1538);--c-line:#25253a;--c-ink:#fff;--c-mu:#a2a5b8;--c-us-ink:#6ee7b7;--c-us-th:#b7a6ff;--c-us-bg:rgba(139,108,255,.07);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.35);--h-shadow:0 30px 70px rgba(0,0,0,.5)}
+body{font-family:var(--body);letter-spacing:-.005em}
+h1,h2,h3,h4,.sec-h,.hero h1,.apply-head h1,.lms-head h1{font-family:var(--display)!important;font-weight:800;letter-spacing:-.03em}
+.hero h1 .g,.sec-h .g,.g{font-style:normal!important;background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* no tricolour */
+.topbar::after,footer::before,.top::after,.eb::before,section .sec-h::after,.madein{display:none!important;content:none!important}
+.topbar{background:linear-gradient(90deg,#2a1b63,#4a2fb8 50%,#2a1b63)}
+.topbar a.cta{background:#fff;color:#2a1b63}
+.top{box-shadow:0 1px 0 var(--h-line)}
+.kicker,.hero .kicker{color:var(--brand-ink)}
+.hl span::before,.checks li::before{color:var(--brand)}
+.step::before,.moat .num{background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pill i{background:var(--brand);box-shadow:0 0 0 4px rgba(109,74,255,.2)}
+section.tint{background:var(--surface-2)}
+/* buttons */
+.btn-primary,:root[data-theme="dark"] .btn-primary{background:var(--grad)!important;color:#fff!important;box-shadow:0 8px 22px rgba(109,74,255,.28)}
+.btn-primary:hover{filter:brightness(1.06);box-shadow:0 10px 28px rgba(109,74,255,.38)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-primary{background:var(--grad)!important}}
+.btn,.btn-sm{border-radius:10px}
+.hero-form .btn-primary,.eb .btn-primary{background:var(--grad)!important;color:#fff!important}
+/* cards */
+.card,.course,.offer,.disc,.hb-row,.tl,.learn div,.rv2,.pitem{border-radius:16px}
+.card,.course{border:1px solid var(--line);box-shadow:var(--shadow)}
+.course:hover,.card.tool:hover,.fcourse:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(46,26,120,.12);transition:.2s}
+.aud .card,.support .card{border-top-width:3px}
+.aud .card:nth-child(1),.support .card:nth-child(1){border-top-color:#7c5cff}
+.aud .card:nth-child(2),.support .card:nth-child(2){border-top-color:#3b82f6}
+.aud .card:nth-child(3),.support .card:nth-child(3){border-top-color:#22d3ee}
+.aud .card:nth-child(4){border-top-color:#34d399}
+.learn svg,.learn div:nth-child(n) svg{background:var(--brand-soft)!important;color:var(--brand-ink)!important}
+.dd-ico,.hb-n,.ftag,.fcourse:nth-child(n) .ftag{background:var(--brand-soft)!important;color:var(--brand-ink)!important}
+.cmp th.us{color:var(--c-us-th)}
+/* course covers: violet family */
+
+/* hero banner, bands, LMS, login side: Airtribe violet */
+.band,.lms-head,.auth-side,.eb,.fee .l,.ja .card.dark{background:radial-gradient(700px 320px at 100% 0%,rgba(124,92,255,.45),transparent 60%),radial-gradient(500px 260px at 0% 100%,rgba(34,211,238,.12),transparent 60%),linear-gradient(135deg,#140f2e,#241a52)!important}
+.eb .kicker{color:#c9bdff}.eb .btn-line{border-color:rgba(255,255,255,.3)}
+.cdbig span{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+/* offers */
+.offer{border-top:1px solid var(--line)!important;background:var(--surface)}
+.offer .pct,.offer:nth-child(n) .pct{background:var(--brand-soft)!important;color:var(--brand-ink)!important;font-size:18px!important}
+.offer:nth-child(2) .pct{background:var(--grad)!important;color:#fff!important}
+/* hero sign-up card: violet-dark in day mode */
+:root[data-theme="light"] .hero-form{--bg:#0f0b22;--surface:#17122f;--line:#2c2552;--ink:#f3f1ff;--mu:#b3aad6;background:radial-gradient(420px 220px at 100% 0%,rgba(124,92,255,.4),transparent 60%),linear-gradient(160deg,#150f2f,#211849);border-color:#2c2552}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .hero-form{--bg:#0f0b22;--surface:#17122f;--line:#2c2552;--ink:#f3f1ff;--mu:#b3aad6;background:radial-gradient(420px 220px at 100% 0%,rgba(124,92,255,.4),transparent 60%),linear-gradient(160deg,#150f2f,#211849);border-color:#2c2552}}
+/* floating buttons */
+.chat-fab{background:var(--grad)!important;color:#fff!important;border:0!important;box-shadow:0 10px 26px rgba(109,74,255,.4)}
+.chat-fab svg{color:#fff}
+/* logo + 3D name */
+.brand{gap:8px}
+.brand img{filter:drop-shadow(0 3px 4px rgba(46,26,120,.25))!important}
+.brand>span,.auth-side .logo>span,.auth-card .logo>span,.brand>span em,.auth-side .logo>span em,.auth-card .logo>span em,.brand i.c,.auth-side .logo i.c,.auth-card .logo i.c{
+  background:var(--iri)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-stroke:0!important;animation:none!important;font-size:inherit!important;line-height:inherit!important;font-style:normal}
+.brand>span,.auth-side .logo>span,.auth-card .logo>span{font-family:var(--display);font-weight:800;letter-spacing:-.035em;
+  filter:drop-shadow(.6px .8px 0 #2a2790) drop-shadow(.6px .8px 0 #23207a) drop-shadow(0 3px 4px rgba(18,13,58,.28))!important}
+:root[data-theme="dark"] .brand>span,footer .brand>span,.auth-side .logo>span{filter:drop-shadow(.6px .8px 0 #1e1b6e) drop-shadow(.6px .8px 0 #14124d) drop-shadow(0 3px 5px rgba(0,0,0,.5))!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand>span{filter:drop-shadow(.6px .8px 0 #1e1b6e) drop-shadow(.6px .8px 0 #14124d) drop-shadow(0 3px 5px rgba(0,0,0,.5))!important}}
+/* signed-in header: My courses + avatar */
+.my-courses{color:var(--h-ink);text-decoration:none;font:600 15px var(--body);padding:8px 10px;border-radius:10px}
+.my-courses:hover{background:var(--h-hover)}
+.login-dd .btn-login.signed{padding:3px 6px 3px 3px;border-radius:12px;gap:4px}
+.ava{width:32px;height:32px;border-radius:9px;object-fit:cover;display:grid;place-items:center;background:var(--grad);color:#fff;font:700 14px var(--display)}
+.who-m{padding:10px 14px 12px;border-bottom:1px solid var(--line);margin-bottom:6px}.who-m b{display:block;font:700 14.5px var(--display)}.who-m small{color:var(--mu);font-size:12.5px}
+@media (max-width:760px){.my-courses{display:none}}
+/* LMS tabs like Airtribe: plain text with a violet underline */
+.tabs{border-bottom:1px solid var(--line);gap:6px;background:none!important;padding:0!important;border-radius:0!important}
+.tabs button{background:none!important;border:0!important;border-radius:0!important;padding:12px 10px!important;font:500 15.5px var(--body)!important;color:var(--mu)!important;box-shadow:none!important;border-bottom:3px solid transparent!important;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--brand-ink)!important;font-weight:600!important;border-bottom-color:var(--brand)!important}
+.tabs button:hover{color:var(--ink)!important}
+/* company marquee */
+.logos-s{padding:56px 0 40px}
+.marquee{overflow:hidden;margin-top:22px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee .track{display:flex;gap:56px;width:max-content;animation:mq 38s linear infinite}
+.marquee.rev .track{animation-direction:reverse;animation-duration:44s}
+.marquee:hover .track{animation-play-state:paused}
+.marquee span{font:800 26px var(--display);letter-spacing:-.03em;color:var(--ink);opacity:.38;white-space:nowrap;transition:opacity .2s}
+.marquee span:hover{opacity:.9}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee .track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}}
+/* placement support (dark block, like Newton School) */
+.place-s{background:#0b0b10;color:#f4f4fa}
+.place-s .sec-h{color:#fff}.place-s .sub{color:#a8abbd}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px 64px}
+.pitem h3{font-size:19px;margin:22px 0 8px;color:#fff}.pitem p{margin:0;color:#a8abbd;font-size:15.5px}
+.pico{width:64px;height:64px;border-radius:14px;background:#fff;color:#0b0b10;display:grid;place-items:center}
+.pico svg{width:28px;height:28px}
+.place-s .meta{color:#7d8197}
+@media (max-width:760px){.pgrid{grid-template-columns:1fr}}
+/* reviews like Airtribe */
+.reviews{columns:3 320px;column-gap:22px}
+.rv2{break-inside:avoid;margin:0 0 22px;background:#1d1838;color:#f1eefc;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.rv2-h{display:flex;align-items:center;gap:12px;padding:22px 24px 0}
+.rv2-h img,.rv2-h .av{width:40px;height:40px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:var(--grad);color:#fff;font-weight:700}
+.rv2-h b{font:700 16px var(--display)}.rv2-h .li{margin-left:auto;color:#c9bdff}.rv2-h .li svg{width:18px;height:18px}
+.rv2 blockquote{margin:0;padding:16px 24px 22px;font-size:15.5px;line-height:1.6}
+.rv2 mark{color:inherit;padding:1px 2px;border-radius:3px;background:rgba(52,211,153,.32)}
+.rv2 mark.h1{background:rgba(251,146,60,.32)}
+.rv2 .yt{display:inline-flex;gap:6px;align-items:center;margin:0 24px 16px;color:#c9bdff;font-weight:600;font-size:14px}.rv2 .yt svg{width:18px;height:18px}
+.rv2-move{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;color:#0f1222;padding:14px 24px}
+.rv2-move small{display:block;color:#5d6478;font-size:12.5px}.rv2-move b{font:700 14.5px var(--display)}
+.rv2-move div:last-child{text-align:right}
+.rv2-move .arr{color:#6d4aff;letter-spacing:2px;font-weight:700}
+/* premium spacing */
+section{padding:96px 0}
+.sec-h{margin-bottom:14px}
+.hero .wrap{padding-top:84px;padding-bottom:88px}
+.top .wrap{height:72px}
+
+/* v15b: scholarships, three cards */
+.dgrid2{grid-template-columns:repeat(3,1fr)!important}
+.offers .disc{padding:36px}
+.offer{padding:24px!important;gap:12px!important}
+.offer .pct{font:800 22px var(--display)!important;padding:8px 14px!important;border-radius:12px}
+.offer h3{font-size:17px!important}
+@media (max-width:760px){.dgrid2{grid-template-columns:1fr!important}}
+.offer:nth-child(2) .pct{background:var(--brand-soft)!important;color:var(--brand-ink)!important}.offer:nth-child(1){border:1.5px solid var(--brand)!important;box-shadow:0 14px 34px rgba(109,74,255,.14)}.offer:nth-child(1) .pct{background:var(--grad)!important;color:#fff!important}

@@ -25,7 +25,7 @@ const SITE = {
   // Free key from web3forms.com so form submissions also reach your inbox by email.
   web3formsKey: "",
   // Small banner above the home page headline. "" hides it.
-  announcement: "Inaugural cohort · Early-bird discount for the first learners",
+  announcement: "Inaugural cohort · Scholarships up to 100% for eligible candidates",
   announcementLink: "program/ai-product-management.html",
   // Show the "Not sure if this is for you?" pop-up after this many minutes on the site. 0 turns it off.
   popupMinutes: 5,
@@ -38,7 +38,7 @@ const TOPBAR = {
   text: "Learn AI-first Product Management. Inaugural cohort enrolling now",
   cta: "Apply now",
   link: "apply.html?program=ai-pm",
-  tag: "⚡ Early-bird pricing"
+  tag: "Scholarships up to 100%"
 };
 
 /* ---- Student and admin logins (Supabase) ------------------------------
@@ -75,7 +75,7 @@ const COURSES = [
     badge: "Flagship",
     cohort: "Inaugural cohort", start: "", deadline: "",
     fee: "$2,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and the job assistance program.",
-    earlyBird: "Inaugural early-bird discount for the first cohort. Contact us for the discount.",
+    earlyBird: "",
     pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "8–10 hours a week",
     highlights: ["25+ real-world case studies", "Capstone project", "Mock tests and interviews", "Monthly 1:1 with a CEO or Head of Product"],
@@ -205,7 +205,7 @@ const STATS = {
     { n: "50+", t: "Industry experts" },
     { n: "500+", t: "Hiring companies" }
   ],
-  note: ""
+  note: "One scholarship or discount per learner. Scholarships are decided after a short test and a counselling call."
 };
 
 /* ---- Who is this for (home and program pages) ---- */
@@ -265,7 +265,7 @@ const FAQS = [
   { c: "Program", q: "Which tools will I learn?", a: "Delivery tools like Jira, Confluence, Asana and Notion; design tools like Figma and Miro; analytics like Mixpanel, Amplitude, GA4 and SQL; and AI tools including Claude, Claude Code, ChatGPT, Gemini, Lovable and n8n." },
   { c: "Program", q: "Can I ask instructors and mentors questions directly?", a: "Yes, during live classes, in 1:1 mentorship, and through the LMS. You also get a monthly 1:1 session with a CEO or Head of Product." },
   { c: "Schedule", q: "What are the timings and schedule?", a: "Live classes run on weekends. Exact timings are shared before each cohort starts; talk to a counsellor for the current schedule." },
-  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $2,000, AI-First Data Science is $1,500 and GenAI Launchpad is $1,000. The first cohort gets an inaugural early-bird discount (contact us for the discount), and eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options." },
+  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $2,000, AI-First Data Science is $1,500 and GenAI Launchpad is $1,000. Eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options." },
   { c: "Career", q: "Do you help with jobs?", a: "Yes, through the job assistance program: resume and LinkedIn reviews, portfolio, intensive interview preparation and referrals through our network. No one can honestly guarantee a job, but we work with you until you're job-ready." },
   { c: "Career", q: "Will I get a certificate?", a: "Yes, you get a certificate when you complete the program and capstone." },
   { c: "Career", q: "I have more questions. Where can I ask?", a: "Ask our AI assistant, message us on WhatsApp, or book a free counselling session." }
@@ -306,21 +306,18 @@ const TOOL_LINKS = {
   "Canva": "https://www.canva.com", "WhatsApp Business": "https://business.whatsapp.com"
 };
 
-/* ---- Early-bird timer and discounts ----------------------------------------
-   earlyBirdEnds: the real last date of the early-bird price (India time). The
-   timer hides itself after this date. Only show a deadline that is true:
-   don't extend or reset it to create urgency.
-   items: the discounts and scholarships you offer. Edit the % to match your policy. */
+/* ---- Scholarships and payment options ------------------------------------
+   earlyBirdEnds: a real end date (India time) shows a countdown; leave "" to hide it.
+   items: the scholarships and options you offer. */
 const OFFERS = {
-  earlyBirdEnds: "2026-11-30T23:59:59+05:30",
-  earlyBirdText: "Inaugural early-bird offer: contact us for the discount",
+  earlyBirdEnds: "",
+  earlyBirdText: "",
   items: [
-    { pct: "Contact us", title: "Early-bird discount", text: "Special pricing for learners who enrol in the inaugural cohort before the early-bird date. Contact us for the discount." },
-    { pct: "Up to 100%", title: "Merit scholarship", text: "Scholarships of up to 100% for eligible candidates who do well in the SkillNavora scholarship test and interview. Limited seats every cohort." },
-    { pct: "Contact us", title: "Students and freshers", text: "A discount for college students and recent graduates, with a valid student or graduation ID. Contact us for the discount." },
-    { pct: "EMI", title: "Flexible payment plans", text: "Pay the fee in monthly instalments. Ask a counsellor for the plans available for your cohort." }
+    { pct: "Up to 100%", title: "Merit scholarship", text: "For eligible candidates who do well in the SkillNavora scholarship test and interview. Limited seats every cohort." },
+    { pct: "Students", title: "Students and freshers", text: "Special pricing for college students and recent graduates, with a valid student or graduation ID." },
+    { pct: "EMI", title: "Flexible payment plans", text: "Pay the fee in easy monthly instalments, with plans for every cohort." }
   ],
-  note: "Only one discount or scholarship applies per learner unless a counsellor confirms otherwise. Scholarships are limited and decided after a short scholarship test and counselling call."
+  note: "One scholarship or discount per learner. Scholarships are decided after a short test and a counselling call."
 };
 
 /* ---- Careers page: open roles at SkillNavora ------------------------------
@@ -332,9 +329,12 @@ const CAREERS = [
 const JOBS = [
 ];
 
-/* ---- Reviews. Add REAL reviews from your learners, with their permission.
-   The Reviews page, menu item and home section appear once you add one.
-   { name: "Priya S.", company: "Fintech startup", role: "Associate PM",
-     quote: "...", photo: "assets/priya.jpg", linkedin: "https://...", video: "https://youtube.com/..." } */
+/* ---- Reviews. Add REAL reviews from your learners, with their permission
+   (the Reviews page form collects them into Admin -> Applications).
+   Wrap phrases in ==double equals== to highlight them. Example:
+   { name: "Priya S.", photo: "assets/priya.jpg", linkedin: "https://...",
+     quote: "The program ==helped me build a real product portfolio==. The mock interviews...",
+     from: { role: "Business Analyst", company: "Infosys" },
+     to:   { role: "Associate Product Manager", company: "Razorpay" } } */
 const TESTIMONIALS = [
 ];
