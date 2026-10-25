@@ -46,6 +46,12 @@ Quizzes, challenges and practice questions are in **`assets/content.js`**.
 5. Schedule live sessions in **Admin → Events**; students register and rate them in **My events**.
 6. Review submissions in **Admin → Submissions**; students see your feedback in their LMS.
 
+## Form notifications (email and WhatsApp)
+Every form (apply, counselling, sign-up card, mentor, careers, contact, business) posts to `functions/api/lead.js`, which saves it to Supabase (Admin → Applications) and sends you a message. Add these in Cloudflare → Workers & Pages → skillnavora → Settings → Variables and secrets (type **Secret**), then redeploy:
+- **Email (Resend, free):** `RESEND_API_KEY` and `NOTIFY_EMAIL` (the email you signed up to Resend with).
+- **Email (Web3Forms, free, alternative):** `WEB3FORMS_KEY`.
+- **WhatsApp (CallMeBot, free):** `CALLMEBOT_PHONE` (e.g. 919211315006) and `CALLMEBOT_APIKEY`.
+
 ## PM Master Handbook (login only)
 - The LMS has a **PM Handbook** tab with the interactive handbook (a shared Claude artifact) and the PDFs in `handbook/`.
 - `functions/handbook/_middleware.js` only serves `/handbook/*` to logged-in learners: the site stores the learner's Supabase login in a cookie, and the function checks it with Supabase before sending the PDF. Visitors who aren't logged in go to the login page.

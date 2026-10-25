@@ -30,6 +30,7 @@
   if (burger) burger.addEventListener("click", () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); document.body.style.overflow = o ? "hidden" : ""; nav.style.height = ""; fit(); });
   addEventListener("resize", fit);
   const hoverMode = matchMedia("(hover: hover) and (min-width: 1021px)").matches;
+  let lastScroll = 0; addEventListener("scroll", () => { lastScroll = Date.now(); }, { passive: true });
   document.querySelectorAll(".dd").forEach(dd => {
     const btn = dd.querySelector("button");
     btn.addEventListener("click", e => {
@@ -40,8 +41,12 @@
       if (open) { dd.setAttribute("data-open", ""); btn.setAttribute("aria-expanded", "true"); }
     });
     if (hoverMode) {
-      dd.addEventListener("mouseenter", () => { dd.setAttribute("data-open", ""); btn.setAttribute("aria-expanded", "true"); });
-      dd.addEventListener("mouseleave", () => { dd.removeAttribute("data-open"); btn.setAttribute("aria-expanded", "false"); });
+      // Stay open while the page scrolls under the pointer; close shortly after the pointer really leaves.
+      let t;
+      const shut = () => { dd.removeAttribute("data-open"); btn.setAttribute("aria-expanded", "false"); };
+      dd.addEventListener("mouseenter", () => { clearTimeout(t); document.querySelectorAll(".dd[data-open]").forEach(x => { if (x !== dd) x.removeAttribute("data-open"); }); dd.setAttribute("data-open", ""); btn.setAttribute("aria-expanded", "true"); });
+      dd.addEventListener("mouseleave", () => { if (Date.now() - lastScroll < 500) return; clearTimeout(t); t = setTimeout(() => { if (!dd.matches(":hover")) shut(); }, 250); });
+      document.addEventListener("mousemove", e => { if (dd.hasAttribute("data-open") && !dd.contains(e.target) && Date.now() - lastScroll > 500) { clearTimeout(t); t = setTimeout(() => { if (!dd.matches(":hover")) shut(); }, 250); } }, { passive: true });
     }
   });
   document.addEventListener("click", () => document.querySelectorAll(".dd[data-open]").forEach(x => x.removeAttribute("data-open")));
@@ -49,7 +54,7 @@
 
   /* ---- "Log in" becomes "My learning" when signed in ---- */
   const nl = $("nav-login");
-  try { if (nl && Object.keys(localStorage).some(k => /^sb-.+-auth-token$/.test(k))) { nl.textContent = "My learning"; nl.href = R + "lms.html"; } } catch (e) {}
+  try { if (nl && Object.keys(localStorage).some(k => /^sb-.+-auth-token$/.test(k))) { nl.querySelector("span").textContent = "Account"; const st = $("nav-student"); st.href = R + "lms.html"; st.querySelector("b").textContent = "My learning (LMS)"; } } catch (e) {}
 
   /* ---- WhatsApp, counselling and enrol links ---- */
   const w = $("wa");
@@ -189,14 +194,18 @@
   }
   const form = $("form"), msg = $("msg");
   if (form) {
-    if (!S.web3formsKey && !S.email) form.hidden = true;
     form.addEventListener("submit", async e => {
       e.preventDefault(); const d = new FormData(form), topic = d.get("interest") || "General";
-      if (!S.web3formsKey) { location.href = "mailto:" + S.email + "?subject=" + encodeURIComponent("SkillNavora enquiry: " + topic) + "&body=" + encodeURIComponent(d.get("message") + "\n\n" + d.get("name") + " · " + d.get("email") + (d.get("company") ? " · " + d.get("company") : "") + (d.get("phone") ? " · " + d.get("phone") : "")); return; }
-      d.append("access_key", S.web3formsKey); d.append("subject", "New SkillNavora enquiry: " + topic); msg.textContent = "Sending…";
-      try { const r = await fetch("https://api.web3forms.com/submit", { method: "POST", body: d }); const j = await r.json();
-        msg.textContent = j.success ? "Thanks! We'll get back to you soon." : "Couldn't send. Please WhatsApp or email us instead."; if (j.success) form.reset();
-      } catch { msg.textContent = "Couldn't send. Please WhatsApp or email us instead."; }
+      const v = k => String(d.get(k) || "").trim(), phone = v("phone");
+      if (!v("name")) { msg.textContent = "Please enter your name."; return; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("email"))) { msg.textContent = "Please enter a valid email."; return; }
+      if (!/^[0-9+ ()-]{7,20}$/.test(phone) || phone.replace(/\D/g, "").length < 7) { msg.textContent = "Please enter a valid phone or WhatsApp number."; return; }
+      const row = { kind: "contact", first_name: v("name"), email: v("email"), phone,
+        role: topic.slice(0, 80), message: [v("company") && "Company: " + v("company"), v("message")].filter(Boolean).join("\n").slice(0, 2000) || null };
+      const b = form.querySelector("button[type=submit]"); b.disabled = true; msg.textContent = "Sending…";
+      const ok = window.SNsaveLead ? await window.SNsaveLead(row) : false; b.disabled = false;
+      if (ok) { msg.textContent = "Thanks, " + row.first_name + "! Your message has been sent. We'll get back to you soon."; form.reset(); return; }
+      msg.innerHTML = 'Couldn\'t send right now. <a href="' + waLink("Hi SkillNavora, I'm " + row.first_name + " (" + row.email + "). " + (v("message") || "")) + '" target="_blank" rel="noopener">Send it on WhatsApp instead</a>.';
     });
   }
 })();

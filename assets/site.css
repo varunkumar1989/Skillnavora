@@ -1084,3 +1084,24 @@ section .sec-h::after{content:"";display:block;width:72px;height:4px;border-radi
 .madein i{width:22px;height:14px;border-radius:2px;background:linear-gradient(180deg,#ff9933 0 33.3%,#ffffff 33.3% 66.6%,#138808 66.6%);box-shadow:0 0 0 1px rgba(255,255,255,.25)}
 .eb{display:flex;flex-direction:column;justify-content:center}
 .hero-form .form{text-align:left}
+/* v12: dropdown hover bridge, login dropdown */
+.dd-menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.login-dd .btn-login{display:inline-flex;align-items:center;gap:6px;background:none;cursor:pointer;font:700 14.5px var(--body);color:var(--on-hero)}
+.login-dd .btn-login svg{width:14px;height:14px}
+.login-dd .dd-menu{position:absolute!important;left:auto!important;right:0;top:calc(100% + 8px)!important;min-width:280px;margin:0!important;background:var(--h-menu)!important;border:1px solid var(--h-line)!important;box-shadow:var(--h-shadow)!important;z-index:50}
+@media (max-width:440px){.login-dd .btn-login svg{display:none}}
+/* Job portals */
+.portals{margin-top:40px;padding:24px}
+.portals-h{display:flex;gap:20px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;margin-bottom:16px}
+.portal-f{display:flex;gap:8px;flex-wrap:wrap}.portal-f input{width:260px}.portal-f select{width:auto}
+.portal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.portal{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);text-decoration:none;color:var(--ink)}
+.portal b{font-size:14.5px}.portal small{color:var(--mu);font-size:12px}
+.portal:first-child{border-color:#0a66c2;background:rgba(10,102,194,.08)}.portal:first-child b{color:#0a66c2}
+.portal:hover{border-color:#ff9933}
+@media (max-width:980px){.portal-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.portal-grid{grid-template-columns:1fr 1fr}.portal-f input{width:100%}}
+:root[data-theme="dark"] .portal:first-child b{color:#70b5f9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .portal:first-child b{color:#70b5f9}}
+.login-dd .btn-login{border:1px solid var(--h-ghost);padding:9px 14px;border-radius:10px}
+@media (max-width:440px){.login-dd .btn-login{padding:7px 10px;font-size:13.5px}}
