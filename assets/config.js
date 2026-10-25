@@ -152,7 +152,7 @@ const COURSES = [
       { name: "Analyse", tools: ["Python", "pandas", "NumPy", "Jupyter", "SQL"] },
       { name: "Model", tools: ["scikit-learn", "XGBoost", "Statsmodels"] },
       { name: "Visualise", tools: ["Power BI", "Tableau", "Matplotlib", "Seaborn", "Excel"] },
-      { name: "AI", tools: ["Claude", "ChatGPT", "Gemini", "GitHub Copilot"] }
+      { name: "AI", tools: ["Claude", "ChatGPT", "Gemini", "GitHub Copilot", "Replit"] }
     ]
   },
   {
@@ -187,7 +187,7 @@ const COURSES = [
     projects: ["Personal AI assistant setup", "Website or no-code app for a real use case", "Automation or chatbot capstone"],
     toolGroups: [
       { name: "AI assistants", tools: ["Claude", "ChatGPT", "Gemini", "Perplexity"] },
-      { name: "Build", tools: ["Lovable", "Claude", "Canva"] },
+      { name: "Build", tools: ["Lovable", "Replit", "Claude", "Canva"] },
       { name: "Automate", tools: ["Zapier", "Make", "n8n", "WhatsApp Business"] }
     ]
   }
@@ -282,6 +282,47 @@ const EVENTS = [
    { title: "Product Manager", company: "Company", location: "Bengaluru, India", category: "product",
      experience: "3-5 years", job_type: "Full time", posted_on: "2027-01-10",
      url: "https://www.linkedin.com/jobs/view/...", logo: "" } */
+/* ---- Official websites for the tools listed on program pages ----------- */
+const TOOL_LINKS = {
+  "Jira": "https://www.atlassian.com/software/jira", "Confluence": "https://www.atlassian.com/software/confluence", "Asana": "https://asana.com",
+  "Notion": "https://www.notion.com", "Linear": "https://linear.app", "Trello": "https://trello.com", "ClickUp": "https://clickup.com",
+  "Productboard": "https://www.productboard.com", "Aha!": "https://www.aha.io",
+  "Figma": "https://www.figma.com", "FigJam": "https://www.figma.com/figjam/", "Miro": "https://miro.com", "Balsamiq": "https://balsamiq.com",
+  "Whimsical": "https://whimsical.com", "Slack": "https://slack.com", "Loom": "https://www.loom.com",
+  "Mixpanel": "https://mixpanel.com", "Amplitude": "https://amplitude.com", "Google Analytics 4": "https://marketingplatform.google.com/about/analytics/",
+  "SQL": "https://www.w3schools.com/sql/", "Excel / Google Sheets": "https://workspace.google.com/products/sheets/", "Looker Studio": "https://lookerstudio.google.com",
+  "Hotjar": "https://www.hotjar.com", "Microsoft Clarity": "https://clarity.microsoft.com",
+  "Typeform": "https://www.typeform.com", "Google Forms": "https://www.google.com/forms/about/", "Maze": "https://maze.co", "Dovetail": "https://dovetail.com",
+  "Postman": "https://www.postman.com",
+  "Claude": "https://claude.ai", "ChatGPT": "https://chatgpt.com", "Gemini": "https://gemini.google.com", "Perplexity": "https://www.perplexity.ai",
+  "NotebookLM": "https://notebooklm.google", "Microsoft Copilot": "https://copilot.microsoft.com",
+  "Claude Code": "https://www.anthropic.com/claude-code", "Cursor": "https://cursor.com", "GitHub": "https://github.com", "Lovable": "https://lovable.dev",
+  "Bolt": "https://bolt.new", "v0": "https://v0.dev", "Replit": "https://replit.com", "Figma Make": "https://www.figma.com/make/",
+  "n8n": "https://n8n.io", "Zapier": "https://zapier.com", "Make": "https://www.make.com",
+  "Python": "https://www.python.org", "pandas": "https://pandas.pydata.org", "NumPy": "https://numpy.org", "Jupyter": "https://jupyter.org",
+  "scikit-learn": "https://scikit-learn.org", "XGBoost": "https://xgboost.ai", "Statsmodels": "https://www.statsmodels.org",
+  "Power BI": "https://www.microsoft.com/power-platform/products/power-bi", "Tableau": "https://www.tableau.com", "Matplotlib": "https://matplotlib.org",
+  "Seaborn": "https://seaborn.pydata.org", "Excel": "https://www.microsoft.com/microsoft-365/excel", "GitHub Copilot": "https://github.com/features/copilot",
+  "Canva": "https://www.canva.com", "WhatsApp Business": "https://business.whatsapp.com"
+};
+
+/* ---- Early-bird timer and discounts ----------------------------------------
+   earlyBirdEnds: the real last date of the early-bird price (India time). The
+   timer hides itself after this date. Only show a deadline that is true:
+   don't extend or reset it to create urgency.
+   items: the discounts and scholarships you offer. Edit the % to match your policy. */
+const OFFERS = {
+  earlyBirdEnds: "2026-11-30T23:59:59+05:30",
+  earlyBirdText: "Inaugural early-bird offer: 20% off the first cohort",
+  items: [
+    { pct: "20%", title: "Early-bird discount", text: "For learners who enrol in the inaugural cohort before the early-bird date." },
+    { pct: "Up to 30%", title: "Refer a friend or join as a group", text: "Enrol with friends or colleagues (3 or more) and each of you saves more." },
+    { pct: "Up to 50%", title: "Need-based scholarship", text: "Support for students and learners who need help with fees. Share your situation with a counsellor." },
+    { pct: "Up to 100%", title: "Merit scholarship", text: "For top performers in the SkillNavora scholarship test and interview. Limited seats." }
+  ],
+  note: "Discounts can't be combined unless a counsellor confirms it. Scholarships are limited and decided after a short assessment and counselling call."
+};
+
 /* ---- Careers page: open roles at SkillNavora ------------------------------
    Leave empty to show "send a general application". Example:
    { title: "Teaching assistant (AI PM)", team: "Teaching", type: "Part time", location: "Remote", text: "Help learners with assignments and doubts." } */

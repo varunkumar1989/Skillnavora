@@ -6,7 +6,7 @@
   const $ = id => document.getElementById(id), { esc, waLink, R } = window.SNsite;
   const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} },
                   sget(k) { try { return sessionStorage.getItem(k); } catch { return null; } }, sset(k, v) { try { sessionStorage.setItem(k, v); } catch {} } };
-  const WA_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>';
+  const WA_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
   const ok = (el, kind, text) => { if (!el) return; el.className = "notice " + kind; el.textContent = text; el.hidden = !text; };
   const pub = !document.body.hasAttribute("data-app");     // LMS, admin and login pages skip pop-ups
 
@@ -178,6 +178,25 @@
     });
   }
 
+  /* ---------- Early-bird timer and discounts ---------- */
+  const O = typeof OFFERS !== "undefined" ? OFFERS : null;
+  if (O) {
+    const end = O.earlyBirdEnds && new Date(O.earlyBirdEnds), live = end && end > Date.now();
+    if (live && $("eb-box")) {
+      $("eb-text").textContent = O.earlyBirdText || "Early-bird offer";
+      $("eb-cd").innerHTML = ["d", "h", "m", "s"].map(u => `<span><b data-cd="${u}">00</b><small>${{ d: "days", h: "hours", m: "minutes", s: "seconds" }[u]}</small></span>`).join("");
+      $("eb-date").textContent = "Offer ends " + end.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) + ", 11:59 pm IST.";
+      $("eb-box").hidden = false;
+      const tick = () => { let ms = end - Date.now(); if (ms <= 0) { $("eb-box").hidden = true; return clearInterval(t); }
+        const v = { d: Math.floor(ms / 864e5), h: Math.floor(ms / 36e5) % 24, m: Math.floor(ms / 6e4) % 60, s: Math.floor(ms / 1e3) % 60 };
+        document.querySelectorAll("[data-cd]").forEach(el => { el.textContent = String(v[el.dataset.cd]).padStart(2, "0"); }); };
+      const t = setInterval(tick, 1000); tick();
+    }
+    document.querySelectorAll("#offer-list").forEach(el => { el.innerHTML = (O.items || []).map(x => `<div class="offer"><b class="pct">${esc(x.pct)}</b><div><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></div></div>`).join(""); });
+    if ($("offer-note")) $("offer-note").textContent = O.note || "";
+    if (!live) document.querySelectorAll(".offers").forEach(el => el.classList.add("no-eb"));
+  }
+
   /* ---------- Mentor and careers applications ---------- */
   document.querySelectorAll("form[data-lead]").forEach(f => {
     const kind = f.dataset.lead, msg = f.querySelector("[data-lead-msg]");
@@ -218,8 +237,10 @@
     set("mentors-list", M.map(m => `<div class="card mentor">${m.photo ? `<img src="${esc(R + m.photo)}" alt="" width="96" height="96">` : `<span class="ph">${esc(m.name.trim()[0])}</span>`}<b>${esc(m.name)}</b><div class="meta">${esc(m.role || "")}</div><div class="co">${esc(m.company || "")}</div>${m.note ? `<div class="meta">${esc(m.note)}</div>` : ""}${m.linkedin ? `<a class="meta" href="${esc(m.linkedin)}" target="_blank" rel="noopener">LinkedIn ↗</a>` : ""}</div>`).join(""));
     $("mentors").hidden = false;
   }
+  const TL = typeof TOOL_LINKS !== "undefined" ? TOOL_LINKS : {};
+  const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
   const groups = P ? P.toolGroups : (C[0] || {}).toolGroups;
-  if (groups) set("toolgroups", groups.map(g => `<div class="card"><h3>${esc(g.name)}</h3><div class="chips">${g.tools.map(t => `<span>${esc(t)}</span>`).join("")}</div></div>`).join(""));
+  if (groups) set("toolgroups", groups.map(g => `<div class="card"><h3>${esc(g.name)}</h3><div class="chips">${g.tools.map(t => { const u = TL[t]; return u ? `<a class="tl" href="${esc(u)}" target="_blank" rel="noopener noreferrer" title="Open ${esc(t)} website"><b>${esc(t)} <i aria-hidden="true">↗</i></b><small>${esc(host(u))}</small></a>` : `<span>${esc(t)}</span>`; }).join("")}</div></div>`).join(""));
   const hl = P || C[0]; if (hl) set("p-hl", (hl.highlights || []).map(h => `<span>${esc(h)}</span>`).join(""));
 
   /* ---------- Reviews ---------- */
