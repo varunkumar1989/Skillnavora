@@ -93,6 +93,15 @@
   window.SNcover = (i, title, badge) => { const p = PAL[i % PAL.length];
     return `<div class="cover"><svg class="art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="cg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p[0]}"/><stop offset="1" stop-color="${p[1]}"/></linearGradient></defs><rect width="400" height="210" fill="url(#cg${i})"/><circle cx="330" cy="40" r="120" fill="${p[2]}" opacity=".18"/><circle cx="360" cy="180" r="70" fill="#fff" opacity=".08"/><g transform="translate(300 118)"><circle r="50" fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>${ART[(C.find(c => c.name === title) || {}).id] ? ART[(C.find(c => c.name === title) || {}).id](p) : ART.compass(p)}</g></svg>${badge ? `<span class="ribbon">${esc(badge)}</span>` : ""}<span class="ct">${esc(title)}</span></div>`; };
 
+  /* ---------- Resources for AI Tools: every tool from all programs, with its website ---------- */
+  if ($("res-tools")) {
+    const TL = typeof TOOL_LINKS !== "undefined" ? TOOL_LINKS : {}, groups = {};
+    C.forEach(c => (c.toolGroups || []).forEach(g => { (groups[g.name] = groups[g.name] || new Set()); g.tools.forEach(t => groups[g.name].add(t)); }));
+    const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
+    $("res-tools").innerHTML = Object.entries(groups).map(([n, ts]) => `<div class="card"><h3>${esc(n)}</h3><div class="chips">${[...ts].map(t => TL[t]
+      ? `<a class="tl" href="${esc(TL[t])}" target="_blank" rel="noopener noreferrer"><b>${esc(t)} <i aria-hidden="true">↗</i></b><small>${esc(host(TL[t]))}</small></a>` : `<span>${esc(t)}</span>`).join("")}</div></div>`).join("");
+  }
+
   /* ---- Program cards ---- */
   const cl = $("courses");
   if (cl) cl.innerHTML = C.map((c, i) => `<article class="course">

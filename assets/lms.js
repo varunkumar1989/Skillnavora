@@ -69,15 +69,6 @@
     $("ring-text").textContent = got === B.length ? "All badges earned. Amazing!" : `${B.length - got} badges to go`;
   }
 
-  /* ---------- Resources for AI Tools: every tool from all programs, with its website ---------- */
-  if ($("res-tools")) {
-    const TL = typeof TOOL_LINKS !== "undefined" ? TOOL_LINKS : {}, groups = {};
-    COURSES.forEach(c => (c.toolGroups || []).forEach(g => { (groups[g.name] = groups[g.name] || new Set()); g.tools.forEach(t => groups[g.name].add(t)); }));
-    const host = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
-    $("res-tools").innerHTML = Object.entries(groups).map(([n, ts]) => `<div class="card"><h3>${esc(n)}</h3><div class="chips">${[...ts].map(t => TL[t]
-      ? `<a class="tl" href="${esc(TL[t])}" target="_blank" rel="noopener noreferrer"><b>${esc(t)} <i aria-hidden="true">↗</i></b><small>${esc(host(TL[t]))}</small></a>` : `<span>${esc(t)}</span>`).join("")}</div></div>`).join("");
-  }
-
   /* ---------- tabs ---------- */
   const tabs = document.querySelectorAll("[data-tab]");
   function openTab(name) {
