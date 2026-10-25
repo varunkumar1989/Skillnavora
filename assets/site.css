@@ -1116,3 +1116,15 @@ section .sec-h::after{content:"";display:block;width:72px;height:4px;border-radi
 .offer .pct{align-self:flex-start;min-width:0;font-size:22px;padding:6px 12px}
 @media (max-width:980px){.dgrid2{grid-template-columns:1fr 1fr}.offers .eb{grid-template-columns:1fr}.offers .eb .cdbig{grid-column:1;grid-row:auto}}
 @media (max-width:560px){.dgrid2{grid-template-columns:1fr}}
+/* v14: big logo = iPhone-style compass with the crest, and the name below */
+.biglogo{display:flex;flex-direction:column;align-items:center;gap:12px}
+.biglogo img{width:100%;height:auto;border-radius:50%;filter:drop-shadow(0 20px 30px rgba(11,23,54,.35))}
+.biglogo .brand{font-size:30px;pointer-events:none}
+.hero-art.side .biglogo .brand{font-size:28px}
+/* Smaller header logo on phones */
+@media (max-width:760px){.brand img{width:34px!important;height:34px!important}.brand{font-size:18px!important;gap:7px}}
+@media (max-width:440px){.brand img{width:30px!important;height:30px!important}.brand{font-size:16.5px!important}.brand i.c{font-size:1.28em}}
+@media (max-width:360px){.brand>span{display:none}}
+.biglogo .brand{font-size:28px!important}@media (max-width:440px){.biglogo .brand{font-size:24px!important}}
+:root[data-theme="dark"] .brand img,footer .brand img,.auth-side .logo img{filter:drop-shadow(0 0 1.5px rgba(255,255,255,.75)) drop-shadow(0 2px 3px rgba(0,0,0,.4))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand img{filter:drop-shadow(0 0 1.5px rgba(255,255,255,.75)) drop-shadow(0 2px 3px rgba(0,0,0,.4))}}
