@@ -47,6 +47,29 @@
   // Quick LinkedIn searches
   const SEARCHES = [["Product Manager", ""], ["Associate Product Manager", ""], ["AI Product Manager", ""], ["Senior Product Manager", ""], ["Product Analyst", ""], ["Technical Product Manager", ""], ["Data Scientist", ""], ["Data Analyst", ""], ["Machine Learning Engineer", ""], ["Generative AI", ""], ["Product Manager (remote)", "&f_WT=2"]];
   $("li-searches").innerHTML = SEARCHES.map(([k, x]) => `<a href="${esc(liUrl(k.replace(" (remote)", ""), x))}" target="_blank" rel="noopener noreferrer">${esc(k)} ↗</a>`).join("");
+  // Job portals: the same search on LinkedIn and other public job sites
+  const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const PORTALS = [
+    ["LinkedIn Jobs", "linkedin.com", (q, l) => "https://www.linkedin.com/jobs/search/?keywords=" + encodeURIComponent(q) + "&location=" + encodeURIComponent(l === "Remote" ? "India" : l) + (l === "Remote" ? "&f_WT=2" : "")],
+    ["Naukri", "naukri.com", (q, l) => "https://www.naukri.com/" + slug(q) + "-jobs" + (l === "India" || l === "Remote" ? "" : "-in-" + slug(l.replace("Delhi NCR", "delhi-ncr")))],
+    ["Indeed", "in.indeed.com", (q, l) => "https://in.indeed.com/jobs?q=" + encodeURIComponent(q) + "&l=" + encodeURIComponent(l)],
+    ["Glassdoor", "glassdoor.co.in", (q, l) => "https://www.glassdoor.co.in/Job/jobs.htm?sc.keyword=" + encodeURIComponent(q + (l === "India" ? "" : " " + l))],
+    ["foundit (Monster)", "foundit.in", (q, l) => "https://www.foundit.in/srp/results?query=" + encodeURIComponent(q) + (l === "India" || l === "Remote" ? "" : "&locations=" + encodeURIComponent(l))],
+    ["Google Jobs", "google.com", (q, l) => "https://www.google.com/search?ibp=htl;jobs&q=" + encodeURIComponent(q + " jobs " + l)],
+    ["Wellfound (startups)", "wellfound.com", () => "https://wellfound.com/jobs"],
+    ["Instahyre", "instahyre.com", () => "https://www.instahyre.com/"],
+    ["Cutshort", "cutshort.io", () => "https://cutshort.io/jobs"],
+    ["IIMJobs", "iimjobs.com", () => "https://www.iimjobs.com/"]
+  ];
+  const portals = () => { const q = $("portal-q").value.trim() || LI[cat], l = $("portal-loc").value;
+    $("portal-list").innerHTML = PORTALS.map(([n, h, u]) => `<a class="portal" href="${esc(u(q, l))}" target="_blank" rel="noopener noreferrer"><b>${esc(n)} ↗</b><small>${esc(h)}</small></a>`).join(""); };
+  $("portal-q").placeholder = "e.g. " + LI[cat];
+  ["portal-q", "portal-loc"].forEach(id => $(id).addEventListener("input", portals));
+  $("portal-f").addEventListener("submit", e => { e.preventDefault(); window.open($("portal-list").querySelector("a").href, "_blank", "noopener"); });
+  $("job-tabs").addEventListener("click", () => { $("portal-q").placeholder = "e.g. " + LI[cat]; portals(); });
+  $("job-q").addEventListener("input", () => { if (!$("portal-q").dataset.touched) { $("portal-q").value = $("job-q").value; portals(); } });
+  $("portal-q").addEventListener("keydown", () => { $("portal-q").dataset.touched = "1"; });
+  portals();
   $("job-alerts").href = waLink("Hi SkillNavora, please send me updates about new PM and AI job openings.");
   render();
 })();

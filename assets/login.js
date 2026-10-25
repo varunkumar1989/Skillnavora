@@ -22,8 +22,16 @@
   if (await SN.session()) return done();
 
   // Sign up vs log in only changes the wording and the name field.
-  let signup = params.get("mode") === "signup";
+  const adminMode = params.get("role") === "admin";
+  let signup = !adminMode && params.get("mode") === "signup";
   const mode = () => {
+    if (adminMode) {
+      $("auth-title").textContent = "Admin login";
+      $("auth-sub").textContent = "For the SkillNavora team. Log in with your admin email or Google account.";
+      $("name-row").hidden = true;
+      $("switch").innerHTML = 'Not an admin? <a class="linkbtn" href="login.html">Student login</a>';
+      return;
+    }
     $("auth-title").textContent = signup ? "Create your account" : "Log in to your account";
     $("auth-sub").textContent = signup ? "Enter your details and we'll email you a sign-in link." : "Enter your email and we'll send you a sign-in link.";
     $("name-row").hidden = !signup;

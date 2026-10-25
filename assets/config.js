@@ -316,11 +316,11 @@ const OFFERS = {
   earlyBirdText: "Inaugural early-bird offer: 20% off the first cohort",
   items: [
     { pct: "20%", title: "Early-bird discount", text: "For learners who enrol in the inaugural cohort before the early-bird date." },
-    { pct: "Up to 30%", title: "Refer a friend or join as a group", text: "Enrol with friends or colleagues (3 or more) and each of you saves more." },
-    { pct: "Up to 50%", title: "Need-based scholarship", text: "Support for students and learners who need help with fees. Share your situation with a counsellor." },
-    { pct: "Up to 100%", title: "Merit scholarship", text: "For top performers in the SkillNavora scholarship test and interview. Limited seats." }
+    { pct: "Up to 100%", title: "Merit scholarship", text: "For eligible candidates who do well in the SkillNavora scholarship test and interview. Limited seats every cohort." },
+    { pct: "Up to 25%", title: "Students and freshers", text: "For college students and recent graduates starting their career, with a valid student or graduation ID." },
+    { pct: "EMI", title: "Flexible payment plans", text: "Pay the fee in monthly instalments. Ask a counsellor for the plans available for your cohort." }
   ],
-  note: "Discounts can't be combined unless a counsellor confirms it. Scholarships are limited and decided after a short assessment and counselling call."
+  note: "Only one discount or scholarship applies per learner unless a counsellor confirms otherwise. Scholarships are limited and decided after a short scholarship test and counselling call."
 };
 
 /* ---- Careers page: open roles at SkillNavora ------------------------------

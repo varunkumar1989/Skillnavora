@@ -19,6 +19,10 @@
   /* ---------- Save a lead: Supabase (if set up) and/or Web3Forms email ---------- */
   async function saveLead(row) {
     row = { ...row, source: store.sget("src") || null };
+    // The site's /api/lead function saves the lead and notifies the team by email/WhatsApp.
+    try { const r = await fetch(R + "api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(row) });
+      if (r.ok && (await r.json()).ok) return true; } catch {}
+    if (row.kind === "contact") row = { ...row, kind: "counselling", message: "[Contact form] " + (row.message || "") };
     let saved = false;
     if (A.supabaseUrl && A.supabaseKey && !/^sb_secret_/.test(A.supabaseKey)) {
       try {
@@ -37,6 +41,7 @@
     }
     return saved;
   }
+  window.SNsaveLead = r => saveLead(r);
   const summary = row => Object.entries({ Program: (C.find(c => c.id === row.course_id) || {}).name, Name: [row.first_name, row.last_name].filter(Boolean).join(" "), Phone: row.phone, Email: row.email, LinkedIn: row.linkedin, Experience: row.experience, Role: row.role, "Preferred time": row.preferred_time, Message: row.message }).filter(([, v]) => v).map(([k, v]) => k + ": " + v).join("\n");
 
   /* ---------- Top announcement bar ---------- */
