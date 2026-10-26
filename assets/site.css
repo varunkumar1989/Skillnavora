@@ -1333,3 +1333,18 @@ body.has-sticky .callfab{bottom:164px}body.has-sticky .chat-fab{bottom:226px!imp
 :root[data-theme="dark"] .callfab{background:#1d1838;color:#c9bdff;border-color:#2c2552}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .callfab{background:#1d1838;color:#c9bdff;border-color:#2c2552}}
 @media (max-width:760px){.callfab{right:18px;bottom:76px;width:46px;height:46px}.chat-fab{bottom:132px!important}body.has-sticky .callfab{bottom:142px}body.has-sticky .chat-fab{bottom:198px!important}}
+/* Refer & earn / Hire */
+.refab{position:fixed;right:16px;bottom:204px;z-index:31;display:flex;align-items:center;gap:8px;text-decoration:none;background:#fff;color:#5b3df5;border:1px solid var(--line);font:700 14px var(--body);padding:11px 16px;border-radius:99px;box-shadow:0 10px 26px rgba(46,26,120,.2)}
+.refab svg{width:18px;height:18px}.refab:hover{transform:translateY(-2px)}
+body.has-sticky .refab{bottom:284px}
+:root[data-theme="dark"] .refab{background:#1d1838;color:#c9bdff;border-color:#2c2552}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .refab{background:#1d1838;color:#c9bdff;border-color:#2c2552}}
+@media (max-width:760px){.refab span{display:none}.refab{padding:12px;bottom:186px;right:20px}body.has-sticky .refab{bottom:252px}}
+.refer-s{padding:40px 0}
+.refer-band{display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:34px;border-radius:20px;border:1px solid var(--line);background:radial-gradient(500px 240px at 100% 0%,rgba(124,92,255,.14),transparent 60%),var(--surface);box-shadow:var(--shadow)}
+.refer-band .acts{display:flex;gap:10px;flex-wrap:wrap}
+.step2 .num2{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--grad);color:#fff;font:800 18px var(--display);margin-bottom:12px}
+.earn{display:flex;flex-direction:column;gap:8px}.earn h3{margin:4px 0 0}.earn p{margin:0;color:var(--mu)}
+.earn .amt{margin-top:6px;font:800 22px var(--display);background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hirecard{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,var(--brand-soft),var(--surface))}
+.hc-ico{font-size:28px;line-height:1}

@@ -34,7 +34,7 @@ The "Become a mentor" and "Careers" forms save into the same Applications list, 
 
 ```sql
 alter table public.applications drop constraint if exists applications_kind_check;
-alter table public.applications add constraint applications_kind_check check (kind in ('application', 'counselling', 'mentor', 'career', 'contact'));
+alter table public.applications add constraint applications_kind_check check (kind in ('application', 'counselling', 'mentor', 'career', 'contact', 'referral', 'hire'));
 alter table public.jobs drop constraint if exists jobs_category_check;
 alter table public.jobs add constraint jobs_category_check check (category in ('product', 'data', 'ai', 'engineering'));
 ```
