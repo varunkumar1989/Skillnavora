@@ -12,9 +12,10 @@ const SITE = {
   phone: "919211315006",          // with or without 91 in front
   whatsapp: "919211315006",
   address: "",                    // e.g. "Bengaluru, Karnataka, India" (shown in the footer)
-  linkedin: "https://www.linkedin.com/in/varun-pm01",
+  linkedin: "https://www.linkedin.com/in/skill-navora-1600b5447",
+  founderLinkedin: "https://www.linkedin.com/in/varun-pm01",   // instructor section
   instagram: "https://www.instagram.com/skillnavora/",
-  youtube: "",
+  youtube: "https://www.youtube.com/@SkillNavora",
   twitter: "https://x.com/skillnavora",   // X (Twitter)
   facebook: "https://www.facebook.com/profile.php?id=61595706998987",
   telegram: "",
