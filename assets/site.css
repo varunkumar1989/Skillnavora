@@ -1325,3 +1325,11 @@ html{text-rendering:optimizeLegibility}
 .soc svg{width:26px;height:26px}
 .madeby{color:#7d8197;font-size:13px}
 .card.post{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--ink)}.card.post *{text-decoration:none}.card.post h3{margin:4px 0 0}.card.post p{margin:0;color:var(--mu);flex:1}.card.post .go{font-weight:700;color:var(--brand-ink)}.card.post:hover{border-color:var(--brand);transform:translateY(-2px)}
+/* Call button between Ask AI and WhatsApp */
+.callfab{position:fixed;right:19px;bottom:84px;z-index:30;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#5b3df5;border:1px solid var(--line);box-shadow:0 10px 26px rgba(46,26,120,.22);transition:transform .15s}
+.callfab:hover{transform:translateY(-2px)}.callfab svg{width:22px;height:22px}
+.chat-fab{bottom:146px!important}
+body.has-sticky .callfab{bottom:164px}body.has-sticky .chat-fab{bottom:226px!important}
+:root[data-theme="dark"] .callfab{background:#1d1838;color:#c9bdff;border-color:#2c2552}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .callfab{background:#1d1838;color:#c9bdff;border-color:#2c2552}}
+@media (max-width:760px){.callfab{right:18px;bottom:76px;width:46px;height:46px}.chat-fab{bottom:132px!important}body.has-sticky .callfab{bottom:142px}body.has-sticky .chat-fab{bottom:198px!important}}
