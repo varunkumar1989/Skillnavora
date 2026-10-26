@@ -76,6 +76,8 @@
   /* ---- WhatsApp, counselling and enrol links ---- */
   const w = $("wa");
   if (w && wa) { w.href = waLink("Hi SkillNavora, I'd like to know more about your programs."); w.hidden = false; }
+  const cf = $("callfab"), tel = String(S.phone || "").replace(/\D/g, "");
+  if (cf && tel) { cf.href = "tel:+" + (tel.length === 10 ? "91" + tel : tel); cf.hidden = false; }
   document.querySelectorAll("[data-wa]").forEach(a => { a.href = waLink(a.dataset.wa || "Hi SkillNavora"); if (/^https?:/.test(a.href)) { a.target = "_blank"; a.rel = "noopener"; } });
   document.querySelectorAll("[data-counsel]").forEach(a => { a.href = "#counselling"; a.removeAttribute("target"); });
   // "Enroll now" opens the application form for that program.
@@ -228,7 +230,7 @@
   const clist = $("clist");
   if (clist) {
     const add = (ic, label, text, href) => clist.insertAdjacentHTML("beforeend", `<li>${href ? `<a href="${esc(href)}"${ext(href)}>` : "<div>"}<span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICON[ic]}</svg></span><span><small>${label}</small><b>${esc(text)}</b></span>${href ? "</a>" : "</div>"}</li>`);
-    if (wa) add("chat", "WhatsApp", "Chat now · " + pretty(wa), waLink("Hi SkillNavora, I'd like to know more."));
+    if (wa) add("chat", "WhatsApp", "Chat with us", waLink("Hi SkillNavora, I'd like to know more."));
     add("cal", "Counselling", "Book a free counselling session", booking || waLink("Hi SkillNavora, I'd like a free counselling session."));
     if (phone) add("phone", "Call", pretty(phone), "tel:+" + phone);
     if (S.email) add("mail", "Email", S.email, "mailto:" + S.email);
