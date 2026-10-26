@@ -15,7 +15,7 @@ const NOTIFY_FALLBACK = "varunebix@gmail.com";
 
 const FIELDS = { kind: 20, course_id: 40, first_name: 80, last_name: 80, email: 200, phone: 20, linkedin: 300, experience: 40, role: 80, message: 2000, preferred_time: 80, source: 200 };
 const BASE_KINDS = ["application", "counselling"];
-const LABEL = { application: "Application", counselling: "Counselling call", mentor: "Mentor application", career: "Careers application", contact: "Contact form" };
+const LABEL = { application: "Application", counselling: "Counselling call", mentor: "Mentor application", career: "Careers application", contact: "Contact form", referral: "Referral", hire: "Hiring enquiry" };
 const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 
 export async function onRequestPost({ request, env }) {

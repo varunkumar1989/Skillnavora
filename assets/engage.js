@@ -207,20 +207,20 @@
     const kind = f.dataset.lead, msg = f.querySelector("[data-lead-msg]");
     f.addEventListener("submit", async e => {
       e.preventDefault();
-      const v = n => f.elements[n].value.trim();
+      const v = n => (f.elements[n] ? f.elements[n].value : "").trim(), has = n => !!f.elements[n];
       const phone = (f.cc.value + " " + v("phone")).trim();
       if (!v("name")) return ok(msg, "error", "Please enter your name.");
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("email"))) return ok(msg, "error", "Please enter a valid email.");
       if (!/^[0-9+ ()-]{7,20}$/.test(phone) || v("phone").replace(/\D/g, "").length < 7) return ok(msg, "error", "Please enter a valid contact number.");
-      if (!/^https?:\/\/\S+$/i.test(v("linkedin"))) return ok(msg, "error", "Please add your LinkedIn profile URL (starting with https://).");
-      if (!v("role") || !v("experience")) return ok(msg, "error", "Please choose an option in each list.");
+      if (has("linkedin") && f.elements.linkedin.required && !/^https?:\/\/\S+$/i.test(v("linkedin"))) return ok(msg, "error", "Please add your LinkedIn profile URL (starting with https://).");
+      if ((has("role") && f.elements.role.required && !v("role")) || (has("experience") && f.elements.experience.required && !v("experience"))) return ok(msg, "error", "Please choose an option in each list.");
       if (f.elements.consent && !f.elements.consent.checked) return ok(msg, "error", "Please tick the box to agree to publishing your review.");
-      const extra = v("extra"), label = kind === "mentor" ? "Current role" : kind === "career" ? "Resume / portfolio" : "Before → after";
-      const row = { kind, first_name: v("name"), email: v("email"), phone, linkedin: v("linkedin"), role: v("role"), experience: v("experience"),
+      const extra = v("extra"), label = { mentor: "Current role", career: "Resume / portfolio", referral: "Who you are referring", hire: "Company" }[kind] || "Before → after";
+      const row = { kind, first_name: v("name"), email: v("email"), phone, linkedin: v("linkedin") || null, role: v("role") || null, experience: v("experience") || null,
         message: [f.dataset.kindLabel ? "[" + f.dataset.kindLabel + "]" : "", extra ? label + ": " + extra : "", v("message")].filter(Boolean).join("\n\n").slice(0, 2000) || null };
       const b = f.querySelector("button[type=submit]"), t = b.textContent; b.disabled = true; b.textContent = "Submitting…";
       const saved = await saveLead(row); b.disabled = false; b.textContent = t;
-      if (!saved) { window.open(waLink((kind === "mentor" ? "Hi SkillNavora, I'd like to become a mentor.\n" : "Hi SkillNavora, I'd like to join your team.\n") + summary(row)), "_blank", "noopener"); return ok(msg, "info", "We opened WhatsApp with your details. Just press send."); }
+      if (!saved) { window.open(waLink(({ mentor: "Hi SkillNavora, I'd like to become a mentor.\n", referral: "Hi SkillNavora, I'd like to refer someone.\n", hire: "Hi SkillNavora, my company is hiring.\n" }[kind] || "Hi SkillNavora, I'd like to join your team.\n") + summary(row)), "_blank", "noopener"); return ok(msg, "info", "We opened WhatsApp with your details. Just press send."); }
       f.hidden = true; f.parentNode.querySelector("[data-lead-done]").hidden = false;
     });
   });
@@ -229,6 +229,11 @@
     $("open-roles").innerHTML = (ROLES.map(r => `<div class="card role"><div><b>${esc(r.title)}</b><div class="meta">${esc([r.team, r.type, r.location].filter(Boolean).join(" · "))}</div>${r.text ? `<p>${esc(r.text)}</p>` : ""}</div><a class="btn btn-line btn-sm" href="#career-form">Apply</a></div>`).join(""));
     $("roles-empty").hidden = true;
   }
+
+  /* ---------- Refer & earn ---------- */
+  const RF = typeof REFERRAL !== "undefined" ? REFERRAL : {};
+  document.querySelectorAll("[data-reward]").forEach(el => { const amt = el.dataset.reward === "hire" ? RF.hireReward : RF.learnerReward; el.textContent = amt ? "Earn " + amt : "Earn a cash reward"; });
+  if ($("ref-terms")) $("ref-terms").textContent = RF.terms || "";
 
   /* ---------- Program sections from config ---------- */
   const set = (id, h) => { const el = $(id); if (el) el.innerHTML = h; };

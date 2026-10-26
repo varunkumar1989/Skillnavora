@@ -176,7 +176,7 @@
     const k = $("app-kind").value, st = $("app-status").value;
     const rows = apps.filter(a => (k === "all" || a.kind === k) && (st === "all" || a.status === st));
     const tel = p => String(p || "").replace(/[^0-9+]/g, "");
-    $("app-list").innerHTML = rows.length ? rows.map(a => `<div class="item"><div class="item-h"><b>${esc([a.first_name, a.last_name].filter(Boolean).join(" "))} · ${({ counselling: "Counselling call", mentor: "Mentor application", career: "Careers application", contact: "Contact form" })[a.kind] || "Application"}</b><span class="chip ${APP[a.status][1]}">${APP[a.status][0]}</span></div>
+    $("app-list").innerHTML = rows.length ? rows.map(a => `<div class="item"><div class="item-h"><b>${esc([a.first_name, a.last_name].filter(Boolean).join(" "))} · ${({ counselling: "Counselling call", mentor: "Mentor application", career: "Careers application", contact: "Contact form", referral: "Referral", hire: "Hiring enquiry" })[a.kind] || "Application"}</b><span class="chip ${APP[a.status][1]}">${APP[a.status][0]}</span></div>
       <div class="meta">${esc(cname(a.course_id) || "Program not chosen")} · ${date(a.created_at)}${a.preferred_time ? " · Prefers " + esc(a.preferred_time) : ""}${a.source ? " · Source: " + esc(a.source) : ""}</div>
       <p>${[a.experience && "Experience: " + a.experience, a.role && "Role: " + a.role].filter(Boolean).map(esc).join(" · ")}${a.message ? "\n" + esc(a.message) : ""}</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">

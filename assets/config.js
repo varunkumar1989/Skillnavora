@@ -327,6 +327,15 @@ const OFFERS = {
   note: "One scholarship or discount per learner. Scholarships are decided after a short test and a counselling call."
 };
 
+/* ---- Refer & earn ------------------------------------------------------
+   learnerReward / hireReward: the reward you pay, e.g. "₹10,000". Leave "" to
+   show "a cash reward" until you decide the amounts. */
+const REFERRAL = {
+  learnerReward: "",
+  hireReward: "",
+  terms: "Rewards are paid by bank transfer or UPI after the referred learner completes 30 days of the program, or the referred candidate completes 90 days in the new job. One reward per person referred. SkillNavora may update these terms."
+};
+
 /* ---- Careers page: open roles at SkillNavora ------------------------------
    Leave empty to show "send a general application". Example:
    { title: "Teaching assistant (AI PM)", team: "Teaching", type: "Part time", location: "Remote", text: "Help learners with assignments and doubts." } */

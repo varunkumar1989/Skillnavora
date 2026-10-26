@@ -147,7 +147,7 @@ create table if not exists public.announcements (
 -- Anyone can submit (no login needed); only admins can read them.
 create table if not exists public.applications (
   id             bigint generated always as identity primary key,
-  kind           text not null default 'application' check (kind in ('application', 'counselling', 'mentor', 'career', 'contact')),
+  kind           text not null default 'application' check (kind in ('application', 'counselling', 'mentor', 'career', 'contact', 'referral', 'hire')),
   course_id      text check (course_id ~ '^[a-z0-9-]{1,40}$'),
   first_name     text not null check (length(first_name) between 1 and 80),
   last_name      text check (length(last_name) <= 80),
@@ -183,7 +183,7 @@ create table if not exists public.jobs (
 alter table public.applications add column if not exists source text check (length(source) <= 200);
 -- Mentor and careers applications (also run on existing projects)
 alter table public.applications drop constraint if exists applications_kind_check;
-alter table public.applications add constraint applications_kind_check check (kind in ('application', 'counselling', 'mentor', 'career', 'contact'));
+alter table public.applications add constraint applications_kind_check check (kind in ('application', 'counselling', 'mentor', 'career', 'contact', 'referral', 'hire'));
 -- Job board: "Data Science" category (also run on existing projects)
 alter table public.jobs drop constraint if exists jobs_category_check;
 alter table public.jobs add constraint jobs_category_check check (category in ('product', 'data', 'ai', 'engineering'));
