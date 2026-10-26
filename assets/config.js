@@ -230,13 +230,13 @@ const MOAT = [
 
 /* ---- Why join: comparison table ---- */
 const COMPARE = [
-  { what: "Curriculum depth", sub: "What you'll actually learn", others: "PM basics, interview prep and a few AI tools", us: "Complete AI PM: product sense, strategy, analytics, growth, delivery tools (Jira, Confluence, Asana, Figma) and hands-on AI with Claude and Claude Code" },
-  { what: "Hands-on projects", sub: "A portfolio you can show", others: "Often one capstone", us: "25+ real-world case studies, a capstone and your own live website and AI prototype" },
-  { what: "Leadership access", sub: "Who guides your career", others: "Program mentors only", us: "Monthly 1:1 counselling with a CEO or Head of Product" },
-  { what: "1:1 mentorship", sub: "Personal guidance and feedback", others: "Limited, or extra cost", us: "1:1 mentorship and mock interviews included" },
-  { what: "AI PM training", sub: "Future-proof skills", others: "Mostly concepts", us: "Hands-on modules from prompt engineering to building agentic AI products" },
-  { what: "Interview preparation", sub: "Getting the offer", others: "A few sessions", us: "Intensive: weekly mock tests, 1:1 mock interviews and a structured question bank" },
-  { what: "Placement support", sub: "Getting your PM role", others: "A basic job board", us: "Job assistance program: resume, LinkedIn, portfolio, referrals and job-search support" },
+  { what: "Curriculum depth", sub: "What you'll actually learn", others: "Basics, interview prep and a few AI tools", us: "Job-ready depth in every track: AI product management, data engineering (SQL, Airflow, Spark, cloud) and generative AI, all hands-on with Claude and Claude Code" },
+  { what: "Hands-on projects", sub: "A portfolio you can show", others: "Often one capstone", us: "Real-world case studies and projects in every module, plus a capstone you can demo: a live product, a data platform or an AI automation" },
+  { what: "Leadership access", sub: "Who guides your career", others: "Program mentors only", us: "Monthly 1:1 counselling with an industry leader to review your progress, portfolio and career plan" },
+  { what: "1:1 mentorship", sub: "Personal guidance and feedback", others: "Limited, or extra cost", us: "1:1 mentorship, assignment feedback and mock interviews included" },
+  { what: "AI skills", sub: "Future-proof for every role", others: "Mostly concepts", us: "Hands-on AI in every program: prompting, AI assistants, RAG, agents, AI data pipelines and automation" },
+  { what: "Interview preparation", sub: "Getting the offer", others: "A few sessions", us: "Role-specific mock tests, 1:1 mock interviews and question banks for PM, data engineering and AI roles" },
+  { what: "Placement support", sub: "Getting your next role", others: "A basic job board", us: "1 year of placement support: resume, LinkedIn, portfolio, referrals and job-search help" },
   { what: "Schedule flexibility", sub: "For working professionals", others: "Fixed schedule", us: "Weekend live classes, recordings in the LMS and help to catch up" }
 ];
 
