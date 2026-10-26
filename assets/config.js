@@ -13,10 +13,10 @@ const SITE = {
   whatsapp: "919211315006",
   address: "",                    // e.g. "Bengaluru, Karnataka, India" (shown in the footer)
   linkedin: "https://www.linkedin.com/in/varun-pm01",
-  instagram: "",
+  instagram: "https://www.instagram.com/skillnavora/",
   youtube: "",
-  twitter: "",                    // X (Twitter)
-  facebook: "",
+  twitter: "https://x.com/skillnavora",   // X (Twitter)
+  facebook: "https://www.facebook.com/profile.php?id=61595706998987",
   telegram: "",
   // Community link, e.g. a WhatsApp community or LinkedIn group. "" hides "Community" in the menu.
   community: "",
@@ -119,41 +119,43 @@ const COURSES = [
     ]
   },
   {
-    id: "ai-ds",
-    page: "program/ai-data-science.html",
-    name: "AI-First Data Science",
-    short: "Learn Python, SQL, statistics and machine learning, then use AI to analyse data faster and build models that drive decisions.",
-    tagline: "Go from raw data to insights, models and AI-powered analytics",
+    id: "ai-de",
+    page: "program/ai-data-engineering.html",
+    name: "AI-First Data Engineer",
+    short: "Learn SQL, Python, data modelling, pipelines, Spark, Airflow and the cloud, then build the data and AI pipelines that power modern products.",
+    tagline: "Build reliable data pipelines and the data foundation for AI",
     badge: "Flagship",
     cohort: "", start: "", deadline: "", fee: "$1,500", feeINR: "₹1,30,000", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and job assistance.", earlyBird: "", pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "10–12 hours a week",
     highlights: ["Real-world projects", "Capstone project", "Mock interviews", "Job assistance"],
-    outcomes: ["Clean, explore and visualise data with Python and SQL", "Apply statistics and A/B testing with confidence",
-               "Build, evaluate and explain machine learning models", "Use LLMs and AI assistants to speed up analysis",
-               "Build dashboards that tell a clear story", "Ship a portfolio-grade data science project"],
+    outcomes: ["Write advanced SQL and production-quality Python for data", "Design data models and warehouses (star schema, lakehouse)",
+               "Build batch and streaming pipelines with Spark, Airflow, dbt and Kafka", "Run data on the cloud with Snowflake, BigQuery or Databricks",
+               "Build AI data pipelines: embeddings, vector databases and RAG", "Ship a portfolio-grade end-to-end data platform"],
     curriculum: [
-      { title: "Python for data", topics: ["Python basics, Jupyter and notebooks", "pandas and NumPy", "Data cleaning and wrangling"] },
-      { title: "SQL for analytics", topics: ["Joins, aggregations and window functions", "Writing analysis queries", "Working with real datasets"] },
-      { title: "Statistics and probability", topics: ["Distributions and sampling", "Hypothesis testing", "A/B testing and experiment design"] },
-      { title: "Exploratory analysis and visualisation", topics: ["Matplotlib and Seaborn", "Finding patterns and outliers", "Storytelling with data"] },
-      { title: "Machine learning foundations", topics: ["Regression and classification", "scikit-learn workflow", "Train, validate and test"] },
-      { title: "Advanced machine learning", topics: ["Trees, random forests and boosting", "Feature engineering", "Model evaluation and explainability"] },
-      { title: "AI for data science", topics: ["LLMs for analysis with Claude and ChatGPT", "Text data, embeddings and RAG basics", "AI-assisted coding in notebooks"] },
-      { title: "Dashboards and business analytics", topics: ["Power BI and Tableau", "Metrics, KPIs and funnels", "Presenting insights to stakeholders"] },
-      { title: "Capstone, interviews and job assistance", topics: ["End-to-end data science capstone", "SQL, statistics and ML mock interviews", "Resume, portfolio and referrals"] }
+      { title: "SQL for data engineers", topics: ["Joins, window functions and CTEs", "Query performance and indexes", "SQL interview patterns"] },
+      { title: "Python for data engineering", topics: ["Python for files, APIs and automation", "pandas and Polars", "Testing and packaging code"] },
+      { title: "Data modelling and warehousing", topics: ["OLTP vs OLAP", "Star and snowflake schemas", "Slowly changing dimensions"] },
+      { title: "ETL and ELT pipelines", topics: ["Batch ingestion from APIs and databases", "Transformations with dbt", "Incremental loads and idempotency"] },
+      { title: "Orchestration with Airflow", topics: ["DAGs, scheduling and retries", "Backfills and dependencies", "Monitoring and alerting"] },
+      { title: "Big data with Spark", topics: ["Spark and PySpark basics", "Partitioning and performance", "Lakehouse with Delta Lake"] },
+      { title: "Streaming data", topics: ["Kafka fundamentals", "Real-time pipelines", "Exactly-once and late data"] },
+      { title: "Cloud data platforms", topics: ["AWS, GCP and Azure data services", "Snowflake, BigQuery and Databricks", "Cost, security and access control"] },
+      { title: "Data quality and governance", topics: ["Data tests and contracts", "Lineage and observability", "Privacy and compliance"] },
+      { title: "AI for data engineers", topics: ["Embeddings and vector databases", "RAG and LLM data pipelines", "AI-assisted coding with Claude Code"] },
+      { title: "Capstone, interviews and job assistance", topics: ["End-to-end data platform capstone", "SQL, Python and system design mock interviews", "Resume, portfolio and referrals"] }
     ],
     audience: [
-      { title: "Students and freshers", text: "Learn Python, SQL and machine learning with real projects, and aim for data analyst and junior data scientist roles." },
+      { title: "Students and freshers", text: "Learn SQL, Python and pipelines with real projects, and aim for data engineer and analytics engineer roles." },
       { title: "Working professionals", text: "Learn on weekends alongside your job, with live classes, recordings and flexible schedules." },
-      { title: "Career switchers", text: "Move into data from engineering, finance, operations, marketing or any role that works with numbers." },
-      { title: "Salary hike and promotion", text: "Grow into data scientist and ML roles with stronger skills, a portfolio and interview preparation." }
+      { title: "Career switchers", text: "Move into data engineering from software, testing, support, analytics or any technical role." },
+      { title: "Salary hike and promotion", text: "Grow into senior data engineer and data platform roles with stronger skills, a portfolio and interview preparation." }
     ],
-    projects: ["Customer churn prediction model", "A/B test analysis with a recommendation", "Sales dashboard with an AI-written insights summary"],
+    projects: ["Batch ELT pipeline with Airflow and dbt into a cloud warehouse", "Real-time streaming pipeline with Kafka and Spark", "RAG data pipeline with embeddings and a vector database"],
     toolGroups: [
-      { name: "Analyse", tools: ["Python", "pandas", "NumPy", "Jupyter", "SQL"] },
-      { name: "Model", tools: ["scikit-learn", "XGBoost", "Statsmodels"] },
-      { name: "Visualise", tools: ["Power BI", "Tableau", "Matplotlib", "Seaborn", "Excel"] },
-      { name: "AI", tools: ["Claude", "ChatGPT", "Gemini", "GitHub Copilot", "Replit"] }
+      { name: "Code and query", tools: ["SQL", "Python", "pandas", "Jupyter", "Git"] },
+      { name: "Pipelines", tools: ["Apache Airflow", "dbt", "Apache Spark", "Apache Kafka", "Docker"] },
+      { name: "Cloud and warehouse", tools: ["Snowflake", "BigQuery", "Databricks", "AWS", "PostgreSQL"] },
+      { name: "AI", tools: ["Claude", "Claude Code", "ChatGPT", "GitHub Copilot", "Pinecone", "Replit"] }
     ]
   },
   {
@@ -266,7 +268,7 @@ const FAQS = [
   { c: "Program", q: "Which tools will I learn?", a: "Delivery tools like Jira, Confluence, Asana and Notion; design tools like Figma and Miro; analytics like Mixpanel, Amplitude, GA4 and SQL; and AI tools including Claude, Claude Code, ChatGPT, Gemini, Lovable and n8n." },
   { c: "Program", q: "Can I ask instructors and mentors questions directly?", a: "Yes, during live classes, in 1:1 mentorship, and through the LMS. You also get a monthly 1:1 session with a CEO or Head of Product." },
   { c: "Schedule", q: "What are the timings and schedule?", a: "Live classes run on weekends. Exact timings are shared before each cohort starts; talk to a counsellor for the current schedule." },
-  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $2,000, AI-First Data Science is $1,500 and GenAI Launchpad is $1,000. Eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options." },
+  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $2,000, AI-First Data Engineer is $1,500 and GenAI Launchpad is $1,000. Eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options." },
   { c: "Career", q: "Do you help with jobs?", a: "Yes, through the job assistance program: resume and LinkedIn reviews, portfolio, intensive interview preparation and referrals through our network. No one can honestly guarantee a job, but we work with you until you're job-ready." },
   { c: "Career", q: "Will I get a certificate?", a: "Yes, you get a certificate when you complete the program and capstone." },
   { c: "Career", q: "I have more questions. Where can I ask?", a: "Ask our AI assistant, message us on WhatsApp, or book a free counselling session." }
@@ -279,12 +281,15 @@ const EVENTS = [
 ];
 
 /* ---- Job board extras. Jobs are easiest to manage in Admin → Job board; you can
-   also list them here. category: "product", "ai" or "data".
+   also list them here. category: "product", "ai" or "data" (data engineering).
    { title: "Product Manager", company: "Company", location: "Bengaluru, India", category: "product",
      experience: "3-5 years", job_type: "Full time", posted_on: "2027-01-10",
      url: "https://www.linkedin.com/jobs/view/...", logo: "" } */
 /* ---- Official websites for the tools listed on program pages ----------- */
 const TOOL_LINKS = {
+  "Apache Airflow": "https://airflow.apache.org", "dbt": "https://www.getdbt.com", "Apache Spark": "https://spark.apache.org", "Apache Kafka": "https://kafka.apache.org",
+  "Docker": "https://www.docker.com", "Snowflake": "https://www.snowflake.com", "BigQuery": "https://cloud.google.com/bigquery", "Databricks": "https://www.databricks.com",
+  "AWS": "https://aws.amazon.com", "PostgreSQL": "https://www.postgresql.org", "Pinecone": "https://www.pinecone.io", "Git": "https://git-scm.com",
   "Jira": "https://www.atlassian.com/software/jira", "Confluence": "https://www.atlassian.com/software/confluence", "Asana": "https://asana.com",
   "Notion": "https://www.notion.com", "Linear": "https://linear.app", "Trello": "https://trello.com", "ClickUp": "https://clickup.com",
   "Productboard": "https://www.productboard.com", "Aha!": "https://www.aha.io",

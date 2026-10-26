@@ -100,10 +100,10 @@
 
   /* ---- Course cover art ---- */
   const PAL = [["#1a1040", "#5b3df5", "#a78bfa"], ["#0f1530", "#3b4fd8", "#67e8f9"], ["#0a1f2e", "#0e7490", "#34d399"]];
-  // Course icons: rocket (product), chart (data science), sparkles (GenAI)
+  // Course icons: rocket (product), chart (data engineering), sparkles (GenAI)
   const ART = {
     "ai-pm": p => `<g transform="rotate(40)"><path d="M-7 18Q0 44 7 18Z" fill="#a78bfa"/><path d="M-3.5 18Q0 33 3.5 18Z" fill="#67e8f9"/><path d="M-12 6L-24 20L-12 17Z" fill="${p[2]}"/><path d="M12 6L24 20L12 17Z" fill="${p[2]}"/><path d="M0-36C13-24 15-6 12 18H-12C-15-6-13-24 0-36Z" fill="#fff"/><path d="M0-36C6-30 9-24 10-18H-10C-9-24-6-30 0-36Z" fill="#a78bfa"/><circle cy="-4" r="6.5" fill="${p[0]}" stroke="#22d3ee" stroke-width="2.5"/></g>`,
-    "ai-ds": p => `<g><rect x="-30" y="6" width="11" height="22" rx="2" fill="#fff" fill-opacity=".85"/><rect x="-14" y="-6" width="11" height="34" rx="2" fill="#a78bfa"/><rect x="2" y="-16" width="11" height="44" rx="2" fill="#fff" fill-opacity=".85"/><rect x="18" y="-28" width="11" height="56" rx="2" fill="#22d3ee"/><path d="M-26-4L-8-18L8-12L24-36" fill="none" stroke="#67e8f9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g fill="#67e8f9"><circle cx="-26" cy="-4" r="3.5"/><circle cx="-8" cy="-18" r="3.5"/><circle cx="8" cy="-12" r="3.5"/><circle cx="24" cy="-36" r="3.5"/></g></g>`,
+    "ai-de": p => `<g><rect x="-30" y="6" width="11" height="22" rx="2" fill="#fff" fill-opacity=".85"/><rect x="-14" y="-6" width="11" height="34" rx="2" fill="#a78bfa"/><rect x="2" y="-16" width="11" height="44" rx="2" fill="#fff" fill-opacity=".85"/><rect x="18" y="-28" width="11" height="56" rx="2" fill="#22d3ee"/><path d="M-26-4L-8-18L8-12L24-36" fill="none" stroke="#67e8f9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g fill="#67e8f9"><circle cx="-26" cy="-4" r="3.5"/><circle cx="-8" cy="-18" r="3.5"/><circle cx="8" cy="-12" r="3.5"/><circle cx="24" cy="-36" r="3.5"/></g></g>`,
     "genai-launchpad": p => `<g><path d="M-4-30C-1-10 4-5 24-2C4 1-1 6-4 26C-7 6-12 1-32-2C-12-5-7-10-4-30Z" fill="#fff"/><path d="M22-34C23-26 25-24 33-23C25-22 23-20 22-12C21-20 19-22 11-23C19-24 21-26 22-34Z" fill="#a78bfa"/><path d="M20 12C21 18 22 19 28 20C22 21 21 22 20 28C19 22 18 21 12 20C18 19 19 18 20 12Z" fill="#34d399"/></g>`,
     compass: p => `<path d="M0-38l8 30-8 8-8-8z" fill="${p[2]}"/><path d="M0 38l-8-30 8-8 8 8z" fill="#fff"/><circle r="5" fill="${p[0]}" stroke="${p[2]}" stroke-width="3"/>`
   };
@@ -213,7 +213,15 @@
   /* ---- Footer and contact ---- */
   if ($("yr")) $("yr").textContent = new Date().getFullYear();
   const social = $("social");
-  if (social) [["LinkedIn", url(S.linkedin)], ["Instagram", url(S.instagram)], ["YouTube", url(S.youtube)], ["X", url(S.twitter)], ["Facebook", url(S.facebook)], ["Telegram", url(S.telegram)], ["WhatsApp", wa ? waLink("Hi SkillNavora") : ""]].filter(x => x[1]).forEach(([n, u]) => social.insertAdjacentHTML("beforeend", `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`));
+  const ICO = {
+    X: '<path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.4l4.4 5.8zM17.8 20h1.7L6.3 3.9H4.5z"/>',
+    Instagram: '<path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.7a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.3-9.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/>',
+    LinkedIn: '<path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2zM8 19H5V9.5h3zM6.5 8.2a1.7 1.7 0 1 1 0-3.5 1.7 1.7 0 0 1 0 3.5zM19 19h-3v-4.6c0-1.1 0-2.5-1.5-2.5S12.8 13 12.8 14.3V19h-3V9.5h2.9v1.3a3.2 3.2 0 0 1 2.9-1.6c3.1 0 3.6 2 3.6 4.7z"/>',
+    YouTube: '<path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.7 3.1z"/>',
+    Facebook: '<path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/>'
+  };
+  if (social) [["X", url(S.twitter)], ["Instagram", url(S.instagram)], ["LinkedIn", url(S.linkedin)], ["YouTube", url(S.youtube)], ["Facebook", url(S.facebook)]].filter(x => x[1])
+    .forEach(([n, u]) => social.insertAdjacentHTML("beforeend", `<a href="${esc(u)}" target="_blank" rel="noopener" aria-label="SkillNavora on ${n === "X" ? "X (Twitter)" : n}" title="${n === "X" ? "X (Twitter)" : n}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${ICO[n]}</svg></a>`));
   const fc = $("fcontact");
   if (fc) fc.innerHTML = [S.email ? `<li><a href="mailto:${esc(S.email)}">${esc(S.email)}</a></li>` : "", phone ? `<li><a href="tel:+${phone}">${pretty(phone)}</a></li>` : "", S.address ? `<li>${esc(S.address)}</li>` : ""].join("");
   const ICON = { mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/>', phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>', chat: '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>', cal: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/>', pin: '<path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>' };

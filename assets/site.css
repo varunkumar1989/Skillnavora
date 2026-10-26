@@ -1317,3 +1317,11 @@ section{padding:96px 0}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 html{text-rendering:optimizeLegibility}
 .glance-cover .cover{width:100%!important;max-width:none!important;aspect-ratio:auto}.glance-cover .cover .art{width:100%}
+/* Follow us */
+.follow{margin-top:22px}.follow h4{margin:0 0 12px}
+.soc{display:flex;gap:18px;align-items:center}
+.soc a{color:#9aa0b5;display:inline-flex;transition:color .15s,transform .15s}
+.soc a:hover{color:#fff;transform:translateY(-2px)}
+.soc svg{width:26px;height:26px}
+.madeby{color:#7d8197;font-size:13px}
+.card.post{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--ink)}.card.post *{text-decoration:none}.card.post h3{margin:4px 0 0}.card.post p{margin:0;color:var(--mu);flex:1}.card.post .go{font-weight:700;color:var(--brand-ink)}.card.post:hover{border-color:var(--brand);transform:translateY(-2px)}

@@ -1,3 +1,5 @@
-# AI-First Software Engineering was replaced by AI-First Data Science
-/program/ai-software-engineering.html /program/ai-data-science.html 301
-/program/ai-software-engineering /program/ai-data-science 301
+# Older program pages
+/program/ai-software-engineering.html /program/ai-data-engineering.html 301
+/program/ai-software-engineering /program/ai-data-engineering 301
+/program/ai-data-science.html /program/ai-data-engineering.html 301
+/program/ai-data-science /program/ai-data-engineering 301
