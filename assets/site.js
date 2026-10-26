@@ -208,7 +208,7 @@
     }
   }
 
-  document.querySelectorAll("[data-li]").forEach(a => { if (S.linkedin) a.href = S.linkedin; else a.hidden = true; });
+  document.querySelectorAll("[data-li]").forEach(a => { const u = S.founderLinkedin || S.linkedin; if (u) a.href = u; else a.hidden = true; });
 
   /* ---- Footer and contact ---- */
   if ($("yr")) $("yr").textContent = new Date().getFullYear();
