@@ -76,10 +76,10 @@ const CHALLENGES = [
     title: "Build a RAG FAQ bot",
     brief: "Build a small app that answers questions from a set of PDFs or web pages, cites its sources and says 'I don't know' when the answer isn't there.",
     deliver: ["GitHub repo with a README", "10-question eval set with results", "Short demo video", "Notes on cost and latency"] },
-  { id: "churn-analysis", track: "Data Science", level: "Intermediate", time: "4–5 hours",
-    title: "Predict customer churn",
-    brief: "Use a public telecom or subscription churn dataset (for example from Kaggle) to find what drives churn and build a simple model that flags customers at risk.",
-    deliver: ["Notebook with cleaning and exploratory analysis", "A baseline model and how you evaluated it", "Top 3 churn drivers in plain words", "One recommendation the business could test"] },
+  { id: "weather-pipeline", track: "Data Engineering", level: "Intermediate", time: "4–5 hours",
+    title: "Build a daily data pipeline",
+    brief: "Pull data from a free public API (for example weather or exchange rates) every day, clean it, load it into a database and build one summary table.",
+    deliver: ["GitHub repo with a README and a diagram", "Pipeline code with retries and logging", "Data tests for missing or duplicate rows", "One SQL query that answers a real question"] },
   { id: "inbox-automation", track: "GenAI", level: "Beginner", time: "2–3 hours",
     title: "Automate an inbox with AI",
     brief: "Use n8n, Zapier or Make to read incoming emails, label them with AI (sales, support, other) and post a daily summary to Slack or email.",
@@ -95,12 +95,12 @@ const PRACTICE = {
     "AI product": ["Design an AI assistant for customer support at a bank. What guardrails would you add?", "How would you evaluate whether an AI summary feature is good enough to launch?", "Your AI feature's cost per user is higher than the revenue. What would you do?"],
     "Behavioural": ["Tell me about a time you disagreed with an engineer. What happened?", "Describe a product decision you made with incomplete data.", "Tell me about a launch that didn't go as planned."]
   },
-  "Data scientist": {
-    "SQL and analytics": ["Write a query to find the top 3 products by revenue in each category last month.", "Daily active users dropped 8% yesterday. How would you investigate with SQL?", "Explain the difference between a LEFT JOIN and an INNER JOIN with an example."],
-    "Statistics": ["Explain p-values to a product manager in plain words.", "How would you design an A/B test for a new checkout button, and how long would you run it?", "What is the difference between correlation and causation? Give an example."],
-    "Machine learning": ["How would you build a model to predict which customers will churn next month?", "Your model has 95% accuracy but the business says it's useless. What could be wrong?", "How do you explain a model's predictions to non-technical stakeholders?"],
-    "AI and LLMs": ["How would you use an LLM to classify thousands of customer reviews, and check it's accurate?", "When would you choose a classic ML model over an LLM?"],
-    "Behavioural": ["Tell me about an analysis that changed a business decision.", "Describe a time your data told a different story than stakeholders expected."]
+  "Data engineer": {
+    "SQL": ["Find the second-highest salary in each department.", "How would you remove duplicate rows from a large table safely?", "Explain window functions with an example."],
+    "Pipelines": ["Design a daily pipeline that loads orders from an API into a warehouse. How do you handle failures and re-runs?", "What is the difference between ETL and ELT, and when would you pick each?", "How would you backfill six months of data without double counting?"],
+    "System design": ["Design a real-time pipeline for clickstream events.", "How would you model sales data in a star schema?", "How do you make a Spark job faster?"],
+    "AI and data": ["How would you build a pipeline that keeps a vector database in sync with company documents?", "How do you check the quality of data used to train or ground an AI model?"],
+    "Behavioural": ["Tell me about a data incident you fixed. How did you find the root cause?", "Describe a time you improved a slow or flaky pipeline."]
   },
   "GenAI professional": {
     "Prompting": ["Write a prompt that turns meeting notes into action items with owners and dates.", "How would you get consistent, structured output from an AI model?"],

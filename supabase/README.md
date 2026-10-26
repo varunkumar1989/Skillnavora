@@ -29,8 +29,8 @@ Never paste the **secret** or **service_role** key anywhere on the website. The 
    ```
 3. Log in again: you'll land on the **Admin panel**. Add more admins from its **Admins** tab.
 
-## Update: mentor, careers and Data Science jobs (run once)
-The "Become a mentor" and "Careers" forms save into the same Applications list, and the Job board has a "Data Science" category. On a project set up before 24 October 2026, run this once in **SQL Editor → New query → Run** (safe to run again):
+## Update: mentor, careers and Data Engineering jobs (run once)
+The "Become a mentor" and "Careers" forms save into the same Applications list, and the Job board has a "Data Engineering" category. On a project set up before 24 October 2026, run this once in **SQL Editor → New query → Run** (safe to run again):
 
 ```sql
 alter table public.applications drop constraint if exists applications_kind_check;
@@ -39,7 +39,7 @@ alter table public.jobs drop constraint if exists jobs_category_check;
 alter table public.jobs add constraint jobs_category_check check (category in ('product', 'data', 'ai', 'engineering'));
 ```
 
-Until you run it, the mentor and careers forms fall back to opening WhatsApp with the applicant's details, and adding a Data Science job in Admin shows an error.
+Until you run it, the mentor and careers forms fall back to opening WhatsApp with the applicant's details, and adding a Data Engineering job in Admin shows an error.
 
 ## Email one-time code (the default login)
 The login page sends a 6-digit code by email. Supabase's default email sends a link instead, so add the code to the template once:
