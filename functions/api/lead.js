@@ -15,10 +15,19 @@ const NOTIFY_FALLBACK = "varunebix@gmail.com";
 
 const FIELDS = { kind: 20, course_id: 40, first_name: 80, last_name: 80, email: 200, phone: 20, linkedin: 300, experience: 40, role: 80, message: 2000, preferred_time: 80, source: 200 };
 const BASE_KINDS = ["application", "counselling"];
-const LABEL = { application: "Application", counselling: "Counselling call", mentor: "Mentor application", career: "Careers application", contact: "Contact form", referral: "Referral", hire: "Hiring enquiry" };
+const LABEL = { application: "Application", counselling: "Counselling call", mentor: "Mentor application", career: "Careers application", contact: "Contact form", resource: "Resource access", referral: "Referral", hire: "Hiring enquiry" };
 const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 
-export async function onRequestPost({ request, env }) {
+// The Data Science handbook site (GitHub Pages / Netlify) also asks for details before opening files
+const ALLOWED = [/^https:\/\/(www\.)?skillnavora\.in$/, /^https:\/\/skillnavora\.pages\.dev$/, /^https:\/\/[a-z0-9-]+\.github\.io$/, /^https:\/\/[a-z0-9-]+\.netlify\.app$/];
+const cors = request => { const o = request.headers.get("origin") || ""; return ALLOWED.some(r => r.test(o)) ? { "access-control-allow-origin": o, "access-control-allow-methods": "POST, OPTIONS", "access-control-allow-headers": "content-type", vary: "origin" } : {}; };
+export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
+export async function onRequestPost(ctx) {
+  const res = await handle(ctx);
+  const h = new Headers(res.headers); for (const [k, v] of Object.entries(cors(ctx.request))) h.set(k, v);
+  return new Response(res.body, { status: res.status, headers: h });
+}
+async function handle({ request, env }) {
   let body;
   try { body = await request.json(); } catch { return json({ ok: false, error: "bad_json" }, 400); }
   const row = {};
