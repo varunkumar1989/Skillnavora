@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /handbook/
-Disallow: /classes/
-Disallow: /brochures/
 
 Sitemap: https://www.skillnavora.in/sitemap.xml

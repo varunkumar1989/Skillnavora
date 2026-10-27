@@ -2,7 +2,7 @@
 import json, os, html
 
 E = html.escape
-DS_SITE = "https://varunkumar1989.github.io/data-science-and-ai/"      # where the built Data Science & AI handbook is hosted
+DS_SITE = "https://varunkumar1989.github.io/data-science-and-ai/course/"      # where the built Data Science & AI handbook is hosted
 DS_REPO = "https://github.com/varunkumar1989/data-science-and-ai"
 CATALOG = "/home/user/data-science-and-ai/course/catalog.json"
 
