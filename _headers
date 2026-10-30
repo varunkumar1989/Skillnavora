@@ -12,3 +12,8 @@
   X-Robots-Tag: noindex
 /brochures/*
   X-Robots-Tag: noindex
+
+/data-science/pdf/*
+  X-Robots-Tag: noindex
+/data-science/files/*
+  X-Robots-Tag: noindex

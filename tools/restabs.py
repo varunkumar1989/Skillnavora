@@ -2,7 +2,7 @@
 import json, os, html
 
 E = html.escape
-DS_SITE = "https://varunkumar1989.github.io/data-science-and-ai/course/"      # where the built Data Science & AI handbook is hosted
+DS_SITE = "/data-science/"      # where the built Data Science & AI handbook is hosted
 DS_REPO = "https://github.com/varunkumar1989/data-science-and-ai"
 CATALOG = "/home/user/data-science-and-ai/course/catalog.json"
 
@@ -52,7 +52,7 @@ def ds_tab(cfg):
     art = cfg.get("dsa_artifact") or ""
     ds_art = cfg.get("ds_artifact") or ""
     acts = (btn("Open the handbook ↗", DS_SITE, True) + (btn("Interactive DSA handbook ↗", art) if art else "") + (btn("Interactive Data Science handbook ↗", ds_art) if ds_art else "") +
-            btn("Complete handbook PDF ↗", DS_SITE + "pdf/SkillNavora_Data_Science_AI_Complete_Handbook.pdf") + btn("GitHub ↗", DS_REPO, gate=False))
+            btn("Complete handbook PDFs ↗", DS_SITE + "index.html#downloads") + btn("GitHub ↗", DS_REPO, gate=False))
     out = [hero("AI-First Data Engineer · free for registered learners", "Data Science & AI Handbook by Varun Kumar",
                 f"{n_les or 100}+ class-wise lessons in Excel, SQL, Power BI, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson." if tracks else
                 "Class-wise lessons in Excel, SQL, Power BI, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson.", acts)]
