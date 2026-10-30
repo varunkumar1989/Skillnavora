@@ -1,0 +1,7 @@
+feature,reach_per_quarter,impact,confidence_pct,effort_person_months
+Show delivery fee early in cart,40000,2,80,2
+Payment retry on failure,18000,3,80,3
+Saved addresses,25000,1,100,2
+Dark mode,30000,0.5,80,1.5
+Voice ordering,8000,2,30,8
+Order-again shortcut,35000,1,80,1

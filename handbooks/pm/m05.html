@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 5: UX and Design Collaboration · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-05-UX-Design.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" aria-current="page" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 5</div><h1>UX and Design Collaboration</h1><p>Understand UX craft well enough to review designs, run usability tests, and work productively with product designers.</p><div class="chips"><span class="chip">≈ 10 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 5, 16, 27; Companion ch. 3, 17; Extra topic 14; Picture lesson &#x27;Product discovery and design&#x27;</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m05" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m05-ux-versus-ui">UX versus UI</a></li><li><a href="#m05-design-thinking-and-human-centred-design">Design Thinking and Human-Centred Design</a></li><li><a href="#m05-nielsens-10-usability-heuristics">Nielsen&#x27;s 10 usability heuristics</a></li><li><a href="#m05-laws-of-ux-that-every-pm-should-know">Laws of UX that every PM should know</a></li><li><a href="#m05-information-architecture-user-flows-and-task-flows">Information architecture, user flows and task flows</a></li><li><a href="#m05-wireframes-and-prototypes-low-to-high-fidelity">Wireframes and prototypes: low to high fidelity</a></li><li><a href="#m05-design-systems-responsive-design-and-mobile-vs-web">Design systems, responsive design and mobile vs web</a></li><li><a href="#m05-accessibility">Accessibility</a></li><li><a href="#m05-usability-testing">Usability testing</a></li><li><a href="#m05-ab-testing-in-ux">A/B testing in UX</a></li><li><a href="#m05-design-critique-and-working-with-product-designers">Design critique and working with product designers</a></li><li><a href="#m05-figma-fundamentals-for-pms">Figma fundamentals for PMs</a></li><li><a href="#m05-journey-mapping-onboarding-and-checkout-optimisation">Journey mapping, onboarding and checkout optimisation</a></li><li><a href="#m05-error-states-and-empty-states">Error states and empty states</a></li><li><a href="#m05-ux-metrics">UX metrics</a></li><li><a href="#m05-design-handoff">Design handoff</a></li><li><a href="#m05-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m05-interview-perspective">Interview perspective</a></li><li><a href="#m05-key-takeaways">Key takeaways</a></li><li><a href="#m05-check-your-understanding">Check your understanding</a></li><li><a href="#m05-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
+<p class="admonition-title">About the screens in this module</p>
+<p>All wireframes are <strong>illustrative, simplified sketches made for teaching.</strong> They are <em>not</em> screenshots of any real company's interface and must never be presented as such.</p>
+</div>
+<h2 id="m05-ux-versus-ui"><span class="hnum">5.1</span> UX versus UI</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 16)</p>
+<p><strong>UI</strong> is the interface people see and use: text, controls, layout, colour, typography. <strong>UX</strong> is the complete experience of achieving a goal, including usability, accessibility, waiting, trust, service and what happens when something goes wrong. <em>A large readable Pay button is UI. A checkout that clearly shows the total, works with a screen reader and explains a failed payment is part of UX.</em></p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>UX (experience)</th>
+<th>UI (interface)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scope</td>
+<td>The whole journey, before/during/after the screen</td>
+<td>Visual and interactive layer</td>
+</tr>
+<tr>
+<td>Questions</td>
+<td>Can people achieve their goal? Do they trust it?</td>
+<td>Is it clear, consistent, accessible, attractive?</td>
+</tr>
+<tr>
+<td>Artefacts</td>
+<td>Research, journeys, flows, prototypes, test findings</td>
+<td>Style guides, components, high-fidelity screens</td>
+</tr>
+<tr>
+<td>Failure looks like</td>
+<td>Users abandon, get lost or distrust</td>
+<td>Inconsistent, hard to read or hard to tap</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m05-design-thinking-and-human-centred-design"><span class="hnum">5.2</span> Design Thinking and Human-Centred Design</h2>
+<p><strong>Design Thinking</strong> is a human-centred, iterative approach to problem solving with five stages (Stanford d.school): <strong>Empathise → Define → Ideate → Prototype → Test.</strong> <strong>Human-Centred Design (HCD)</strong>, standardised in ISO 9241-210, emphasises understanding users, tasks and environments; involving users throughout; evaluating with users; iterating; considering the whole user experience; and using multidisciplinary skills.</p>
+<figure class="viz" role="img" aria-label="Process: Empathise → Define → Ideate → Prototype → Test"><svg viewBox="0 0 720 132" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Empathise</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Interviews,</tspan><tspan x="68.0" dy="11">observation, support</tspan><tspan x="68.0" dy="11">tickets</tspan></text><line x1="129.0" y1="52.0" x2="153.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Define</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">Problem statement,</tspan><tspan x="214.0" dy="11">JTBD, persona</tspan></text><line x1="275.0" y1="52.0" x2="299.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Ideate</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Sketching,</tspan><tspan x="360.0" dy="11">how-might-we, crazy</tspan><tspan x="360.0" dy="11">8s</tspan></text><line x1="421.0" y1="52.0" x2="445.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Prototype</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Paper, wireframes,</tspan><tspan x="506.0" dy="11">clickable Figma</tspan></text><line x1="567.0" y1="52.0" x2="591.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Test</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Usability tests,</tspan><tspan x="652.0" dy="11">A/B, metrics</tspan></text></svg><figcaption><strong>Design Thinking stages mapped to PM activities.</strong> Stages loop; testing often sends you back to Define or Ideate. The double-diamond view (discover, define, develop, deliver) shows the same idea as diverge–converge twice — see the Framework Library.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 16)</p>
+<p>A possible design sequence is: define the problem and requirements, map the flow, sketch or wireframe, build a prototype, test, revise and implement — <em>iterative, not mandatory.</em> Include users with varied needs and abilities. A <strong>wireframe</strong> shows structure; a <strong>prototype</strong> lets people experience or test interactions.</p>
+</div>
+<h2 id="m05-nielsens-10-usability-heuristics"><span class="hnum">5.3</span> Nielsen's 10 usability heuristics</h2>
+<p>Jakob Nielsen's ten general principles for interaction design are a fast way to review any screen (a <strong>heuristic evaluation</strong>).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Heuristic</th>
+<th>Meaning</th>
+<th>Example (checkout)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Visibility of system status</strong></td>
+<td>Keep users informed with timely feedback</td>
+<td>“Processing payment…” spinner with a timeout message</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Match between system and real world</strong></td>
+<td>Speak the user's language</td>
+<td>“Delivery fee”, not “ancillary charge code 4”</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>User control and freedom</strong></td>
+<td>Easy undo/exit</td>
+<td>“Edit cart” and “Cancel” always available</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Consistency and standards</strong></td>
+<td>Follow conventions</td>
+<td>Same “Pay” button position on every step</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Error prevention</strong></td>
+<td>Prevent problems before they occur</td>
+<td>Disable “Pay” until a payment method is chosen; confirm address</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Recognition rather than recall</strong></td>
+<td>Make options visible</td>
+<td>Show saved cards, not “enter the last four digits”</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Flexibility and efficiency of use</strong></td>
+<td>Shortcuts for experts</td>
+<td>“Order again”, saved addresses</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Aesthetic and minimalist design</strong></td>
+<td>Remove irrelevant info</td>
+<td>Hide secondary promotions during payment</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Help users recognise, diagnose, recover from errors</strong></td>
+<td>Plain-language errors with a fix</td>
+<td>“Your card was declined. Try another card or UPI.”</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Help and documentation</strong></td>
+<td>Searchable, task-focused help</td>
+<td>Link to refund FAQ from the order screen</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 3; Picture lesson)</p>
+<p>Review <strong>visibility of status, clear labels, error recovery, keyboard and screen-reader access, colour contrast and understandable prices.</strong> <em>A design review (heuristic evaluation) can find possible problems but does not replace testing with real users.</em> An AI review is a useful draft, not a substitute.</p>
+</div>
+<p><strong>How to run a heuristic evaluation:</strong> 3–5 evaluators review independently against the list, rate each problem's <strong>severity</strong> (0 cosmetic … 4 catastrophe), then consolidate. It is cheap and fast but misses problems real users hit.</p>
+<h2 id="m05-laws-of-ux-that-every-pm-should-know"><span class="hnum">5.4</span> Laws of UX that every PM should know</h2>
+<h3 id="m05-jakobs-law"><span class="hnum">5.4.1</span> Jakob's Law</h3>
+<p>Users spend most of their time on <em>other</em> sites/apps, so they expect yours to work the same way. <strong>Implication:</strong> follow conventions (cart icon top-right, logo links home) unless you have a strong, tested reason. Innovate on value, not on basic mechanics.</p>
+<h3 id="m05-hicks-law"><span class="hnum">5.4.2</span> Hick's Law</h3>
+<p>The time to choose increases with the number and complexity of choices.</p>
+<div class="formula">Hick–Hyman law:  T = b × log₂(n + 1)
+T = decision time; n = number of equally likely choices; b = empirically fitted constant</div>
+<div class="admonition hypo">
+<p class="admonition-title">Illustrative calculation (b = 0.1 s, a made-up constant for illustration)</p>
+<p>7 menu options: T = 0.1 × log₂(8) = 0.1 × 3 = <strong>0.30 s</strong>. 15 options: T = 0.1 × log₂(16) = 0.1 × 4 = <strong>0.40 s</strong>. Doubling the options adds one bit, not double the time — but real interfaces also add scanning and comprehension costs. <strong>Implication:</strong> group, prioritise, progressively disclose; don't hide key actions.</p>
+</div>
+<h3 id="m05-fittss-law"><span class="hnum">5.4.3</span> Fitts's Law</h3>
+<p>The time to reach a target depends on distance and size: closer and larger targets are faster to hit.</p>
+<div class="formula">Fitts&#x27;s law (Shannon form):  T = a + b × log₂(D / W + 1)
+D = distance to target; W = target width (along the movement axis); a, b = constants
+Index of difficulty ID = log₂(D / W + 1)</div>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example</p>
+<p>A button 40 px wide at a distance of 400 px: ID = log₂(400/40 + 1) = log₂(11) = <strong>3.46 bits</strong>. Making it 80 px wide: ID = log₂(6) = <strong>2.58 bits</strong> — about <strong>25% lower</strong>. For touch, thumb reach zones and minimum target sizes (≈ 44×44 pt iOS guidance; 48×48 dp Android/Material guidance; WCAG 2.2 requires at least 24×24 CSS px as a minimum) matter more than the formula. <strong>Implication:</strong> make primary actions large and in easy reach; keep destructive actions small and apart.</p>
+</div>
+<h3 id="m05-gestalt-principles"><span class="hnum">5.4.4</span> Gestalt principles</h3>
+<p>How people perceive visual groups:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>Idea</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proximity</td>
+<td>Close items are grouped</td>
+<td>Space between form sections</td>
+</tr>
+<tr>
+<td>Similarity</td>
+<td>Similar items are related</td>
+<td>Same style for all primary buttons</td>
+</tr>
+<tr>
+<td>Common region</td>
+<td>Items in a shared boundary are grouped</td>
+<td>Card around the order summary</td>
+</tr>
+<tr>
+<td>Continuity</td>
+<td>Eyes follow smooth lines</td>
+<td>Aligned lists and stepper progress</td>
+</tr>
+<tr>
+<td>Closure</td>
+<td>We complete incomplete shapes</td>
+<td>Minimal icons</td>
+</tr>
+<tr>
+<td>Figure–ground</td>
+<td>We separate focus from background</td>
+<td>Modal overlays dim the page</td>
+</tr>
+<tr>
+<td>Focal point</td>
+<td>Distinct items draw attention</td>
+<td>One highlighted primary CTA</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m05-cognitive-load-theory"><span class="hnum">5.4.5</span> Cognitive Load Theory</h3>
+<p>Working memory is limited. <strong>Intrinsic load</strong> is the inherent difficulty of the task; <strong>extraneous load</strong> is added by poor design (clutter, confusing labels); <strong>germane load</strong> is effort that builds understanding. Designers reduce extraneous load: chunk information, use progressive disclosure, defaults, recognisable patterns and consistent layouts. Miller's “7±2” is often over-quoted — treat it as a reminder that capacity is small, not as a design rule.</p>
+<h2 id="m05-information-architecture-user-flows-and-task-flows"><span class="hnum">5.5</span> Information architecture, user flows and task flows</h2>
+<ul>
+<li><strong>Information architecture (IA)</strong> organises content so people can find it: structure, <strong>navigation</strong>, <strong>labelling</strong>, <strong>search</strong>. Methods: <strong>card sorting</strong> (how users group items), <strong>tree testing</strong> (can users find items in your proposed structure?).</li>
+<li>A <strong>user flow</strong> maps paths and decisions through the product toward a goal; a <strong>task flow</strong> is one task in detail, typically for a single user type.</li>
+</ul>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 5; Companion ch. 3)</p>
+<p>A journey can contain many flows. Include branches: valid address, invalid address, payment failure, retry and cancellation — and label the desired outcome for each. Start/end markers and connectors make the sequence readable. Use the appropriate level of detail; <em>a functional flow, not backend architecture.</em></p>
+</div>
+<figure class="viz" role="img" aria-label="Diagram: Task flow — pay for an order (hypothetical)"><svg viewBox="0 0 720 542" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="150.0" y="30" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="63.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Cart</tspan></text><rect x="150.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="173.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Address valid?</tspan></text><rect x="180.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="283.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">Choose payment method</tspan></text><rect x="370.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="283.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Fix address</tspan></text><rect x="150.0" y="360" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="393.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Payment succeeds?</tspan></text><rect x="180.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="503.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">Retry / other method</tspan></text><rect x="370.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="503.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Order confirmed</tspan></text><path d="M360.0,88.0 C360.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,198.0 C360.0,222.5 265.0,222.5 265.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="316.5" y="225.5" class="tiny mut edge-label" text-anchor="start"><tspan x="316.5" dy="0">yes</tspan></text><path d="M360.0,198.0 C360.0,222.5 455.0,222.5 455.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="411.5" y="225.5" class="tiny mut edge-label" text-anchor="start"><tspan x="411.5" dy="0">no</tspan></text><path d="M540.0,279.0 L592.0,279.0 L592.0,169.0 L573.0,169.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M265.0,308.0 C265.0,332.5 360.0,332.5 360.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,418.0 C360.0,442.5 455.0,442.5 455.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="411.5" y="445.5" class="tiny mut edge-label" text-anchor="start"><tspan x="411.5" dy="0">yes</tspan></text><path d="M360.0,418.0 C360.0,442.5 265.0,442.5 265.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="316.5" y="445.5" class="tiny mut edge-label" text-anchor="start"><tspan x="316.5" dy="0">no</tspan></text><path d="M180.0,499.0 L158.0,499.0 L158.0,279.0 L177.0,279.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>Task flow — pay for an order (hypothetical).</strong> Decision points and recovery loops are where bugs and abandonment hide. Every “no” branch needs a designed state.</figcaption></figure>
+<h2 id="m05-wireframes-and-prototypes-low-to-high-fidelity"><span class="hnum">5.6</span> Wireframes and prototypes: low to high fidelity</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Fidelity</th>
+<th>What it is</th>
+<th>Use for</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sketch / paper</strong></td>
+<td>Hand-drawn boxes</td>
+<td>Exploring many ideas in minutes</td>
+<td>Hard to share remotely</td>
+</tr>
+<tr>
+<td><strong>Low-fi wireframe</strong></td>
+<td>Grey boxes, real labels, no visual polish</td>
+<td>Layout, flow, content priority</td>
+<td>People critique visuals instead</td>
+</tr>
+<tr>
+<td><strong>High-fi mockup</strong></td>
+<td>Real visual design</td>
+<td>Brand, UI details, stakeholder review</td>
+<td>Looks “finished”; invites premature sign-off</td>
+</tr>
+<tr>
+<td><strong>Interactive prototype</strong></td>
+<td>Linked screens with transitions</td>
+<td>Usability tests, stakeholder demos</td>
+<td>Not connected to a real backend; may mislead about feasibility</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="viz" role="img" aria-label="Before — checkout with late fees"><svg viewBox="0 0 690 416" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="26" width="190" height="360" rx="22" class="phone"/><text x="105.0" y="16" class="small b" text-anchor="middle"><tspan x="105.0" dy="0">Cart</tspan></text><rect x="22" y="52" width="166" height="26" rx="5" class="wf-bar"/><text x="105.0" y="69" class="tiny b" text-anchor="middle"><tspan x="105.0" dy="0">Your cart</tspan></text><line x1="22" y1="112" x2="188" y2="112" class="grid"/><text x="26" y="103" class="tiny" text-anchor="start"><tspan x="26" dy="0">Veg biryani × 1</tspan></text><text x="184" y="103" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹260</tspan></text><line x1="22" y1="142" x2="188" y2="142" class="grid"/><text x="26" y="133" class="tiny" text-anchor="start"><tspan x="26" dy="0">Raita × 1</tspan></text><text x="184" y="133" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹60</tspan></text><line x1="22" y1="172" x2="188" y2="172" class="grid"/><text x="26" y="163" class="tiny" text-anchor="start"><tspan x="26" dy="0">Subtotal</tspan></text><text x="184" y="163" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹320</tspan></text><text x="26" y="188" class="tiny" text-anchor="start"><tspan x="26" dy="0">Taxes and fees are calculated at</tspan><tspan x="26" dy="11">payment.</tspan></text><rect x="22" y="209" width="166" height="32" rx="8" fill="var(--c1)"/><text x="105.0" y="230" class="tiny b on-fill" text-anchor="middle"><tspan x="105.0" dy="0">Proceed to pay</tspan></text><circle cx="214" cy="60" r="10" fill="var(--c3)"/><text x="214" y="64" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">1</tspan></text><text x="230" y="64" class="tiny" text-anchor="start"><tspan x="230" dy="0">Total is unknown</tspan><tspan x="230" dy="11">until the payment</tspan><tspan x="230" dy="11">step.</tspan></text><circle cx="214" cy="122" r="10" fill="var(--c3)"/><text x="214" y="126" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">2</tspan></text><text x="230" y="126" class="tiny" text-anchor="start"><tspan x="230" dy="0">Vague promise:</tspan><tspan x="230" dy="11">&#x27;fees at payment&#x27;.</tspan></text><circle cx="214" cy="184" r="10" fill="var(--c3)"/><text x="214" y="188" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">3</tspan></text><text x="230" y="188" class="tiny" text-anchor="start"><tspan x="230" dy="0">Primary button</tspan><tspan x="230" dy="11">hides the cost.</tspan></text><rect x="350" y="26" width="190" height="360" rx="22" class="phone"/><text x="445.0" y="16" class="small b" text-anchor="middle"><tspan x="445.0" dy="0">Payment</tspan></text><rect x="362" y="52" width="166" height="26" rx="5" class="wf-bar"/><text x="445.0" y="69" class="tiny b" text-anchor="middle"><tspan x="445.0" dy="0">Payment</tspan></text><line x1="362" y1="112" x2="528" y2="112" class="grid"/><text x="366" y="103" class="tiny" text-anchor="start"><tspan x="366" dy="0">Subtotal</tspan></text><text x="524" y="103" class="tiny b" text-anchor="end"><tspan x="524" dy="0">₹320</tspan></text><line x1="362" y1="142" x2="528" y2="142" class="grid"/><text x="366" y="133" class="tiny" text-anchor="start"><tspan x="366" dy="0">Delivery fee</tspan></text><text x="524" y="133" class="tiny b" text-anchor="end"><tspan x="524" dy="0">₹45</tspan></text><line x1="362" y1="172" x2="528" y2="172" class="grid"/><text x="366" y="163" class="tiny" text-anchor="start"><tspan x="366" dy="0">Platform fee</tspan></text><text x="524" y="163" class="tiny b" text-anchor="end"><tspan x="524" dy="0">₹5</tspan></text><line x1="362" y1="202" x2="528" y2="202" class="grid"/><text x="366" y="193" class="tiny" text-anchor="start"><tspan x="366" dy="0">Taxes</tspan></text><text x="524" y="193" class="tiny b" text-anchor="end"><tspan x="524" dy="0">₹18</tspan></text><line x1="362" y1="232" x2="528" y2="232" class="grid"/><text x="366" y="223" class="tiny" text-anchor="start"><tspan x="366" dy="0">Total</tspan></text><text x="524" y="223" class="tiny b" text-anchor="end"><tspan x="524" dy="0">₹388</tspan></text><rect x="362" y="236" width="166" height="32" rx="8" fill="var(--c1)"/><text x="445.0" y="257" class="tiny b on-fill" text-anchor="middle"><tspan x="445.0" dy="0">Pay ₹388</tspan></text><circle cx="554" cy="60" r="10" fill="var(--c3)"/><text x="554" y="64" class="tiny b on-fill" text-anchor="middle"><tspan x="554" dy="0">1</tspan></text><text x="570" y="64" class="tiny" text-anchor="start"><tspan x="570" dy="0">Total is 21% above</tspan><tspan x="570" dy="11">the subtotal the</tspan><tspan x="570" dy="11">user saw.</tspan></text><circle cx="554" cy="122" r="10" fill="var(--c3)"/><text x="554" y="126" class="tiny b on-fill" text-anchor="middle"><tspan x="554" dy="0">2</tspan></text><text x="570" y="126" class="tiny" text-anchor="start"><tspan x="570" dy="0">Effort is already</tspan><tspan x="570" dy="11">invested — a trust</tspan><tspan x="570" dy="11">shock right when</tspan><tspan x="570" dy="11">money is requested.</tspan></text></svg><figcaption><strong>Before — checkout with late fees (illustrative wireframe, not a real product screenshot).</strong> Hypothetical baseline. The total (₹388) is 21% higher than the subtotal shown earlier (388 ÷ 320 = 1.21). This is the pattern interviewees in the earlier modules described.</figcaption></figure>
+<figure class="viz" role="img" aria-label="After — fee shown early, with honest fallback"><svg viewBox="0 0 690 416" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="26" width="190" height="360" rx="22" class="phone"/><text x="105.0" y="16" class="small b" text-anchor="middle"><tspan x="105.0" dy="0">Cart (redesign)</tspan></text><rect x="22" y="52" width="166" height="26" rx="5" class="wf-bar"/><text x="105.0" y="69" class="tiny b" text-anchor="middle"><tspan x="105.0" dy="0">Your cart</tspan></text><line x1="22" y1="112" x2="188" y2="112" class="grid"/><text x="26" y="103" class="tiny" text-anchor="start"><tspan x="26" dy="0">Veg biryani × 1</tspan></text><text x="184" y="103" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹260</tspan></text><line x1="22" y1="142" x2="188" y2="142" class="grid"/><text x="26" y="133" class="tiny" text-anchor="start"><tspan x="26" dy="0">Raita × 1</tspan></text><text x="184" y="133" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹60</tspan></text><line x1="22" y1="172" x2="188" y2="172" class="grid"/><text x="26" y="163" class="tiny" text-anchor="start"><tspan x="26" dy="0">Subtotal</tspan></text><text x="184" y="163" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹320</tspan></text><line x1="22" y1="202" x2="188" y2="202" class="grid"/><text x="26" y="193" class="tiny" text-anchor="start"><tspan x="26" dy="0">Delivery fee (est.)</tspan></text><text x="184" y="193" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹45</tspan></text><line x1="22" y1="232" x2="188" y2="232" class="grid"/><text x="26" y="223" class="tiny" text-anchor="start"><tspan x="26" dy="0">Platform fee</tspan></text><text x="184" y="223" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹5</tspan></text><line x1="22" y1="262" x2="188" y2="262" class="grid"/><text x="26" y="253" class="tiny" text-anchor="start"><tspan x="26" dy="0">Taxes (est.)</tspan></text><text x="184" y="253" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹18</tspan></text><line x1="22" y1="292" x2="188" y2="292" class="grid"/><text x="26" y="283" class="tiny" text-anchor="start"><tspan x="26" dy="0">Estimated total</tspan></text><text x="184" y="283" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹388</tspan></text><rect x="22" y="296" width="166" height="32" rx="8" fill="var(--c1)"/><text x="105.0" y="317" class="tiny b on-fill" text-anchor="middle"><tspan x="105.0" dy="0">Pay ₹388</tspan></text><circle cx="214" cy="60" r="10" fill="var(--c3)"/><text x="214" y="64" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">1</tspan></text><text x="230" y="64" class="tiny" text-anchor="start"><tspan x="230" dy="0">Full breakdown</tspan><tspan x="230" dy="11">visible before</tspan><tspan x="230" dy="11">paying.</tspan></text><circle cx="214" cy="122" r="10" fill="var(--c3)"/><text x="214" y="126" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">2</tspan></text><text x="230" y="126" class="tiny" text-anchor="start"><tspan x="230" dy="0">Labels say &#x27;est.&#x27;</tspan><tspan x="230" dy="11">where numbers can</tspan><tspan x="230" dy="11">change.</tspan></text><circle cx="214" cy="184" r="10" fill="var(--c3)"/><text x="214" y="188" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">3</tspan></text><text x="230" y="188" class="tiny" text-anchor="start"><tspan x="230" dy="0">Button repeats the</tspan><tspan x="230" dy="11">total — no</tspan><tspan x="230" dy="11">surprises.</tspan></text><rect x="350" y="26" width="190" height="360" rx="22" class="phone"/><text x="445.0" y="16" class="small b" text-anchor="middle"><tspan x="445.0" dy="0">Fee service unavailable</tspan></text><rect x="362" y="52" width="166" height="26" rx="5" class="wf-bar"/><text x="445.0" y="69" class="tiny b" text-anchor="middle"><tspan x="445.0" dy="0">Your cart</tspan></text><line x1="362" y1="112" x2="528" y2="112" class="grid"/><text x="366" y="103" class="tiny" text-anchor="start"><tspan x="366" dy="0">Subtotal</tspan></text><text x="524" y="103" class="tiny b" text-anchor="end"><tspan x="524" dy="0">₹320</tspan></text><line x1="362" y1="142" x2="528" y2="142" class="grid"/><text x="366" y="133" class="tiny" text-anchor="start"><tspan x="366" dy="0">Delivery fee</tspan></text><text x="524" y="133" class="tiny b" text-anchor="end"><tspan x="524" dy="0">Estimate unavailable</tspan></text><rect x="362" y="146" width="166" height="32" rx="6" class="wf-warn"/><text x="445.0" y="166" class="tiny b" text-anchor="middle"><tspan x="445.0" dy="0">Couldn&#x27;t load the fee. Retry?</tspan></text><rect x="362" y="186" width="166" height="32" rx="8" fill="var(--c1)"/><text x="445.0" y="207" class="tiny b on-fill" text-anchor="middle"><tspan x="445.0" dy="0">Retry</tspan></text><circle cx="554" cy="60" r="10" fill="var(--c3)"/><text x="554" y="64" class="tiny b on-fill" text-anchor="middle"><tspan x="554" dy="0">1</tspan></text><text x="570" y="64" class="tiny" text-anchor="start"><tspan x="570" dy="0">Never invent a</tspan><tspan x="570" dy="11">number when the</tspan><tspan x="570" dy="11">estimate fails.</tspan></text><circle cx="554" cy="122" r="10" fill="var(--c3)"/><text x="554" y="126" class="tiny b on-fill" text-anchor="middle"><tspan x="554" dy="0">2</tspan></text><text x="570" y="126" class="tiny" text-anchor="start"><tspan x="570" dy="0">Recovery action is</tspan><tspan x="570" dy="11">visible and</tspan><tspan x="570" dy="11">keyboard-accessible.</tspan></text></svg><figcaption><strong>After — fee shown early, with honest fallback (illustrative wireframe, not a real product screenshot).</strong> Hypothetical redesign. It follows heuristics 1 (visibility), 5 (error prevention), 9 (error recovery). Hypothesis to test: earlier fee display raises checkout completion without raising complaints (Module 7).</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 17; Lecture 16)</p>
+<p>“Show an estimated total before checkout.” In scope: item cost and an estimate based on the address. Out of scope: changing the fee policy. Acceptance: <strong>label estimates, refresh when the address changes, and show a clear fallback when the fee service fails.</strong> Ask design about <em>empty, loading, error, keyboard and accessible states.</em> A prototype is not necessarily connected to a real backend.</p>
+</div>
+<h3 id="m05-clickable-prototype-example"><span class="hnum">5.6.1</span> Clickable prototype example</h3>
+<p>A clickable prototype for the redesign would link: <em>Cart (redesign)</em> → <em>Pay</em> → <em>Confirmation</em>, plus a branch <em>Cart (fee unavailable)</em> → <em>Retry</em> → <em>Cart (redesign)</em>. In Figma: duplicate frames, name them, switch to <strong>Prototype</strong> mode, drag a connection from the button to the next frame, set the trigger (On click) and animation (Instant/Smart animate), then present and share a view-only link. Test it with 5 participants using a task such as: “Order this meal and tell me the total you expect to pay <em>before</em> you tap pay.”</p>
+<h2 id="m05-design-systems-responsive-design-and-mobile-vs-web"><span class="hnum">5.7</span> Design systems, responsive design and mobile vs web</h2>
+<ul>
+<li>A <strong>design system</strong> is a shared library of design tokens (colours, spacing, type), reusable <strong>components</strong>, patterns and guidelines — plus code. Benefits: consistency, speed, accessibility baked in. As a PM: <em>don't request one-off components without a reason; use existing ones; contribute needs via the system's process.</em></li>
+<li><strong>Responsive design</strong> adapts layouts to screen sizes (breakpoints; fluid grids; flexible images). Design mobile-first, then enhance.</li>
+<li><strong>Mobile vs web UX:</strong></li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Mobile app</th>
+<th>Responsive web</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interaction</td>
+<td>Touch, gestures, thumb reach; smaller screens</td>
+<td>Mouse/keyboard and touch</td>
+</tr>
+<tr>
+<td>Capabilities</td>
+<td>Camera, push notifications, biometrics</td>
+<td>Limited by browser; no install friction</td>
+</tr>
+<tr>
+<td>Constraints</td>
+<td>App-store review, OS versions</td>
+<td>Cross-browser testing, performance on slow networks</td>
+</tr>
+<tr>
+<td>Design focus</td>
+<td>One main task per screen, bottom navigation</td>
+<td>Wider layouts, persistent navigation</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 17; Extra topic 14)</p>
+<p>Avoid changing a shared production library without permission. Review variations, reusable components and responsive layouts with your designer; compare decisions to acceptance criteria and record unresolved questions in the PRD.</p>
+</div>
+<h2 id="m05-accessibility"><span class="hnum">5.8</span> Accessibility</h2>
+<p>Accessibility means people with different abilities can perceive, understand and use the product. <strong>WCAG</strong> (Web Content Accessibility Guidelines, currently 2.2) is organised around four principles — <strong>Perceivable, Operable, Understandable, Robust</strong> — with conformance levels A, AA, AAA (AA is the common target).</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Extra topic 14)</p>
+<p>Inclusive design also considers varied devices, language, connectivity, literacy and circumstances. <strong>Accessibility is an ongoing product quality concern, not a finishing decoration.</strong> A form should use labels in addition to colour, have visible keyboard focus, describe errors in text and work with assistive technology; <strong>a delivery estimate must not rely only on a red or green indicator.</strong> Involve people with disabilities; use automated checks <em>alongside</em> manual and assistive-technology testing; ask qualified specialists about applicable standards and legal obligations.</p>
+</div>
+<p><strong>Contrast ratio</strong> is (L₁ + 0.05) ÷ (L₂ + 0.05), where L is relative luminance (lighter ÷ darker). WCAG AA requires <strong>4.5:1</strong> for normal text and <strong>3:1</strong> for large text (≥ 24 px, or ≥ 18.66 px bold) and for UI component boundaries.</p>
+<div class="admonition hypo">
+<p class="admonition-title">Worked check — contrast of common text colours on white (computed)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Text colour</th>
+<th style="text-align: right;">Ratio on white</th>
+<th>AA normal text (4.5:1)?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#101828 (navy)</td>
+<td style="text-align: right;">17.75 : 1</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>#2563EB (royal blue)</td>
+<td style="text-align: right;">5.17 : 1</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>#667085 (grey)</td>
+<td style="text-align: right;">4.97 : 1</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>#767676</td>
+<td style="text-align: right;">4.54 : 1</td>
+<td>Pass (barely)</td>
+</tr>
+<tr>
+<td>#777777</td>
+<td style="text-align: right;">4.48 : 1</td>
+<td><strong>Fail</strong></td>
+</tr>
+<tr>
+<td>#949494</td>
+<td style="text-align: right;">3.03 : 1</td>
+<td><strong>Fail</strong> (large text/UI only)</td>
+</tr>
+<tr>
+<td>#10B981 (emerald)</td>
+<td style="text-align: right;">2.54 : 1</td>
+<td><strong>Fail</strong> — white text on this green is also 2.54 : 1</td>
+</tr>
+</tbody>
+</table></div>
+<p>This is why this handbook uses a deeper green (#047857) for filled buttons with white text: the brand emerald alone does not meet AA for text.</p>
+</div>
+<p><strong>PM accessibility checklist:</strong> semantic structure and labels · keyboard operability and visible focus · contrast · text alternatives for images · captions for video · target sizes · error messages in text with guidance · no information by colour alone · respects reduced motion · tested with a screen reader on key flows · accessibility acceptance criteria in every story.</p>
+<h2 id="m05-usability-testing"><span class="hnum">5.9</span> Usability testing</h2>
+<p>A <strong>usability test</strong> observes representative users attempting realistic tasks. Typical: <strong>5–8 participants per round</strong> — Nielsen and Landauer's model estimates one user finds ~31% of problems, so five users find about 1 − (1 − 0.31)⁵ ≈ <strong>84%</strong>, which is why iterating with small rounds beats one big test (the figure is a model for finding <em>problems</em>, not for estimating <em>rates</em>).</p>
+<figure class="viz" role="img" aria-label="Process: Define goals → Write tasks → Recruit → Run → Analyse → Fix &amp; retest"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Define goals</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">What decisions will this inform?</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Write tasks</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Realistic scenarios, no hints</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Recruit</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Representative users incl. varied</tspan><tspan x="603.3333333333334" dy="11">abilities</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Run</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Think-aloud; observe; don&#x27;t help</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Analyse</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Severity × frequency; quotes, clips</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Fix &amp; retest</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Iterate; compare task success</tspan></text></svg><figcaption><strong>Running a moderated usability test.</strong> Always get consent, protect privacy and use a prototype that matches the question. Use test findings to improve the design, then retest.</figcaption></figure>
+<p><strong>Task wording:</strong> bad — “Click the fee breakdown.” Good — “You're about to pay for this meal. How much will you be charged in total? Tell me what you're looking at.” <strong>Measures:</strong> task success, time on task, errors, confidence, plus <strong>SUS</strong> (System Usability Scale, 10 questions; average across products ≈ 68 on a 0–100 scale).</p>
+<figure class="viz" role="img" aria-label="Line chart: Task success across design iterations (hypothetical, 6 participants per round)"><svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><line x1="64" y1="268.0" x2="696" y2="268.0" class="grid"/><text x="56" y="272.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">0%</tspan></text><line x1="64" y1="206.0" x2="696" y2="206.0" class="grid"/><text x="56" y="210.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">25%</tspan></text><line x1="64" y1="144.0" x2="696" y2="144.0" class="grid"/><text x="56" y="148.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">50%</tspan></text><line x1="64" y1="82.0" x2="696" y2="82.0" class="grid"/><text x="56" y="86.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">75%</tspan></text><line x1="64" y1="20.0" x2="696" y2="20.0" class="grid"/><text x="56" y="24.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">100%</tspan></text><text x="64.0" y="286" class="small" text-anchor="middle"><tspan x="64.0" dy="0">Round 1 (baseline)</tspan></text><text x="380.0" y="286" class="small" text-anchor="middle"><tspan x="380.0" dy="0">Round 2 (fee in cart)</tspan></text><text x="696.0" y="286" class="small" text-anchor="middle"><tspan x="696.0" dy="0">Round 3 (+ labels)</tspan></text><polyline points="64.0,144.0 380.0,62.2 696.0,20.0" fill="none" stroke="var(--c1)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="64.0" cy="144.0" r="3.5" fill="var(--c1)"/><circle cx="380.0" cy="62.2" r="3.5" fill="var(--c1)"/><circle cx="696.0" cy="20.0" r="3.5" fill="var(--c1)"/><text x="64.0" y="135.0" class="small b" text-anchor="middle"><tspan x="64.0" dy="0">50%</tspan></text><text x="380.0" y="53.16" class="small b" text-anchor="middle"><tspan x="380.0" dy="0">83%</tspan></text><text x="696.0" y="11.0" class="small b" text-anchor="middle"><tspan x="696.0" dy="0">100%</tspan></text><line x1="64" y1="268" x2="696" y2="268" class="axis"/><text x="14" y="144.0" class="mut small" text-anchor="middle" transform="rotate(-90 14 144.0)">% of participants</text></svg><figcaption><strong>Task success across design iterations (hypothetical, 6 participants per round).</strong> Hypothetical. With 6 participants each step is one or two people — treat the shape as a direction, then confirm with live behavioural data. Measure whether the *real* completion rate improves.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 16; Picture lesson)</p>
+<p><strong>Observe real people completing a task.</strong> Make a prototype, test with users with varied needs, improve and retest. The session contrasts <em>discovering a problem</em> with <em>testing whether people can navigate a proposed design.</em> A design review can find possible problems but does not replace testing with real users.</p>
+</div>
+<h2 id="m05-ab-testing-in-ux"><span class="hnum">5.10</span> A/B testing in UX</h2>
+<p>A/B tests measure <strong>behaviour at scale</strong> (completion rates, clicks to goal), not understanding. Use usability tests to learn <em>why</em>, A/B tests to learn <em>how much</em>. Avoid testing tiny cosmetic differences with small traffic; test meaningful hypotheses and pair with guardrails (complaints, errors). See Module 7 for the statistics.</p>
+<h2 id="m05-design-critique-and-working-with-product-designers"><span class="hnum">5.11</span> Design critique and working with product designers</h2>
+<p><strong>Design critique</strong> is structured feedback on a design against goals — not personal taste. Good format: <em>goal and constraints → what's being reviewed → feedback framed as observations tied to user/goal (“I notice… it may cause…”) → questions → decisions.</em> Avoid solutioneering in comments.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 16)</p>
+<p>The instructor described modifying a designer's file without coordination, causing inconsistencies and confusion. <strong>Agree on ownership, explain user and business context, use the design system and resolve disagreements through evidence.</strong> <em>The claim that PMs should never edit Figma and that UI is solely a developer's responsibility is too rigid; roles depend on the team.</em> Designers contribute to solutions; PMs can learn and create designs when appropriate.</p>
+</div>
+<p><strong>How to be a great partner to designers</strong></p>
+<ol>
+<li>Bring the <strong>problem and evidence</strong>, not a solution. 2. Involve them in <strong>discovery</strong> from day one. 3. Share constraints early (tech, legal, timing). 4. Give <strong>specific, user-centred feedback</strong>. 5. Protect time for exploration and for <strong>accessibility and edge states</strong>. 6. Respect craft: ask “what are you optimising for?”. 7. Decide <em>together</em> what to test.</li>
+</ol>
+<h2 id="m05-figma-fundamentals-for-pms"><span class="hnum">5.12</span> Figma fundamentals for PMs</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 17)</p>
+<p>Figma Design is a collaborative design tool. A <strong>frame</strong> represents a screen or container; text, shapes and components form the interface; a <strong>component</strong> is a reusable element; a <strong>prototype</strong> connects screens to illustrate a flow. Editing rights and features depend on the team and plan. Beginner exercise: create a personal file, add a phone-sized frame, place a heading, meal card, price and button; duplicate the frame and change it to show the total fee; in prototype mode connect the button to the next frame, preview and test it. PM workflow: use <strong>comments</strong> to describe the user problem and evidence (“Three test participants missed the total; could we make it visible before payment?”). Share prototype links with appropriate permissions.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Figma concept</th>
+<th>What it is</th>
+<th>PM relevance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frame</td>
+<td>Screen/container</td>
+<td>Check screens match the flow</td>
+</tr>
+<tr>
+<td>Auto layout</td>
+<td>Responsive spacing rules</td>
+<td>Explains how content grows (long names, translations)</td>
+</tr>
+<tr>
+<td>Component &amp; variants</td>
+<td>Reusable element with states (default, hover, error, disabled)</td>
+<td>Ensures states are designed</td>
+</tr>
+<tr>
+<td>Styles / variables</td>
+<td>Colour, type, spacing tokens</td>
+<td>Consistency, theming</td>
+</tr>
+<tr>
+<td>Prototype</td>
+<td>Clickable flow</td>
+<td>Testing and demos</td>
+</tr>
+<tr>
+<td>Comments</td>
+<td>Contextual feedback</td>
+<td>Give specific, evidence-based feedback</td>
+</tr>
+<tr>
+<td>Dev Mode</td>
+<td>Specs and code snippets for engineers</td>
+<td>Handoff clarity</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m05-journey-mapping-onboarding-and-checkout-optimisation"><span class="hnum">5.13</span> Journey mapping, onboarding and checkout optimisation</h2>
+<ul>
+<li><strong>Onboarding</strong> — get users to their first meaningful value quickly: reduce steps, defer non-essential fields, use progressive profiling, show progress, explain permissions <em>when needed</em> (just-in-time), offer a sample/empty-state starter.</li>
+<li><strong>Checkout</strong> — show the total early, minimise fields, offer guest checkout and saved payment methods, give clear error recovery, keep the primary action consistent.</li>
+</ul>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Friction</th><th>UX fix</th><th>Metric to watch</th><th>Guardrail</th></tr></thead><tbody><tr><td>Long sign-up form</td><td>Ask only essentials; social/phone sign-in where appropriate</td><td>Sign-up completion</td><td>Fraud/abuse rate</td></tr><tr><td>Permission prompt on first open</td><td>Ask in context, explain value</td><td>Permission grant rate</td><td>Uninstall rate</td></tr><tr><td>Hidden fees</td><td>Show total early with a breakdown</td><td>Checkout completion</td><td>Complaints</td></tr><tr><td>Payment failure dead end</td><td>Retry, alternative methods, saved cart</td><td>Payment success after failure</td><td>Duplicate-charge reports</td></tr><tr><td>Empty first screen</td><td>Sample content, guided first action</td><td>Activation within 7 days</td><td>Support contacts</td></tr></tbody></table></div></div><figcaption><strong>Common onboarding and checkout friction → fix → metric.</strong> Every fix is a hypothesis. Test it, and watch the guardrail so you do not trade trust for conversion.</figcaption></figure>
+<h2 id="m05-error-states-and-empty-states"><span class="hnum">5.14</span> Error states and empty states</h2>
+<ul>
+<li><strong>Error states:</strong> say what happened, why (if useful), and how to fix it; preserve user input; offer a way forward; log for diagnosis. Avoid blame (“Invalid input!”) and codes alone.</li>
+<li><strong>Empty states:</strong> teach the product — explain the benefit, show the primary action, optionally sample data.</li>
+<li><strong>Loading states:</strong> skeleton screens beat endless spinners; give time estimates for long tasks.</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>State</th>
+<th>Weak</th>
+<th>Strong</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Payment error</td>
+<td>“Error 502”</td>
+<td>“We couldn't reach your bank. Your card hasn't been charged. Try again or use UPI.”</td>
+</tr>
+<tr>
+<td>Empty orders</td>
+<td>Blank</td>
+<td>“No orders yet. Your first order will appear here. Browse popular meals →”</td>
+</tr>
+<tr>
+<td>Offline</td>
+<td>Frozen app</td>
+<td>“You're offline. Showing saved items; ordering resumes when you're back online.”</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m05-ux-metrics"><span class="hnum">5.15</span> UX metrics</h2>
+<p><strong>Google's HEART framework</strong> (Happiness, Engagement, Adoption, Retention, Task success) with the <strong>Goals–Signals–Metrics</strong> process helps choose UX metrics.</p>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Dimension</th><th>Goal</th><th>Signal</th><th>Metric</th></tr></thead><tbody><tr><td>Happiness</td><td>Users feel confident paying</td><td>Satisfaction after order</td><td>CSAT; checkout SUS</td></tr><tr><td>Engagement</td><td>Users interact with the breakdown</td><td>Taps on fee details</td><td>% sessions opening breakdown</td></tr><tr><td>Adoption</td><td>First-time buyers complete checkout</td><td>First order placed</td><td>First-order conversion</td></tr><tr><td>Retention</td><td>Buyers come back</td><td>Second order in 14 days</td><td>14-day repeat rate</td></tr><tr><td>Task success</td><td>People pay without errors</td><td>Completed vs failed attempts</td><td>Completion rate; error rate; time on task</td></tr></tbody></table></div></div><figcaption><strong>HEART applied to a checkout redesign (hypothetical).</strong> Pick the few dimensions that match the goal; not every project needs all five. Add guardrails (complaints, accessibility issues).</figcaption></figure>
+<p>Other UX measures: <strong>task success rate</strong>, <strong>time on task</strong>, <strong>error rate</strong>, <strong>SUS</strong>, <strong>CSAT</strong> (satisfaction), <strong>CES</strong> (effort), <strong>NPS</strong> (recommendation — widely used, with limitations as a UX measure), <strong>accessibility issue count</strong>, <strong>support contacts per 1,000 orders</strong>.</p>
+<h2 id="m05-design-handoff"><span class="hnum">5.16</span> Design handoff</h2>
+<p>A good handoff is a <strong>conversation</strong>, not a file drop: walk through the flow, states (empty/loading/error/offline), responsive behaviour, accessibility, copy, analytics events, and edge cases. Provide: final frames, component references, spacing/typography specs (Dev Mode), prototype link, acceptance criteria, <strong>open questions</strong>, and an agreed <strong>QA review</strong> (design reviews the build before release).</p>
+<p><strong>Handoff checklist:</strong> all states designed · copy final (or flagged) · accessibility requirements listed · events named · animation specs · assets exported · decisions logged · QA owner named · definition of done includes design review.</p>
+<h2 id="m05-exercises-with-model-answers"><span class="hnum">5.17</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Heuristic evaluation</p>
+<p>Evaluate the “Before” checkout screens against the 10 heuristics. List three violations with severity.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>(1) <strong>Visibility of system status</strong> — the final cost isn't visible until payment (severity 3: causes abandonment). (2) <strong>Match with the real world / consistency</strong> — “fees are calculated at payment” hides a concept users need now (severity 2). (3) <strong>Error prevention</strong> — no way to preview the total before committing (severity 3). Also note heuristic 9: no designed failure state if fee calculation fails. Recommend the “After” design and test it.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · Apply Fitts's law</p>
+<p>A primary button is 48 px wide and 500 px from the thumb's resting point. What is the index of difficulty? What happens if you widen it to 96 px?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>ID = log₂(500/48 + 1) = log₂(11.42) ≈ <strong>3.51 bits</strong>. With 96 px: log₂(500/96 + 1) = log₂(6.21) ≈ <strong>2.64 bits</strong> — about 25% easier. In practice also move it into the thumb zone and keep a ≥ 44 px height.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 3 · Accessibility check</p>
+<p>Your error text is #949494 on white, 14 px. What is wrong and how do you fix it?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>Contrast is ~3.03:1; normal text needs ≥ 4.5:1. Fix: darken to ≈ #767676 (4.54:1) or darker (e.g., #595959 = 7.0:1); don't rely on colour alone — add an icon and the text “Error:”. Test with a screen reader that the error is announced and associated with the field.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 4 · Plan a test</p>
+<p>You redesigned onboarding. Write three realistic tasks and two metrics for a usability test with 6 users.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>Tasks: (1) “You've just downloaded the app. Set it up so it can deliver to your office.” (2) “Find a vegetarian meal under ₹300 and add it to the cart.” (3) “Check what you'd pay in total.” Metrics: task success rate, time on task, errors/hesitations, confidence rating (1–5), SUS at the end. Pre-define success (e.g., ≥ 5 of 6 complete task 3 unaided).</p>
+</details>
+<h2 id="m05-interview-perspective"><span class="hnum">5.18</span> Interview perspective</h2>
+<details class="question">
+<summary>“How would you improve the checkout experience of a food-delivery app?” — structure</summary>
+<p>1) Clarify goal (completion? AOV? trust?) and users. 2) Map the journey and find the biggest friction with data (funnel by step/device) and research. 3) Hypotheses: fees shown late, payment failure recovery, form length. 4) Solutions with trade-offs (show fee early; guest checkout; retry). 5) Prioritise (impact/effort/risk). 6) Design considerations: states, accessibility, honest fallbacks. 7) Test: usability test then A/B with guardrails. <em>Model answer highlights:</em> “I'd start with the funnel to find where users leave, then interview people who abandoned. If fees surprise them, I'd test showing a full breakdown in the cart with 'estimate' labels and a clear fallback. Primary metric: checkout completion; guardrails: complaints and payment errors; segment by new vs returning users.” <em>Mistakes:</em> jumping to UI changes without evidence; ignoring failure states and accessibility.</p>
+</details>
+<details class="question">
+<summary>“How do you work with designers when you disagree?” — 60-second answer</summary>
+<p>“I start by getting aligned on the user problem and the success metric. Then I ask what the designer is optimising for and share the evidence I have. If we still disagree, we agree on a quick test — a usability session or A/B — and a decision rule in advance. I give feedback as observations tied to the user, not preferences, and make sure the final decision is documented.”</p>
+</details>
+<h2 id="m05-key-takeaways"><span class="hnum">5.19</span> Key takeaways</h2>
+<ul>
+<li><strong>UX</strong> = whole experience; <strong>UI</strong> = the interface layer.</li>
+<li>Use <strong>heuristics</strong> and the <strong>laws of UX</strong> (Jakob, Hick, Fitts), <strong>Gestalt</strong> and <strong>cognitive load</strong> to review designs quickly.</li>
+<li>Design <strong>all states</strong>: empty, loading, error, offline, success.</li>
+<li><strong>Accessibility</strong> is a quality requirement: check contrast, keyboard, labels, target sizes.</li>
+<li><strong>Usability tests with ~5–8 users per round</strong> find most problems; A/B tests measure behaviour at scale.</li>
+<li>Partner with designers by bringing <strong>problems and evidence</strong>, respecting ownership and the design system.</li>
+<li>Make handoff a <strong>conversation</strong> with states, events, accessibility and QA agreed.</li>
+</ul>
+<h2 id="m05-check-your-understanding"><span class="hnum">5.20</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m05"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Which statement correctly contrasts UX and UI?</p><ol><li class="">UI is the whole experience; UX is the buttons.</li><li class="is-correct">UX is the whole experience; UI is the interface people see and use.</li><li class="">They are the same.</li><li class="">UX applies only to mobile apps.</li></ol><div class="why"><strong>Why:</strong> UX covers the full experience of achieving a goal, including usability, trust and failure handling; UI is the visual and interactive layer.</div></div><div class="qitem" data-correct="1"><p class="q">Hick&#x27;s law says decision time…</p><ol><li class="">Decreases with more options</li><li class="is-correct">Increases with the number and complexity of choices</li><li class="">Is constant</li><li class="">Depends only on colour</li></ol><div class="why"><strong>Why:</strong> More (and more complex) choices take longer to process; group and prioritise options.</div></div><div class="qitem" data-correct="1"><p class="q">Fitts&#x27;s law implies a primary mobile button should be…</p><ol><li class="">Small and far from the thumb</li><li class="is-correct">Large and within easy reach</li><li class="">Hidden in a menu</li><li class="">Red</li></ol><div class="why"><strong>Why:</strong> Time to reach a target falls as it gets closer and larger.</div></div><div class="qitem" data-correct="2"><p class="q">Normal body text needs at least what contrast ratio for WCAG AA?</p><ol><li class="">2 : 1</li><li class="">3 : 1</li><li class="is-correct">4.5 : 1</li><li class="">21 : 1</li></ol><div class="why"><strong>Why:</strong> WCAG 2.2 AA requires 4.5:1 for normal text, 3:1 for large text and UI components.</div></div><div class="qitem" data-correct="1"><p class="q">Why run several small usability rounds rather than one large one?</p><ol><li class="">It is cheaper per participant only</li><li class="is-correct">Each round finds most problems, you fix them, then retest to find the next layer</li><li class="">Statistics require it</li><li class="">Designers prefer it</li></ol><div class="why"><strong>Why:</strong> Small samples find most usability problems; iterating compounds the benefit.</div></div><div class="qitem" data-correct="2"><p class="q">A good error message…</p><ol><li class="">Shows an error code only</li><li class="">Blames the user</li><li class="is-correct">Explains what happened and how to recover, in plain language</li><li class="">Is hidden</li></ol><div class="why"><strong>Why:</strong> Heuristic 9: help users recognise, diagnose and recover from errors.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m05-recommended-resources"><span class="hnum">5.21</span> Recommended resources</h2>
+<ul>
+<li><a href="https://www.nngroup.com/articles/ten-usability-heuristics/">Nielsen Norman Group: 10 usability heuristics</a> and <a href="https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/">heuristic evaluations</a>.</li>
+<li><a href="https://lawsofux.com/">Laws of UX</a> — concise write-ups of Jakob's, Hick's, Fitts's laws and more.</li>
+<li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C: WCAG 2 overview</a> and <a href="https://www.w3.org/WAI/WCAG22/quickref/">How to Meet WCAG (Quick Reference)</a>.</li>
+<li><a href="https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes">Figma Help: Share files and prototypes</a>.</li>
+<li><a href="https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/">Google HEART framework (Rodden, Hutchinson, Fu)</a>.</li>
+<li><a href="https://dschool.stanford.edu/resources/design-thinking-bootleg">Stanford d.school: Design Thinking Bootleg</a>.</li>
+</ul><div class="modnav"><a href="m04.html"><small>← Previous</small>Module 4: Problem Framing and Prioritization</a><a href="m06.html"><small>Next →</small>Module 6: Effective Communication and Stakeholder Management</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

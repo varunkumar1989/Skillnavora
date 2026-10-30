@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 22: Voice Agents for Businesses · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-22-Voice-Agents.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" aria-current="page" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 22</div><h1>Voice Agents for Businesses</h1><p>Build AI phone agents that answer and make calls for clinics, salons, shops and service companies, with the right platform, phone number, tools, costs and legal care.</p><div class="chips"><span class="chip">≈ 7 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Vendor docs and pricing pages for Vapi, Retell AI, ElevenLabs, Twilio; independent 2026 pricing comparisons; TRAI and FCC public guidance; Module 12; checked 23 Oct 2026</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m22" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m22-what-a-voice-agent-does">What a voice agent does</a></li><li><a href="#m22-how-a-call-works">How a call works</a></li><li><a href="#m22-platforms">Platforms</a></li><li><a href="#m22-the-law-and-consent-summary-not-legal-advice">The law and consent (summary, not legal advice)</a></li><li><a href="#m22-designing-the-conversation">Designing the conversation</a></li><li><a href="#m22-build-it-platform-n8n-tools">Build it: platform + n8n tools</a></li><li><a href="#m22-labs">Labs</a></li><li><a href="#m22-metrics">Metrics</a></li><li><a href="#m22-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m22-key-takeaways">Key takeaways</a></li><li><a href="#m22-check-your-understanding">Check your understanding</a></li><li><a href="#m22-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
+<p class="admonition-title">Costs and rules vary by country</p>
+<p>Per-minute prices change often and depend on the voice, AI model and phone carrier. Telecom and consent rules differ by country. Check each vendor's pricing page and get legal advice before calling real customers. Examples are <strong>hypothetical</strong>; screens are <strong>illustrative wireframes</strong>.</p>
+</div>
+<h2 id="m22-what-a-voice-agent-does"><span class="hnum">22.1</span> What a voice agent does</h2>
+<p>A <strong>voice agent</strong> is an AI that talks on the phone (or in a browser or app). It listens, understands, answers, and can take actions such as booking an appointment, then hands the call to a person when needed.</p>
+<figure class="viz canvas-fig" role="group" aria-label="Good first use cases"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>Receptionist</h5><ul><li>Answer after-hours calls</li><li>Hours, prices, directions</li><li>Book or reschedule</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Reminders</h5><ul><li>Appointment and delivery reminders</li><li>Confirm or reschedule in the call</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Lead qualification</h5><ul><li>Call back web leads within minutes</li><li>Ask 3–5 questions, book a sales call</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Order and status lines</h5><ul><li>Where is my order?</li><li>Return policy, store stock</li></ul></div><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Surveys and feedback</h5><ul><li>Short NPS or post-visit calls</li><li>Summaries to a sheet</li></ul></div><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Not a good first use</h5><ul><li>Medical or legal advice</li><li>Debt collection without legal review</li><li>Anything needing judgement or empathy at length</li></ul></div></div><figcaption><strong>Good first use cases.</strong> Start with short, repetitive calls where the caller&#x27;s goal is clear and mistakes are easy to fix.</figcaption></figure>
+<h2 id="m22-how-a-call-works"><span class="hnum">22.2</span> How a call works</h2>
+<figure class="viz" role="img" aria-label="Diagram: Inside a voice agent call"><svg viewBox="0 0 720 542" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><text x="4" y="63.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Phone</tspan></text><rect x="226.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="311.0" y="63.0" class="small b" text-anchor="middle"><tspan x="311.0" dy="0">Caller</tspan></text><rect x="416.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="501.0" y="56.0" class="small b" text-anchor="middle"><tspan x="501.0" dy="0">Phone number (Twilio,</tspan><tspan x="501.0" dy="12">Plivo, Exotel or the</tspan><tspan x="501.0" dy="12">platform)</tspan></text><text x="4" y="173.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Listen</tspan></text><rect x="196.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="173.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Speech-to-text: turns speech into words in real time</tspan></text><text x="4" y="283.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Think</tspan></text><rect x="196.0" y="250" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="283.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">AI model (Claude or others) with instructions, memory and tools</tspan></text><text x="4" y="393.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Speak</tspan></text><rect x="196.0" y="360" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="393.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Text-to-speech: a natural voice speaks the reply</tspan></text><text x="4" y="503.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Act</tspan></text><rect x="131.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="216.0" y="496.0" class="small b" text-anchor="middle"><tspan x="216.0" dy="0">Tools: check calendar,</tspan><tspan x="216.0" dy="12">book, look up order</tspan></text><rect x="321.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="406.0" y="503.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Transfer to a human</tspan></text><rect x="511.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="596.0" y="503.0" class="small b" text-anchor="middle"><tspan x="596.0" dy="0">Post-call summary</tspan></text><path d="M501.0,88.0 C501.0,112.5 406.0,112.5 406.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M406.0,198.0 C406.0,222.5 406.0,222.5 406.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M406.0,308.0 C406.0,332.5 406.0,332.5 406.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M406.0,308.0 C406.0,387.5 216.0,387.5 216.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>Inside a voice agent call.</strong> Voice platforms join these pieces, handle interruptions (barge-in) and pauses, and keep the delay to about a second. Some setups use a single speech-to-speech model instead of separate listen and speak steps.</figcaption></figure>
+<h2 id="m22-platforms"><span class="hnum">22.3</span> Platforms</h2>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Platform</th><th>Style</th><th>Pricing model</th><th>Typical all-in cost per minute</th><th>Good for</th></tr></thead><tbody><tr><td>Vapi</td><td>Developer platform, very flexible</td><td>Platform fee (about $0.05/min) plus your chosen speech, model, voice and phone providers</td><td>about $0.13 to $0.32</td><td>Custom builds, choosing each component</td></tr><tr><td>Retell AI</td><td>Developer-friendly with a strong dashboard</td><td>Usage per minute, phone line included</td><td>about $0.07 to $0.31</td><td>Fast setup, receptionists and outbound</td></tr><tr><td>ElevenLabs Agents</td><td>Best-known for natural voices</td><td>Plans with included minutes, extra minutes billed; phone carrier separate</td><td>about $0.08 and up</td><td>Voice quality, many languages</td></tr><tr><td>Bland AI</td><td>Enterprise phone agents</td><td>Per minute</td><td>varies</td><td>High-volume calling</td></tr><tr><td>Synthflow</td><td>No-code builder</td><td>Plans with minutes</td><td>varies</td><td>Non-technical teams</td></tr><tr><td>Twilio (ConversationRelay and others)</td><td>Build-your-own on a phone platform</td><td>Telephony plus your AI costs</td><td>varies</td><td>Engineering teams wanting full control</td></tr></tbody></table></div></div><figcaption><strong>Voice agent platforms (checked 23 Oct 2026; verify pricing).</strong> All-in cost includes speech-to-text, the AI model, the voice and the phone line. Figures are ranges from several 2026 comparisons, not quotes.</figcaption></figure>
+<p><strong>Phone numbers in India.</strong> Providers such as <strong>Exotel</strong>, <strong>Plivo</strong> and <strong>Knowlarity</strong> offer Indian virtual numbers and connect to voice platforms (often via SIP). Indian numbers require KYC documents. International platforms may offer Indian numbers only through a partner, so check availability before choosing a platform.</p>
+<p><strong>Indian languages.</strong> Check each platform's supported languages and test Hindi and regional-language calls with real speakers. Accents, code-mixing (Hinglish) and background noise affect accuracy.</p>
+<h3 id="m22-what-it-costs-a-worked-example"><span class="hnum">22.3.1</span> What it costs: a worked example</h3>
+<p>A clinic receives <strong>1,000 calls a month, averaging 3 minutes</strong>. At <strong>$0.15 per minute</strong> all-in, that is 1,000 × 3 × $0.15 = <strong>$450 a month</strong> (about ₹38,000 at ₹84 to the dollar), plus a phone number fee, the platform's plan, and staff time for handoffs. Compare it with the cost of missed calls and of staff answering them.</p>
+<h2 id="m22-the-law-and-consent-summary-not-legal-advice"><span class="hnum">22.4</span> The law and consent (summary, not legal advice)</h2>
+<div class="admonition warning">
+<p class="admonition-title">Before any real call</p>
+<ul>
+<li><strong>Tell callers it's an AI</strong> at the start, and say if the call is recorded.</li>
+<li><strong>Outbound calls</strong> need prior consent. In India, commercial calls fall under <strong>TRAI's commercial communication rules</strong> (registration, DND preferences, consent). In the US, the FCC treats AI-generated voices in robocalls as "artificial" under the <strong>TCPA</strong>, so prior express consent is required.</li>
+<li><strong>Personal data</strong>: collect the minimum, store recordings securely and delete them on schedule (India's <strong>DPDP Act</strong>, GDPR in Europe).</li>
+<li>Offer a <strong>human option</strong> ("press 0 or say 'agent'") and honour do-not-call requests.</li>
+</ul>
+</div>
+<h2 id="m22-designing-the-conversation"><span class="hnum">22.5</span> Designing the conversation</h2>
+<figure class="viz" role="img" aria-label="Process: Greet and disclose → Understand → Look up → Confirm → Act → Close or hand off"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Greet and disclose</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">&#x27;Hi, this is Ria, the AI assistant for</tspan><tspan x="116.66666666666667" dy="11">Glow Salon. How can I help?&#x27;</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Understand</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Ask one question at a time; short</tspan><tspan x="360.0" dy="11">sentences</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Look up</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Tool: check_availability(service,</tspan><tspan x="603.3333333333334" dy="11">date)</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Confirm</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Read back service, date, time, name</tspan><tspan x="116.66666666666667" dy="11">and phone</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Act</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Tool: book_appointment(...); send SMS</tspan><tspan x="360.0" dy="11">or WhatsApp confirmation</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Close or hand off</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Anything else? Transfer to staff for</tspan><tspan x="603.3333333333334" dy="11">complaints or unclear requests</tspan></text></svg><figcaption><strong>A good receptionist call (salon, hypothetical).</strong> Read back every detail before acting. Spoken numbers and names are easy to mishear.</figcaption></figure>
+<div class="admonition tip">
+<p class="admonition-title">Voice prompt rules</p>
+<ul>
+<li>Replies under <strong>two sentences</strong>; no lists, tables or URLs (they don't work in speech).</li>
+<li>Say numbers the way people speak them ("four-thirty in the afternoon").</li>
+<li>Handle silence ("Are you still there?") and interruptions gracefully.</li>
+<li>Give a clear way out: "If you'd like to talk to someone, just say 'staff'."</li>
+<li>Never guess. "I'm not sure, let me get a colleague to call you back."</li>
+</ul>
+</div>
+<h2 id="m22-build-it-platform-n8n-tools"><span class="hnum">22.6</span> Build it: platform + n8n tools</h2>
+<figure class="viz" role="img" aria-label="A voice platform&#x27;s agent setup"><svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="298" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Voice agent dashboard</tspan></text><rect x="12" y="38" width="150" height="260" rx="8" class="wf-bar" fill-opacity=".6"/><rect x="516" y="38" width="190" height="260" rx="8" class="wf-bar" fill-opacity=".45"/><rect x="20" y="35" width="138" height="20" rx="5" fill="var(--c1)" fill-opacity=".16"/><text x="28" y="49" class="tiny b" text-anchor="start"><tspan x="28" dy="0">Agents</tspan></text><text x="28" y="73" class="tiny" text-anchor="start"><tspan x="28" dy="0">Phone numbers</tspan></text><text x="28" y="97" class="tiny" text-anchor="start"><tspan x="28" dy="0">Tools</tspan></text><text x="28" y="121" class="tiny" text-anchor="start"><tspan x="28" dy="0">Calls &amp; logs</tspan></text><text x="28" y="145" class="tiny" text-anchor="start"><tspan x="28" dy="0">Billing</tspan></text><rect x="176" y="48" width="314" height="26" rx="5" class="wf-bar"/><text x="186" y="65" class="tiny b" text-anchor="start"><tspan x="186" dy="0">Agent: Glow Salon receptionist</tspan></text><rect x="176" y="82" width="314" height="28" rx="6" class="wf-input"/><text x="186" y="100" class="tiny mut" text-anchor="start"><tspan x="186" dy="0">Instructions: You are Ria, the AI receptionist for Glow Salon…</tspan></text><circle cx="492" cy="92" r="9" fill="var(--c3)"/><text x="492" y="96" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">1</tspan></text><line x1="176" y1="142" x2="490" y2="142" class="grid"/><text x="180" y="134" class="tiny" text-anchor="start"><tspan x="180" dy="0">Model</tspan></text><text x="486" y="134" class="tiny b" text-anchor="end"><tspan x="486" dy="0">Claude (or another LLM)</tspan></text><line x1="176" y1="170" x2="490" y2="170" class="grid"/><text x="180" y="162" class="tiny" text-anchor="start"><tspan x="180" dy="0">Voice</tspan></text><text x="486" y="162" class="tiny b" text-anchor="end"><tspan x="486" dy="0">Warm female, Indian English</tspan></text><circle cx="492" cy="156" r="9" fill="var(--c3)"/><text x="492" y="160" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">2</tspan></text><line x1="176" y1="198" x2="490" y2="198" class="grid"/><text x="180" y="190" class="tiny" text-anchor="start"><tspan x="180" dy="0">Transcriber</tspan></text><text x="486" y="190" class="tiny b" text-anchor="end"><tspan x="486" dy="0">Real-time, en-IN + hi-IN</tspan></text><line x1="176" y1="226" x2="490" y2="226" class="grid"/><text x="180" y="218" class="tiny" text-anchor="start"><tspan x="180" dy="0">Tools</tspan></text><text x="486" y="218" class="tiny b" text-anchor="end"><tspan x="486" dy="0">check_availability, book_appointment</tspan></text><circle cx="492" cy="212" r="9" fill="var(--c3)"/><text x="492" y="216" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">3</tspan></text><line x1="176" y1="254" x2="490" y2="254" class="grid"/><text x="180" y="246" class="tiny" text-anchor="start"><tspan x="180" dy="0">Transfer number</tspan></text><text x="486" y="246" class="tiny b" text-anchor="end"><tspan x="486" dy="0">+91 ••• staff line</tspan></text><rect x="176" y="258" width="241" height="28" rx="7" fill="var(--c1)"/><text x="296.5" y="276" class="tiny b on-fill" text-anchor="middle"><tspan x="296.5" dy="0">Talk to agent (test in browser)</tspan></text><circle cx="492" cy="268" r="9" fill="var(--c3)"/><text x="492" y="272" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">4</tspan></text><rect x="524" y="48" width="174" height="26" rx="5" class="wf-bar"/><text x="534" y="65" class="tiny b" text-anchor="start"><tspan x="534" dy="0">First message</tspan></text><text x="528" y="93" class="tiny" text-anchor="start"><tspan x="528" dy="0">Hi, this is Ria, the AI</tspan><tspan x="528" dy="11">assistant for Glow Salon. How</tspan><tspan x="528" dy="11">can I help today?</tspan></text><rect x="524" y="127" width="174" height="26" rx="5" class="wf-bar"/><text x="534" y="144" class="tiny b" text-anchor="start"><tspan x="534" dy="0">Post-call webhook</tspan></text><rect x="524" y="161" width="174" height="28" rx="6" class="wf-input"/><text x="534" y="179" class="tiny mut" text-anchor="start"><tspan x="534" dy="0">https://your-n8n/webhook/call-summary</tspan></text><circle cx="24" cy="322" r="9" fill="var(--c3)"/><text x="24" y="326" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="326" class="small" text-anchor="start"><tspan x="40" dy="0">Instructions are the system prompt: role, scope, tone, rules and when to transfer.</tspan></text><circle cx="24" cy="344" r="9" fill="var(--c3)"/><text x="24" y="348" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="348" class="small" text-anchor="start"><tspan x="40" dy="0">Pick a voice and transcription language your callers use; test with real speakers.</tspan></text><circle cx="24" cy="366" r="9" fill="var(--c3)"/><text x="24" y="370" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="370" class="small" text-anchor="start"><tspan x="40" dy="0">Tools call your n8n webhooks, which read or write Google Calendar, Sheets or your app.</tspan></text><circle cx="24" cy="388" r="9" fill="var(--c3)"/><text x="24" y="392" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">4</tspan></text><text x="40" y="392" class="small" text-anchor="start"><tspan x="40" dy="0">Test in the browser for free before you buy a phone number.</tspan></text></svg><figcaption><strong>A voice platform&#x27;s agent setup (illustrative wireframe, not a real product screenshot).</strong> Names and layout differ between Vapi, Retell AI and ElevenLabs, but every platform has these settings.</figcaption></figure>
+<figure class="viz" role="img" aria-label="Workflow: Webhook from the voice platform → Google Calendar: get events → Find free slots → Respond to webhook"><svg viewBox="0 0 720 141" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ahw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="8" width="149.5" height="93" rx="10" class="node"/><rect x="10.0" y="8" width="7" height="93" rx="3" fill="var(--c4)"/><text x="26.0" y="24" class="tiny b" text-anchor="start" fill="var(--c4)" style="fill:var(--c4)">TRIGGER</text><text x="26.0" y="41" class="small b" text-anchor="start"><tspan x="26.0" dy="0">Webhook from the</tspan><tspan x="26.0" dy="13">voice platform</tspan></text><text x="26.0" y="71" class="tiny mut" text-anchor="start"><tspan x="26.0" dy="0">service, date</tspan></text><line x1="161.5" y1="54.5" x2="190.5" y2="54.5" class="edge" marker-end="url(#ahw)"/><rect x="193.5" y="8" width="149.5" height="93" rx="10" class="node"/><rect x="193.5" y="8" width="7" height="93" rx="3" fill="var(--c1)"/><text x="209.5" y="24" class="tiny b" text-anchor="start" fill="var(--c1)" style="fill:var(--c1)">ACTION</text><text x="209.5" y="41" class="small b" text-anchor="start"><tspan x="209.5" dy="0">Google Calendar:</tspan><tspan x="209.5" dy="13">get events</tspan></text><text x="209.5" y="71" class="tiny mut" text-anchor="start"><tspan x="209.5" dy="0">Salon calendar for that</tspan><tspan x="209.5" dy="11">date</tspan></text><line x1="345.0" y1="54.5" x2="374.0" y2="54.5" class="edge" marker-end="url(#ahw)"/><rect x="377.0" y="8" width="149.5" height="93" rx="10" class="node"/><rect x="377.0" y="8" width="7" height="93" rx="3" fill="var(--c3)"/><text x="393.0" y="24" class="tiny b" text-anchor="start" fill="var(--c3)" style="fill:var(--c3)">LOGIC</text><text x="393.0" y="41" class="small b" text-anchor="start"><tspan x="393.0" dy="0">Find free slots</tspan></text><text x="393.0" y="58" class="tiny mut" text-anchor="start"><tspan x="393.0" dy="0">Code or Filter node</tspan></text><line x1="528.5" y1="54.5" x2="557.5" y2="54.5" class="edge" marker-end="url(#ahw)"/><rect x="560.5" y="8" width="149.5" height="93" rx="10" class="node"/><rect x="560.5" y="8" width="7" height="93" rx="3" fill="var(--c5)"/><text x="576.5" y="24" class="tiny b" text-anchor="start" fill="var(--c5)" style="fill:var(--c5)">OUTPUT</text><text x="576.5" y="41" class="small b" text-anchor="start"><tspan x="576.5" dy="0">Respond to webhook</tspan></text><text x="576.5" y="58" class="tiny mut" text-anchor="start"><tspan x="576.5" dy="0">&#x27;Free at 11:00 and</tspan><tspan x="576.5" dy="11">16:30&#x27;</tspan></text></svg><figcaption><strong>The tool behind &#x27;check_availability&#x27; (n8n).</strong> Keep tool responses short and plain, because the agent reads them aloud. Respond within a couple of seconds or callers hear silence. Node types shown: Action · Logic (filter, IF, router) · Output · Trigger (starts the flow).</figcaption></figure>
+<h2 id="m22-labs"><span class="hnum">22.7</span> Labs</h2>
+<div class="admonition example">
+<p class="admonition-title">Lab 1 · Browser test call (free trial credits, 30 minutes)</p>
+<ol>
+<li>Sign up for Vapi, Retell AI or ElevenLabs Agents and create an agent from a receptionist template.</li>
+<li>Write the instructions and first message for Glow Salon (hypothetical), with hours, prices and three services.</li>
+<li>Click <strong>talk/test</strong> and make five test calls, including one where you interrupt and one where you ask for a human.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 2 · Availability and booking tools (60 minutes)</p>
+<ol>
+<li>Build the n8n <code>check_availability</code> workflow above and a <code>book_appointment</code> workflow that creates a Google Calendar event.</li>
+<li>Add both as tools in the voice platform, with clear descriptions and parameters.</li>
+<li>Test a full booking. Check the calendar event appears.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 3 · Post-call summary (20 minutes)</p>
+<p>Set the platform's post-call webhook to an n8n workflow that writes caller, intent, outcome and summary to a Sheet and posts transfers to Slack.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 4 · Inbound phone number (paid, 20 minutes)</p>
+<p>Buy or import a phone number (platform or Twilio; in India via a provider such as Exotel or Plivo, which needs KYC). Attach it to the agent and call it from your phone. Add the AI disclosure and recording notice to the first message.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 5 · Test plan (30 minutes)</p>
+<p>Write 20 test scenarios (booking, rescheduling, unclear request, background noise, Hindi caller, angry caller, wrong number). Run them, score each (resolved, transferred correctly, mistakes), fix the instructions and re-test.</p>
+</div>
+<h2 id="m22-metrics"><span class="hnum">22.8</span> Metrics</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>What it tells you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Containment / resolution rate</strong></td>
+<td>Share of calls fully handled by the agent</td>
+</tr>
+<tr>
+<td><strong>Correct transfer rate</strong></td>
+<td>It handed off the calls it should have</td>
+</tr>
+<tr>
+<td><strong>Booking conversion</strong></td>
+<td>Calls that ended in a booking</td>
+</tr>
+<tr>
+<td><strong>Response latency</strong></td>
+<td>Time from caller stopping to agent speaking; aim for about a second</td>
+</tr>
+<tr>
+<td><strong>Transcription accuracy</strong></td>
+<td>Mis-heard names and numbers</td>
+</tr>
+<tr>
+<td><strong>Average handle time and cost per call</strong></td>
+<td>Efficiency and budget</td>
+</tr>
+<tr>
+<td><strong>CSAT or complaints</strong></td>
+<td>Caller experience</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m22-exercises-with-model-answers"><span class="hnum">22.9</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise · Price it</p>
+<p>A car service centre gets 600 calls a month, 4 minutes each. Platform quotes $0.12 a minute all-in. Staff handle 20% of calls after transfer. Monthly AI cost?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>600 × 4 × $0.12 = <strong>$288</strong> a month for agent minutes (assuming the transfer happens after most of the call; transferred minutes may continue to be billed until the agent leaves the call). Add the number rental and platform plan, and staff time for the 120 transferred calls.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise · Fix the script</p>
+<p>The agent says: "Our services include haircut ₹500, colour ₹2,500, spa ₹1,800, visit glowsalon.com/book or press 1 for…" What's wrong?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>Too long, a list and a URL in speech. Better: "We do haircuts, colour and spa treatments. Which one are you interested in?" Then give the one price asked for, and offer to book or send a WhatsApp link.</p>
+</details>
+<h2 id="m22-key-takeaways"><span class="hnum">22.10</span> Key takeaways</h2>
+<ul>
+<li>A voice agent = <strong>phone + speech-to-text + AI model + text-to-speech + tools + handoff</strong>.</li>
+<li>Choose <strong>Retell AI or ElevenLabs</strong> for speed, <strong>Vapi or Twilio</strong> for control, a <strong>no-code</strong> builder for non-technical teams.</li>
+<li>Budget <strong>all-in per-minute</strong> cost, not the headline platform fee.</li>
+<li><strong>Disclose AI</strong>, get <strong>consent</strong> for outbound calls, and follow local telecom and privacy rules.</li>
+<li><strong>Read back details</strong>, keep replies short, and test with real speakers before going live.</li>
+</ul>
+<h2 id="m22-check-your-understanding"><span class="hnum">22.11</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m22"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Why can the all-in cost be several times the platform&#x27;s headline per-minute fee?</p><ol><li class="">Taxes only</li><li class="is-correct">Speech-to-text, the AI model, the voice and the phone line are billed too</li><li class="">Because of the logo</li><li class="">It can&#x27;t</li></ol><div class="why"><strong>Why:</strong> Each component has its own per-minute or per-token price.</div></div><div class="qitem" data-correct="1"><p class="q">What should an outbound sales voice agent have before calling?</p><ol><li class="">A funny greeting</li><li class="is-correct">Prior consent from the person and compliance with telecom rules</li><li class="">A longer script</li><li class="">A website</li></ol><div class="why"><strong>Why:</strong> Consent and telecom regulations apply to automated and AI calls.</div></div><div class="qitem" data-correct="1"><p class="q">Which reply style works best on a phone call?</p><ol><li class="">A bulleted list with links</li><li class="is-correct">Short sentences, one question at a time</li><li class="">A long paragraph</li><li class="">A table</li></ol><div class="why"><strong>Why:</strong> Listeners can&#x27;t scan; short, single questions are easiest to follow.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m22-recommended-resources"><span class="hnum">22.12</span> Recommended resources</h2>
+<ul>
+<li><a href="https://docs.vapi.ai">Vapi docs</a> · <a href="https://docs.retellai.com">Retell AI docs</a> · <a href="https://elevenlabs.io/docs">ElevenLabs Agents docs</a> · <a href="https://www.twilio.com/docs/voice">Twilio Voice</a></li>
+<li><a href="https://www.trai.gov.in">TRAI</a> for Indian commercial-communication rules · <a href="https://www.fcc.gov">FCC on AI-generated voices in robocalls</a></li>
+<li>Module 12 (agentic AI) for tool safety and evaluation</li>
+</ul><div class="modnav"><a href="m21.html"><small>← Previous</small>Module 21: AI Chatbots for Business: WhatsApp, Slack and Web</a><a href="m23.html"><small>Next →</small>Module 23: Learning Paths, Courses and Communities</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

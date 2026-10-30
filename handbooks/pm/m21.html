@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 21: AI Chatbots for Business: WhatsApp, Slack and Web · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-21-Business-Chatbots.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" aria-current="page" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 21</div><h1>AI Chatbots for Business: WhatsApp, Slack and Web</h1><p>Design, build, test and price AI chatbots that answer customers on WhatsApp, help employees in Slack, and sit on a website, with safe handoff to people.</p><div class="chips"><span class="chip">≈ 8 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Meta WhatsApp Business Platform docs and pricing page; BSP documentation; n8n WhatsApp, Telegram and Slack node docs; Module 10 (RAG) and Module 12 (agents); handbook dataset support_eval_set.csv; checked 23 Oct 2026</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m21" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m21-what-a-business-chatbot-does">What a business chatbot does</a></li><li><a href="#m21-whatsapp-app-or-platform">WhatsApp: App or Platform?</a></li><li><a href="#m21-how-an-ai-whatsapp-bot-works">How an AI WhatsApp bot works</a></li><li><a href="#m21-no-code-options">No-code options</a></li><li><a href="#m21-slack-telegram-and-website-bots">Slack, Telegram and website bots</a></li><li><a href="#m21-design-the-bot-before-you-build-it">Design the bot before you build it</a></li><li><a href="#m21-guardrails-privacy-and-quality">Guardrails, privacy and quality</a></li><li><a href="#m21-costs-at-a-glance-illustrative">Costs at a glance (illustrative)</a></li><li><a href="#m21-labs">Labs</a></li><li><a href="#m21-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m21-key-takeaways">Key takeaways</a></li><li><a href="#m21-check-your-understanding">Check your understanding</a></li><li><a href="#m21-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
+<p class="admonition-title">Messaging rules and prices change</p>
+<p>Meta updates WhatsApp pricing and policies several times a year. Always check the <a href="https://developers.facebook.com/docs/whatsapp/pricing">official pricing page</a> and your provider's rates before launch. Examples use <strong>hypothetical businesses</strong>; screens are <strong>illustrative wireframes</strong>.</p>
+</div>
+<h2 id="m21-what-a-business-chatbot-does"><span class="hnum">21.1</span> What a business chatbot does</h2>
+<p>A business chatbot answers questions and completes simple tasks in a chat channel: order status, booking an appointment, store hours, return policy, lead capture. An <strong>AI chatbot</strong> uses a language model (such as Claude) plus your business's <strong>knowledge</strong> and <strong>tools</strong>, so it can understand free-text questions instead of only menu buttons.</p>
+<figure class="viz canvas-fig" role="group" aria-label="Channels and when to use them"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>WhatsApp</h5><ul><li>Where Indian customers already are</li><li>Orders, bookings, reminders, support</li><li>Needs the Business Platform for automation</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Website chat widget</h5><ul><li>Pre-sales questions, lead capture</li><li>Fully under your control</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Instagram / Messenger</h5><ul><li>D2C brands, creators</li><li>Same Meta platform family</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Slack or Microsoft Teams</h5><ul><li>Internal bots: HR policy, IT help, sales enablement</li></ul></div><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Telegram</h5><ul><li>Free and quick to set up</li><li>Perfect for practice and communities</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Voice (phone)</h5><ul><li>Calls instead of chat</li><li>See Class 22</li></ul></div></div><figcaption><strong>Channels and when to use them.</strong> The AI part is the same across channels. What changes is the channel&#x27;s rules, costs and setup.</figcaption></figure>
+<h2 id="m21-whatsapp-app-or-platform"><span class="hnum">21.2</span> WhatsApp: App or Platform?</h2>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th></th><th>WhatsApp Business App</th><th>WhatsApp Business Platform (API)</th></tr></thead><tbody><tr><td>Who it is for</td><td>Small shops replying by hand</td><td>Businesses automating or scaling</td></tr><tr><td>Cost</td><td>Free app</td><td>Per delivered template message, plus any provider fee</td></tr><tr><td>Automation</td><td>Greeting, away message, quick replies only</td><td>Full bots, AI, integrations</td></tr><tr><td>Users</td><td>Phone plus a few linked devices</td><td>Unlimited agents through a provider&#x27;s inbox</td></tr><tr><td>Setup</td><td>Download and verify the number</td><td>Meta business portfolio, number, display name, templates</td></tr><tr><td>AI chatbot</td><td>Not supported directly</td><td>Yes, via webhooks to n8n, a provider or your code</td></tr></tbody></table></div></div><figcaption><strong>WhatsApp Business App vs WhatsApp Business Platform.</strong> For an AI chatbot you need the Business Platform, used directly through Meta&#x27;s Cloud API or through a Business Solution Provider.</figcaption></figure>
+<h3 id="m21-direct-cloud-api-or-a-business-solution-provider-bsp"><span class="hnum">21.2.1</span> Direct Cloud API or a Business Solution Provider (BSP)?</h3>
+<ul>
+<li><strong>Meta Cloud API directly</strong>: no middleman fee; you connect it to n8n or your own code. Best when someone technical owns it.</li>
+<li><strong>A BSP</strong> (for example Twilio, Gupshup, Interakt, WATI, AiSensy, 360dialog): onboarding help, a shared team inbox, broadcast tools and no-code flow builders; they add a monthly fee or a markup per message.</li>
+</ul>
+<h3 id="m21-what-meta-requires"><span class="hnum">21.2.2</span> What Meta requires</h3>
+<figure class="viz" role="img" aria-label="Process: Meta business portfolio → Phone number → Display name → Templates → Opt-in → Webhook"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Meta business portfolio</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">business.facebook.com; business</tspan><tspan x="116.66666666666667" dy="11">verification raises your limits</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Phone number</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">A number not active in the WhatsApp</tspan><tspan x="360.0" dy="11">app (or migrate it)</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Display name</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Reviewed by Meta; must match your</tspan><tspan x="603.3333333333334" dy="11">business</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Templates</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Business-started messages need</tspan><tspan x="116.66666666666667" dy="11">pre-approved templates</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Opt-in</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Customers must agree to receive your</tspan><tspan x="360.0" dy="11">messages</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Webhook</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Where incoming messages are sent: n8n,</tspan><tspan x="603.3333333333334" dy="11">a BSP or your server</tspan></text></svg><figcaption><strong>Getting a business onto the WhatsApp Business Platform.</strong> For testing, Meta&#x27;s developer dashboard gives you a test number that can message a small list of your own verified phone numbers.</figcaption></figure>
+<p><strong>The 24-hour customer service window.</strong> When a customer messages you, a 24-hour window opens in which you can reply freely. Outside that window, a business can only start the conversation with an <strong>approved template</strong>.</p>
+<h3 id="m21-pricing-basics-checked-23-oct-2026"><span class="hnum">21.2.3</span> Pricing basics (checked 23 Oct 2026)</h3>
+<ul>
+<li>Since July 2025 Meta charges <strong>per delivered template message</strong>. The rate depends on the template <strong>category</strong> (marketing, utility, authentication) and the recipient's <strong>country</strong>. Marketing costs the most; authentication (OTP) the least.</li>
+<li>Rates differ by country. Several 2026 guides quote India authentication messages at a fraction of a rupee and marketing messages at a few times that. Use Meta's current rate card, not a blog.</li>
+<li>Independent guides report that from <strong>1 October 2026</strong> Meta began charging for some messages inside the 24-hour window that used to be free (service and utility replies). <strong>Confirm this on Meta's pricing page</strong> before you forecast costs.</li>
+<li>Add the <strong>BSP's fee</strong> and the <strong>AI model's cost</strong> (a few paise to a few rupees per conversation, depending on length and model).</li>
+</ul>
+<h2 id="m21-how-an-ai-whatsapp-bot-works"><span class="hnum">21.3</span> How an AI WhatsApp bot works</h2>
+<figure class="viz" role="img" aria-label="Workflow: Customer messages on WhatsApp → WhatsApp Cloud API webhook → AI Agent (Claude) → Knowledge base → Tools → Needs a human?"><svg viewBox="0 0 720 558" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ahw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="8" width="149.5" height="102" rx="10" class="node"/><rect x="10.0" y="8" width="7" height="102" rx="3" fill="var(--c4)"/><text x="26.0" y="24" class="tiny b" text-anchor="start" fill="var(--c4)" style="fill:var(--c4)">TRIGGER</text><text x="26.0" y="41" class="small b" text-anchor="start"><tspan x="26.0" dy="0">Customer messages</tspan><tspan x="26.0" dy="13">on WhatsApp</tspan></text><text x="26.0" y="71" class="tiny mut" text-anchor="start"><tspan x="26.0" dy="0">&#x27;Can I move my</tspan><tspan x="26.0" dy="11">appointment to Friday?&#x27;</tspan></text><line x1="161.5" y1="59.0" x2="190.5" y2="59.0" class="edge" marker-end="url(#ahw)"/><rect x="193.5" y="8" width="149.5" height="102" rx="10" class="node"/><rect x="193.5" y="8" width="7" height="102" rx="3" fill="var(--c1)"/><text x="209.5" y="24" class="tiny b" text-anchor="start" fill="var(--c1)" style="fill:var(--c1)">ACTION</text><text x="209.5" y="41" class="small b" text-anchor="start"><tspan x="209.5" dy="0">WhatsApp Cloud API</tspan><tspan x="209.5" dy="13">webhook</tspan></text><text x="209.5" y="71" class="tiny mut" text-anchor="start"><tspan x="209.5" dy="0">Message arrives in n8n</tspan><tspan x="209.5" dy="11">(WhatsApp Trigger)</tspan></text><line x1="345.0" y1="59.0" x2="374.0" y2="59.0" class="edge" marker-end="url(#ahw)"/><rect x="377.0" y="8" width="149.5" height="102" rx="10" class="node"/><rect x="377.0" y="8" width="7" height="102" rx="3" fill="var(--c2)"/><text x="393.0" y="24" class="tiny b" text-anchor="start" fill="var(--c2)" style="fill:var(--c2)">AI STEP</text><text x="393.0" y="41" class="small b" text-anchor="start"><tspan x="393.0" dy="0">AI Agent (Claude)</tspan></text><text x="393.0" y="58" class="tiny mut" text-anchor="start"><tspan x="393.0" dy="0">Instructions, last 10</tspan><tspan x="393.0" dy="11">messages as memory</tspan></text><line x1="528.5" y1="59.0" x2="557.5" y2="59.0" class="edge" marker-end="url(#ahw)"/><rect x="560.5" y="8" width="149.5" height="102" rx="10" class="node"/><rect x="560.5" y="8" width="7" height="102" rx="3" fill="var(--c6)"/><text x="576.5" y="24" class="tiny b" text-anchor="start" fill="var(--c6)" style="fill:var(--c6)">DATA</text><text x="576.5" y="41" class="small b" text-anchor="start"><tspan x="576.5" dy="0">Knowledge base</tspan></text><text x="576.5" y="58" class="tiny mut" text-anchor="start"><tspan x="576.5" dy="0">FAQ, prices, hours</tspan><tspan x="576.5" dy="11">(Sheet or vector store)</tspan></text><line x1="635.2" y1="112" x2="635.2" y2="147" class="edge" marker-end="url(#ahw)"/><rect x="560.5" y="150" width="149.5" height="102" rx="10" class="node"/><rect x="560.5" y="150" width="7" height="102" rx="3" fill="var(--c1)"/><text x="576.5" y="166" class="tiny b" text-anchor="start" fill="var(--c1)" style="fill:var(--c1)">ACTION</text><text x="576.5" y="183" class="small b" text-anchor="start"><tspan x="576.5" dy="0">Tools</tspan></text><text x="576.5" y="200" class="tiny mut" text-anchor="start"><tspan x="576.5" dy="0">find_booking,</tspan><tspan x="576.5" dy="11">reschedule_booking</tspan><tspan x="576.5" dy="11">(Sheets or your app&#x27;s</tspan><tspan x="576.5" dy="11">API)</tspan></text><line x1="558.5" y1="201.0" x2="529.5" y2="201.0" class="edge" marker-end="url(#ahw)"/><rect x="377.0" y="150" width="149.5" height="102" rx="10" class="node"/><rect x="377.0" y="150" width="7" height="102" rx="3" fill="var(--c3)"/><text x="393.0" y="166" class="tiny b" text-anchor="start" fill="var(--c3)" style="fill:var(--c3)">LOGIC</text><text x="393.0" y="183" class="small b" text-anchor="start"><tspan x="393.0" dy="0">Needs a human?</tspan></text><text x="393.0" y="200" class="tiny mut" text-anchor="start"><tspan x="393.0" dy="0">Complaint, medical</tspan><tspan x="393.0" dy="11">question, low confidence</tspan></text><path d="M451.8,254 L451.8,280 L60,280 L60,343.0 L117,343.0" class="edge" fill="none" marker-end="url(#ahw)"/><rect x="14" y="321.0" width="92" height="18" rx="9" fill="var(--c3)" fill-opacity=".18" stroke="var(--c3)"/><text x="60" y="334.0" class="tiny b" text-anchor="middle"><tspan x="60" dy="0">no</tspan></text><rect x="120.0" y="292" width="149.5" height="102" rx="10" class="node"/><rect x="120.0" y="292" width="7" height="102" rx="3" fill="var(--c5)"/><text x="136.0" y="308" class="tiny b" text-anchor="start" fill="var(--c5)" style="fill:var(--c5)">OUTPUT</text><text x="136" y="325" class="small b" text-anchor="start"><tspan x="136" dy="0">Reply on WhatsApp</tspan></text><text x="136" y="342" class="tiny mut" text-anchor="start"><tspan x="136" dy="0">Confirm new time; send</tspan><tspan x="136" dy="11">summary</tspan></text><path d="M451.8,254 L451.8,408 L60,408 L60,471.0 L117,471.0" class="edge" fill="none" marker-end="url(#ahw)"/><rect x="14" y="449.0" width="92" height="18" rx="9" fill="var(--c3)" fill-opacity=".18" stroke="var(--c3)"/><text x="60" y="462.0" class="tiny b" text-anchor="middle"><tspan x="60" dy="0">yes</tspan></text><rect x="120.0" y="420" width="149.5" height="102" rx="10" class="node"/><rect x="120.0" y="420" width="7" height="102" rx="3" fill="var(--c6)"/><text x="136.0" y="436" class="tiny b" text-anchor="start" fill="var(--c6)" style="fill:var(--c6)">HUMAN</text><text x="136" y="453" class="small b" text-anchor="start"><tspan x="136" dy="0">Handoff</tspan></text><text x="136" y="470" class="tiny mut" text-anchor="start"><tspan x="136" dy="0">Slack alert + provider</tspan><tspan x="136" dy="11">inbox; tell customer a</tspan><tspan x="136" dy="11">person will reply</tspan></text></svg><figcaption><strong>AI WhatsApp assistant for a clinic (hypothetical).</strong> The bot answers only from the knowledge base and acts only through named tools. Anything sensitive goes to a person. Node types shown: Action · AI step · Data · Human step · Logic (filter, IF, router) · Output · Trigger (starts the flow).</figcaption></figure>
+<figure class="viz" role="img" aria-label="The customer&#x27;s view"><svg viewBox="0 0 690 416" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="26" width="190" height="360" rx="22" class="phone"/><text x="105.0" y="16" class="small b" text-anchor="middle"><tspan x="105.0" dy="0">Reschedule</tspan></text><rect x="22" y="52" width="166" height="26" rx="5" class="wf-bar"/><text x="105.0" y="69" class="tiny b" text-anchor="middle"><tspan x="105.0" dy="0">Sunrise Physio</tspan></text><text x="26" y="98" class="tiny" text-anchor="start"><tspan x="26" dy="0">You: Can I move my appointment</tspan><tspan x="26" dy="11">to Friday?</tspan></text><text x="26" y="131" class="tiny" text-anchor="start"><tspan x="26" dy="0">Bot: I found your booking for</tspan><tspan x="26" dy="11">Wed 23 Oct, 10:00. Friday has</tspan><tspan x="26" dy="11">11:00 or 16:30. Which works?</tspan></text><rect x="22" y="163" width="166" height="32" rx="8" fill="var(--c1)"/><text x="105.0" y="184" class="tiny b on-fill" text-anchor="middle"><tspan x="105.0" dy="0">11:00</tspan></text><rect x="22" y="205" width="166" height="32" rx="8" fill="var(--c1)"/><text x="105.0" y="226" class="tiny b on-fill" text-anchor="middle"><tspan x="105.0" dy="0">16:30</tspan></text><circle cx="214" cy="60" r="10" fill="var(--c3)"/><text x="214" y="64" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">1</tspan></text><text x="230" y="64" class="tiny" text-anchor="start"><tspan x="230" dy="0">Bot finds the</tspan><tspan x="230" dy="11">booking with a tool</tspan></text><circle cx="214" cy="122" r="10" fill="var(--c3)"/><text x="214" y="126" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">2</tspan></text><text x="230" y="126" class="tiny" text-anchor="start"><tspan x="230" dy="0">Quick-reply buttons</tspan><tspan x="230" dy="11">reduce typing</tspan></text><rect x="350" y="26" width="190" height="360" rx="22" class="phone"/><text x="445.0" y="16" class="small b" text-anchor="middle"><tspan x="445.0" dy="0">Handoff</tspan></text><rect x="362" y="52" width="166" height="26" rx="5" class="wf-bar"/><text x="445.0" y="69" class="tiny b" text-anchor="middle"><tspan x="445.0" dy="0">Sunrise Physio</tspan></text><text x="366" y="98" class="tiny" text-anchor="start"><tspan x="366" dy="0">You: My knee is much worse after</tspan><tspan x="366" dy="11">the session.</tspan></text><rect x="362" y="119" width="166" height="32" rx="6" class="wf-warn"/><text x="445.0" y="139" class="tiny b" text-anchor="middle"><tspan x="445.0" dy="0">Connecting you to our team</tspan></text><text x="366" y="171" class="tiny" text-anchor="start"><tspan x="366" dy="0">Bot: I&#x27;m sorry to hear that. A</tspan><tspan x="366" dy="11">physiotherapist will reply here</tspan><tspan x="366" dy="11">within 30 minutes. If it&#x27;s an</tspan><tspan x="366" dy="11">emergency, call 112.</tspan></text><circle cx="554" cy="60" r="10" fill="var(--c3)"/><text x="554" y="64" class="tiny b on-fill" text-anchor="middle"><tspan x="554" dy="0">1</tspan></text><text x="570" y="64" class="tiny" text-anchor="start"><tspan x="570" dy="0">Health concerns</tspan><tspan x="570" dy="11">always go to a</tspan><tspan x="570" dy="11">person</tspan></text><circle cx="554" cy="122" r="10" fill="var(--c3)"/><text x="554" y="126" class="tiny b on-fill" text-anchor="middle"><tspan x="554" dy="0">2</tspan></text><text x="570" y="126" class="tiny" text-anchor="start"><tspan x="570" dy="0">Say what happens</tspan><tspan x="570" dy="11">next and when</tspan></text></svg><figcaption><strong>The customer&#x27;s view (illustrative wireframe, not a real product screenshot).</strong> Hypothetical clinic and messages, for practice only.</figcaption></figure>
+<h2 id="m21-no-code-options"><span class="hnum">21.4</span> No-code options</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it is</th>
+<th>Good for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BSP flow builders</strong> (Interakt, WATI, AiSensy, Gupshup)</td>
+<td>Menus, forms and AI replies inside the provider</td>
+<td>Fast WhatsApp launch for SMBs</td>
+</tr>
+<tr>
+<td><strong>Botpress</strong></td>
+<td>Visual bot builder with AI and many channels</td>
+<td>Multi-channel bots with knowledge bases</td>
+</tr>
+<tr>
+<td><strong>Voiceflow</strong></td>
+<td>Conversation design and AI agents, chat and voice</td>
+<td>Teams designing complex flows</td>
+</tr>
+<tr>
+<td><strong>Chatbase</strong></td>
+<td>Train a bot on your website or documents</td>
+<td>Website FAQ bot in minutes</td>
+</tr>
+<tr>
+<td><strong>Intercom Fin, Zendesk AI</strong></td>
+<td>AI agents inside support suites</td>
+<td>Companies already on those helpdesks</td>
+</tr>
+<tr>
+<td><strong>n8n + Claude</strong></td>
+<td>Build exactly what you need</td>
+<td>Custom tools, privacy, low running cost</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m21-slack-telegram-and-website-bots"><span class="hnum">21.5</span> Slack, Telegram and website bots</h2>
+<ul>
+<li><strong>Slack internal bot</strong>: create a Slack app with the Events API and bot scopes (<code>app_mentions:read</code>, <code>chat:write</code>), connect it to n8n's Slack Trigger, and answer from your HR or IT policy documents. Restrict it to the channels it's invited to.</li>
+<li><strong>Telegram practice bot</strong>: message <strong>@BotFather</strong>, send <code>/newbot</code>, copy the token, add it to n8n's Telegram Trigger. It's free and takes ten minutes, ideal for learning before WhatsApp.</li>
+<li><strong>Website widget</strong>: the "Ask us" button from Class 16 (Lovable server function + Claude), or a Botpress or Chatbase embed code pasted into your site.</li>
+</ul>
+<h2 id="m21-design-the-bot-before-you-build-it"><span class="hnum">21.6</span> Design the bot before you build it</h2>
+<div class="admonition level2">
+<p class="admonition-title">The one-page bot spec</p>
+<ol>
+<li><strong>Job</strong>: the top 10 questions and 3 tasks the bot handles (from real support tickets).</li>
+<li><strong>Not allowed</strong>: medical, legal or financial advice; refunds above a limit; anything about other customers.</li>
+<li><strong>Knowledge</strong>: the exact documents and their owner; how often they're updated.</li>
+<li><strong>Tools</strong>: each action with inputs, and whether it needs confirmation.</li>
+<li><strong>Handoff</strong>: when, to whom, within what time, and what the customer is told.</li>
+<li><strong>Tone and language</strong>: for example English and Hindi, friendly and short.</li>
+<li><strong>Privacy</strong>: what data is stored, for how long, and the opt-out keyword ("STOP").</li>
+<li><strong>Success metrics</strong>: containment rate, resolution rate, handoff rate, CSAT, cost per conversation.</li>
+</ol>
+</div>
+<h2 id="m21-guardrails-privacy-and-quality"><span class="hnum">21.7</span> Guardrails, privacy and quality</h2>
+<div class="admonition warning">
+<p class="admonition-title">Rules that protect customers and the business</p>
+<ul>
+<li><strong>Answer only from the knowledge base</strong>; say "I'm not sure, let me connect you" otherwise.</li>
+<li><strong>Confirm before acting</strong> ("Shall I move it to Friday 11:00?").</li>
+<li><strong>Never collect</strong> card numbers, passwords or OTPs in chat.</li>
+<li><strong>Get opt-in</strong> before marketing messages and honour opt-outs immediately.</li>
+<li>Follow data-protection law (in India, the <strong>DPDP Act</strong>): collect the minimum, explain the purpose, delete on request.</li>
+<li><strong>Log conversations</strong> for quality review, with access limited to staff who need it.</li>
+</ul>
+</div>
+<h3 id="m21-evaluate-before-launch"><span class="hnum">21.7.1</span> Evaluate before launch</h3>
+<p>Use <code>datasets/support_eval_set.csv</code> from this handbook (or 50 real anonymised questions): run every question through the bot, then score <strong>correct, safe, handed off when it should, tone</strong>. Fix the knowledge base or instructions, and re-run until it passes your bar (see template 09 for the evaluation plan).</p>
+<h2 id="m21-costs-at-a-glance-illustrative"><span class="hnum">21.8</span> Costs at a glance (illustrative)</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Typical cost driver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WhatsApp template messages</td>
+<td>Per delivered message by category and country</td>
+</tr>
+<tr>
+<td>BSP</td>
+<td>Monthly plan or per-message markup</td>
+</tr>
+<tr>
+<td>AI model</td>
+<td>Per token; short FAQ chats are cheap, long ones cost more</td>
+</tr>
+<tr>
+<td>n8n</td>
+<td>Free self-hosted (server cost) or a cloud plan</td>
+</tr>
+<tr>
+<td>People</td>
+<td>Staff to handle handoffs and keep knowledge current</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m21-labs"><span class="hnum">21.9</span> Labs</h2>
+<div class="admonition example">
+<p class="admonition-title">Lab 1 · Telegram FAQ bot (free, 40 minutes)</p>
+<ol>
+<li>Create a bot with @BotFather and copy the token.</li>
+<li>n8n: Telegram Trigger → AI Agent (Claude, or Gemini free tier) with instructions and a 15-line FAQ pasted into the system prompt → Telegram "send message".</li>
+<li>Test ten questions, including two it should refuse.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 2 · WhatsApp test number (free test, 45 minutes)</p>
+<ol>
+<li>Create an app at developers.facebook.com, add the <strong>WhatsApp</strong> product, and use the provided <strong>test number</strong>. Add your own phone as a recipient.</li>
+<li>n8n: add a WhatsApp credential (access token and phone number ID) and a WhatsApp Trigger; register its webhook URL in the Meta dashboard.</li>
+<li>Reuse the Lab 1 AI Agent and reply with the WhatsApp node.</li>
+<li>Message the test number from your phone and check the reply.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 3 · Knowledge base and a booking tool (45 minutes)</p>
+<ol>
+<li>Put FAQs in a Google Sheet (question, answer, category). Give the agent a <strong>Sheets tool</strong> to look them up.</li>
+<li>Add a Bookings sheet and a tool <code>find_booking(phone)</code>; then <code>reschedule_booking(id, new_time)</code> with confirmation required.</li>
+<li>Test the reschedule conversation from the phone picture above.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 4 · Human handoff (20 minutes)</p>
+<p>Add an IF node: if the agent sets <code>handoff: true</code> (complaint, health issue, low confidence), post the conversation to Slack #practice-support and send the customer the handoff message.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 5 · Slack HR policy bot (30 minutes)</p>
+<p>Create a Slack app with Events and the scopes above, connect n8n's Slack Trigger, and answer from a 2-page policy document. Mention the bot in a channel and ask three questions.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 6 · Evaluate (30 minutes)</p>
+<p>Run 30 questions from <code>support_eval_set.csv</code> through your bot with a loop in n8n, write answers to a sheet, and score them. Fix the top two failure patterns and re-run.</p>
+</div>
+<h2 id="m21-exercises-with-model-answers"><span class="hnum">21.10</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise · Template or free reply?</p>
+<p>(a) A customer asked about delivery 2 hours ago; you reply with tracking. (b) You want to tell all past customers about a Diwali sale. (c) You send an OTP to log in.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>(a) Inside the 24-hour window, so a normal reply (check whether your country's current rules charge for it). (b) A <strong>marketing template</strong>, approved by Meta, only to opted-in customers. (c) An <strong>authentication template</strong>.</p>
+</details>
+<h2 id="m21-key-takeaways"><span class="hnum">21.11</span> Key takeaways</h2>
+<ul>
+<li>AI chatbots need <strong>knowledge, tools, guardrails and a handoff to people</strong>.</li>
+<li>WhatsApp automation needs the <strong>Business Platform</strong> (direct Cloud API or a <strong>BSP</strong>), approved <strong>templates</strong>, the <strong>24-hour window</strong> and <strong>opt-in</strong>.</li>
+<li>Pricing is <strong>per delivered template message</strong> by category and country, plus provider and AI costs.</li>
+<li>Practise on <strong>Telegram</strong> for free, then use Meta's <strong>test number</strong> before going live.</li>
+<li><strong>Evaluate</strong> with a question set and track containment, handoffs and CSAT.</li>
+</ul>
+<h2 id="m21-check-your-understanding"><span class="hnum">21.12</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m21"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Which WhatsApp option supports an AI chatbot connected to n8n?</p><ol><li class="">WhatsApp Business App</li><li class="is-correct">WhatsApp Business Platform (Cloud API or BSP)</li><li class="">Personal WhatsApp</li><li class="">WhatsApp Web</li></ol><div class="why"><strong>Why:</strong> Automation and webhooks require the Business Platform.</div></div><div class="qitem" data-correct="1"><p class="q">A business wants to message a customer who last wrote 3 days ago. What&#x27;s needed?</p><ol><li class="">Nothing</li><li class="is-correct">An approved template message</li><li class="">A voice call</li><li class="">A new phone number</li></ol><div class="why"><strong>Why:</strong> Outside the 24-hour window, businesses can only start with an approved template.</div></div><div class="qitem" data-correct="1"><p class="q">A customer describes a worsening injury to a clinic bot. The bot should…</p><ol><li class="">Give treatment advice</li><li class="is-correct">Hand off to a person and give emergency guidance</li><li class="">Ignore it</li><li class="">Offer a discount</li></ol><div class="why"><strong>Why:</strong> Health concerns are out of scope for the bot and must reach a qualified person.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m21-recommended-resources"><span class="hnum">21.13</span> Recommended resources</h2>
+<ul>
+<li><a href="https://developers.facebook.com/docs/whatsapp">WhatsApp Business Platform docs</a> · <a href="https://developers.facebook.com/docs/whatsapp/pricing">Pricing</a></li>
+<li><a href="https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.whatsapp/">n8n WhatsApp node</a> · <a href="https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/">n8n Telegram node</a></li>
+<li><a href="https://botpress.com">Botpress</a> · <a href="https://www.voiceflow.com">Voiceflow</a> · <a href="https://api.slack.com/apis/events-api">Slack Events API</a></li>
+<li>Module 10 (RAG) for knowledge bases; Module 12 (agents) for tool safety</li>
+</ul><div class="modnav"><a href="m20.html"><small>← Previous</small>Module 20: Automation with Zapier, Make and n8n</a><a href="m22.html"><small>Next →</small>Module 22: Voice Agents for Businesses</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

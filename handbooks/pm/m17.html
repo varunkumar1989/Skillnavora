@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 17: Replit and Other AI App Builders · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-17-Replit-and-App-Builders.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" aria-current="page" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 17</div><h1>Replit and Other AI App Builders</h1><p>Build and host full-stack apps in the browser with Replit Agent, and know when to choose Bolt, v0, Cursor, GitHub Copilot or Figma Make instead.</p><div class="chips"><span class="chip">≈ 5 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Replit docs (docs.replit.com) and pricing; vendor docs for Bolt, v0, Cursor, GitHub Copilot; independent 2026 pricing reviews; checked 23 Oct 2026</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m17" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m17-replit-in-one-picture">Replit in one picture</a></li><li><a href="#m17-level-1-build-your-first-app">Level 1 · Build your first app</a></li><li><a href="#m17-level-2-data-secrets-and-quality">Level 2 · Data, secrets and quality</a></li><li><a href="#m17-level-3-deploy-schedule-and-integrate">Level 3 · Deploy, schedule and integrate</a></li><li><a href="#m17-labs">Labs</a></li><li><a href="#m17-the-other-ai-app-builders">The other AI app builders</a></li><li><a href="#m17-common-mistakes">Common mistakes</a></li><li><a href="#m17-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m17-key-takeaways">Key takeaways</a></li><li><a href="#m17-check-your-understanding">Check your understanding</a></li><li><a href="#m17-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
+<p class="admonition-title">Fast-moving tools</p>
+<p>App builders change pricing and features monthly. Treat the comparisons as a starting point and check each vendor's pricing page. Screens are <strong>illustrative wireframes</strong>.</p>
+</div>
+<h2 id="m17-replit-in-one-picture"><span class="hnum">17.1</span> Replit in one picture</h2>
+<p><strong>Replit</strong> is a complete coding environment in your browser: editor, terminal, database, hosting and an AI <strong>Agent</strong> that can build a full-stack app (front end, back end and database) from a description. Nothing to install, and it works on a phone too.</p>
+<figure class="viz" role="img" aria-label="The Replit workspace"><svg viewBox="0 0 720 352" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="230" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Replit</tspan></text><rect x="210.0" y="11" width="300" height="17" rx="8" class="wf-bar"/><text x="360.0" y="23" class="tiny mut" text-anchor="middle"><tspan x="360.0" dy="0">replit.com/@you/feedback-hub</tspan></text><rect x="12" y="38" width="150" height="192" rx="8" class="wf-bar" fill-opacity=".6"/><rect x="516" y="38" width="190" height="192" rx="8" class="wf-bar" fill-opacity=".45"/><text x="28" y="49" class="tiny" text-anchor="start"><tspan x="28" dy="0">Agent</tspan></text><circle cx="146" cy="45" r="9" fill="var(--c3)"/><text x="146" y="49" class="tiny b on-fill" text-anchor="middle"><tspan x="146" dy="0">1</tspan></text><text x="28" y="73" class="tiny" text-anchor="start"><tspan x="28" dy="0">Files</tspan></text><text x="28" y="97" class="tiny" text-anchor="start"><tspan x="28" dy="0">Database</tspan></text><text x="28" y="121" class="tiny" text-anchor="start"><tspan x="28" dy="0">Secrets</tspan></text><text x="28" y="145" class="tiny" text-anchor="start"><tspan x="28" dy="0">Deployments</tspan></text><text x="28" y="169" class="tiny" text-anchor="start"><tspan x="28" dy="0">Git</tspan></text><rect x="232.5" y="48" width="257.5" height="45" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="240.52000000000004" y="63" class="tiny" text-anchor="start"><tspan x="240.52000000000004" dy="0">Build a customer feedback hub: a public form,</tspan><tspan x="240.52000000000004" dy="11">an admin table with filters, and a weekly</tspan><tspan x="240.52000000000004" dy="11">theme summary.</tspan></text><rect x="176.0" y="101" width="257.5" height="45" rx="9" class="wf-bar"/><text x="184" y="116" class="tiny" text-anchor="start"><tspan x="184" dy="0">Plan: Node + React app, PostgreSQL table</tspan><tspan x="184" dy="11">&#x27;feedback&#x27;, admin page with password… Shall I</tspan><tspan x="184" dy="11">start?</tspan></text><circle cx="492" cy="111" r="9" fill="var(--c3)"/><text x="492" y="115" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">2</tspan></text><rect x="176" y="154" width="314" height="28" rx="6" fill="var(--c4)" fill-opacity=".14" stroke="var(--c4)"/><text x="186" y="172" class="tiny b" text-anchor="start"><tspan x="186" dy="0">Checkpoint 3 saved · app running</tspan></text><rect x="176" y="190" width="314" height="28" rx="6" class="wf-input"/><text x="186" y="208" class="tiny mut" text-anchor="start"><tspan x="186" dy="0">Message Agent…</tspan></text><rect x="524.0" y="48" width="54.0" height="22" rx="5" fill="var(--c1)"/><text x="551.0" y="63" class="tiny b on-fill" text-anchor="middle"><tspan x="551.0" dy="0">Preview</tspan></text><rect x="582.0" y="48" width="54.0" height="22" rx="5" class="wf-bar"/><text x="609.0" y="63" class="tiny" text-anchor="middle"><tspan x="609.0" dy="0">Console</tspan></text><rect x="640.0" y="48" width="54.0" height="22" rx="5" class="wf-bar"/><text x="667.0" y="63" class="tiny" text-anchor="middle"><tspan x="667.0" dy="0">Shell</tspan></text><rect x="524" y="78" width="174" height="56" rx="6" class="wf-img"/><text x="611.0" y="110" class="tiny mut" text-anchor="middle"><tspan x="611.0" dy="0">Running app</tspan></text><circle cx="700" cy="88" r="9" fill="var(--c3)"/><text x="700" y="92" class="tiny b on-fill" text-anchor="middle"><tspan x="700" dy="0">3</tspan></text><rect x="524" y="142" width="90" height="28" rx="7" fill="var(--c1)"/><text x="569.0" y="160" class="tiny b on-fill" text-anchor="middle"><tspan x="569.0" dy="0">Deploy</tspan></text><circle cx="700" cy="152" r="9" fill="var(--c3)"/><text x="700" y="156" class="tiny b on-fill" text-anchor="middle"><tspan x="700" dy="0">4</tspan></text><circle cx="24" cy="254" r="9" fill="var(--c3)"/><text x="24" y="258" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="258" class="small" text-anchor="start"><tspan x="40" dy="0">Agent builds whole features; the Assistant makes quick edits and answers questions about the code.</tspan></text><circle cx="24" cy="276" r="9" fill="var(--c3)"/><text x="24" y="280" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="280" class="small" text-anchor="start"><tspan x="40" dy="0">Agent proposes a plan first. Read it and remove what you don&#x27;t need before it starts.</tspan></text><circle cx="24" cy="298" r="9" fill="var(--c3)"/><text x="24" y="302" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="302" class="small" text-anchor="start"><tspan x="40" dy="0">Every Agent step saves a checkpoint you can roll back to, including the database.</tspan></text><circle cx="24" cy="320" r="9" fill="var(--c3)"/><text x="24" y="324" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">4</tspan></text><text x="40" y="324" class="small" text-anchor="start"><tspan x="40" dy="0">Deploy publishes the app on a replit.app address or your own domain.</tspan></text></svg><figcaption><strong>The Replit workspace (illustrative wireframe, not a real product screenshot).</strong> Secrets hold API keys; the Database tab shows a PostgreSQL database you can query.</figcaption></figure>
+<h3 id="m17-what-it-costs-checked-23-oct-2026"><span class="hnum">17.1.1</span> What it costs (checked 23 Oct 2026)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Price</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Starter</strong></td>
+<td>Free</td>
+<td>Daily Agent credits, one published app, limited Agent capability</td>
+</tr>
+<tr>
+<td><strong>Core</strong></td>
+<td>about $20 a month billed yearly (about $25 monthly)</td>
+<td>Monthly usage credits, more apps, collaborators, custom domains</td>
+</tr>
+<tr>
+<td><strong>Pro / Teams</strong></td>
+<td>about $100 a month</td>
+<td>For teams with heavier use</td>
+</tr>
+</tbody>
+</table></div>
+<p>Replit uses <strong>effort-based pricing</strong>: a bigger Agent task costs more than a small one, and usage beyond your plan's credits is billed. Set a <strong>usage alert</strong> in billing settings. Check <a href="https://replit.com/pricing">replit.com/pricing</a>.</p>
+<h2 id="m17-level-1-build-your-first-app"><span class="hnum">17.2</span> Level 1 · Build your first app</h2>
+<div class="admonition level1">
+<p class="admonition-title">Level 1 · Beginner</p>
+<ol>
+<li>Sign up at replit.com, click <strong>Create</strong>, and describe the app to Agent (use the five-part prompt from Class 16: what and who, pages, look, data, not now).</li>
+<li>Review Agent's plan, remove extras, and approve.</li>
+<li>Test in the preview. Ask for one change per message.</li>
+<li>If a change goes wrong, <strong>roll back</strong> to the previous checkpoint.</li>
+</ol>
+</div>
+<h2 id="m17-level-2-data-secrets-and-quality"><span class="hnum">17.3</span> Level 2 · Data, secrets and quality</h2>
+<div class="admonition level2">
+<p class="admonition-title">Level 2 · Working PM</p>
+<ul>
+<li><strong>Database</strong>: ask "Store feedback in the database with date, customer segment, text and theme." Use the Database tab to view rows and run SQL such as <code>SELECT theme, COUNT(*) FROM feedback GROUP BY theme;</code>.</li>
+<li><strong>Secrets</strong>: add <code>ANTHROPIC_API_KEY</code> under Secrets. Ask Agent to read it from the environment in server code only.</li>
+<li><strong>Ask for tests</strong>: "Add tests for the form validation and run them."</li>
+<li><strong>Admin protection</strong>: "Protect the admin page with login; never show admin data on public pages."</li>
+<li><strong>Explain the code</strong>: ask Assistant "Which file handles the form? Explain in plain language."</li>
+</ul>
+</div>
+<h2 id="m17-level-3-deploy-schedule-and-integrate"><span class="hnum">17.4</span> Level 3 · Deploy, schedule and integrate</h2>
+<figure class="viz" role="img" aria-label="Workflow: Scheduled deployment → Read last week&#x27;s feedback → Claude summarises themes → Post to Slack"><svg viewBox="0 0 720 141" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ahw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="8" width="149.5" height="93" rx="10" class="node"/><rect x="10.0" y="8" width="7" height="93" rx="3" fill="var(--c4)"/><text x="26.0" y="24" class="tiny b" text-anchor="start" fill="var(--c4)" style="fill:var(--c4)">TRIGGER</text><text x="26.0" y="41" class="small b" text-anchor="start"><tspan x="26.0" dy="0">Scheduled</tspan><tspan x="26.0" dy="13">deployment</tspan></text><text x="26.0" y="71" class="tiny mut" text-anchor="start"><tspan x="26.0" dy="0">Every Monday 09:00</tspan></text><line x1="161.5" y1="54.5" x2="190.5" y2="54.5" class="edge" marker-end="url(#ahw)"/><rect x="193.5" y="8" width="149.5" height="93" rx="10" class="node"/><rect x="193.5" y="8" width="7" height="93" rx="3" fill="var(--c6)"/><text x="209.5" y="24" class="tiny b" text-anchor="start" fill="var(--c6)" style="fill:var(--c6)">DATA</text><text x="209.5" y="41" class="small b" text-anchor="start"><tspan x="209.5" dy="0">Read last week&#x27;s</tspan><tspan x="209.5" dy="13">feedback</tspan></text><text x="209.5" y="71" class="tiny mut" text-anchor="start"><tspan x="209.5" dy="0">SQL query on the</tspan><tspan x="209.5" dy="11">database</tspan></text><line x1="345.0" y1="54.5" x2="374.0" y2="54.5" class="edge" marker-end="url(#ahw)"/><rect x="377.0" y="8" width="149.5" height="93" rx="10" class="node"/><rect x="377.0" y="8" width="7" height="93" rx="3" fill="var(--c2)"/><text x="393.0" y="24" class="tiny b" text-anchor="start" fill="var(--c2)" style="fill:var(--c2)">AI STEP</text><text x="393.0" y="41" class="small b" text-anchor="start"><tspan x="393.0" dy="0">Claude summarises</tspan><tspan x="393.0" dy="13">themes</tspan></text><text x="393.0" y="71" class="tiny mut" text-anchor="start"><tspan x="393.0" dy="0">API key from Secrets</tspan></text><line x1="528.5" y1="54.5" x2="557.5" y2="54.5" class="edge" marker-end="url(#ahw)"/><rect x="560.5" y="8" width="149.5" height="93" rx="10" class="node"/><rect x="560.5" y="8" width="7" height="93" rx="3" fill="var(--c5)"/><text x="576.5" y="24" class="tiny b" text-anchor="start" fill="var(--c5)" style="fill:var(--c5)">OUTPUT</text><text x="576.5" y="41" class="small b" text-anchor="start"><tspan x="576.5" dy="0">Post to Slack</tspan></text><text x="576.5" y="58" class="tiny mut" text-anchor="start"><tspan x="576.5" dy="0">Incoming webhook URL in</tspan><tspan x="576.5" dy="11">Secrets</tspan></text></svg><figcaption><strong>Weekly AI theme digest on Replit.</strong> Replit&#x27;s scheduled deployments run a script on a timetable. The same digest can also be built in n8n (Class 20). Node types shown: AI step · Data · Output · Trigger (starts the flow).</figcaption></figure>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Advanced</p>
+<ul>
+<li><strong>Deployments</strong>: choose the type the app needs: static site, autoscale web app (scales with traffic), reserved machine (always on) or scheduled job.</li>
+<li><strong>Custom domain</strong>: Deployments → Settings → link your domain and add the DNS records shown.</li>
+<li><strong>GitHub</strong>: connect Git to push the code to a GitHub repository, then work on it with Claude Code (Class 15).</li>
+<li><strong>Integrations</strong>: Slack incoming webhooks, Stripe in test mode, the Claude API through Secrets.</li>
+</ul>
+</div>
+<h2 id="m17-labs"><span class="hnum">17.5</span> Labs</h2>
+<div class="admonition example">
+<p class="admonition-title">Lab 1 · Feedback hub (Free, 30 minutes)</p>
+<p>Build the feedback form and admin table from the picture above with sample data. Roll back once on purpose, to learn checkpoints.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 2 · Database and SQL (20 minutes)</p>
+<p>Store submissions in the database. Run a <code>GROUP BY theme</code> query in the Database tab and ask Agent to show the counts on the admin page as a bar chart.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 3 · Weekly digest to Slack (Core or API, 40 minutes)</p>
+<p>Create a Slack incoming webhook in your practice workspace. Add it and your Claude key as Secrets. Ask Agent for the scheduled job in the workflow above. Run it manually once and check the Slack message.</p>
+</div>
+<h2 id="m17-the-other-ai-app-builders"><span class="hnum">17.6</span> The other AI app builders</h2>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Tool</th><th>Best for</th><th>Backend and data</th><th>Free to start</th><th>Get the code out</th></tr></thead><tbody><tr><td>Lovable</td><td>Polished MVPs with login and database</td><td>Lovable Cloud or Supabase</td><td>Yes, 5 credits a day</td><td>GitHub sync</td></tr><tr><td>Replit</td><td>Full-stack apps, scripts, scheduled jobs, hosting</td><td>Built-in PostgreSQL</td><td>Yes, daily credits</td><td>Git / GitHub</td></tr><tr><td>Bolt.new</td><td>Fast in-browser apps, many frameworks</td><td>Supabase and others</td><td>Yes, token-limited</td><td>Download or GitHub</td></tr><tr><td>v0 (Vercel)</td><td>Beautiful UI and Next.js apps</td><td>Vercel integrations</td><td>Yes, limited credits</td><td>Deploy to Vercel or copy code</td></tr><tr><td>Figma Make</td><td>Turning designs into working prototypes</td><td>Light; prototype focus</td><td>Starter plan limits</td><td>Copy code</td></tr><tr><td>Claude artifacts</td><td>One-page tools and clickable concepts</td><td>None (front end only)</td><td>Yes</td><td>Copy or download</td></tr><tr><td>Cursor / Windsurf</td><td>AI code editors for real codebases</td><td>Whatever your code uses</td><td>Free tiers</td><td>Your own repository</td></tr><tr><td>GitHub Copilot</td><td>Coding help and agents inside GitHub and editors</td><td>Whatever your code uses</td><td>Free tier</td><td>Your own repository</td></tr><tr><td>Firebase Studio</td><td>Google stack apps with Firebase backend</td><td>Firebase</td><td>Yes</td><td>Your own repository</td></tr><tr><td>Claude Code</td><td>Building and changing real repositories</td><td>Whatever your code uses</td><td>With Pro or API</td><td>Your own repository</td></tr></tbody></table></div></div><figcaption><strong>Choosing an AI app builder (checked 23 Oct 2026).</strong> For a PM, the usual path is Claude artifacts or Lovable for the first concept, then Claude Code on the GitHub repository once the project gets serious.</figcaption></figure>
+<figure class="viz" role="img" aria-label="Tree: Which builder should I open?"><svg viewBox="0 0 720 276" xmlns="http://www.w3.org/2000/svg"><path d="M218.0,134.0 C232.0,134.0 234.0,38.0 248.0,38.0" class="edge" fill="none"/><path d="M458.0,38.0 C472.0,38.0 474.0,38.0 488.0,38.0" class="edge" fill="none"/><rect x="488.0" y="12.0" width="210.0" height="52" rx="8" class="node"/><text x="593.0" y="42" class="small" text-anchor="middle"><tspan x="593.0" dy="0">Claude artifact or Figma Make</tspan></text><rect x="248.0" y="12.0" width="210.0" height="52" rx="8" class="node"/><text x="353.0" y="42.0" class="small" text-anchor="middle"><tspan x="353.0" dy="0">A clickable concept for tomorrow</tspan></text><path d="M218.0,134.0 C232.0,134.0 234.0,102.0 248.0,102.0" class="edge" fill="none"/><path d="M458.0,102.0 C472.0,102.0 474.0,102.0 488.0,102.0" class="edge" fill="none"/><rect x="488.0" y="76.0" width="210.0" height="52" rx="8" class="node"/><text x="593.0" y="106" class="small" text-anchor="middle"><tspan x="593.0" dy="0">Lovable (or Bolt)</tspan></text><rect x="248.0" y="76.0" width="210.0" height="52" rx="8" class="node"/><text x="353.0" y="106.0" class="small" text-anchor="middle"><tspan x="353.0" dy="0">An MVP with login and data</tspan></text><path d="M218.0,134.0 C232.0,134.0 234.0,166.0 248.0,166.0" class="edge" fill="none"/><path d="M458.0,166.0 C472.0,166.0 474.0,166.0 488.0,166.0" class="edge" fill="none"/><rect x="488.0" y="140.0" width="210.0" height="52" rx="8" class="node"/><text x="593.0" y="170" class="small" text-anchor="middle"><tspan x="593.0" dy="0">Replit</tspan></text><rect x="248.0" y="140.0" width="210.0" height="52" rx="8" class="node"/><text x="353.0" y="164.0" class="small" text-anchor="middle"><tspan x="353.0" dy="0">Backend jobs, scripts, hosting in</tspan><tspan x="353.0" dy="12">one place</tspan></text><path d="M218.0,134.0 C232.0,134.0 234.0,230.0 248.0,230.0" class="edge" fill="none"/><path d="M458.0,230.0 C472.0,230.0 474.0,230.0 488.0,230.0" class="edge" fill="none"/><rect x="488.0" y="204.0" width="210.0" height="52" rx="8" class="node"/><text x="593.0" y="234" class="small" text-anchor="middle"><tspan x="593.0" dy="0">Claude Code, Cursor or Copilot</tspan></text><rect x="248.0" y="204.0" width="210.0" height="52" rx="8" class="node"/><text x="353.0" y="234.0" class="small" text-anchor="middle"><tspan x="353.0" dy="0">Changes to an existing codebase</tspan></text><rect x="8.0" y="108.0" width="210.0" height="52" rx="8" class="node hl"/><text x="113.0" y="138.0" class="small b" text-anchor="middle"><tspan x="113.0" dy="0">What are you making?</tspan></text></svg><figcaption><strong>Which builder should I open?.</strong> You can switch later. Builders that sync to GitHub keep your options open.</figcaption></figure>
+<h2 id="m17-common-mistakes"><span class="hnum">17.7</span> Common mistakes</h2>
+<ul>
+<li><strong>No usage alerts</strong>: effort-based pricing can surprise you. Set alerts on day one.</li>
+<li><strong>Secrets in code</strong>: use the Secrets tab or environment variables.</li>
+<li><strong>Public admin pages</strong>: protect anything with customer data behind login.</li>
+<li><strong>Tool-hopping</strong>: pick one builder per project and finish the MVP first.</li>
+</ul>
+<h2 id="m17-exercises-with-model-answers"><span class="hnum">17.8</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise · Pick the builder</p>
+<p>(a) A pricing-page concept for a design review in two hours. (b) A nightly script that emails a sales summary. (c) Add a "save for later" feature to your company's existing web app.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>(a) <strong>Claude artifact</strong> or <strong>Figma Make</strong>: fast, no backend needed. (b) <strong>Replit</strong> scheduled deployment or an <strong>n8n</strong> workflow (Class 20). (c) <strong>Claude Code</strong>, Cursor or Copilot on the existing repository, with engineering review, because it changes production code.</p>
+</details>
+<h2 id="m17-key-takeaways"><span class="hnum">17.9</span> Key takeaways</h2>
+<ul>
+<li><strong>Replit</strong> gives you editor, AI Agent, database, secrets and hosting in one browser tab.</li>
+<li><strong>Checkpoints</strong> make experiments safe; <strong>usage alerts</strong> keep costs safe.</li>
+<li>Choose a builder by <strong>what you are making</strong>; prefer tools that <strong>export to GitHub</strong>.</li>
+</ul>
+<h2 id="m17-check-your-understanding"><span class="hnum">17.10</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m17"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">In Replit, what lets you undo an Agent step, including database changes?</p><ol><li class="">Secrets</li><li class="is-correct">Checkpoints and rollback</li><li class="">Deployments</li><li class="">The Shell</li></ol><div class="why"><strong>Why:</strong> Agent saves checkpoints you can roll back to.</div></div><div class="qitem" data-correct="2"><p class="q">Which tool is designed to change an existing production codebase?</p><ol><li class="">Claude artifacts</li><li class="">Figma Make</li><li class="is-correct">Claude Code or Cursor</li><li class="">A landing page builder</li></ol><div class="why"><strong>Why:</strong> Coding agents and AI editors work inside your existing repository.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m17-recommended-resources"><span class="hnum">17.11</span> Recommended resources</h2>
+<ul>
+<li><a href="https://docs.replit.com">Replit docs</a> · <a href="https://replit.com/pricing">Replit pricing</a></li>
+<li><a href="https://bolt.new">Bolt.new</a> · <a href="https://v0.dev">v0 by Vercel</a> · <a href="https://docs.cursor.com">Cursor docs</a> · <a href="https://docs.github.com/en/copilot">GitHub Copilot docs</a></li>
+<li>Replit's official YouTube channel for Agent walkthroughs</li>
+</ul><div class="modnav"><a href="m16.html"><small>← Previous</small>Module 16: Lovable: Basic to Advanced</a><a href="m18.html"><small>Next →</small>Module 18: Figma and AI Design Tools</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

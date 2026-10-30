@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Templates &amp; datasets · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html" aria-current="page"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Library</div><h1>Templates &amp; Datasets</h1><p>Reusable PM templates and synthetic practice data.</p><div class="chips"><span class="chip">10 templates</span><span class="chip">11 datasets</span></div></header><p>Reusable artefacts. Open them here or download the Markdown file and paste it into Docs, Notion, Confluence or Jira.</p><div class="admonition tip"><p class="admonition-title">Hands-on starter (Module 11)</p><p><a href="downloads/vibe-coding-starter/index.html">Open the Fee-Clear Cart prototype</a> · <a href="downloads/vibe-coding-starter.zip" download>Download the starter (.zip)</a> — plain HTML/CSS/JS, fictional data, no real payments.</p></div><details><summary>PRD (Product Requirements Document)</summary><p class="noprint"><a href="downloads/01-prd-template.md" download>⬇ Download 01-prd-template.md</a></p><h3 id="tpl-01-prd-template-feature-initiative-name-prd">[Feature / initiative name] — PRD</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Status</td>
+<td>Draft / In review / Approved / Shipped</td>
+</tr>
+<tr>
+<td>Owner (PM)</td>
+<td></td>
+</tr>
+<tr>
+<td>Design / Eng / Data leads</td>
+<td></td>
+</tr>
+<tr>
+<td>Reviewers &amp; approver (DACI)</td>
+<td></td>
+</tr>
+<tr>
+<td>Last updated</td>
+<td></td>
+</tr>
+<tr>
+<td>Links</td>
+<td>Figma · Jira epic · Experiment plan · Dashboard</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="tpl-01-prd-template-1-summary">1. Summary</h4>
+<p>One paragraph: the problem, the proposal, the expected impact (with a range), and the decision needed.</p>
+<h4 id="tpl-01-prd-template-2-problem-and-evidence">2. Problem and evidence</h4>
+<ul>
+<li><strong>Who:</strong> segment / persona</li>
+<li><strong>Task and barrier:</strong> what they're trying to do and what gets in the way</li>
+<li><strong>Evidence:</strong> analytics (numbers, dates), research (n, method), support tickets, reviews — label hypotheses</li>
+<li><strong>Why now:</strong> strategy link, cost of delay</li>
+</ul>
+<h4 id="tpl-01-prd-template-3-goals-success-metrics-and-guardrails">3. Goals, success metrics and guardrails</h4>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Metric (definition: numerator / denominator / window)</th>
+<th>Baseline</th>
+<th>Target</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary outcome</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Leading indicators</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Guardrails</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="tpl-01-prd-template-4-users-and-use-cases">4. Users and use cases</h4>
+<p>Key scenarios, edge cases, accessibility needs, B2B buyer vs user (if relevant).</p>
+<h4 id="tpl-01-prd-template-5-scope">5. Scope</h4>
+<ul>
+<li><strong>In scope:</strong></li>
+<li><strong>Out of scope (and why):</strong></li>
+<li><strong>Assumptions:</strong></li>
+<li><strong>Dependencies (owner, date, risk):</strong></li>
+</ul>
+<h4 id="tpl-01-prd-template-6-requirements">6. Requirements</h4>
+<h5 id="tpl-01-prd-template-user-stories-invest">User stories (INVEST)</h5>
+<ul>
+<li>As a [user], I want [capability] so that [benefit].</li>
+</ul>
+<h5 id="tpl-01-prd-template-acceptance-criteria-given-when-then">Acceptance criteria (Given / When / Then)</h5>
+<ul>
+<li>Given … when … then …</li>
+<li>Include error, empty, loading and offline states.</li>
+</ul>
+<h5 id="tpl-01-prd-template-non-functional-requirements">Non-functional requirements</h5>
+<p>Performance (p95 targets) · reliability · security · privacy (no PII in analytics) · accessibility (WCAG 2.2 AA) · localisation.</p>
+<h4 id="tpl-01-prd-template-7-design">7. Design</h4>
+<p>Links, key flows, open design questions.</p>
+<h4 id="tpl-01-prd-template-8-analytics-tracking-plan">8. Analytics / tracking plan</h4>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Trigger</th>
+<th>Properties</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="tpl-01-prd-template-9-launch-plan">9. Launch plan</h4>
+<p>Rollout (flag, % stages), experiment design, support readiness, comms, kill switch and rollback owner.</p>
+<h4 id="tpl-01-prd-template-10-risks-and-mitigations">10. Risks and mitigations</h4>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="tpl-01-prd-template-11-open-questions-and-decision-log">11. Open questions and decision log</h4>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Decision / question</th>
+<th>Options considered</th>
+<th>Decided by</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div></details><details><summary>One-pager (idea pitch)</summary><p class="noprint"><a href="downloads/02-one-pager.md" download>⬇ Download 02-one-pager.md</a></p><h3 id="tpl-02-one-pager-idea-name-one-pager">[Idea name] — one-pager</h3>
+<p><strong>The ask:</strong> what decision or resources you need, by when.</p>
+<p><strong>Problem:</strong> For [user], [task] is difficult because [barrier]. Evidence: [data + research].</p>
+<p><strong>Why now:</strong> [strategy link, timing, cost of delay].</p>
+<p><strong>Proposed approach:</strong> [2–3 sentences; what we'd test first].</p>
+<p><strong>Expected impact:</strong> [metric] from [baseline] to [target] (range: low–high). Assumptions: [list].</p>
+<p><strong>Cost:</strong> [people × weeks], [money], [opportunity cost — what we won't do].</p>
+<p><strong>Risks:</strong> [top 3] → mitigations.</p>
+<p><strong>How we'll know:</strong> [experiment / pilot, success threshold, decision date].</p>
+<p><strong>Not doing:</strong> [explicit exclusions].</p></details><details><summary>Experiment plan and readout</summary><p class="noprint"><a href="downloads/03-experiment-plan-and-readout.md" download>⬇ Download 03-experiment-plan-and-readout.md</a></p><h3 id="tpl-03-experiment-plan-and-readout-experiment-plan-name">Experiment plan — [name]</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hypothesis</td>
+<td>We believe [change] for [eligible users] will [move metric] because [reason].</td>
+</tr>
+<tr>
+<td>Primary metric</td>
+<td>Definition: numerator / denominator / window</td>
+</tr>
+<tr>
+<td>Secondary metrics</td>
+<td></td>
+</tr>
+<tr>
+<td>Guardrails</td>
+<td>e.g., complaint rate, payment errors, AOV, latency</td>
+</tr>
+<tr>
+<td>Unit of randomisation</td>
+<td>user / session / account / geography / time (switchback)</td>
+</tr>
+<tr>
+<td>Eligibility</td>
+<td>who is included / excluded</td>
+</tr>
+<tr>
+<td>Variants</td>
+<td>control: … · treatment: …</td>
+</tr>
+<tr>
+<td>Baseline &amp; MDE</td>
+<td>baseline …% ; minimum detectable effect … points</td>
+</tr>
+<tr>
+<td>Sample size per arm</td>
+<td>(α = 0.05, power 80%)</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>full weeks; start/end dates</td>
+</tr>
+<tr>
+<td>Stop rule</td>
+<td>fixed horizon, or a sequential method designed for peeking</td>
+</tr>
+<tr>
+<td>Analysis plan</td>
+<td>test, CI, segments (pre-registered), SRM check</td>
+</tr>
+<tr>
+<td>Decision rule</td>
+<td>ship if …; iterate if …; stop if …</td>
+</tr>
+<tr>
+<td>Owners</td>
+<td>PM, analyst, engineer</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-03-experiment-plan-and-readout-readout-name">Readout — [name]</h3>
+<p><strong>Decision requested:</strong> …  <strong>Recommendation:</strong> …</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Difference (95% CI)</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Guardrail 1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Sample ratio check:</strong> planned vs observed split.</li>
+<li><strong>Segments (exploratory):</strong> …</li>
+<li><strong>Caveats:</strong> novelty, seasonality, data issues.</li>
+<li><strong>Learning:</strong> what we now believe and why.</li>
+<li><strong>Next steps:</strong> rollout plan, holdout, follow-up tests.</li>
+</ul></details><details><summary>Launch checklist</summary><p class="noprint"><a href="downloads/04-launch-checklist.md" download>⬇ Download 04-launch-checklist.md</a></p><h3 id="tpl-04-launch-checklist-launch-checklist-feature-tier-1-2-3">Launch checklist — [feature] (Tier 1 / 2 / 3)</h3>
+<h4 id="tpl-04-launch-checklist-product-quality">Product &amp; quality</h4>
+<ul>
+<li>[ ] Acceptance criteria met; QA and UAT signed off</li>
+<li>[ ] Accessibility check (keyboard, screen reader, contrast)</li>
+<li>[ ] Performance/load test against p95 targets</li>
+<li>[ ] Feature flag, kill switch, rollback plan and owner</li>
+</ul>
+<h4 id="tpl-04-launch-checklist-data-measurement">Data &amp; measurement</h4>
+<ul>
+<li>[ ] Success metrics and guardrails defined with baselines</li>
+<li>[ ] Events validated in staging; dashboard live; alerts configured</li>
+<li>[ ] Experiment/holdout plan (if applicable)</li>
+</ul>
+<h4 id="tpl-04-launch-checklist-risk-compliance">Risk &amp; compliance</h4>
+<ul>
+<li>[ ] Security review · [ ] Privacy/consent review · [ ] Legal review of claims/terms · [ ] Fraud/abuse review</li>
+</ul>
+<h4 id="tpl-04-launch-checklist-go-to-market">Go-to-market</h4>
+<ul>
+<li>[ ] Positioning and messaging · [ ] Pricing/plan changes · [ ] Channels and calendar · [ ] Sales enablement / FAQ</li>
+</ul>
+<h4 id="tpl-04-launch-checklist-support-operations">Support &amp; operations</h4>
+<ul>
+<li>[ ] Help articles · [ ] Support macros and training · [ ] Escalation path · [ ] Ops capacity</li>
+</ul>
+<h4 id="tpl-04-launch-checklist-rollout">Rollout</h4>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Exposure</th>
+<th>Gate criteria</th>
+<th>Date</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Internal</td>
+<td>1%</td>
+<td>no critical errors</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Canary</td>
+<td>5%</td>
+<td>error rate &lt; …; latency &lt; …</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Experiment</td>
+<td>50/50</td>
+<td>primary + guardrails</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Full</td>
+<td>100% (+ holdout)</td>
+<td>readout approved</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="tpl-04-launch-checklist-after-launch">After launch</h4>
+<ul>
+<li>[ ] Daily monitoring during ramp · [ ] Feedback collection · [ ] Retrospective scheduled (2–4 weeks)</li>
+</ul></details><details><summary>Stakeholder map and DACI</summary><p class="noprint"><a href="downloads/05-stakeholder-map-and-daci.md" download>⬇ Download 05-stakeholder-map-and-daci.md</a></p><h3 id="tpl-05-stakeholder-map-and-daci-stakeholder-map-initiative">Stakeholder map — [initiative]</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Stakeholder</th>
+<th>Role</th>
+<th>Interest (1–10)</th>
+<th>Power (1–10)</th>
+<th>Quadrant</th>
+<th>What they care about</th>
+<th>Engagement plan</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Manage closely / Keep satisfied / Keep informed / Monitor</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-05-stakeholder-map-and-daci-daci-decision">DACI — [decision]</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Name</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Driver</td>
+<td></td>
+<td>Runs the process, gathers evidence</td>
+</tr>
+<tr>
+<td>Approver (one person)</td>
+<td></td>
+<td>Makes the call by [date]</td>
+</tr>
+<tr>
+<td>Contributors</td>
+<td></td>
+<td>Input, risks, estimates</td>
+</tr>
+<tr>
+<td>Informed</td>
+<td></td>
+<td>Told the outcome</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Options considered:</strong> … <strong>Decision:</strong> … <strong>Date:</strong> … <strong>Rationale:</strong> … <strong>Review date:</strong> …</p></details><details><summary>Research kit (interview script, persona, usability test plan)</summary><p class="noprint"><a href="downloads/06-research-kit.md" download>⬇ Download 06-research-kit.md</a></p><h3 id="tpl-06-research-kit-customer-interview-script-45-min">Customer interview script (45 min)</h3>
+<p><strong>Consent:</strong> purpose, recording permission, anonymisation, right to stop.</p>
+<ol>
+<li><strong>Warm-up (5 min):</strong> “Tell me about your typical [day/week] when [context].”</li>
+<li><strong>Recent story (20 min):</strong> “Think about the last time you [did the task]. What was happening before? What did you do first? What else did you consider? Where did it get hard? What did you do next?”</li>
+<li><strong>Probe friction (10 min):</strong> “You mentioned [X]. What did you expect? How did that feel? What did you do about it?”</li>
+<li><strong>Current alternatives (5 min):</strong> “How do you handle this today? What does it cost you (time, money, effort)?”</li>
+<li><strong>Wrap-up (5 min):</strong> “What should I have asked? Who else should I talk to?”</li>
+</ol>
+<p><strong>Avoid:</strong> pitching; “would you…?”; leading or double-barrelled questions.</p>
+<p><strong>Notes sheet:</strong> Participant ID · Observation (verbatim) · Interpretation · Journey stage · Tag.</p>
+<h3 id="tpl-06-research-kit-persona-template">Persona template</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name &amp; context</td>
+<td></td>
+</tr>
+<tr>
+<td>Goals &amp; motivations</td>
+<td></td>
+</tr>
+<tr>
+<td>Behaviours (observed)</td>
+<td></td>
+</tr>
+<tr>
+<td>Pains / frustrations</td>
+<td></td>
+</tr>
+<tr>
+<td>Needs from the product</td>
+<td></td>
+</tr>
+<tr>
+<td>Jobs to be done</td>
+<td>When … I want to … so I can …</td>
+</tr>
+<tr>
+<td>Evidence (n, dates) &amp; confidence</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-06-research-kit-usability-test-plan">Usability test plan</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Goals / decisions informed</td>
+<td></td>
+</tr>
+<tr>
+<td>Prototype / build</td>
+<td></td>
+</tr>
+<tr>
+<td>Participants (n, criteria, accessibility needs)</td>
+<td></td>
+</tr>
+<tr>
+<td>Tasks (realistic, no hints)</td>
+<td>1. … 2. … 3. …</td>
+</tr>
+<tr>
+<td>Metrics</td>
+<td>task success, time on task, errors, confidence, SUS</td>
+</tr>
+<tr>
+<td>Success threshold</td>
+<td>e.g., ≥ 5 of 6 complete task 3 unaided</td>
+</tr>
+<tr>
+<td>Moderator script</td>
+<td>intro, think-aloud, tasks, debrief</td>
+</tr>
+<tr>
+<td>Analysis</td>
+<td>severity × frequency; quotes; clips</td>
+</tr>
+</tbody>
+</table></div></details><details><summary>Prioritisation sheet (RICE / WSJF) and Now–Next–Later roadmap</summary><p class="noprint"><a href="downloads/07-prioritization-and-roadmap.md" download>⬇ Download 07-prioritization-and-roadmap.md</a></p><h3 id="tpl-07-prioritization-and-roadmap-rice-sheet">RICE sheet</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Problem / outcome</th>
+<th>Reach (unit/period, source)</th>
+<th>Impact (3/2/1/0.5/0.25)</th>
+<th>Confidence (100/80/50%)</th>
+<th>Effort (person-months)</th>
+<th>RICE</th>
+<th>Dependencies / risks</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>RICE = Reach × Impact × Confidence ÷ Effort. <strong>Sensitivity check:</strong> recompute with confidence −30 points and effort +50%; if the order flips, treat as a tie.</p>
+<h3 id="tpl-07-prioritization-and-roadmap-wsjf-sheet">WSJF sheet</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Job</th>
+<th>User/business value</th>
+<th>Time criticality</th>
+<th>Risk reduction / opportunity</th>
+<th>Cost of Delay</th>
+<th>Job size</th>
+<th>WSJF = CoD ÷ size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-07-prioritization-and-roadmap-now-next-later-roadmap">Now / Next / Later roadmap</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Now (in delivery)</th>
+<th>Next (validated, scoping)</th>
+<th>Later (ideas)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Outcome 1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Outcome 2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Reliability / tech debt</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Rules: outcomes not just features; no dates in “Later”; show confidence and dependencies; review monthly.</p></details><details><summary>Metric definition, KPI tree and OKRs</summary><p class="noprint"><a href="downloads/08-metrics-okr-kpi-tree.md" download>⬇ Download 08-metrics-okr-kpi-tree.md</a></p><h3 id="tpl-08-metrics-okr-kpi-tree-metric-definition-card">Metric definition card</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td></td>
+</tr>
+<tr>
+<td>Question it answers / decision it supports</td>
+<td></td>
+</tr>
+<tr>
+<td>Numerator</td>
+<td></td>
+</tr>
+<tr>
+<td>Denominator</td>
+<td></td>
+</tr>
+<tr>
+<td>Time window &amp; time zone</td>
+<td></td>
+</tr>
+<tr>
+<td>Inclusions / exclusions (bots, test accounts, cancellations)</td>
+<td></td>
+</tr>
+<tr>
+<td>Source table / events</td>
+<td></td>
+</tr>
+<tr>
+<td>Owner</td>
+<td></td>
+</tr>
+<tr>
+<td>Baseline &amp; target</td>
+<td></td>
+</tr>
+<tr>
+<td>Guardrails paired with it</td>
+<td></td>
+</tr>
+<tr>
+<td>Known caveats</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-08-metrics-okr-kpi-tree-kpi-tree">KPI tree</h3>
+<pre><code>North Star: [recurring value metric]
+├── Input 1: [breadth — e.g., activated users]
+│   ├── Driver 1a
+│   └── Driver 1b
+├── Input 2: [frequency]
+└── Input 3: [quality — e.g., payment success, on-time rate]
+Guardrails: [complaints] · [refunds] · [wellbeing / opt-outs]
+</code></pre>
+<h3 id="tpl-08-metrics-okr-kpi-tree-okrs-quarter">OKRs (quarter)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Objective</th>
+<th>Key result (metric, baseline → target, date)</th>
+<th>Owner</th>
+<th>Confidence (0–10, weekly)</th>
+<th>Initiatives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div></details><details><summary>AI PRD additions and evaluation plan</summary><p class="noprint"><a href="downloads/09-ai-prd-and-eval.md" download>⬇ Download 09-ai-prd-and-eval.md</a></p><h3 id="tpl-09-ai-prd-and-eval-ai-prd-additions-add-to-the-standard-prd">AI PRD additions (add to the standard PRD)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intended use</td>
+<td>Who, what tasks, which channels</td>
+</tr>
+<tr>
+<td>Prohibited use</td>
+<td>e.g., financial/medical/legal advice; actions without approval</td>
+</tr>
+<tr>
+<td>Non-AI baseline</td>
+<td>What simpler solution we compared against</td>
+</tr>
+<tr>
+<td>Data &amp; sources</td>
+<td>Approved sources, owners, freshness, permissions, retention</td>
+</tr>
+<tr>
+<td>Model &amp; architecture</td>
+<td>Prompting / RAG / fine-tuning / tools; model choice rationale</td>
+</tr>
+<tr>
+<td>Autonomy level</td>
+<td>L0–L4 per capability; approval checkpoints</td>
+</tr>
+<tr>
+<td>Guardrails</td>
+<td>Input/output filters, refusals, escalation, kill switch</td>
+</tr>
+<tr>
+<td>Evaluation</td>
+<td>Test set composition, rubric, severity levels, launch gates</td>
+</tr>
+<tr>
+<td>Quality targets</td>
+<td>e.g., ≥ 90% correct with citation; 100% correct routing for high-risk intents</td>
+</tr>
+<tr>
+<td>Safety &amp; privacy</td>
+<td>Injection tests, PII handling, vendor terms, logging</td>
+</tr>
+<tr>
+<td>Latency &amp; cost</td>
+<td>p95 target; cost per request budget</td>
+</tr>
+<tr>
+<td>Human-in-the-loop</td>
+<td>Who reviews what, SLAs, feedback loop</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>Sampling, drift, incident process, re-eval on every change</td>
+</tr>
+<tr>
+<td>Fallback &amp; rollback</td>
+<td>What users see when AI fails; how to disable</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-09-ai-prd-and-eval-evaluation-plan">Evaluation plan</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th># cases</th>
+<th>Expected behaviour</th>
+<th>Scoring</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Answerable (single source)</td>
+<td></td>
+<td>answer + citation</td>
+<td>correct/incorrect</td>
+<td>≥ 90%</td>
+</tr>
+<tr>
+<td>Answerable (multi-source)</td>
+<td></td>
+<td>answer + citations</td>
+<td>rubric 1–5</td>
+<td>≥ 4.0 avg</td>
+</tr>
+<tr>
+<td>Not covered</td>
+<td></td>
+<td>say so + route</td>
+<td>pass/fail</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>High-risk intents</td>
+<td></td>
+<td>route to human</td>
+<td>pass/fail</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Adversarial / injection</td>
+<td></td>
+<td>refuse, no leak</td>
+<td>pass/fail</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Unauthorised data</td>
+<td></td>
+<td>deny</td>
+<td>pass/fail</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table></div>
+<p>Re-run on every model, prompt, source or tool change. Review all failures by severity.</p></details><details><summary>Decision log and launch retrospective</summary><p class="noprint"><a href="downloads/10-decision-log-and-retro.md" download>⬇ Download 10-decision-log-and-retro.md</a></p><h3 id="tpl-10-decision-log-and-retro-decision-log">Decision log</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Date</th>
+<th>Context</th>
+<th>Options</th>
+<th>Decision</th>
+<th>Decided by</th>
+<th>Evidence</th>
+<th>Trade-offs accepted</th>
+<th>Review date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-10-decision-log-and-retro-launch-retrospective-blameless">Launch retrospective (blameless)</h3>
+<p><strong>Goal vs result:</strong> metric targets vs actuals (with charts).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>What went well</th>
+<th>What didn't</th>
+<th>Surprises</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Root causes (for what didn't):</strong> …</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Owner</th>
+<th>Due</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Keep / Stop / Start:</strong> …</p>
+<p><strong>Learning to share with the wider org:</strong> …</p></details><h2>Sample datasets</h2><p>All datasets are <b>synthetic, hypothetical</b> and generated for teaching. They are not real company data.</p><ul><li><a href="downloads/ab_test_checkout.csv" download>ab_test_checkout.csv</a> — 2 rows</li><li><a href="downloads/card_application_funnel.csv" download>card_application_funnel.csv</a> — 28 rows</li><li><a href="downloads/channel_creation_usability.csv" download>channel_creation_usability.csv</a> — 24 rows</li><li><a href="downloads/cohort_retention_weekly.csv" download>cohort_retention_weekly.csv</a> — 12 rows</li><li><a href="downloads/events.csv" download>events.csv</a> — 5096 rows</li><li><a href="downloads/kb_policy_snippets.csv" download>kb_policy_snippets.csv</a> — 6 rows</li><li><a href="downloads/orders.csv" download>orders.csv</a> — 334 rows</li><li><a href="downloads/rice_backlog.csv" download>rice_backlog.csv</a> — 6 rows</li><li><a href="downloads/saas_pricing_pilot.csv" download>saas_pricing_pilot.csv</a> — 3 rows</li><li><a href="downloads/support_eval_set.csv" download>support_eval_set.csv</a> — 60 rows</li><li><a href="downloads/users.csv" download>users.csv</a> — 800 rows</li></ul>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

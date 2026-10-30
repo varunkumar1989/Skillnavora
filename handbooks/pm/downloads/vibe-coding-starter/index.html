@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fee-Clear Cart — prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- PROTOTYPE: fictional menu, simulated fee service, no real payments. -->
+  <header class="banner" role="note">Prototype with dummy data — no real orders or payments.</header>
+  <main class="wrap">
+    <h1>Fee-Clear Cart</h1>
+    <p class="sub">Hypothesis: showing the full estimated total in the cart reduces checkout surprise.</p>
+
+    <section aria-labelledby="menu-h">
+      <h2 id="menu-h">Menu</h2>
+      <ul id="menu" class="menu"></ul>
+    </section>
+
+    <section aria-labelledby="cart-h" class="cart">
+      <h2 id="cart-h">Your cart</h2>
+      <p id="empty" class="empty">Your cart is empty. Add a dish to see your estimated total.</p>
+      <ul id="lines" class="lines"></ul>
+      <label class="addr">Delivery area
+        <select id="area">
+          <option value="near">Within 3 km</option>
+          <option value="far">3–7 km</option>
+          <option value="fail">Simulate fee-service failure</option>
+        </select>
+      </label>
+      <dl id="summary" class="summary" aria-live="polite"></dl>
+      <div id="feeError" class="warn" role="alert" hidden>
+        We couldn't load the delivery fee. <button id="retry" type="button">Retry</button>
+      </div>
+      <button id="pay" class="pay" type="button" disabled>Pay</button>
+      <p id="result" class="result" aria-live="polite"></p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

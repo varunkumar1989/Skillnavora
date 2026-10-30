@@ -51,11 +51,11 @@ def ds_tab(cfg):
     n_les = sum(len(t["lessons"]) for t in tracks)
     art = cfg.get("dsa_artifact") or ""
     ds_art = cfg.get("ds_artifact") or ""
-    acts = (btn("Open the handbook ↗", DS_SITE, True) + (btn("Interactive DSA handbook ↗", art) if art else "") + (btn("Interactive Data Science handbook ↗", ds_art) if ds_art else "") +
+    acts = (btn("Open the handbook ↗", DS_SITE, True) + btn("All SkillNavora handbooks →", "handbooks/index.html", gate=False, new=False) + (btn("Interactive DSA handbook ↗", art) if art else "") + (btn("Interactive Data Science handbook ↗", ds_art) if ds_art else "") +
             btn("Complete handbook PDFs ↗", DS_SITE + "index.html#downloads") + btn("GitHub ↗", DS_REPO, gate=False))
     out = [hero("AI-First Data Engineer · free for registered learners", "Data Science & AI Handbook by Varun Kumar",
-                f"{n_les or 100}+ class-wise lessons in Excel, SQL, Power BI, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson." if tracks else
-                "Class-wise lessons in Excel, SQL, Power BI, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson.", acts)]
+                f"{n_les or 100}+ class-wise lessons in Excel, SQL, Power BI, Tableau, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson." if tracks else
+                "Class-wise lessons in Excel, SQL, Power BI, Tableau, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson.", acts)]
     out.append(f'<div data-res-tools="ai-de"></div>' if False else "")
     if tracks:
         out.append(h("Handbook tracks", "Every lesson opens in the handbook site and has its own PDF. You will be asked for your details once."))
@@ -103,7 +103,7 @@ def ds_tab(cfg):
 
 def genai_tab(cfg):
     art = cfg.get("genai_artifact") or ""
-    acts = btn("Open the GenAI handbook ↗", DS_SITE + "index.html#t-genai", True) + (btn("Interactive GenAI handbook ↗", art) if art else "") + btn("GenAI Launchpad program →", "program/genai-launchpad.html", gate=False, new=False)
+    acts = btn("Open the GenAI handbook ↗", DS_SITE + "index.html#t-genai", True) + btn("GenAI Launchpad handbook (400-page PDF) →", "handbooks/index.html#genai", gate=False, new=False) + (btn("Interactive GenAI handbook ↗", art) if art else "") + btn("GenAI Launchpad program →", "program/genai-launchpad.html", gate=False, new=False)
     cat = catalog(); gt = [t for t in cat["tracks"] if t["id"] == "genai"]
     out = [hero("GenAI Launchpad · free for registered learners", "Generative & Agentic AI Handbook", "How LLMs work, prompting, APIs, embeddings and RAG, tool use, agents and MCP, evaluation, fine-tuning, responsible AI and your first AI apps, with runnable examples and a PDF for each lesson.", acts)]
     if gt:

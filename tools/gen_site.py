@@ -20,6 +20,7 @@ UPSKILL = [("quiz.html", "Quiz zone", "Test yourself with quick quizzes", '<circ
            ("practice.html", "Practice with AI", "Mock interview questions with AI feedback", '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>'),
            ("events.html", "Events", "Free live sessions, workshops and masterclasses", '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'),
            ("", "Resources & AI tools", "", ""),
+           ("handbooks/index.html", "SkillNavora Handbooks", "Data Science, Tableau, GenAI, DSA and PM handbooks with every PDF", '<path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/>'),
            ("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>'),
            ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>'),
            ("resources.html#genai", "Resources for GenAI", "GenAI handbook, AI tools and free courses", '<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>'),
@@ -506,9 +507,9 @@ INTERVIEW_LINKS = [("NextLeap", "PM interview question bank", "Product design, s
   ("NextLeap", "Guesstimate questions", "Guesstimates asked at top tech companies.", "https://nextleap.app/interview-preparation/product-management/questions/topic/guesstimates"),
   ("HelloPM", "PM interview preparation", "A free guide to every PM interview round.", "https://hellopm.co/resources-for-product-management-interview/"),
   ("HelloPM", "Root cause analysis (RCA) guide", "Step-by-step approach with worked examples.", "https://hellopm.co/how-to-approach-rca-questions/")]
-DSA_ARTIFACT = 'https://claude.ai/artifact/6ZmRZxv6gku76e6ZVD7PYo'      # paste the Claude artifact link of the DSA handbook here
-DS_ARTIFACT = 'https://claude.ai/artifact/YSeVPBidAPBVtNhxGdVhPd'       # Data Science & AI handbook artifact link
-GENAI_ARTIFACT = 'https://claude.ai/artifact/7WMoLJ1WZ3Fm6MqmyD4S3m'    # GenAI handbook artifact link
+DSA_ARTIFACT = 'https://claude.ai/artifact/7278116b7jCN2ny9XnmtVM#dsa'      # paste the Claude artifact link of the DSA handbook here
+DS_ARTIFACT = 'https://claude.ai/artifact/7278116b7jCN2ny9XnmtVM#data-science'       # Data Science & AI handbook artifact link
+GENAI_ARTIFACT = 'https://claude.ai/artifact/7278116b7jCN2ny9XnmtVM#genai'    # GenAI handbook artifact link
 RES_PANEL = f'''    <div class="panel" id="p-resources" hidden>
       <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Resources for AI Tools</h2>
         <p class="meta" style="margin:0">Every AI and product tool with its official website, the complete PM Master Handbook, interview practice, the PM frameworks cheat sheet, a PRD template and hand-picked free courses.</p></div></div>

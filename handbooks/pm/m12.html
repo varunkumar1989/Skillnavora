@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 12: Agentic AI and AI Systems · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-12-Agentic-AI.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" aria-current="page" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 12</div><h1>Agentic AI and AI Systems</h1><p>Design, evaluate and govern AI agents that use tools and take actions — with the controls that make them safe enough to ship.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 46, 48, 49, 50, 51, 54 (unavailable), 55; Picture lessons (agents, API/MCP); Companion ch. 14, 15, 25, 27</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m12" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m12-what-an-ai-agent-is">What an AI agent is</a></li><li><a href="#m12-agents-versus-chatbots-versus-workflows">Agents versus chatbots versus workflows</a></li><li><a href="#m12-autonomous-versus-human-supervised-systems">Autonomous versus human-supervised systems</a></li><li><a href="#m12-agent-architecture">Agent architecture</a></li><li><a href="#m12-planning-and-reasoning-workflows">Planning and reasoning workflows</a></li><li><a href="#m12-tool-calling-and-function-calling">Tool calling and function calling</a></li><li><a href="#m12-memory-systems">Memory systems</a></li><li><a href="#m12-multi-agent-systems-and-orchestration">Multi-agent systems and orchestration</a></li><li><a href="#m12-workflow-automation">Workflow automation</a></li><li><a href="#m12-rag-enabled-agents">RAG-enabled agents</a></li><li><a href="#m12-evaluation-and-observability-for-agents">Evaluation and observability for agents</a></li><li><a href="#m12-human-approval-checkpoints-guardrails-and-permission-boundaries">Human approval checkpoints, guardrails and permission boundaries</a></li><li><a href="#m12-agent-security-and-prompt-injection">Agent security and prompt injection</a></li><li><a href="#m12-latency-and-operating-costs">Latency and operating costs</a></li><li><a href="#m12-failure-recovery">Failure recovery</a></li><li><a href="#m12-agentic-product-design">Agentic product design</a></li><li><a href="#m12-ai-automation-opportunities-in-finance">AI automation opportunities in finance</a></li><li><a href="#m12-ai-product-roadmaps-and-agentic-business-models">AI product roadmaps and agentic business models</a></li><li><a href="#m12-case-study-ai-powered-customer-support-assistant-for-a-card-issuer-hypothetical">Case study: AI-powered customer-support assistant for a card issuer (hypothetical)</a></li><li><a href="#m12-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m12-interview-perspective">Interview perspective</a></li><li><a href="#m12-key-takeaways">Key takeaways</a></li><li><a href="#m12-check-your-understanding">Check your understanding</a></li><li><a href="#m12-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
+<p class="admonition-title">About this module's examples</p>
+<p>The financial-services assistant is a <strong>hypothetical case</strong> built for teaching. It describes no real bank's product, data or results. Regulatory references are general; consult qualified compliance and legal advisers for real decisions.</p>
+</div>
+<h2 id="m12-what-an-ai-agent-is"><span class="hnum">12.1</span> What an AI agent is</h2>
+<p>An <strong>AI agent</strong> is a system that uses a model to <strong>pursue a goal by choosing actions</strong> — calling tools, reading results, and deciding what to do next — within limits set by people or policy.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Picture lesson 'AI agents'; Companion ch. 14; Lecture 48)</p>
+<p>An agent can work toward a goal by <strong>choosing steps, using tools and looking at results</strong>; unlike a fixed recipe it may choose its next step based on what happened. <strong>Some tasks need only a simple fixed workflow, not an agent.</strong> Key pieces: a goal, a way to choose a next step, access to approved tools, information returned by tools, and a <strong>stopping rule</strong>; a person or policy sets the limits. Before booking or spending money, it should ask for permission. Define the goal, allowed tools and data, boundaries, maximum actions, budget, time limit, logging and stop conditions; <strong>test missed data, misleading tool output, retries, duplicate actions and prompt injection</strong>; for consequential actions require human approval and a way to reverse or correct errors.</p>
+</div>
+<figure class="viz" role="img" aria-label="Loop diagram: The agent loop"><svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><path d="M420.7,72.8 Q491.5,87.7 525.0,111.6" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M569.7,199.3 Q564.5,227.6 533.6,257.7" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M434.5,307.7 Q360.0,323.2 289.4,308.6" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M188.8,260.1 Q155.5,227.6 150.9,202.6" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M191.8,113.9 Q228.5,87.7 295.4,73.6" class="edge" fill="none" marker-end="url(#ah3)"/><rect x="285.0" y="37.0" width="150" height="46" rx="10" class="node"/><text x="360.0" y="64.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Goal + context</tspan></text><rect x="503.7" y="126.8" width="150" height="46" rx="10" class="node"/><text x="578.7429987478853" y="147.82779073125684" class="small b" text-anchor="middle"><tspan x="578.7429987478853" dy="0">Plan / choose next</tspan><tspan x="578.7429987478853" dy="12">step</tspan></text><rect x="420.2" y="272.2" width="150" height="46" rx="10" class="node"/><text x="495.1906080272688" y="293.1722092687432" class="small b" text-anchor="middle"><tspan x="495.1906080272688" dy="0">Call a tool (with</tspan><tspan x="495.1906080272688" dy="12">permission)</tspan></text><rect x="149.8" y="272.2" width="150" height="46" rx="10" class="node"/><text x="224.8093919727312" y="299.1722092687432" class="small b" text-anchor="middle"><tspan x="224.8093919727312" dy="0">Observe result</tspan></text><rect x="66.3" y="126.8" width="150" height="46" rx="10" class="node"/><text x="141.25700125211466" y="147.82779073125687" class="small b" text-anchor="middle"><tspan x="141.25700125211466" dy="0">Check: done, retry,</tspan><tspan x="141.25700125211466" dy="12">ask a human, or stop</tspan></text><circle cx="360.0" cy="190.0" r="46" fill="var(--c2)" fill-opacity=".15" stroke="var(--c2)" stroke-width="2"/><text x="360.0" y="194.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Agent loop</tspan></text></svg><figcaption><strong>The agent loop.</strong> The loop repeats until a stop condition is met (goal reached, budget/time exhausted, or human needed). Every iteration costs tokens, time and risk.</figcaption></figure>
+<h2 id="m12-agents-versus-chatbots-versus-workflows"><span class="hnum">12.2</span> Agents versus chatbots versus workflows</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Chatbot</th>
+<th>Workflow (deterministic automation)</th>
+<th>Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Who decides the steps?</td>
+<td>User drives each turn</td>
+<td>Designer, in advance</td>
+<td>The model, at run time</td>
+</tr>
+<tr>
+<td>Uses tools?</td>
+<td>Rarely</td>
+<td>Yes, fixed sequence</td>
+<td>Yes, chosen dynamically</td>
+</tr>
+<tr>
+<td>Predictability</td>
+<td>High (just talks)</td>
+<td>High</td>
+<td>Lower — must be bounded</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Q&amp;A, drafting</td>
+<td>Known, repeatable processes</td>
+<td>Open-ended tasks where the path varies</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>FAQ assistant</td>
+<td>“When form submitted → validate → create CRM record → notify”</td>
+<td>“Resolve this billing dispute using these systems”</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition level2">
+<p class="admonition-title">Level 2 · Working PM rule of thumb</p>
+<p>Use the <strong>simplest</strong> pattern that works: a single model call → a fixed workflow → an agent. Anthropic's guidance on building effective agents makes the same point: many successful systems are workflows built from simple, composable patterns, and full autonomy is added only when needed.</p>
+</div>
+<p><strong>Common composable patterns</strong> (from Anthropic's “Building effective agents”): <strong>prompt chaining</strong> (step-by-step pipeline), <strong>routing</strong> (classify then send to a specialised path), <strong>parallelisation</strong> (split or vote), <strong>orchestrator–workers</strong> (a lead model delegates subtasks), <strong>evaluator–optimiser</strong> (one generates, another critiques), and <strong>autonomous agents</strong> (open-ended loops with tools).</p>
+<h2 id="m12-autonomous-versus-human-supervised-systems"><span class="hnum">12.3</span> Autonomous versus human-supervised systems</h2>
+<figure class="viz" role="img" aria-label="Process: L0 · Suggest → L1 · Assist → L2 · Act with approval → L3 · Act within limits → L4 · Autonomous"><svg viewBox="0 0 720 132" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">L0 · Suggest</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">AI drafts; human</tspan><tspan x="68.0" dy="11">does everything</tspan></text><line x1="129.0" y1="52.0" x2="153.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">L1 · Assist</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">AI fills forms;</tspan><tspan x="214.0" dy="11">human reviews &amp;</tspan><tspan x="214.0" dy="11">submits</tspan></text><line x1="275.0" y1="52.0" x2="299.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">L2 · Act with</tspan><tspan x="368.0" dy="13">approval</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">AI proposes actions;</tspan><tspan x="360.0" dy="11">human approves each</tspan></text><line x1="421.0" y1="52.0" x2="445.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">L3 · Act within</tspan><tspan x="514.0" dy="13">limits</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">AI acts under</tspan><tspan x="506.0" dy="11">thresholds; humans</tspan><tspan x="506.0" dy="11">handle exceptions</tspan></text><line x1="567.0" y1="52.0" x2="591.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">L4 · Autonomous</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">AI acts end-to-end;</tspan><tspan x="652.0" dy="11">humans audit after</tspan></text></svg><figcaption><strong>Levels of autonomy (a practical scale).</strong> Move up one level only when evaluation evidence, monitoring and reversibility justify it. Money movement, account changes and regulated decisions usually stay at L2–L3.</figcaption></figure>
+<h2 id="m12-agent-architecture"><span class="hnum">12.4</span> Agent architecture</h2>
+<figure class="viz" role="img" aria-label="Diagram: Reference agent architecture (conceptual)"><svg viewBox="0 0 720 542" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><text x="4" y="63.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Interface</tspan></text><rect x="196.0" y="30" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="63.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">User / channel (chat, voice, email)</tspan></text><text x="4" y="173.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Control</tspan></text><rect x="226.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="311.0" y="166.0" class="small b" text-anchor="middle"><tspan x="311.0" dy="0">Orchestrator: planner +</tspan><tspan x="311.0" dy="12">policy checks</tspan></text><rect x="416.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="501.0" y="166.0" class="small b" text-anchor="middle"><tspan x="501.0" dy="0">Guardrails: input/output</tspan><tspan x="501.0" dy="12">filters</tspan></text><text x="4" y="283.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Capabilities</tspan></text><rect x="131.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="216.0" y="276.0" class="small b" text-anchor="middle"><tspan x="216.0" dy="0">Tools: APIs via function</tspan><tspan x="216.0" dy="12">calling / MCP</tspan></text><rect x="321.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="406.0" y="283.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Retrieval (RAG)</tspan></text><rect x="511.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="596.0" y="283.0" class="small b" text-anchor="middle"><tspan x="596.0" dy="0">Memory store</tspan></text><text x="4" y="393.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Data</tspan></text><rect x="226.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="311.0" y="386.0" class="small b" text-anchor="middle"><tspan x="311.0" dy="0">Systems of record (CRM,</tspan><tspan x="311.0" dy="12">core banking, tickets)</tspan></text><rect x="416.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="501.0" y="393.0" class="small b" text-anchor="middle"><tspan x="501.0" dy="0">Knowledge base</tspan></text><text x="4" y="503.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Oversight</tspan></text><rect x="226.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="311.0" y="503.0" class="small b" text-anchor="middle"><tspan x="311.0" dy="0">Human approval queue</tspan></text><rect x="416.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="501.0" y="503.0" class="small b" text-anchor="middle"><tspan x="501.0" dy="0">Logs, traces, evaluations</tspan></text><path d="M406.0,88.0 C406.0,112.5 311.0,112.5 311.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M311.0,198.0 C311.0,222.5 216.0,222.5 216.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M311.0,198.0 C311.0,222.5 406.0,222.5 406.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M311.0,198.0 C311.0,222.5 596.0,222.5 596.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M216.0,308.0 C216.0,332.5 311.0,332.5 311.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M406.0,308.0 C406.0,332.5 501.0,332.5 501.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M311.0,418.0 C311.0,442.5 311.0,442.5 311.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M501.0,418.0 C501.0,442.5 501.0,442.5 501.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>Reference agent architecture (conceptual).</strong> Permissions are enforced at the tool and data layers, not by asking the model to behave. Everything is logged for evaluation and audit.</figcaption></figure>
+<h2 id="m12-planning-and-reasoning-workflows"><span class="hnum">12.5</span> Planning and reasoning workflows</h2>
+<ul>
+<li><strong>ReAct</strong> (reason + act): the model alternates thinking about the next step and calling a tool, using observations to update its plan.</li>
+<li><strong>Plan-then-execute:</strong> draft a plan, check it (by rules, another model or a human), then execute steps.</li>
+<li><strong>Reflection / self-critique:</strong> evaluate intermediate outputs before continuing.</li>
+<li><strong>Decomposition:</strong> break a large goal into sub-goals with clear completion criteria.</li>
+</ul>
+<p>PM implication: plans must be <strong>observable</strong> (logged) and <strong>checkable</strong> — reviewers should be able to see <em>why</em> the agent did something.</p>
+<h2 id="m12-tool-calling-and-function-calling"><span class="hnum">12.6</span> Tool calling and function calling</h2>
+<p>The model is given <strong>tool definitions</strong> (name, description, input schema). When useful, it outputs a structured <strong>call</strong>; the application executes it (with permission checks) and returns the result for the model to use.</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;get_card_status&quot;,
+  &quot;description&quot;: &quot;Return the status of the authenticated customer's card. Read-only.&quot;,
+  &quot;input_schema&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: { &quot;card_last4&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;pattern&quot;: &quot;^[0-9]{4}$&quot; } },
+    &quot;required&quot;: [&quot;card_last4&quot;]
+  }
+}
+</code></pre>
+<p><strong>Design rules:</strong> small, single-purpose tools; clear descriptions (the model reads them); <strong>separate read and write tools</strong>; validate inputs server-side; return structured errors; make write tools <strong>idempotent</strong>; require approval for consequential writes.</p>
+<h3 id="m12-mcp-and-apis"><span class="hnum">12.6.1</span> MCP and APIs</h3>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 46; Companion ch. 15; Picture lesson 'API and MCP')</p>
+<p><strong>MCP (Model Context Protocol)</strong> is a standard way for an AI application to connect to resources and tools; <strong>an API</strong> is a broader term for software interfaces; an MCP server may expose a tool that itself calls an API. <em>MCP does not replace every API, does not automatically make a connection safe, does not grant access or guarantee an action succeeds.</em> Reading a calendar and creating an event are different permissions and may need different approval. Ask who runs the server, what it can access and do, how credentials are protected, whether actions are logged and how access is revoked. <strong>Use least-privilege access, protect tokens as secrets and require approval for external actions.</strong> The Figma demo in class did not establish end-to-end design creation; tool availability and pricing change.</p>
+</div>
+<h2 id="m12-memory-systems"><span class="hnum">12.7</span> Memory systems</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Memory type</th>
+<th>What it holds</th>
+<th>Example</th>
+<th>Risks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Working / short-term</strong></td>
+<td>Current conversation and tool results in the context window</td>
+<td>The customer's last three messages</td>
+<td>Context overflow; cost</td>
+</tr>
+<tr>
+<td><strong>Long-term semantic</strong></td>
+<td>Facts and preferences stored externally and retrieved</td>
+<td>“Prefers Hindi; has two cards”</td>
+<td>Stale or wrong facts; privacy</td>
+</tr>
+<tr>
+<td><strong>Episodic</strong></td>
+<td>Summaries of past interactions</td>
+<td>“Raised a dispute on 3 March, resolved”</td>
+<td>Over-reliance on summaries</td>
+</tr>
+<tr>
+<td><strong>Procedural</strong></td>
+<td>Learned instructions/playbooks</td>
+<td>Updated escalation policy</td>
+<td>Uncontrolled behaviour drift</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Product rules:</strong> tell users what is remembered; let them view/delete; never store sensitive data without purpose and consent; expire memories; keep authoritative data in systems of record, not in the agent's memory.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 49)</p>
+<p><em>Despite the LMS description, the session was mostly a guided workshop, not a detailed treatment of multi-agent memory.</em> This section is independent reference material.</p>
+</div>
+<h2 id="m12-multi-agent-systems-and-orchestration"><span class="hnum">12.8</span> Multi-agent systems and orchestration</h2>
+<p><strong>Multi-agent systems</strong> split work among specialised agents (e.g., a triage agent, a policy-lookup agent, a drafting agent, a reviewer agent) coordinated by an <strong>orchestrator</strong>. Benefits: specialisation, parallelism, separation of permissions. Costs: more tokens, latency, harder debugging, error propagation between agents.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 51)</p>
+<p>Orchestrate a workflow by breaking an outcome into steps, coordinating tools or specialised agents, passing information between them and handling failures — steps can be sequential or parallel (appointment-booking example). Add safeguards: access permissions, protected credentials, validated intermediate outputs and <strong>human review appropriate to the risk</strong> (a refund example used a human checkpoint before a consequential decision). <em>MCP and cloud IAM do not automatically secure data or prevent hallucinations.</em></p>
+</div>
+<h2 id="m12-workflow-automation"><span class="hnum">12.9</span> Workflow automation</h2>
+<p>Tools like <strong>n8n</strong>, Zapier or Make connect triggers and actions — often with AI steps inside a deterministic flow. This is frequently the right answer before a fully autonomous agent.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 25, 27)</p>
+<p>In n8n a <strong>trigger</strong> starts a workflow, nodes process data and actions write or notify. Start with a manual trigger and dummy data; inspect each node's output. For a website form: validate fields, remove sensitive fields, <strong>deduplicate using a submission ID</strong>, store in an approved destination, notify a test inbox. Add error handling, retry limits, idempotency, logs without secrets, owner alerts and <strong>an approval step before sending customer messages.</strong> Before automating an existing website, identify the owner and existing integrations, use a sandbox, test missing email, repeat events, timeouts and invalid signatures, and get <strong>explicit permission to activate.</strong> Release checklist: security review; privacy and consent; scoped credentials; duplicate protection; rate limits; monitoring; backup and rollback; cost owner.</p>
+</div>
+<figure class="viz" role="img" aria-label="Process: Trigger → Validate → Deduplicate → Act → Approve → Log &amp; alert"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Trigger</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Webhook from sandbox form (verify</tspan><tspan x="116.66666666666667" dy="11">signature)</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Validate</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Required fields; strip sensitive data</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Deduplicate</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Submission ID already seen? stop</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Act</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Create CRM record (test env)</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Approve</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Human approves customer-facing email</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Log &amp; alert</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Run log without secrets; owner alerted</tspan><tspan x="603.3333333333334" dy="11">on failure</tspan></text></svg><figcaption><strong>A safe automation (form → CRM → notify).</strong> Deterministic steps with one AI step (e.g., classify the enquiry) are easier to test and audit than a free-roaming agent.</figcaption></figure>
+<h2 id="m12-rag-enabled-agents"><span class="hnum">12.10</span> RAG-enabled agents</h2>
+<p>An agent can call retrieval as a tool: decide <em>whether</em> to search, <em>what</em> to search, and whether results suffice. Benefits: answers grounded in policy; can combine knowledge with account data. Risks: retrieved text may contain <strong>indirect prompt injection</strong>; permissions must filter what is retrievable for this user (Module 10).</p>
+<h2 id="m12-evaluation-and-observability-for-agents"><span class="hnum">12.11</span> Evaluation and observability for agents</h2>
+<p>Evaluate at three levels:</p>
+<ol>
+<li><strong>Outcome:</strong> did the task get done correctly? (task success rate, correct resolution)</li>
+<li><strong>Trajectory:</strong> were the steps sensible? (right tools, right order, no unnecessary or unsafe calls, number of steps)</li>
+<li><strong>Component:</strong> retrieval quality, tool-call argument accuracy, refusal/escalation correctness.</li>
+</ol>
+<p><strong>Observability:</strong> trace every run (prompts, tool calls, arguments, results, latency, tokens, costs, decisions); dashboards for success, escalation, errors, cost per task; sample reviews; alerting on anomalies (spikes in tool errors or refusals).</p>
+<h3 id="m12-reliability-compounds"><span class="hnum">12.11.1</span> Reliability compounds</h3>
+<div class="formula">P(task succeeds) ≈ p₁ × p₂ × … × pₙ   (if each step must succeed independently)</div>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example</p>
+<p>10 steps each 95% reliable → 0.95¹⁰ ≈ <strong>60%</strong> end-to-end. At 99% per step → 0.99¹⁰ ≈ <strong>90%</strong>. 20 steps at 98% → <strong>67%</strong>. Fewer steps, more reliable tools, verification checkpoints and recovery paths matter more than a slightly better model.</p>
+</div>
+<figure class="viz" role="img" aria-label="Bar chart: End-to-end success when every step must succeed (calculated)"><svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><line x1="64" y1="270.0" x2="700" y2="270.0" class="grid"/><text x="56" y="274.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">0%</tspan></text><line x1="64" y1="207.5" x2="700" y2="207.5" class="grid"/><text x="56" y="211.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">25%</tspan></text><line x1="64" y1="145.0" x2="700" y2="145.0" class="grid"/><text x="56" y="149.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">50%</tspan></text><line x1="64" y1="82.5" x2="700" y2="82.5" class="grid"/><text x="56" y="86.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">75%</tspan></text><line x1="64" y1="20.0" x2="700" y2="20.0" class="grid"/><text x="56" y="24.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">100%</tspan></text><rect x="120.5" y="122.5" width="43.0" height="147.5" rx="3" fill="var(--c1)"/><text x="142.0" y="117.5" class="small b" text-anchor="middle"><tspan x="142.0" dy="0">59%</tspan></text><text x="143.5" y="288" class="small" text-anchor="middle"><tspan x="143.5" dy="0">5 steps @ 90%</tspan></text><rect x="279.5" y="120.2" width="43.0" height="149.8" rx="3" fill="var(--c1)"/><text x="301.0" y="115.25" class="small b" text-anchor="middle"><tspan x="301.0" dy="0">59.9%</tspan></text><text x="302.5" y="288" class="small" text-anchor="middle"><tspan x="302.5" dy="0">10 steps @ 95%</tspan></text><rect x="438.5" y="103.0" width="43.0" height="167.0" rx="3" fill="var(--c1)"/><text x="460.0" y="98.0" class="small b" text-anchor="middle"><tspan x="460.0" dy="0">66.8%</tspan></text><text x="461.5" y="288" class="small" text-anchor="middle"><tspan x="461.5" dy="0">20 steps @ 98%</tspan></text><rect x="597.5" y="44.0" width="43.0" height="226.0" rx="3" fill="var(--c1)"/><text x="619.0" y="39.0" class="small b" text-anchor="middle"><tspan x="619.0" dy="0">90.4%</tspan></text><text x="620.5" y="288" class="small" text-anchor="middle"><tspan x="620.5" dy="0">10 steps @ 99%</tspan></text><line x1="64" y1="270" x2="700" y2="270" class="axis"/></svg><figcaption><strong>End-to-end success when every step must succeed (calculated).</strong> Computed as per-step reliability raised to the number of steps (assumes independent steps without retries). Retries and verification can raise these figures; extra steps lower them.</figcaption></figure>
+<h2 id="m12-human-approval-checkpoints-guardrails-and-permission-boundaries"><span class="hnum">12.12</span> Human approval checkpoints, guardrails and permission boundaries</h2>
+<ul>
+<li><strong>Approval checkpoints:</strong> before money moves, account details change, messages go to customers, or irreversible actions happen. Show the reviewer <em>what will happen, why, and the evidence</em>.</li>
+<li><strong>Guardrails:</strong> input filters (PII, abuse, injection patterns), output filters (policy compliance, PII leakage), schema validation, allow-lists of actions, spending/time/step limits, rate limits, kill switch.</li>
+<li><strong>Permission boundaries:</strong> least privilege per tool; scoped tokens; per-user authorisation enforced by the backend; separate read and write credentials; sandbox and test environments for development.</li>
+</ul>
+<h2 id="m12-agent-security-and-prompt-injection"><span class="hnum">12.13</span> Agent security and prompt injection</h2>
+<p><strong>Prompt injection</strong> is when untrusted text (a customer message, a web page, an email, a document) contains instructions that hijack the agent. <strong>Indirect injection</strong> hides them in content the agent retrieves.</p>
+<p>The most dangerous combination — described by security researcher Simon Willison as the “lethal trifecta” — is an agent with <strong>(1) access to private data, (2) exposure to untrusted content, and (3) the ability to communicate externally</strong>. Remove at least one leg for sensitive workflows.</p>
+<figure class="viz canvas-fig" role="group" aria-label="Prompt-injection defences (layered)"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Limit capability</h5><ul><li>Least-privilege tools</li><li>No external send without approval</li><li>Separate agents for untrusted content</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Isolate untrusted text</h5><ul><li>Delimit and label as data</li><li>Never treat retrieved text as instructions</li><li>Strip hidden/markup instructions</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Validate actions</h5><ul><li>Allow-lists and schemas</li><li>Policy checks before execution</li><li>Human approval for consequential actions</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Detect &amp; monitor</h5><ul><li>Injection classifiers (imperfect)</li><li>Anomaly alerts on tool use</li><li>Red-team regularly</li></ul></div><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>Contain damage</h5><ul><li>Scoped, short-lived tokens</li><li>Idempotent, reversible actions</li><li>Audit logs</li></ul></div><div class="cv tone-n" style="grid-column:span 1;grid-row:span 1"><h5>Test</h5><ul><li>Adversarial eval cases in every release</li><li>Include indirect injection via documents and emails</li></ul></div></div><figcaption><strong>Prompt-injection defences (layered).</strong> No single defence is sufficient; prompt injection is not fully solved. Design so that a successful injection cannot cause serious harm.</figcaption></figure>
+<h2 id="m12-latency-and-operating-costs"><span class="hnum">12.14</span> Latency and operating costs</h2>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example (hypothetical prices: $3/M input, $15/M output tokens)</p>
+<p>An agent resolves a task in 8 model steps; context grows, averaging 4,000 input tokens per step and 300 output tokens.
+Tokens: 32,000 input, 2,400 output → cost = 32,000 × 3/1M + 2,400 × 15/1M = $0.096 + $0.036 = <strong>$0.132 per task</strong> — about <strong>12×</strong> the single-call answer from Module 10 ($0.0105).
+Latency: 8 × (1.5 s model + 0.5 s tool) ≈ <strong>16 s</strong>. Users tolerate this for background tasks (with progress updates) but not for chat replies. Levers: fewer steps, smaller models for routing, caching, parallel tool calls, summarising context, and setting a step budget.</p>
+</div>
+<h2 id="m12-failure-recovery"><span class="hnum">12.15</span> Failure recovery</h2>
+<ul>
+<li><strong>Retries with back-off</strong> for transient errors; <strong>idempotency keys</strong> so retries don't duplicate actions.</li>
+<li><strong>Checkpoints and state</strong> so a long task resumes rather than restarts.</li>
+<li><strong>Timeouts and step budgets</strong> to stop runaway loops.</li>
+<li><strong>Compensating actions / rollback</strong> for multi-step changes (e.g., reverse a hold if a later step fails).</li>
+<li><strong>Graceful handoff</strong> to a human with full context when the agent is stuck.</li>
+<li><strong>Post-incident review</strong> feeding new eval cases.</li>
+</ul>
+<h2 id="m12-agentic-product-design"><span class="hnum">12.16</span> Agentic product design</h2>
+<p>Design for <strong>trust and control</strong>:</p>
+<ul>
+<li><strong>Transparency:</strong> show what the agent is doing (“Checking your last 3 transactions…”), what it used (sources), and what it will do next.</li>
+<li><strong>Control:</strong> preview and approve; easy cancel; undo where possible.</li>
+<li><strong>Scoping:</strong> tell users what it can and cannot do.</li>
+<li><strong>Progressive autonomy:</strong> start with suggestions, earn the right to act.</li>
+<li><strong>Feedback loops:</strong> thumbs, corrections, and escalation feed evaluation.</li>
+<li><strong>Accessibility and inclusion:</strong> multiple languages, clear wording, alternative channels.</li>
+</ul>
+<h2 id="m12-ai-automation-opportunities-in-finance"><span class="hnum">12.17</span> AI automation opportunities in finance</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Example opportunity</th>
+<th>Typical autonomy</th>
+<th>Key risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer support</td>
+<td>Answer FAQs, card status, statement help</td>
+<td>L2–L3</td>
+<td>Wrong policy answer; data leakage</td>
+</tr>
+<tr>
+<td>Disputes / chargebacks</td>
+<td>Gather evidence, draft case</td>
+<td>L1–L2</td>
+<td>Regulatory deadlines; fairness</td>
+</tr>
+<tr>
+<td>KYC / onboarding</td>
+<td>Document data extraction, completeness checks</td>
+<td>L1–L2</td>
+<td>Bias, false rejections</td>
+</tr>
+<tr>
+<td>Collections / hardship</td>
+<td>Identify hardship signals, offer options</td>
+<td>L1–L2</td>
+<td>Consumer-protection obligations</td>
+</tr>
+<tr>
+<td>Fraud operations</td>
+<td>Summarise alerts, propose actions</td>
+<td>L1–L2</td>
+<td>False positives freezing accounts</td>
+</tr>
+<tr>
+<td>Finance back office</td>
+<td>Reconciliation, invoice matching (maker–checker)</td>
+<td>L2–L3</td>
+<td>Payment errors</td>
+</tr>
+<tr>
+<td>Internal knowledge</td>
+<td>Policy Q&amp;A for agents</td>
+<td>L0–L1</td>
+<td>Outdated policy</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 55)</p>
+<p>A logistics-document OCR prototype proposed extracting invoice, transport and tax fields, matching documents and flagging missing items with <strong>maker–checker review</strong>; a pilot should measure field accuracy, reconciliation errors and ROI. <em>Stated cost, savings and accuracy claims were projections, not established facts.</em></p>
+</div>
+<h2 id="m12-ai-product-roadmaps-and-agentic-business-models"><span class="hnum">12.18</span> AI product roadmaps and agentic business models</h2>
+<p><strong>Roadmap shape:</strong> (1) internal copilot for staff (L0–L1) → (2) customer self-service for low-risk intents with RAG (L2) → (3) transactional actions within limits with approvals (L3) → (4) proactive agents (alerts, nudges) once trust and monitoring are proven. Each stage has evaluation gates.</p>
+<p><strong>Business models:</strong> per-seat (copilots), <strong>usage-based</strong> (per task/token), <strong>outcome-based</strong> (per resolved conversation or per successful action), tiered bundles. Outcome pricing aligns value but requires agreed definitions of “resolved” and robust measurement. Internally, ROI = (cost per human-handled contact − cost per AI-resolved contact) × resolved volume − platform and oversight costs — <em>including</em> the cost of errors.</p>
+<hr />
+<h2 id="m12-case-study-ai-powered-customer-support-assistant-for-a-card-issuer-hypothetical"><span class="hnum">12.19</span> Case study: AI-powered customer-support assistant for a card issuer (hypothetical)</h2>
+<h3 id="m12-business-background"><span class="hnum">12.19.1</span> Business background</h3>
+<p>A mid-sized (fictional) card issuer serves ~2 million cardholders through app chat, phone and email. Contact volume rises during sale seasons; customers wait long for simple answers (card block, statements, fees), while complex cases (disputes, fraud, hardship) need skilled agents.</p>
+<h3 id="m12-target-users"><span class="hnum">12.19.2</span> Target users</h3>
+<ul>
+<li><strong>Cardholders</strong> seeking fast answers and simple actions.</li>
+<li><strong>Support agents</strong> handling complex and sensitive cases.</li>
+<li><strong>Operations/compliance teams</strong> who own policy and audit.</li>
+</ul>
+<h3 id="m12-customer-problem"><span class="hnum">12.19.3</span> Customer problem</h3>
+<p>Customers wait for answers to simple questions and must repeat information when transferred. Agents spend time on routine queries and copying data between systems.</p>
+<h3 id="m12-business-objective"><span class="hnum">12.19.4</span> Business objective</h3>
+<p>Reduce cost per contact and wait times <strong>without</strong> increasing complaints, errors or compliance breaches.</p>
+<h3 id="m12-available-evidence-hypothetical"><span class="hnum">12.19.5</span> Available evidence (hypothetical)</h3>
+<ul>
+<li>Contact reasons for the last quarter (ticket tags): card block/unblock 14%, statement and fees 21%, payment status 12%, rewards 8%, disputes 9%, fraud 6%, hardship 3%, other 27%.</li>
+<li>Median chat wait 11 minutes at peak; 34% of chats transferred at least once.</li>
+<li>Policy documents exist but are inconsistent in places.</li>
+</ul>
+<h3 id="m12-assumptions-to-test"><span class="hnum">12.19.6</span> Assumptions to test</h3>
+<ol>
+<li>≥ 40% of contacts are low-risk informational intents answerable from policy + read-only account data.</li>
+<li>Customers will accept an AI answer if it is fast, cited and offers a human.</li>
+<li>The assistant can recognise high-risk intents (disputes, fraud, hardship) reliably enough to route them.</li>
+</ol>
+<h3 id="m12-product-hypothesis"><span class="hnum">12.19.7</span> Product hypothesis</h3>
+<p><em>We believe an assistant that answers low-risk intents from approved policies and read-only account data, and routes high-risk intents to agents with a summary, will cut median wait time by 50% and resolve 35% of chats without an agent, while keeping CSAT and complaint rates at or better than baseline.</em></p>
+<h3 id="m12-user-journey-target-state"><span class="hnum">12.19.8</span> User journey (target state)</h3>
+<figure class="viz" role="img" aria-label="Process: Authenticate → Ask → Understand → Answer or route → Act (with approval) → Close"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Authenticate</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">In-app session; identity already</tspan><tspan x="116.66666666666667" dy="11">verified</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Ask</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">“Why was I charged a fee?”</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Understand</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Intent + risk classified</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Answer or route</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Low risk: answer with citation and</tspan><tspan x="116.66666666666667" dy="11">account facts. High risk: handoff</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Act (with approval)</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">e.g., temporary card block after</tspan><tspan x="360.0" dy="11">explicit confirmation</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Close</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Confirm resolved; rate; option to</tspan><tspan x="603.3333333333334" dy="11">reach a human</tspan></text></svg><figcaption><strong>Target customer journey.</strong> Every step has an exit to a human agent with a summary, so the customer never repeats themselves.</figcaption></figure>
+<h3 id="m12-candidate-solutions"><span class="hnum">12.19.9</span> Candidate solutions</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A · Better FAQ search</td>
+<td>Improve help-centre search</td>
+<td>Cheap, safe</td>
+<td>Doesn't use account context; low resolution</td>
+</tr>
+<tr>
+<td>B · RAG assistant (read-only)</td>
+<td>Answers from policy + read-only account data; routes high risk</td>
+<td>Strong value, controllable</td>
+<td>Needs eval, permissioning</td>
+</tr>
+<tr>
+<td>C · Agent with actions</td>
+<td>B + actions (card block, address change, refunds under threshold)</td>
+<td>Highest resolution</td>
+<td>Higher risk; approvals needed</td>
+</tr>
+<tr>
+<td>D · Agent copilot for staff</td>
+<td>Drafts replies, summaries for agents</td>
+<td>Low risk; fast ROI</td>
+<td>Doesn't reduce customer wait directly</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m12-prioritisation"><span class="hnum">12.19.10</span> Prioritisation</h3>
+<p>Using a weighted score (value 35%, risk 25% inverse, feasibility 20%, time-to-value 20%), the team picks <strong>D + B</strong> first: the copilot builds evaluation data and agent trust; the read-only assistant addresses wait times. <strong>C</strong> follows with one low-risk action (temporary card block, reversible) behind explicit confirmation.</p>
+<h3 id="m12-mvp"><span class="hnum">12.19.11</span> MVP</h3>
+<ul>
+<li>Channels: in-app chat for authenticated customers in one language.</li>
+<li>Intents: card status/block (read-only status), statement location, fee explanations, rewards balance — <strong>answer</strong>; disputes, fraud, hardship, complaints — <strong>route with summary</strong>; off-topic financial advice — <strong>refuse politely</strong>.</li>
+<li>Grounding: approved policy pages via RAG with citations; account facts via read-only tools.</li>
+<li>Controls: permission-aware retrieval; no external sends; PII redaction in logs; human handoff button always visible; kill switch.</li>
+<li>Pilot: 5% of eligible chats for 4 weeks; agents review a daily sample.</li>
+</ul>
+<h3 id="m12-kpis"><span class="hnum">12.19.12</span> KPIs</h3>
+<ul>
+<li><strong>Primary:</strong> containment / self-service resolution rate (resolved without agent, no repeat contact in 7 days).</li>
+<li><strong>Customer:</strong> median time to answer; CSAT for bot-handled chats; complaint rate.</li>
+<li><strong>Quality &amp; safety:</strong> policy accuracy on sampled answers; correct routing of high-risk intents (target ≥ 98%); PII-leak incidents (target 0); injection success on red-team set (target 0).</li>
+<li><strong>Operational:</strong> agent handle time for routed chats (summary benefit); cost per resolved contact.</li>
+</ul>
+<h3 id="m12-risks-and-constraints"><span class="hnum">12.19.13</span> Risks and constraints</h3>
+<p>Regulatory obligations (complaints handling, disputes timelines, fair treatment, data protection); hallucinated policy; mis-routing vulnerable customers; prompt injection via customer messages; authentication and authorisation bugs; model/vendor changes; inconsistent policy sources; language and accessibility gaps.</p>
+<h3 id="m12-experiment-plan"><span class="hnum">12.19.14</span> Experiment plan</h3>
+<ol>
+<li><strong>Offline eval</strong> on 60+ curated cases (see <code>datasets/support_eval_set.csv</code>) plus 500 anonymised historical chats labelled by agents; launch gate: routing accuracy ≥ 98% on high-risk intents and zero severity-1 failures.</li>
+<li><strong>Agent copilot pilot</strong> (2 weeks) to compare handle time and agent satisfaction.</li>
+<li><strong>Customer pilot:</strong> randomised 5% of eligible chats vs control (current flow), 4 weeks; guardrails reviewed daily.</li>
+<li><strong>Decision review</strong> with compliance and support leadership.</li>
+</ol>
+<h3 id="m12-example-metrics-hypothetical-pilot-readout"><span class="hnum">12.19.15</span> Example metrics (hypothetical pilot readout)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Control</th>
+<th style="text-align: right;">Assistant</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Median time to first answer</td>
+<td style="text-align: right;">11 min</td>
+<td style="text-align: right;">0.3 min</td>
+<td>Low-risk intents</td>
+</tr>
+<tr>
+<td>Self-service resolution</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">33%</td>
+<td>Of all assistant chats</td>
+</tr>
+<tr>
+<td>CSAT (1–5)</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">4.0</td>
+<td>Difference not statistically tested in this readout</td>
+</tr>
+<tr>
+<td>High-risk intents routed correctly</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">97.6%</td>
+<td>Below 98% target → fix before scale</td>
+</tr>
+<tr>
+<td>Complaints per 1,000 chats</td>
+<td style="text-align: right;">6.1</td>
+<td style="text-align: right;">6.4</td>
+<td>Watch; investigate tags</td>
+</tr>
+<tr>
+<td>PII incidents</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="viz" role="img" aria-label="Bar chart: Pilot readout — selected metrics vs targets (hypothetical)"><svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><line x1="64" y1="270.0" x2="700" y2="270.0" class="grid"/><text x="56" y="274.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">0%</tspan></text><line x1="64" y1="207.5" x2="700" y2="207.5" class="grid"/><text x="56" y="211.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">25%</tspan></text><line x1="64" y1="145.0" x2="700" y2="145.0" class="grid"/><text x="56" y="149.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">50%</tspan></text><line x1="64" y1="82.5" x2="700" y2="82.5" class="grid"/><text x="56" y="86.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">75%</tspan></text><line x1="64" y1="20.0" x2="700" y2="20.0" class="grid"/><text x="56" y="24.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">100%</tspan></text><rect x="147.0" y="187.5" width="43.0" height="82.5" rx="3" fill="var(--c1)"/><text x="168.5" y="182.5" class="small b" text-anchor="middle"><tspan x="168.5" dy="0">33%</tspan></text><text x="170.0" y="288" class="small" text-anchor="middle"><tspan x="170.0" dy="0">Self-service resolution</tspan></text><rect x="359.0" y="26.0" width="43.0" height="244.0" rx="3" fill="var(--c1)"/><text x="380.5" y="21.0" class="small b" text-anchor="middle"><tspan x="380.5" dy="0">97.6%</tspan></text><text x="382.0" y="288" class="small" text-anchor="middle"><tspan x="382.0" dy="0">High-risk routing accuracy</tspan></text><rect x="571.0" y="25.0" width="43.0" height="245.0" rx="3" fill="var(--c1)"/><text x="592.5" y="20.0" class="small b" text-anchor="middle"><tspan x="592.5" dy="0">98%</tspan></text><text x="594.0" y="288" class="small" text-anchor="middle"><tspan x="594.0" dy="0">Target: routing</tspan></text><line x1="64" y1="270" x2="700" y2="270" class="axis"/></svg><figcaption><strong>Pilot readout — selected metrics vs targets (hypothetical).</strong> Hypothetical. Resolution is near the 35% hypothesis; routing accuracy misses its launch gate, so scaling waits for fixes.</figcaption></figure>
+<h3 id="m12-product-recommendation"><span class="hnum">12.19.16</span> Product recommendation</h3>
+<p>Do <strong>not</strong> scale yet. Fix routing misses (most involved hardship language such as “I can't pay”), add those phrasings to the eval set, investigate the complaint increase, then extend to 20% of traffic. Begin design of the first action (temporary card block) with explicit confirmation and a reversal path.</p>
+<h3 id="m12-potential-outcomes"><span class="hnum">12.19.17</span> Potential outcomes</h3>
+<ul>
+<li><strong>Best case:</strong> 35–40% resolution, wait times collapse for simple queries, agents focus on complex cases.</li>
+<li><strong>Base case:</strong> 25–30% resolution with strong agent-copilot gains.</li>
+<li><strong>Worst case:</strong> policy errors or mis-routing cause complaints/regulatory exposure → kill switch, revert to copilot-only.</li>
+</ul>
+<h3 id="m12-key-pm-lessons"><span class="hnum">12.19.18</span> Key PM lessons</h3>
+<ol>
+<li>Start with <strong>assistive, read-only</strong> capabilities and earn autonomy.</li>
+<li><strong>Routing high-risk intents</strong> is a launch-blocking capability, not a nice-to-have.</li>
+<li><strong>Evaluation sets and severity weighting</strong> drive decisions — not demos.</li>
+<li><strong>Permissions live in the backend</strong>, never in the prompt.</li>
+<li>Measure <strong>customer outcomes and safety</strong>, not just containment.</li>
+</ol>
+<hr />
+<h2 id="m12-exercises-with-model-answers"><span class="hnum">12.20</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Agent or workflow?</p>
+<p>“When a customer uploads an invoice, extract fields, check against the PO, and post to the ERP if matched; otherwise send to finance.” Agent or workflow? Why?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>A <strong>workflow</strong> with one AI step (field extraction): the path is known and auditable; matching and posting are deterministic rules. Add maker–checker review for exceptions and an approval for postings above a threshold. An agent adds unpredictability without benefit here.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · Design approval checkpoints</p>
+<p>An agent can issue refunds. Define thresholds and approvals.</p>
+</div>
+<details class="answer">
+<summary>Model answer (example)</summary>
+<p>Auto-approve refunds ≤ ₹500 when policy criteria are met and the customer has no recent refunds; require agent approval for ₹500–₹5,000 or any repeat refund in 30 days; require supervisor approval above ₹5,000. All refunds idempotent (refund ID), logged with evidence, reversible within policy, and sampled weekly for audit. Kill switch if refund rate exceeds a daily threshold.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 3 · Lethal trifecta</p>
+<p>Your email-triage agent reads external emails, can search internal customer records, and can send emails. What's the risk and how do you redesign it?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>It has all three legs: untrusted content, private data and external communication — an injected email could make it exfiltrate customer data. Redesign: remove autonomous sending (drafts only, human sends), or split into a reader agent with no data access and a separate drafting step with read access but no sending; restrict searchable fields; add injection tests.</p>
+</details>
+<h2 id="m12-interview-perspective"><span class="hnum">12.21</span> Interview perspective</h2>
+<details class="question">
+<summary>“Design an AI agent for customer support at a bank.” — structure</summary>
+<p>Clarify goals and constraints (regulation, channels, languages) → segment intents by risk → choose autonomy per intent (answer, route, act with approval) → architecture (RAG + read-only tools + approvals, permission-aware) → evaluation plan (offline set, severity, red-team, pilot A/B) → metrics (resolution, CSAT, routing accuracy, safety incidents, cost) → rollout and governance (kill switch, audits). <em>Mistakes:</em> full autonomy on day one; ignoring vulnerable-customer routing; trusting the model with access control.</p>
+</details>
+<details class="question">
+<summary>“How do you evaluate an agent?” — 60-second answer</summary>
+<p>“At three levels. Outcome — did it complete the task correctly, measured on a curated test set and in a controlled pilot. Trajectory — did it use the right tools in a sensible order without unsafe or wasted steps, which I check from traces. Components — retrieval quality, tool-argument accuracy, routing and refusals. I weight failures by severity, red-team for prompt injection, and re-run the suite on every model, prompt or tool change. In production I trace every run and sample reviews weekly.”</p>
+</details>
+<h2 id="m12-key-takeaways"><span class="hnum">12.22</span> Key takeaways</h2>
+<ul>
+<li>Prefer <strong>workflows</strong> to agents unless the path genuinely varies; add autonomy <strong>gradually</strong> with evidence.</li>
+<li>Agents = model + tools + memory + control loop + <strong>guardrails</strong>; enforce permissions in the backend.</li>
+<li><strong>Reliability compounds</strong> across steps; reduce steps, add verification and recovery.</li>
+<li>Defend against <strong>prompt injection</strong> in layers; avoid the private-data + untrusted-content + external-action combination.</li>
+<li>Evaluate <strong>outcomes, trajectories and components</strong>; trace everything.</li>
+<li>Agent costs and latency are multiples of single calls — <strong>budget steps.</strong></li>
+</ul>
+<h2 id="m12-check-your-understanding"><span class="hnum">12.23</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m12"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">What most distinguishes an agent from a fixed workflow?</p><ol><li class="">It uses an LLM</li><li class="is-correct">It chooses its next steps at run time based on results</li><li class="">It has a chat interface</li><li class="">It never needs humans</li></ol><div class="why"><strong>Why:</strong> Workflows follow predefined paths; agents decide steps dynamically within limits.</div></div><div class="qitem" data-correct="2"><p class="q">10 steps at 95% reliability each give end-to-end success of about…</p><ol><li class="">95%</li><li class="">90%</li><li class="is-correct">60%</li><li class="">50%</li></ol><div class="why"><strong>Why:</strong> 0.95^10 ≈ 0.60 when each step must succeed independently.</div></div><div class="qitem" data-correct="0"><p class="q">Which combination creates the highest prompt-injection risk?</p><ol><li class="is-correct">Private data + untrusted content + ability to communicate externally</li><li class="">Read-only FAQ + no tools</li><li class="">Offline batch job</li><li class="">Human-only workflow</li></ol><div class="why"><strong>Why:</strong> Together they allow injected instructions to exfiltrate data.</div></div><div class="qitem" data-correct="1"><p class="q">Where should a customer&#x27;s permission to see an account be enforced?</p><ol><li class="">In the system prompt</li><li class="is-correct">In the backend tool/API authorisation</li><li class="">By the model&#x27;s judgement</li><li class="">In the UI only</li></ol><div class="why"><strong>Why:</strong> Authorisation must be enforced by systems, not by model instructions.</div></div><div class="qitem" data-correct="1"><p class="q">MCP is best described as…</p><ol><li class="">A security product that makes integrations safe</li><li class="is-correct">A standard protocol for connecting AI apps to tools and resources</li><li class="">A replacement for all APIs</li><li class="">A model</li></ol><div class="why"><strong>Why:</strong> MCP standardises connections; permissions and security still have to be designed.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m12-recommended-resources"><span class="hnum">12.24</span> Recommended resources</h2>
+<ul>
+<li><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic: Building effective agents</a> (from your course references).</li>
+<li><a href="https://modelcontextprotocol.io/introduction">Model Context Protocol: Introduction</a> (course reference).</li>
+<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP Top 10 for LLM Applications</a>.</li>
+<li><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Simon Willison: The lethal trifecta for AI agents</a>.</li>
+<li><a href="https://docs.n8n.io/build-your-first-workflow/">n8n: Build your first workflow</a> (course reference).</li>
+<li><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework</a>.</li>
+</ul><div class="modnav"><a href="m11.html"><small>← Previous</small>Module 11: Vibe Coding for Product Managers</a><a href="m13.html"><small>Next →</small>Module 13: AI Tools Landscape and Your Starter Stack</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>
