@@ -46,6 +46,7 @@ const SN = (function () {
   }
 
   async function signOut() {
+    try { localStorage.removeItem("sn_admin"); } catch {}
     if (client) await client.auth.signOut();
     location.href = "login.html";
   }

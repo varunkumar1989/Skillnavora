@@ -8,7 +8,10 @@
   const get = k => { try { return localStorage.getItem(k); } catch { return null; } }, set = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
   // Arriving from skillnavora.in with details already given (the handbook site is on another address)
   try { if (/[?&]sn=1\b/.test(location.search)) set(KEY, get(KEY) || JSON.stringify({ t: Date.now(), via: "link" })); } catch {}
-  const has = () => !!get(KEY);
+  // Signed-in admins (flag set by the admin panel, cleared on sign-out) skip the form and are not counted as visitors.
+  const isAdmin = () => { try { const a = JSON.parse(get("sn_admin") || "null"); return !!a && Date.now() - a.t < 30 * 864e5; } catch { return false; } };
+  const has = () => isAdmin() || !!get(KEY);
+  if (isAdmin()) document.addEventListener("DOMContentLoaded", () => { const b = document.createElement("div"); b.textContent = "Admin view · details form off"; b.setAttribute("style", "position:fixed;left:12px;bottom:12px;z-index:9998;background:#17614F;color:#fff;font:600 12px/1 system-ui,sans-serif;padding:7px 11px;border-radius:999px;opacity:.9;pointer-events:none"); document.body.appendChild(b); });
   const SKIP = /^(mailto:|tel:|javascript:|#)/i;
 
   const gated = a => {

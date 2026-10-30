@@ -739,7 +739,7 @@ admin = f"""<div class="lms-head"><div class="wrap"><div><div class="kicker" sty
     <div class="tabs" role="tablist">
       <button role="tab" data-tab="overview">Overview</button><button role="tab" data-tab="students">Students</button><button role="tab" data-tab="enrol">Enrolments</button><button role="tab" data-tab="materials">Course materials</button>
       <button role="tab" data-tab="subs">Submissions<span class="n" id="n-subs" hidden></span></button><button role="tab" data-tab="events">Events</button>
-      <button role="tab" data-tab="apps">Applications<span class="n" id="n-apps" hidden></span></button><button role="tab" data-tab="reqs">Requests<span class="n" id="n-reqs" hidden></span></button><button role="tab" data-tab="jobs">Job board</button><button role="tab" data-tab="news">Announcements</button><button role="tab" data-tab="admins">Admins</button>
+      <button role="tab" data-tab="apps">Applications<span class="n" id="n-apps" hidden></span></button><button role="tab" data-tab="reqs">Requests<span class="n" id="n-reqs" hidden></span></button><button role="tab" data-tab="jobs">Job board</button><button role="tab" data-tab="news">Announcements</button><button role="tab" data-tab="admins">Admins</button><button role="tab" data-tab="health">Site check</button>
     </div>
     <div class="panel" id="p-overview">
       <div class="statrow"><div class="card stat"><small>Students</small><b id="o-students">0</b></div><div class="card stat"><small>Enrolments</small><b id="o-enr">0</b></div><div class="card stat"><small>Awaiting review</small><b id="o-waiting">0</b></div><div class="card stat"><small>Open requests</small><b id="o-open">0</b></div><div class="card stat"><small>New applications</small><b id="o-apps">0</b></div></div>
@@ -776,8 +776,21 @@ admin = f"""<div class="lms-head"><div class="wrap"><div><div class="kicker" sty
     <div class="panel" id="p-admins" hidden><div class="dgrid"><div class="card"><h3 class="h3s">Give or remove admin access</h3><p class="meta" style="margin:-6px 0 14px">Admins can see every student's details and work.</p>
       <form id="f-role" class="form"><label>Their account email<input name="email" type="email" required></label><label>Make them<select name="role"><option value="admin">Admin</option><option value="student">Student (remove admin)</option></select></label><button class="btn btn-primary" type="submit">Save</button><p id="role-msg" class="notice" hidden role="status"></p></form></div>
       <div><h3 class="h3s">Current admins</h3><div class="list" id="adm-list"></div></div></div></div>
+    <div class="panel" id="p-health" hidden><div class="card"><h3 class="h3s">Site check</h3>
+      <p class="meta" style="margin:-6px 0 14px">Tests every page, handbook PDF, class file and form on skillnavora.in from your browser, and counts handbook visitors. While you are signed in as an admin, the visitor details form is skipped for you on every page, so your own visits are not counted. Visitors still fill it once.</p>
+      <div class="acts" style="margin-bottom:14px"><button class="btn btn-primary btn-sm" type="button" id="hc-run">Run site check</button></div>
+      <div id="hc-sum" class="dgrid"></div><div class="list" id="hc-list" style="margin-top:14px"></div>
+      <script type="application/json" id="hc-urls">{{HEALTH_URLS}}</script></div></div>
   </div>
 </div></section>"""
+def _health_urls():
+    import glob as _g, json as _js
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    pages = ["index.html", "programs.html", "resources.html", "handbooks/index.html", "handbooks/pm/index.html", "data-science/index.html", "lms.html", "jobs.html", "blogs.html", "contact.html", "program/ai-data-engineering.html", "program/genai-launchpad.html", "program/ai-product-management.html"]
+    pages += sorted(os.path.relpath(f, root) for f in _g.glob(root + "/data-science/lessons/*.html"))
+    files = sorted(os.path.relpath(f, root) for pat in ("handbook/*.pdf", "handbooks/genai/*.pdf", "brochures/*.pdf", "classes/*.pdf", "data-science/pdf/**/*.pdf", "data-science/files/**/*.xlsx", "data-science/datasets/**/*.csv") for f in _g.glob(root + "/" + pat, recursive=True))
+    return _js.dumps({"pages": pages, "files": files}).replace("</", "<\\/")
+admin = admin.replace("{HEALTH_URLS}", _health_urls())
 page("admin.html", "Admin · SkillNavora", "SkillNavora admin panel.", admin, "admin.html", '<script src="{r}assets/content.js"></script>' + SB + '<script src="{r}assets/admin.js"></script>', noindex=True, wa=False, app=True)
 
 # ================================================================ APPLY + JOB BOARD

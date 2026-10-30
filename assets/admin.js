@@ -8,6 +8,8 @@
   if (!s) return location.replace("login.html?next=admin.html");
   document.querySelectorAll("[data-signout]").forEach(b => b.addEventListener("click", SN.signOut));
   const { data: isAdmin, error: adminErr } = await client.rpc("is_admin");
+  // Admins skip the visitor details form everywhere on this site (the gate scripts read this flag).
+  try { if (isAdmin) localStorage.setItem("sn_admin", JSON.stringify({ t: Date.now(), email: (s.user && s.user.email) || "" })); else localStorage.removeItem("sn_admin"); } catch {}
   if (!isAdmin) {
     // Show which account is signed in, and the exact SQL that makes it an admin.
     const email = (s.user && s.user.email) || "";
@@ -32,6 +34,28 @@
   const tabs = document.querySelectorAll("[data-tab]");
   const openTab = n => { tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.tab === n)); document.querySelectorAll(".panel").forEach(p => p.hidden = p.id !== "p-" + n); };
   tabs.forEach(t => t.addEventListener("click", () => openTab(t.dataset.tab)));
+
+  // Site check: request every page and file, and count handbook visitors.
+  $("hc-run") && $("hc-run").addEventListener("click", async () => {
+    const btn = $("hc-run"); btn.disabled = true; btn.textContent = "Checking…";
+    const urls = JSON.parse($("hc-urls").textContent), base = location.href.replace(/[^/]*$/, "");
+    const check = async u => { try { const r = await fetch(base + u, { method: "HEAD", cache: "no-store" }); return { u, ok: r.ok, code: r.status }; } catch (e) { return { u, ok: false, code: "network" }; } };
+    const pool = async list => { const out = []; let i = 0; await Promise.all(Array.from({ length: 8 }, async () => { while (i < list.length) { const u = list[i++]; out.push(await check(u)); } })); return out; };
+    const [pages, files] = [await pool(urls.pages), await pool(urls.files)];
+    let lead = { ok: false, code: "" };
+    try { const r = await fetch(base + "api/lead", { method: "OPTIONS" }); lead = { ok: r.status < 500, code: r.status }; } catch (e) { lead = { ok: false, code: "network" }; }
+    const db = await client.from("applications").select("kind, created_at").eq("kind", "resource").order("created_at", { ascending: false }).limit(5000);
+    const week = Date.now() - 7 * 864e5, vis = db.data || [];
+    const card = (t, v, good) => `<div class="card"><div class="meta">${esc(t)}</div><div style="font-size:26px;font-weight:700">${esc(v)}</div><span class="chip ${good ? "good" : "warn"}">${good ? "Working" : "Needs attention"}</span></div>`;
+    const bad = [...pages, ...files].filter(x => !x.ok);
+    $("hc-sum").innerHTML = card("Pages", `${pages.filter(x => x.ok).length} / ${pages.length}`, pages.every(x => x.ok)) +
+      card("PDFs, workbooks and datasets", `${files.filter(x => x.ok).length} / ${files.length}`, files.every(x => x.ok)) +
+      card("Visitor form (api/lead)", lead.ok ? "Reachable" : "Not reachable", lead.ok) +
+      card("Handbook visitors", db.error ? "Database refused" : `${vis.length} total · ${vis.filter(v => new Date(v.created_at) > week).length} this week`, !db.error);
+    $("hc-list").innerHTML = bad.length ? bad.map(x => `<div class="item"><b>${esc(x.u)}</b> <span class="chip warn">${esc(String(x.code))}</span></div>`).join("")
+      : `<div class="item">Every page and file opened. ${db.error ? "Visitors cannot be counted yet: run the 'resource' line from supabase/schema.sql in the Supabase SQL editor." : ""}</div>`;
+    btn.disabled = false; btn.textContent = "Run site check again";
+  });
 
   let people = {}, enr = [], prog = [], subs = [], reqs = [], events = [], regs = [], mats = [], news = [], apps = [], jobs = [];
   const who = id => people[id] ? (people[id].full_name || people[id].email) : "Unknown";
