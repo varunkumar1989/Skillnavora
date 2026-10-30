@@ -20,6 +20,7 @@ UPSKILL = [("quiz.html", "Quiz zone", "Test yourself with quick quizzes", '<circ
            ("practice.html", "Practice with AI", "Mock interview questions with AI feedback", '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>'),
            ("events.html", "Events", "Free live sessions, workshops and masterclasses", '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'),
            ("", "Resources & AI tools", "", ""),
+           ("resources.html", "Resources & AI tools", "All handbooks, PDFs, AI tools and useful links in four tabs", '<path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/>'),
            ("handbooks/index.html", "SkillNavora Handbooks", "Data Science, Tableau, GenAI, DSA and PM handbooks with every PDF", '<path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/>'),
            ("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>'),
            ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>'),
@@ -347,7 +348,7 @@ HB_PANEL = f'''    <div class="panel" id="p-handbook" hidden>
       <h3 class="h3s hb-h">Product Core modules</h3><div class="hb-list">{_hb_mods(HB_CORE)}</div>
       <h3 class="h3s hb-h">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div>
       <h3 class="h3s hb-h">Libraries</h3><div class="hb-list">{HB_LIBROWS}</div>
-      <p class="meta" style="margin-top:18px">The handbook is also on the Resources for AI Tools page, free for every visitor.</p>
+      <p class="meta" style="margin-top:18px">The handbook is also on the Resources &amp; AI tools page, free for every visitor.</p>
     </div>
 '''
 
@@ -526,7 +527,7 @@ DSA_ARTIFACT = 'https://claude.ai/artifact/7278116b7jCN2ny9XnmtVM#dsa'      # pa
 DS_ARTIFACT = 'https://claude.ai/artifact/7278116b7jCN2ny9XnmtVM#data-science'       # Data Science & AI handbook artifact link
 GENAI_ARTIFACT = 'https://claude.ai/artifact/7278116b7jCN2ny9XnmtVM#genai'    # GenAI handbook artifact link
 RES_PANEL = f'''    <div class="panel" id="p-resources" hidden>
-      <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Resources for AI Tools</h2>
+      <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Resources &amp; AI tools</h2>
         <p class="meta" style="margin:0">Every AI and product tool with its official website, the complete PM Master Handbook, interview practice, the PM frameworks cheat sheet, a PRD template and hand-picked free courses.</p></div></div>
       <h3 class="h3s hb-h">AI and product tools</h3><div class="tgroups" id="res-tools"></div>
       <h3 class="h3s hb-h">PM Master Handbook by Varun Kumar</h3><p class="meta" style="margin:-4px 0 12px">23 modules and 570 pages: 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep.</p>
@@ -672,7 +673,7 @@ lms = f"""<div class="lms-head"><div class="wrap">
   <p id="app-msg" class="notice" hidden role="status" style="margin-bottom:18px"></p>
   <div id="app" hidden>
     <div class="tabs" id="tabbar" role="tablist">
-      <button role="tab" data-tab="overview">Overview</button><button role="tab" data-tab="courses">My courses</button><button role="tab" data-tab="handbook">PM Handbook</button><button role="tab" data-tab="resources">Resources for AI Tools</button><button role="tab" data-tab="events">My events</button>
+      <button role="tab" data-tab="overview">Overview</button><button role="tab" data-tab="courses">My courses</button><button role="tab" data-tab="handbook">PM Handbook</button><button role="tab" data-tab="resources">Resources &amp; AI tools</button><button role="tab" data-tab="events">My events</button>
       <button role="tab" data-tab="submissions">Submissions</button><button role="tab" data-tab="achievements">Achievements</button><button role="tab" data-tab="profile">Profile</button>
     </div>
 
