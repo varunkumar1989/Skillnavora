@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 18: Figma and AI Design Tools · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-18-Figma.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" aria-current="page" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 18</div><h1>Figma and AI Design Tools</h1><p>Design screens, build click-through prototypes, run workshops in FigJam, generate working prototypes with Figma Make, and hand designs to Claude Code through Figma&#x27;s MCP server.</p><div class="chips"><span class="chip">≈ 6 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Figma Help Center, Figma pricing page and MCP collection docs; DeepLearning.AI Claude Code course (Figma MCP project); Module 5; checked 23 Oct 2026</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m18" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m18-figmas-products">Figma&#x27;s products</a></li><li><a href="#m18-level-1-the-interface-and-your-first-screens">Level 1 · The interface and your first screens</a></li><li><a href="#m18-level-2-prototypes-reviews-and-handoff">Level 2 · Prototypes, reviews and handoff</a></li><li><a href="#m18-level-3-figma-ai-figma-make-and-mcp">Level 3 · Figma AI, Figma Make and MCP</a></li><li><a href="#m18-labs">Labs</a></li><li><a href="#m18-pm-best-practices">PM best practices</a></li><li><a href="#m18-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m18-key-takeaways">Key takeaways</a></li><li><a href="#m18-check-your-understanding">Check your understanding</a></li><li><a href="#m18-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
+<p class="admonition-title">Illustrative screens</p>
+<p>Figma's interface is updated often. Screens below are <strong>illustrative wireframes</strong>; search the <a href="https://help.figma.com">Figma Help Center</a> if a menu has moved.</p>
+</div>
+<h2 id="m18-figmas-products"><span class="hnum">18.1</span> Figma's products</h2>
+<figure class="viz canvas-fig" role="group" aria-label="The Figma family"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Figma Design</h5><ul><li>Screens, components, design systems</li><li>Click-through prototypes</li></ul></div><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>FigJam</h5><ul><li>Whiteboard for workshops</li><li>Journey maps, affinity maps, retros</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Dev Mode</h5><ul><li>Specs, measurements and code hints for engineers</li><li>Includes the MCP server</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Figma Make</h5><ul><li>Prompt or design → working prototype</li><li>AI writes the code</li></ul></div><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Figma Slides</h5><ul><li>Presentations built from design files</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Community</h5><ul><li>Free templates, UI kits, plugins</li><li>Start from a kit instead of from zero</li></ul></div></div><figcaption><strong>The Figma family.</strong> PMs mostly use FigJam for workshops, Figma Design to review and sketch, and Figma Make for quick working prototypes.</figcaption></figure>
+<h3 id="m18-what-it-costs-checked-23-oct-2026"><span class="hnum">18.1.1</span> What it costs (checked 23 Oct 2026)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Price</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Starter</strong></td>
+<td>Free</td>
+<td>Limited files, a daily AI credit allowance, 3 Figma Make files</td>
+</tr>
+<tr>
+<td><strong>Professional</strong></td>
+<td>about $16 a month (full seat); about $12 (Dev seat); about $3 (Collab seat)</td>
+<td>Unlimited files, Dev Mode, MCP server, monthly AI credits</td>
+</tr>
+<tr>
+<td><strong>Organization / Enterprise</strong></td>
+<td>from about $55 a month per full seat</td>
+<td>Design systems at scale, admin controls</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Viewing and commenting are free</strong>. A PM who only reviews and comments can use a free or Collab seat. Check <a href="https://www.figma.com/pricing/">figma.com/pricing</a>.</p>
+<h2 id="m18-level-1-the-interface-and-your-first-screens"><span class="hnum">18.2</span> Level 1 · The interface and your first screens</h2>
+<figure class="viz" role="img" aria-label="The Figma Design editor"><svg viewBox="0 0 720 348" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="234" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Figma</tspan></text><rect x="210.0" y="11" width="300" height="17" rx="8" class="wf-bar"/><text x="360.0" y="23" class="tiny mut" text-anchor="middle"><tspan x="360.0" dy="0">figma.com/design/split-bill</tspan></text><rect x="12" y="38" width="150" height="196" rx="8" class="wf-bar" fill-opacity=".6"/><rect x="516" y="38" width="190" height="196" rx="8" class="wf-bar" fill-opacity=".45"/><text x="28" y="49" class="tiny" text-anchor="start"><tspan x="28" dy="0">Layers</tspan></text><circle cx="146" cy="45" r="9" fill="var(--c3)"/><text x="146" y="49" class="tiny b on-fill" text-anchor="middle"><tspan x="146" dy="0">1</tspan></text><text x="28" y="73" class="tiny" text-anchor="start"><tspan x="28" dy="0">Frame: Home</tspan></text><text x="28" y="97" class="tiny" text-anchor="start"><tspan x="28" dy="0">  Header</tspan></text><text x="28" y="121" class="tiny" text-anchor="start"><tspan x="28" dy="0">  Item list</tspan></text><text x="28" y="145" class="tiny" text-anchor="start"><tspan x="28" dy="0">  Total bar</tspan></text><text x="28" y="169" class="tiny" text-anchor="start"><tspan x="28" dy="0">Frame: Split</tspan></text><text x="28" y="193" class="tiny" text-anchor="start"><tspan x="28" dy="0">Assets</tspan></text><rect x="176.0" y="48" width="58.8" height="22" rx="5" class="wf-bar"/><text x="205.4" y="63" class="tiny" text-anchor="middle"><tspan x="205.4" dy="0">Move</tspan></text><rect x="238.8" y="48" width="58.8" height="22" rx="5" class="wf-bar"/><text x="268.2" y="63" class="tiny" text-anchor="middle"><tspan x="268.2" dy="0">Frame (F)</tspan></text><rect x="301.6" y="48" width="58.8" height="22" rx="5" class="wf-bar"/><text x="331.0" y="63" class="tiny" text-anchor="middle"><tspan x="331.0" dy="0">Shape (R)</tspan></text><rect x="364.4" y="48" width="58.8" height="22" rx="5" class="wf-bar"/><text x="393.79999999999995" y="63" class="tiny" text-anchor="middle"><tspan x="393.79999999999995" dy="0">Text (T)</tspan></text><rect x="427.2" y="48" width="58.8" height="22" rx="5" class="wf-bar"/><text x="456.59999999999997" y="63" class="tiny" text-anchor="middle"><tspan x="456.59999999999997" dy="0">Comment</tspan></text><rect x="176" y="78" width="314" height="56" rx="6" class="wf-img"/><text x="333.0" y="110" class="tiny mut" text-anchor="middle"><tspan x="333.0" dy="0">Canvas: three phone frames side by side</tspan></text><circle cx="492" cy="88" r="9" fill="var(--c3)"/><text x="492" y="92" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">2</tspan></text><text x="180" y="153" class="tiny" text-anchor="start"><tspan x="180" dy="0">Tip: press F, then pick a phone size from the right panel</tspan><tspan x="180" dy="11">to create a frame.</tspan></text><rect x="524.0" y="48" width="83.0" height="22" rx="5" fill="var(--c1)"/><text x="565.5" y="63" class="tiny b on-fill" text-anchor="middle"><tspan x="565.5" dy="0">Design</tspan></text><rect x="611.0" y="48" width="83.0" height="22" rx="5" class="wf-bar"/><text x="652.5" y="63" class="tiny" text-anchor="middle"><tspan x="652.5" dy="0">Prototype</tspan></text><rect x="524" y="78" width="174" height="26" rx="5" class="wf-bar"/><text x="534" y="95" class="tiny b" text-anchor="start"><tspan x="534" dy="0">Auto layout</tspan></text><circle cx="700" cy="88" r="9" fill="var(--c3)"/><text x="700" y="92" class="tiny b on-fill" text-anchor="middle"><tspan x="700" dy="0">3</tspan></text><line x1="524" y1="136" x2="698" y2="136" class="grid"/><text x="528" y="128" class="tiny" text-anchor="start"><tspan x="528" dy="0">Direction</tspan></text><text x="694" y="128" class="tiny b" text-anchor="end"><tspan x="694" dy="0">Vertical</tspan></text><line x1="524" y1="164" x2="698" y2="164" class="grid"/><text x="528" y="156" class="tiny" text-anchor="start"><tspan x="528" dy="0">Gap</tspan></text><text x="694" y="156" class="tiny b" text-anchor="end"><tspan x="694" dy="0">16</tspan></text><line x1="524" y1="192" x2="698" y2="192" class="grid"/><text x="528" y="184" class="tiny" text-anchor="start"><tspan x="528" dy="0">Padding</tspan></text><text x="694" y="184" class="tiny b" text-anchor="end"><tspan x="694" dy="0">24</tspan></text><rect x="524" y="196" width="174" height="26" rx="5" class="wf-bar"/><text x="534" y="213" class="tiny b" text-anchor="start"><tspan x="534" dy="0">Fill · Stroke · Effects</tspan></text><circle cx="24" cy="258" r="9" fill="var(--c3)"/><text x="24" y="262" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="262" class="small" text-anchor="start"><tspan x="40" dy="0">Layers panel: every frame, group and element. Name layers clearly, for example &#x27;Total bar&#x27;.</tspan></text><circle cx="24" cy="280" r="9" fill="var(--c3)"/><text x="24" y="284" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="284" class="small" text-anchor="start"><tspan x="40" dy="0">Canvas: your screens. Use frames sized to a phone or desktop.</tspan></text><circle cx="24" cy="302" r="9" fill="var(--c3)"/><text x="24" y="306" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="306" class="small" text-anchor="start"><tspan x="40" dy="0">Properties panel: size, auto layout, colours, text styles. The Prototype tab adds clicks between</tspan><tspan x="40" dy="14">screens.</tspan></text></svg><figcaption><strong>The Figma Design editor (illustrative wireframe, not a real product screenshot).</strong> Core shortcuts include F (frame), R (rectangle), T (text), Shift+A (add auto layout).</figcaption></figure>
+<div class="admonition level1">
+<p class="admonition-title">Level 1 · Beginner</p>
+<ul>
+<li><strong>Frames</strong> are screens. Start with a phone frame (for example 390 × 844).</li>
+<li><strong>Auto layout</strong> (Shift+A) stacks items with consistent gaps and padding, and resizes when content changes. Use it for buttons, cards and lists.</li>
+<li><strong>Components</strong> are reusable elements (a button, a card). Change the main component and every copy updates.</li>
+<li><strong>Styles and variables</strong> keep colours, text sizes and spacing consistent.</li>
+<li><strong>Start from a UI kit</strong> in Figma Community, so you are not drawing buttons from scratch.</li>
+</ul>
+</div>
+<h2 id="m18-level-2-prototypes-reviews-and-handoff"><span class="hnum">18.3</span> Level 2 · Prototypes, reviews and handoff</h2>
+<h3 id="m18-click-through-prototypes"><span class="hnum">18.3.1</span> Click-through prototypes</h3>
+<figure class="viz" role="img" aria-label="Process: Prototype tab → Connect → Interaction → Flow start → Present"><svg viewBox="0 0 720 132" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Prototype tab</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Switch from Design</tspan><tspan x="68.0" dy="11">to Prototype in the</tspan><tspan x="68.0" dy="11">right panel</tspan></text><line x1="129.0" y1="52.0" x2="153.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Connect</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">Drag the + handle</tspan><tspan x="214.0" dy="11">from a button to the</tspan><tspan x="214.0" dy="11">next screen</tspan></text><line x1="275.0" y1="52.0" x2="299.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Interaction</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">On click → Navigate</tspan><tspan x="360.0" dy="11">to; animation Smart</tspan><tspan x="360.0" dy="11">animate</tspan></text><line x1="421.0" y1="52.0" x2="445.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Flow start</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Set the first screen</tspan><tspan x="506.0" dy="11">as the flow&#x27;s</tspan><tspan x="506.0" dy="11">starting point</tspan></text><line x1="567.0" y1="52.0" x2="591.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Present</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Click Play; share</tspan><tspan x="652.0" dy="11">the prototype link</tspan></text></svg><figcaption><strong>Make a clickable prototype.</strong> Test the prototype with five users before anyone writes code (Module 3: usability testing).</figcaption></figure>
+<div class="admonition level2">
+<p class="admonition-title">Level 2 · Working PM</p>
+<ul>
+<li><strong>Variants</strong> group versions of a component (button: default, hover, disabled), so states are designed, not forgotten.</li>
+<li><strong>Comments</strong>: press C and click to leave feedback on an exact spot; mention people with @.</li>
+<li><strong>Dev Mode</strong> shows engineers measurements, colours, assets and code hints. Mark frames <strong>Ready for dev</strong>.</li>
+<li><strong>Branching</strong> (paid plans) lets designers explore without breaking the main file.</li>
+<li><strong>PM review checklist</strong>: every state designed (empty, loading, error, success)? Copy final? Accessible contrast and tap sizes? Edge cases from the PRD covered?</li>
+</ul>
+</div>
+<h3 id="m18-figjam-for-workshops"><span class="hnum">18.3.2</span> FigJam for workshops</h3>
+<figure class="viz canvas-fig" role="group" aria-label="FigJam boards PMs run"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>Affinity map</h5><ul><li>Paste interview quotes as stickies</li><li>Group into themes</li><li>Vote with stamps</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>User journey map</h5><ul><li>Stages across the top</li><li>Actions, thoughts, pain points, opportunities</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Prioritisation 2×2</h5><ul><li>Impact versus effort</li><li>Move stickies live with the team</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Retro</h5><ul><li>Went well, didn&#x27;t, try next</li><li>Timer and voting</li></ul></div><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Flow diagram</h5><ul><li>Shapes and connectors for user or system flows</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>AI in FigJam</h5><ul><li>Summarise or sort stickies; generate a first board from a prompt (where available)</li></ul></div></div><figcaption><strong>FigJam boards PMs run.</strong> Templates for all of these are in FigJam&#x27;s template picker and Figma Community.</figcaption></figure>
+<h2 id="m18-level-3-figma-ai-figma-make-and-mcp"><span class="hnum">18.4</span> Level 3 · Figma AI, Figma Make and MCP</h2>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Advanced</p>
+<p>Goal: go from idea or design to a working prototype, and let Claude Code build directly from your Figma frames.</p>
+</div>
+<h3 id="m18-figma-ai"><span class="hnum">18.4.1</span> Figma AI</h3>
+<p>Figma's AI features (they vary by plan and change often) help with tasks such as generating a first draft of a layout, renaming layers, rewriting or translating text, removing image backgrounds and searching for similar designs. Each use spends <strong>AI credits</strong> from your plan.</p>
+<h3 id="m18-figma-make-prompt-to-working-prototype"><span class="hnum">18.4.2</span> Figma Make: prompt to working prototype</h3>
+<figure class="viz" role="img" aria-label="Figma Make"><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="200" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Figma Make</tspan></text><rect x="12" y="38" width="150" height="162" rx="8" class="wf-bar" fill-opacity=".6"/><rect x="516" y="38" width="190" height="162" rx="8" class="wf-bar" fill-opacity=".45"/><text x="28" y="49" class="tiny" text-anchor="start"><tspan x="28" dy="0">Prompt</tspan></text><circle cx="146" cy="45" r="9" fill="var(--c3)"/><text x="146" y="49" class="tiny b on-fill" text-anchor="middle"><tspan x="146" dy="0">1</tspan></text><text x="28" y="73" class="tiny" text-anchor="start"><tspan x="28" dy="0">Attach frames</tspan></text><text x="28" y="97" class="tiny" text-anchor="start"><tspan x="28" dy="0">Versions</tspan></text><text x="28" y="121" class="tiny" text-anchor="start"><tspan x="28" dy="0">Publish</tspan></text><rect x="232.5" y="48" width="257.5" height="45" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="240.52000000000004" y="63" class="tiny" text-anchor="start"><tspan x="240.52000000000004" dy="0">Turn the attached three Split Bill frames</tspan><tspan x="240.52000000000004" dy="11">into a working prototype. Totals must</tspan><tspan x="240.52000000000004" dy="11">recalculate when I add a friend. Sample data.</tspan></text><rect x="176.0" y="101" width="257.5" height="45" rx="9" class="wf-bar"/><text x="184" y="116" class="tiny" text-anchor="start"><tspan x="184" dy="0">Building… The prototype uses your frames&#x27;</tspan><tspan x="184" dy="11">layout and colours. Try adding a friend in</tspan><tspan x="184" dy="11">the preview.</tspan></text><circle cx="492" cy="111" r="9" fill="var(--c3)"/><text x="492" y="115" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">2</tspan></text><rect x="232.5" y="154" width="257.5" height="34" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="240.52000000000004" y="169" class="tiny" text-anchor="start"><tspan x="240.52000000000004" dy="0">Add an error state when a split doesn&#x27;t add</tspan><tspan x="240.52000000000004" dy="11">up to the bill total.</tspan></text><circle cx="492" cy="164" r="9" fill="var(--c3)"/><text x="492" y="168" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">3</tspan></text><rect x="524.0" y="48" width="83.0" height="22" rx="5" fill="var(--c1)"/><text x="565.5" y="63" class="tiny b on-fill" text-anchor="middle"><tspan x="565.5" dy="0">Preview</tspan></text><rect x="611.0" y="48" width="83.0" height="22" rx="5" class="wf-bar"/><text x="652.5" y="63" class="tiny" text-anchor="middle"><tspan x="652.5" dy="0">Code</tspan></text><rect x="524" y="78" width="174" height="56" rx="6" class="wf-img"/><text x="611.0" y="110" class="tiny mut" text-anchor="middle"><tspan x="611.0" dy="0">Working prototype</tspan></text><rect x="524" y="142" width="94" height="28" rx="7" fill="var(--c1)"/><text x="571.0" y="160" class="tiny b on-fill" text-anchor="middle"><tspan x="571.0" dy="0">Share link</tspan></text><circle cx="24" cy="224" r="9" fill="var(--c3)"/><text x="24" y="228" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="228" class="small" text-anchor="start"><tspan x="40" dy="0">Start from a prompt, or attach existing frames so the result matches your design.</tspan></text><circle cx="24" cy="246" r="9" fill="var(--c3)"/><text x="24" y="250" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="250" class="small" text-anchor="start"><tspan x="40" dy="0">Make writes real code. Test interactions in the preview.</tspan></text><circle cx="24" cy="268" r="9" fill="var(--c3)"/><text x="24" y="272" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="272" class="small" text-anchor="start"><tspan x="40" dy="0">Ask for edge cases and states, one per message.</tspan></text></svg><figcaption><strong>Figma Make (illustrative wireframe, not a real product screenshot).</strong> Make is ideal for testing behaviour (calculations, flows) that a click-through prototype can&#x27;t show.</figcaption></figure>
+<h3 id="m18-figma-mcp-server-claude-code"><span class="hnum">18.4.3</span> Figma MCP server + Claude Code</h3>
+<p>The <strong>Figma MCP server</strong> lets Claude Code (and other AI tools) read your design: layout, components, variables and assets. Claude can then build the screen in code to match.</p>
+<figure class="viz" role="img" aria-label="Workflow: Select a frame in Figma → Add Figma MCP to Claude Code → Prompt Claude Code → Claude reads the design → Code that matches → Compare and fix"><svg viewBox="0 0 720 256" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ahw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="8" width="210.7" height="84" rx="10" class="node"/><rect x="10.0" y="8" width="7" height="84" rx="3" fill="var(--c6)"/><text x="26.0" y="24" class="tiny b" text-anchor="start" fill="var(--c6)" style="fill:var(--c6)">HUMAN</text><text x="26.0" y="41" class="small b" text-anchor="start"><tspan x="26.0" dy="0">Select a frame in Figma</tspan></text><text x="26.0" y="58" class="tiny mut" text-anchor="start"><tspan x="26.0" dy="0">Copy link to selection</tspan></text><line x1="222.7" y1="50.0" x2="251.7" y2="50.0" class="edge" marker-end="url(#ahw)"/><rect x="254.7" y="8" width="210.7" height="84" rx="10" class="node"/><rect x="254.7" y="8" width="7" height="84" rx="3" fill="var(--c1)"/><text x="270.7" y="24" class="tiny b" text-anchor="start" fill="var(--c1)" style="fill:var(--c1)">ACTION</text><text x="270.66666666666663" y="41" class="small b" text-anchor="start"><tspan x="270.66666666666663" dy="0">Add Figma MCP to Claude Code</tspan></text><text x="270.66666666666663" y="58" class="tiny mut" text-anchor="start"><tspan x="270.66666666666663" dy="0">claude mcp add (see Figma&#x27;s MCP</tspan><tspan x="270.66666666666663" dy="11">docs for the URL)</tspan></text><line x1="467.3" y1="50.0" x2="496.3" y2="50.0" class="edge" marker-end="url(#ahw)"/><rect x="499.3" y="8" width="210.7" height="84" rx="10" class="node"/><rect x="499.3" y="8" width="7" height="84" rx="3" fill="var(--c2)"/><text x="515.3" y="24" class="tiny b" text-anchor="start" fill="var(--c2)" style="fill:var(--c2)">AI STEP</text><text x="515.3333333333333" y="41" class="small b" text-anchor="start"><tspan x="515.3333333333333" dy="0">Prompt Claude Code</tspan></text><text x="515.3333333333333" y="58" class="tiny mut" text-anchor="start"><tspan x="515.3333333333333" dy="0">&#x27;Implement this frame: &lt;link&gt;. Use</tspan><tspan x="515.3333333333333" dy="11">our components.&#x27;</tspan></text><line x1="604.7" y1="94" x2="604.7" y2="129" class="edge" marker-end="url(#ahw)"/><rect x="499.3" y="132" width="210.7" height="84" rx="10" class="node"/><rect x="499.3" y="132" width="7" height="84" rx="3" fill="var(--c2)"/><text x="515.3" y="148" class="tiny b" text-anchor="start" fill="var(--c2)" style="fill:var(--c2)">AI STEP</text><text x="515.3333333333333" y="165" class="small b" text-anchor="start"><tspan x="515.3333333333333" dy="0">Claude reads the design</tspan></text><text x="515.3333333333333" y="182" class="tiny mut" text-anchor="start"><tspan x="515.3333333333333" dy="0">Layout, variables, assets</tspan></text><line x1="497.3" y1="174.0" x2="468.3" y2="174.0" class="edge" marker-end="url(#ahw)"/><rect x="254.7" y="132" width="210.7" height="84" rx="10" class="node"/><rect x="254.7" y="132" width="7" height="84" rx="3" fill="var(--c5)"/><text x="270.7" y="148" class="tiny b" text-anchor="start" fill="var(--c5)" style="fill:var(--c5)">OUTPUT</text><text x="270.66666666666663" y="165" class="small b" text-anchor="start"><tspan x="270.66666666666663" dy="0">Code that matches</tspan></text><text x="270.66666666666663" y="182" class="tiny mut" text-anchor="start"><tspan x="270.66666666666663" dy="0">Review in the browser</tspan></text><line x1="252.7" y1="174.0" x2="223.7" y2="174.0" class="edge" marker-end="url(#ahw)"/><rect x="10.0" y="132" width="210.7" height="84" rx="10" class="node"/><rect x="10.0" y="132" width="7" height="84" rx="3" fill="var(--c6)"/><text x="26.0" y="148" class="tiny b" text-anchor="start" fill="var(--c6)" style="fill:var(--c6)">HUMAN</text><text x="26.0" y="165" class="small b" text-anchor="start"><tspan x="26.0" dy="0">Compare and fix</tspan></text><text x="26.0" y="182" class="tiny mut" text-anchor="start"><tspan x="26.0" dy="0">Screenshot side by side</tspan></text></svg><figcaption><strong>From Figma frame to code with Claude Code.</strong> Full access needs a seat with Dev Mode (a full or Dev seat); other seats have monthly limits. Claude.ai also has a Figma connector for reading files in chat. Node types shown: Action · AI step · Human step · Output.</figcaption></figure>
+<h2 id="m18-labs"><span class="hnum">18.5</span> Labs</h2>
+<div class="admonition example">
+<p class="admonition-title">Lab 1 · Three screens with auto layout (Free, 40 minutes)</p>
+<ol>
+<li>Duplicate a free mobile UI kit from Figma Community.</li>
+<li>Create three phone frames: Bill, Split with friends, Request payment.</li>
+<li>Build the list items and buttons with auto layout and one Button component with three variants.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 2 · Clickable prototype and usability test (30 minutes)</p>
+<ol>
+<li>Connect the three screens in the Prototype tab.</li>
+<li>Present and share the link.</li>
+<li>Test with two people using the think-aloud method. Note where they hesitate.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 3 · FigJam affinity map (30 minutes)</p>
+<ol>
+<li>Open a FigJam affinity-map template.</li>
+<li>Paste 20 interview quotes as stickies (use Class 14 Lab 2 output).</li>
+<li>Group them into themes, name each theme, and vote on the top two.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 4 · Figma Make prototype (Free or paid, 30 minutes)</p>
+<ol>
+<li>Open Figma Make, attach your three frames.</li>
+<li>Ask for a working prototype with live total recalculation.</li>
+<li>Add one edge case, then share the link.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 5 · Claude Code builds from Figma (Professional, 40 minutes)</p>
+<ol>
+<li>Follow Figma's MCP guide to add the server to Claude Code.</li>
+<li>Copy the link to your Bill frame.</li>
+<li>Ask Claude Code: "Implement this frame as a responsive HTML page."</li>
+<li>Compare with the design and ask for fixes until it matches.</li>
+</ol>
+</div>
+<h2 id="m18-pm-best-practices"><span class="hnum">18.6</span> PM best practices</h2>
+<ul>
+<li><strong>Low fidelity first</strong>: boxes and real copy before colour and polish.</li>
+<li><strong>Design the states</strong>, not just the happy path.</li>
+<li><strong>Name layers and frames</strong> so engineers and AI tools understand them.</li>
+<li><strong>Comment, don't redesign</strong>: describe the problem; let the designer solve it.</li>
+<li><strong>Keep one source of truth</strong>: link the Figma file in the PRD, and the PRD in the Figma file.</li>
+</ul>
+<h2 id="m18-exercises-with-model-answers"><span class="hnum">18.7</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise · What to use</p>
+<p>(a) Run a 45-minute remote workshop to sort 60 interview quotes. (b) Show a stakeholder how the split-bill calculation behaves with three people. (c) Hand a finished screen to engineering.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>(a) <strong>FigJam</strong> affinity map. (b) <strong>Figma Make</strong> (a click-through prototype can't calculate). (c) Mark the frame <strong>Ready for dev</strong> in <strong>Dev Mode</strong>, and optionally let engineers use the <strong>MCP server</strong> with their coding agent.</p>
+</details>
+<h2 id="m18-key-takeaways"><span class="hnum">18.8</span> Key takeaways</h2>
+<ul>
+<li><strong>Frames, auto layout and components</strong> are the three skills that make Figma easy.</li>
+<li><strong>Prototype and test</strong> before building. <strong>FigJam</strong> is your workshop room.</li>
+<li><strong>Figma Make</strong> turns designs into working prototypes; the <strong>MCP server</strong> lets Claude Code build from your frames.</li>
+</ul>
+<h2 id="m18-check-your-understanding"><span class="hnum">18.9</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m18"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Which feature makes a list of cards keep consistent spacing as items change?</p><ol><li class="">Comments</li><li class="is-correct">Auto layout</li><li class="">Dev Mode</li><li class="">FigJam stamps</li></ol><div class="why"><strong>Why:</strong> Auto layout stacks items with fixed gaps and padding and resizes with content.</div></div><div class="qitem" data-correct="1"><p class="q">You need to show a live calculation in a prototype. Use…</p><ol><li class="">A click-through prototype</li><li class="is-correct">Figma Make</li><li class="">A FigJam board</li><li class="">A PDF export</li></ol><div class="why"><strong>Why:</strong> Figma Make writes working code, so values can be calculated.</div></div><div class="qitem" data-correct="1"><p class="q">What gives Claude Code direct access to a Figma frame&#x27;s layout and variables?</p><ol><li class="">Exporting a PNG</li><li class="is-correct">The Figma MCP server</li><li class="">A Slack message</li><li class="">Figma Slides</li></ol><div class="why"><strong>Why:</strong> The MCP server exposes design context to AI coding tools.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m18-recommended-resources"><span class="hnum">18.10</span> Recommended resources</h2>
+<ul>
+<li><a href="https://help.figma.com">Figma Help Center</a> · <a href="https://www.figma.com/pricing/">Figma pricing</a></li>
+<li><a href="https://help.figma.com/hc/en-us/articles/35280808976151-Figma-MCP-collection-Overview">Figma MCP server collection</a></li>
+<li><a href="https://www.youtube.com/@Figma">Figma's official YouTube channel</a> and Figma Community UI kits</li>
+<li>Module 5 (UX and design collaboration) for the theory behind these labs</li>
+</ul><div class="modnav"><a href="m17.html"><small>← Previous</small>Module 17: Replit and Other AI App Builders</a><a href="m19.html"><small>Next →</small>Module 19: Notion, PRD Tools and AI Documentation</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 14: Claude for Daily PM Work: Basic to Advanced · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-14-Claude-Daily-Work.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" aria-current="page" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 14</div><h1>Claude for Daily PM Work: Basic to Advanced</h1><p>Use Claude every day for writing, research, analysis and prototypes, then connect it to Gmail, Calendar, Drive, Slack, GitHub and your own tools.</p><div class="chips"><span class="chip">≈ 8 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Claude docs and Help Center (docs.claude.com, support.claude.com), Anthropic Academy, connectors getting-started guide; checked 23 Oct 2026</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m14" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m14-what-claude-is-and-where-you-can-use-it">What Claude is and where you can use it</a></li><li><a href="#m14-level-1-your-first-hour-with-claude">Level 1 · Your first hour with Claude</a></li><li><a href="#m14-level-2-features-working-pms-use-every-week">Level 2 · Features working PMs use every week</a></li><li><a href="#m14-level-3-connect-claude-to-your-apps">Level 3 · Connect Claude to your apps</a></li><li><a href="#m14-a-daily-routine-for-pms">A daily routine for PMs</a></li><li><a href="#m14-labs">Labs</a></li><li><a href="#m14-prompt-library-for-pms">Prompt library for PMs</a></li><li><a href="#m14-common-mistakes">Common mistakes</a></li><li><a href="#m14-where-to-find-official-help-and-sources">Where to find official help and sources</a></li><li><a href="#m14-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m14-key-takeaways">Key takeaways</a></li><li><a href="#m14-check-your-understanding">Check your understanding</a></li><li><a href="#m14-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
+<p class="admonition-title">Feature names move around</p>
+<p>Claude ships new features often, and menus get renamed. If a button in a lab has moved, search the <a href="https://support.claude.com">Claude Help Center</a> for the feature name. Screens below are <strong>illustrative wireframes</strong>, not screenshots.</p>
+</div>
+<h2 id="m14-what-claude-is-and-where-you-can-use-it"><span class="hnum">14.1</span> What Claude is and where you can use it</h2>
+<p><strong>Claude</strong> is Anthropic's AI assistant. You talk to it in plain language, give it files, and it writes, analyses, researches, codes and builds small apps. The same account works in several places:</p>
+<figure class="viz canvas-fig" role="group" aria-label="Where you can use Claude"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Web: claude.ai</h5><ul><li>Every feature</li><li>Best for long work sessions</li><li>Artifacts, Projects, connectors</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Desktop app (Mac, Windows)</h5><ul><li>Same as web, plus local extensions</li><li>Keyboard shortcut to open quickly</li><li>Works with files on your laptop</li></ul></div><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>Mobile app (iOS, Android)</h5><ul><li>Voice mode for hands-free thinking</li><li>Photo of a whiteboard → summary</li><li>Good for quick capture</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Claude Code</h5><ul><li>Terminal, IDE, desktop and web</li><li>Works inside code repositories</li><li>Class 15</li></ul></div><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Inside other apps</h5><ul><li>Slack, browser extension and others where your plan offers them</li><li>Check Settings → Connectors and the Help Center</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>API (Claude Console)</h5><ul><li>Build Claude into your own app or bot</li><li>Pay per use</li><li>Used in Classes 20 to 22</li></ul></div></div><figcaption><strong>Where you can use Claude.</strong> Start on the web or desktop app. Add the others when a task needs them.</figcaption></figure>
+<h3 id="m14-plans"><span class="hnum">14.1.1</span> Plans</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Who it is for</th>
+<th>What you get (checked 23 Oct 2026)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Free</strong></td>
+<td>Trying Claude</td>
+<td>Chat, file upload, limited daily messages, some connectors</td>
+</tr>
+<tr>
+<td><strong>Pro</strong></td>
+<td>Individual PMs</td>
+<td>More usage, Projects, more models, <strong>Claude Code included</strong></td>
+</tr>
+<tr>
+<td><strong>Max</strong></td>
+<td>Heavy daily users</td>
+<td>5× or 20× Pro usage, priority access, early features</td>
+</tr>
+<tr>
+<td><strong>Team / Enterprise</strong></td>
+<td>Companies</td>
+<td>Admin controls, shared Projects, single sign-on, data controls</td>
+</tr>
+</tbody>
+</table></div>
+<p>Chat and Claude Code draw from the <strong>same usage pool</strong> on Pro and Max, so a long coding session leaves less chat time that day. Check <a href="https://claude.com/pricing">claude.com/pricing</a> for current limits.</p>
+<h2 id="m14-level-1-your-first-hour-with-claude"><span class="hnum">14.2</span> Level 1 · Your first hour with Claude</h2>
+<div class="admonition level1">
+<p class="admonition-title">Level 1 · Beginner</p>
+<p>Goal: get one genuinely useful result (a meeting summary, an email, a first PRD draft) and learn the four habits that make answers better.</p>
+</div>
+<h3 id="m14-the-anatomy-of-a-good-prompt"><span class="hnum">14.2.1</span> The anatomy of a good prompt</h3>
+<p>Most weak answers come from missing context, not from a weak model. Use four parts:</p>
+<figure class="viz" role="img" aria-label="Process: Context → Task → Input → Format"><svg viewBox="0 0 720 132" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="94.25" y="28" class="b small" text-anchor="middle"><tspan x="94.25" dy="0">Context</tspan></text><text x="86.25" y="58" class="mut tiny" text-anchor="middle"><tspan x="86.25" dy="0">Who you are, the product,</tspan><tspan x="86.25" dy="11">the audience</tspan></text><line x1="165.5" y1="52.0" x2="189.5" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="192.5" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="208.5" cy="22" r="11" fill="var(--c1)"/><text x="208.5" y="26" class="on-fill b small" text-anchor="middle"><tspan x="208.5" dy="0">2</tspan></text><text x="276.75" y="28" class="b small" text-anchor="middle"><tspan x="276.75" dy="0">Task</tspan></text><text x="268.75" y="58" class="mut tiny" text-anchor="middle"><tspan x="268.75" dy="0">One clear verb: summarise,</tspan><tspan x="268.75" dy="11">draft, compare, critique</tspan></text><line x1="348.0" y1="52.0" x2="372.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="375.0" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="391.0" cy="22" r="11" fill="var(--c1)"/><text x="391.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="391.0" dy="0">3</tspan></text><text x="459.25" y="28" class="b small" text-anchor="middle"><tspan x="459.25" dy="0">Input</tspan></text><text x="451.25" y="58" class="mut tiny" text-anchor="middle"><tspan x="451.25" dy="0">Paste or attach the</tspan><tspan x="451.25" dy="11">material: notes, CSV, PDF</tspan></text><line x1="530.5" y1="52.0" x2="554.5" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="557.5" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="573.5" cy="22" r="11" fill="var(--c1)"/><text x="573.5" y="26" class="on-fill b small" text-anchor="middle"><tspan x="573.5" dy="0">4</tspan></text><text x="641.75" y="28" class="b small" text-anchor="middle"><tspan x="641.75" dy="0">Format</tspan></text><text x="633.75" y="58" class="mut tiny" text-anchor="middle"><tspan x="633.75" dy="0">Length, structure, tone,</tspan><tspan x="633.75" dy="11">what to leave out</tspan></text></svg><figcaption><strong>The four-part prompt.</strong> Example — &quot;I&#x27;m a PM at a food-delivery app (context). Turn these interview notes into the top five problems with a quote for each (task). Notes attached (input). Use a table, plain English, max 200 words (format).&quot;</figcaption></figure>
+<figure class="viz" role="img" aria-label="A first chat in Claude"><svg viewBox="0 0 720 370" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="270" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Claude</tspan></text><rect x="210.0" y="11" width="300" height="17" rx="8" class="wf-bar"/><text x="360.0" y="23" class="tiny mut" text-anchor="middle"><tspan x="360.0" dy="0">claude.ai/new</tspan></text><rect x="12" y="38" width="150" height="232" rx="8" class="wf-bar" fill-opacity=".6"/><text x="28" y="49" class="tiny" text-anchor="start"><tspan x="28" dy="0">+ New chat</tspan></text><rect x="20" y="59" width="138" height="20" rx="5" fill="var(--c1)" fill-opacity=".16"/><text x="28" y="73" class="tiny b" text-anchor="start"><tspan x="28" dy="0">Chats</tspan></text><text x="28" y="97" class="tiny" text-anchor="start"><tspan x="28" dy="0">Projects</tspan></text><text x="28" y="121" class="tiny" text-anchor="start"><tspan x="28" dy="0">Artifacts</tspan></text><text x="28" y="145" class="tiny" text-anchor="start"><tspan x="28" dy="0">Settings</tspan></text><rect x="176" y="48" width="516" height="26" rx="5" class="wf-bar"/><text x="186" y="65" class="tiny b" text-anchor="start"><tspan x="186" dy="0">Interview synthesis</tspan></text><rect x="268.9" y="82" width="423.1" height="34" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="276.88000000000005" y="97" class="tiny" text-anchor="start"><tspan x="276.88000000000005" dy="0">I&#x27;m a PM at a food-delivery app. Turn the attached notes into the top 5</tspan><tspan x="276.88000000000005" dy="11">problems, with one quote each. Table, max 200 words.</tspan></text><circle cx="694" cy="92" r="9" fill="var(--c3)"/><text x="694" y="96" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">1</tspan></text><rect x="176" y="124" width="516" height="56" rx="6" class="wf-img"/><text x="434.0" y="156" class="tiny mut" text-anchor="middle"><tspan x="434.0" dy="0">interview-notes.pdf (attached)</tspan></text><rect x="176.0" y="188" width="423.1" height="34" rx="9" class="wf-bar"/><text x="184" y="203" class="tiny" text-anchor="start"><tspan x="184" dy="0">Here are the five problems… (table with Problem, Evidence, Quote, How many</tspan><tspan x="184" dy="11">users)</tspan></text><circle cx="694" cy="198" r="9" fill="var(--c3)"/><text x="694" y="202" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">2</tspan></text><rect x="176" y="230" width="516" height="28" rx="6" class="wf-input"/><text x="186" y="248" class="tiny mut" text-anchor="start"><tspan x="186" dy="0">Reply… e.g. &#x27;Now rank them by frequency and add a confidence column&#x27;</tspan></text><circle cx="694" cy="240" r="9" fill="var(--c3)"/><text x="694" y="244" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">3</tspan></text><circle cx="24" cy="294" r="9" fill="var(--c3)"/><text x="24" y="298" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="298" class="small" text-anchor="start"><tspan x="40" dy="0">Write the four parts: context, task, input, format. Attach files with the paperclip or drag and drop.</tspan></text><circle cx="24" cy="316" r="9" fill="var(--c3)"/><text x="24" y="320" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="320" class="small" text-anchor="start"><tspan x="40" dy="0">Read the answer critically. Check quotes against the source, because AI can misquote.</tspan></text><circle cx="24" cy="338" r="9" fill="var(--c3)"/><text x="24" y="342" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="342" class="small" text-anchor="start"><tspan x="40" dy="0">Improve by replying, not by starting again: ask for a change, a different format, or a shorter version.</tspan></text></svg><figcaption><strong>A first chat in Claude (illustrative wireframe, not a real product screenshot).</strong> Use the pencil on your own message to edit and resend; use retry on Claude&#x27;s answer to get a different version.</figcaption></figure>
+<h3 id="m14-four-habits-for-level-1"><span class="hnum">14.2.2</span> Four habits for Level 1</h3>
+<ol>
+<li><strong>Give the source material.</strong> Attach the PDF, CSV or notes instead of asking from memory.</li>
+<li><strong>Ask for a format.</strong> Tables, bullet lists, "max 150 words", "for a VP audience".</li>
+<li><strong>Iterate in the same chat.</strong> "Shorter", "more specific", "add a risks section".</li>
+<li><strong>Start a new chat for a new topic.</strong> Long mixed chats get slower and less focused.</li>
+</ol>
+<h3 id="m14-files-claude-can-read"><span class="hnum">14.2.3</span> Files Claude can read</h3>
+<p>PDFs, Word documents, slides, spreadsheets and CSVs, images and screenshots, and plain text or code files. Claude can <strong>run code to analyse data files</strong>: upload a CSV and ask for averages, a chart or a cohort table.</p>
+<div class="admonition tip">
+<p class="admonition-title">Data analysis prompt</p>
+<p>"Here is <code>orders.csv</code>. 1) Describe the columns. 2) Weekly order count and average order value. 3) A line chart of both. 4) Three observations a PM should act on. Show the method, so I can check it."</p>
+</div>
+<h2 id="m14-level-2-features-working-pms-use-every-week"><span class="hnum">14.3</span> Level 2 · Features working PMs use every week</h2>
+<div class="admonition level2">
+<p class="admonition-title">Level 2 · Working PM</p>
+<p>Goal: stop re-explaining your product in every chat, produce documents and prototypes you can share, and research with sources.</p>
+</div>
+<h3 id="m14-projects-your-products-memory"><span class="hnum">14.3.1</span> Projects: your product's memory</h3>
+<p>A <strong>Project</strong> is a workspace with <strong>custom instructions</strong> and <strong>knowledge files</strong> that every chat inside it can use. Make one Project per product or per big initiative.</p>
+<figure class="viz" role="img" aria-label="Setting up a Project"><svg viewBox="0 0 720 388" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="260" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Claude</tspan></text><rect x="210.0" y="11" width="300" height="17" rx="8" class="wf-bar"/><text x="360.0" y="23" class="tiny mut" text-anchor="middle"><tspan x="360.0" dy="0">claude.ai/projects</tspan></text><rect x="12" y="38" width="150" height="222" rx="8" class="wf-bar" fill-opacity=".6"/><rect x="516" y="38" width="190" height="222" rx="8" class="wf-bar" fill-opacity=".45"/><text x="28" y="49" class="tiny" text-anchor="start"><tspan x="28" dy="0">+ New chat</tspan></text><text x="28" y="73" class="tiny" text-anchor="start"><tspan x="28" dy="0">Chats</tspan></text><rect x="20" y="83" width="138" height="20" rx="5" fill="var(--c1)" fill-opacity=".16"/><text x="28" y="97" class="tiny b" text-anchor="start"><tspan x="28" dy="0">Projects</tspan></text><text x="28" y="121" class="tiny" text-anchor="start"><tspan x="28" dy="0">Artifacts</tspan></text><rect x="176" y="48" width="314" height="26" rx="5" class="wf-bar"/><text x="186" y="65" class="tiny b" text-anchor="start"><tspan x="186" dy="0">Project: FoodApp · Checkout</tspan></text><text x="180" y="93" class="tiny" text-anchor="start"><tspan x="180" dy="0">Chats in this project</tspan></text><line x1="176" y1="129" x2="490" y2="129" class="grid"/><text x="180" y="121" class="tiny" text-anchor="start"><tspan x="180" dy="0">Interview synthesis — week 42</tspan></text><text x="486" y="121" class="tiny b" text-anchor="end"><tspan x="486" dy="0">Today</tspan></text><line x1="176" y1="157" x2="490" y2="157" class="grid"/><text x="180" y="149" class="tiny" text-anchor="start"><tspan x="180" dy="0">PRD v2: split payments</tspan></text><text x="486" y="149" class="tiny b" text-anchor="end"><tspan x="486" dy="0">Yesterday</tspan></text><rect x="176" y="161" width="314" height="28" rx="6" class="wf-input"/><text x="186" y="179" class="tiny mut" text-anchor="start"><tspan x="186" dy="0">Start a chat in this project…</tspan></text><circle cx="492" cy="171" r="9" fill="var(--c3)"/><text x="492" y="175" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">3</tspan></text><rect x="524" y="48" width="174" height="26" rx="5" class="wf-bar"/><text x="534" y="65" class="tiny b" text-anchor="start"><tspan x="534" dy="0">Instructions</tspan></text><circle cx="700" cy="58" r="9" fill="var(--c3)"/><text x="700" y="62" class="tiny b on-fill" text-anchor="middle"><tspan x="700" dy="0">1</tspan></text><text x="528" y="93" class="tiny" text-anchor="start"><tspan x="528" dy="0">You are my PM co-pilot for</tspan><tspan x="528" dy="11">FoodApp checkout. Users: urban</tspan><tspan x="528" dy="11">22–35. Always flag assumptions.</tspan><tspan x="528" dy="11">Use British spelling.</tspan></text><rect x="524" y="138" width="174" height="26" rx="5" class="wf-bar"/><text x="534" y="155" class="tiny b" text-anchor="start"><tspan x="534" dy="0">Knowledge</tspan></text><circle cx="700" cy="148" r="9" fill="var(--c3)"/><text x="700" y="152" class="tiny b on-fill" text-anchor="middle"><tspan x="700" dy="0">2</tspan></text><line x1="524" y1="196" x2="698" y2="196" class="grid"/><text x="528" y="188" class="tiny" text-anchor="start"><tspan x="528" dy="0">strategy-2026.pdf</tspan></text><text x="694" y="188" class="tiny b" text-anchor="end"><tspan x="694" dy="0">PDF</tspan></text><line x1="524" y1="224" x2="698" y2="224" class="grid"/><text x="528" y="216" class="tiny" text-anchor="start"><tspan x="528" dy="0">personas.md</tspan></text><text x="694" y="216" class="tiny b" text-anchor="end"><tspan x="694" dy="0">Doc</tspan></text><line x1="524" y1="252" x2="698" y2="252" class="grid"/><text x="528" y="244" class="tiny" text-anchor="start"><tspan x="528" dy="0">checkout-funnel.csv</tspan></text><text x="694" y="244" class="tiny b" text-anchor="end"><tspan x="694" dy="0">CSV</tspan></text><circle cx="24" cy="284" r="9" fill="var(--c3)"/><text x="24" y="288" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="288" class="small" text-anchor="start"><tspan x="40" dy="0">Instructions: who Claude is in this project, your users, rules (tone, spelling, &#x27;always cite the source</tspan><tspan x="40" dy="14">file&#x27;).</tspan></text><circle cx="24" cy="320" r="9" fill="var(--c3)"/><text x="24" y="324" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="324" class="small" text-anchor="start"><tspan x="40" dy="0">Knowledge: upload the strategy, personas, PRDs, research and metrics. Keep files current; delete stale</tspan><tspan x="40" dy="14">ones.</tspan></text><circle cx="24" cy="356" r="9" fill="var(--c3)"/><text x="24" y="360" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="360" class="small" text-anchor="start"><tspan x="40" dy="0">Every chat started here sees the instructions and knowledge, so you never paste context again.</tspan></text></svg><figcaption><strong>Setting up a Project (illustrative wireframe, not a real product screenshot).</strong> On Team plans you can share a Project with colleagues so everyone uses the same context.</figcaption></figure>
+<h3 id="m14-artifacts-documents-code-and-clickable-prototypes"><span class="hnum">14.3.2</span> Artifacts: documents, code and clickable prototypes</h3>
+<p>When Claude produces something substantial (a document, a diagram, a web page, a small app), it appears as an <strong>artifact</strong> in a panel beside the chat. You can edit it by asking for changes, see versions, copy or download it, and <strong>publish</strong> it to get a link you can share.</p>
+<figure class="viz" role="img" aria-label="An artifact prototype beside the chat"><svg viewBox="0 0 720 366" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="238" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Claude</tspan></text><rect x="12" y="38" width="150" height="200" rx="8" class="wf-bar" fill-opacity=".6"/><rect x="516" y="38" width="190" height="200" rx="8" class="wf-bar" fill-opacity=".45"/><text x="28" y="49" class="tiny" text-anchor="start"><tspan x="28" dy="0">Chats</tspan></text><text x="28" y="73" class="tiny" text-anchor="start"><tspan x="28" dy="0">Projects</tspan></text><rect x="20" y="83" width="138" height="20" rx="5" fill="var(--c1)" fill-opacity=".16"/><text x="28" y="97" class="tiny b" text-anchor="start"><tspan x="28" dy="0">Artifacts</tspan></text><rect x="232.5" y="48" width="257.5" height="45" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="240.52000000000004" y="63" class="tiny" text-anchor="start"><tspan x="240.52000000000004" dy="0">Build a clickable mobile prototype of a</tspan><tspan x="240.52000000000004" dy="11">split-bill screen: items list, &#x27;split with&#x27;</tspan><tspan x="240.52000000000004" dy="11">picker, total per person. Sample data only.</tspan></text><rect x="176.0" y="101" width="257.5" height="34" rx="9" class="wf-bar"/><text x="184" y="116" class="tiny" text-anchor="start"><tspan x="184" dy="0">I&#x27;ve built the prototype. Tap a friend to add</tspan><tspan x="184" dy="11">them; totals update.</tspan></text><circle cx="492" cy="111" r="9" fill="var(--c3)"/><text x="492" y="115" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">1</tspan></text><rect x="232.5" y="143" width="257.5" height="34" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="240.52000000000004" y="158" class="tiny" text-anchor="start"><tspan x="240.52000000000004" dy="0">Make the total sticky at the bottom and add a</tspan><tspan x="240.52000000000004" dy="11">&#x27;Request on UPI&#x27; button.</tspan></text><circle cx="492" cy="153" r="9" fill="var(--c3)"/><text x="492" y="157" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">2</tspan></text><rect x="524.0" y="48" width="83.0" height="22" rx="5" fill="var(--c1)"/><text x="565.5" y="63" class="tiny b on-fill" text-anchor="middle"><tspan x="565.5" dy="0">Preview</tspan></text><rect x="611.0" y="48" width="83.0" height="22" rx="5" class="wf-bar"/><text x="652.5" y="63" class="tiny" text-anchor="middle"><tspan x="652.5" dy="0">Code</tspan></text><rect x="524" y="78" width="174" height="56" rx="6" class="wf-img"/><text x="611.0" y="110" class="tiny mut" text-anchor="middle"><tspan x="611.0" dy="0">Live prototype: Split bill</tspan></text><line x1="524" y1="166" x2="698" y2="166" class="grid"/><text x="528" y="158" class="tiny" text-anchor="start"><tspan x="528" dy="0">Paneer tikka</tspan></text><text x="694" y="158" class="tiny b" text-anchor="end"><tspan x="694" dy="0">₹320</tspan></text><line x1="524" y1="194" x2="698" y2="194" class="grid"/><text x="528" y="186" class="tiny" text-anchor="start"><tspan x="528" dy="0">You + Asha</tspan></text><text x="694" y="186" class="tiny b" text-anchor="end"><tspan x="694" dy="0">₹160 each</tspan></text><rect x="524" y="198" width="90" height="28" rx="7" fill="var(--c1)"/><text x="569.0" y="216" class="tiny b on-fill" text-anchor="middle"><tspan x="569.0" dy="0">Publish</tspan></text><circle cx="700" cy="208" r="9" fill="var(--c3)"/><text x="700" y="212" class="tiny b on-fill" text-anchor="middle"><tspan x="700" dy="0">3</tspan></text><circle cx="24" cy="262" r="9" fill="var(--c3)"/><text x="24" y="266" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="266" class="small" text-anchor="start"><tspan x="40" dy="0">Ask for &#x27;sample data only&#x27; and &#x27;mobile-first&#x27;. Claude writes HTML, CSS and JavaScript and shows a live</tspan><tspan x="40" dy="14">preview.</tspan></text><circle cx="24" cy="298" r="9" fill="var(--c3)"/><text x="24" y="302" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="302" class="small" text-anchor="start"><tspan x="40" dy="0">Change it in plain words. Each change creates a new version you can go back to.</tspan></text><circle cx="24" cy="320" r="9" fill="var(--c3)"/><text x="24" y="324" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="324" class="small" text-anchor="start"><tspan x="40" dy="0">Publish gives a link for stakeholders. Check what is public before sharing, and never put real customer</tspan><tspan x="40" dy="14">data in a prototype.</tspan></text></svg><figcaption><strong>An artifact prototype beside the chat (illustrative wireframe, not a real product screenshot).</strong> Artifacts are ideal for clickable concepts and one-page tools. For a real product with login and a database, move to Lovable (Class 16) or Claude Code (Class 15).</figcaption></figure>
+<h3 id="m14-research-with-sources"><span class="hnum">14.3.3</span> Research with sources</h3>
+<p>Turn on <strong>web search</strong> (and <strong>Research</strong>, where your plan offers it) for questions that need current information: competitors, regulations, market sizes. Research runs many searches and returns a report with citations.</p>
+<div class="admonition warning">
+<p class="admonition-title">Always open the sources</p>
+<p>Click at least three citations and confirm the claim is really there. AI research can misread a source or rely on a weak one. Mark any number you could not verify as "unverified" in your document.</p>
+</div>
+<h3 id="m14-styles-memory-and-skills"><span class="hnum">14.3.4</span> Styles, memory and skills</h3>
+<ul>
+<li><strong>Styles</strong> set how Claude writes (concise, formal, explanatory, or a custom style learned from your own writing samples).</li>
+<li><strong>Memory and past-chat search</strong> (where enabled) let Claude recall earlier work. You can view, edit or turn memory off in Settings.</li>
+<li><strong>Skills</strong> are packaged instructions (and sometimes scripts) that teach Claude a repeatable task, such as your company's PRD format or a spreadsheet report. Claude loads a skill when the task matches. You can use Anthropic's skills and create your own.</li>
+</ul>
+<h2 id="m14-level-3-connect-claude-to-your-apps"><span class="hnum">14.4</span> Level 3 · Connect Claude to your apps</h2>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Advanced</p>
+<p>Goal: let Claude read your email, calendar, documents and Slack, act with your approval, and use your own tools through MCP.</p>
+</div>
+<h3 id="m14-connectors"><span class="hnum">14.4.1</span> Connectors</h3>
+<p><strong>Connectors</strong> give Claude permission to use another app on your behalf. Go to <strong>Settings → Connectors</strong>, click <strong>Connect</strong> next to a service, sign in, and approve the permissions.</p>
+<figure class="viz" role="img" aria-label="Connecting Gmail, Calendar, Drive and Slack"><svg viewBox="0 0 720 396" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="290" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Claude · Settings</tspan></text><rect x="210.0" y="11" width="300" height="17" rx="8" class="wf-bar"/><text x="360.0" y="23" class="tiny mut" text-anchor="middle"><tspan x="360.0" dy="0">claude.ai/settings/connectors</tspan></text><rect x="12" y="38" width="150" height="252" rx="8" class="wf-bar" fill-opacity=".6"/><text x="28" y="49" class="tiny" text-anchor="start"><tspan x="28" dy="0">Profile</tspan></text><text x="28" y="73" class="tiny" text-anchor="start"><tspan x="28" dy="0">Appearance</tspan></text><rect x="20" y="83" width="138" height="20" rx="5" fill="var(--c1)" fill-opacity=".16"/><text x="28" y="97" class="tiny b" text-anchor="start"><tspan x="28" dy="0">Connectors</tspan></text><text x="28" y="121" class="tiny" text-anchor="start"><tspan x="28" dy="0">Capabilities</tspan></text><text x="28" y="145" class="tiny" text-anchor="start"><tspan x="28" dy="0">Privacy</tspan></text><text x="28" y="169" class="tiny" text-anchor="start"><tspan x="28" dy="0">Billing</tspan></text><rect x="176" y="48" width="516" height="26" rx="5" class="wf-bar"/><text x="186" y="65" class="tiny b" text-anchor="start"><tspan x="186" dy="0">Connectors</tspan></text><line x1="176" y1="106" x2="692" y2="106" class="grid"/><text x="180" y="98" class="tiny" text-anchor="start"><tspan x="180" dy="0">Gmail</tspan></text><text x="688" y="98" class="tiny b" text-anchor="end"><tspan x="688" dy="0">[1] Connect</tspan></text><line x1="176" y1="134" x2="692" y2="134" class="grid"/><text x="180" y="126" class="tiny" text-anchor="start"><tspan x="180" dy="0">Google Calendar</tspan></text><text x="688" y="126" class="tiny b" text-anchor="end"><tspan x="688" dy="0">Connected ✓</tspan></text><line x1="176" y1="162" x2="692" y2="162" class="grid"/><text x="180" y="154" class="tiny" text-anchor="start"><tspan x="180" dy="0">Google Drive</tspan></text><text x="688" y="154" class="tiny b" text-anchor="end"><tspan x="688" dy="0">Connected ✓</tspan></text><line x1="176" y1="190" x2="692" y2="190" class="grid"/><text x="180" y="182" class="tiny" text-anchor="start"><tspan x="180" dy="0">Slack</tspan></text><text x="688" y="182" class="tiny b" text-anchor="end"><tspan x="688" dy="0">Connect</tspan></text><line x1="176" y1="218" x2="692" y2="218" class="grid"/><text x="180" y="210" class="tiny" text-anchor="start"><tspan x="180" dy="0">GitHub</tspan></text><text x="688" y="210" class="tiny b" text-anchor="end"><tspan x="688" dy="0">Connect</tspan></text><line x1="176" y1="246" x2="692" y2="246" class="grid"/><text x="180" y="238" class="tiny" text-anchor="start"><tspan x="180" dy="0">Notion · Figma · others</tspan></text><text x="688" y="238" class="tiny b" text-anchor="end"><tspan x="688" dy="0">Browse</tspan></text><rect x="176" y="250" width="164" height="28" rx="7" fill="var(--c1)"/><text x="258.0" y="268" class="tiny b on-fill" text-anchor="middle"><tspan x="258.0" dy="0">Add custom connector</tspan></text><circle cx="694" cy="260" r="9" fill="var(--c3)"/><text x="694" y="264" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">2</tspan></text><circle cx="24" cy="314" r="9" fill="var(--c3)"/><text x="24" y="318" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="318" class="small" text-anchor="start"><tspan x="40" dy="0">Click Connect, sign in to the other app and approve. On Team and Enterprise plans an admin may need to</tspan><tspan x="40" dy="14">enable a connector first.</tspan></text><circle cx="24" cy="350" r="9" fill="var(--c3)"/><text x="24" y="354" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="354" class="small" text-anchor="start"><tspan x="40" dy="0">Custom connector: paste the URL of a remote MCP server (for example your own n8n workflow, Class 20) to</tspan><tspan x="40" dy="14">give Claude new tools.</tspan></text></svg><figcaption><strong>Connecting Gmail, Calendar, Drive and Slack (illustrative wireframe, not a real product screenshot).</strong> Gmail: Claude can search, read and draft emails, but it does not send them for you. Each action asks for your approval unless you change that setting.</figcaption></figure>
+<figure class="viz" role="img" aria-label="Process: Open a chat → Tools menu → Enable → Ask → Approve"><svg viewBox="0 0 720 132" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Open a chat</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">New chat or inside a</tspan><tspan x="68.0" dy="11">Project</tspan></text><line x1="129.0" y1="52.0" x2="153.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Tools menu</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">Click the tools / +</tspan><tspan x="214.0" dy="11">icon under the</tspan><tspan x="214.0" dy="11">message box</tspan></text><line x1="275.0" y1="52.0" x2="299.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Enable</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Toggle Gmail,</tspan><tspan x="360.0" dy="11">Calendar, Drive or</tspan><tspan x="360.0" dy="11">Slack on</tspan></text><line x1="421.0" y1="52.0" x2="445.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Ask</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">&#x27;Summarise unread</tspan><tspan x="506.0" dy="11">emails from my</tspan><tspan x="506.0" dy="11">manager this week&#x27;</tspan></text><line x1="567.0" y1="52.0" x2="591.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Approve</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Allow each action,</tspan><tspan x="652.0" dy="11">or allow for this</tspan><tspan x="652.0" dy="11">chat</tspan></text></svg><figcaption><strong>Turning a connector on for one chat.</strong> If Claude says it cannot reach a tool, the connector is usually disconnected. Reconnect it in Settings → Connectors.</figcaption></figure>
+<h3 id="m14-what-pms-do-with-connectors"><span class="hnum">14.4.2</span> What PMs do with connectors</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Connector</th>
+<th>Daily use</th>
+<th>Example prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gmail</strong></td>
+<td>Triage, find decisions, draft replies</td>
+<td>"Find every email about the payments launch this month. List decisions and open questions, then draft a reply to the latest thread."</td>
+</tr>
+<tr>
+<td><strong>Google Calendar</strong></td>
+<td>Prep and planning</td>
+<td>"What meetings do I have tomorrow? For each, what should I prepare, based on related Drive docs?"</td>
+</tr>
+<tr>
+<td><strong>Google Drive</strong></td>
+<td>Search and summarise docs</td>
+<td>"Compare the Q3 and Q4 roadmap docs and list what moved."</td>
+</tr>
+<tr>
+<td><strong>Slack</strong></td>
+<td>Catch up and draft updates</td>
+<td>"Summarise #checkout-squad since Monday: decisions, blockers, who is waiting on me."</td>
+</tr>
+<tr>
+<td><strong>GitHub</strong></td>
+<td>Read code and issues</td>
+<td>"Read the open issues labelled 'checkout' and group them by theme."</td>
+</tr>
+<tr>
+<td><strong>Notion / Figma</strong></td>
+<td>Specs and designs</td>
+<td>"Pull the requirements from the Split Bill PRD in Notion and check the Figma file covers each one."</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m14-custom-connectors-and-mcp"><span class="hnum">14.4.3</span> Custom connectors and MCP</h3>
+<p><strong>MCP (Model Context Protocol)</strong> is an open standard that lets an AI assistant use tools from another system. A <strong>remote MCP server</strong> has a URL. Add it under <strong>Settings → Connectors → Add custom connector</strong>, and Claude gets that server's tools. In Class 20 you will build an <strong>n8n workflow with an MCP Server Trigger</strong> and add it to Claude, so you can say "log this bug to our tracker" and n8n does it.</p>
+<h3 id="m14-the-api-and-claude-console"><span class="hnum">14.4.4</span> The API and Claude Console</h3>
+<p>To put Claude <strong>inside your own app, bot or automation</strong>, you use the <strong>Claude API</strong>:</p>
+<ol>
+<li>Sign in at <a href="https://console.anthropic.com">console.anthropic.com</a> (separate billing from your claude.ai plan).</li>
+<li>Add a payment method and <strong>set a monthly spend limit</strong>.</li>
+<li>Create an <strong>API key</strong> and store it in a secret store (never in a chat or frontend code).</li>
+<li>Test prompts in the <strong>Workbench</strong>, then use the key in n8n, Make, Zapier, Lovable or code.</li>
+</ol>
+<h2 id="m14-a-daily-routine-for-pms"><span class="hnum">14.5</span> A daily routine for PMs</h2>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Time</th><th>Task</th><th>Feature</th><th>Prompt starter</th></tr></thead><tbody><tr><td>09:00</td><td>Inbox and calendar brief</td><td>Gmail + Calendar connectors</td><td>&#x27;Brief me: urgent emails, today&#x27;s meetings, what to prep&#x27;</td></tr><tr><td>10:00</td><td>Synthesise user interviews</td><td>Project + file upload</td><td>&#x27;Top themes with quotes and counts; flag contradictions&#x27;</td></tr><tr><td>11:30</td><td>Draft or tighten a PRD section</td><td>Project + PRD skill or template</td><td>&#x27;Critique this scope against our strategy file&#x27;</td></tr><tr><td>13:00</td><td>Analyse a metric drop</td><td>File upload + analysis</td><td>&#x27;Explain the conversion drop by segment; show the method&#x27;</td></tr><tr><td>15:00</td><td>Prototype an idea for design review</td><td>Artifact</td><td>&#x27;Clickable mobile prototype, sample data, three states&#x27;</td></tr><tr><td>16:30</td><td>Competitor or market question</td><td>Research with citations</td><td>&#x27;How do the top 3 rivals handle refunds? Cite sources&#x27;</td></tr><tr><td>17:30</td><td>Weekly or daily update</td><td>Slack connector</td><td>&#x27;Draft my update from #squad and my notes, 120 words&#x27;</td></tr></tbody></table></div></div><figcaption><strong>A day with Claude.</strong> Keep one Project per product, so every task in this list starts with the right context.</figcaption></figure>
+<h2 id="m14-labs"><span class="hnum">14.6</span> Labs</h2>
+<div class="admonition example">
+<p class="admonition-title">Lab 1 · Build your product Project (20 minutes)</p>
+<ol>
+<li>Projects → <strong>New project</strong> → name it after your product.</li>
+<li>Write instructions: product in one line, users, goals this quarter, writing rules, "flag assumptions".</li>
+<li>Upload three files: a strategy or vision doc, personas, and one metrics CSV (use <code>datasets/orders.csv</code> from this handbook if you have nothing).</li>
+<li>Ask: "Using only the knowledge files, what are the three biggest risks to this quarter's goal?"</li>
+<li>Check the answer cites the files. If it invents facts, add to the instructions: "Answer only from the knowledge files; say 'not in files' otherwise."</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 2 · Interview synthesis (30 minutes)</p>
+<ol>
+<li>Inside your Project, attach five interview notes (real or written by you).</li>
+<li>Prompt: "Affinity-map these interviews: themes, number of users per theme, one quote each, and the job-to-be-done behind each theme."</li>
+<li>Follow up: "Which theme is most likely to change our roadmap? What would we need to believe?"</li>
+<li>Save the result as an artifact document and publish it for your team.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 3 · A clickable prototype you can share (30 minutes)</p>
+<ol>
+<li>Prompt: "Build a mobile-first clickable prototype for [feature]: three screens, sample data only, a 'Prototype · not real' label."</li>
+<li>Ask for two changes, one at a time.</li>
+<li>Ask for an edge case: "Add the empty state and an error state."</li>
+<li>Click <strong>Publish</strong>, open the link in a private window, and check it works on your phone.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 4 · Morning brief from Gmail and Calendar (15 minutes)</p>
+<ol>
+<li>Settings → Connectors → connect <strong>Gmail</strong> and <strong>Google Calendar</strong> (use a practice account first).</li>
+<li>In a new chat, turn both on in the tools menu.</li>
+<li>Prompt: "Brief me for today: meetings with what to prep, emails that need a reply from me, and anything with a deadline this week."</li>
+<li>Ask Claude to <strong>draft</strong> two replies. Open Gmail and check the drafts are there. Claude drafts; you review and send.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 5 · Weekly Slack update (15 minutes)</p>
+<ol>
+<li>Connect <strong>Slack</strong> (practice workspace).</li>
+<li>Prompt: "Read #practice-squad from the last 7 days. Draft a weekly update: shipped, in progress, blocked, decisions needed. 120 words."</li>
+<li>Edit the draft yourself before posting. You own what you send.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 6 · Give Claude a custom tool (advanced, after Class 20)</p>
+<ol>
+<li>Build the n8n "log a bug to Google Sheets" workflow with an <strong>MCP Server Trigger</strong> (Class 20, Lab 5).</li>
+<li>Copy its production URL.</li>
+<li>Claude → Settings → Connectors → <strong>Add custom connector</strong> → paste the URL.</li>
+<li>In a chat: "Log a bug: checkout button overlaps on small screens, high priority." Approve the tool call, then check the sheet.</li>
+</ol>
+</div>
+<h2 id="m14-prompt-library-for-pms"><span class="hnum">14.7</span> Prompt library for PMs</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PRD critique</td>
+<td>"Act as a skeptical engineering lead. List the 10 questions you'd ask about this PRD, then rewrite the scope section to answer them."</td>
+</tr>
+<tr>
+<td>Prioritisation</td>
+<td>"Score these 12 ideas with RICE. Show your assumptions for reach and effort, and mark which ones are guesses."</td>
+</tr>
+<tr>
+<td>Metrics</td>
+<td>"Build a KPI tree for 'weekly active ordering users'. Include input metrics I can move this quarter."</td>
+</tr>
+<tr>
+<td>Stakeholders</td>
+<td>"Rewrite this update for (a) the CEO in 3 lines, (b) engineers with the technical detail."</td>
+</tr>
+<tr>
+<td>Interview prep</td>
+<td>"Ask me one PM interview question at a time on product sense. After my answer, score it and show a stronger answer."</td>
+</tr>
+<tr>
+<td>Release notes</td>
+<td>"Turn these merged pull request titles into customer-friendly release notes, grouped by benefit."</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m14-common-mistakes"><span class="hnum">14.8</span> Common mistakes</h2>
+<ul>
+<li><strong>No context</strong>: asking "write a PRD" with no product, users or goal. Use a Project.</li>
+<li><strong>Trusting numbers and quotes without checking</strong>: always verify against the source.</li>
+<li><strong>Pasting confidential data into a personal plan</strong>: follow your company's AI policy; use Team or Enterprise for work data.</li>
+<li><strong>One endless chat</strong>: start a new chat per task; keep long-lived context in the Project.</li>
+<li><strong>Letting Claude send on your behalf too early</strong>: keep approvals on for email and Slack actions.</li>
+</ul>
+<h2 id="m14-where-to-find-official-help-and-sources"><span class="hnum">14.9</span> Where to find official help and sources</h2>
+<ul>
+<li><strong>Docs</strong>: <a href="https://docs.claude.com">docs.claude.com</a> (API, prompting, tools, MCP, Claude Code).</li>
+<li><strong>Help Center</strong>: <a href="https://support.claude.com">support.claude.com</a> (features, plans, connectors, troubleshooting).</li>
+<li><strong>Claude Academy</strong> (free; formerly Anthropic Academy at anthropic.com/learn, which reportedly now redirects there): courses including <em>Claude 101</em>, <em>AI Fluency</em>, <em>Building with the Claude API</em>, <em>Introduction to MCP</em> and <em>Claude Code in Action</em> at <a href="https://academy.claude.com">academy.claude.com</a>.</li>
+<li><strong>Prompt engineering guide</strong>: in the docs, under "Prompt engineering".</li>
+<li><strong>Cookbook</strong>: <a href="https://github.com/anthropics/anthropic-cookbook">github.com/anthropics/anthropic-cookbook</a> for API examples.</li>
+<li><strong>Anthropic on YouTube</strong>: official talks and feature walkthroughs.</li>
+</ul>
+<h2 id="m14-exercises-with-model-answers"><span class="hnum">14.10</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Fix the prompt</p>
+<p>"Write a PRD for a loyalty program." Rewrite it using the four-part prompt.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>"I'm the PM for a grocery delivery app in Indian metros; 60% of orders come from repeat users (context). Draft a one-page PRD for a points-based loyalty program aimed at increasing 90-day retention (task). Use our PRD template and strategy file in this Project (input). Sections: problem, goals and metrics, users, scope in and out, risks, open questions; max 600 words; flag every assumption (format)."</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · Which feature?</p>
+<p>You need (a) a shareable clickable concept for tomorrow's design review, (b) Claude to remember your product's personas in every chat, (c) a summary of last week's Slack decisions. Which Claude feature solves each?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>(a) An <strong>artifact</strong>, published as a link. (b) A <strong>Project</strong> with the personas in knowledge files and the instructions. (c) The <strong>Slack connector</strong>, enabled in that chat.</p>
+</details>
+<h2 id="m14-key-takeaways"><span class="hnum">14.11</span> Key takeaways</h2>
+<ul>
+<li>Good results come from <strong>context, a clear task, source material and a format</strong>.</li>
+<li><strong>Projects</strong> hold context; <strong>artifacts</strong> turn answers into shareable documents and prototypes.</li>
+<li><strong>Connectors</strong> let Claude work with Gmail, Calendar, Drive, Slack, GitHub and more, with your approval.</li>
+<li><strong>Custom connectors (MCP)</strong> and the <strong>API</strong> extend Claude to your own tools and apps.</li>
+</ul>
+<h2 id="m14-check-your-understanding"><span class="hnum">14.12</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m14"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">You keep pasting the same personas and strategy into every chat. What should you use?</p><ol><li class="">A longer prompt</li><li class="is-correct">A Project with instructions and knowledge files</li><li class="">The API</li><li class="">A new account</li></ol><div class="why"><strong>Why:</strong> Projects give every chat inside them the same instructions and files.</div></div><div class="qitem" data-correct="1"><p class="q">With the Gmail connector, what does Claude do with a reply you ask for?</p><ol><li class="">Sends it immediately</li><li class="is-correct">Creates a draft for you to review and send</li><li class="">Posts it to Slack</li><li class="">Nothing; Gmail is read-only</li></ol><div class="why"><strong>Why:</strong> Claude can search, read and draft in Gmail, but it does not send on your behalf.</div></div><div class="qitem" data-correct="1"><p class="q">How do you give Claude a tool from your own n8n workflow?</p><ol><li class="">Paste the n8n password into a chat</li><li class="is-correct">Add the workflow&#x27;s MCP server URL as a custom connector</li><li class="">Upload the workflow as a PDF</li><li class="">It is not possible</li></ol><div class="why"><strong>Why:</strong> Remote MCP servers are added as custom connectors in Settings → Connectors.</div></div><div class="qitem" data-correct="1"><p class="q">Where should your Claude API key live when you use it in an automation?</p><ol><li class="">In the chat</li><li class="is-correct">In the automation tool&#x27;s credential store</li><li class="">In a public GitHub repository</li><li class="">In the artifact code</li></ol><div class="why"><strong>Why:</strong> Keys belong in secret or credential stores, never in chats or shared code.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m14-recommended-resources"><span class="hnum">14.13</span> Recommended resources</h2>
+<ul>
+<li><a href="https://support.claude.com">Claude Help Center</a> · <a href="https://docs.claude.com">Claude docs</a> · <a href="https://academy.claude.com">Claude Academy</a></li>
+<li><a href="https://claude.com/docs/connectors/getting-started">Connectors: getting started</a></li>
+<li><a href="https://console.anthropic.com">Claude Console</a> for API keys and spend limits</li>
+<li><a href="https://github.com/anthropics/anthropic-cookbook">Anthropic cookbook on GitHub</a></li>
+</ul><div class="modnav"><a href="m13.html"><small>← Previous</small>Module 13: AI Tools Landscape and Your Starter Stack</a><a href="m15.html"><small>Next →</small>Module 15: Claude Code: Basic to Advanced</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

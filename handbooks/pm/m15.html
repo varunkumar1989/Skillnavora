@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 15: Claude Code: Basic to Advanced · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-15-Claude-Code.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" aria-current="page" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 15</div><h1>Claude Code: Basic to Advanced</h1><p>Use Claude&#x27;s coding agent to read, edit and build real projects, create and push GitHub repositories, deploy prototypes, and extend it with MCP, skills, subagents and hooks.</p><div class="chips"><span class="chip">≈ 10 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Claude Code docs (docs.claude.com), DeepLearning.AI &#x27;Claude Code: A Highly Agentic Coding Assistant&#x27;, Anthropic Academy &#x27;Claude Code in Action&#x27;, Module 11; checked 23 Oct 2026</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m15" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m15-what-claude-code-is">What Claude Code is</a></li><li><a href="#m15-level-1-install-and-your-first-session">Level 1 · Install and your first session</a></li><li><a href="#m15-creating-a-repository-and-pushing-to-github">Creating a repository and pushing to GitHub</a></li><li><a href="#m15-level-2-working-like-a-professional">Level 2 · Working like a professional</a></li><li><a href="#m15-level-3-extending-claude-code">Level 3 · Extending Claude Code</a></li><li><a href="#m15-costs">Costs</a></li><li><a href="#m15-labs">Labs</a></li><li><a href="#m15-pm-use-cases">PM use cases</a></li><li><a href="#m15-common-mistakes">Common mistakes</a></li><li><a href="#m15-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m15-key-takeaways">Key takeaways</a></li><li><a href="#m15-check-your-understanding">Check your understanding</a></li><li><a href="#m15-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
+<p class="admonition-title">Commands and menus evolve</p>
+<p>Claude Code updates often. If a command here behaves differently, run <code>/help</code> inside Claude Code or check the <a href="https://docs.claude.com/en/docs/claude-code/overview">Claude Code docs</a>. Terminal screens below are <strong>illustrative</strong>.</p>
+</div>
+<h2 id="m15-what-claude-code-is"><span class="hnum">15.1</span> What Claude Code is</h2>
+<p><strong>Claude Code</strong> is an <strong>agentic coding tool</strong>. You describe what you want in plain language; it reads the files in a project, plans, edits code, runs commands (tests, builds, git), shows you what it changed, and asks permission before risky steps. Module 11 introduced it for vibe coding. This class goes from first install to advanced automation.</p>
+<div class="admonition level1">
+<p class="admonition-title">Why a PM should learn it</p>
+<p>You can build and change prototypes yourself, answer "how does this feature actually work?" by reading the codebase, write data scripts, fix copy and small UI bugs, update documentation, and turn a PRD into a working demo in an afternoon. Engineers still review anything that goes to production.</p>
+</div>
+<h3 id="m15-where-claude-code-runs"><span class="hnum">15.1.1</span> Where Claude Code runs</h3>
+<figure class="viz canvas-fig" role="group" aria-label="The places you can use Claude Code"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Terminal (CLI)</h5><ul><li>Type claude in any project folder</li><li>Most complete feature set</li><li>macOS, Linux, Windows</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>IDE extensions</h5><ul><li>VS Code, Cursor, JetBrains</li><li>See diffs inline</li><li>Good once you edit code daily</li></ul></div><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>Desktop app</h5><ul><li>Graphical app on Mac and Windows</li><li>Projects on your laptop</li><li>No terminal needed</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Web: claude.ai/code</h5><ul><li>Runs in the cloud on your GitHub repositories</li><li>Start tasks from any browser or phone</li><li>Opens pull requests</li></ul></div><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>GitHub Actions</h5><ul><li>Mention @claude in an issue or pull request</li><li>Claude works and replies in GitHub</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Agent SDK and headless</h5><ul><li>claude -p &#x27;task&#x27; in scripts and CI</li><li>Build your own agents on the same engine</li></ul></div></div><figcaption><strong>The places you can use Claude Code.</strong> Start with the desktop app or terminal. Move to the web version to run tasks on GitHub repositories from anywhere.</figcaption></figure>
+<h3 id="m15-what-you-need"><span class="hnum">15.1.2</span> What you need</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Claude plan or API</strong></td>
+<td>Pro, Max, Team or Enterprise includes Claude Code. Or pay per use with a Claude Console API account.</td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td>Version control; installed on macOS, install "Git for Windows" on Windows.</td>
+</tr>
+<tr>
+<td><strong>GitHub account</strong></td>
+<td>To store and share repositories, and for the web version.</td>
+</tr>
+<tr>
+<td><strong>A terminal</strong></td>
+<td>Terminal (macOS), PowerShell or Windows Terminal (Windows). Not needed for the desktop app.</td>
+</tr>
+<tr>
+<td><strong>Optional</strong></td>
+<td>Node.js (some installs and projects), the GitHub CLI <code>gh</code>, a Netlify account for deploying.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m15-level-1-install-and-your-first-session"><span class="hnum">15.2</span> Level 1 · Install and your first session</h2>
+<div class="admonition level1">
+<p class="admonition-title">Level 1 · Beginner</p>
+<p>Goal: install Claude Code, make one change to a small project, review it and save it with git.</p>
+</div>
+<h3 id="m15-install"><span class="hnum">15.2.1</span> Install</h3>
+<figure class="viz" role="img" aria-label="Process: Install → Open a folder → Start → Log in → Check"><svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Install</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Use the installer</tspan><tspan x="68.0" dy="11">from the Claude Code</tspan><tspan x="68.0" dy="11">docs for your OS, or</tspan><tspan x="68.0" dy="11">the desktop app</tspan></text><line x1="129.0" y1="56.0" x2="153.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Open a folder</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">cd</tspan><tspan x="214.0" dy="11">~/AI-Tools-Lab/first-project</tspan></text><line x1="275.0" y1="56.0" x2="299.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Start</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Type claude and</tspan><tspan x="360.0" dy="11">press Enter</tspan></text><line x1="421.0" y1="56.0" x2="445.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Log in</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Choose your Claude</tspan><tspan x="506.0" dy="11">account (Pro or Max)</tspan><tspan x="506.0" dy="11">or Console API</tspan><tspan x="506.0" dy="11">billing</tspan></text><line x1="567.0" y1="56.0" x2="591.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Check</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Ask: &#x27;What files are</tspan><tspan x="652.0" dy="11">in this folder?&#x27;</tspan></text></svg><figcaption><strong>Install and log in (10 minutes).</strong> Typical installer commands are a one-line script for macOS and Linux, a PowerShell line for Windows, or npm install -g @anthropic-ai/claude-code. Copy the current command from the docs rather than from a blog.</figcaption></figure>
+<h3 id="m15-your-first-session"><span class="hnum">15.2.2</span> Your first session</h3>
+<figure class="viz" role="img" aria-label="A first Claude Code session in the terminal"><svg viewBox="0 0 720 439" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="303" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Terminal — first-project</tspan></text><rect x="26" y="48" width="666" height="36" rx="6" fill="var(--ink)" fill-opacity=".9"/><text x="34" y="64" class="tiny on-fill" text-anchor="start" style="font-family:ui-monospace,Consolas,monospace">$ cd ~/AI-Tools-Lab/first-project</text><text x="34" y="76" class="tiny on-fill" text-anchor="start" style="font-family:ui-monospace,Consolas,monospace">$ claude</text><rect x="145.9" y="92" width="546.1" height="34" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="153.88" y="107" class="tiny" text-anchor="start"><tspan x="153.88" dy="0">Create a one-page landing page for a &#x27;Split Bill&#x27; feature: headline, three benefits, a waitlist</tspan><tspan x="153.88" dy="11">form. Mobile-first. Plain HTML/CSS/JS.</tspan></text><circle cx="694" cy="102" r="9" fill="var(--c3)"/><text x="694" y="106" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">1</tspan></text><rect x="26.0" y="134" width="546.1" height="34" rx="9" class="wf-bar"/><text x="34" y="149" class="tiny" text-anchor="start"><tspan x="34" dy="0">Plan: create index.html, style.css, app.js. Write index.html? (Yes / Yes, and don&#x27;t ask again /</tspan><tspan x="34" dy="11">No)</tspan></text><circle cx="694" cy="144" r="9" fill="var(--c3)"/><text x="694" y="148" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">2</tspan></text><rect x="26" y="176" width="666" height="48" rx="6" fill="var(--ink)" fill-opacity=".9"/><text x="34" y="192" class="tiny on-fill" text-anchor="start" style="font-family:ui-monospace,Consolas,monospace">+ index.html  (62 lines)</text><text x="34" y="204" class="tiny on-fill" text-anchor="start" style="font-family:ui-monospace,Consolas,monospace">+ style.css   (48 lines)</text><text x="34" y="216" class="tiny on-fill" text-anchor="start" style="font-family:ui-monospace,Consolas,monospace">+ app.js      (21 lines)</text><rect x="145.9" y="232" width="546.1" height="23" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="153.88" y="247" class="tiny" text-anchor="start"><tspan x="153.88" dy="0">Open it in my browser, then make the button colour match #2563EB.</tspan></text><circle cx="694" cy="242" r="9" fill="var(--c3)"/><text x="694" y="246" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">3</tspan></text><rect x="26" y="263" width="666" height="28" rx="6" fill="var(--c4)" fill-opacity=".14" stroke="var(--c4)"/><text x="36" y="281" class="tiny b" text-anchor="start"><tspan x="36" dy="0">Done. Changes shown as a diff. Ask: &#x27;commit this with a clear message&#x27;.</tspan></text><circle cx="694" cy="273" r="9" fill="var(--c3)"/><text x="694" y="277" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">4</tspan></text><circle cx="24" cy="327" r="9" fill="var(--c3)"/><text x="24" y="331" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="331" class="small" text-anchor="start"><tspan x="40" dy="0">Describe the outcome, the constraints (mobile-first, plain HTML) and any data rules (sample data only).</tspan></text><circle cx="24" cy="349" r="9" fill="var(--c3)"/><text x="24" y="353" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="353" class="small" text-anchor="start"><tspan x="40" dy="0">Claude asks before writing files or running commands. Read the request, then approve once, or approve</tspan><tspan x="40" dy="14">for the session.</tspan></text><circle cx="24" cy="385" r="9" fill="var(--c3)"/><text x="24" y="389" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="389" class="small" text-anchor="start"><tspan x="40" dy="0">Iterate in small steps. One change per message is easiest to check.</tspan></text><circle cx="24" cy="407" r="9" fill="var(--c3)"/><text x="24" y="411" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">4</tspan></text><text x="40" y="411" class="small" text-anchor="start"><tspan x="40" dy="0">Review the diff, then ask Claude to commit. Small commits make mistakes cheap to undo.</tspan></text></svg><figcaption><strong>A first Claude Code session in the terminal (illustrative wireframe, not a real product screenshot).</strong> Press Esc to stop Claude mid-step. Press Esc twice to rewind to an earlier point in the conversation and undo its changes (checkpoints).</figcaption></figure>
+<h3 id="m15-essential-commands"><span class="hnum">15.2.3</span> Essential commands</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command or key</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>claude</code></td>
+<td>Start a session in the current folder</td>
+</tr>
+<tr>
+<td><code>claude -c</code></td>
+<td>Continue your most recent session here</td>
+</tr>
+<tr>
+<td><code>claude --resume</code></td>
+<td>Pick an older session to resume</td>
+</tr>
+<tr>
+<td><code>/help</code></td>
+<td>List commands available in your version</td>
+</tr>
+<tr>
+<td><code>/init</code></td>
+<td>Create a <code>CLAUDE.md</code> file that describes the project for future sessions</td>
+</tr>
+<tr>
+<td><code>/clear</code></td>
+<td>Start fresh in the same window (clears the conversation)</td>
+</tr>
+<tr>
+<td><code>/compact</code></td>
+<td>Summarise a long conversation to free up context</td>
+</tr>
+<tr>
+<td><code>/model</code></td>
+<td>Switch model (for example a faster or a more capable one)</td>
+</tr>
+<tr>
+<td><code>/permissions</code></td>
+<td>See and change what Claude may do without asking</td>
+</tr>
+<tr>
+<td><code>/mcp</code></td>
+<td>Manage connected MCP servers</td>
+</tr>
+<tr>
+<td><strong>Shift+Tab</strong></td>
+<td>Cycle modes: normal → auto-accept edits → <strong>plan mode</strong></td>
+</tr>
+<tr>
+<td><strong>Esc</strong>, <strong>Esc Esc</strong></td>
+<td>Stop the current step; rewind to an earlier checkpoint</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m15-creating-a-repository-and-pushing-to-github"><span class="hnum">15.3</span> Creating a repository and pushing to GitHub</h2>
+<p>Every project you build should live in a <strong>git repository</strong>, so you can undo mistakes and share the work.</p>
+<figure class="viz" role="img" aria-label="Workflow: Make a folder → Ask Claude to build → git init and first commit → Create the GitHub repo → Repository on GitHub → Deploy"><svg viewBox="0 0 720 256" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ahw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="8" width="210.7" height="84" rx="10" class="node"/><rect x="10.0" y="8" width="7" height="84" rx="3" fill="var(--c6)"/><text x="26.0" y="24" class="tiny b" text-anchor="start" fill="var(--c6)" style="fill:var(--c6)">HUMAN</text><text x="26.0" y="41" class="small b" text-anchor="start"><tspan x="26.0" dy="0">Make a folder</tspan></text><text x="26.0" y="58" class="tiny mut" text-anchor="start"><tspan x="26.0" dy="0">mkdir split-bill &amp;&amp; cd split-bill</tspan></text><line x1="222.7" y1="50.0" x2="251.7" y2="50.0" class="edge" marker-end="url(#ahw)"/><rect x="254.7" y="8" width="210.7" height="84" rx="10" class="node"/><rect x="254.7" y="8" width="7" height="84" rx="3" fill="var(--c2)"/><text x="270.7" y="24" class="tiny b" text-anchor="start" fill="var(--c2)" style="fill:var(--c2)">AI STEP</text><text x="270.66666666666663" y="41" class="small b" text-anchor="start"><tspan x="270.66666666666663" dy="0">Ask Claude to build</tspan></text><text x="270.66666666666663" y="58" class="tiny mut" text-anchor="start"><tspan x="270.66666666666663" dy="0">&#x27;Create the landing page…&#x27;</tspan></text><line x1="467.3" y1="50.0" x2="496.3" y2="50.0" class="edge" marker-end="url(#ahw)"/><rect x="499.3" y="8" width="210.7" height="84" rx="10" class="node"/><rect x="499.3" y="8" width="7" height="84" rx="3" fill="var(--c1)"/><text x="515.3" y="24" class="tiny b" text-anchor="start" fill="var(--c1)" style="fill:var(--c1)">ACTION</text><text x="515.3333333333333" y="41" class="small b" text-anchor="start"><tspan x="515.3333333333333" dy="0">git init and first commit</tspan></text><text x="515.3333333333333" y="58" class="tiny mut" text-anchor="start"><tspan x="515.3333333333333" dy="0">&#x27;Initialise git and commit</tspan><tspan x="515.3333333333333" dy="11">everything&#x27;</tspan></text><line x1="604.7" y1="94" x2="604.7" y2="129" class="edge" marker-end="url(#ahw)"/><rect x="499.3" y="132" width="210.7" height="84" rx="10" class="node"/><rect x="499.3" y="132" width="7" height="84" rx="3" fill="var(--c1)"/><text x="515.3" y="148" class="tiny b" text-anchor="start" fill="var(--c1)" style="fill:var(--c1)">ACTION</text><text x="515.3333333333333" y="165" class="small b" text-anchor="start"><tspan x="515.3333333333333" dy="0">Create the GitHub repo</tspan></text><text x="515.3333333333333" y="182" class="tiny mut" text-anchor="start"><tspan x="515.3333333333333" dy="0">gh repo create split-bill --public</tspan><tspan x="515.3333333333333" dy="11">--source=. --push</tspan></text><line x1="497.3" y1="174.0" x2="468.3" y2="174.0" class="edge" marker-end="url(#ahw)"/><rect x="254.7" y="132" width="210.7" height="84" rx="10" class="node"/><rect x="254.7" y="132" width="7" height="84" rx="3" fill="var(--c5)"/><text x="270.7" y="148" class="tiny b" text-anchor="start" fill="var(--c5)" style="fill:var(--c5)">OUTPUT</text><text x="270.66666666666663" y="165" class="small b" text-anchor="start"><tspan x="270.66666666666663" dy="0">Repository on GitHub</tspan></text><text x="270.66666666666663" y="182" class="tiny mut" text-anchor="start"><tspan x="270.66666666666663" dy="0">github.com/you/split-bill</tspan></text><line x1="252.7" y1="174.0" x2="223.7" y2="174.0" class="edge" marker-end="url(#ahw)"/><rect x="10.0" y="132" width="210.7" height="84" rx="10" class="node"/><rect x="10.0" y="132" width="7" height="84" rx="3" fill="var(--c1)"/><text x="26.0" y="148" class="tiny b" text-anchor="start" fill="var(--c1)" style="fill:var(--c1)">ACTION</text><text x="26.0" y="165" class="small b" text-anchor="start"><tspan x="26.0" dy="0">Deploy</tspan></text><text x="26.0" y="182" class="tiny mut" text-anchor="start"><tspan x="26.0" dy="0">Netlify drop or netlify deploy</tspan></text></svg><figcaption><strong>From empty folder to a GitHub repository.</strong> Ask Claude to run each step and explain it. If you don&#x27;t have the GitHub CLI, create an empty repository on github.com and ask Claude to add it as the remote and push. Node types shown: Action · AI step · Human step · Output.</figcaption></figure>
+<div class="admonition tip">
+<p class="admonition-title">Prompt that does it all</p>
+<p>"Initialise a git repository here, add a sensible .gitignore, commit everything with a clear message, then create a <strong>public</strong> GitHub repository called split-bill with the GitHub CLI and push. Explain each command before you run it."</p>
+</div>
+<p>Two other routes to a repository:</p>
+<ul>
+<li><strong>Start on GitHub</strong>: create the repository at github.com/new, then ask Claude: "Clone github.com/you/split-bill here and open it."</li>
+<li><strong>Start in Lovable or Replit</strong>: connect the project to GitHub (Classes 16 and 17), then clone that repository and improve it with Claude Code.</li>
+</ul>
+<h2 id="m15-level-2-working-like-a-professional"><span class="hnum">15.4</span> Level 2 · Working like a professional</h2>
+<div class="admonition level2">
+<p class="admonition-title">Level 2 · Working PM</p>
+<p>Goal: make Claude reliable on real projects with project memory, planning before coding, tests, and the right permissions.</p>
+</div>
+<h3 id="m15-claudemd-the-projects-instructions"><span class="hnum">15.4.1</span> CLAUDE.md: the project's instructions</h3>
+<p><code>CLAUDE.md</code> sits in the project folder. Claude reads it at the start of every session. Run <code>/init</code> to create a first version, then edit it.</p>
+<figure class="viz" role="img" aria-label="A good CLAUDE.md for a prototype project"><svg viewBox="0 0 720 345" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="201" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">CLAUDE.md</tspan></text><rect x="26" y="48" width="666" height="26" rx="5" class="wf-bar"/><text x="36" y="65" class="tiny b" text-anchor="start"><tspan x="36" dy="0"># Split Bill prototype</tspan></text><text x="30" y="93" class="tiny" text-anchor="start"><tspan x="30" dy="0">What this is: a mobile-first clickable prototype for a PM case study. Sample data only. Not production.</tspan></text><circle cx="694" cy="92" r="9" fill="var(--c3)"/><text x="694" y="96" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">1</tspan></text><text x="30" y="116" class="tiny" text-anchor="start"><tspan x="30" dy="0">Stack: plain HTML/CSS/JS, no build step. Deploy: Netlify from the /site folder.</tspan></text><circle cx="694" cy="115" r="9" fill="var(--c3)"/><text x="694" y="119" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">2</tspan></text><text x="30" y="139" class="tiny" text-anchor="start"><tspan x="30" dy="0">Rules: keep files small; no external trackers; label every page &#x27;Prototype · not affiliated with …&#x27;; never commit .env.</tspan></text><circle cx="694" cy="138" r="9" fill="var(--c3)"/><text x="694" y="142" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">3</tspan></text><text x="30" y="162" class="tiny" text-anchor="start"><tspan x="30" dy="0">Commands: open site/index.html to preview; run npx serve site for a local server.</tspan></text><circle cx="694" cy="161" r="9" fill="var(--c3)"/><text x="694" y="165" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">4</tspan></text><text x="30" y="185" class="tiny" text-anchor="start"><tspan x="30" dy="0">Before you finish: check the page at 375 px width and fix any horizontal scroll.</tspan></text><circle cx="694" cy="184" r="9" fill="var(--c3)"/><text x="694" y="188" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">5</tspan></text><circle cx="24" cy="225" r="9" fill="var(--c3)"/><text x="24" y="229" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="229" class="small" text-anchor="start"><tspan x="40" dy="0">One paragraph on what the project is and who it is for.</tspan></text><circle cx="24" cy="247" r="9" fill="var(--c3)"/><text x="24" y="251" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="251" class="small" text-anchor="start"><tspan x="40" dy="0">The stack and where things live.</tspan></text><circle cx="24" cy="269" r="9" fill="var(--c3)"/><text x="24" y="273" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="273" class="small" text-anchor="start"><tspan x="40" dy="0">Rules Claude must follow every time.</tspan></text><circle cx="24" cy="291" r="9" fill="var(--c3)"/><text x="24" y="295" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">4</tspan></text><text x="40" y="295" class="small" text-anchor="start"><tspan x="40" dy="0">How to run, preview and test.</tspan></text><circle cx="24" cy="313" r="9" fill="var(--c3)"/><text x="24" y="317" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">5</tspan></text><text x="40" y="317" class="small" text-anchor="start"><tspan x="40" dy="0">Your definition of done.</tspan></text></svg><figcaption><strong>A good CLAUDE.md for a prototype project (illustrative wireframe, not a real product screenshot).</strong> Keep CLAUDE.md short and specific. Update it when Claude repeats a mistake, so the next session avoids it.</figcaption></figure>
+<h3 id="m15-explore-plan-build-check"><span class="hnum">15.4.2</span> Explore → plan → build → check</h3>
+<figure class="viz" role="img" aria-label="Process: Explore → Plan → Approve → Build → Check → Commit"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Explore</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">&#x27;Read the project and explain how</tspan><tspan x="116.66666666666667" dy="11">checkout works. Don&#x27;t change</tspan><tspan x="116.66666666666667" dy="11">anything.&#x27;</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Plan</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Shift+Tab into plan mode: &#x27;Plan how to</tspan><tspan x="360.0" dy="11">add split payments.&#x27;</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Approve</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Edit the plan until it is small and</tspan><tspan x="603.3333333333334" dy="11">clear</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Build</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Leave plan mode; Claude implements</tspan><tspan x="116.66666666666667" dy="11">step by step</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Check</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">&#x27;Run the tests / open the page; show</tspan><tspan x="360.0" dy="11">me what changed&#x27;</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Commit</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">One commit per working step</tspan></text></svg><figcaption><strong>The workflow that avoids messy results.</strong> Plan mode lets Claude research and propose without editing files, so you agree on the approach before any code changes.</figcaption></figure>
+<h3 id="m15-pictures-screenshots-and-designs"><span class="hnum">15.4.3</span> Pictures, screenshots and designs</h3>
+<p>Drag a screenshot or a design image into the terminal or desktop app and say "Make the page look like this" or "This button overlaps on mobile, fix it". Visual input is often faster than describing a layout.</p>
+<h3 id="m15-permissions-and-safety"><span class="hnum">15.4.4</span> Permissions and safety</h3>
+<ul>
+<li>Claude asks before editing files and running commands. Approve carefully, especially for commands that delete, deploy or spend money.</li>
+<li>Use <code>/permissions</code> to pre-approve safe, repeated commands (for example <code>npm test</code>) and keep risky ones on "ask".</li>
+<li>Never paste API keys into the chat. Put them in a <code>.env</code> file that is listed in <code>.gitignore</code>.</li>
+<li>Review the diff before every commit. You are responsible for what you push.</li>
+</ul>
+<h2 id="m15-level-3-extending-claude-code"><span class="hnum">15.5</span> Level 3 · Extending Claude Code</h2>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Advanced</p>
+<p>Goal: give Claude new tools (MCP), reusable know-how (skills and commands), helpers (subagents), automatic checks (hooks), and run it without you (headless, GitHub, web).</p>
+</div>
+<figure class="viz" role="img" aria-label="Diagram: How Claude Code is extended"><svg viewBox="0 0 720 542" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><text x="4" y="63.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Knowledge</tspan></text><rect x="131.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="216.0" y="63.0" class="small b" text-anchor="middle"><tspan x="216.0" dy="0">CLAUDE.md (project rules)</tspan></text><rect x="321.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="406.0" y="63.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Skills (how to do a task)</tspan></text><rect x="511.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="596.0" y="63.0" class="small b" text-anchor="middle"><tspan x="596.0" dy="0">Custom slash commands</tspan></text><text x="4" y="173.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Tools</tspan></text><rect x="196.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="173.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">MCP servers: Figma, Notion, GitHub, Playwright, your n8n</tspan></text><text x="4" y="283.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Helpers</tspan></text><rect x="196.0" y="250" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="283.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Subagents with their own instructions and tools</tspan></text><text x="4" y="393.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Automation</tspan></text><rect x="226.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="311.0" y="386.0" class="small b" text-anchor="middle"><tspan x="311.0" dy="0">Hooks: run a script</tspan><tspan x="311.0" dy="12">before or after a tool</tspan></text><rect x="416.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="501.0" y="386.0" class="small b" text-anchor="middle"><tspan x="501.0" dy="0">Headless mode and GitHub</tspan><tspan x="501.0" dy="12">Actions</tspan></text><text x="4" y="503.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Packaging</tspan></text><rect x="196.0" y="470" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="496.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Plugins: bundles of skills, agents, commands, hooks and MCP</tspan><tspan x="406.0" dy="12">servers</tspan></text></svg><figcaption><strong>How Claude Code is extended.</strong> Add one extension at a time, and only when you repeat the same work at least three times.</figcaption></figure>
+<h3 id="m15-mcp-servers-new-tools-for-claude"><span class="hnum">15.5.1</span> MCP servers: new tools for Claude</h3>
+<p>Add an MCP server once, and Claude can use its tools in every session. Use <code>claude mcp add</code>, or <code>/mcp</code> inside a session.</p>
+<figure class="viz" role="img" aria-label="Adding MCP servers"><svg viewBox="0 0 720 354" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="226" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Terminal</tspan></text><rect x="26" y="48" width="666" height="24" rx="6" fill="var(--ink)" fill-opacity=".9"/><text x="34" y="64" class="tiny on-fill" text-anchor="start" style="font-family:ui-monospace,Consolas,monospace">$ claude mcp add --transport http notion https://mcp.notion.com/mcp</text><circle cx="694" cy="58" r="9" fill="var(--c3)"/><text x="694" y="62" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">1</tspan></text><rect x="26" y="80" width="666" height="24" rx="6" fill="var(--ink)" fill-opacity=".9"/><text x="34" y="96" class="tiny on-fill" text-anchor="start" style="font-family:ui-monospace,Consolas,monospace">$ claude mcp add playwright -- npx @playwright/mcp@latest</text><circle cx="694" cy="90" r="9" fill="var(--c3)"/><text x="694" y="94" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">2</tspan></text><rect x="26" y="112" width="666" height="24" rx="6" fill="var(--ink)" fill-opacity=".9"/><text x="34" y="128" class="tiny on-fill" text-anchor="start" style="font-family:ui-monospace,Consolas,monospace">$ claude mcp list</text><rect x="26" y="144" width="666" height="28" rx="6" fill="var(--c4)" fill-opacity=".14" stroke="var(--c4)"/><text x="36" y="162" class="tiny b" text-anchor="start"><tspan x="36" dy="0">notion: connected · playwright: connected</tspan></text><rect x="145.9" y="180" width="546.1" height="34" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="153.88" y="195" class="tiny" text-anchor="start"><tspan x="153.88" dy="0">Read the &#x27;Split Bill&#x27; PRD in Notion, then open the local site with Playwright and list any</tspan><tspan x="153.88" dy="11">requirement the page doesn&#x27;t meet.</tspan></text><circle cx="694" cy="190" r="9" fill="var(--c3)"/><text x="694" y="194" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">3</tspan></text><circle cx="24" cy="250" r="9" fill="var(--c3)"/><text x="24" y="254" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="254" class="small" text-anchor="start"><tspan x="40" dy="0">Remote servers: --transport http plus the service&#x27;s MCP URL. The first use opens a browser to sign in.</tspan><tspan x="40" dy="14">Check each vendor&#x27;s docs for the current URL.</tspan></text><circle cx="24" cy="286" r="9" fill="var(--c3)"/><text x="24" y="290" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="290" class="small" text-anchor="start"><tspan x="40" dy="0">Local servers run a command on your machine. Playwright lets Claude open and click through web pages to</tspan><tspan x="40" dy="14">test them.</tspan></text><circle cx="24" cy="322" r="9" fill="var(--c3)"/><text x="24" y="326" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="326" class="small" text-anchor="start"><tspan x="40" dy="0">Combine tools in one request: read the spec, test the page, report gaps.</tspan></text></svg><figcaption><strong>Adding MCP servers (illustrative wireframe, not a real product screenshot).</strong> Popular MCP servers for PMs include Figma (build from a design), Notion and Linear or Jira (specs and tickets), GitHub, Playwright (browser testing), and your own n8n workflows (Class 20).</figcaption></figure>
+<h3 id="m15-skills-and-custom-commands"><span class="hnum">15.5.2</span> Skills and custom commands</h3>
+<ul>
+<li>A <strong>skill</strong> is a folder with a <code>SKILL.md</code> file (instructions, examples, optional scripts) inside <code>.claude/skills/</code> in your project or your user folder. Claude uses it automatically when a task matches its description. Example: a "release-notes" skill that turns merged pull requests into customer-friendly notes in your house style.</li>
+<li>A <strong>custom slash command</strong> is a Markdown prompt in <code>.claude/commands/</code>, run by typing <code>/its-name</code>. Example: <code>/prd-check</code> asks Claude to compare the code with <code>docs/prd.md</code>.</li>
+</ul>
+<h3 id="m15-subagents"><span class="hnum">15.5.3</span> Subagents</h3>
+<p>A <strong>subagent</strong> is a helper with its own instructions, tools and separate context. Create one with <code>/agents</code>. Good PM examples: a <strong>reviewer</strong> that checks a change against the PRD, a <strong>tester</strong> that runs Playwright checks, a <strong>copy editor</strong> that enforces your tone guide. Subagents keep long, noisy work out of your main conversation.</p>
+<h3 id="m15-hooks"><span class="hnum">15.5.4</span> Hooks</h3>
+<p><strong>Hooks</strong> run your own script automatically at set moments, for example <strong>before</strong> a tool runs (block edits to <code>.env</code>), or <strong>after</strong> a file is edited (run the formatter). Manage them with <code>/hooks</code>. Hooks are rules that always run, unlike instructions, which Claude may occasionally miss.</p>
+<h3 id="m15-plugins"><span class="hnum">15.5.5</span> Plugins</h3>
+<p>A <strong>plugin</strong> bundles skills, subagents, commands, hooks and MCP servers so a team can install the same setup with one <code>/plugin</code> command. Use them to share your team's standard Claude Code setup.</p>
+<h3 id="m15-running-without-you"><span class="hnum">15.5.6</span> Running without you</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>How</th>
+<th>PM use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Headless</strong></td>
+<td><code>claude -p "Summarise the changes since last Friday"</code> in a script</td>
+<td>Scheduled reports, release notes</td>
+</tr>
+<tr>
+<td><strong>GitHub Actions</strong></td>
+<td>Run <code>/install-github-app</code>, then write <code>@claude</code> in an issue or pull request</td>
+<td>"@claude fix this typo and open a PR"</td>
+</tr>
+<tr>
+<td><strong>Claude Code on the web</strong></td>
+<td>claude.ai/code → pick a GitHub repository → describe the task</td>
+<td>Start a task from your phone; review the pull request later</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m15-costs"><span class="hnum">15.6</span> Costs</h2>
+<ul>
+<li><strong>Pro and Max plans</strong> include Claude Code; usage is shared with chat, and heavy agentic work uses more.</li>
+<li><strong>API billing</strong> charges per token. Run <code>/cost</code> to see what an API session has spent, and set a spend limit in the Console.</li>
+<li>Cheaper habits: one clear task per session, <code>/clear</code> between unrelated tasks, <code>/compact</code> in long sessions, plan mode before big changes.</li>
+</ul>
+<h2 id="m15-labs"><span class="hnum">15.7</span> Labs</h2>
+<div class="admonition example">
+<p class="admonition-title">Lab 1 · Install and first change (20 minutes)</p>
+<ol>
+<li>Install Claude Code (desktop app or CLI) and log in.</li>
+<li>Make a folder <code>first-project</code> and start <code>claude</code> in it.</li>
+<li>Ask for a one-page landing page with sample data. Approve the file writes.</li>
+<li>Ask for one design change. Review the diff.</li>
+<li>Press <strong>Esc Esc</strong> and rewind the last change, to see that undo works.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 2 · Create and push a GitHub repository (20 minutes)</p>
+<ol>
+<li>In the same folder: "Initialise git, add a .gitignore, and commit."</li>
+<li>"Create a public GitHub repository called first-project and push." (Install <code>gh</code> and run <code>gh auth login</code> first, or create the repository on github.com and ask Claude to push to it.)</li>
+<li>Open the repository on GitHub and check your files are there.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 3 · From PRD to deployed prototype (60 minutes)</p>
+<ol>
+<li>Copy <code>templates/01-prd-template.md</code> from this handbook into the project as <code>docs/prd.md</code> and fill in a small feature.</li>
+<li>Shift+Tab to <strong>plan mode</strong>: "Read docs/prd.md and plan a clickable prototype that covers every requirement."</li>
+<li>Approve the plan, leave plan mode, and let Claude build.</li>
+<li>"Check the page at 375 px width; fix horizontal scroll; label it as a prototype."</li>
+<li>Deploy: drag the folder onto <a href="https://app.netlify.com/drop">app.netlify.com/drop</a>, or ask Claude to use the Netlify CLI. Share the link.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 4 · CLAUDE.md and a repeat mistake (15 minutes)</p>
+<ol>
+<li>Run <code>/init</code>. Edit CLAUDE.md using the five-part structure above.</li>
+<li>Notice one thing Claude got wrong in Lab 3. Add a rule for it.</li>
+<li>Start a new session and repeat the task. The mistake should not return.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 5 · Test your page with Playwright MCP (20 minutes)</p>
+<ol>
+<li><code>claude mcp add playwright -- npx @playwright/mcp@latest</code></li>
+<li>"Open site/index.html with Playwright, submit the waitlist form empty and with a valid email, and report what happens."</li>
+<li>Ask Claude to fix any bug it found, then re-run the test.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 6 · A release-notes skill (30 minutes)</p>
+<ol>
+<li>"Create a skill in .claude/skills/release-notes that turns git commit messages from the last 7 days into customer-friendly release notes, grouped by benefit, max 150 words."</li>
+<li>Make three small commits.</li>
+<li>Ask: "Write this week's release notes." Check Claude used the skill.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 7 · Claude Code on the web (15 minutes)</p>
+<ol>
+<li>Open <a href="https://claude.ai/code">claude.ai/code</a> and connect GitHub when asked.</li>
+<li>Choose your <code>first-project</code> repository.</li>
+<li>Task: "Add a FAQ section with three questions and open a pull request."</li>
+<li>Review the pull request on GitHub and merge it yourself.</li>
+</ol>
+</div>
+<h2 id="m15-pm-use-cases"><span class="hnum">15.8</span> PM use cases</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Understand a feature</td>
+<td>"Explain how refunds work in this codebase, with file names. Don't change anything."</td>
+</tr>
+<tr>
+<td>Size a request</td>
+<td>"What would it take to add a coupon field at checkout? List files to touch and risks."</td>
+</tr>
+<tr>
+<td>Data question</td>
+<td>"Write a Python script that reads data/orders.csv and prints weekly retention by cohort."</td>
+</tr>
+<tr>
+<td>Copy fix</td>
+<td>"Change every 'Checkout' button label to 'Pay now' and show me the diff."</td>
+</tr>
+<tr>
+<td>Docs</td>
+<td>"Update README.md so a new teammate can run this project in five minutes."</td>
+</tr>
+<tr>
+<td>Issue triage</td>
+<td>"Read the open GitHub issues and group them into themes with counts."</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m15-common-mistakes"><span class="hnum">15.9</span> Common mistakes</h2>
+<ul>
+<li><strong>Huge first prompts</strong>: build in small steps and commit after each working step.</li>
+<li><strong>Approving everything without reading</strong>: especially deletes, deploys and package installs.</li>
+<li><strong>No CLAUDE.md</strong>: Claude rediscovers the project every session and repeats mistakes.</li>
+<li><strong>Secrets in code</strong>: keys belong in <code>.env</code> (git-ignored) or the host's environment variables.</li>
+<li><strong>Treating a prototype as production</strong>: production code needs engineering review, tests and security checks (Module 11).</li>
+</ul>
+<h2 id="m15-exercises-with-model-answers"><span class="hnum">15.10</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Plan or just do it?</p>
+<p>Which of these should start in plan mode? (a) Fix a typo in the footer. (b) Add login with email OTP to the prototype. (c) Rename a CSS class.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>Only <strong>(b)</strong>. It touches several files, adds data storage and has security decisions, so agree the approach first. (a) and (c) are small, contained edits you can review in one diff.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · Which extension?</p>
+<p>Your team keeps asking Claude to check new screens against the Figma design, and someone keeps accidentally committing <code>.env</code>. What do you add?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>Add the <strong>Figma MCP server</strong> (so Claude can read the design) and a short <strong>skill</strong> or <strong>subagent</strong> for "compare the implementation with the Figma frame". For <code>.env</code>, add it to <code>.gitignore</code> <strong>and</strong> a <strong>PreToolUse hook</strong> that blocks edits or commits touching <code>.env</code>. A hook always runs, unlike an instruction.</p>
+</details>
+<h2 id="m15-key-takeaways"><span class="hnum">15.11</span> Key takeaways</h2>
+<ul>
+<li>Claude Code works on <strong>real files and repositories</strong> and asks before risky actions.</li>
+<li>Use <strong>git from the first minute</strong>: commit small, working steps and push to GitHub.</li>
+<li><strong>CLAUDE.md</strong> and <strong>plan mode</strong> are the two habits that most improve results.</li>
+<li><strong>MCP, skills, subagents, hooks and plugins</strong> extend Claude Code once you repeat a task.</li>
+<li>Headless mode, <strong>GitHub Actions</strong> and <strong>Claude Code on the web</strong> let it work while you do something else.</li>
+</ul>
+<h2 id="m15-check-your-understanding"><span class="hnum">15.12</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m15"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Which key cycles into plan mode?</p><ol><li class="">Ctrl+C</li><li class="is-correct">Shift+Tab</li><li class="">Esc</li><li class="">F5</li></ol><div class="why"><strong>Why:</strong> Shift+Tab cycles normal, auto-accept edits and plan mode.</div></div><div class="qitem" data-correct="1"><p class="q">What does CLAUDE.md do?</p><ol><li class="">Stores your API key</li><li class="is-correct">Gives Claude project instructions at the start of every session</li><li class="">Deploys the site</li><li class="">Lists your GitHub followers</li></ol><div class="why"><strong>Why:</strong> Claude reads CLAUDE.md to learn the project&#x27;s purpose, stack, rules and commands.</div></div><div class="qitem" data-correct="1"><p class="q">You want an automatic check that blocks edits to .env every time. Use…</p><ol><li class="">A line in the prompt</li><li class="is-correct">A hook</li><li class="">Plan mode</li><li class="">The /model command</li></ol><div class="why"><strong>Why:</strong> Hooks run your script at fixed points, so the rule is enforced every time.</div></div><div class="qitem" data-correct="1"><p class="q">How do you let Claude read a spec in Notion?</p><ol><li class="">Copy the Notion password into the chat</li><li class="is-correct">Add Notion&#x27;s MCP server with claude mcp add</li><li class="">Export Notion as a ZIP</li><li class="">It&#x27;s not possible</li></ol><div class="why"><strong>Why:</strong> MCP servers give Claude Code tools for other apps; Notion offers a remote MCP server.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m15-recommended-resources"><span class="hnum">15.13</span> Recommended resources</h2>
+<ul>
+<li><a href="https://docs.claude.com/en/docs/claude-code/overview">Claude Code docs</a> · <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Claude Code best practices</a></li>
+<li><a href="https://academy.claude.com">Claude Academy: Claude Code in Action</a> (free; formerly Anthropic Academy)</li>
+<li><a href="https://www.deeplearning.ai/short-courses/claude-code-a-highly-agentic-coding-assistant/">DeepLearning.AI: Claude Code: A Highly Agentic Coding Assistant</a> (free, about 2 hours)</li>
+<li><a href="https://www.coursera.org/learn/claude-code">Coursera: Claude Code: Software Engineering with Generative AI Agents (Vanderbilt)</a></li>
+<li><a href="https://cli.github.com/">GitHub CLI</a> · <a href="https://app.netlify.com/drop">Netlify Drop</a> · <a href="https://github.com/microsoft/playwright-mcp">Playwright MCP</a></li>
+</ul><div class="modnav"><a href="m14.html"><small>← Previous</small>Module 14: Claude for Daily PM Work: Basic to Advanced</a><a href="m16.html"><small>Next →</small>Module 16: Lovable: Basic to Advanced</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

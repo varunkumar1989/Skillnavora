@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 11: Vibe Coding for Product Managers · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-11-Vibe-Coding.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" aria-current="page" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 11</div><h1>Vibe Coding for Product Managers</h1><p>Use AI coding tools to turn ideas into testable prototypes — safely — and know exactly where a prototype ends and production engineering begins.</p><div class="chips"><span class="chip">≈ 10 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 42, 43, 48, 49, 50; Companion ch. 20, 21, 22, 23, 24, 26, 28</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m11" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m11-what-vibe-coding-means">What vibe coding means</a></li><li><a href="#m11-pm-use-cases">PM use cases</a></li><li><a href="#m11-ai-coding-tools-categories">AI coding tools — categories</a></li><li><a href="#m11-prompt-to-prototype-workflow">Prompt-to-prototype workflow</a></li><li><a href="#m11-git-and-github-fundamentals">Git and GitHub fundamentals</a></li><li><a href="#m11-html-css-and-javascript-fundamentals">HTML, CSS and JavaScript fundamentals</a></li><li><a href="#m11-building-basic-web-applications-api-integrations-and-databases">Building basic web applications, API integrations and databases</a></li><li><a href="#m11-deployment-fundamentals">Deployment fundamentals</a></li><li><a href="#m11-debugging-and-testing-ai-generated-code">Debugging and testing AI-generated code</a></li><li><a href="#m11-security-risks-of-generated-code">Security risks of generated code</a></li><li><a href="#m11-prototyping-versus-production-development-and-when-engineering-review-is-necessary">Prototyping versus production development — and when engineering review is necessary</a></li><li><a href="#m11-building-and-validating-mvps-with-vibe-coding">Building and validating MVPs with vibe coding</a></li><li><a href="#m11-hands-on-project-from-idea-to-deployed-prototype">Hands-on project: from idea to deployed prototype</a></li><li><a href="#m11-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m11-interview-perspective">Interview perspective</a></li><li><a href="#m11-key-takeaways">Key takeaways</a></li><li><a href="#m11-check-your-understanding">Check your understanding</a></li><li><a href="#m11-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
+<p class="admonition-title">Tool details change fast</p>
+<p>Features, pricing, credits and plan limits of AI coding tools change frequently. This module describes <strong>categories and workflows</strong> and links to official docs. Verify current terms in your own account before relying on any capability.</p>
+</div>
+<h2 id="m11-what-vibe-coding-means"><span class="hnum">11.1</span> What vibe coding means</h2>
+<p><strong>Vibe coding</strong> is building software by describing what you want in everyday language and letting an AI coding tool write and change the code, iterating by testing the result and giving feedback. The term was popularised by Andrej Karpathy in early 2025.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 42)</p>
+<p>Vibe coding uses everyday-language instructions with an AI coding tool to create or change software. <strong>The output can be useful but may contain mistakes or security problems.</strong> Ask for a small app, try adding and removing data, then reload to see whether data was <em>actually saved</em>. Review generated code, permissions and dependencies; test real flows; <strong>do not publish private data or assume a generated screen is production ready.</strong> <em>The lecture's rigid distinction between “agentic AI” and “AI agents,” and its claim that app builders do not use models, are misleading — categories overlap.</em> Signing in with GitHub does not itself guarantee repository synchronisation.</p>
+</div>
+<div class="admonition level1">
+<p class="admonition-title">Level 1 · Beginner</p>
+<p>Think of the AI as a very fast junior developer who never gets tired, sometimes misunderstands, and occasionally invents things. You are the product owner and tester: you describe, check, and decide.</p>
+</div>
+<h2 id="m11-pm-use-cases"><span class="hnum">11.2</span> PM use cases</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Use case</th>
+<th>Why it helps</th>
+<th>Watch out for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clickable/working prototypes for user tests</td>
+<td>Test value and usability in days, not weeks</td>
+<td>Users may think it's real — label it</td>
+</tr>
+<tr>
+<td>Internal tools (dashboards, calculators)</td>
+<td>Remove manual work</td>
+<td>Data access and security</td>
+</tr>
+<tr>
+<td>Data exploration scripts</td>
+<td>Answer questions without waiting</td>
+<td>Wrong joins, unverified numbers</td>
+</tr>
+<tr>
+<td>Demos for stakeholders</td>
+<td>Make an idea tangible</td>
+<td>Demo ≠ feasible at scale</td>
+</tr>
+<tr>
+<td>Learning technical concepts</td>
+<td>Build to understand APIs, DBs</td>
+<td>Don't ship learning code</td>
+</tr>
+<tr>
+<td>Automating workflows</td>
+<td>Save time on repetitive tasks</td>
+<td>Unapproved access to company systems</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m11-ai-coding-tools-categories"><span class="hnum">11.3</span> AI coding tools — categories</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Examples</th>
+<th>Best for</th>
+<th>PM-level caution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Browser app builders</strong></td>
+<td>Lovable, Bolt (bolt.new), Replit Agent</td>
+<td>Prompt-to-app prototypes with hosting</td>
+<td>Generated backends/auth need review; lock-in; costs</td>
+</tr>
+<tr>
+<td><strong>AI code editors (IDEs)</strong></td>
+<td>Cursor, VS Code + GitHub Copilot, Windsurf</td>
+<td>Working in a real codebase with AI help</td>
+<td>Need basic Git and code-reading skills</td>
+</tr>
+<tr>
+<td><strong>Terminal / agentic coding tools</strong></td>
+<td>Claude Code, OpenAI Codex CLI, GitHub Copilot agent mode</td>
+<td>Multi-file changes, running tests, explaining code</td>
+<td>Review every command and diff; permissions</td>
+</tr>
+<tr>
+<td><strong>Inline completion</strong></td>
+<td>GitHub Copilot suggestions</td>
+<td>Faster typing for developers</td>
+<td>Suggestions can be subtly wrong</td>
+</tr>
+<tr>
+<td><strong>General assistants</strong></td>
+<td>Claude, ChatGPT, Gemini (with artifacts/canvas features)</td>
+<td>Small single-file prototypes, explanations</td>
+<td>Move real work to a proper repo/environment</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="viz" role="img" aria-label="Scatter: Where AI coding tool categories sit (conceptual)"><svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="20" width="630" height="324" class="plot"/><line x1="385.0" y1="20" x2="385.0" y2="344" class="grid dash"/><line x1="70" y1="182.0" x2="700" y2="182.0" class="grid dash"/><text x="78" y="36" class="quad" text-anchor="start"><tspan x="78" dy="0">Fast prototypes, less control</tspan></text><text x="692" y="36" class="quad" text-anchor="end"><tspan x="692" dy="0">Fast and controllable</tspan></text><text x="78" y="336" class="quad" text-anchor="start"><tspan x="78" dy="0">Slow, low control</tspan></text><text x="692" y="336" class="quad" text-anchor="end"><tspan x="692" dy="0">Controlled, needs skills</tspan></text><circle cx="183.4" cy="68.6" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="196.4" y="72.60000000000002" class="small" text-anchor="start"><tspan x="196.4" dy="0">General assistants</tspan></text><circle cx="290.5" cy="52.4" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="303.5" y="56.39999999999998" class="small" text-anchor="start"><tspan x="303.5" dy="0">Browser app builders</tspan></text><circle cx="511.0" cy="149.6" r="9" fill="var(--c2)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="524.0" y="153.6" class="small" text-anchor="start"><tspan x="524.0" dy="0">AI code editors (IDEs)</tspan></text><circle cx="605.5" cy="133.4" r="9" fill="var(--c2)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="592.5" y="137.4" class="small" text-anchor="end"><tspan x="592.5" dy="0">Terminal / agentic tools</tspan></text><circle cx="574.0" cy="246.8" r="9" fill="var(--c2)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="561.0" y="250.8" class="small" text-anchor="end"><tspan x="561.0" dy="0">Inline completion</tspan></text><line x1="70" y1="344" x2="700" y2="344" class="axis"/><line x1="70" y1="20" x2="70" y2="344" class="axis"/><text x="385.0" y="388" class="small b mut" text-anchor="middle"><tspan x="385.0" dy="0">Control over code, environment and review (1–10)</tspan></text><text x="16" y="182.0" class="small b mut" text-anchor="middle" transform="rotate(-90 16 182.0)">Speed from idea to something clickable (1–10)</text><circle cx="75" cy="370" r="5" fill="var(--c1)"/><text x="84" y="374" class="small" text-anchor="start"><tspan x="84" dy="0">Low setup</tspan></text><circle cx="163.5" cy="370" r="5" fill="var(--c2)"/><text x="172.5" y="374" class="small" text-anchor="start"><tspan x="172.5" dy="0">Needs a dev environment</tspan></text></svg><figcaption><strong>Where AI coding tool categories sit (conceptual).</strong> Conceptual placement by category, not a benchmark of specific products. PMs often start top-left and move right as a prototype becomes something engineers will own.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 20–23, 26)</p>
+<p><strong>Claude:</strong> request a small responsive prototype with dummy data; specify pages, flows, accessibility, error states and <em>no real payments</em>; preview it; then move to an approved environment for data, authentication, security review and deployment. <strong>ChatGPT / Gemini:</strong> use as tutor and drafter; verify facts; check account and organisational policies before uploading files. <strong>Lovable:</strong> a generated application is <em>not automatically secure, correct, accessible or production ready</em>; iterate one change at a time; map data ownership, authentication and access rules before connecting a backend; use test accounts and mock payments; review server-side authorisation and secret handling with an engineer. <strong>Replit:</strong> separate development from production; store secrets in approved secret management; review dependencies; set up monitoring and backups; confirm ownership, hosting costs and rollback before publishing. <em>Never paste real customer data into an unreviewed prototype.</em></p>
+</div>
+<h2 id="m11-prompt-to-prototype-workflow"><span class="hnum">11.4</span> Prompt-to-prototype workflow</h2>
+<figure class="viz" role="img" aria-label="Process: Brief → Plan → Build small → Test → Commit → Repeat / deploy"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Brief</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Problem, user, hypothesis, 3 core</tspan><tspan x="116.66666666666667" dy="11">flows, constraints</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Plan</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Ask the AI for a simple plan and</tspan><tspan x="360.0" dy="11">stack; edit it</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Build small</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">One feature per prompt; run it</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Test</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Happy path, errors, mobile, keyboard,</tspan><tspan x="116.66666666666667" dy="11">reload</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Commit</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Save a working version in Git</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Repeat / deploy</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Next feature; deploy to a test URL</tspan></text></svg><figcaption><strong>Prompt-to-prototype loop.</strong> Small steps with a working, committed version after each one is the single most important habit — it makes mistakes cheap to undo.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 43, 48, 49)</p>
+<p>Choose a familiar product or idea, identify a few core features, <strong>build them in small increments and test each step.</strong> <em>A screen containing a form is not necessarily connected to persistent storage</em> — verify the backend, permissions and data flow; a code repository is not automatically the application's live database. Tell the assistant your experience level and preferred technologies, ask for a simple plan, and refine from working pieces instead of accepting unnecessary complexity. When something fails, <strong>report the actual symptoms</strong>, inspect server and database setup, and ask the assistant to investigate.</p>
+</div>
+<p><strong>A good build prompt (template)</strong></p>
+<pre><code class="language-text">Context: I'm a PM testing a hypothesis: [one sentence]. Users: [who].
+Build: a single-page web app using plain HTML, CSS and JavaScript (no frameworks, no build step).
+Core flows: 1) … 2) … 3) …
+Data: fictional sample data only; store state in localStorage.
+Must handle: empty state, loading state, an error state where [service] fails (show a clear message, never invent data).
+Accessibility: labels for inputs, keyboard operable, visible focus, buttons ≥ 44px tall, colour contrast ≥ 4.5:1.
+Constraints: no external API keys, no real payments, no personal data. Mark the page &quot;Prototype&quot;.
+Output: index.html, style.css, app.js. Then explain how to run it and list what is simulated.
+</code></pre>
+<h2 id="m11-git-and-github-fundamentals"><span class="hnum">11.5</span> Git and GitHub fundamentals</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 24; Lectures 49, 50)</p>
+<p>A <strong>repository</strong> is a project folder with version history; a <strong>branch</strong> isolates work; a <strong>commit</strong> records a snapshot; a <strong>pull request</strong> proposes changes for discussion and review; a <strong>merge</strong> incorporates approved changes. <em>A merged PR is not necessarily deployed or validated in production.</em> Check repository visibility and <strong>remove secrets before pushing</strong>; if a secret is exposed, rotate it — deleting it from the latest file doesn't remove it from history. Create an appropriately private repository, review contents, push only when ready; <strong>don't move employer code or data into personal accounts.</strong></p>
+</div>
+<pre><code class="language-bash">git init
+</code></pre>
+<pre><code class="language-bash">git add index.html style.css app.js README.md
+</code></pre>
+<pre><code class="language-bash">git commit -m &quot;Fee-Clear Cart: first working prototype&quot;
+</code></pre>
+<pre><code class="language-bash">git checkout -b fee-fallback
+</code></pre>
+<pre><code class="language-bash">git push -u origin fee-fallback
+</code></pre>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>What to remember</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.gitignore</code></td>
+<td>List files never to commit (<code>.env</code>, <code>node_modules/</code>, data exports)</td>
+</tr>
+<tr>
+<td>Commit messages</td>
+<td>Say <em>why</em>, not just <em>what</em></td>
+</tr>
+<tr>
+<td>Branch + PR</td>
+<td>Even solo, a PR gives a reviewable diff and history</td>
+</tr>
+<tr>
+<td>Revert</td>
+<td><code>git revert &lt;commit&gt;</code> undoes a change safely by adding a new commit</td>
+</tr>
+<tr>
+<td>Secrets</td>
+<td>Use environment variables / secret managers; never in code or screenshots</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="viz" role="img" aria-label="Diagram: A safe Git workflow for a prototype"><svg viewBox="0 0 720 542" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="150.0" y="30" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="63.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">main branch (always working)</tspan></text><rect x="150.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="173.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">feature branch: fee-fallback</tspan></text><rect x="85.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="170.0" y="283.0" class="small b" text-anchor="middle"><tspan x="170.0" dy="0">Commit 1: fallback text</tspan></text><rect x="275.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="360.0" y="283.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Commit 2: retry button</tspan></text><rect x="465.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="550.0" y="283.0" class="small b" text-anchor="middle"><tspan x="550.0" dy="0">Commit 3: tests pass</tspan></text><rect x="150.0" y="360" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="393.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Pull request: description + how tested</tspan></text><rect x="150.0" y="470" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="503.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Review → merge to main → deploy test URL</tspan></text><path d="M360.0,88.0 C360.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="364.0" y="115.5" class="tiny mut edge-label" text-anchor="start"><tspan x="364.0" dy="0">git checkout -b</tspan></text><path d="M360.0,198.0 C360.0,222.5 170.0,222.5 170.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><line x1="255.0" y1="279.0" x2="272.0" y2="279.0" class="edge" marker-end="url(#ah2)"/><line x1="445.0" y1="279.0" x2="462.0" y2="279.0" class="edge" marker-end="url(#ah2)"/><path d="M550.0,308.0 C550.0,332.5 360.0,332.5 360.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="459.0" y="335.5" class="tiny mut edge-label" text-anchor="start"><tspan x="459.0" dy="0">git push</tspan></text><path d="M360.0,418.0 C360.0,442.5 360.0,442.5 360.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>A safe Git workflow for a prototype.</strong> Each commit is a save point you can return to. Main stays deployable; experiments live on branches.</figcaption></figure>
+<h2 id="m11-html-css-and-javascript-fundamentals"><span class="hnum">11.6</span> HTML, CSS and JavaScript fundamentals</h2>
+<ul>
+<li><strong>HTML</strong> gives structure and meaning: headings, lists, buttons, forms. Semantic HTML (<code>&lt;button&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;main&gt;</code>) is also what makes pages accessible.</li>
+<li><strong>CSS</strong> controls presentation: layout (flexbox, grid), colour, spacing, responsive rules (<code>@media</code>).</li>
+<li><strong>JavaScript</strong> adds behaviour: respond to clicks, update the page, call APIs, store data.</li>
+</ul>
+<pre><code class="language-html">&lt;label&gt;Delivery area
+  &lt;select id=&quot;area&quot;&gt;&lt;option value=&quot;near&quot;&gt;Within 3 km&lt;/option&gt;&lt;/select&gt;
+&lt;/label&gt;
+&lt;button id=&quot;pay&quot; type=&quot;button&quot; disabled&gt;Pay&lt;/button&gt;
+</code></pre>
+<pre><code class="language-css">.pay { width: 100%; min-height: 44px; background: #2563EB; color: #fff; }
+@media (max-width: 480px) { .wrap { padding: 12px; } }
+</code></pre>
+<pre><code class="language-javascript">document.getElementById(&quot;pay&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  document.getElementById(&quot;result&quot;).textContent = &quot;Simulated order placed (no payment taken).&quot;;
+});
+</code></pre>
+<h2 id="m11-building-basic-web-applications-api-integrations-and-databases"><span class="hnum">11.7</span> Building basic web applications, API integrations and databases</h2>
+<p><strong>Calling an API from JavaScript</strong> (illustrative; a real API needs its own URL, authentication and terms):</p>
+<pre><code class="language-javascript">async function getForecast(city) {
+  const res = await fetch(`https://api.example.com/forecast?city=${encodeURIComponent(city)}`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);   // handle 4xx/5xx explicitly
+  return res.json();
+}
+</code></pre>
+<figure class="viz" role="img" aria-label="Diagram: Where secrets may and may not live"><svg viewBox="0 0 720 322" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><text x="4" y="63.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Browser</tspan></text><rect x="196.0" y="30" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="63.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Your web page (public: anyone can read the code)</tspan></text><text x="4" y="173.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Server</tspan></text><rect x="196.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="173.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Serverless function (holds the API key in a secret store)</tspan></text><text x="4" y="283.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Provider</tspan></text><rect x="196.0" y="250" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="283.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Third-party API (weather, payments, AI model)</tspan></text><path d="M406.0,88.0 C406.0,112.5 406.0,112.5 406.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="410.0" y="115.5" class="tiny mut edge-label" text-anchor="start"><tspan x="410.0" dy="0">request without key</tspan></text><path d="M406.0,198.0 C406.0,222.5 406.0,222.5 406.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="410.0" y="225.5" class="tiny mut edge-label" text-anchor="start"><tspan x="410.0" dy="0">request with key</tspan></text></svg><figcaption><strong>Where secrets may and may not live.</strong> The browser never sees the key. If an AI tool puts a key in app.js, move the call server-side and rotate the key.</figcaption></figure>
+<p>Key rules: <strong>never put secret API keys in frontend code</strong> (anyone can read them) — call such APIs from a server or serverless function; handle failures, timeouts and rate limits; respect API terms.</p>
+<p><strong>Data storage ladder for prototypes:</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Good for</th>
+<th>Limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hard-coded sample data</td>
+<td>Pure UX tests</td>
+<td>Nothing persists</td>
+</tr>
+<tr>
+<td><code>localStorage</code></td>
+<td>Single-user demo persistence in one browser</td>
+<td>Not shared, not secure, can be cleared</td>
+</tr>
+<tr>
+<td>Spreadsheet/Airtable via an automation</td>
+<td>Small shared datasets</td>
+<td>Rate limits, access control</td>
+</tr>
+<tr>
+<td>Managed backend (e.g., Supabase/Firebase)</td>
+<td>Real multi-user prototypes with auth</td>
+<td><strong>Configure access rules (e.g., row-level security) before real data</strong>; costs</td>
+</tr>
+<tr>
+<td>Your company's systems</td>
+<td>Production</td>
+<td>Requires engineering, security, compliance</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 40, 43, 49)</p>
+<p>Supabase is a broader platform with PostgreSQL and optional vector capabilities. <strong>Database selection depends on actual workloads;</strong> a vector database is not a replacement for a transactional database. A rental-management prototype used Python/FastAPI, HTML/CSS and SQLite; external payment integration was a possible extension, <em>not demonstrated as complete.</em> Use payment-provider <strong>test environments</strong> for prototypes; never handle real card details without safeguards; never store passwords in plaintext.</p>
+</div>
+<h2 id="m11-deployment-fundamentals"><span class="hnum">11.8</span> Deployment fundamentals</h2>
+<ul>
+<li><strong>Static hosting</strong> (no server code): GitHub Pages, Netlify, Vercel, Cloudflare Pages — upload HTML/CSS/JS, get a URL.</li>
+<li><strong>App hosting</strong> (server code + database): Replit deployments, Render, Railway, Vercel/Netlify functions, cloud providers.</li>
+<li><strong>Environments:</strong> keep a <em>test</em> URL separate from anything real users rely on.</li>
+<li><strong>Before sharing a link:</strong> remove secrets, check visibility, add a “prototype” banner, confirm data handling, and know how to take it down.</li>
+</ul>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 42; Lecture 35)</p>
+<p>The demo connected a project to a Git repository and published a test URL — <strong>verify the actual integration and visibility settings, then test the real user journey.</strong> <em>A public prototype link alone does not establish exclusive ownership or access control.</em></p>
+</div>
+<h2 id="m11-debugging-and-testing-ai-generated-code"><span class="hnum">11.9</span> Debugging and testing AI-generated code</h2>
+<figure class="viz" role="img" aria-label="Loop diagram: Debugging loop with an AI coding assistant"><svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><path d="M421.6,66.7 Q479.6,72.9 504.0,88.9" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M574.6,160.8 Q587.2,190.0 575.6,216.8" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M507.3,289.0 Q479.6,307.1 425.6,312.9" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M298.4,313.3 Q240.4,307.1 216.0,291.1" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M145.4,219.2 Q132.8,190.0 144.4,163.2" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M212.7,91.0 Q240.4,72.9 294.4,67.1" class="edge" fill="none" marker-end="url(#ah3)"/><rect x="285.0" y="37.0" width="150" height="46" rx="10" class="node"/><text x="360.0" y="64.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Reproduce the bug</tspan></text><rect x="484.2" y="102.0" width="150" height="46" rx="10" class="node"/><text x="559.1858428704209" y="117.0" class="small b" text-anchor="middle"><tspan x="559.1858428704209" dy="0">Read the real error</tspan><tspan x="559.1858428704209" dy="12">(console, network,</tspan><tspan x="559.1858428704209" dy="12">logs)</tspan></text><rect x="484.2" y="232.0" width="150" height="46" rx="10" class="node"/><text x="559.1858428704209" y="253.0" class="small b" text-anchor="middle"><tspan x="559.1858428704209" dy="0">Describe exact symptom</tspan><tspan x="559.1858428704209" dy="12">to the AI</tspan></text><rect x="285.0" y="297.0" width="150" height="46" rx="10" class="node"/><text x="360.0" y="318.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Ask for the cause</tspan><tspan x="360.0" dy="12">before a fix</tspan></text><rect x="85.8" y="232.0" width="150" height="46" rx="10" class="node"/><text x="160.81415712957914" y="259.00000000000006" class="small b" text-anchor="middle"><tspan x="160.81415712957914" dy="0">Apply the smallest fix</tspan></text><rect x="85.8" y="102.0" width="150" height="46" rx="10" class="node"/><text x="160.81415712957912" y="129.0" class="small b" text-anchor="middle"><tspan x="160.81415712957912" dy="0">Re-test and commit</tspan></text><circle cx="360.0" cy="190.0" r="46" fill="var(--c2)" fill-opacity=".15" stroke="var(--c2)" stroke-width="2"/><text x="360.0" y="188.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">One change</tspan><tspan x="360.0" dy="12">per loop</tspan></text></svg><figcaption><strong>Debugging loop with an AI coding assistant.</strong> The most common failure is skipping step 2 and asking the AI to “fix it” without evidence — it then guesses and changes unrelated code.</figcaption></figure>
+<p><strong>Debugging loop:</strong> reproduce → read the actual error (browser <strong>Console</strong>, <strong>Network</strong> tab, server logs) → tell the AI the exact symptom and error text → ask it to explain the cause before changing code → apply the smallest fix → re-test → commit.</p>
+<p><strong>Testing generated code</strong> (as a PM you can always do the first three):</p>
+<ol>
+<li><strong>Manual test plan:</strong> happy path, empty state, error states, invalid input, reload/persistence, mobile width, keyboard-only, slow network.</li>
+<li><strong>Acceptance criteria</strong> from your PRD, checked one by one.</li>
+<li><strong>Ask the AI to write tests</strong> — then read them: do they test behaviour you care about, or just that the code runs?</li>
+<li><strong>Automated tests</strong> (unit/integration/end-to-end) for anything that will live longer than a demo.</li>
+<li><strong>Peer review</strong> of the diff before merging.</li>
+</ol>
+<h2 id="m11-security-risks-of-generated-code"><span class="hnum">11.10</span> Security risks of generated code</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Example</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Exposed secrets</strong></td>
+<td>API key hard-coded in <code>app.js</code></td>
+<td>Server-side calls; secret manager; scan repos</td>
+</tr>
+<tr>
+<td><strong>Broken access control</strong></td>
+<td>Any logged-in user can read all records</td>
+<td>Server-side authorisation; DB access rules (e.g., RLS); test with two accounts</td>
+</tr>
+<tr>
+<td><strong>Injection / XSS</strong></td>
+<td>Rendering user text with <code>innerHTML</code></td>
+<td>Escape output; parameterised queries</td>
+</tr>
+<tr>
+<td><strong>Insecure dependencies</strong></td>
+<td>Outdated or non-existent (hallucinated) package names</td>
+<td>Verify packages exist and are reputable; pin versions; scan</td>
+</tr>
+<tr>
+<td><strong>Over-permissive tools</strong></td>
+<td>Agent runs destructive commands</td>
+<td>Review commands; least privilege; sandbox</td>
+</tr>
+<tr>
+<td><strong>Data leakage</strong></td>
+<td>Pasting customer data into prompts</td>
+<td>Use dummy data; approved tools only</td>
+</tr>
+<tr>
+<td><strong>Missing rate limits</strong></td>
+<td>OTP/login endpoints can be abused</td>
+<td>Rate limit; monitoring</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition warning">
+<p class="admonition-title">A note on the starter project</p>
+<p>The Fee-Clear Cart prototype uses <code>innerHTML</code> only with its own fixed menu data. If you add user-entered text (e.g., notes), render it with <code>textContent</code> instead — that is exactly the kind of change an AI tool may get wrong.</p>
+</div>
+<h2 id="m11-prototyping-versus-production-development-and-when-engineering-review-is-necessary"><span class="hnum">11.11</span> Prototyping versus production development — and when engineering review is necessary</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Prototype</th>
+<th>Production</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Answers a learning question</td>
+<td>Serves real users reliably</td>
+</tr>
+<tr>
+<td>Fictional or test data</td>
+<td>Real, regulated data</td>
+</tr>
+<tr>
+<td>One happy path + key errors</td>
+<td>All edge cases, scale, monitoring</td>
+</tr>
+<tr>
+<td>Can be thrown away</td>
+<td>Must be maintained</td>
+</tr>
+<tr>
+<td>PM can own</td>
+<td>Engineering owns; PM partners</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="viz" role="img" aria-label="Process: Clickable mock → Working prototype → Internal tool → Pilot with customers → Production"><svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Clickable mock</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Fictional data;</tspan><tspan x="68.0" dy="11">PM-owned; label</tspan><tspan x="68.0" dy="11">&#x27;prototype&#x27;</tspan></text><line x1="129.0" y1="56.0" x2="153.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Working</tspan><tspan x="222.0" dy="13">prototype</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">Local storage,</tspan><tspan x="214.0" dy="11">simulated services;</tspan><tspan x="214.0" dy="11">test users</tspan></text><line x1="275.0" y1="56.0" x2="299.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Internal tool</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Real but</tspan><tspan x="360.0" dy="11">non-sensitive data;</tspan><tspan x="360.0" dy="11">approved tools;</tspan><tspan x="360.0" dy="11">access control</tspan></text><line x1="421.0" y1="56.0" x2="445.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Pilot with</tspan><tspan x="514.0" dy="13">customers</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Engineering review,</tspan><tspan x="506.0" dy="11">security, privacy,</tspan><tspan x="506.0" dy="11">monitoring</tspan></text><line x1="567.0" y1="56.0" x2="591.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Production</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Owned by</tspan><tspan x="652.0" dy="11">engineering: tests,</tspan><tspan x="652.0" dy="11">SLOs, on-call,</tspan><tspan x="652.0" dy="11">compliance</tspan></text></svg><figcaption><strong>The readiness ladder — what each rung requires.</strong> Every step up adds obligations. Vibe coding is fastest on the first two rungs; from rung 3 upward engineering and security must be involved.</figcaption></figure>
+<p><strong>Engineering review is necessary before:</strong> any real user data or personal information; authentication or payments; integration with company systems; anything customers rely on; anything public under the company's name; anything that runs automated actions (emails, money movement); any code that will be reused in production.</p>
+<h2 id="m11-building-and-validating-mvps-with-vibe-coding"><span class="hnum">11.12</span> Building and validating MVPs with vibe coding</h2>
+<p>Use the speed to <strong>test assumptions</strong>, not to skip discovery: (1) pick the riskiest assumption; (2) build the smallest prototype that tests it; (3) put it in front of 5–8 target users with a task; (4) measure behaviour (task success, time, errors) and listen; (5) decide: iterate, pivot, or stop. <em>A polished demo is not evidence of demand.</em></p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 32, 43, 55)</p>
+<p>Label the prototype's <strong>real and simulated functions</strong>; a polished screen does not prove that a service works. Show the problem, target user, evidence, solution, prototype, business model, success measures and the next validation step. <strong>Distinguish a clickable demo from a working integration, and planned outcomes from measured results. Never publish invented testimonials as if they were real.</strong></p>
+</div>
+<h2 id="m11-hands-on-project-from-idea-to-deployed-prototype"><span class="hnum">11.13</span> Hands-on project: from idea to deployed prototype</h2>
+<p><strong>Project:</strong> <em>Fee-Clear Cart</em> — test whether showing the full estimated total in the cart reduces checkout surprise. The finished starter code is in <code>templates/vibe-coding-starter/</code> (open <code>index.html</code>; it runs offline). It was tested in a browser at 375 px width: adding items, changing the area, simulated fee failure (“Estimate unavailable”, Pay disabled, Retry), and the simulated order message all behave as specified, with no console errors.</p>
+<figure class="viz" role="img" aria-label="Process: 1 · Brief → 2 · Prompt → 3 · Review → 4 · Test → 5 · Version → 6 · Deploy → 7 · Validate → 8 · Decide"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="94.25" y="28" class="b small" text-anchor="middle"><tspan x="94.25" dy="0">1 · Brief</tspan></text><text x="86.25" y="58" class="mut tiny" text-anchor="middle"><tspan x="86.25" dy="0">Hypothesis, users, flows,</tspan><tspan x="86.25" dy="11">success metric</tspan></text><line x1="165.5" y1="52.0" x2="189.5" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="192.5" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="208.5" cy="22" r="11" fill="var(--c1)"/><text x="208.5" y="26" class="on-fill b small" text-anchor="middle"><tspan x="208.5" dy="0">2</tspan></text><text x="276.75" y="28" class="b small" text-anchor="middle"><tspan x="276.75" dy="0">2 · Prompt</tspan></text><text x="268.75" y="58" class="mut tiny" text-anchor="middle"><tspan x="268.75" dy="0">Use the build-prompt</tspan><tspan x="268.75" dy="11">template</tspan></text><line x1="348.0" y1="52.0" x2="372.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="375.0" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="391.0" cy="22" r="11" fill="var(--c1)"/><text x="391.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="391.0" dy="0">3</tspan></text><text x="459.25" y="28" class="b small" text-anchor="middle"><tspan x="459.25" dy="0">3 · Review</tspan></text><text x="451.25" y="58" class="mut tiny" text-anchor="middle"><tspan x="451.25" dy="0">Read the code; check states</tspan><tspan x="451.25" dy="11">and accessibility</tspan></text><line x1="530.5" y1="52.0" x2="554.5" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="557.5" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="573.5" cy="22" r="11" fill="var(--c1)"/><text x="573.5" y="26" class="on-fill b small" text-anchor="middle"><tspan x="573.5" dy="0">4</tspan></text><text x="641.75" y="28" class="b small" text-anchor="middle"><tspan x="641.75" dy="0">4 · Test</tspan></text><text x="633.75" y="58" class="mut tiny" text-anchor="middle"><tspan x="633.75" dy="0">Run the checklist; fix one</tspan><tspan x="633.75" dy="11">issue per prompt</tspan></text><path d="M633.8,100 L633.8,112 L86.2,112 L86.2,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="152.5" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">5</tspan></text><text x="94.25" y="154" class="b small" text-anchor="middle"><tspan x="94.25" dy="0">5 · Version</tspan></text><text x="86.25" y="184" class="mut tiny" text-anchor="middle"><tspan x="86.25" dy="0">Git commits on a branch; PR</tspan><tspan x="86.25" dy="11">to main</tspan></text><line x1="165.5" y1="178.0" x2="189.5" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="192.5" y="132" width="152.5" height="92" rx="10" class="node"/><circle cx="208.5" cy="148" r="11" fill="var(--c1)"/><text x="208.5" y="152" class="on-fill b small" text-anchor="middle"><tspan x="208.5" dy="0">6</tspan></text><text x="276.75" y="154" class="b small" text-anchor="middle"><tspan x="276.75" dy="0">6 · Deploy</tspan></text><text x="268.75" y="184" class="mut tiny" text-anchor="middle"><tspan x="268.75" dy="0">GitHub Pages test URL with</tspan><tspan x="268.75" dy="11">&#x27;Prototype&#x27; banner</tspan></text><line x1="348.0" y1="178.0" x2="372.0" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="375.0" y="132" width="152.5" height="92" rx="10" class="node"/><circle cx="391.0" cy="148" r="11" fill="var(--c1)"/><text x="391.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="391.0" dy="0">7</tspan></text><text x="459.25" y="154" class="b small" text-anchor="middle"><tspan x="459.25" dy="0">7 · Validate</tspan></text><text x="451.25" y="184" class="mut tiny" text-anchor="middle"><tspan x="451.25" dy="0">5 user sessions; measure</tspan><tspan x="451.25" dy="11">task success</tspan></text><line x1="530.5" y1="178.0" x2="554.5" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="557.5" y="132" width="152.5" height="92" rx="10" class="node"/><circle cx="573.5" cy="148" r="11" fill="var(--c1)"/><text x="573.5" y="152" class="on-fill b small" text-anchor="middle"><tspan x="573.5" dy="0">8</tspan></text><text x="641.75" y="154" class="b small" text-anchor="middle"><tspan x="641.75" dy="0">8 · Decide</tspan></text><text x="633.75" y="184" class="mut tiny" text-anchor="middle"><tspan x="633.75" dy="0">Write a 1-page readout:</tspan><tspan x="633.75" dy="11">keep, change, stop</tspan></text></svg><figcaption><strong>Project milestones.</strong> Each milestone has a concrete artefact. Total time for a first-timer: roughly one weekend.</figcaption></figure>
+<figure class="viz" role="img" aria-label="Fee-Clear Cart — the starter app&#x27;s two key states"><svg viewBox="0 0 690 416" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="26" width="190" height="360" rx="22" class="phone"/><text x="105.0" y="16" class="small b" text-anchor="middle"><tspan x="105.0" dy="0">Cart with estimate</tspan></text><rect x="22" y="52" width="166" height="26" rx="5" class="wf-bar"/><text x="105.0" y="69" class="tiny b" text-anchor="middle"><tspan x="105.0" dy="0">Your cart</tspan></text><line x1="22" y1="112" x2="188" y2="112" class="grid"/><text x="26" y="103" class="tiny" text-anchor="start"><tspan x="26" dy="0">Veg biryani × 1</tspan></text><text x="184" y="103" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹260</tspan></text><line x1="22" y1="142" x2="188" y2="142" class="grid"/><text x="26" y="133" class="tiny" text-anchor="start"><tspan x="26" dy="0">Raita × 1</tspan></text><text x="184" y="133" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹60</tspan></text><line x1="22" y1="172" x2="188" y2="172" class="grid"/><text x="26" y="163" class="tiny" text-anchor="start"><tspan x="26" dy="0">Delivery fee</tspan></text><text x="184" y="163" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹25 (est.)</tspan></text><line x1="22" y1="202" x2="188" y2="202" class="grid"/><text x="26" y="193" class="tiny" text-anchor="start"><tspan x="26" dy="0">Platform fee</tspan></text><text x="184" y="193" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹5</tspan></text><line x1="22" y1="232" x2="188" y2="232" class="grid"/><text x="26" y="223" class="tiny" text-anchor="start"><tspan x="26" dy="0">Taxes (est.)</tspan></text><text x="184" y="223" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹16</tspan></text><line x1="22" y1="262" x2="188" y2="262" class="grid"/><text x="26" y="253" class="tiny" text-anchor="start"><tspan x="26" dy="0">Estimated total</tspan></text><text x="184" y="253" class="tiny b" text-anchor="end"><tspan x="184" dy="0">₹366</tspan></text><rect x="22" y="266" width="166" height="32" rx="8" fill="var(--c1)"/><text x="105.0" y="287" class="tiny b on-fill" text-anchor="middle"><tspan x="105.0" dy="0">Pay ₹366</tspan></text><circle cx="214" cy="60" r="10" fill="var(--c3)"/><text x="214" y="64" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">1</tspan></text><text x="230" y="64" class="tiny" text-anchor="start"><tspan x="230" dy="0">Total shown before</tspan><tspan x="230" dy="11">paying.</tspan></text><circle cx="214" cy="122" r="10" fill="var(--c3)"/><text x="214" y="126" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">2</tspan></text><text x="230" y="126" class="tiny" text-anchor="start"><tspan x="230" dy="0">&#x27;est.&#x27; labels where</tspan><tspan x="230" dy="11">numbers can change.</tspan></text><circle cx="214" cy="184" r="10" fill="var(--c3)"/><text x="214" y="188" class="tiny b on-fill" text-anchor="middle"><tspan x="214" dy="0">3</tspan></text><text x="230" y="188" class="tiny" text-anchor="start"><tspan x="230" dy="0">Button repeats the</tspan><tspan x="230" dy="11">total.</tspan></text><rect x="350" y="26" width="190" height="360" rx="22" class="phone"/><text x="445.0" y="16" class="small b" text-anchor="middle"><tspan x="445.0" dy="0">Fee service fails</tspan></text><rect x="362" y="52" width="166" height="26" rx="5" class="wf-bar"/><text x="445.0" y="69" class="tiny b" text-anchor="middle"><tspan x="445.0" dy="0">Your cart</tspan></text><line x1="362" y1="112" x2="528" y2="112" class="grid"/><text x="366" y="103" class="tiny" text-anchor="start"><tspan x="366" dy="0">Delivery fee</tspan></text><text x="524" y="103" class="tiny b" text-anchor="end"><tspan x="524" dy="0">Estimate unavailable</tspan></text><line x1="362" y1="142" x2="528" y2="142" class="grid"/><text x="366" y="133" class="tiny" text-anchor="start"><tspan x="366" dy="0">Estimated total</tspan></text><text x="524" y="133" class="tiny b" text-anchor="end"><tspan x="524" dy="0">—</tspan></text><rect x="362" y="146" width="166" height="32" rx="6" class="wf-warn"/><text x="445.0" y="166" class="tiny b" text-anchor="middle"><tspan x="445.0" dy="0">We couldn&#x27;t load the fee. Retry</tspan></text><rect x="362" y="186" width="166" height="32" rx="8" fill="var(--c1)"/><text x="445.0" y="207" class="tiny b on-fill" text-anchor="middle"><tspan x="445.0" dy="0">Pay (disabled)</tspan></text><circle cx="554" cy="60" r="10" fill="var(--c3)"/><text x="554" y="64" class="tiny b on-fill" text-anchor="middle"><tspan x="554" dy="0">1</tspan></text><text x="570" y="64" class="tiny" text-anchor="start"><tspan x="570" dy="0">No invented number.</tspan></text><circle cx="554" cy="122" r="10" fill="var(--c3)"/><text x="554" y="126" class="tiny b on-fill" text-anchor="middle"><tspan x="554" dy="0">2</tspan></text><text x="570" y="126" class="tiny" text-anchor="start"><tspan x="570" dy="0">Pay is disabled</tspan><tspan x="570" dy="11">until a fee loads.</tspan></text><circle cx="554" cy="184" r="10" fill="var(--c3)"/><text x="554" y="188" class="tiny b on-fill" text-anchor="middle"><tspan x="554" dy="0">3</tspan></text><text x="570" y="188" class="tiny" text-anchor="start"><tspan x="570" dy="0">Retry is a real,</tspan><tspan x="570" dy="11">focusable button.</tspan></text></svg><figcaption><strong>Fee-Clear Cart — the starter app&#x27;s two key states (illustrative wireframe, not a real product screenshot).</strong> Values match the tested build (subtotal ₹320, near area, 5% illustrative tax). This is the teaching prototype in templates/vibe-coding-starter, not a real product.</figcaption></figure>
+<figure class="viz" role="img" aria-label="Diagram: How the starter app is put together"><svg viewBox="0 0 720 322" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="180.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="56.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">index.html (structure,</tspan><tspan x="265.0" dy="12">labels)</tspan></text><rect x="370.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="56.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">style.css (layout, focus,</tspan><tspan x="455.0" dy="12">44 px targets)</tspan></text><rect x="150.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="173.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">app.js (state, rendering, events)</tspan></text><rect x="180.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="276.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">Simulated fee service</tspan><tspan x="265.0" dy="12">(300 ms delay, can fail)</tspan></text><rect x="370.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="276.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">localStorage (cart</tspan><tspan x="455.0" dy="12">persists per browser)</tspan></text><path d="M265.0,88.0 C265.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M455.0,88.0 C455.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,198.0 C360.0,222.5 265.0,222.5 265.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,198.0 C360.0,222.5 455.0,222.5 455.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>How the starter app is put together.</strong> Three files, no server, no keys. Replacing the simulated service with a real API is the step that requires a server-side function and engineering review.</figcaption></figure>
+<p><strong>Step 1 — Brief (example).</strong> Hypothesis: first-time buyers who see the full estimated total in the cart will complete checkout more confidently. Users: busy office workers ordering dinner on mobile. Flows: add items; see estimated total; handle fee-service failure. Metric for the user test: % of participants who correctly state the total <em>before</em> tapping Pay (target ≥ 5 of 6).</p>
+<p><strong>Step 2 — Prompt.</strong> Use the template above. Ask for plain HTML/CSS/JS and a simulated fee service with a failure mode.</p>
+<p><strong>Step 3 — Review.</strong> Read <code>app.js</code>: find where the fee is fetched; confirm that on failure it shows “Estimate unavailable” and disables Pay (it does — <code>feeState.status = "error"</code>). Check labels, focus styles and button height in <code>style.css</code>.</p>
+<p><strong>Step 4 — Test.</strong> Run the checklist in the starter's README (add/remove, area change, failure + retry, keyboard-only, reload persistence, 375 px width).</p>
+<p><strong>Step 5 — Version.</strong> Commit after each working step; push to a branch; open a PR describing what changed and how you tested it.</p>
+<p><strong>Step 6 — Deploy.</strong> Public GitHub repo (dummy data only) → Settings → Pages → Deploy from branch <code>main</code> / root → share the URL <strong>with the Prototype banner visible.</strong> Do not add analytics that collect personal data; if you need behaviour data, observe sessions or log anonymous counts with consent.</p>
+<p><strong>Step 7 — Validate.</strong> Five or six moderated sessions: “You want this biryani and raita delivered 5 km away. How much will you pay in total? Now place the order.” Record task success, hesitations and quotes.</p>
+<p><strong>Step 8 — Decide.</strong> Readout: what you tested, results (e.g., “5 of 6 stated the correct total before paying; 1 missed the ‘est.’ label”), what you'll change, what remains unproven (real fee accuracy, real conversion), and the next test (A/B in the real product — Module 7).</p>
+<h3 id="m11-portfolio-presentation"><span class="hnum">11.13.1</span> Portfolio presentation</h3>
+<p>Include: the problem and hypothesis; a 60-second screen recording; the live prototype link; what is simulated; test method and <strong>real</strong> results (or “not measured”); what you learned; how a production version would differ (security, data, scale); and your role (be specific about what the AI generated vs what you decided and tested).</p>
+<h2 id="m11-exercises-with-model-answers"><span class="hnum">11.14</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Spot the problems</p>
+<p>An AI-generated app stores an API key in <code>app.js</code>, renders user comments with <code>innerHTML</code>, and saves data only to <code>localStorage</code>. You plan to share it with 50 customers. What must change?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>(1) Move the API call server-side (serverless function) and rotate the exposed key. (2) Render comments with <code>textContent</code> or sanitise to prevent XSS. (3) <code>localStorage</code> means each customer sees only their own browser's data — if shared data is intended, add a backend with access rules. (4) Add a prototype banner, privacy notice, and get engineering/security review because real customers are involved.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · Write the debugging prompt</p>
+<p>The page shows the cart but the total never appears. Console: <code>TypeError: Cannot read properties of undefined (reading 'price')</code>. Write your prompt to the AI.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>“When I add 'Paneer wrap' the total never appears. Console error: <code>TypeError: Cannot read properties of undefined (reading 'price')</code> at <code>subtotal()</code> in app.js. Before changing code, explain the likely cause. I suspect the cart contains an id not present in MENU. Propose the smallest fix and a test I can run to confirm. Don't change any other behaviour.”</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 3 · Prototype or production?</p>
+<p>Your vibe-coded internal dashboard reads the company's live orders database. Who needs to be involved and why?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>Engineering (data access method, read-only replica, performance), security/IT (credentials, access control, approved tools), data/privacy (PII exposure, retention), and the data owner (permission). Even read-only access to production data is a production concern; use an approved read-only replica or an extract with minimised fields.</p>
+</details>
+<h2 id="m11-interview-perspective"><span class="hnum">11.15</span> Interview perspective</h2>
+<details class="question">
+<summary>“How do you use AI coding tools as a PM?” — 60-second answer</summary>
+<p>“I use them to make ideas testable quickly — clickable prototypes with fictional data that I put in front of users within days. I write a short brief with the hypothesis, flows, states and accessibility needs, build in small steps, test each one, and keep everything in Git. I label what's simulated, never use real customer data, and I hand off to engineering for anything with real data, auth, payments or customers relying on it. The value is faster learning, not shipping AI-written code to production unreviewed.”</p>
+</details>
+<details class="question">
+<summary>“Walk me through a prototype you built.” — structure</summary>
+<p>Problem and hypothesis → users → what you built (stack, scope, what's simulated) → how you tested it (sessions, metrics) → results (real numbers or “not measured”) → what you'd do next → what engineering would need to productionise it. Be explicit about your contribution versus the AI's.</p>
+</details>
+<h2 id="m11-key-takeaways"><span class="hnum">11.16</span> Key takeaways</h2>
+<ul>
+<li>Vibe coding accelerates <strong>learning</strong>; it doesn't remove the need for <strong>engineering judgment</strong>.</li>
+<li>Work in <strong>small, tested, committed steps</strong>; describe symptoms precisely when debugging.</li>
+<li>Know <strong>HTML/CSS/JS, Git, APIs and storage</strong> well enough to review what the AI produced.</li>
+<li><strong>Never put secrets in frontends</strong>, never use real customer data in unreviewed prototypes, and label simulations.</li>
+<li>Bring in <strong>engineering review</strong> before real data, auth, payments, integrations or public company use.</li>
+</ul>
+<h2 id="m11-check-your-understanding"><span class="hnum">11.17</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m11"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Where should a secret API key live in a web prototype?</p><ol><li class="">In app.js so it&#x27;s easy to find</li><li class="is-correct">In a server-side function or secret manager</li><li class="">In the README</li><li class="">In localStorage</li></ol><div class="why"><strong>Why:</strong> Anything in frontend code is visible to users; secrets must be server-side.</div></div><div class="qitem" data-correct="1"><p class="q">A form appears to save data, but after reload it&#x27;s gone. Most likely…</p><ol><li class="">The AI tool is broken</li><li class="is-correct">The UI isn&#x27;t connected to persistent storage</li><li class="">The browser is too old</li><li class="">It&#x27;s an accessibility issue</li></ol><div class="why"><strong>Why:</strong> A screen with a form isn&#x27;t necessarily wired to storage; verify the data flow.</div></div><div class="qitem" data-correct="1"><p class="q">Which practice makes AI-assisted coding mistakes cheapest to undo?</p><ol><li class="">One huge prompt for the whole app</li><li class="is-correct">Small steps with a commit after each working step</li><li class="">Never testing</li><li class="">Editing production directly</li></ol><div class="why"><strong>Why:</strong> Small committed increments let you revert precisely.</div></div><div class="qitem" data-correct="1"><p class="q">When is engineering review required?</p><ol><li class="">Never for prototypes</li><li class="is-correct">Before real user data, auth, payments, integrations or public company use</li><li class="">Only for mobile apps</li><li class="">Only if the AI says so</li></ol><div class="why"><strong>Why:</strong> These introduce security, privacy, reliability and legal obligations.</div></div><div class="qitem" data-correct="1"><p class="q">Rendering user-entered text with innerHTML risks…</p><ol><li class="">Slow performance only</li><li class="is-correct">Cross-site scripting (XSS)</li><li class="">Nothing</li><li class="">Rate limiting</li></ol><div class="why"><strong>Why:</strong> innerHTML can execute injected markup; use textContent or sanitisation.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m11-recommended-resources"><span class="hnum">11.18</span> Recommended resources</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development">MDN: Learn web development</a> — HTML, CSS, JavaScript basics.</li>
+<li><a href="https://docs.github.com/en/get-started/using-github/hello-world">GitHub Docs: Hello World</a> and <a href="https://docs.github.com/en/pages/quickstart">GitHub Pages quickstart</a>.</li>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code documentation</a> · <a href="https://docs.cursor.com/">Cursor docs</a> · <a href="https://docs.github.com/en/copilot">GitHub Copilot docs</a>.</li>
+<li><a href="https://docs.lovable.dev/introduction/welcome">Lovable docs</a> and <a href="https://docs.replit.com/features/agent/overview">Replit Agent docs</a> (from your course notes).</li>
+<li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a> — common web security risks.</li>
+</ul><div class="modnav"><a href="m10.html"><small>← Previous</small>Module 10: LLMs, RAGs, and AI Foundations</a><a href="m12.html"><small>Next →</small>Module 12: Agentic AI and AI Systems</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

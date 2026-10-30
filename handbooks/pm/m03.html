@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 3: Problem Discovery and Market Research · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-03-Discovery.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" aria-current="page" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 3</div><h1>Problem Discovery and Market Research</h1><p>Find problems worth solving: research methods, interviews and surveys, personas, jobs-to-be-done, journeys, synthesis and evidence quality.</p><div class="chips"><span class="chip">≈ 10 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 3, 4, 5, 6, 7, 8, 11, 19, 28, 36; Companion ch. 2, 3; Picture lesson &#x27;Product discovery and design&#x27;</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m03" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m03-what-discovery-is">What discovery is</a></li><li><a href="#m03-research-methods-qualitative-and-quantitative-primary-and-secondary">Research methods: qualitative and quantitative, primary and secondary</a></li><li><a href="#m03-customer-interviews">Customer interviews</a></li><li><a href="#m03-surveys-and-questionnaire-bias">Surveys and questionnaire bias</a></li><li><a href="#m03-customer-segmentation-and-personas">Customer segmentation and personas</a></li><li><a href="#m03-jobs-to-be-done-jtbd">Jobs to Be Done (JTBD)</a></li><li><a href="#m03-pain-point-identification">Pain-point identification</a></li><li><a href="#m03-customer-journey-mapping-and-user-flows">Customer journey mapping and user flows</a></li><li><a href="#m03-competitor-research-review-mining-and-support-ticket-analysis">Competitor research, review mining and support-ticket analysis</a></li><li><a href="#m03-behavioural-analytics-and-observation">Behavioural analytics and observation</a></li><li><a href="#m03-research-synthesis">Research synthesis</a></li><li><a href="#m03-problem-validation-and-evidence-quality">Problem validation and evidence quality</a></li><li><a href="#m03-guesstimates-estimation">Guesstimates (estimation)</a></li><li><a href="#m03-product-critique-and-teardown">Product critique and teardown</a></li><li><a href="#m03-discovery-exercises">Discovery exercises</a></li><li><a href="#m03-source-flagged-corrections">Source-flagged corrections</a></li><li><a href="#m03-interview-perspective">Interview perspective</a></li><li><a href="#m03-key-takeaways">Key takeaways</a></li><li><a href="#m03-check-your-understanding">Check your understanding</a></li><li><a href="#m03-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
+<p class="admonition-title">About examples</p>
+<p>Personas, quotes, review counts and estimates are <strong>invented</strong> to teach technique. They are not research findings about any real product or user group.</p>
+</div>
+<h2 id="m03-what-discovery-is"><span class="hnum">3.1</span> What discovery is</h2>
+<p><strong>Product discovery</strong> is the work of learning <em>what is worth building</em> before (and while) building it: who has the problem, how painful it is, how they cope today, and whether your idea would be chosen and used. <strong>Customer discovery</strong> focuses on understanding customers; <strong>problem validation</strong> tests that the problem is real, frequent and painful enough to matter.</p>
+<div class="admonition level1">
+<p class="admonition-title">Level 1 · Beginner</p>
+<p>Discovery = talking to people and watching what they do, so you build the right thing. If you can only ask “Would you use my idea?”, you will mostly hear polite yeses.</p>
+</div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 6, 8; Picture lesson)</p>
+<p><strong>Validate the problem before investing heavily in a solution.</strong> Ask whether the need is real, who experiences it, how people solve it today and whether the opportunity is worth pursuing. <em>A solution is a hypothesis to test, not a guaranteed success.</em> Start with a user and a task; ask about a recent real experience; watch the task where appropriate; look for repeated difficulties. <strong>Do not assume an idea is useful simply because someone says it sounds nice.</strong></p>
+</div>
+<figure class="viz" role="img" aria-label="Process: Frame → Collect → Synthesise → Test → Decide"><svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Frame</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Problem hypothesis</tspan><tspan x="68.0" dy="11">and target segment</tspan></text><line x1="129.0" y1="56.0" x2="153.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Collect</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">Interviews,</tspan><tspan x="214.0" dy="11">observation, data,</tspan><tspan x="214.0" dy="11">reviews, support</tspan><tspan x="214.0" dy="11">tickets</tspan></text><line x1="275.0" y1="56.0" x2="299.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Synthesise</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Affinity map,</tspan><tspan x="360.0" dy="11">themes, journey,</tspan><tspan x="360.0" dy="11">JTBD</tspan></text><line x1="421.0" y1="56.0" x2="445.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Test</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Assumption tests,</tspan><tspan x="506.0" dy="11">prototypes, smoke</tspan><tspan x="506.0" dy="11">tests</tspan></text><line x1="567.0" y1="56.0" x2="591.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Decide</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Pursue, pivot or</tspan><tspan x="652.0" dy="11">stop — and record</tspan><tspan x="652.0" dy="11">why</tspan></text></svg><figcaption><strong>A discovery cycle.</strong> Discovery repeats; each loop is cheap relative to building. Most teams under-invest in Synthesise and Decide.</figcaption></figure>
+<h2 id="m03-research-methods-qualitative-and-quantitative-primary-and-secondary"><span class="hnum">3.2</span> Research methods: qualitative and quantitative, primary and secondary</h2>
+<p>Two different axes — <em>do not confuse them</em>:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Qualitative (why / how)</th>
+<th>Quantitative (how many / how much)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary</strong> (you collect it)</td>
+<td>Interviews, observation, diary studies, usability tests, moderated focus groups</td>
+<td>Surveys, A/B tests, instrumented behaviour in your own product</td>
+</tr>
+<tr>
+<td><strong>Secondary</strong> (already exists)</td>
+<td>Support tickets, app-store reviews, forums, published case studies</td>
+<td>Market reports, public statistics, company databases, benchmarks</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 6)</p>
+<p><strong>Qualitative and quantitative describe the kind of evidence, not alternatives to primary research.</strong> Interviews give qualitative insight into <em>why</em>; a well-designed survey can estimate <em>how common</em> a behaviour is. Both can be primary. A <strong>focus group</strong> is a moderated research discussion — <em>not another name for a target audience.</em> Ten interviews reveal useful clues but do not establish the habits of an entire city.</p>
+</div>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Question you have</th><th>Best-fit method</th><th>What you get</th><th>What you don&#x27;t get</th></tr></thead><tbody><tr><td>Why do users abandon checkout?</td><td>Interviews + session observation</td><td>Reasons, context, language</td><td>How common each reason is</td></tr><tr><td>How many abandon at the fee step?</td><td>Funnel analytics</td><td>Counts and rates</td><td>Why</td></tr><tr><td>Which of three designs is clearer?</td><td>Usability test (5–8 per round)</td><td>Where people struggle</td><td>Statistical proof</td></tr><tr><td>Which price converts better?</td><td>A/B or priced pilot</td><td>Behaviour at scale</td><td>Reasons behind it</td></tr><tr><td>How big is the segment?</td><td>Bottom-up sizing + survey</td><td>An estimate with assumptions</td><td>Proof of demand</td></tr><tr><td>What do users say publicly about rivals?</td><td>Review mining</td><td>Themes and vocabulary</td><td>Representative opinion</td></tr></tbody></table></div></div><figcaption><strong>Choosing a method by question.</strong> Mix methods: use analytics to find *where*, interviews to learn *why*, experiments to test *whether the fix works* (triangulation).</figcaption></figure>
+<h2 id="m03-customer-interviews"><span class="hnum">3.3</span> Customer interviews</h2>
+<h3 id="m03-principles"><span class="hnum">3.3.1</span> Principles</h3>
+<ol>
+<li><strong>Ask about the past, not the future.</strong> “Tell me about the last time you ordered lunch” beats “Would you use an app that…?”</li>
+<li><strong>Seek stories, then specifics:</strong> what triggered it, what alternatives they considered, what happened, how they felt, what they did next.</li>
+<li><strong>Stay neutral:</strong> don't pitch; don't lead; tolerate silence.</li>
+<li><strong>Recruit for contrast:</strong> include people who tried and churned, people who never tried, power users — not only fans.</li>
+<li><strong>Consent and privacy:</strong> explain purpose, record only with permission, remove identifying details in notes.</li>
+<li><strong>Debrief fast:</strong> write observations separately from interpretations within 24 hours.</li>
+</ol>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 3; Companion ch. 2)</p>
+<p>Interview a student who buys lunch. Ask <em>“Tell me about the last time you ordered lunch.”</em> If they say they missed delivery fees, watch where they expected to see the price. <strong>Five interviews can reveal problems but cannot establish their population frequency.</strong> Recruit a range of users including those who abandoned and those who did not; get consent; avoid leading questions; remove identifying information; compare themes with quantitative data.</p>
+</div>
+<h3 id="m03-question-design"><span class="hnum">3.3.2</span> Question design</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Weak (leading / hypothetical)</th>
+<th>Stronger (past behaviour, neutral)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“Would you pay for faster delivery?”</td>
+<td>“Last time you were in a hurry, what did you do about food?”</td>
+</tr>
+<tr>
+<td>“Do you find our checkout confusing?”</td>
+<td>“Walk me through placing your last order. What did you look at first?”</td>
+</tr>
+<tr>
+<td>“Don't you hate hidden fees?”</td>
+<td>“How did you decide whether the total was acceptable?”</td>
+</tr>
+<tr>
+<td>“Is price important to you?”</td>
+<td>“Tell me about a time you decided <em>not</em> to order because of the cost.”</td>
+</tr>
+<tr>
+<td>“What features do you want?”</td>
+<td>“What did you do the last time this didn't work?”</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m03-sample-interview-script-45-minutes"><span class="hnum">3.3.3</span> Sample interview script (45 minutes)</h3>
+<div class="admonition example">
+<p class="admonition-title">Script: ordering food after work (hypothetical study)</p>
+<p><strong>Opening (5 min).</strong> “Thanks for your time. I'm learning how people decide about dinner on weekdays. There are no right answers; I'm not testing you. May I record audio for my notes only? I'll remove names.”
+<strong>Warm-up (5 min).</strong> “Tell me about your typical weekday evening.”
+<strong>Core story (20 min).</strong> “Think about the last time you ordered food from an app on a weekday. What was happening before you opened it?” → “What did you do first?” → “What else did you consider?” → “What were you looking at when you decided?” → “Was there a moment you almost gave up?” → “What did you do next?”
+<strong>Probe the friction (10 min).</strong> “You mentioned the total changed at the end — what did you expect to see?” → “How did that feel?” → “What did you do?”
+<strong>Wrap-up (5 min).</strong> “Is there anything I should have asked?” → “Who else should I speak to?” → thank, explain next steps.
+<strong>Don't:</strong> pitch your idea, ask about features, or suggest answers.</p>
+</div>
+<h3 id="m03-recording-the-evidence"><span class="hnum">3.3.4</span> Recording the evidence</h3>
+<p>Use a two-column note sheet: <strong>Observation</strong> (what they did/said, verbatim where possible) | <strong>Interpretation</strong> (your hypothesis). Tag each observation with the participant ID and the journey stage.</p>
+<h2 id="m03-surveys-and-questionnaire-bias"><span class="hnum">3.4</span> Surveys and questionnaire bias</h2>
+<p>A <strong>survey</strong> estimates <em>how common</em> something is — if the sample is representative and the questions are neutral.</p>
+<p><strong>Common biases and fixes</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Bias</th>
+<th>What happens</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Leading question</strong></td>
+<td>Wording nudges the answer (“How great was…?”)</td>
+<td>Neutral wording; balanced scales</td>
+</tr>
+<tr>
+<td><strong>Double-barrelled</strong></td>
+<td>Two questions in one (“fast and cheap?”)</td>
+<td>One idea per question</td>
+</tr>
+<tr>
+<td><strong>Social desirability</strong></td>
+<td>People give flattering answers</td>
+<td>Anonymity; behaviour (“last week, how many times…?”)</td>
+</tr>
+<tr>
+<td><strong>Acquiescence</strong></td>
+<td>Tendency to agree</td>
+<td>Mix positively and negatively worded items; use specific choices</td>
+</tr>
+<tr>
+<td><strong>Order effects</strong></td>
+<td>Earlier questions prime later ones</td>
+<td>Randomise; put sensitive items last</td>
+</tr>
+<tr>
+<td><strong>Sampling / self-selection</strong></td>
+<td>Respondents differ from the population</td>
+<td>Define the frame; track response rate; compare with known figures</td>
+</tr>
+<tr>
+<td><strong>Hypothetical bias</strong></td>
+<td>Stated intent ≠ behaviour</td>
+<td>Prefer behavioural questions; validate with a real action</td>
+</tr>
+<tr>
+<td><strong>Incentive bias</strong></td>
+<td>Rewards attract the wrong people</td>
+<td>Screen carefully; use modest incentives</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 6; Lecture 10)</p>
+<p><em>The claim that “90% of survey responses are biased” was not substantiated;</em> sampling, incentives and question design can introduce bias but do not make surveys inherently invalid. <strong>A survey preference is not proof that respondents will purchase.</strong></p>
+</div>
+<p><strong>Sample survey questions (rewritten)</strong></p>
+<ul>
+<li>Bad: “Do you agree our app is easy and fast to use?” → Good: “In the past 7 days, how many times did you place an order? (0 / 1 / 2–3 / 4+)” and “How easy or difficult was it to find the total price on your last order? (Very difficult … Very easy)”.</li>
+<li>Bad: “Would you use a feature that tells you about fees?” → Good: “When you last saw a price at checkout, was the total different from what you expected? (Yes, higher / Yes, lower / No / Don't remember)”.</li>
+</ul>
+<h2 id="m03-customer-segmentation-and-personas"><span class="hnum">3.5</span> Customer segmentation and personas</h2>
+<p>A <strong>segment</strong> is a group sharing a <em>relevant</em> need or behaviour. A <strong>persona</strong> is an illustrative profile of a segment — a communication aid, not proof everyone acts alike. Prefer <strong>behavioural and need-based</strong> segments over purely demographic ones.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 3)</p>
+<p>A target audience is a group a product or message is intended to reach. <strong>The buyer and end user can be different</strong> (FirstCry: a parent may buy while a child uses). Build and validate personas with research, <em>not guesses.</em> <strong>There is no universal rule that every product needs two or three personas</strong>, and choosing the largest segment alone does not prove product–market fit. The iPhone-user personas in class were exercise assumptions, not claims about all iPhone users. When needs conflict, consider market size, severity of need, strategic fit, feasibility and reachability; persona overlap is normal.</p>
+</div>
+<figure class="viz canvas-fig" role="group" aria-label="Persona template filled with a hypothetical example"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Name &amp; context</h5><ul><li>“Asha”, 31, product analyst</li><li>Works late 3–4 days a week</li><li>Uses food apps on her commute</li></ul></div><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>Goals &amp; motivations</h5><ul><li>A reliable dinner without planning</li><li>Keep weekday spend predictable</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Behaviours (from interviews)</h5><ul><li>Re-orders favourites; checks total before paying</li><li>Abandons if total jumps at last step</li></ul></div><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Pains / frustrations</h5><ul><li>Fees appear late</li><li>Delivery estimates drift</li><li>Unclear refund path</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Needs from the product</h5><ul><li>Clear total early</li><li>Trustworthy ETA</li><li>One-tap reorder</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Evidence &amp; confidence</h5><ul><li>8 interviews (Mar 2026, hypothetical)</li><li>Confidence: medium</li><li>Open questions: what happens at month-end?</li></ul></div></div><figcaption><strong>Persona template filled with a hypothetical example.</strong> A persona is only as good as its evidence. Always record sample size, date and confidence, and update it when research changes.</figcaption></figure>
+<h2 id="m03-jobs-to-be-done-jtbd"><span class="hnum">3.6</span> Jobs to Be Done (JTBD)</h2>
+<p><strong>JTBD</strong> frames demand as <strong>people “hiring” a product to make progress in a particular circumstance.</strong> A <strong>job statement</strong> has the form:</p>
+<div class="formula">When [situation], I want to [motivation / progress], so I can [desired outcome].</div>
+<ul>
+<li>Jobs have <strong>functional</strong>, <strong>emotional</strong> and <strong>social</strong> dimensions.</li>
+<li>The <em>competition</em> is whatever else gets hired for the job — including doing nothing.</li>
+<li>Uncover jobs from <strong>switching stories</strong>: what triggered the move, alternatives considered, what pushed them away from the old solution (push), what pulled them to the new one (pull), what anxieties held them back, what habits kept them in place — the <strong>four forces</strong>.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example (hypothetical): lunch</p>
+<p><em>When I'm in back-to-back meetings and have 15 minutes, I want to get a filling lunch without leaving my desk or being surprised by the cost, so I can stay focused and not blow my budget.</em>
+<strong>Competing alternatives:</strong> order in, ask a colleague to pick up, eat a snack, skip lunch, bring food. <strong>Anxieties:</strong> “Will it arrive in time? Will the price change?” <strong>Implication:</strong> reliability and total price clarity matter more than restaurant variety for this job.</p>
+</div>
+<figure class="viz canvas-fig" role="group" aria-label="The four forces of switching (hypothetical switch to a new meal-planning app)"><div class="canvas" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Push (away from the current way)</h5><ul><li>Wasted groceries</li><li>Planning takes an hour</li></ul></div><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>Pull (toward the new solution)</h5><ul><li>Weekly plan with a price estimate</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Anxiety (about the new solution)</h5><ul><li>Will estimates be accurate? Will it fit our diet?</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Habit (of the present way)</h5><ul><li>Family&#x27;s recipe notebook; saved lists in notes app</li></ul></div></div><figcaption><strong>The four forces of switching (hypothetical switch to a new meal-planning app).</strong> A product wins when push + pull outweigh anxiety + habit. Discovery asks about each force; design and onboarding reduce anxiety.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 21)</p>
+<p>Jobs to be done asks what <em>progress users want to make in a situation</em>; first-principles thinking breaks a problem down to fundamental assumptions. The recording mainly refers learners to further material for these concepts — this section is independent reference material.</p>
+</div>
+<h2 id="m03-pain-point-identification"><span class="hnum">3.7</span> Pain-point identification</h2>
+<p>List pains with <strong>severity</strong> (how bad), <strong>frequency</strong> (how often), <strong>breadth</strong> (how many people) and <strong>current workaround</strong> (the clearest sign of real pain: people already spend effort to solve it). Rank by severity × frequency × breadth, then by whether you can credibly solve it.</p>
+<h2 id="m03-customer-journey-mapping-and-user-flows"><span class="hnum">3.8</span> Customer journey mapping and user flows</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 5; Companion ch. 3)</p>
+<p>A <strong>journey map</strong> follows the <em>whole experience</em>, including actions, thoughts and feelings, across touchpoints; a <strong>user flow</strong> focuses on paths and decisions inside an interface; one journey can contain many flows. A <strong>workflow</strong> focuses on the sequence of activities, systems and decisions. Start with a concrete task, map the steps and important branches; use the appropriate level of detail. AI can brainstorm a first draft (give it problem, users, features, constraints) — <strong>check it against the real product and do not copy it blindly.</strong> Add the key branches: valid/invalid address, payment failure, retry, cancellation — and label the desired outcome for each. A remembered login session is not necessarily single sign-on.</p>
+</div>
+<figure class="viz" role="img" aria-label="Process: Trigger → Search &amp; compare → Cart &amp; total → Pay → Wait &amp; track → Receive &amp; reflect"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Trigger</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Gets home late; no food planned</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Search &amp; compare</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Browses menus, compares ETA and price</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Cart &amp; total</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Reviews cart; fee appears late</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Pay</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Chooses payment method; occasional</tspan><tspan x="116.66666666666667" dy="11">failure</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Wait &amp; track</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Watches ETA; anxious if it drifts</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Receive &amp; reflect</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Eats; rates; decides whether to</tspan><tspan x="603.3333333333334" dy="11">reorder</tspan></text></svg><figcaption><strong>Journey: weekday dinner order (hypothetical, one persona).</strong> Journey stages are the rows of a map; add rows for actions, thoughts, emotions, touchpoints, pain points and opportunities.</figcaption></figure>
+<figure class="viz" role="img" aria-label="Line chart: Emotion curve across the journey (hypothetical, from 8 interviews)"><svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><line x1="64" y1="268.0" x2="696" y2="268.0" class="grid"/><text x="56" y="272.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">1</tspan></text><line x1="64" y1="206.0" x2="696" y2="206.0" class="grid"/><text x="56" y="210.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">2</tspan></text><line x1="64" y1="144.0" x2="696" y2="144.0" class="grid"/><text x="56" y="148.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">3</tspan></text><line x1="64" y1="82.0" x2="696" y2="82.0" class="grid"/><text x="56" y="86.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">4</tspan></text><line x1="64" y1="20.0" x2="696" y2="20.0" class="grid"/><text x="56" y="24.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">5</tspan></text><text x="64.0" y="286" class="small" text-anchor="middle"><tspan x="64.0" dy="0">Trigger</tspan></text><text x="190.4" y="286" class="small" text-anchor="middle"><tspan x="190.4" dy="0">Search</tspan></text><text x="316.8" y="286" class="small" text-anchor="middle"><tspan x="316.8" dy="0">Cart &amp; total</tspan></text><text x="443.2" y="286" class="small" text-anchor="middle"><tspan x="443.2" dy="0">Pay</tspan></text><text x="569.6" y="286" class="small" text-anchor="middle"><tspan x="569.6" dy="0">Wait</tspan></text><text x="696.0" y="286" class="small" text-anchor="middle"><tspan x="696.0" dy="0">Receive</tspan></text><polyline points="64.0,175.0 190.4,106.8 316.8,199.8 443.2,181.2 569.6,156.4 696.0,75.8" fill="none" stroke="var(--c1)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="64.0" cy="175.0" r="3.5" fill="var(--c1)"/><circle cx="190.4" cy="106.8" r="3.5" fill="var(--c1)"/><circle cx="316.8" cy="199.8" r="3.5" fill="var(--c1)"/><circle cx="443.2" cy="181.2" r="3.5" fill="var(--c1)"/><circle cx="569.6" cy="156.4" r="3.5" fill="var(--c1)"/><circle cx="696.0" cy="75.8" r="3.5" fill="var(--c1)"/><text x="64.0" y="166.0" class="small b" text-anchor="middle"><tspan x="64.0" dy="0">2.5</tspan></text><text x="190.4" y="97.79999999999998" class="small b" text-anchor="middle"><tspan x="190.4" dy="0">3.6</tspan></text><text x="316.8" y="190.8" class="small b" text-anchor="middle"><tspan x="316.8" dy="0">2.1</tspan></text><text x="443.2" y="172.2" class="small b" text-anchor="middle"><tspan x="443.2" dy="0">2.4</tspan></text><text x="569.6" y="147.4" class="small b" text-anchor="middle"><tspan x="569.6" dy="0">2.8</tspan></text><text x="696.0" y="66.80000000000001" class="small b" text-anchor="middle"><tspan x="696.0" dy="0">4.1</tspan></text><line x1="64" y1="268" x2="696" y2="268" class="axis"/><text x="14" y="144.0" class="mut small" text-anchor="middle" transform="rotate(-90 14 144.0)">mood</text></svg><figcaption><strong>Emotion curve across the journey (hypothetical, from 8 interviews).</strong> Hypothetical. The two lowest points — the cart total and payment — point to where discovery and design effort should focus.</figcaption></figure>
+<h3 id="m03-opportunity-solution-trees-ost"><span class="hnum">3.8.1</span> Opportunity Solution Trees (OST)</h3>
+<p>Teresa Torres's <strong>Opportunity Solution Tree</strong> connects a <strong>desired outcome</strong> to the customer <strong>opportunities</strong> (needs, pains, desires) and then to <strong>solutions</strong> and <strong>experiments</strong>. It prevents jumping from outcome straight to a favourite feature.</p>
+<figure class="viz" role="img" aria-label="Tree: Opportunity Solution Tree (hypothetical)"><svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg"><path d="M218.0,182.0 C232.0,182.0 234.0,70.0 248.0,70.0" class="edge" fill="none"/><path d="M458.0,70.0 C472.0,70.0 474.0,38.0 488.0,38.0" class="edge" fill="none"/><rect x="488.0" y="12.0" width="210.0" height="52" rx="8" class="node"/><text x="593.0" y="36" class="small" text-anchor="middle"><tspan x="593.0" dy="0">Solution: show fee early (A/B</tspan><tspan x="593.0" dy="12">test)</tspan></text><path d="M458.0,70.0 C472.0,70.0 474.0,102.0 488.0,102.0" class="edge" fill="none"/><rect x="488.0" y="76.0" width="210.0" height="52" rx="8" class="node"/><text x="593.0" y="106" class="small" text-anchor="middle"><tspan x="593.0" dy="0">Solution: running total in cart</tspan></text><rect x="248.0" y="44.0" width="210.0" height="52" rx="8" class="node"/><text x="353.0" y="68.0" class="small" text-anchor="middle"><tspan x="353.0" dy="0">Opportunity: surprised by total</tspan><tspan x="353.0" dy="12">at the end</tspan></text><path d="M218.0,182.0 C232.0,182.0 234.0,198.0 248.0,198.0" class="edge" fill="none"/><path d="M458.0,198.0 C472.0,198.0 474.0,166.0 488.0,166.0" class="edge" fill="none"/><rect x="488.0" y="140.0" width="210.0" height="52" rx="8" class="node"/><text x="593.0" y="164" class="small" text-anchor="middle"><tspan x="593.0" dy="0">Solution: retry with another</tspan><tspan x="593.0" dy="12">method</tspan></text><path d="M458.0,198.0 C472.0,198.0 474.0,230.0 488.0,230.0" class="edge" fill="none"/><rect x="488.0" y="204.0" width="210.0" height="52" rx="8" class="node"/><text x="593.0" y="234" class="small" text-anchor="middle"><tspan x="593.0" dy="0">Solution: save cart and notify</tspan></text><rect x="248.0" y="172.0" width="210.0" height="52" rx="8" class="node"/><text x="353.0" y="196.0" class="small" text-anchor="middle"><tspan x="353.0" dy="0">Opportunity: payment fails with</tspan><tspan x="353.0" dy="12">no recovery</tspan></text><path d="M218.0,182.0 C232.0,182.0 234.0,294.0 248.0,294.0" class="edge" fill="none"/><path d="M458.0,294.0 C472.0,294.0 474.0,294.0 488.0,294.0" class="edge" fill="none"/><rect x="488.0" y="268.0" width="210.0" height="52" rx="8" class="node"/><text x="593.0" y="292" class="small" text-anchor="middle"><tspan x="593.0" dy="0">Solution: guest checkout / fewer</tspan><tspan x="593.0" dy="12">fields</tspan></text><rect x="248.0" y="268.0" width="210.0" height="52" rx="8" class="node"/><text x="353.0" y="292.0" class="small" text-anchor="middle"><tspan x="353.0" dy="0">Opportunity: long form on first</tspan><tspan x="353.0" dy="12">order</tspan></text><rect x="8.0" y="156.0" width="210.0" height="52" rx="8" class="node hl"/><text x="113.0" y="180.0" class="small b" text-anchor="middle"><tspan x="113.0" dy="0">Outcome: raise checkout</tspan><tspan x="113.0" dy="12">completion 70% → 76%</tspan></text></svg><figcaption><strong>Opportunity Solution Tree (hypothetical).</strong> Each solution should be paired with the cheapest experiment that tests it. Compare opportunities (not just solutions) when you prioritise.</figcaption></figure>
+<h2 id="m03-competitor-research-review-mining-and-support-ticket-analysis"><span class="hnum">3.9</span> Competitor research, review mining and support-ticket analysis</h2>
+<p><strong>Review mining</strong> turns public reviews and support tickets into themes and a vocabulary. <strong>Method:</strong> (1) sample reviews across ratings and dates; (2) code each into themes (one review can have several); (3) count and read representative quotes; (4) note sampling limits; (5) turn themes into hypotheses.</p>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example — coding 40 synthetic app reviews</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Theme</th>
+<th style="text-align: right;">Mentions</th>
+<th style="text-align: right;">Share of 40 reviews</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Late delivery</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">27.5%</td>
+</tr>
+<tr>
+<td>Fees / total unclear</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">22.5%</td>
+</tr>
+<tr>
+<td>Food quality</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">17.5%</td>
+</tr>
+<tr>
+<td>App crashes at payment</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">15.0%</td>
+</tr>
+<tr>
+<td>Slow support</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10.0%</td>
+</tr>
+<tr>
+<td>Good discounts (positive)</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7.5%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<figure class="viz" role="img" aria-label="Horizontal bars: Themes in 40 synthetic reviews (hypothetical)"><svg viewBox="0 0 720 228" xmlns="http://www.w3.org/2000/svg"><text x="180" y="28" class="small" text-anchor="end"><tspan x="180" dy="0">Late delivery</tspan></text><rect x="190" y="14" width="253.0" height="22" rx="4" fill="var(--c1)"/><text x="451.0" y="29" class="small b" text-anchor="start"><tspan x="451.0" dy="0">11</tspan></text><text x="180" y="62" class="small" text-anchor="end"><tspan x="180" dy="0">Fees / total unclear</tspan></text><rect x="190" y="48" width="207.0" height="22" rx="4" fill="var(--c1)"/><text x="405.0" y="63" class="small b" text-anchor="start"><tspan x="405.0" dy="0">9</tspan></text><text x="180" y="96" class="small" text-anchor="end"><tspan x="180" dy="0">Food quality</tspan></text><rect x="190" y="82" width="161.0" height="22" rx="4" fill="var(--c1)"/><text x="359.0" y="97" class="small b" text-anchor="start"><tspan x="359.0" dy="0">7</tspan></text><text x="180" y="130" class="small" text-anchor="end"><tspan x="180" dy="0">App crashes at payment</tspan></text><rect x="190" y="116" width="138.0" height="22" rx="4" fill="var(--c1)"/><text x="336.0" y="131" class="small b" text-anchor="start"><tspan x="336.0" dy="0">6</tspan></text><text x="180" y="164" class="small" text-anchor="end"><tspan x="180" dy="0">Slow support</tspan></text><rect x="190" y="150" width="92.0" height="22" rx="4" fill="var(--c1)"/><text x="290.0" y="165" class="small b" text-anchor="start"><tspan x="290.0" dy="0">4</tspan></text><text x="180" y="198" class="small" text-anchor="end"><tspan x="180" dy="0">Good discounts (positive)</tspan></text><rect x="190" y="184" width="69.0" height="22" rx="4" fill="var(--c1)"/><text x="267.0" y="199" class="small b" text-anchor="start"><tspan x="267.0" dy="0">3</tspan></text></svg><figcaption><strong>Themes in 40 synthetic reviews (hypothetical).</strong> Synthetic data for teaching coding. With 40 reviews you can form hypotheses, not estimate the share of all customers. Reviews over-represent extreme experiences.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 39)</p>
+<p>The class sampled a public dataset, asked an AI tool for sentiment and potential themes (reliability, pricing, safety, support). <strong>Review individual comments and sampling bias; a small sample cannot establish the full market's sentiment.</strong> Public datasets can be real, synthetic or mixed — check provenance and licence. Never upload confidential data without authorisation.</p>
+</div>
+<h2 id="m03-behavioural-analytics-and-observation"><span class="hnum">3.10</span> Behavioural analytics and observation</h2>
+<ul>
+<li><strong>Behavioural analytics</strong> (funnels, cohorts, session replays where permitted) shows <em>what</em> people do at scale (Module 7).</li>
+<li><strong>Observational research</strong> — watching users perform tasks (in context if possible) reveals what they cannot articulate: workarounds, hesitations, misreadings. Think-aloud usability testing is a form of observation.</li>
+<li>Always combine: analytics finds <em>where</em>; observation and interviews find <em>why</em>.</li>
+</ul>
+<h2 id="m03-research-synthesis"><span class="hnum">3.11</span> Research synthesis</h2>
+<h3 id="m03-affinity-mapping"><span class="hnum">3.11.1</span> Affinity mapping</h3>
+<p>Write each observation on a note; cluster by similarity (silently first, then discuss); name clusters as <strong>insights</strong> (“Users distrust totals that change at the end”), not topics (“Pricing”); count participants per cluster.</p>
+<figure class="viz canvas-fig" role="group" aria-label="Affinity map output (hypothetical, 8 participants)"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Insight A · 6 of 8</h5><ul><li>“The total jumped at the end.”</li><li>“I didn&#x27;t see delivery fee until payment.”</li><li>“I wasn&#x27;t sure what I was paying.”</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Insight B · 4 of 8</h5><ul><li>“If payment fails I start over.”</li><li>“I switched to cash once.”</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Insight C · 3 of 8</h5><ul><li>“I just want to reorder my usual.”</li><li>“Saved addresses save me time.”</li></ul></div></div><figcaption><strong>Affinity map output (hypothetical, 8 participants).</strong> Hypothetical. Report counts as “6 of 8 participants”, never percentages from a handful of interviews.</figcaption></figure>
+<h3 id="m03-assumption-mapping-and-hypothesis-generation"><span class="hnum">3.11.2</span> Assumption mapping and hypothesis generation</h3>
+<p>List every assumption behind the idea (desirability, usability, feasibility, viability). Plot on <strong>importance</strong> (how fatal if wrong) vs <strong>evidence</strong> (how much we know). Test the <strong>important, low-evidence</strong> assumptions first.</p>
+<figure class="viz" role="img" aria-label="Scatter: Assumption map (hypothetical meal-planning app)"><svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="20" width="630" height="324" class="plot"/><line x1="385.0" y1="20" x2="385.0" y2="344" class="grid dash"/><line x1="70" y1="182.0" x2="700" y2="182.0" class="grid dash"/><text x="78" y="36" class="quad" text-anchor="start"><tspan x="78" dy="0">Test first</tspan></text><text x="692" y="36" class="quad" text-anchor="end"><tspan x="692" dy="0">Keep monitoring</tspan></text><text x="78" y="336" class="quad" text-anchor="start"><tspan x="78" dy="0">Ignore for now</tspan></text><text x="692" y="336" class="quad" text-anchor="end"><tspan x="692" dy="0">Fine</tspan></text><circle cx="196.0" cy="68.6" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="209.0" y="72.60000000000002" class="small" text-anchor="start"><tspan x="209.0" dy="0">Parents plan weekly</tspan></text><circle cx="164.5" cy="52.4" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="177.5" y="56.39999999999998" class="small" text-anchor="start"><tspan x="177.5" dy="0">Users trust price estimates</tspan></text><circle cx="183.4" cy="101.0" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="196.4" y="105.0" class="small" text-anchor="start"><tspan x="196.4" dy="0">Grocers share price data</tspan></text><circle cx="227.5" cy="84.8" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="240.5" y="88.80000000000001" class="small" text-anchor="start"><tspan x="240.5" dy="0">Users pay ₹1,200/yr</tspan></text><circle cx="574.0" cy="246.8" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="561.0" y="250.8" class="small" text-anchor="end"><tspan x="561.0" dy="0">App stores allow affiliate links</tspan></text><circle cx="511.0" cy="149.6" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="524.0" y="153.6" class="small" text-anchor="start"><tspan x="524.0" dy="0">Users want recipes</tspan></text><line x1="70" y1="344" x2="700" y2="344" class="axis"/><line x1="70" y1="20" x2="70" y2="344" class="axis"/><text x="385.0" y="388" class="small b mut" text-anchor="middle"><tspan x="385.0" dy="0">Evidence we have (1 = none, 10 = strong)</tspan></text><text x="16" y="182.0" class="small b mut" text-anchor="middle" transform="rotate(-90 16 182.0)">Importance if wrong (1–10)</text></svg><figcaption><strong>Assumption map (hypothetical meal-planning app).</strong> Hypothetical. Top-left (important, little evidence) is where experiments should start.</figcaption></figure>
+<p><strong>Hypothesis template:</strong> <em>We believe that [change/solution] for [segment] will [expected outcome/metric] because [reason/evidence]. We will know we are right when [measurable signal].</em></p>
+<h2 id="m03-problem-validation-and-evidence-quality"><span class="hnum">3.12</span> Problem validation and evidence quality</h2>
+<p><strong>Triangulation</strong> means reaching a conclusion from multiple independent kinds of evidence. Grade evidence honestly:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Strength</th>
+<th>Evidence</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Strong</strong></td>
+<td>Observed behaviour at scale; randomised experiments; paid pilots</td>
+<td>Conversion lift in an A/B test; people paying a real price</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td>Repeated behaviour in small samples; consistent interview themes; usability test patterns</td>
+<td>6 of 8 users miss the fee in a task</td>
+</tr>
+<tr>
+<td><strong>Weak</strong></td>
+<td>Stated intent, opinions, single anecdotes, AI-generated claims, “I would use this”</td>
+<td>Survey says 80% “would try”</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 6, 28, 41)</p>
+<p>Label comparisons based on impressions as <strong>hypotheses</strong>; support material claims with suitable research, sources and methodology. <strong>Do not present AI-generated target numbers as evidence</strong> — one team acknowledged the tool invented its metrics. <strong>A student's own experience is a starting point, not proof of a widespread problem.</strong></p>
+</div>
+<h2 id="m03-guesstimates-estimation"><span class="hnum">3.13</span> Guesstimates (estimation)</h2>
+<p>A <strong>guesstimate</strong> breaks an unknown number into smaller numbers you can explain, state assumptions for, and sanity-check — and gives a <strong>range</strong>.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 7)</p>
+<p>Clarify the question first (geography, typical day vs special event, ride types, whether cancelled requests count — <em>keep definitions consistent</em>). Break into measurable assumptions; <strong>explain and sanity-check</strong> each; compare <strong>top-down and bottom-up</strong>; communicate a range and the assumptions that matter most. The class estimates were <strong>practice figures, not verified Uber statistics.</strong> <em>There is no single right answer, but arithmetic errors, inconsistent definitions or implausible assumptions make an estimate weak.</em> Simple example: 1,000 students × 60% at school × 50% buying lunch = 300 lunches.</p>
+</div>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example — daily ride-hailing trips in a large metro (practice numbers, not facts)</p>
+<p><strong>Top-down:</strong> metro population 20 million → adults 70% = 14.0 million → people who use ride-hailing at least weekly: 8% = 1.12 million → 3 trips per week each = 3.36 million trips/week → <strong>≈ 480,000 trips/day.</strong>
+<strong>Bottom-up (supply check):</strong> active drivers per day 55,000 × 9 completed trips per driver per day = <strong>≈ 495,000 trips/day.</strong>
+<strong>Reconcile:</strong> two independent approaches land within ~3% — <em>this raises confidence but both rest on assumptions I invented.</em> Give a range: <strong>450k–500k/day</strong>, and name the most uncertain assumptions (share of weekly users, trips per driver). Sanity check: 480k trips/day ÷ 14M adults ≈ 3.4% of adults ride each day — plausible for a big city.</p>
+</div>
+<p><strong>Structure to use in interviews:</strong> clarify → choose approach (top-down or bottom-up) → segment → state assumptions → compute → sanity-check → give range → discuss what would change it.</p>
+<h2 id="m03-product-critique-and-teardown"><span class="hnum">3.14</span> Product critique and teardown</h2>
+<p>A <strong>teardown</strong> studies a product from the outside to understand users, goal, journey, strengths and possible improvements. Separate <strong>observations</strong> from <strong>assumptions</strong>; an outsider cannot know a company's internal data.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 4, 19, 28)</p>
+<p>A critique explains <strong>the user, the task, the difficulty and the expected benefit.</strong> Suggested teardown sequence: product context and problem → vision/purpose → personas → user and market research → journey and pain points → prioritised opportunities → proposed solution → success metrics (adapt it to the question). Each claim needs evidence and each change needs a test. Student proposals in class (Myntra, Amazon, X, ChatGPT, Netflix) were <em>proposals and observations, not verified gaps.</em> Consider constraints such as content rights and contracts.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Teardown skeleton (use for any product)</p>
+<ol>
+<li><strong>Product &amp; user:</strong> what job; for whom; business model (assumption, label it).</li>
+<li><strong>Journey:</strong> 5–7 stages; where does it help; where does it hurt (evidence: your own walk-through, reviews, tests).</li>
+<li><strong>Opportunity:</strong> one problem; evidence; who is affected; size (assumption).</li>
+<li><strong>Solutions:</strong> 2–3 options incl. a non-AI/simple one.</li>
+<li><strong>Choice:</strong> impact/effort/risk; recommendation.</li>
+<li><strong>Measurement:</strong> primary metric; guardrails; experiment.</li>
+<li><strong>Risks and unknowns.</strong></li>
+</ol>
+</div>
+<h2 id="m03-discovery-exercises"><span class="hnum">3.15</span> Discovery exercises</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Rewrite the questions</p>
+<p>Rewrite three poor interview questions and explain the bias in each: (a) “Do you think our onboarding is too long?” (b) “Would you pay ₹99/month for this?” (c) “What features would make you love this app?”</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>(a) Leading and closed → “Walk me through your first time setting up the app. Where did you hesitate?” (b) Hypothetical bias → “What do you pay for today to solve this? How did you decide it was worth it?” (c) Solution-seeking; customers aren't product designers → “Tell me about the last time this task went badly. What did you do?”</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · Evidence grading</p>
+<p>You have: (1) 8 interviews, 6 mention surprise at fees; (2) a funnel showing a 30% drop at the fee step; (3) a survey where 78% say they “like transparent pricing”. Rank the evidence and state what you would do next.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>(2) funnel = behavioural, scalable (strong <em>that</em> a drop exists, not why). (1) interviews = medium (consistent reasons, small sample). (3) survey = weak (stated preference, hypothetical). Next: segment the funnel (device, new/returning), run a usability task on the fee screen, then test early fee display in an A/B experiment with a complaint guardrail.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 3 · Estimate</p>
+<p>Estimate how many cups of coffee are sold in a city of 5 million in a day. Show two methods and a range.</p>
+</div>
+<details class="answer">
+<summary>Model answer (example)</summary>
+<p><strong>Top-down:</strong> 5M × 70% adults = 3.5M; 55% drink coffee ≈ 1.9M; 1.8 cups/day from cafés/vending/home? Only 35% bought outside → 1.9M × 1.8 × 0.35 ≈ <strong>1.2M purchased cups/day</strong>. <strong>Bottom-up:</strong> 2,500 cafés × 250 cups = 625k + 1,500 kiosks × 300 = 450k + vending/office 100k ≈ <strong>1.18M</strong>. Range 0.9–1.4M. Sensitive to share who buy outside and cups per café.</p>
+</details>
+<h2 id="m03-source-flagged-corrections"><span class="hnum">3.16</span> Source-flagged corrections</h2>
+<ul>
+<li>Qualitative/quantitative ≠ primary/secondary.</li>
+<li>Focus group ≠ target audience.</li>
+<li>Persona count is not fixed; personas must be evidence-based.</li>
+<li>“Surveys don't work in some country” is unsupported; design matters.</li>
+<li>AI summaries of research need source checking.</li>
+</ul>
+<h2 id="m03-interview-perspective"><span class="hnum">3.17</span> Interview perspective</h2>
+<details class="question">
+<summary>“How would you validate a problem before building?” — 60-second answer</summary>
+<p>“I'd start with a clear problem hypothesis and target segment, then interview 8–10 people who've recently experienced it, asking about their last real experience and what they do today. I'd look at available data to size and locate the problem, mine reviews or support tickets for patterns, and write down the assumptions that could kill the idea. For the riskiest assumption I'd run the cheapest test — a prototype or a smoke test with a real price — and decide in advance what result would make me continue, pivot or stop.”</p>
+</details>
+<details class="question">
+<summary>“Tell me about a product you love and how you'd improve it.”</summary>
+<p><em>Tests:</em> product sense, empathy, prioritisation, honesty about evidence. <em>Structure:</em> user + job → why it works → one meaningful pain (with evidence you'd gather) → 2–3 solutions → pick one with trade-offs → metric + guardrail + experiment. <em>Mistakes:</em> naming five features, ignoring constraints (content rights, privacy, cost), assuming your own experience is universal.</p>
+</details>
+<h2 id="m03-key-takeaways"><span class="hnum">3.18</span> Key takeaways</h2>
+<ul>
+<li>Discovery reduces <strong>risk</strong> by learning <em>before</em> building. Treat solutions as hypotheses.</li>
+<li>Ask about <strong>past behaviour</strong>; recruit for contrast; separate observation from interpretation.</li>
+<li>Match method to question; <strong>triangulate</strong> (analytics → interviews → experiment).</li>
+<li>Surveys estimate frequency but suffer from bias — design carefully.</li>
+<li>Use <strong>JTBD</strong>, journey maps, OSTs and assumption maps to structure what you learn.</li>
+<li>Grade evidence honestly; label hypotheses and AI-generated claims.</li>
+</ul>
+<h2 id="m03-check-your-understanding"><span class="hnum">3.19</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m03"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Which is an example of secondary quantitative research?</p><ol><li class="">A survey you design and send</li><li class="is-correct">A published market report with spending figures</li><li class="">Five customer interviews</li><li class="">A usability test</li></ol><div class="why"><strong>Why:</strong> Secondary research uses existing information; quantitative means numeric evidence. A published report fits both.</div></div><div class="qitem" data-correct="2"><p class="q">Which interview question is best?</p><ol><li class="">Would you use an app that shows fees early?</li><li class="">Don&#x27;t you hate surprise fees?</li><li class="is-correct">Tell me about the last time the total changed at checkout.</li><li class="">Which features do you want?</li></ol><div class="why"><strong>Why:</strong> It asks about a specific past experience, is neutral and invites a story.</div></div><div class="qitem" data-correct="2"><p class="q">In the four forces of switching, &#x27;anxiety&#x27; refers to…</p><ol><li class="">Frustration with the current solution</li><li class="">Attraction to the new solution</li><li class="is-correct">Worries about trying the new solution</li><li class="">Inertia of habit</li></ol><div class="why"><strong>Why:</strong> Push and pull move people toward switching; anxiety and habit hold them back.</div></div><div class="qitem" data-correct="1"><p class="q">6 of 8 interviewees mention the fee surprise. How should you report it?</p><ol><li class="">75% of customers dislike hidden fees</li><li class="is-correct">6 of 8 interviewed participants mentioned it; frequency in the population is unknown</li><li class="">It&#x27;s statistically significant</li><li class="">Ignore it; the sample is too small</li></ol><div class="why"><strong>Why:</strong> Small qualitative samples reveal themes, not population percentages.</div></div><div class="qitem" data-correct="0"><p class="q">On an assumption map, which should you test first?</p><ol><li class="is-correct">High importance, low evidence</li><li class="">Low importance, high evidence</li><li class="">Low importance, low evidence</li><li class="">High importance, high evidence</li></ol><div class="why"><strong>Why:</strong> Assumptions that would sink the idea and that you know little about carry the most risk per test.</div></div><div class="qitem" data-correct="1"><p class="q">A guesstimate gives 480k/day top-down and 495k/day bottom-up. The right conclusion is…</p><ol><li class="">The answer is exactly 487,500</li><li class="is-correct">Confidence is higher but both depend on assumptions; give a range</li><li class="">Both are wrong</li><li class="">Use the larger number</li></ol><div class="why"><strong>Why:</strong> Agreement of independent methods raises confidence, but communicate a range and the key assumptions.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m03-recommended-resources"><span class="hnum">3.20</span> Recommended resources</h2>
+<ul>
+<li><a href="https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/">Nielsen Norman Group: Heuristic evaluations</a> (from your course list) and <a href="https://www.nngroup.com/articles/user-interviews/">user interviews</a>.</li>
+<li><a href="https://www.producttalk.org/opportunity-solution-tree/">Product Talk: Opportunity Solution Trees</a>.</li>
+<li>Rob Fitzpatrick, <em>The Mom Test</em> — asking good questions about past behaviour (<a href="https://www.momtestbook.com/">book site</a>).</li>
+<li><a href="https://www.christenseninstitute.org/jobs-to-be-done/">Jobs to Be Done — Christensen Institute</a>.</li>
+<li><a href="https://cloud.google.com/learn/what-is-artificial-intelligence">Google Cloud / Google: Gen AI glossary</a> for AI-assisted research caveats.</li>
+</ul><div class="modnav"><a href="m02.html"><small>← Previous</small>Module 2: Product Strategy and Strategic Thinking</a><a href="m04.html"><small>Next →</small>Module 4: Problem Framing and Prioritization</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

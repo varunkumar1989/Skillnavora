@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 9: Tech 101 and System Design for PMs · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-09-Tech-System-Design.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" aria-current="page" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 9</div><h1>Tech 101 and System Design for PMs</h1><p>Understand how software works well enough to ask the right questions, make trade-offs with engineers, and explain systems in interviews.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 12, 29, 30, 33, 34; Companion ch. 7, 8, 9, 18, 24; Extra topics 12, 13</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m09" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m09-how-the-internet-works-the-60-second-version">How the internet works (the 60-second version)</a></li><li><a href="#m09-frontend-backend-and-clientserver-architecture">Frontend, backend and client–server architecture</a></li><li><a href="#m09-apis-rest-graphql-and-json">APIs, REST, GraphQL and JSON</a></li><li><a href="#m09-authentication-authorisation-and-oauth">Authentication, authorisation and OAuth</a></li><li><a href="#m09-databases-sql-vs-nosql-and-data-modelling">Databases, SQL vs NoSQL, and data modelling</a></li><li><a href="#m09-cloud-computing-aws-azure-and-gcp">Cloud computing: AWS, Azure and GCP</a></li><li><a href="#m09-monolith-vs-microservices">Monolith vs microservices</a></li><li><a href="#m09-caching-load-balancing-queues-event-driven-systems-webhooks-and-cdns">Caching, load balancing, queues, event-driven systems, webhooks and CDNs</a></li><li><a href="#m09-scalability-reliability-availability-latency-and-throughput">Scalability, reliability, availability, latency and throughput</a></li><li><a href="#m09-security-fundamentals">Security fundamentals</a></li><li><a href="#m09-privacy-and-compliance-basics">Privacy and compliance basics</a></li><li><a href="#m09-system-architecture-diagrams">System architecture diagrams</a></li><li><a href="#m09-technical-debt-and-engineering-estimation">Technical debt and engineering estimation</a></li><li><a href="#m09-agile-delivery-cicd-and-feature-flags">Agile delivery, CI/CD and feature flags</a></li><li><a href="#m09-observability">Observability</a></li><li><a href="#m09-technical-trade-offs-a-pm-should-recognise">Technical trade-offs a PM should recognise</a></li><li><a href="#m09-system-design-examples">System design examples</a></li><li><a href="#m09-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m09-interview-perspective">Interview perspective</a></li><li><a href="#m09-key-takeaways">Key takeaways</a></li><li><a href="#m09-check-your-understanding">Check your understanding</a></li><li><a href="#m09-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
+<p class="admonition-title">About the architectures</p>
+<p>Diagrams are <strong>simplified teaching architectures</strong>, not descriptions of how any named company actually builds its systems. Numbers are illustrative.</p>
+</div>
+<div class="admonition level1">
+<p class="admonition-title">Why a PM needs this</p>
+<p>You don't write production code, but you decide <em>what</em> gets built and you trade off cost, speed, risk and quality with engineers. Knowing the moving parts lets you ask good questions (“what happens if the payment provider times out?”), spot risks early and explain your product credibly in interviews.</p>
+</div>
+<h2 id="m09-how-the-internet-works-the-60-second-version"><span class="hnum">9.1</span> How the internet works (the 60-second version)</h2>
+<figure class="viz" role="img" aria-label="Process: DNS lookup → Connect → HTTP request → Server work → Response"><svg viewBox="0 0 720 132" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">DNS lookup</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Domain name → IP</tspan><tspan x="68.0" dy="11">address</tspan></text><line x1="129.0" y1="52.0" x2="153.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Connect</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">TCP connection; TLS</tspan><tspan x="214.0" dy="11">handshake for HTTPS</tspan></text><line x1="275.0" y1="52.0" x2="299.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">HTTP request</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">GET /menu with</tspan><tspan x="360.0" dy="11">headers, cookies</tspan></text><line x1="421.0" y1="52.0" x2="445.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Server work</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">App logic, database,</tspan><tspan x="506.0" dy="11">other services</tspan></text><line x1="567.0" y1="52.0" x2="591.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Response</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Status code +</tspan><tspan x="652.0" dy="11">HTML/JSON; browser</tspan><tspan x="652.0" dy="11">renders</tspan></text></svg><figcaption><strong>What happens when you open a web page.</strong> CDNs and caches can answer step 3 without reaching your servers. Each step adds latency and a possible failure point.</figcaption></figure>
+<ul>
+<li><strong>IP address:</strong> numeric address of a machine. <strong>DNS:</strong> the internet's phone book (name → IP).</li>
+<li><strong>TCP/IP:</strong> reliable delivery of data packets. <strong>HTTP:</strong> the request/response language of the web. <strong>HTTPS = HTTP over TLS</strong>, which encrypts data in transit and verifies the server's identity.</li>
+</ul>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 33)</p>
+<p><strong>HTTPS protects data in transit using TLS.</strong> Consider authorisation, sensitive data handling and error recovery as part of any integration.</p>
+</div>
+<h2 id="m09-frontend-backend-and-clientserver-architecture"><span class="hnum">9.2</span> Frontend, backend and client–server architecture</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 29; Companion ch. 7)</p>
+<p>The <strong>frontend</strong> presents the interface (HTML structures content, CSS styles it, JavaScript adds behaviour; React and Angular are examples of frontend tools). The <strong>backend</strong> applies rules, connects services and stores or fetches data — <em>it includes application logic, not just databases.</em> <strong>Databases</strong> store information; <strong>infrastructure</strong> runs the services. Hosting makes the application reachable; a domain is its readable address. <strong>Dev and staging are test environments; production serves real users.</strong> Ask engineers where data is stored, which systems are required, what happens on timeout or retry, how user access is checked, and request explicit release and rollback plans. <em>A visible button alone is not proof that an order or payment actually happened.</em></p>
+</div>
+<figure class="viz" role="img" aria-label="Diagram: Client–server architecture of a typical app"><svg viewBox="0 0 720 542" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><text x="4" y="63.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Client</tspan></text><rect x="226.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="311.0" y="63.0" class="small b" text-anchor="middle"><tspan x="311.0" dy="0">Mobile app</tspan></text><rect x="416.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="501.0" y="63.0" class="small b" text-anchor="middle"><tspan x="501.0" dy="0">Web browser</tspan></text><text x="4" y="173.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Edge</tspan></text><rect x="226.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="311.0" y="173.0" class="small b" text-anchor="middle"><tspan x="311.0" dy="0">CDN</tspan></text><rect x="416.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="501.0" y="166.0" class="small b" text-anchor="middle"><tspan x="501.0" dy="0">Load balancer / API</tspan><tspan x="501.0" dy="12">gateway</tspan></text><text x="4" y="283.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Application</tspan></text><rect x="131.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="216.0" y="283.0" class="small b" text-anchor="middle"><tspan x="216.0" dy="0">Order service</tspan></text><rect x="321.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="406.0" y="283.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">User service</tspan></text><rect x="511.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="596.0" y="283.0" class="small b" text-anchor="middle"><tspan x="596.0" dy="0">Payment service</tspan></text><text x="4" y="393.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Data</tspan></text><rect x="131.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="216.0" y="393.0" class="small b" text-anchor="middle"><tspan x="216.0" dy="0">Relational DB</tspan></text><rect x="321.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="406.0" y="393.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Cache</tspan></text><rect x="511.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="596.0" y="393.0" class="small b" text-anchor="middle"><tspan x="596.0" dy="0">Message queue</tspan></text><text x="4" y="503.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">External</tspan></text><rect x="131.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="216.0" y="503.0" class="small b" text-anchor="middle"><tspan x="216.0" dy="0">Payment gateway</tspan></text><rect x="321.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="406.0" y="503.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Maps API</tspan></text><rect x="511.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="596.0" y="503.0" class="small b" text-anchor="middle"><tspan x="596.0" dy="0">SMS / push provider</tspan></text><path d="M311.0,88.0 C311.0,112.5 501.0,112.5 501.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M501.0,88.0 C501.0,112.5 311.0,112.5 311.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><line x1="396.0" y1="169.0" x2="413.0" y2="169.0" class="edge" marker-end="url(#ah2)"/><path d="M501.0,198.0 C501.0,222.5 216.0,222.5 216.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M501.0,198.0 C501.0,222.5 406.0,222.5 406.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M216.0,308.0 C216.0,332.5 216.0,332.5 216.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M216.0,308.0 C216.0,332.5 596.0,332.5 596.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M596.0,308.0 C596.0,387.5 216.0,387.5 216.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M406.0,308.0 C406.0,332.5 406.0,332.5 406.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>Client–server architecture of a typical app.</strong> Clients send requests; the backend applies business rules; data stores persist state; external providers do specialised jobs. Every arrow is a network call that can be slow or fail.</figcaption></figure>
+<h2 id="m09-apis-rest-graphql-and-json"><span class="hnum">9.3</span> APIs, REST, GraphQL and JSON</h2>
+<p>An <strong>API</strong> (Application Programming Interface) is a contract for how one piece of software asks another for data or an action.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 33; Companion ch. 8)</p>
+<p>An API is a <strong>contract for communication</strong>: a request names an action or asks for data; a response returns information or an error. Agree the <strong>endpoint, method, authentication, expected fields and response format</strong>; different providers may use JSON or XML, requiring mapping and validation. <strong>REST is an architectural style; SOAP is a protocol using XML messages.</strong> A testing tool can send requests and inspect status, data and latency — <em>validate both expected and failure cases.</em> <strong>A 200 response alone does not prove the returned data is correct.</strong> An API need not be one-to-many; a website URL and its API endpoint need not match. A <strong>webhook</strong> is an event notification sent to an endpoint instead of the client repeatedly asking.</p>
+</div>
+<p><strong>REST</strong> organises an API around <em>resources</em> (nouns) with standard HTTP methods; <strong>GraphQL</strong> exposes a typed schema where the client asks for exactly the fields it needs in one query.</p>
+<pre><code class="language-text">REST
+GET  /restaurants/42/menu            → menu items
+POST /orders            {cart...}    → 201 Created, {order_id}
+GET  /orders/9001                    → order status
+
+GraphQL (one request, client chooses fields)
+query {
+  order(id: &quot;9001&quot;) { status eta restaurant { name } items { name qty } }
+}
+</code></pre>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>REST</th>
+<th>GraphQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shape</td>
+<td>Many endpoints, fixed responses</td>
+<td>One endpoint, client-specified fields</td>
+</tr>
+<tr>
+<td>Strengths</td>
+<td>Simple, cacheable, widely understood</td>
+<td>Avoids over/under-fetching; great for complex UIs</td>
+</tr>
+<tr>
+<td>Weaknesses</td>
+<td>Multiple round-trips; over-fetching</td>
+<td>Caching and rate-limiting are harder; query cost control needed</td>
+</tr>
+<tr>
+<td>PM question</td>
+<td>“Do we need new endpoints for this screen?”</td>
+<td>“Does the schema already expose these fields? Any expensive queries?”</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>JSON</strong> (JavaScript Object Notation) is a common text format of key–value pairs and lists:</p>
+<pre><code class="language-json">{
+  &quot;order_id&quot;: &quot;9001&quot;,
+  &quot;status&quot;: &quot;out_for_delivery&quot;,
+  &quot;eta_minutes&quot;: 12,
+  &quot;items&quot;: [ { &quot;name&quot;: &quot;Veg biryani&quot;, &quot;qty&quot;: 1, &quot;price_inr&quot;: 260 } ],
+  &quot;fees&quot;: { &quot;delivery_inr&quot;: 45, &quot;platform_inr&quot;: 5, &quot;is_estimate&quot;: false }
+}
+</code></pre>
+<h3 id="m09-http-methods-and-status-codes"><span class="hnum">9.3.1</span> HTTP methods and status codes</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Typical meaning</th>
+<th>Idempotent?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>Retrieve</td>
+<td>Yes (no side effects)</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>Create / trigger an action</td>
+<td>No (repeating may create duplicates)</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>Replace a resource</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>Partially update</td>
+<td>Not necessarily</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Remove</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Actual behaviour depends on the API contract.</em> <strong>Idempotent</strong> means doing it twice has the same effect as once — vital for payments (use <strong>idempotency keys</strong> so a retried “charge” doesn't charge twice).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>PM implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200 OK / 201 Created / 204 No Content</td>
+<td>Success</td>
+<td>Still validate the data</td>
+</tr>
+<tr>
+<td>301 / 302</td>
+<td>Redirect</td>
+<td>SEO, deep links</td>
+</tr>
+<tr>
+<td>304 Not Modified</td>
+<td>Use your cached copy</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>400 Bad Request / 422 Unprocessable</td>
+<td>Client sent invalid data</td>
+<td>Better validation and error copy</td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td>Not authenticated (missing/invalid credentials)</td>
+<td>Sign-in flow</td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td>Authenticated but not allowed</td>
+<td>Permissions model</td>
+</tr>
+<tr>
+<td>404 Not Found</td>
+<td>Resource doesn't exist</td>
+<td>Empty states, broken links</td>
+</tr>
+<tr>
+<td>409 Conflict</td>
+<td>State conflict (e.g., duplicate)</td>
+<td>Concurrency design</td>
+</tr>
+<tr>
+<td>429 Too Many Requests</td>
+<td>Rate limit hit</td>
+<td>Back-off, quotas, pricing tiers</td>
+</tr>
+<tr>
+<td>500 / 502 / 503 / 504</td>
+<td>Server, gateway, unavailable, timeout</td>
+<td>Retries, fallbacks, status page, incident</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m09-authentication-authorisation-and-oauth"><span class="hnum">9.4</span> Authentication, authorisation and OAuth</h2>
+<ul>
+<li><strong>Authentication (authN):</strong> <em>who are you?</em> (password, OTP, passkey, biometrics, SSO).</li>
+<li><strong>Authorisation (authZ):</strong> <em>what are you allowed to do?</em> (roles, permissions, scopes).</li>
+<li><strong>OAuth 2.0:</strong> a standard for <strong>delegated authorisation</strong> — letting an app access a user's resources at another service without sharing the password, via scoped <strong>access tokens</strong>. <strong>OpenID Connect (OIDC)</strong> adds an identity layer on top of OAuth 2.0 for “Sign in with…”.</li>
+</ul>
+<figure class="viz" role="img" aria-label="Process: User clicks &#x27;Connect&#x27; → User consents → Auth code returned → Token exchange → Call the API"><svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">User clicks</tspan><tspan x="76.0" dy="13">&#x27;Connect&#x27;</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">App redirects to the</tspan><tspan x="68.0" dy="11">provider&#x27;s consent</tspan><tspan x="68.0" dy="11">screen</tspan></text><line x1="129.0" y1="56.0" x2="153.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">User consents</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">Approves specific</tspan><tspan x="214.0" dy="11">scopes (e.g., read</tspan><tspan x="214.0" dy="11">calendar)</tspan></text><line x1="275.0" y1="56.0" x2="299.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Auth code</tspan><tspan x="368.0" dy="13">returned</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Provider redirects</tspan><tspan x="360.0" dy="11">back with a</tspan><tspan x="360.0" dy="11">short-lived code</tspan></text><line x1="421.0" y1="56.0" x2="445.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Token exchange</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">App&#x27;s backend swaps</tspan><tspan x="506.0" dy="11">code (+ PKCE</tspan><tspan x="506.0" dy="11">verifier) for tokens</tspan></text><line x1="567.0" y1="56.0" x2="591.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Call the API</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Access token in</tspan><tspan x="652.0" dy="11">Authorization</tspan><tspan x="652.0" dy="11">header; refresh when</tspan><tspan x="652.0" dy="11">it expires</tspan></text></svg><figcaption><strong>OAuth 2.0 authorization-code flow (with PKCE), simplified.</strong> The app never sees the user&#x27;s password. Scopes limit what it can do. Tokens are secrets — store them server-side and revoke when users disconnect.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 46, 49; Companion ch. 8)</p>
+<p>API access can use tokens or OAuth, <em>not necessarily passwords.</em> <strong>Keep API keys on the server or in approved secret storage — never in a public frontend or screenshot.</strong> <strong>CORS</strong> is a browser security mechanism for controlling cross-origin requests, <em>not</em> a synonym for all communication between a UI and an API.</p>
+</div>
+<h2 id="m09-databases-sql-vs-nosql-and-data-modelling"><span class="hnum">9.5</span> Databases, SQL vs NoSQL, and data modelling</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 29, 34, 35; Companion ch. 9)</p>
+<p>Relational, NoSQL and vector databases serve <strong>different needs</strong>; vector indexes store embeddings for similarity search but <strong>do not replace all other databases</strong>. <em>Data does not automatically move from relational to NoSQL to vector storage as a product grows, and not all AI applications need vector databases.</em> CRUD (create, read, update, delete) describes common operations; specify <strong>what users can do, who can do it and how information is protected.</strong></p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Model</th>
+<th>Good for</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Relational (SQL)</strong></td>
+<td>Tables with rows/columns, joins, ACID transactions</td>
+<td>Orders, payments, accounts — anything needing consistency</td>
+<td>PostgreSQL, MySQL, SQL Server</td>
+</tr>
+<tr>
+<td><strong>Document</strong></td>
+<td>JSON-like documents</td>
+<td>Flexible profiles, catalogues</td>
+<td>MongoDB, Firestore</td>
+</tr>
+<tr>
+<td><strong>Key–value</strong></td>
+<td>Key → value</td>
+<td>Caching, sessions</td>
+<td>Redis, DynamoDB</td>
+</tr>
+<tr>
+<td><strong>Wide-column</strong></td>
+<td>Rows with flexible columns at huge scale</td>
+<td>Time-series, event logs</td>
+<td>Cassandra, Bigtable</td>
+</tr>
+<tr>
+<td><strong>Graph</strong></td>
+<td>Nodes and edges</td>
+<td>Social graphs, fraud rings</td>
+<td>Neo4j</td>
+</tr>
+<tr>
+<td><strong>Search</strong></td>
+<td>Inverted index</td>
+<td>Full-text search</td>
+<td>Elasticsearch, OpenSearch</td>
+</tr>
+<tr>
+<td><strong>Vector</strong></td>
+<td>Embeddings + similarity index</td>
+<td>Semantic search, RAG</td>
+<td>pgvector, Pinecone, Weaviate</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>ACID</strong> (Atomicity, Consistency, Isolation, Durability) guarantees matter for money: a payment and its ledger entry must succeed or fail together.</p>
+<p><strong>Data modelling</strong> defines entities, attributes and relationships — often drawn as an ER diagram:</p>
+<figure class="viz" role="img" aria-label="Diagram: Simplified data model for food ordering (entity relationships)"><svg viewBox="0 0 720 322" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="180.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="56.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">User (user_id, name,</tspan><tspan x="265.0" dy="12">phone)</tspan></text><rect x="370.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="56.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Restaurant</tspan><tspan x="455.0" dy="12">(restaurant_id, name,</tspan><tspan x="455.0" dy="12">city)</tspan></text><rect x="180.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="166.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">Order (order_id, user_id,</tspan><tspan x="265.0" dy="12">restaurant_id, status,</tspan><tspan x="265.0" dy="12">total)</tspan></text><rect x="370.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="166.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">MenuItem (item_id,</tspan><tspan x="455.0" dy="12">restaurant_id, price)</tspan></text><rect x="180.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="276.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">OrderItem (order_id,</tspan><tspan x="265.0" dy="12">item_id, qty, price)</tspan></text><rect x="370.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="276.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Payment (payment_id,</tspan><tspan x="455.0" dy="12">order_id, status, amount)</tspan></text><path d="M265.0,88.0 C265.0,112.5 265.0,112.5 265.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="269.0" y="115.5" class="tiny mut edge-label" text-anchor="start"><tspan x="269.0" dy="0">1 : many</tspan></text><path d="M455.0,88.0 C455.0,112.5 455.0,112.5 455.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="459.0" y="115.5" class="tiny mut edge-label" text-anchor="start"><tspan x="459.0" dy="0">1 : many</tspan></text><path d="M265.0,198.0 C265.0,222.5 265.0,222.5 265.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="269.0" y="225.5" class="tiny mut edge-label" text-anchor="start"><tspan x="269.0" dy="0">1 : many</tspan></text><path d="M265.0,198.0 C265.0,222.5 455.0,222.5 455.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="364.0" y="225.5" class="tiny mut edge-label" text-anchor="start"><tspan x="364.0" dy="0">1 : 1..many</tspan></text></svg><figcaption><strong>Simplified data model for food ordering (entity relationships).</strong> Storing the item price on OrderItem preserves what the customer actually paid even if the menu price changes later — a classic product-relevant modelling decision.</figcaption></figure>
+<h2 id="m09-cloud-computing-aws-azure-and-gcp"><span class="hnum">9.6</span> Cloud computing: AWS, Azure and GCP</h2>
+<p><strong>Cloud computing</strong> rents computing resources on demand. Service models: <strong>IaaS</strong> (virtual machines, storage), <strong>PaaS</strong> (managed platforms/databases), <strong>SaaS</strong> (finished software), plus <strong>serverless</strong> (run code without managing servers; pay per use).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>AWS</th>
+<th>Microsoft Azure</th>
+<th>Google Cloud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Virtual machines</td>
+<td>EC2</td>
+<td>Virtual Machines</td>
+<td>Compute Engine</td>
+</tr>
+<tr>
+<td>Serverless functions</td>
+<td>Lambda</td>
+<td>Azure Functions</td>
+<td>Cloud Run functions</td>
+</tr>
+<tr>
+<td>Object storage</td>
+<td>S3</td>
+<td>Blob Storage</td>
+<td>Cloud Storage</td>
+</tr>
+<tr>
+<td>Managed relational DB</td>
+<td>RDS / Aurora</td>
+<td>Azure SQL Database</td>
+<td>Cloud SQL / AlloyDB</td>
+</tr>
+<tr>
+<td>Containers / Kubernetes</td>
+<td>EKS / ECS</td>
+<td>AKS</td>
+<td>GKE</td>
+</tr>
+<tr>
+<td>Message queue / pub-sub</td>
+<td>SQS / SNS</td>
+<td>Service Bus</td>
+<td>Pub/Sub</td>
+</tr>
+<tr>
+<td>CDN</td>
+<td>CloudFront</td>
+<td>Azure Front Door / CDN</td>
+<td>Cloud CDN</td>
+</tr>
+<tr>
+<td>Data warehouse</td>
+<td>Redshift</td>
+<td>Synapse / Fabric</td>
+<td>BigQuery</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>PM questions:</strong> What does it cost per user/transaction? Which region holds the data (residency rules)? What are the provider's SLAs? Are we locked into proprietary services? <em>Product names and offerings change — check current documentation.</em></p>
+<h2 id="m09-monolith-vs-microservices"><span class="hnum">9.7</span> Monolith vs microservices</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Monolith</th>
+<th>Microservices</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structure</td>
+<td>One deployable application</td>
+<td>Many small services, each owning a capability and its data</td>
+</tr>
+<tr>
+<td>Pros</td>
+<td>Simple to build, test, deploy early; fewer network calls</td>
+<td>Independent scaling and deployment; team autonomy; fault isolation</td>
+</tr>
+<tr>
+<td>Cons</td>
+<td>Hard to scale teams; one bug can take everything down; slow deploys at size</td>
+<td>Distributed-system complexity: network failures, data consistency, observability, ops cost</td>
+</tr>
+<tr>
+<td>Good default for</td>
+<td>Early products, small teams</td>
+<td>Large orgs with clear domain boundaries</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Senior PM</p>
+<p>Microservices are an <em>organisational</em> scaling tool as much as a technical one (Conway's law: systems mirror communication structures). A PM should ask what a migration buys the <em>customer</em> (speed of change, reliability) and fund it explicitly — not let it silently consume a year of roadmap.</p>
+</div>
+<h2 id="m09-caching-load-balancing-queues-event-driven-systems-webhooks-and-cdns"><span class="hnum">9.8</span> Caching, load balancing, queues, event-driven systems, webhooks and CDNs</h2>
+<ul>
+<li><strong>Caching:</strong> keep frequently used data in fast storage (memory) to cut latency and load. Trade-off: <strong>staleness</strong> — when must the cache refresh?</li>
+<li><strong>Load balancer:</strong> spreads requests across servers; removes unhealthy ones; enables horizontal scaling.</li>
+<li><strong>Message queue:</strong> producers put work on a queue; consumers process it later — smooths spikes and decouples services (e.g., send confirmation emails asynchronously).</li>
+<li><strong>Event-driven architecture:</strong> services publish events (“OrderPlaced”) that others subscribe to; adds flexibility, complicates tracing.</li>
+<li><strong>Webhook:</strong> an HTTP callback one system sends to another when an event happens (“payment succeeded”). Receivers must <strong>verify signatures</strong>, handle <strong>duplicates</strong> and <strong>out-of-order</strong> events, and <strong>reconcile</strong> with their own records.</li>
+<li><strong>CDN (Content Delivery Network):</strong> servers near users cache static content (images, scripts, video) to reduce latency.</li>
+</ul>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example — cache effect on average latency</p>
+<p>Cache lookup 5 ms; database 80 ms; cache hit ratio 90%. Average = 0.9 × 5 + 0.1 × (5 + 80) = 4.5 + 8.5 = <strong>13 ms</strong> versus 80 ms without a cache. At a 50% hit ratio: 0.5 × 5 + 0.5 × 85 = <strong>45 ms.</strong> Hit ratio is the lever; staleness is the risk (menus OK to cache for minutes; payment status not).</p>
+</div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 8)</p>
+<p>A payment provider may send a webhook after payment status changes; <strong>the backend verifies the signature and reconciles the event with its own order record.</strong> Retries must be safe: <strong>use idempotency or deduplication for repeated payment events.</strong> Ask what happens for 4xx client errors, 5xx server errors, rate limits and timeouts.</p>
+</div>
+<h2 id="m09-scalability-reliability-availability-latency-and-throughput"><span class="hnum">9.9</span> Scalability, reliability, availability, latency and throughput</h2>
+<ul>
+<li><strong>Scalability:</strong> ability to handle more load by adding resources — <strong>vertical</strong> (bigger machine) or <strong>horizontal</strong> (more machines).</li>
+<li><strong>Reliability:</strong> the system does the right thing consistently (correct results, no data loss).</li>
+<li><strong>Availability:</strong> share of time the system is usable.</li>
+<li><strong>Latency:</strong> time to respond to one request; report <strong>percentiles</strong> (p50, p95, p99), not just averages.</li>
+<li><strong>Throughput:</strong> requests (or transactions) processed per second.</li>
+</ul>
+<div class="formula">Allowed downtime = (1 − availability) × period
+Availability of components in series = A₁ × A₂ × … × Aₙ
+Little&#x27;s law: concurrent requests in flight (L) = arrival rate (λ) × time in system (W)</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Availability</th>
+<th style="text-align: right;">Downtime per year</th>
+<th style="text-align: right;">Per 30-day month</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>99%</td>
+<td style="text-align: right;">87.6 hours</td>
+<td style="text-align: right;">7.2 hours</td>
+</tr>
+<tr>
+<td>99.5%</td>
+<td style="text-align: right;">43.8 hours</td>
+<td style="text-align: right;">3.6 hours</td>
+</tr>
+<tr>
+<td>99.9% (“three nines”)</td>
+<td style="text-align: right;">8.76 hours</td>
+<td style="text-align: right;">43.2 minutes</td>
+</tr>
+<tr>
+<td>99.95%</td>
+<td style="text-align: right;">4.38 hours</td>
+<td style="text-align: right;">21.6 minutes</td>
+</tr>
+<tr>
+<td>99.99% (“four nines”)</td>
+<td style="text-align: right;">52.6 minutes</td>
+<td style="text-align: right;">4.32 minutes</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example — dependencies multiply</p>
+<p>Checkout needs the API (99.95%), the database (99.99%) and the payment gateway (99.9%). In series: 0.9995 × 0.9999 × 0.999 ≈ <strong>0.99840 → 99.84%</strong>, about <strong>14 hours of downtime a year</strong> — worse than any single component. Mitigations: redundancy (second gateway), graceful degradation (queue the order; retry), and clear user messaging.</p>
+</div>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example — why percentiles matter</p>
+<p>20 response times (ms), sorted: 80, 85, 90, 92, 95, 98, 100, 102, 105, 110, 115, 120, 125, 130, 140, 150, 180, 220, 400, 900.
+<strong>Mean</strong> = 3,437 ÷ 20 = <strong>171.9 ms.</strong> <strong>Median (p50)</strong> ≈ <strong>110–115 ms.</strong> <strong>p95</strong> (19th value, nearest-rank) = <strong>400 ms.</strong> <strong>p99</strong> = <strong>900 ms.</strong>
+The mean hides that 1 in 20 users waits ≥ 400 ms. Set targets on p95/p99 for user-facing flows.</p>
+</div>
+<figure class="viz" role="img" aria-label="Bar chart: Mean vs percentiles for the same 20 requests (hypothetical)"><svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><line x1="64" y1="270.0" x2="700" y2="270.0" class="grid"/><text x="56" y="274.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">0</tspan></text><line x1="64" y1="207.5" x2="700" y2="207.5" class="grid"/><text x="56" y="211.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">250</tspan></text><line x1="64" y1="145.0" x2="700" y2="145.0" class="grid"/><text x="56" y="149.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">500</tspan></text><line x1="64" y1="82.5" x2="700" y2="82.5" class="grid"/><text x="56" y="86.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">750</tspan></text><line x1="64" y1="20.0" x2="700" y2="20.0" class="grid"/><text x="56" y="24.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">1,000</tspan></text><rect x="120.5" y="242.5" width="43.0" height="27.5" rx="3" fill="var(--c1)"/><text x="142.0" y="237.5" class="small b" text-anchor="middle"><tspan x="142.0" dy="0">110</tspan></text><text x="143.5" y="288" class="small" text-anchor="middle"><tspan x="143.5" dy="0">p50 (median)</tspan></text><rect x="279.5" y="227.0" width="43.0" height="43.0" rx="3" fill="var(--c1)"/><text x="301.0" y="222.025" class="small b" text-anchor="middle"><tspan x="301.0" dy="0">171.9</tspan></text><text x="302.5" y="288" class="small" text-anchor="middle"><tspan x="302.5" dy="0">Mean</tspan></text><rect x="438.5" y="170.0" width="43.0" height="100.0" rx="3" fill="var(--c1)"/><text x="460.0" y="165.0" class="small b" text-anchor="middle"><tspan x="460.0" dy="0">400</tspan></text><text x="461.5" y="288" class="small" text-anchor="middle"><tspan x="461.5" dy="0">p95</tspan></text><rect x="597.5" y="45.0" width="43.0" height="225.0" rx="3" fill="var(--c1)"/><text x="619.0" y="40.0" class="small b" text-anchor="middle"><tspan x="619.0" dy="0">900</tspan></text><text x="620.5" y="288" class="small" text-anchor="middle"><tspan x="620.5" dy="0">p99</tspan></text><line x1="64" y1="270" x2="700" y2="270" class="axis"/></svg><figcaption><strong>Mean vs percentiles for the same 20 requests (hypothetical).</strong> The tail (p95, p99) is what frustrated users experience. Averages are pulled up by outliers yet still understate the worst experiences.</figcaption></figure>
+<p><strong>Little's law example:</strong> 200 requests/second × 0.25 s average time in system = <strong>50 requests in flight</strong> — useful for sizing connection pools and worker counts.</p>
+<h3 id="m09-rate-limits"><span class="hnum">9.9.1</span> Rate limits</h3>
+<p>APIs limit how many requests a client can make (e.g., 100/minute) to protect capacity and enforce fairness or pricing tiers. Exceeding limits returns <strong>429</strong> often with a <code>Retry-After</code> header. <strong>PM implications:</strong> quotas per plan, back-off and retry design, batching, and partner contracts (third-party API limits can cap your feature).</p>
+<h2 id="m09-security-fundamentals"><span class="hnum">9.10</span> Security fundamentals</h2>
+<ul>
+<li><strong>Principles:</strong> least privilege, defence in depth, secure defaults, encrypt in transit (TLS) and at rest, validate all input, log security events, rotate secrets.</li>
+<li><strong>OWASP Top 10</strong> (web risks such as broken access control, injection, cryptographic failures, security misconfiguration, vulnerable components) is the standard checklist.</li>
+<li><strong>Common PM-visible issues:</strong> broken authorisation (user A can see user B's order by changing an ID), exposed API keys in frontends or repos, weak password resets, missing rate limits on OTP/login.</li>
+<li><strong>Card data:</strong> handling card numbers brings <strong>PCI DSS</strong> obligations; most products use a payment provider's hosted fields/tokenisation to stay out of scope.</li>
+</ul>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 24)</p>
+<p><strong>Never commit passwords or API keys.</strong> If a secret is exposed, tell the responsible team and rotate it; <em>deleting it from the latest file does not necessarily remove it from history.</em></p>
+</div>
+<h2 id="m09-privacy-and-compliance-basics"><span class="hnum">9.11</span> Privacy and compliance basics</h2>
+<ul>
+<li><strong>Data minimisation, purpose limitation, consent, retention limits, user rights</strong> (access, correction, deletion) are common principles.</li>
+<li>Regimes you may meet: <strong>GDPR</strong> (EU), <strong>India's Digital Personal Data Protection Act, 2023</strong>, <strong>CCPA/CPRA</strong> (California), sector rules (banking/KYC, health). Payment card data: <strong>PCI DSS.</strong></li>
+<li>PM practice: privacy review for new data uses; no PII in analytics events; data-residency questions in vendor selection; get qualified legal advice for interpretation.</li>
+</ul>
+<h2 id="m09-system-architecture-diagrams"><span class="hnum">9.12</span> System architecture diagrams</h2>
+<p>When drawing a system in an interview or doc: <strong>clients → edge (CDN, gateway) → services → data stores → external providers</strong>, then annotate <strong>data flows</strong>, <strong>sync vs async</strong> calls, <strong>failure points</strong> and <strong>where PII lives.</strong> Label assumptions. Keep it to 6–12 boxes.</p>
+<h2 id="m09-technical-debt-and-engineering-estimation"><span class="hnum">9.13</span> Technical debt and engineering estimation</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Extra topic 12)</p>
+<p>Technical debt is the future cost of a technical shortcut or outdated implementation; <em>not every bug or maintenance item is technical debt.</em> A PM should understand its effect <strong>without pretending to estimate technical work alone.</strong> Record dependencies on the roadmap, track blockers, reserve capacity for reliability where evidence supports it, define release criteria and a rollback path.</p>
+</div>
+<p><strong>Estimation:</strong> ask for <strong>ranges with assumptions</strong> (“5–8 days if the pricing API is stable”), break work down, identify unknowns (spikes), and track estimate accuracy over time — not to blame, but to plan. Common traps: anchoring on the PM's wish date; ignoring testing, review and deployment; forgetting non-functional work.</p>
+<h2 id="m09-agile-delivery-cicd-and-feature-flags"><span class="hnum">9.14</span> Agile delivery, CI/CD and feature flags</h2>
+<ul>
+<li><strong>CI (Continuous Integration):</strong> code changes are merged frequently and automatically built and tested.</li>
+<li><strong>CD (Continuous Delivery/Deployment):</strong> every change that passes tests is releasable (delivery) or automatically released (deployment).</li>
+<li><strong>Feature flags:</strong> turn features on/off (or for a percentage/segment) without redeploying — enabling staged rollouts, A/B tests and kill switches. Clean up stale flags (they are a form of tech debt).</li>
+</ul>
+<figure class="viz" role="img" aria-label="Process: Commit &amp; PR → Build → Test → Deploy to staging → Release → Monitor"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Commit &amp; PR</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Branch, code review</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Build</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Compile, package</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Test</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Unit, integration, security scans</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Deploy to staging</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">End-to-end tests, QA/UAT</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Release</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Production behind a flag; canary</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Monitor</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Metrics, errors; roll back if needed</tspan></text></svg><figcaption><strong>A CI/CD pipeline.</strong> A merged pull request is not necessarily deployed or validated in production. Ask where your change is in this pipeline.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 29; Companion ch. 24)</p>
+<p>An IDE helps developers edit code; repositories support version control; <strong>CI/CD pipelines build, test and deploy across environments.</strong> A repository holds project files and history; a branch isolates work; a commit records a snapshot; a <strong>pull request</strong> proposes changes for review. Learn protected branches, CODEOWNERS, automated tests and CI/CD at a conceptual level.</p>
+</div>
+<h2 id="m09-observability"><span class="hnum">9.15</span> Observability</h2>
+<p><strong>Observability</strong> = being able to understand what a system is doing from its outputs: <strong>logs</strong> (events), <strong>metrics</strong> (numbers over time), <strong>traces</strong> (a request's path across services). Reliability targets:</p>
+<ul>
+<li><strong>SLI</strong> (service level indicator): a measured value, e.g., % of checkout requests succeeding within 2 s.</li>
+<li><strong>SLO</strong> (objective): the target, e.g., 99.9% over 30 days.</li>
+<li><strong>SLA</strong> (agreement): a contractual promise with consequences, usually looser than the SLO.</li>
+<li><strong>Error budget:</strong> 100% − SLO. At 99.9% per 30 days the budget is <strong>43.2 minutes</strong>; if it's spent, prioritise reliability over features.</li>
+</ul>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Extra topic 13)</p>
+<p>Define alert thresholds and owners before release; maintain an incident timeline; run a <strong>blameless review</strong> focused on what happened, contributing conditions, impact and prevention; the PM helps quantify user impact and coordinate communication.</p>
+</div>
+<h2 id="m09-technical-trade-offs-a-pm-should-recognise"><span class="hnum">9.16</span> Technical trade-offs a PM should recognise</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Trade-off</th>
+<th>Example decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consistency vs availability</td>
+<td>During a network partition, show possibly stale menu (available) vs refuse orders (consistent)? (CAP theorem)</td>
+</tr>
+<tr>
+<td>Latency vs cost</td>
+<td>Add caching/replicas (faster, costlier)</td>
+</tr>
+<tr>
+<td>Build vs buy</td>
+<td>Own the search engine or use a managed service</td>
+</tr>
+<tr>
+<td>Sync vs async</td>
+<td>Confirm payment instantly vs queue and notify</td>
+</tr>
+<tr>
+<td>Flexibility vs simplicity</td>
+<td>Generic rules engine vs hard-coded rules</td>
+</tr>
+<tr>
+<td>Speed vs quality</td>
+<td>Ship behind a flag with known gaps vs harden first</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m09-system-design-examples"><span class="hnum">9.17</span> System design examples</h2>
+<p>The format for each: <strong>requirements → core components → data flow → key risks → PM decisions/metrics.</strong></p>
+<h3 id="m09-1-payment-processing"><span class="hnum">9.17.1</span> 1 · Payment processing</h3>
+<figure class="viz" role="img" aria-label="Diagram: Payment flow with idempotency and reconciliation (simplified)"><svg viewBox="0 0 720 542" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="150.0" y="30" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="63.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Checkout UI</tspan></text><rect x="150.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="173.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Payment service (idempotency key)</tspan></text><rect x="180.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="283.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">Payment gateway / PSP</tspan></text><rect x="370.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="283.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Ledger DB</tspan></text><rect x="150.0" y="360" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="393.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Webhook handler (verify signature)</tspan></text><rect x="180.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="503.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">Order service</tspan></text><rect x="370.0" y="470" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="496.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Reconciliation job</tspan><tspan x="455.0" dy="12">(daily)</tspan></text><path d="M360.0,88.0 C360.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="364.0" y="115.5" class="tiny mut edge-label" text-anchor="start"><tspan x="364.0" dy="0">create payment</tspan></text><path d="M360.0,198.0 C360.0,222.5 265.0,222.5 265.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="316.5" y="225.5" class="tiny mut edge-label" text-anchor="start"><tspan x="316.5" dy="0">charge</tspan></text><path d="M360.0,198.0 C360.0,222.5 455.0,222.5 455.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="411.5" y="225.5" class="tiny mut edge-label" text-anchor="start"><tspan x="411.5" dy="0">pending entry</tspan></text><path d="M265.0,308.0 C265.0,332.5 360.0,332.5 360.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="316.5" y="335.5" class="tiny mut edge-label" text-anchor="start"><tspan x="316.5" dy="0">status event</tspan></text><path d="M360.0,418.0 C360.0,442.5 265.0,442.5 265.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="316.5" y="445.5" class="tiny mut edge-label" text-anchor="start"><tspan x="316.5" dy="0">mark paid</tspan></text><path d="M360.0,418.0 C360.0,442.5 455.0,442.5 455.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>Payment flow with idempotency and reconciliation (simplified).</strong> The PSP (payment service provider) holds card data so the app stays out of most PCI scope. Idempotency keys prevent double charges on retries; reconciliation catches missed or duplicate webhooks.</figcaption></figure>
+<p><strong>Key risks:</strong> double charges on retry; webhook lost/duplicated/out of order; timeouts leaving status unknown (“pending”); fraud; refunds. <strong>PM decisions:</strong> show “payment pending” states honestly; retry UX (another method, saved cart); refund SLA; success-rate SLO by method; reconciliation ownership. <strong>Metrics:</strong> payment success rate (by method/bank), time-to-confirm, duplicate-charge reports, refund time, chargeback rate.</p>
+<h3 id="m09-2-food-delivery"><span class="hnum">9.17.2</span> 2 · Food delivery</h3>
+<figure class="viz" role="img" aria-label="Diagram: Food-delivery platform (simplified)"><svg viewBox="0 0 720 432" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="85.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="170.0" y="63.0" class="small b" text-anchor="middle"><tspan x="170.0" dy="0">Customer app</tspan></text><rect x="275.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="360.0" y="63.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Restaurant tablet</tspan></text><rect x="465.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="550.0" y="63.0" class="small b" text-anchor="middle"><tspan x="550.0" dy="0">Courier app</tspan></text><rect x="150.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="173.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">API gateway</tspan></text><rect x="38.0" y="250" width="146.0" height="58" rx="8" class="node"/><text x="111.0" y="283.0" class="small b" text-anchor="middle"><tspan x="111.0" dy="0">Catalogue &amp; search</tspan></text><rect x="204.0" y="250" width="146.0" height="58" rx="8" class="node"/><text x="277.0" y="283.0" class="small b" text-anchor="middle"><tspan x="277.0" dy="0">Order service</tspan></text><rect x="370.0" y="250" width="146.0" height="58" rx="8" class="node"/><text x="443.0" y="283.0" class="small b" text-anchor="middle"><tspan x="443.0" dy="0">Dispatch / matching</tspan></text><rect x="536.0" y="250" width="146.0" height="58" rx="8" class="node"/><text x="609.0" y="283.0" class="small b" text-anchor="middle"><tspan x="609.0" dy="0">ETA service</tspan></text><rect x="38.0" y="360" width="146.0" height="58" rx="8" class="node"/><text x="111.0" y="393.0" class="small b" text-anchor="middle"><tspan x="111.0" dy="0">Orders DB</tspan></text><rect x="204.0" y="360" width="146.0" height="58" rx="8" class="node"/><text x="277.0" y="393.0" class="small b" text-anchor="middle"><tspan x="277.0" dy="0">Search index</tspan></text><rect x="370.0" y="360" width="146.0" height="58" rx="8" class="node"/><text x="443.0" y="393.0" class="small b" text-anchor="middle"><tspan x="443.0" dy="0">Location stream</tspan></text><rect x="536.0" y="360" width="146.0" height="58" rx="8" class="node"/><text x="609.0" y="393.0" class="small b" text-anchor="middle"><tspan x="609.0" dy="0">Event bus</tspan></text><path d="M170.0,88.0 C170.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,88.0 C360.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M550.0,88.0 C550.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,198.0 C360.0,222.5 277.0,222.5 277.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,198.0 C360.0,222.5 111.0,222.5 111.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M277.0,308.0 C277.0,332.5 111.0,332.5 111.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M277.0,308.0 C277.0,332.5 609.0,332.5 609.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M443.0,308.0 C443.0,332.5 443.0,332.5 443.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M111.0,308.0 C111.0,332.5 277.0,332.5 277.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>Food-delivery platform (simplified).</strong> Three apps, one order lifecycle. Events (OrderPlaced, Accepted, PickedUp, Delivered) drive notifications and analytics.</figcaption></figure>
+<p><strong>Key risks:</strong> restaurant doesn't accept; ETA errors; courier shortages at peak; menu/price staleness. <strong>PM decisions:</strong> order state machine and customer messaging; batching policy; ETA confidence ranges; cancellation rules. <strong>Metrics:</strong> order acceptance time, on-time rate, ETA error (p50/p90), cancellations by cause, contribution per order.</p>
+<h3 id="m09-3-ride-hailing"><span class="hnum">9.17.3</span> 3 · Ride-hailing</h3>
+<p><strong>Components:</strong> rider app, driver app (location every few seconds), <strong>location service</strong> (geospatial index), <strong>matching/dispatch</strong>, <strong>pricing</strong> (base + surge), trip service, payments, safety (SOS, trip sharing), ratings. <strong>Key challenges:</strong> real-time location at scale, fair and fast matching, dynamic pricing with guardrails, fraud, safety. <strong>PM metrics:</strong> ETA to pickup, match rate, cancellation rate (rider and driver), surge frequency, driver utilisation and earnings, safety incidents.</p>
+<figure class="viz" role="img" aria-label="Process: Request → Match → Accept → Trip → Complete"><svg viewBox="0 0 720 132" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Request</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Rider sets</tspan><tspan x="68.0" dy="11">pickup/drop; fare</tspan><tspan x="68.0" dy="11">quoted</tspan></text><line x1="129.0" y1="52.0" x2="153.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Match</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">Nearby drivers</tspan><tspan x="214.0" dy="11">ranked; offer sent</tspan></text><line x1="275.0" y1="52.0" x2="299.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Accept</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Driver accepts; ETA</tspan><tspan x="360.0" dy="11">shown</tspan></text><line x1="421.0" y1="52.0" x2="445.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Trip</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Live tracking;</tspan><tspan x="506.0" dy="11">safety tools</tspan></text><line x1="567.0" y1="52.0" x2="591.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="92" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Complete</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Payment, receipt,</tspan><tspan x="652.0" dy="11">ratings</tspan></text></svg><figcaption><strong>Ride request lifecycle.</strong> Every transition has a timeout and a fallback (re-offer to another driver, cancel with explanation). Cancellation reasons are critical product data.</figcaption></figure>
+<h3 id="m09-4-notifications"><span class="hnum">9.17.4</span> 4 · Notifications</h3>
+<p><strong>Components:</strong> event producers → <strong>notification service</strong> (templates, user preferences, rate limits, quiet hours) → channel providers (push, SMS, email, WhatsApp) → delivery receipts. <strong>Key risks:</strong> spam/fatigue, duplicate sends, wrong user, timezone errors, provider outages, consent. <strong>PM decisions:</strong> priority tiers (transactional vs marketing), frequency caps, opt-outs, fallbacks (push → SMS for critical). <strong>Metrics:</strong> delivery rate, open/click, opt-out rate, complaints, time-to-deliver for transactional messages.</p>
+<figure class="viz" role="img" aria-label="Diagram: Notification pipeline (simplified)"><svg viewBox="0 0 720 432" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="180.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="63.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">Order service</tspan></text><rect x="370.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="63.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Marketing service</tspan></text><rect x="150.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="173.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Event queue</tspan></text><rect x="150.0" y="250" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="283.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Notification service (preferences, caps, templates)</tspan></text><rect x="85.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="170.0" y="393.0" class="small b" text-anchor="middle"><tspan x="170.0" dy="0">Push provider</tspan></text><rect x="275.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="360.0" y="393.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">SMS provider</tspan></text><rect x="465.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="550.0" y="393.0" class="small b" text-anchor="middle"><tspan x="550.0" dy="0">Email provider</tspan></text><path d="M265.0,88.0 C265.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="316.5" y="115.5" class="tiny mut edge-label" text-anchor="start"><tspan x="316.5" dy="0">OrderDelivered</tspan></text><path d="M455.0,88.0 C455.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><text x="411.5" y="115.5" class="tiny mut edge-label" text-anchor="start"><tspan x="411.5" dy="0">Campaign</tspan></text><path d="M360.0,198.0 C360.0,222.5 360.0,222.5 360.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,308.0 C360.0,332.5 170.0,332.5 170.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,308.0 C360.0,332.5 360.0,332.5 360.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,308.0 C360.0,332.5 550.0,332.5 550.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>Notification pipeline (simplified).</strong> Centralising preferences and caps prevents each team from spamming users independently. Transactional messages bypass marketing caps but still respect consent and quiet hours where appropriate.</figcaption></figure>
+<h3 id="m09-5-customer-onboarding-fintech-kyc"><span class="hnum">9.17.5</span> 5 · Customer onboarding (fintech KYC)</h3>
+<figure class="viz" role="img" aria-label="Process: Sign up → Identity → Checks → Decision → Activate"><svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Sign up</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Phone/email</tspan><tspan x="68.0" dy="11">verification (OTP)</tspan></text><line x1="129.0" y1="56.0" x2="153.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Identity</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">ID document + selfie</tspan><tspan x="214.0" dy="11">/ liveness via KYC</tspan><tspan x="214.0" dy="11">vendor</tspan></text><line x1="275.0" y1="56.0" x2="299.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Checks</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Sanctions/PEP</tspan><tspan x="360.0" dy="11">screening, fraud</tspan><tspan x="360.0" dy="11">signals, credit</tspan><tspan x="360.0" dy="11">bureau (if lending)</tspan></text><line x1="421.0" y1="56.0" x2="445.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Decision</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Auto-approve, manual</tspan><tspan x="506.0" dy="11">review queue, or</tspan><tspan x="506.0" dy="11">decline with reason</tspan></text><line x1="567.0" y1="56.0" x2="591.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Activate</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Account/card ready;</tspan><tspan x="652.0" dy="11">first transaction</tspan></text></svg><figcaption><strong>Digital onboarding with KYC (simplified).</strong> Asynchronous steps (vendor checks, manual review) need clear status pages and notifications. Each step is a drop-off point and a compliance obligation.</figcaption></figure>
+<p><strong>Key risks:</strong> high drop-off at document upload; vendor latency/outages; false rejections (bias, poor image quality); fraud; data protection. <strong>PM decisions:</strong> progressive onboarding (collect only what is needed now), save-and-resume, camera guidance, manual-review SLAs, adverse-action explanations. <strong>Metrics:</strong> step completion, time to decision, auto-approval rate, manual review backlog, fraud rate, complaints.</p>
+<h2 id="m09-exercises-with-model-answers"><span class="hnum">9.18</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Status codes</p>
+<p>Users report “Something went wrong” on checkout. Logs show many 429 and some 504 responses from the pricing API. Explain each and propose product actions.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p><strong>429</strong> = rate limit exceeded — our calls to the pricing API exceed the quota (perhaps at peak or due to retries). Actions: cache fee estimates for a short TTL, batch requests, add exponential back-off, negotiate a higher tier. <strong>504</strong> = gateway timeout — the upstream didn't respond in time. Actions: shorter timeout with the “Estimate unavailable” fallback, monitor p95 latency, alerting. Product: replace the generic error with specific, honest copy and a retry.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · Availability maths</p>
+<p>A booking flow depends on four services at 99.9% each. What's the combined availability and yearly downtime? Suggest two mitigations.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>0.999⁴ ≈ <strong>0.996 → 99.6%</strong>, about 0.004 × 8,760 ≈ <strong>35 hours/year</strong>. Mitigations: make non-critical dependencies asynchronous (e.g., send confirmation email via queue), add redundancy/fallback for the most critical one, cache read-only data.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 3 · Explain a system in an interview</p>
+<p>In 90 seconds, explain how an order moves through a food-delivery system.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>“The customer app sends the cart to our API gateway, which routes it to the order service. The order service validates items and prices from the catalogue, asks the payment service to charge via the payment provider using an idempotency key, and saves the order. It publishes an OrderPlaced event; the restaurant tablet gets the order, and the dispatch service matches a courier using live locations and an ETA model. Status events update the customer through the notification service. Key risks are payment failures, restaurant non-acceptance and ETA errors; we track acceptance time, on-time rate and cancellations.”</p>
+</details>
+<h2 id="m09-interview-perspective"><span class="hnum">9.19</span> Interview perspective</h2>
+<details class="question">
+<summary>“Design a notification system” (technical PM) — what interviewers test and a structure</summary>
+<p><em>Tests:</em> requirements thinking, trade-offs, user empathy, scale awareness — not code. <em>Structure:</em> clarify use cases (transactional vs marketing), scale (users, messages/day), channels, latency needs → components (producers, queue, notification service with preferences/caps/templates, channel providers, receipts) → data (preferences, logs) → failure handling (retries, dedup, fallbacks) → abuse/spam controls and consent → metrics (delivery, opt-outs, complaints) → phased rollout. <em>Mistakes:</em> jumping into tech names without requirements; ignoring user fatigue and consent.</p>
+</details>
+<details class="question">
+<summary>“What happens when you type a URL and press enter?” — 60-second answer</summary>
+<p>“The browser resolves the domain via DNS to an IP address, opens a TCP connection and a TLS handshake for HTTPS, then sends an HTTP GET request. The request may be served by a CDN cache; otherwise it reaches a load balancer and an application server, which may query databases or other services and return HTML or JSON with a status code. The browser parses and renders the page, fetching CSS, JavaScript and images — often from a CDN. Each hop adds latency and is a potential failure point, which is why we use caching and monitor percentiles.”</p>
+</details>
+<h2 id="m09-key-takeaways"><span class="hnum">9.20</span> Key takeaways</h2>
+<ul>
+<li>Think in <strong>requests and responses</strong>; every network hop adds latency and failure modes.</li>
+<li>Know <strong>HTTP methods/codes</strong>, <strong>authN vs authZ</strong>, <strong>OAuth scopes</strong> and <strong>idempotency</strong>.</li>
+<li>Pick databases by <strong>access pattern and consistency needs</strong>; vector DBs complement, not replace, transactional stores.</li>
+<li>Reliability maths: <strong>dependencies multiply</strong>; report <strong>p95/p99</strong> latency; manage <strong>error budgets</strong>.</li>
+<li><strong>Caches, queues, webhooks and CDNs</strong> trade freshness, complexity and cost for speed and resilience.</li>
+<li>Security and privacy are product requirements: least privilege, no secrets in clients, no PII in analytics.</li>
+<li>In system-design interviews: <strong>requirements → components → data flow → failures → metrics.</strong></li>
+</ul>
+<h2 id="m09-check-your-understanding"><span class="hnum">9.21</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m09"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">A user is logged in but tries to view another user&#x27;s order and gets blocked. Which status code fits?</p><ol><li class="">401</li><li class="is-correct">403</li><li class="">404</li><li class="">500</li></ol><div class="why"><strong>Why:</strong> 403 Forbidden: authenticated but not authorised. (Some APIs return 404 to avoid revealing existence.)</div></div><div class="qitem" data-correct="1"><p class="q">Why use an idempotency key on payment requests?</p><ol><li class="">To encrypt card numbers</li><li class="is-correct">So retries don&#x27;t create duplicate charges</li><li class="">To speed up the request</li><li class="">To bypass rate limits</li></ol><div class="why"><strong>Why:</strong> Idempotency ensures repeating the same request has the same effect as doing it once.</div></div><div class="qitem" data-correct="1"><p class="q">Three services at 99.9% availability in series give roughly…</p><ol><li class="">99.9%</li><li class="is-correct">99.7%</li><li class="">99.99%</li><li class="">97%</li></ol><div class="why"><strong>Why:</strong> 0.999³ ≈ 0.997 = 99.7%.</div></div><div class="qitem" data-correct="1"><p class="q">Which metric best reflects the slow experiences some users have?</p><ol><li class="">Mean latency</li><li class="is-correct">p95 / p99 latency</li><li class="">Minimum latency</li><li class="">Number of servers</li></ol><div class="why"><strong>Why:</strong> Tail percentiles capture the worst experiences that averages hide.</div></div><div class="qitem" data-correct="1"><p class="q">OAuth 2.0 is primarily for…</p><ol><li class="">Encrypting databases</li><li class="is-correct">Delegated authorisation via scoped tokens</li><li class="">Load balancing</li><li class="">Sending emails</li></ol><div class="why"><strong>Why:</strong> OAuth lets an app access resources on a user&#x27;s behalf without their password; OIDC adds identity.</div></div><div class="qitem" data-correct="1"><p class="q">Feature flags are useful because they…</p><ol><li class="">Replace testing</li><li class="is-correct">Let you turn features on/off or roll out gradually without redeploying</li><li class="">Make code faster</li><li class="">Remove the need for monitoring</li></ol><div class="why"><strong>Why:</strong> Flags enable staged rollouts, experiments and kill switches.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m09-recommended-resources"><span class="hnum">9.22</span> Recommended resources</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">MDN Web Docs: HTTP</a> — methods, status codes, caching.</li>
+<li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a>.</li>
+<li><a href="https://oauth.net/2/">OAuth 2.0 (oauth.net)</a> and <a href="https://openid.net/developers/how-connect-works/">OpenID Connect</a>.</li>
+<li><a href="https://sre.google/sre-book/service-level-objectives/">Google SRE Book: Service Level Objectives</a>.</li>
+<li><a href="https://docs.github.com/en/get-started/using-github/hello-world">GitHub Docs: Hello World</a> (from your course notes).</li>
+<li><a href="https://github.com/donnemartin/system-design-primer">System Design Primer (GitHub)</a>.</li>
+</ul><div class="modnav"><a href="m08.html"><small>← Previous</small>Module 8: Product Launch, Growth, and Monetization</a><a href="m10.html"><small>Next →</small>Module 10: LLMs, RAGs, and AI Foundations</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 4: Problem Framing and Prioritization · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-04-Prioritization.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" aria-current="page" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 4</div><h1>Problem Framing and Prioritization</h1><p>Define the right problem, find root causes, size opportunities, and choose what to build first with defensible frameworks.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 8, 17, 20, 24, 27, 43; Companion ch. 4; Extra topic 12</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m04" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m04-problem-framing">Problem framing</a></li><li><a href="#m04-root-cause-analysis-rca">Root Cause Analysis (RCA)</a></li><li><a href="#m04-hypothesis-driven-product-development">Hypothesis-driven product development</a></li><li><a href="#m04-opportunity-sizing">Opportunity sizing</a></li><li><a href="#m04-prioritisation-frameworks">Prioritisation frameworks</a></li><li><a href="#m04-dependency-mapping-and-prioritisation-under-constraints">Dependency mapping and prioritisation under constraints</a></li><li><a href="#m04-mvp-definition">MVP definition</a></li><li><a href="#m04-experiment-prioritisation">Experiment prioritisation</a></li><li><a href="#m04-roadmap-planning">Roadmap planning</a></li><li><a href="#m04-case-solving-structure-product-design-and-improvement-questions">Case-solving structure (product design and improvement questions)</a></li><li><a href="#m04-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m04-interview-perspective">Interview perspective</a></li><li><a href="#m04-key-takeaways">Key takeaways</a></li><li><a href="#m04-check-your-understanding">Check your understanding</a></li><li><a href="#m04-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
+<p class="admonition-title">About the numbers</p>
+<p>All backlogs, scores and costs below are <strong>hypothetical</strong> (see <code>datasets/rice_backlog.csv</code>). Scores are discussion aids, not facts — the point is the <em>reasoning</em>, not the ranking.</p>
+</div>
+<h2 id="m04-problem-framing"><span class="hnum">4.1</span> Problem framing</h2>
+<p>“A problem well stated is half solved.” <strong>Problem framing</strong> is turning a vague complaint (“checkout is bad”) into a specific, evidence-backed, measurable statement the team can act on.</p>
+<div class="formula">Problem statement:
+For [user/segment], [task] is difficult because [observed barrier].
+We know this from [evidence]. We will measure improvement using [metric]
+and protect [guardrail].</div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Extra topic 15; Lecture 38)</p>
+<p>The problem statement template above is the course's own. A strong statement identifies <em>who has difficulty, what they are trying to do, why it matters and the desired outcome</em>; <strong>it does not begin with a tool name.</strong> Weak: “Add AI to travel.” Stronger: “Commuters struggle to find reliable platform information before departure; help them find it faster.” Validate the claim with users.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked example (hypothetical)</p>
+<p><strong>Weak:</strong> “Reduce cart abandonment.” (No user, no cause, no number.)
+<strong>Better:</strong> “For first-time buyers on mobile, completing checkout is hard because the delivery fee first appears on the payment step. In March, 30% of checkout starters left at the payment step (analytics); 6 of 8 interviewees said the fee surprised them. We will raise checkout completion for first-time buyers from 70% to 76% while keeping complaint rate ≤ 1.3%.”</p>
+</div>
+<p><strong>Framing checks:</strong> Is the problem <strong>observed</strong> (not assumed)? <strong>Specific</strong> user and moment? <strong>Measurable?</strong> <strong>Solution-free?</strong> Do we know <strong>how big</strong> it is? Is it <strong>worth solving</strong> now versus alternatives?</p>
+<h2 id="m04-root-cause-analysis-rca"><span class="hnum">4.2</span> Root Cause Analysis (RCA)</h2>
+<p>RCA looks for the factors that, if fixed, would prevent a problem from recurring — not just the visible symptom. Use several lenses.</p>
+<h3 id="m04-the-five-whys"><span class="hnum">4.2.1</span> The Five Whys</h3>
+<p>Ask “why?” repeatedly (typically around five times) to move from symptom to a systemic cause.</p>
+<figure class="viz" role="img" aria-label="Process: Why 1 → Why 2 → Why 3 → Why 4 → Why 5"><svg viewBox="0 0 720 151" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="111" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Why 1</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Why are orders late?</tspan><tspan x="68.0" dy="11">→ Riders wait long</tspan><tspan x="68.0" dy="11">at restaurants.</tspan></text><line x1="129.0" y1="61.5" x2="153.0" y2="61.5" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="111" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Why 2</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">Why do they wait? →</tspan><tspan x="214.0" dy="11">Food isn&#x27;t ready at</tspan><tspan x="214.0" dy="11">the estimated time.</tspan></text><line x1="275.0" y1="61.5" x2="299.0" y2="61.5" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="111" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Why 3</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Why not ready? →</tspan><tspan x="360.0" dy="11">Prep-time estimates</tspan><tspan x="360.0" dy="11">are optimistic at</tspan><tspan x="360.0" dy="11">peak.</tspan></text><line x1="421.0" y1="61.5" x2="445.0" y2="61.5" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="111" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Why 4</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Why optimistic? →</tspan><tspan x="506.0" dy="11">Estimates use</tspan><tspan x="506.0" dy="11">average prep time,</tspan><tspan x="506.0" dy="11">ignoring kitchen</tspan><tspan x="506.0" dy="11">load.</tspan></text><line x1="567.0" y1="61.5" x2="591.0" y2="61.5" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="111" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Why 5</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Why ignore load? →</tspan><tspan x="652.0" dy="11">No live</tspan><tspan x="652.0" dy="11">kitchen-capacity</tspan><tspan x="652.0" dy="11">signal. Root cause</tspan><tspan x="652.0" dy="11">hypothesis: add it.</tspan></text></svg><figcaption><strong>Five Whys — hypothetical &quot;orders are arriving late&quot; example.</strong> Each answer is a hypothesis to verify with data — five whys is a technique, not a guarantee of one true cause or a cheap fix.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 24)</p>
+<p>The lecture contrasted immediately proposing a solution with asking successive “why” questions. <strong>Treat both the suspected cause and the proposed solution as hypotheses and test them with evidence.</strong> <em>The five whys is a technique, not a guarantee of one true cause or a low-cost fix, and it is related to — but not identical with — first-principles thinking.</em></p>
+</div>
+<p><strong>Limitations:</strong> it can follow a single causal chain and miss parallel causes; answers reflect the asker's knowledge; it needs evidence at each step.</p>
+<h3 id="m04-fishbone-ishikawa-diagram"><span class="hnum">4.2.2</span> Fishbone (Ishikawa) diagram</h3>
+<p>A fishbone organises <em>possible causes</em> by category (often People, Process, Product, Platform, Policy, Partners) so you don't fixate on the first idea.</p>
+<figure class="viz canvas-fig" role="group" aria-label="Fishbone causes for &quot;checkout abandonment at payment step&quot; (hypothetical)"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Product</h5><ul><li>Fee shown only at payment</li><li>Form has too many fields</li><li>No guest checkout</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Platform / tech</h5><ul><li>Gateway timeouts at peak</li><li>Slow page on low-end devices</li></ul></div><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>Process</h5><ul><li>No retry flow after failure</li><li>Promo code validation errors</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>People / users</h5><ul><li>First-time buyers unsure of fees</li><li>Users comparing with rival apps</li></ul></div><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Policy / pricing</h5><ul><li>Minimum basket value rule</li><li>Dynamic fees change between cart and pay</li></ul></div><div class="cv tone-n" style="grid-column:span 1;grid-row:span 1"><h5>Partners</h5><ul><li>Bank 3-D Secure redirects fail</li><li>Wallet provider outages</li></ul></div></div><figcaption><strong>Fishbone causes for &quot;checkout abandonment at payment step&quot; (hypothetical).</strong> Hypothetical. After listing candidate causes, rank them by evidence and impact, then test the top two. Each cell is a hypothesis, not a finding.</figcaption></figure>
+<h3 id="m04-pareto-analysis"><span class="hnum">4.2.3</span> Pareto analysis</h3>
+<p>The <strong>Pareto principle</strong> (often “80/20”) observes that a few causes typically produce most of the effect. A <strong>Pareto chart</strong> sorts categories by frequency with a cumulative-percentage line.</p>
+<figure class="viz" role="img" aria-label="Pareto chart: Support complaints by category (synthetic: 100 complaints)"><svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg"><line x1="60" y1="266.0" x2="664" y2="266.0" class="grid"/><text x="52" y="270.0" class="mut small" text-anchor="end"><tspan x="52" dy="0">0</tspan></text><text x="672" y="270.0" class="mut small" text-anchor="start"><tspan x="672" dy="0">0%</tspan></text><line x1="60" y1="204.5" x2="664" y2="204.5" class="grid"/><text x="52" y="208.5" class="mut small" text-anchor="end"><tspan x="52" dy="0">12.5</tspan></text><text x="672" y="208.5" class="mut small" text-anchor="start"><tspan x="672" dy="0">25%</tspan></text><line x1="60" y1="143.0" x2="664" y2="143.0" class="grid"/><text x="52" y="147.0" class="mut small" text-anchor="end"><tspan x="52" dy="0">25</tspan></text><text x="672" y="147.0" class="mut small" text-anchor="start"><tspan x="672" dy="0">50%</tspan></text><line x1="60" y1="81.5" x2="664" y2="81.5" class="grid"/><text x="52" y="85.5" class="mut small" text-anchor="end"><tspan x="52" dy="0">37.5</tspan></text><text x="672" y="85.5" class="mut small" text-anchor="start"><tspan x="672" dy="0">75%</tspan></text><line x1="60" y1="20.0" x2="664" y2="20.0" class="grid"/><text x="52" y="24.0" class="mut small" text-anchor="end"><tspan x="52" dy="0">50</tspan></text><text x="672" y="24.0" class="mut small" text-anchor="start"><tspan x="672" dy="0">100%</tspan></text><rect x="75.1" y="79.0" width="70.5" height="187.0" rx="3" fill="var(--c1)"/><text x="110.33333333333333" y="74.03999999999999" class="small b" text-anchor="middle"><tspan x="110.33333333333333" dy="0">38</tspan></text><text x="110.33333333333334" y="282" class="small" text-anchor="middle"><tspan x="110.33333333333334" dy="0">Late delivery</tspan></text><rect x="175.8" y="157.8" width="70.5" height="108.2" rx="3" fill="var(--c1)"/><text x="211.0" y="152.76" class="small b" text-anchor="middle"><tspan x="211.0" dy="0">22</tspan></text><text x="211.00000000000003" y="282" class="small" text-anchor="middle"><tspan x="211.00000000000003" dy="0">Wrong or missing</tspan><tspan x="211.00000000000003" dy="14">items</tspan></text><rect x="276.4" y="192.2" width="70.5" height="73.8" rx="3" fill="var(--c1)"/><text x="311.66666666666674" y="187.2" class="small b" text-anchor="middle"><tspan x="311.66666666666674" dy="0">15</tspan></text><text x="311.6666666666667" y="282" class="small" text-anchor="middle"><tspan x="311.6666666666667" dy="0">Fee confusion</tspan></text><rect x="377.1" y="207.0" width="70.5" height="59.0" rx="3" fill="var(--c1)"/><text x="412.33333333333337" y="201.96" class="small b" text-anchor="middle"><tspan x="412.33333333333337" dy="0">12</tspan></text><text x="412.3333333333333" y="282" class="small" text-anchor="middle"><tspan x="412.3333333333333" dy="0">Payment failure</tspan></text><rect x="477.8" y="226.6" width="70.5" height="39.4" rx="3" fill="var(--c1)"/><text x="513.0" y="221.64" class="small b" text-anchor="middle"><tspan x="513.0" dy="0">8</tspan></text><text x="513.0" y="282" class="small" text-anchor="middle"><tspan x="513.0" dy="0">App bugs</tspan></text><rect x="578.4" y="241.4" width="70.5" height="24.6" rx="3" fill="var(--c1)"/><text x="613.6666666666667" y="236.4" class="small b" text-anchor="middle"><tspan x="613.6666666666667" dy="0">5</tspan></text><text x="613.6666666666667" y="282" class="small" text-anchor="middle"><tspan x="613.6666666666667" dy="0">Other</tspan></text><polyline points="110.3,172.5 211.0,118.4 311.7,81.5 412.3,52.0 513.0,32.3 613.7,20.0" fill="none" stroke="var(--c3)" stroke-width="2.5"/><circle cx="110.3" cy="172.5" r="3.5" fill="var(--c3)"/><text x="110.33333333333334" y="164.51999999999998" class="tiny b warn" text-anchor="middle"><tspan x="110.33333333333334" dy="0">38%</tspan></text><circle cx="211.0" cy="118.4" r="3.5" fill="var(--c3)"/><text x="211.00000000000003" y="110.4" class="tiny b warn" text-anchor="middle"><tspan x="211.00000000000003" dy="0">60%</tspan></text><circle cx="311.7" cy="81.5" r="3.5" fill="var(--c3)"/><text x="311.6666666666667" y="73.5" class="tiny b warn" text-anchor="middle"><tspan x="311.6666666666667" dy="0">75%</tspan></text><circle cx="412.3" cy="52.0" r="3.5" fill="var(--c3)"/><text x="412.3333333333333" y="43.97999999999999" class="tiny b warn" text-anchor="middle"><tspan x="412.3333333333333" dy="0">87%</tspan></text><circle cx="513.0" cy="32.3" r="3.5" fill="var(--c3)"/><text x="513.0" y="24.30000000000001" class="tiny b warn" text-anchor="middle"><tspan x="513.0" dy="0">95%</tspan></text><circle cx="613.7" cy="20.0" r="3.5" fill="var(--c3)"/><text x="613.6666666666667" y="12.0" class="tiny b warn" text-anchor="middle"><tspan x="613.6666666666667" dy="0">100%</tspan></text><line x1="60" y1="69.2" x2="664" y2="69.2" class="grid dash"/><line x1="60" y1="266" x2="664" y2="266" class="axis"/></svg><figcaption><strong>Support complaints by category (synthetic: 100 complaints).</strong> Synthetic data. The top four categories account for 87% of complaints; the top two for 60%. Pareto is a guide to focus, not a law — fix severity and fixability matter as well as frequency.</figcaption></figure>
+<h3 id="m04-first-principles-thinking"><span class="hnum">4.2.4</span> First Principles Thinking</h3>
+<p><strong>First principles thinking</strong> breaks a problem into its fundamental truths and rebuilds the solution from there, instead of reasoning by analogy (“competitors do X”). Steps: (1) state the goal; (2) list current assumptions; (3) challenge each (“is this a law of physics or just how it has been done?”); (4) identify what is actually fixed; (5) design from those truths.</p>
+<div class="admonition example">
+<p class="admonition-title">Example (hypothetical)</p>
+<p>Assumption: “Our delivery promise is 30 minutes because competitors say 30.” First principles: customers choose a <em>time they can rely on</em>; the cost drivers are travel time and wait time at the restaurant. Option: promise a <em>window</em> based on live load and show an honest ETA — reliability beats a faster-but-missed promise.</p>
+</div>
+<h3 id="m04-systems-thinking"><span class="hnum">4.2.5</span> Systems Thinking</h3>
+<p><strong>Systems thinking</strong> looks at how parts interact through <strong>feedback loops</strong> and delays. In <strong>reinforcing loops</strong> change feeds on itself (growth or collapse); in <strong>balancing loops</strong> change triggers a correcting response. Product problems often involve both — fixing one metric can trigger a hidden loop elsewhere.</p>
+<figure class="viz" role="img" aria-label="Loop diagram: A marketplace loop (reinforcing, hypothetical)"><svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><path d="M418.2,81.4 Q499.4,111.2 540.2,146.7" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M543.2,230.7 Q499.4,268.8 421.9,297.2" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M301.8,298.6 Q220.6,268.8 179.8,233.3" class="edge" fill="none" marker-end="url(#ah3)"/><path d="M176.8,149.3 Q220.6,111.2 298.1,82.8" class="edge" fill="none" marker-end="url(#ah3)"/><rect x="285.0" y="37.0" width="150" height="46" rx="10" class="node"/><text x="360.0" y="64.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">More riders / buyers</tspan></text><rect x="515.0" y="167.0" width="150" height="46" rx="10" class="node"/><text x="590.0" y="194.0" class="small b" text-anchor="middle"><tspan x="590.0" dy="0">Shorter wait times</tspan></text><rect x="285.0" y="297.0" width="150" height="46" rx="10" class="node"/><text x="360.0" y="324.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Better experience</tspan></text><rect x="55.0" y="167.0" width="150" height="46" rx="10" class="node"/><text x="130.0" y="194.00000000000003" class="small b" text-anchor="middle"><tspan x="130.0" dy="0">More repeat orders</tspan></text><circle cx="360.0" cy="190.0" r="46" fill="var(--c2)" fill-opacity=".15" stroke="var(--c2)" stroke-width="2"/><text x="360.0" y="188.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Reinforcing</tspan><tspan x="360.0" dy="12">loop</tspan></text></svg><figcaption><strong>A marketplace loop (reinforcing, hypothetical).</strong> More demand makes supply more earning-efficient, which improves experience and brings more demand — until supply is exhausted (a balancing limit appears). Systems thinking asks &quot;where does this loop saturate or reverse?&quot;</figcaption></figure>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Senior PM</p>
+<p>The classic failure is a <em>local optimisation with a hidden balancing loop</em>: raising surge prices increases driver supply (good) but also riders' cancellations and mistrust (bad). Mapping the loops before intervening reveals which guardrails to watch.</p>
+</div>
+<h2 id="m04-hypothesis-driven-product-development"><span class="hnum">4.3</span> Hypothesis-driven product development</h2>
+<p>Turn every bet into a falsifiable statement with a pre-agreed decision rule.</p>
+<div class="formula">We believe that [change] for [segment] will [outcome/metric movement]
+because [reason/evidence].
+We will know we are right when [measurable signal] by [date/sample].
+We will stop or pivot if [disconfirming signal].</div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 27; Extra topic 15)</p>
+<p>Experiment template: “We believe [change] will improve [metric] for [eligible users] because [reason]. Compare [control] with [variant] for [planned duration], with [guardrails]. Decide using [pre-agreed criteria].” <strong>A hypothesis is a testable prediction.</strong> Review sampling and analysis with an analyst. Module 7 covers the statistics.</p>
+</div>
+<h2 id="m04-opportunity-sizing"><span class="hnum">4.4</span> Opportunity sizing</h2>
+<p>Before building, estimate how big the prize could be. Use <strong>reach × frequency × value per instance × share you can influence</strong>, with explicit assumptions and a range.</p>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example — opportunity size for early fee display</p>
+<ul>
+<li>Checkout starters per month: <strong>120,000</strong></li>
+<li>Abandonment at payment step: <strong>30%</strong> → 36,000 users</li>
+<li>Share of those caused by fee surprise (from interviews + analytics; <em>assumption</em>): <strong>20%</strong> → 7,200</li>
+<li>Share we can recover with early display (<em>assumption</em>): <strong>30%</strong> → <strong>2,160 additional orders/month</strong></li>
+<li>AOV ₹400 → extra GMV ≈ <strong>₹864,000/month</strong></li>
+<li>Contribution per order ₹16 (from Module 7 example) → ≈ <strong>₹34,560/month</strong>
+Low case (10% fee-driven, 20% recovery): 720 orders → ₹11,520 contribution/month. High case (30%, 40%): 4,320 orders → ₹69,120. Even the high case is modest: contribution is thin here, so the <em>strategic</em> value (trust, repeat orders) may matter more than the immediate margin — which is exactly what a PM should flag.</li>
+</ul>
+</div>
+<h2 id="m04-prioritisation-frameworks"><span class="hnum">4.5</span> Prioritisation frameworks</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 17)</p>
+<p>Prioritisation means deciding what to do first when you cannot do everything at once. Compare expected value, effort, risk and urgent needs. <strong>Safety or legal work can be mandatory regardless of score.</strong> A RICE score is a <strong>discussion aid</strong>: Reach × Impact × Confidence ÷ Effort — use consistent units, check assumptions and revisit the decision. Research informs impact; engineers and other specialists help estimate effort, complexity and dependencies.</p>
+</div>
+<h3 id="m04-impact-vs-effort-value-vs-complexity"><span class="hnum">4.5.1</span> Impact vs effort (value vs complexity)</h3>
+<p>Plot candidates on a 2×2 of expected value vs estimated effort: <strong>quick wins</strong> (high value, low effort), <strong>big bets</strong> (high/high), <strong>fill-ins</strong> (low/low), <strong>time sinks</strong> (low value, high effort).</p>
+<figure class="viz" role="img" aria-label="Scatter: Value vs effort (hypothetical backlog)"><svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="20" width="630" height="324" class="plot"/><line x1="385.0" y1="20" x2="385.0" y2="344" class="grid dash"/><line x1="70" y1="182.0" x2="700" y2="182.0" class="grid dash"/><text x="78" y="36" class="quad" text-anchor="start"><tspan x="78" dy="0">Quick wins</tspan></text><text x="692" y="36" class="quad" text-anchor="end"><tspan x="692" dy="0">Big bets</tspan></text><text x="78" y="336" class="quad" text-anchor="start"><tspan x="78" dy="0">Fill-ins</tspan></text><text x="692" y="336" class="quad" text-anchor="end"><tspan x="692" dy="0">Time sinks</tspan></text><circle cx="196.0" cy="84.8" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="209.0" y="88.80000000000001" class="small" text-anchor="start"><tspan x="209.0" dy="0">Show fee early</tspan></text><circle cx="133.0" cy="133.4" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="146.0" y="137.4" class="small" text-anchor="start"><tspan x="146.0" dy="0">Order-again shortcut</tspan></text><circle cx="259.0" cy="68.6" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="272.0" y="72.60000000000002" class="small" text-anchor="start"><tspan x="272.0" dy="0">Payment retry</tspan></text><circle cx="196.0" cy="182.0" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="209.0" y="186.0" class="small" text-anchor="start"><tspan x="209.0" dy="0">Saved addresses</tspan></text><circle cx="164.5" cy="263.0" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="177.5" y="267.0" class="small" text-anchor="start"><tspan x="177.5" dy="0">Dark mode</tspan></text><circle cx="574.0" cy="214.4" r="9" fill="var(--c1)" fill-opacity="0.82" stroke="var(--surface)" stroke-width="1.5"/><text x="561.0" y="218.4" class="small" text-anchor="end"><tspan x="561.0" dy="0">Voice ordering</tspan></text><line x1="70" y1="344" x2="700" y2="344" class="axis"/><line x1="70" y1="20" x2="70" y2="344" class="axis"/><text x="385.0" y="388" class="small b mut" text-anchor="middle"><tspan x="385.0" dy="0">Effort (person-months)</tspan></text><text x="16" y="182.0" class="small b mut" text-anchor="middle" transform="rotate(-90 16 182.0)">Expected value (1–10)</text></svg><figcaption><strong>Value vs effort (hypothetical backlog).</strong> Hypothetical placement. Note the plot ignores dependencies, risk and confidence — which is why teams add RICE or WSJF.</figcaption></figure>
+<p><strong>Use when:</strong> early triage, workshops, explaining trade-offs visually. <strong>Don't use when:</strong> you need a defensible numeric ranking across many items. <strong>Limits:</strong> subjective, ignores reach/confidence/risk/dependencies.</p>
+<h3 id="m04-rice"><span class="hnum">4.5.2</span> RICE</h3>
+<div class="formula">RICE score = (Reach × Impact × Confidence) ÷ Effort
+
+Reach       = people (or events) affected in a defined period, e.g. users per quarter
+Impact      = effect per person on the goal:  3 = massive, 2 = high, 1 = medium, 0.5 = low, 0.25 = minimal
+Confidence  = how well supported the estimates are:  100% high, 80% medium, 50% low
+Effort      = total work, in person-months (must be &gt; 0)</div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 17) — corrections</p>
+<p>The recording said <em>reach minus impact equals churn</em> and that impact must always be numerically lower than reach. <strong>That is wrong:</strong> reach and impact measure different things, and churn is a proportion of users lost over a defined period. The instructor also initially inverted the effort scale then corrected it: <strong>more effort belongs in the denominator and lowers the score.</strong> Use consistent units and a nonzero effort. Hypothetical Amazon features scored in class (search, registration, cart, payment) were <em>assumptions, a discussion aid, not research.</em></p>
+</div>
+<div class="admonition hypo">
+<p class="admonition-title">Fully worked example (dataset: rice_backlog.csv)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align: right;">Reach / quarter</th>
+<th style="text-align: right;">Impact</th>
+<th style="text-align: right;">Confidence</th>
+<th style="text-align: right;">Effort (person-months)</th>
+<th style="text-align: right;">RICE = R×I×C÷E</th>
+<th style="text-align: right;">Rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Show delivery fee early in cart</td>
+<td style="text-align: right;">40,000</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">80%</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">40,000×2×0.8÷2 = <strong>32,000</strong></td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Order-again shortcut</td>
+<td style="text-align: right;">35,000</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">80%</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">35,000×1×0.8÷1 = <strong>28,000</strong></td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>Payment retry on failure</td>
+<td style="text-align: right;">18,000</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">80%</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">18,000×3×0.8÷3 = <strong>14,400</strong></td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>Saved addresses</td>
+<td style="text-align: right;">25,000</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">25,000×1×1.0÷2 = <strong>12,500</strong></td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>Dark mode</td>
+<td style="text-align: right;">30,000</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">80%</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">30,000×0.5×0.8÷1.5 = <strong>8,000</strong></td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>Voice ordering</td>
+<td style="text-align: right;">8,000</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">30%*</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8,000×2×0.3÷8 = <strong>600</strong></td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table></div>
+<p>*Confidence below 50% is allowed here to show the effect of low evidence.</p>
+</div>
+<figure class="viz" role="img" aria-label="Horizontal bars: RICE scores (hypothetical backlog)"><svg viewBox="0 0 720 228" xmlns="http://www.w3.org/2000/svg"><text x="180" y="28" class="small" text-anchor="end"><tspan x="180" dy="0">Show delivery fee early</tspan></text><rect x="190" y="14" width="294.4" height="22" rx="4" fill="var(--c3)"/><text x="492.4" y="29" class="small b" text-anchor="start"><tspan x="492.4" dy="0">32,000</tspan></text><text x="180" y="62" class="small" text-anchor="end"><tspan x="180" dy="0">Order-again shortcut</tspan></text><rect x="190" y="48" width="257.6" height="22" rx="4" fill="var(--c1)"/><text x="455.6" y="63" class="small b" text-anchor="start"><tspan x="455.6" dy="0">28,000</tspan></text><text x="180" y="96" class="small" text-anchor="end"><tspan x="180" dy="0">Payment retry on failure</tspan></text><rect x="190" y="82" width="132.5" height="22" rx="4" fill="var(--c1)"/><text x="330.48" y="97" class="small b" text-anchor="start"><tspan x="330.48" dy="0">14,400</tspan></text><text x="180" y="130" class="small" text-anchor="end"><tspan x="180" dy="0">Saved addresses</tspan></text><rect x="190" y="116" width="115.0" height="22" rx="4" fill="var(--c1)"/><text x="313.0" y="131" class="small b" text-anchor="start"><tspan x="313.0" dy="0">12,500</tspan></text><text x="180" y="164" class="small" text-anchor="end"><tspan x="180" dy="0">Dark mode</tspan></text><rect x="190" y="150" width="73.6" height="22" rx="4" fill="var(--c1)"/><text x="271.6" y="165" class="small b" text-anchor="start"><tspan x="271.6" dy="0">8,000</tspan></text><text x="180" y="198" class="small" text-anchor="end"><tspan x="180" dy="0">Voice ordering</tspan></text><rect x="190" y="184" width="5.5" height="22" rx="4" fill="var(--c1)"/><text x="203.52" y="199" class="small b" text-anchor="start"><tspan x="203.52" dy="0">600</tspan></text></svg><figcaption><strong>RICE scores (hypothetical backlog).</strong> RICE = Reach × Impact × Confidence ÷ Effort. The low confidence and high effort of voice ordering drive its score to near zero — a signal to run discovery before committing, not necessarily a permanent &quot;no&quot;.</figcaption></figure>
+<p><strong>Sensitivity check (always do this).</strong> If confidence in “fee early” falls from 80% to 50%, its score becomes 40,000×2×0.5÷2 = <strong>20,000</strong>, and <em>order-again</em> (28,000) moves to #1. If effort for “payment retry” is actually 2 (not 3), its score becomes 21,600 (#3 → still #3 but closer). A ranking that flips with small input changes should be treated as a <em>tie</em> and decided on other grounds (strategy, risk, dependencies).</p>
+<p><strong>Beyond the score — decision notes:</strong></p>
+<ul>
+<li><strong>Dependencies:</strong> order-again may require saved payment tokens (security review) → check sequence.</li>
+<li><strong>Mandatory work:</strong> a regulatory or security fix comes off the top regardless of score.</li>
+<li><strong>Strategy fit:</strong> if the quarter's goal is checkout completion, “fee early” and “payment retry” map directly; “order-again” serves repeat orders.</li>
+<li><strong>Risk:</strong> payment retry touches money flows — higher QA and rollback needs.</li>
+</ul>
+<p><strong>Use RICE when:</strong> comparing many comparable initiatives with some data. <strong>Don't use when:</strong> items are not comparable (a legal fix vs a feature), reach/impact are unmeasurable, or the exercise is political theatre. <strong>Limits:</strong> false precision; garbage-in/garbage-out; biased toward high-reach features over deep strategic bets; confidence is subjective.</p>
+<div class="admonition example">
+<p class="admonition-title">Defending the decision in a stakeholder meeting (script)</p>
+<p><strong>PM:</strong> “For Q2 I'm recommending we do three things: fee early, order-again, and payment retry. Fee early scored highest and maps directly to our checkout goal; order-again is cheap and supports repeat orders; payment retry has the biggest per-user impact but costs three person-months and touches payments, so I'm scheduling it after fee early.”
+<strong>Sales:</strong> “But our biggest client asked for voice ordering.”
+<strong>PM:</strong> “I hear it. It's expensive (8 person-months) and our confidence is low — we've had one request. I'll interview five of their users this month and propose a prototype test; if we see broader demand, it enters the next planning cycle with a better score. Meanwhile, what problem does the client need solved — is it hands-free ordering, or speed?”
+<strong>Why this works:</strong> it shows the data, names trade-offs and risks, offers a path for the stakeholder's idea, and invites correction.</p>
+</div>
+<h3 id="m04-ice"><span class="hnum">4.5.3</span> ICE</h3>
+<div class="formula">ICE score = Impact × Confidence × Ease     (each scored 1–10; some teams average instead of multiplying)</div>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example (same backlog, 1–10 scales)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align: right;">Impact</th>
+<th style="text-align: right;">Confidence</th>
+<th style="text-align: right;">Ease</th>
+<th style="text-align: right;">ICE (I×C×E)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Show fee early</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;"><strong>448</strong></td>
+</tr>
+<tr>
+<td>Order-again shortcut</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;"><strong>432</strong></td>
+</tr>
+<tr>
+<td>Payment retry</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;"><strong>360</strong></td>
+</tr>
+<tr>
+<td>Saved addresses</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;"><strong>315</strong></td>
+</tr>
+<tr>
+<td>Dark mode</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;"><strong>192</strong></td>
+</tr>
+<tr>
+<td>Voice ordering</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;"><strong>42</strong></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p><strong>ICE vs RICE:</strong> ICE omits <em>Reach</em> and uses a single “Ease” in place of person-months — faster but less discriminating. <strong>Use ICE</strong> for quick growth-experiment ranking; <strong>use RICE</strong> when audience size varies a lot. Both inherit subjectivity.</p>
+<h3 id="m04-moscow"><span class="hnum">4.5.4</span> MoSCoW</h3>
+<p><strong>Must have, Should have, Could have, Won't have (for now)</strong> — classify scope for a <em>specific release or time-box.</em></p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 17)</p>
+<p>Make the scope and release period clear, and agree with stakeholders on <strong>why</strong> each item belongs in its category.</p>
+</div>
+<figure class="viz canvas-fig" role="group" aria-label="MoSCoW for a hypothetical &quot;early fee display&quot; release"><div class="canvas" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="cv tone-r" style="grid-column:span 1;grid-row:span 1"><h5>Must have</h5><ul><li>Show item total + estimated fee before payment</li><li>Label estimates as estimates</li><li>Fallback text if the fee service fails</li></ul></div><div class="cv tone-w" style="grid-column:span 1;grid-row:span 1"><h5>Should have</h5><ul><li>Refresh estimate when address changes</li><li>Event tracking for fee_displayed</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Could have</h5><ul><li>Animated fee breakdown</li><li>“Add ₹X to avoid fee” nudge</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Won&#x27;t have (this release)</h5><ul><li>Changing fee policy</li><li>Personalised fee offers</li></ul></div></div><figcaption><strong>MoSCoW for a hypothetical &quot;early fee display&quot; release.</strong> Hypothetical. A common rule of thumb is that Musts should be a minority of effort (roughly 60% or less) so there is room to absorb surprises — treat it as guidance, not law.</figcaption></figure>
+<p><strong>Use when:</strong> negotiating release scope against a fixed date. <strong>Don't use when:</strong> you need to rank within a category (it doesn't). <strong>Limit:</strong> everything tends to become a “Must”.</p>
+<h3 id="m04-kano-model"><span class="hnum">4.5.5</span> Kano Model</h3>
+<p>The <strong>Kano model</strong> classifies features by how they affect satisfaction: <strong>Must-be</strong> (expected; absence dissatisfies, presence is neutral), <strong>Performance / one-dimensional</strong> (more is better), <strong>Attractive / delighter</strong> (unexpected; presence delights, absence is fine), <strong>Indifferent</strong>, <strong>Reverse</strong>. Features drift over time: today's delighter becomes tomorrow's must-be.</p>
+<figure class="viz" role="img" aria-label="Line chart: Kano curves (conceptual)"><svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><line x1="64" y1="268.0" x2="696" y2="268.0" class="grid"/><text x="56" y="272.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">-5</tspan></text><line x1="64" y1="206.0" x2="696" y2="206.0" class="grid"/><text x="56" y="210.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">-2.5</tspan></text><line x1="64" y1="144.0" x2="696" y2="144.0" class="grid"/><text x="56" y="148.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">0</tspan></text><line x1="64" y1="82.0" x2="696" y2="82.0" class="grid"/><text x="56" y="86.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">2.5</tspan></text><line x1="64" y1="20.0" x2="696" y2="20.0" class="grid"/><text x="56" y="24.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">5</tspan></text><text x="64.0" y="286" class="small" text-anchor="middle"><tspan x="64.0" dy="0">None</tspan></text><text x="222.0" y="286" class="small" text-anchor="middle"><tspan x="222.0" dy="0">Basic</tspan></text><text x="380.0" y="286" class="small" text-anchor="middle"><tspan x="380.0" dy="0">Some</tspan></text><text x="538.0" y="286" class="small" text-anchor="middle"><tspan x="538.0" dy="0">Good</tspan></text><text x="696.0" y="286" class="small" text-anchor="middle"><tspan x="696.0" dy="0">Excellent</tspan></text><polyline points="64.0,268.0 222.0,181.2 380.0,156.4 538.0,149.0 696.0,144.0" fill="none" stroke="var(--c1)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="64.0" cy="268.0" r="3.5" fill="var(--c1)"/><circle cx="222.0" cy="181.2" r="3.5" fill="var(--c1)"/><circle cx="380.0" cy="156.4" r="3.5" fill="var(--c1)"/><circle cx="538.0" cy="149.0" r="3.5" fill="var(--c1)"/><circle cx="696.0" cy="144.0" r="3.5" fill="var(--c1)"/><text x="64.0" y="259.0" class="small b" text-anchor="middle"><tspan x="64.0" dy="0">-5</tspan></text><text x="222.0" y="172.2" class="small b" text-anchor="middle"><tspan x="222.0" dy="0">-1.5</tspan></text><text x="380.0" y="147.4" class="small b" text-anchor="middle"><tspan x="380.0" dy="0">-0.5</tspan></text><text x="538.0" y="139.96" class="small b" text-anchor="middle"><tspan x="538.0" dy="0">-0.2</tspan></text><text x="696.0" y="135.0" class="small b" text-anchor="middle"><tspan x="696.0" dy="0">0</tspan></text><polyline points="64.0,268.0 222.0,206.0 380.0,144.0 538.0,82.0 696.0,20.0" fill="none" stroke="var(--c2)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="64.0" cy="268.0" r="3.5" fill="var(--c2)"/><circle cx="222.0" cy="206.0" r="3.5" fill="var(--c2)"/><circle cx="380.0" cy="144.0" r="3.5" fill="var(--c2)"/><circle cx="538.0" cy="82.0" r="3.5" fill="var(--c2)"/><circle cx="696.0" cy="20.0" r="3.5" fill="var(--c2)"/><text x="64.0" y="285.0" class="small b" text-anchor="middle"><tspan x="64.0" dy="0">-5</tspan></text><text x="222.0" y="223.0" class="small b" text-anchor="middle"><tspan x="222.0" dy="0">-2.5</tspan></text><text x="380.0" y="161.0" class="small b" text-anchor="middle"><tspan x="380.0" dy="0">0</tspan></text><text x="538.0" y="99.0" class="small b" text-anchor="middle"><tspan x="538.0" dy="0">2.5</tspan></text><text x="696.0" y="37.0" class="small b" text-anchor="middle"><tspan x="696.0" dy="0">5</tspan></text><polyline points="64.0,144.0 222.0,139.0 380.0,124.2 538.0,82.0 696.0,20.0" fill="none" stroke="var(--c3)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="64.0" cy="144.0" r="3.5" fill="var(--c3)"/><circle cx="222.0" cy="139.0" r="3.5" fill="var(--c3)"/><circle cx="380.0" cy="124.2" r="3.5" fill="var(--c3)"/><circle cx="538.0" cy="82.0" r="3.5" fill="var(--c3)"/><circle cx="696.0" cy="20.0" r="3.5" fill="var(--c3)"/><text x="64.0" y="135.0" class="small b" text-anchor="middle"><tspan x="64.0" dy="0">0</tspan></text><text x="222.0" y="130.04" class="small b" text-anchor="middle"><tspan x="222.0" dy="0">0.2</tspan></text><text x="380.0" y="115.16000000000003" class="small b" text-anchor="middle"><tspan x="380.0" dy="0">0.8</tspan></text><text x="538.0" y="73.0" class="small b" text-anchor="middle"><tspan x="538.0" dy="0">2.5</tspan></text><text x="696.0" y="11.0" class="small b" text-anchor="middle"><tspan x="696.0" dy="0">5</tspan></text><line x1="64" y1="268" x2="696" y2="268" class="axis"/><text x="14" y="144.0" class="mut small" text-anchor="middle" transform="rotate(-90 14 144.0)">customer satisfaction</text><rect x="64" y="316" width="10" height="10" rx="2" fill="var(--c1)"/><text x="78" y="325" class="small" text-anchor="start"><tspan x="78" dy="0">Must-be (basic)</tspan></text><rect x="191.5" y="316" width="10" height="10" rx="2" fill="var(--c2)"/><text x="205.5" y="325" class="small" text-anchor="start"><tspan x="205.5" dy="0">Performance</tspan></text><rect x="293.0" y="316" width="10" height="10" rx="2" fill="var(--c3)"/><text x="307.0" y="325" class="small" text-anchor="start"><tspan x="307.0" dy="0">Attractive (delighter)</tspan></text></svg><figcaption><strong>Kano curves (conceptual).</strong> Conceptual illustration, not measured data. X = how well the feature is implemented; Y = satisfaction. Must-be features cap satisfaction at neutral; delighters raise it without being expected.</figcaption></figure>
+<p><strong>How to run it:</strong> For each feature ask two questions — <em>functional</em> ("How would you feel if the product had X?") and <em>dysfunctional</em> ("…if it did not have X?") — with answers: Like / Expect / Neutral / Live with / Dislike. Map each pair to a category:</p>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Functional ↓ / Dysfunctional →</th><th>Like</th><th>Expect</th><th>Neutral</th><th>Live with</th><th>Dislike</th></tr></thead><tbody><tr><td>Like</td><td>Q</td><td>A</td><td>A</td><td>A</td><td>O</td></tr><tr><td>Expect</td><td>R</td><td>I</td><td>I</td><td>I</td><td>M</td></tr><tr><td>Neutral</td><td>R</td><td>I</td><td>I</td><td>I</td><td>M</td></tr><tr><td>Live with</td><td>R</td><td>I</td><td>I</td><td>I</td><td>M</td></tr><tr><td>Dislike</td><td>R</td><td>R</td><td>R</td><td>R</td><td>Q</td></tr></tbody></table></div></div><figcaption><strong>Kano evaluation table (A = Attractive, O = Performance, M = Must-be, I = Indifferent, R = Reverse, Q = Questionable).</strong> Tally the categories across respondents; the modal category classifies the feature. Use a reasonable sample (dozens) and segment — Kano results differ by user group.</figcaption></figure>
+<div class="admonition example">
+<p class="admonition-title">Example (hypothetical)</p>
+<p><em>Payment success confirmation</em> → Must-be (expected). <em>Faster checkout</em> → Performance. <em>Surprise free dessert</em> → Attractive. <em>Dark mode</em> for most users → Indifferent; for night-shift users → Performance. <strong>Implication:</strong> never ship a product missing must-bes to chase delighters.</p>
+</div>
+<p><strong>Limits:</strong> survey-based; wording sensitive; categories shift over time; doesn't capture cost or feasibility.</p>
+<h3 id="m04-weighted-scoring-models"><span class="hnum">4.5.6</span> Weighted scoring models</h3>
+<p>Score options against weighted criteria that reflect strategy, then multiply and sum.</p>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example</p>
+<p>Criteria and weights: <strong>Customer impact 35%, Revenue 25%, Strategic fit 20%, Ease 20%</strong> (scores 1–5, higher is better; ease is inverse of effort).
+| Initiative | Impact | Revenue | Fit | Ease | Weighted score |
+|---|---:|---:|---:|---:|---:|
+| Payment retry | 5 | 4 | 4 | 3 | 5×.35 + 4×.25 + 4×.20 + 3×.20 = 1.75 + 1.00 + 0.80 + 0.60 = <strong>4.15</strong> |
+| Show fee early | 4 | 3 | 5 | 4 | 1.40 + 0.75 + 1.00 + 0.80 = <strong>3.95</strong> |
+| Saved addresses | 3 | 2 | 3 | 4 | 1.05 + 0.50 + 0.60 + 0.80 = <strong>2.95</strong> |
+| Voice ordering | 2 | 2 | 2 | 1 | 0.70 + 0.50 + 0.40 + 0.20 = <strong>1.80</strong> |</p>
+<p>Note that the ranking differs from RICE: weighted scoring rewards strategic fit and revenue explicitly, while RICE weights reach. <em>Frameworks encode values</em> — choose the one that reflects the decision you are really making, and say why.</p>
+</div>
+<p><strong>Rules:</strong> agree weights <em>before</em> scoring (to avoid reverse-engineering); keep ≤ 5 criteria; use anchored scales (“5 = measurable impact on the quarterly KR”); test sensitivity by changing weights ±10 points.</p>
+<h3 id="m04-cost-of-delay-and-wsjf"><span class="hnum">4.5.7</span> Cost of Delay and WSJF</h3>
+<p><strong>Cost of Delay (CoD)</strong> is the value lost per unit time by <em>not</em> having something. <strong>WSJF (Weighted Shortest Job First)</strong> — from the Scaled Agile Framework — prioritises by <strong>CoD ÷ job size</strong>, so small, valuable, time-critical items go first.</p>
+<div class="formula">WSJF = Cost of Delay ÷ Job size
+Cost of Delay = User/business value + Time criticality + Risk reduction or opportunity enablement
+(each on a relative scale, e.g. Fibonacci 1, 2, 3, 5, 8, 13, 20)</div>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example (relative scores)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Job</th>
+<th style="text-align: right;">Value</th>
+<th style="text-align: right;">Time criticality</th>
+<th style="text-align: right;">Risk/opportunity</th>
+<th style="text-align: right;"><strong>CoD</strong></th>
+<th style="text-align: right;">Size</th>
+<th style="text-align: right;"><strong>WSJF</strong></th>
+<th style="text-align: right;">Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C · Fix gateway timeout before sale season</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;"><strong>20</strong></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;"><strong>6.67</strong></td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>A · Fee shown early</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;"><strong>16</strong></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;"><strong>3.20</strong></td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>B · Redesign loyalty programme</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;"><strong>26</strong></td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;"><strong>2.00</strong></td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>D · Platform refactor to reduce incident risk</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;"><strong>13</strong></td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;"><strong>1.63</strong></td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table></div>
+<p>Job C is small and time-critical, so it jumps to the front even though B has the highest absolute value. <strong>CD3</strong> is a related variant (“Cost of Delay Divided by Duration”). If a feature earns ₹50,000/week and a delay of 6 weeks is likely, the delay costs ₹300,000 — a concrete way to argue for staffing.</p>
+</div>
+<p><strong>Use when:</strong> many items compete for scarce capacity and timing matters (seasonal launches, compliance dates, competitor moves). <strong>Don't use when:</strong> you can't estimate relative sizes honestly. <strong>Limits:</strong> relative scales are subjective; favours small jobs and can starve large strategic ones.</p>
+<h3 id="m04-risk-adjusted-prioritisation"><span class="hnum">4.5.8</span> Risk-adjusted prioritisation</h3>
+<p>Discount value by the probability of success and subtract cost:</p>
+<div class="formula">Expected value = P(success) × value if successful − cost</div>
+<div class="admonition hypo">
+<p class="admonition-title">Example</p>
+<p><strong>Project X</strong> — value if successful ₹60 lakh, P = 50%, cost ₹10 lakh → EV = 30 − 10 = <strong>₹20 lakh</strong>.
+<strong>Project Y</strong> — value ₹25 lakh, P = 90%, cost ₹5 lakh → EV = 22.5 − 5 = <strong>₹17.5 lakh</strong>.
+X has a higher EV but is riskier; a PM might still choose Y first (less variance, funds learning) or split X into a cheaper test that raises its probability estimate. EV is only as good as the probabilities — treat them as ranges.</p>
+</div>
+<h3 id="m04-choosing-a-framework"><span class="hnum">4.5.9</span> Choosing a framework</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Reach for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quick triage in a workshop</td>
+<td>Impact–effort 2×2</td>
+</tr>
+<tr>
+<td>Many comparable features, some data</td>
+<td>RICE (or ICE if reach is similar)</td>
+</tr>
+<tr>
+<td>Fixed-date release scope</td>
+<td>MoSCoW</td>
+</tr>
+<tr>
+<td>Understanding customer expectations</td>
+<td>Kano</td>
+</tr>
+<tr>
+<td>Strategy-weighted choice among few big initiatives</td>
+<td>Weighted scoring</td>
+</tr>
+<tr>
+<td>Time-sensitive work with scarce capacity</td>
+<td>WSJF / Cost of Delay</td>
+</tr>
+<tr>
+<td>Choosing between experiments</td>
+<td>ICE/PIE on the <em>learning value</em> + cost to run</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m04-dependency-mapping-and-prioritisation-under-constraints"><span class="hnum">4.6</span> Dependency mapping and prioritisation under constraints</h2>
+<p>A <strong>dependency</strong> is work or a decision that something else relies on. Map them so the ranking reflects <em>feasible sequence</em>.</p>
+<figure class="viz" role="img" aria-label="Diagram: Dependency map for the checkout quarter (hypothetical)"><svg viewBox="0 0 720 432" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="180.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="56.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">Fee-estimation service</tspan><tspan x="265.0" dy="12">API</tspan></text><rect x="370.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="63.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Event tracking plan</tspan></text><rect x="180.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="173.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">Show fee early in cart</tspan></text><rect x="370.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="173.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Payment retry</tspan></text><rect x="180.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="265.0" y="283.0" class="small b" text-anchor="middle"><tspan x="265.0" dy="0">A/B test readout</tspan></text><rect x="370.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="455.0" y="276.0" class="small b" text-anchor="middle"><tspan x="455.0" dy="0">Saved payment tokens</tspan><tspan x="455.0" dy="12">(security review)</tspan></text><rect x="150.0" y="360" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="393.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Order-again shortcut</tspan></text><path d="M265.0,88.0 C265.0,112.5 265.0,112.5 265.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M455.0,88.0 C455.0,167.5 265.0,167.5 265.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M265.0,198.0 C265.0,222.5 265.0,222.5 265.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M455.0,308.0 C455.0,332.5 360.0,332.5 360.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M455.0,198.0 C455.0,222.5 455.0,222.5 455.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>Dependency map for the checkout quarter (hypothetical).</strong> Hypothetical. The critical path runs through the fee service and the tracking plan; order-again waits on the token security review. A high-scoring item behind a long dependency may start later than a lower-scoring item.</figcaption></figure>
+<p><strong>Prioritising under constraints</strong></p>
+<ol>
+<li><strong>Take mandatory work off the top</strong> (legal, security, contractual deadlines, incidents).</li>
+<li><strong>Reserve capacity</strong> for reliability and technical debt (e.g., 15–25% — a guideline, justify with data).</li>
+<li><strong>Score the rest</strong>, then <strong>sequence</strong> by dependencies, team skills and risk.</li>
+<li><strong>Limit work in progress</strong>; finishing beats starting.</li>
+<li><strong>Record what you are <em>not</em> doing</strong> and why.</li>
+<li><strong>Re-plan</strong> on a cadence; treat the plan as a hypothesis.</li>
+</ol>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Extra topic 12)</p>
+<p>A dependency is work or a decision that another piece of work relies on. <strong>Technical debt</strong> is the future cost of a technical shortcut or outdated implementation; <em>not every bug or maintenance item is technical debt.</em> Showing an estimated fee depends on a delivery-price service and an agreed fallback — if the service is late, a staged release may show “estimate unavailable” rather than invent a number. Ask engineering to identify system owners, risks and realistic alternatives.</p>
+</div>
+<h2 id="m04-mvp-definition"><span class="hnum">4.7</span> MVP definition</h2>
+<p>An <strong>MVP (Minimum Viable Product)</strong> is the <em>smallest useful version or experiment that lets a team learn about an important assumption with real users.</em> It is defined by the <strong>learning goal</strong>, not by feature count.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 20; Lecture 43)</p>
+<p>An MVP must still be <strong>appropriate and safe</strong> for its intended test. <em>Prototype vs MVP:</em> a prototype can be interactive and helps test a concept or flow; an MVP may be a usable early offering or another focused experiment — <strong>the boundary depends on the learning goal, and real users can test prototypes too.</strong> <em>The recording sometimes equated an MVP with a prototype and implied it must always be a public launch — neither is a universal rule.</em> A <strong>pivot</strong> is a substantive change in direction, not every small iteration. A payment screen that shows “success” without a real payment provider is a <strong>simulation</strong> — label it. Record what works, what is mocked and what needs security, accessibility and reliability testing.</p>
+</div>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Type</th><th>What it is</th><th>Best for testing</th><th>Example (hypothetical)</th></tr></thead><tbody><tr><td>Fake door / smoke test</td><td>Landing page or button for a feature that doesn&#x27;t exist yet</td><td>Demand</td><td>“Weekly meal plan — join waitlist” page; measure sign-ups</td></tr><tr><td>Concierge</td><td>Deliver the service manually for a few customers</td><td>Value and willingness to pay</td><td>A founder hand-builds weekly meal plans for 10 families</td></tr><tr><td>Wizard of Oz</td><td>Looks automated to the user; humans work behind the scenes</td><td>Usability and value before building tech</td><td>Chat &#x27;AI planner&#x27; answered by a nutritionist</td></tr><tr><td>Clickable prototype</td><td>Designed screens linked together</td><td>Usability, comprehension</td><td>Figma prototype of the planning flow</td></tr><tr><td>Single-feature product</td><td>One core job built for real</td><td>Retention of the core loop</td><td>App that only generates a weekly grocery list</td></tr><tr><td>Pilot / limited release</td><td>Real product to a small consented group</td><td>Real-world performance and support load</td><td>Launch in one neighbourhood with a feature flag</td></tr></tbody></table></div></div><figcaption><strong>MVP types — pick the cheapest that answers your question.</strong> Define the assumption, audience and success measure before choosing. A polished screen does not prove a service works.</figcaption></figure>
+<p><strong>MVP checklist:</strong> (1) Riskiest assumption named? (2) Success threshold set in advance? (3) Who will use it and are they informed/consenting? (4) Safe — privacy, security, financial, legal? (5) What is simulated vs real, and is that disclosed internally? (6) What decision will the result drive?</p>
+<h2 id="m04-experiment-prioritisation"><span class="hnum">4.8</span> Experiment prioritisation</h2>
+<p>Rank experiments by <strong>expected learning per unit cost</strong>: how important is the assumption (importance), how uncertain (evidence gap), how cheap to test, and how long to read out. A simple score: <strong>Importance × Uncertainty ÷ Cost-to-test</strong>, or use ICE with “Impact” defined as <em>decision value</em>.</p>
+<div class="admonition example">
+<p class="admonition-title">Example (hypothetical)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Experiment</th>
+<th>Assumption</th>
+<th style="text-align: right;">Importance (1–5)</th>
+<th style="text-align: right;">Uncertainty (1–5)</th>
+<th style="text-align: right;">Cost (days)</th>
+<th style="text-align: right;">Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fake-door for “weekly plan”</td>
+<td>Parents want weekly plans</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5×4÷2 = <strong>10</strong></td>
+</tr>
+<tr>
+<td>Price test ₹99 vs ₹149</td>
+<td>Willingness to pay</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">4×4÷10 = <strong>1.6</strong></td>
+</tr>
+<tr>
+<td>Prototype test of onboarding</td>
+<td>Users understand setup</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3×3÷5 = <strong>1.8</strong></td>
+</tr>
+<tr>
+<td>Run the fake-door first: the answer decides whether the other tests matter.</td>
+<td></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<h2 id="m04-roadmap-planning"><span class="hnum">4.9</span> Roadmap planning</h2>
+<p>A roadmap communicates intended outcomes and likely sequence. Formats: <strong>Now / Next / Later</strong> (outcome-based, no dates), <strong>quarterly themes</strong>, <strong>timeline</strong> (for committed dates). Keep <strong>committed</strong> items separate from <strong>exploratory</strong> bets and show dependencies and confidence.</p>
+<figure class="viz canvas-fig" role="group" aria-label="Now / Next / Later roadmap (hypothetical)"><div class="canvas" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="cv tone-g" style="grid-column:span 1;grid-row:span 1"><h5>Now (in delivery)</h5><ul><li>Outcome: reduce checkout surprise → Fee shown early (A/B)</li><li>Outcome: recover failed payments → Payment retry</li></ul></div><div class="cv tone-b" style="grid-column:span 1;grid-row:span 1"><h5>Next (validated, being scoped)</h5><ul><li>Outcome: faster repeat orders → Order-again shortcut</li><li>Outcome: reliability → Gateway timeout fix</li></ul></div><div class="cv tone-v" style="grid-column:span 1;grid-row:span 1"><h5>Later (ideas, not commitments)</h5><ul><li>Voice ordering (needs discovery)</li><li>Loyalty redesign (pending strategy)</li></ul></div></div><figcaption><strong>Now / Next / Later roadmap (hypothetical).</strong> Hypothetical. Each item states the problem/outcome, not just a feature, and &quot;Later&quot; carries no date promise. Review at least monthly and after every major learning.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 13)</p>
+<p><strong>Ask engineers about complexity, testing, risks and dependencies,</strong> then explain trade-offs to business stakeholders. Collaboratively explore scope or sequencing rather than assuming a visible change is technically simple. A roadmap is an evolving plan, not a guarantee.</p>
+</div>
+<h2 id="m04-case-solving-structure-product-design-and-improvement-questions"><span class="hnum">4.10</span> Case-solving structure (product design and improvement questions)</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 8, 11, 36)</p>
+<p><strong>Clarify the problem before proposing features.</strong> In an interview ask about scope, users and constraints; in written work, state assumptions. Then describe the user, their need, the proposed solution and trade-offs. Pick <em>one</em> user problem and investigate it before suggesting features. For community products, define the desired behaviour (useful conversations), not just clicks; measure meaningful participation, retention and safety together; and <strong>filtering is imperfect — avoid promising parents a completely safe experience.</strong> Treat each solution as a hypothesis.</p>
+</div>
+<figure class="viz" role="img" aria-label="Process: Clarify → Users &amp; problem → Root cause → Solutions → Prioritise → Measure"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Clarify</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Goal, scope, constraints, definitions</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Users &amp; problem</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Segment, job, pains; pick one</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Root cause</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Hypotheses: data to check, Five Whys</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Solutions</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">3 options incl. a simple one;</tspan><tspan x="116.66666666666667" dy="11">trade-offs</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Prioritise</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Impact, effort, risk; recommend</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Measure</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Primary metric, guardrails, experiment</tspan></text></svg><figcaption><strong>A reliable structure for improvement cases.</strong> Use as a skeleton, not a script — adapt to the question and spend most of your time on the user problem and the trade-offs.</figcaption></figure>
+<h2 id="m04-exercises-with-model-answers"><span class="hnum">4.11</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Compute and challenge RICE</p>
+<p>Score: A) Reach 10,000, Impact 2, Confidence 80%, Effort 4. B) Reach 3,000, Impact 3, Confidence 100%, Effort 1. C) Reach 50,000, Impact 0.5, Confidence 50%, Effort 5. Rank them and say what would change your mind.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>A = 10,000×2×0.8÷4 = <strong>4,000</strong>. B = 3,000×3×1.0÷1 = <strong>9,000</strong>. C = 50,000×0.5×0.5÷5 = <strong>2,500</strong>. Ranking: B &gt; A &gt; C. B wins on low effort and high confidence despite small reach. Challenge: is B's reach limited to a niche that doesn't serve this quarter's goal? Would C's reach justify a cheap test to raise confidence? If B's effort is really 3, its score drops to 3,000 and A wins — so I'd verify the effort estimate with engineering.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · Pick a framework</p>
+<p>A regulator requires a new consent screen by 30 June. Marketing wants a referral feature; support wants better refund tracking. How do you decide the order?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>The consent screen is <strong>mandatory</strong> — take it off the top and schedule it first (legal deadline). Then compare referral vs refund tracking with RICE or WSJF: referral's value depends on growth goals and CAC; refund tracking reduces support cost and complaints (risk reduction). Check dependencies (consent flow may touch the same onboarding screens). Present the trade-off with numbers and agree on a review date.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 3 · Five Whys + test</p>
+<p>“Our app's rating fell from 4.4 to 4.1 last month.” Do a five-whys chain and name the data that would verify each “why”.</p>
+</div>
+<details class="answer">
+<summary>Model answer (example)</summary>
+<ol>
+<li>Why did the rating fall? Many 1-star reviews mention payment errors → verify with review tagging. 2. Why payment errors? A new gateway SDK was released on the 12th → check release dates and error logs. 3. Why were they not caught? No test for bank redirect flow on Android 14 → check QA coverage. 4. Why no test? Test matrix excludes new OS versions → review the matrix. 5. Why? No owner for compatibility testing → process gap. <strong>Fix:</strong> hotfix SDK; add the OS to the matrix; assign an owner. Validate each step with evidence, not assumption.</li>
+</ol>
+</details>
+<h2 id="m04-interview-perspective"><span class="hnum">4.12</span> Interview perspective</h2>
+<details class="question">
+<summary>“How do you prioritise a roadmap?” — structure and model answer</summary>
+<p><em>What it tests:</em> judgement, communication, humility. <em>Structure:</em> (1) goals and constraints; (2) gather and size opportunities; (3) mandatory work; (4) choose a framework fit for the decision (e.g., RICE) and show a few scores; (5) sensitivity and dependencies; (6) stakeholder alignment and a review cadence. <em>Model answer:</em> “I start with the quarter's goal — say, checkout completion. I list candidate problems with evidence and size them. I take mandatory items first, then score the rest with RICE using agreed definitions, and check how sensitive the ranking is to confidence and effort. I map dependencies, then share a one-page recommendation with trade-offs and what we're <em>not</em> doing, and revisit it each month as we learn.” <em>Common mistakes:</em> naming a framework without applying it; ignoring dependencies; treating scores as truth.</p>
+</details>
+<details class="question">
+<summary>“A key stakeholder insists their feature goes first. What do you do?” — 60-second answer</summary>
+<p>“I'd first understand the problem behind the request and its evidence and urgency. Then I'd show where it sits against our goals using the same framework we use for everything — with numbers — and the cost of delaying it versus the alternatives. If it still doesn't win, I'd offer options: a smaller version, a time-boxed discovery, or a workaround, and agree a date to revisit. I'd document the decision and who made it.”</p>
+</details>
+<h2 id="m04-key-takeaways"><span class="hnum">4.13</span> Key takeaways</h2>
+<ul>
+<li>Frame the problem with <strong>user, task, barrier, evidence, metric, guardrail.</strong></li>
+<li><strong>RCA tools</strong> (Five Whys, fishbone, Pareto, first principles, systems thinking) generate <em>hypotheses</em> to test — not answers.</li>
+<li>Frameworks encode values: <strong>RICE</strong> (reach-weighted), <strong>ICE</strong> (speed), <strong>MoSCoW</strong> (scope), <strong>Kano</strong> (expectations), <strong>weighted scoring</strong> (strategy), <strong>WSJF</strong> (timing).</li>
+<li>Always do <strong>sensitivity checks</strong>, map <strong>dependencies</strong>, take <strong>mandatory</strong> work first and <strong>record what you're not doing.</strong></li>
+<li>An <strong>MVP</strong> is a learning vehicle; choose the cheapest type that tests the riskiest assumption.</li>
+<li>Roadmaps are <strong>outcome-oriented, evolving plans.</strong></li>
+</ul>
+<h2 id="m04-check-your-understanding"><span class="hnum">4.14</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m04"><h4>Check your understanding</h4><div class="qitem" data-correct="0"><p class="q">RICE for Reach 20,000, Impact 1, Confidence 80%, Effort 2 equals…</p><ol><li class="is-correct">8,000</li><li class="">16,000</li><li class="">32,000</li><li class="">40,000</li></ol><div class="why"><strong>Why:</strong> 20,000 × 1 × 0.8 ÷ 2 = 8,000.</div></div><div class="qitem" data-correct="1"><p class="q">In RICE, increasing Effort…</p><ol><li class="">Increases the score</li><li class="is-correct">Decreases the score</li><li class="">Has no effect</li><li class="">Only affects Reach</li></ol><div class="why"><strong>Why:</strong> Effort is the denominator, so more effort lowers the score.</div></div><div class="qitem" data-correct="1"><p class="q">A regulatory deadline item should usually be…</p><ol><li class="">Scored with RICE like everything else</li><li class="is-correct">Taken off the top as mandatory work</li><li class="">Deferred until after features</li><li class="">Dropped if its score is low</li></ol><div class="why"><strong>Why:</strong> Mandatory legal, security or contractual work is scheduled regardless of score.</div></div><div class="qitem" data-correct="0"><p class="q">Which describes a Kano &#x27;must-be&#x27; feature?</p><ol><li class="is-correct">Its absence dissatisfies but presence is just expected</li><li class="">More of it always raises satisfaction</li><li class="">It delights when unexpected</li><li class="">Customers don&#x27;t care</li></ol><div class="why"><strong>Why:</strong> Must-be features are expected basics: absent = dissatisfied; present = neutral.</div></div><div class="qitem" data-correct="1"><p class="q">WSJF is computed as…</p><ol><li class="">Value ÷ effort</li><li class="is-correct">Cost of Delay ÷ job size</li><li class="">Reach × Impact</li><li class="">Time ÷ cost</li></ol><div class="why"><strong>Why:</strong> Weighted Shortest Job First divides Cost of Delay by job size.</div></div><div class="qitem" data-correct="1"><p class="q">An MVP is best described as…</p><ol><li class="">The cheapest version of the full product</li><li class="is-correct">The smallest useful version or experiment to learn about a key assumption</li><li class="">A prototype only</li><li class="">A public launch</li></ol><div class="why"><strong>Why:</strong> MVPs are defined by what they let you learn; they may be non-public and need not be a prototype.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m04-recommended-resources"><span class="hnum">4.15</span> Recommended resources</h2>
+<ul>
+<li><a href="https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/">Intercom: RICE prioritization</a> — the original RICE write-up.</li>
+<li><a href="https://scaledagileframework.com/wsjf/">Scaled Agile Framework: WSJF</a>.</li>
+<li><a href="https://www.atlassian.com/agile/product-management/prioritization-framework">Atlassian: Prioritization frameworks</a>.</li>
+<li><a href="https://www.producttalk.org/opportunity-solution-tree/">Product Talk: Opportunity Solution Trees</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Kano_model">Kano model — overview and references (Wikipedia)</a>.</li>
+<li><a href="https://scrumguides.org/scrum-guide.html">The Scrum Guide</a>.</li>
+</ul><div class="modnav"><a href="m03.html"><small>← Previous</small>Module 3: Problem Discovery and Market Research</a><a href="m05.html"><small>Next →</small>Module 5: UX and Design Collaboration</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

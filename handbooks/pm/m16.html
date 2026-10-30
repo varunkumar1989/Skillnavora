@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 16: Lovable: Basic to Advanced · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-16-Lovable.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" aria-current="page" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 16</div><h1>Lovable: Basic to Advanced</h1><p>Go from a prompt to a published web app with a database, login, AI features and payments, then sync it to GitHub and keep improving it with Claude Code.</p><div class="chips"><span class="chip">≈ 8 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lovable docs (docs.lovable.dev) and pricing page; independent 2026 pricing reviews; Module 11; checked 23 Oct 2026</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m16" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m16-what-lovable-is">What Lovable is</a></li><li><a href="#m16-the-editor">The editor</a></li><li><a href="#m16-level-1-your-first-app-in-30-minutes">Level 1 · Your first app in 30 minutes</a></li><li><a href="#m16-level-2-building-like-a-pro">Level 2 · Building like a pro</a></li><li><a href="#m16-level-3-database-login-ai-payments-and-github">Level 3 · Database, login, AI, payments and GitHub</a></li><li><a href="#m16-labs">Labs</a></li><li><a href="#m16-prompt-library">Prompt library</a></li><li><a href="#m16-saving-credits">Saving credits</a></li><li><a href="#m16-common-mistakes">Common mistakes</a></li><li><a href="#m16-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m16-key-takeaways">Key takeaways</a></li><li><a href="#m16-check-your-understanding">Check your understanding</a></li><li><a href="#m16-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
+<p class="admonition-title">Lovable changes fast</p>
+<p>Lovable adds and renames features often. If a button below has moved, search the <a href="https://docs.lovable.dev">Lovable docs</a>. Screens are <strong>illustrative wireframes</strong>.</p>
+</div>
+<h2 id="m16-what-lovable-is"><span class="hnum">16.1</span> What Lovable is</h2>
+<p><strong>Lovable</strong> builds web apps from a conversation. You describe the app, and Lovable writes a real React application, shows a live preview, and can add a <strong>database, user login, file storage and server functions</strong> for you. You can publish with one click, connect your own domain, and sync the code to GitHub.</p>
+<div class="admonition level1">
+<p class="admonition-title">When to use Lovable</p>
+<p>Clickable MVPs, internal tools, landing pages with forms, dashboards, booking and directory apps, and portfolio projects. For deep changes to a large existing codebase, use Claude Code (Class 15). For production at scale, an engineering team reviews security, performance and data.</p>
+</div>
+<h3 id="m16-what-it-costs-checked-23-oct-2026"><span class="hnum">16.1.1</span> What it costs (checked 23 Oct 2026)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Price</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Free</strong></td>
+<td>$0</td>
+<td>5 credits a day (up to 30 a month), public projects on a Lovable address</td>
+</tr>
+<tr>
+<td><strong>Pro</strong></td>
+<td>about $25 a month</td>
+<td>100 monthly credits (more tiers available), private projects, custom domains, remove the badge, credit top-ups</td>
+</tr>
+<tr>
+<td><strong>Business</strong></td>
+<td>about $50 a month</td>
+<td>Team features such as single sign-on and security controls</td>
+</tr>
+</tbody>
+</table></div>
+<p>A <strong>credit</strong> is used each time Lovable does work for you. Bigger changes use more. Backend services (database, AI calls, email) may have their own usage limits. Check <a href="https://lovable.dev/pricing">lovable.dev/pricing</a>.</p>
+<h2 id="m16-the-editor"><span class="hnum">16.2</span> The editor</h2>
+<figure class="viz" role="img" aria-label="The Lovable editor"><svg viewBox="0 0 720 370" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="220" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Lovable</tspan></text><rect x="210.0" y="11" width="300" height="17" rx="8" class="wf-bar"/><text x="360.0" y="23" class="tiny mut" text-anchor="middle"><tspan x="360.0" dy="0">lovable.dev/projects/clinic-booking</tspan></text><rect x="12" y="38" width="150" height="182" rx="8" class="wf-bar" fill-opacity=".6"/><rect x="516" y="38" width="190" height="182" rx="8" class="wf-bar" fill-opacity=".45"/><text x="28" y="49" class="tiny" text-anchor="start"><tspan x="28" dy="0">Chat</tspan></text><circle cx="146" cy="45" r="9" fill="var(--c3)"/><text x="146" y="49" class="tiny b on-fill" text-anchor="middle"><tspan x="146" dy="0">1</tspan></text><text x="28" y="73" class="tiny" text-anchor="start"><tspan x="28" dy="0">Agent mode</tspan></text><text x="28" y="97" class="tiny" text-anchor="start"><tspan x="28" dy="0">Chat mode</tspan></text><text x="28" y="121" class="tiny" text-anchor="start"><tspan x="28" dy="0"></tspan></text><text x="28" y="145" class="tiny" text-anchor="start"><tspan x="28" dy="0">History</tspan></text><text x="28" y="169" class="tiny" text-anchor="start"><tspan x="28" dy="0">Knowledge</tspan></text><text x="28" y="193" class="tiny" text-anchor="start"><tspan x="28" dy="0">Integrations</tspan></text><rect x="232.5" y="48" width="257.5" height="45" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="240.52000000000004" y="63" class="tiny" text-anchor="start"><tspan x="240.52000000000004" dy="0">Build a booking app for a small clinic:</tspan><tspan x="240.52000000000004" dy="11">services list, pick a date and time, confirm</tspan><tspan x="240.52000000000004" dy="11">screen.</tspan></text><rect x="176.0" y="101" width="257.5" height="34" rx="9" class="wf-bar"/><text x="184" y="116" class="tiny" text-anchor="start"><tspan x="184" dy="0">I&#x27;ll create pages for Services, Booking and</tspan><tspan x="184" dy="11">Confirmation, with sample data…</tspan></text><circle cx="492" cy="111" r="9" fill="var(--c3)"/><text x="492" y="115" class="tiny b on-fill" text-anchor="middle"><tspan x="492" dy="0">2</tspan></text><rect x="176" y="143" width="314" height="28" rx="6" class="wf-input"/><text x="186" y="161" class="tiny mut" text-anchor="start"><tspan x="186" dy="0">Ask Lovable to change something…</tspan></text><rect x="524.0" y="48" width="54.0" height="22" rx="5" fill="var(--c1)"/><text x="551.0" y="63" class="tiny b on-fill" text-anchor="middle"><tspan x="551.0" dy="0">Preview</tspan></text><rect x="582.0" y="48" width="54.0" height="22" rx="5" class="wf-bar"/><text x="609.0" y="63" class="tiny" text-anchor="middle"><tspan x="609.0" dy="0">Code</tspan></text><rect x="640.0" y="48" width="54.0" height="22" rx="5" class="wf-bar"/><text x="667.0" y="63" class="tiny" text-anchor="middle"><tspan x="667.0" dy="0">Cloud</tspan></text><rect x="524" y="78" width="174" height="56" rx="6" class="wf-img"/><text x="611.0" y="110" class="tiny mut" text-anchor="middle"><tspan x="611.0" dy="0">Live preview of the app</tspan></text><circle cx="700" cy="88" r="9" fill="var(--c3)"/><text x="700" y="92" class="tiny b on-fill" text-anchor="middle"><tspan x="700" dy="0">3</tspan></text><rect x="524" y="142" width="90" height="28" rx="7" fill="var(--c1)"/><text x="569.0" y="160" class="tiny b on-fill" text-anchor="middle"><tspan x="569.0" dy="0">Publish</tspan></text><circle cx="700" cy="152" r="9" fill="var(--c3)"/><text x="700" y="156" class="tiny b on-fill" text-anchor="middle"><tspan x="700" dy="0">4</tspan></text><circle cx="24" cy="244" r="9" fill="var(--c3)"/><text x="24" y="248" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="248" class="small" text-anchor="start"><tspan x="40" dy="0">Agent mode builds and edits. Chat mode discusses and plans without changing code, so use it to think</tspan><tspan x="40" dy="14">before spending build credits.</tspan></text><circle cx="24" cy="280" r="9" fill="var(--c3)"/><text x="24" y="284" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="284" class="small" text-anchor="start"><tspan x="40" dy="0">Each message becomes a version in History. You can restore any version.</tspan></text><circle cx="24" cy="302" r="9" fill="var(--c3)"/><text x="24" y="306" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="306" class="small" text-anchor="start"><tspan x="40" dy="0">The preview updates live. Use Visual edits (click an element) for small text, colour and spacing</tspan><tspan x="40" dy="14">changes.</tspan></text><circle cx="24" cy="338" r="9" fill="var(--c3)"/><text x="24" y="342" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">4</tspan></text><text x="40" y="342" class="small" text-anchor="start"><tspan x="40" dy="0">Publish puts the app on a public link. Paid plans add custom domains.</tspan></text></svg><figcaption><strong>The Lovable editor (illustrative wireframe, not a real product screenshot).</strong> Knowledge holds your project instructions, and Integrations is where you connect a database, GitHub, payments and email.</figcaption></figure>
+<h2 id="m16-level-1-your-first-app-in-30-minutes"><span class="hnum">16.3</span> Level 1 · Your first app in 30 minutes</h2>
+<div class="admonition level1">
+<p class="admonition-title">Level 1 · Beginner</p>
+<p>Goal: build and publish a small, good-looking app, and learn the prompt pattern that saves credits.</p>
+</div>
+<h3 id="m16-the-first-prompt-template"><span class="hnum">16.3.1</span> The first-prompt template</h3>
+<p>A strong first prompt saves many fixes later. Include five things:</p>
+<figure class="viz" role="img" aria-label="Process: What and who → Pages → Look → Data → Not now"><svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">What and who</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">&#x27;A booking app for a</tspan><tspan x="68.0" dy="11">small physiotherapy</tspan><tspan x="68.0" dy="11">clinic; patients</tspan><tspan x="68.0" dy="11">book on mobile&#x27;</tspan></text><line x1="129.0" y1="56.0" x2="153.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Pages</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">&#x27;Home, Services,</tspan><tspan x="214.0" dy="11">Book (date and</tspan><tspan x="214.0" dy="11">time), Confirmation,</tspan><tspan x="214.0" dy="11">My bookings&#x27;</tspan></text><line x1="275.0" y1="56.0" x2="299.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Look</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">&#x27;Clean, calm, teal</tspan><tspan x="360.0" dy="11">accent, large</tspan><tspan x="360.0" dy="11">buttons,</tspan><tspan x="360.0" dy="11">mobile-first&#x27;</tspan></text><line x1="421.0" y1="56.0" x2="445.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Data</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">&#x27;Use sample data for</tspan><tspan x="506.0" dy="11">now; 5 services with</tspan><tspan x="506.0" dy="11">prices in ₹&#x27;</tspan></text><line x1="567.0" y1="56.0" x2="591.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Not now</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">&#x27;No login or</tspan><tspan x="652.0" dy="11">payments yet&#x27;</tspan></text></svg><figcaption><strong>The Lovable first prompt.</strong> Saying what not to build yet keeps the first version small, cheap and easy to check.</figcaption></figure>
+<h3 id="m16-then-iterate-in-small-steps"><span class="hnum">16.3.2</span> Then iterate in small steps</h3>
+<ol>
+<li>Look at the preview on desktop <strong>and</strong> in the phone view.</li>
+<li>Ask for <strong>one change per message</strong>: "Make the service cards show duration and price."</li>
+<li>Use <strong>Visual edits</strong> for tiny text or colour changes, which is faster and cheaper than a prompt.</li>
+<li>If something breaks, click <strong>Try to fix</strong>, or restore the last good version from <strong>History</strong>.</li>
+<li>Click <strong>Publish</strong> and open the link on your phone.</li>
+</ol>
+<h2 id="m16-level-2-building-like-a-pro"><span class="hnum">16.4</span> Level 2 · Building like a pro</h2>
+<div class="admonition level2">
+<p class="admonition-title">Level 2 · Working PM</p>
+<p>Goal: plan before you build, keep the app consistent, debug calmly, and avoid wasting credits.</p>
+</div>
+<h3 id="m16-plan-in-chat-mode-then-build"><span class="hnum">16.4.1</span> Plan in chat mode, then build</h3>
+<figure class="viz" role="img" aria-label="Planning a feature in chat mode"><svg viewBox="0 0 720 303" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="708" height="203" rx="12" class="phone"/><line x1="6" y1="34" x2="714" y2="34" class="grid"/><circle cx="22" cy="20" r="4.5" fill="var(--c5)"/><circle cx="36" cy="20" r="4.5" fill="var(--c3)"/><circle cx="50" cy="20" r="4.5" fill="var(--c4)"/><text x="76" y="24" class="small b" text-anchor="start"><tspan x="76" dy="0">Lovable · Chat mode</tspan></text><rect x="145.9" y="48" width="546.1" height="34" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="153.88" y="63" class="tiny" text-anchor="start"><tspan x="153.88" dy="0">I want patients to reschedule a booking. Don&#x27;t build yet. What&#x27;s the simplest approach, and what</tspan><tspan x="153.88" dy="11">could go wrong?</tspan></text><circle cx="694" cy="58" r="9" fill="var(--c3)"/><text x="694" y="62" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">1</tspan></text><rect x="26.0" y="90" width="546.1" height="34" rx="9" class="wf-bar"/><text x="34" y="105" class="tiny" text-anchor="start"><tspan x="34" dy="0">Option A: a Reschedule button on My bookings that reopens the date picker… Risks: double</tspan><tspan x="34" dy="11">bookings, time zones…</tspan></text><circle cx="694" cy="100" r="9" fill="var(--c3)"/><text x="694" y="104" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">2</tspan></text><rect x="145.9" y="132" width="546.1" height="23" rx="9" fill="var(--c1)" fill-opacity=".14" stroke="var(--c1)"/><text x="153.88" y="147" class="tiny" text-anchor="start"><tspan x="153.88" dy="0">Go with option A. Prevent double bookings. Build it.</tspan></text><circle cx="694" cy="142" r="9" fill="var(--c3)"/><text x="694" y="146" class="tiny b on-fill" text-anchor="middle"><tspan x="694" dy="0">3</tspan></text><rect x="26" y="163" width="666" height="28" rx="6" fill="var(--c4)" fill-opacity=".14" stroke="var(--c4)"/><text x="36" y="181" class="tiny b" text-anchor="start"><tspan x="36" dy="0">Switching to agent mode: building the reschedule flow</tspan></text><circle cx="24" cy="227" r="9" fill="var(--c3)"/><text x="24" y="231" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">1</tspan></text><text x="40" y="231" class="small" text-anchor="start"><tspan x="40" dy="0">Ask for options and risks first. Chat mode doesn&#x27;t change code.</tspan></text><circle cx="24" cy="249" r="9" fill="var(--c3)"/><text x="24" y="253" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">2</tspan></text><text x="40" y="253" class="small" text-anchor="start"><tspan x="40" dy="0">Read the plan. Remove anything you don&#x27;t need.</tspan></text><circle cx="24" cy="271" r="9" fill="var(--c3)"/><text x="24" y="275" class="tiny b on-fill" text-anchor="middle"><tspan x="24" dy="0">3</tspan></text><text x="40" y="275" class="small" text-anchor="start"><tspan x="40" dy="0">Approve one clear plan, then let agent mode build it.</tspan></text></svg><figcaption><strong>Planning a feature in chat mode (illustrative wireframe, not a real product screenshot).</strong> Planning first is the biggest credit saver: one good build beats five corrections.</figcaption></figure>
+<h3 id="m16-knowledge-rules-for-every-prompt"><span class="hnum">16.4.2</span> Knowledge: rules for every prompt</h3>
+<p>Open <strong>Knowledge</strong> (project instructions) and write rules Lovable follows on every change:</p>
+<ul>
+<li>What the app is, who uses it, and the tone of the copy.</li>
+<li>Design rules: colours, fonts, spacing, "mobile-first", "large tap targets".</li>
+<li>Data rules: "sample data only", "prices in ₹", "dates as 23 Oct 2026".</li>
+<li>Constraints: "don't change the booking flow unless asked".</li>
+</ul>
+<h3 id="m16-debugging-without-panic"><span class="hnum">16.4.3</span> Debugging without panic</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red error in the preview</td>
+<td>Click <strong>Try to fix</strong> once. If it fails twice, restore the last working version and ask in smaller steps.</td>
+</tr>
+<tr>
+<td>A change broke something else</td>
+<td>Restore from <strong>History</strong>, then say exactly what must not change.</td>
+</tr>
+<tr>
+<td>It keeps repeating a mistake</td>
+<td>Add a rule to <strong>Knowledge</strong>; describe the bug with a screenshot.</td>
+</tr>
+<tr>
+<td>Layout wrong on mobile</td>
+<td>Switch the preview to phone size and name the element and the problem.</td>
+</tr>
+<tr>
+<td>You are lost</td>
+<td>Chat mode: "Explain how this page works and which files control it."</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m16-reusing-and-sharing"><span class="hnum">16.4.4</span> Reusing and sharing</h3>
+<ul>
+<li><strong>Remix</strong> copies a project so you can try a risky idea without touching the original.</li>
+<li><strong>Share</strong> a preview link for feedback before you publish.</li>
+<li>Upload images, logos or a screenshot of a design, and say "match this".</li>
+</ul>
+<h2 id="m16-level-3-database-login-ai-payments-and-github"><span class="hnum">16.5</span> Level 3 · Database, login, AI, payments and GitHub</h2>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Advanced</p>
+<p>Goal: turn the prototype into a working app with real data and accounts, safely.</p>
+</div>
+<h3 id="m16-how-a-lovable-app-with-a-backend-fits-together"><span class="hnum">16.5.1</span> How a Lovable app with a backend fits together</h3>
+<figure class="viz" role="img" aria-label="Diagram: A Lovable app with a backend"><svg viewBox="0 0 720 432" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><text x="4" y="63.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Browser</tspan></text><rect x="196.0" y="30" width="420.0" height="58" rx="8" class="node"/><text x="406.0" y="63.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">React app: pages, forms, buttons</tspan></text><text x="4" y="173.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Backend</tspan></text><rect x="131.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="216.0" y="173.0" class="small b" text-anchor="middle"><tspan x="216.0" dy="0">Database tables</tspan></text><rect x="321.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="406.0" y="173.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Login (auth)</tspan></text><rect x="511.0" y="140" width="170.0" height="58" rx="8" class="node"/><text x="596.0" y="173.0" class="small b" text-anchor="middle"><tspan x="596.0" dy="0">File storage</tspan></text><text x="4" y="283.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Server code</tspan></text><rect x="226.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="311.0" y="276.0" class="small b" text-anchor="middle"><tspan x="311.0" dy="0">Server functions (edge</tspan><tspan x="311.0" dy="12">functions)</tspan></text><rect x="416.0" y="250" width="170.0" height="58" rx="8" class="node"/><text x="501.0" y="283.0" class="small b" text-anchor="middle"><tspan x="501.0" dy="0">Secrets (API keys)</tspan></text><text x="4" y="393.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Outside</tspan><tspan x="4" dy="12">services</tspan></text><rect x="131.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="216.0" y="393.0" class="small b" text-anchor="middle"><tspan x="216.0" dy="0">Claude API</tspan></text><rect x="321.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="406.0" y="393.0" class="small b" text-anchor="middle"><tspan x="406.0" dy="0">Stripe payments</tspan></text><rect x="511.0" y="360" width="170.0" height="58" rx="8" class="node"/><text x="596.0" y="393.0" class="small b" text-anchor="middle"><tspan x="596.0" dy="0">Email service</tspan></text><path d="M406.0,88.0 C406.0,112.5 216.0,112.5 216.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M406.0,88.0 C406.0,112.5 406.0,112.5 406.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M406.0,88.0 C406.0,167.5 311.0,167.5 311.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M311.0,308.0 C311.0,332.5 216.0,332.5 216.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M311.0,308.0 C311.0,332.5 406.0,332.5 406.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><line x1="416.0" y1="279.0" x2="399.0" y2="279.0" class="edge" marker-end="url(#ah2)"/></svg><figcaption><strong>A Lovable app with a backend.</strong> The backend comes from Lovable Cloud or a connected Supabase project. Secret keys are stored as secrets and used only by server functions, never in the React app.</figcaption></figure>
+<h3 id="m16-database-and-login"><span class="hnum">16.5.2</span> Database and login</h3>
+<p>Ask in plain words: "Add a backend. Store bookings in a database with patient name, phone, service, date and time. Add email login so patients see only their own bookings." Lovable creates the tables and the login screens.</p>
+<div class="admonition warning">
+<p class="admonition-title">Row-level security is not optional</p>
+<p><strong>Row-level security (RLS)</strong> rules decide which rows each user can read or change. Without them, a logged-in user might read everyone's bookings. Ask: "Turn on row-level security so each user can only read and edit their own bookings; staff can read all." Then <strong>test with two accounts</strong>. Run Lovable's security check before you publish.</p>
+</div>
+<h3 id="m16-ai-features-with-a-secret-key"><span class="hnum">16.5.3</span> AI features with a secret key</h3>
+<p>To add an "Ask the clinic" chatbot powered by Claude:</p>
+<ol>
+<li>Get an API key from <a href="https://console.anthropic.com">console.anthropic.com</a> and set a spend limit.</li>
+<li>In Lovable, add it as a <strong>secret</strong> named <code>ANTHROPIC_API_KEY</code>. Never paste it in the chat or the code.</li>
+<li>Prompt: "Create a server function that calls the Anthropic Messages API with the ANTHROPIC_API_KEY secret. Answer only from the clinic FAQ text in the database. Connect it to an 'Ask us' chat button."</li>
+<li>Test it with five questions, including one it should refuse ("Can you diagnose me?").</li>
+</ol>
+<p>Lovable may also offer <strong>built-in AI</strong> that needs no key of your own. It is the quickest option for a demo, with usage limits.</p>
+<h3 id="m16-payments-and-email"><span class="hnum">16.5.4</span> Payments and email</h3>
+<ul>
+<li><strong>Stripe</strong>: "Add a Pay deposit button using Stripe Checkout in test mode." Use Stripe's test cards and switch to live keys only after review.</li>
+<li><strong>Email</strong>: connect an email service (for example Resend) and "send a confirmation email after a booking".</li>
+</ul>
+<h3 id="m16-github-sync-work-in-lovable-and-claude-code"><span class="hnum">16.5.5</span> GitHub sync: work in Lovable and Claude Code</h3>
+<figure class="viz" role="img" aria-label="Workflow: Lovable: GitHub → Connect → Repository created → Clone locally → Claude Code improves → Push to main"><svg viewBox="0 0 720 154" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ahw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="8" width="112.8" height="106" rx="10" class="node"/><rect x="10.0" y="8" width="7" height="106" rx="3" fill="var(--c1)"/><text x="26.0" y="24" class="tiny b" text-anchor="start" fill="var(--c1)" style="fill:var(--c1)">ACTION</text><text x="26.0" y="41" class="small b" text-anchor="start"><tspan x="26.0" dy="0">Lovable:</tspan><tspan x="26.0" dy="13">GitHub →</tspan><tspan x="26.0" dy="13">Connect</tspan></text><text x="26.0" y="84" class="tiny mut" text-anchor="start"><tspan x="26.0" dy="0">Authorise and</tspan><tspan x="26.0" dy="11">pick your account</tspan></text><line x1="124.8" y1="61.0" x2="153.8" y2="61.0" class="edge" marker-end="url(#ahw)"/><rect x="156.8" y="8" width="112.8" height="106" rx="10" class="node"/><rect x="156.8" y="8" width="7" height="106" rx="3" fill="var(--c5)"/><text x="172.8" y="24" class="tiny b" text-anchor="start" fill="var(--c5)" style="fill:var(--c5)">OUTPUT</text><text x="172.8" y="41" class="small b" text-anchor="start"><tspan x="172.8" dy="0">Repository</tspan><tspan x="172.8" dy="13">created</tspan></text><text x="172.8" y="71" class="tiny mut" text-anchor="start"><tspan x="172.8" dy="0">github.com/you/clinic-booking</tspan></text><line x1="271.6" y1="61.0" x2="300.6" y2="61.0" class="edge" marker-end="url(#ahw)"/><rect x="303.6" y="8" width="112.8" height="106" rx="10" class="node"/><rect x="303.6" y="8" width="7" height="106" rx="3" fill="var(--c6)"/><text x="319.6" y="24" class="tiny b" text-anchor="start" fill="var(--c6)" style="fill:var(--c6)">HUMAN</text><text x="319.6" y="41" class="small b" text-anchor="start"><tspan x="319.6" dy="0">Clone locally</tspan></text><text x="319.6" y="58" class="tiny mut" text-anchor="start"><tspan x="319.6" dy="0">git clone … ;</tspan><tspan x="319.6" dy="11">open with Claude</tspan><tspan x="319.6" dy="11">Code</tspan></text><line x1="418.4" y1="61.0" x2="447.4" y2="61.0" class="edge" marker-end="url(#ahw)"/><rect x="450.4" y="8" width="112.8" height="106" rx="10" class="node"/><rect x="450.4" y="8" width="7" height="106" rx="3" fill="var(--c2)"/><text x="466.4" y="24" class="tiny b" text-anchor="start" fill="var(--c2)" style="fill:var(--c2)">AI STEP</text><text x="466.40000000000003" y="41" class="small b" text-anchor="start"><tspan x="466.40000000000003" dy="0">Claude Code</tspan><tspan x="466.40000000000003" dy="13">improves</tspan></text><text x="466.40000000000003" y="71" class="tiny mut" text-anchor="start"><tspan x="466.40000000000003" dy="0">Tests, refactors,</tspan><tspan x="466.40000000000003" dy="11">docs, tricky</tspan><tspan x="466.40000000000003" dy="11">logic</tspan></text><line x1="565.2" y1="61.0" x2="594.2" y2="61.0" class="edge" marker-end="url(#ahw)"/><rect x="597.2" y="8" width="112.8" height="106" rx="10" class="node"/><rect x="597.2" y="8" width="7" height="106" rx="3" fill="var(--c1)"/><text x="613.2" y="24" class="tiny b" text-anchor="start" fill="var(--c1)" style="fill:var(--c1)">ACTION</text><text x="613.2" y="41" class="small b" text-anchor="start"><tspan x="613.2" dy="0">Push to main</tspan></text><text x="613.2" y="58" class="tiny mut" text-anchor="start"><tspan x="613.2" dy="0">Changes appear</tspan><tspan x="613.2" dy="11">back in Lovable</tspan></text></svg><figcaption><strong>Two-way GitHub sync with Claude Code.</strong> Lovable syncs its default branch. Don&#x27;t edit the same file in both tools at the same time, and don&#x27;t rename or move the repository after connecting. Node types shown: Action · AI step · Human step · Output.</figcaption></figure>
+<h3 id="m16-publish-and-custom-domain"><span class="hnum">16.5.6</span> Publish and custom domain</h3>
+<ol>
+<li>Click <strong>Publish</strong>. Check the app in a private browser window.</li>
+<li>On a paid plan: Settings → <strong>Domains</strong> → add your domain and follow the DNS steps shown.</li>
+<li>Re-publish after changes. The live site updates only when you publish.</li>
+</ol>
+<h2 id="m16-labs"><span class="hnum">16.6</span> Labs</h2>
+<div class="admonition example">
+<p class="admonition-title">Lab 1 · Landing page with waitlist (Free, 20 minutes)</p>
+<ol>
+<li>Prompt with the five-part template for a waitlist landing page.</li>
+<li>Make two improvements, one prompt each. Use Visual edits for one text change.</li>
+<li>Publish and open the link on your phone.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 2 · Clinic booking app with a database (40 minutes)</p>
+<ol>
+<li>Build the booking app with sample services.</li>
+<li>Chat mode: "How should we store bookings?" Then approve the plan.</li>
+<li>"Add a backend and save bookings to the database."</li>
+<li>Make three bookings, refresh, and confirm they are still there.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 3 · Login and row-level security (30 minutes)</p>
+<ol>
+<li>"Add email login. Patients see only their own bookings."</li>
+<li>"Turn on row-level security for bookings: owners read and edit their own; staff role reads all."</li>
+<li>Create two test accounts. Check account A cannot see B's bookings.</li>
+<li>Run the security check and fix anything it reports.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 4 · 'Ask us' AI assistant (Pro or API, 30 minutes)</p>
+<ol>
+<li>Add the clinic FAQ as a database table or Knowledge text.</li>
+<li>Store <code>ANTHROPIC_API_KEY</code> as a secret.</li>
+<li>Ask for the server function and chat button as described above.</li>
+<li>Test five normal questions and one it must refuse.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 5 · GitHub sync and Claude Code (30 minutes)</p>
+<ol>
+<li>Connect GitHub and let Lovable create the repository.</li>
+<li>Clone it and run Claude Code: "Write a README explaining how to run and deploy this app."</li>
+<li>Commit and push to main. Check the README appears in Lovable's code view.</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Lab 6 · Publish with a custom domain (paid, 20 minutes)</p>
+<ol>
+<li>Publish the app.</li>
+<li>Add your domain under Domains and follow the DNS instructions.</li>
+<li>Wait for the certificate, then test on mobile.</li>
+</ol>
+</div>
+<h2 id="m16-prompt-library"><span class="hnum">16.7</span> Prompt library</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Polish</td>
+<td>"Make this feel premium: consistent spacing, larger headings, subtle shadows, no new features."</td>
+</tr>
+<tr>
+<td>Empty and error states</td>
+<td>"Add empty, loading and error states to My bookings."</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td>"Check colour contrast and keyboard navigation; fix issues without changing the layout."</td>
+</tr>
+<tr>
+<td>Admin view</td>
+<td>"Add a staff-only page listing today's bookings with a status dropdown."</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>"Track button clicks for Book and Pay deposit; show counts on the admin page."</td>
+</tr>
+<tr>
+<td>Explain</td>
+<td>"In chat mode: explain how login works in this app, in plain language."</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m16-saving-credits"><span class="hnum">16.8</span> Saving credits</h2>
+<ul>
+<li>Plan in <strong>chat mode</strong>, then build once.</li>
+<li>Use <strong>Visual edits</strong> for small text, colour and spacing changes.</li>
+<li>One change per prompt, and be specific about the element.</li>
+<li>Restore a version instead of asking Lovable to "undo everything".</li>
+<li>Move heavy refactoring and documentation to <strong>Claude Code</strong> via GitHub.</li>
+</ul>
+<h2 id="m16-common-mistakes"><span class="hnum">16.9</span> Common mistakes</h2>
+<ul>
+<li><strong>Building everything in the first prompt</strong>: start small and add features one at a time.</li>
+<li><strong>No row-level security</strong>: test with two accounts before anyone real signs up.</li>
+<li><strong>API keys in prompts or code</strong>: always use secrets and server functions.</li>
+<li><strong>Publishing real data in a public free project</strong>: free projects are public.</li>
+<li><strong>Fighting the same bug for many credits</strong>: restore, simplify the request, and add a Knowledge rule.</li>
+</ul>
+<h2 id="m16-exercises-with-model-answers"><span class="hnum">16.10</span> Exercises with model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Write the first prompt</p>
+<p>Write a first Lovable prompt for an internal tool that tracks customer feedback by theme.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>"Build an internal feedback tracker for a SaaS product team (what and who). Pages: Feedback list with filters, Add feedback form, Themes view with counts, Feedback detail (pages). Clean, neutral, compact tables, desktop-first (look). Use 20 sample feedback items across 5 themes and 3 customer segments (data). No login, no integrations yet (not now)."</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · What's the security bug?</p>
+<p>A booking app shows "My bookings", but when you change the booking ID in the address bar you can open someone else's booking. What is missing and how do you fix it?</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p><strong>Row-level security</strong>, or the server check behind it. The app filters bookings in the page but the database still returns any row. Ask Lovable to enable RLS so users can only read rows where they are the owner, then retest with two accounts and the edited address.</p>
+</details>
+<h2 id="m16-key-takeaways"><span class="hnum">16.11</span> Key takeaways</h2>
+<ul>
+<li>Use the <strong>five-part first prompt</strong>, then change one thing at a time.</li>
+<li><strong>Chat mode</strong> to plan, <strong>agent mode</strong> to build, <strong>History</strong> to undo.</li>
+<li>Real apps need a <strong>backend, login and row-level security</strong>. Test with two accounts.</li>
+<li>Keep keys in <strong>secrets</strong> used by <strong>server functions</strong>.</li>
+<li><strong>GitHub sync</strong> lets you combine Lovable's speed with Claude Code's depth.</li>
+</ul>
+<h2 id="m16-check-your-understanding"><span class="hnum">16.12</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m16"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Which Lovable mode lets you discuss and plan without changing the code?</p><ol><li class="">Agent mode</li><li class="is-correct">Chat mode</li><li class="">Publish</li><li class="">Remix</li></ol><div class="why"><strong>Why:</strong> Chat mode plans and explains; agent mode makes changes.</div></div><div class="qitem" data-correct="1"><p class="q">What stops a logged-in user from reading other users&#x27; rows?</p><ol><li class="">A nicer login page</li><li class="is-correct">Row-level security rules</li><li class="">A custom domain</li><li class="">More credits</li></ol><div class="why"><strong>Why:</strong> RLS rules decide which rows each user can access.</div></div><div class="qitem" data-correct="2"><p class="q">Where should a Claude API key go in a Lovable app?</p><ol><li class="">In the chat prompt</li><li class="">In the React code</li><li class="is-correct">In a secret used by a server function</li><li class="">In the page title</li></ol><div class="why"><strong>Why:</strong> Secrets used only by server-side functions keep keys away from visitors.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m16-recommended-resources"><span class="hnum">16.13</span> Recommended resources</h2>
+<ul>
+<li><a href="https://docs.lovable.dev">Lovable docs</a> · <a href="https://lovable.dev/pricing">Lovable pricing</a></li>
+<li><a href="https://supabase.com/docs/guides/database/postgres/row-level-security">Supabase docs: row-level security</a></li>
+<li><a href="https://docs.stripe.com/testing">Stripe test cards</a></li>
+<li>Lovable's official YouTube channel and community Discord, for feature walkthroughs and launch-week tutorials</li>
+</ul><div class="modnav"><a href="m15.html"><small>← Previous</small>Module 15: Claude Code: Basic to Advanced</a><a href="m17.html"><small>Next →</small>Module 17: Replit and Other AI App Builders</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

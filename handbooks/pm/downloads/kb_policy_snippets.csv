@@ -1,0 +1,7 @@
+doc_id,title,effective_date,text
+POL-001,Blocking a lost or stolen card,2026-01-01,"Customers can temporarily block a card in the app under Cards > Block. A temporary block can be undone at any time. For stolen cards, request a permanent block and replacement."
+POL-002,Annual fee schedule,2026-04-01,"The Classic card has no annual fee. The Gold card annual fee is 2,500 per year and is waived if annual spend exceeds 2,00,000."
+POL-003,Disputing a transaction,2026-01-01,Customers should raise a dispute within 60 days of the statement date. Disputes are handled by the disputes team; the assistant must route these cases to a human agent.
+POL-004,Statement access,2026-01-01,Monthly statements are available in the app under Accounts > Statements for the last 24 months.
+POL-005,Financial hardship,2026-02-15,Customers who cannot make a payment should be offered a conversation with the hardship team. The assistant must not offer payment plans itself.
+POL-006,Reward points redemption,2026-03-01,Reward points can be redeemed for statement credit or vouchers under Rewards. Points expire 36 months after they are earned.

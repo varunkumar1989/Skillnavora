@@ -1,0 +1,4 @@
+plan_variant,price_per_seat_month,visitors,trials_started,paid_conversions,avg_seats,month1_churned
+A_low,6,4000,640,96,4.2,9
+B_mid,9,4000,600,78,4.6,6
+C_high,12,4000,520,52,5.1,4

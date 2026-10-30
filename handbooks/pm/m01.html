@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Module 1: Fundamentals of Product Management · Product Management Master Handbook</title>
+<script>try{var t=localStorage.getItem('pmh.theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<a href="#content" class="noprint" style="position:absolute;left:-999px" onfocus="this.style.left='8px'">Skip to content</a>
+<header class="topbar">
+  <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
+  <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
+  <a class="iconbtn" href="../../handbook/Module-01-Fundamentals.pdf">⬇ PDF</a>
+  <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
+</header>
+<div class="shell">
+<nav class="sidebar" id="sidebar" aria-label="Handbook navigation"><a href="index.html"><span>Learning dashboard</span></a>
+<a href="start.html"><span>Start here</span></a>
+<h5>Product Core modules</h5>
+<a href="m01.html" aria-current="page" data-mod-link="m01"><span class="num">1</span><span>Fundamentals of Product Management</span></a>
+<a href="m02.html" data-mod-link="m02"><span class="num">2</span><span>Product Strategy and Strategic Thinking</span></a>
+<a href="m03.html" data-mod-link="m03"><span class="num">3</span><span>Problem Discovery and Market Research</span></a>
+<a href="m04.html" data-mod-link="m04"><span class="num">4</span><span>Problem Framing and Prioritization</span></a>
+<a href="m05.html" data-mod-link="m05"><span class="num">5</span><span>UX and Design Collaboration</span></a>
+<a href="m06.html" data-mod-link="m06"><span class="num">6</span><span>Effective Communication and Stakeholder Management</span></a>
+<a href="m07.html" data-mod-link="m07"><span class="num">7</span><span>Product Analytics and Metrics</span></a>
+<a href="m08.html" data-mod-link="m08"><span class="num">8</span><span>Product Launch, Growth, and Monetization</span></a>
+<a href="m09.html" data-mod-link="m09"><span class="num">9</span><span>Tech 101 and System Design for PMs</span></a>
+<a href="m10.html" data-mod-link="m10"><span class="num">10</span><span>LLMs, RAGs, and AI Foundations</span></a>
+<a href="m11.html" data-mod-link="m11"><span class="num">11</span><span>Vibe Coding for Product Managers</span></a>
+<a href="m12.html" data-mod-link="m12"><span class="num">12</span><span>Agentic AI and AI Systems</span></a>
+<h5>AI Tools Lab</h5>
+<a href="m13.html" data-mod-link="m13"><span class="num">13</span><span>AI Tools Landscape and Your Starter Stack</span></a>
+<a href="m14.html" data-mod-link="m14"><span class="num">14</span><span>Claude for Daily PM Work: Basic to Advanced</span></a>
+<a href="m15.html" data-mod-link="m15"><span class="num">15</span><span>Claude Code: Basic to Advanced</span></a>
+<a href="m16.html" data-mod-link="m16"><span class="num">16</span><span>Lovable: Basic to Advanced</span></a>
+<a href="m17.html" data-mod-link="m17"><span class="num">17</span><span>Replit and Other AI App Builders</span></a>
+<a href="m18.html" data-mod-link="m18"><span class="num">18</span><span>Figma and AI Design Tools</span></a>
+<a href="m19.html" data-mod-link="m19"><span class="num">19</span><span>Notion, PRD Tools and AI Documentation</span></a>
+<a href="m20.html" data-mod-link="m20"><span class="num">20</span><span>Automation with Zapier, Make and n8n</span></a>
+<a href="m21.html" data-mod-link="m21"><span class="num">21</span><span>AI Chatbots for Business: WhatsApp, Slack and Web</span></a>
+<a href="m22.html" data-mod-link="m22"><span class="num">22</span><span>Voice Agents for Businesses</span></a>
+<a href="m23.html" data-mod-link="m23"><span class="num">23</span><span>Learning Paths, Courses and Communities</span></a>
+<h5>Libraries</h5>
+<a href="frameworks.html"><span>Framework Library</span></a>
+<a href="cases.html"><span>Case Study Library</span></a>
+<a href="projects.html"><span>Practical Projects &amp; Portfolio</span></a>
+<a href="interview.html"><span>Interview Handbook</span></a>
+<a href="templates.html"><span>Templates &amp; datasets</span></a>
+<a href="glossary.html"><span>Glossary</span></a>
+<a href="resources.html"><span>References &amp; resources</span></a>
+<a href="appendix.html"><span>Source coverage</span></a>
+<h5>Progress</h5><div style="padding:0 9px"><div class="progressbar"><i data-overall-bar></i></div><small class="mut" style="color:var(--muted)">Modules completed: <b data-overall>0 / 23</b></small><br><button class="iconbtn" style="margin-top:8px" data-reset-progress type="button">Reset progress</button></div>
+<div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
+</nav>
+<main class="main" id="content"><div class="article">
+<header class="page-head"><div class="kicker">Module 1</div><h1>Fundamentals of Product Management</h1><p>What a product is, what a PM actually does, how a PM thinks and decides, and how product work is organised.</p><div class="chips"><span class="chip">≈ 6 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 1, 2, 12, 20; Companion ch. 1; Extra topics 1, 11, 15</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m01" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m01-how-to-read-this-module">How to read this module</a></li><li><a href="#m01-what-is-a-product">What is a product?</a></li><li><a href="#m01-what-is-product-management">What is Product Management?</a></li><li><a href="#m01-how-a-pm-thinks-trade-offs-evidence-and-outcomes">How a PM thinks: trade-offs, evidence and outcomes</a></li><li><a href="#m01-pm-versus-adjacent-roles">PM versus adjacent roles</a></li><li><a href="#m01-pm-specialisations-and-career-paths">PM specialisations and career paths</a></li><li><a href="#m01-product-lifecycle-versus-product-development-lifecycle">Product lifecycle versus product development lifecycle</a></li><li><a href="#m01-product-operating-models">Product operating models</a></li><li><a href="#m01-vision-mission-and-strategy-overview">Vision, mission and strategy (overview)</a></li><li><a href="#m01-productmarket-fit">Product–market fit</a></li><li><a href="#m01-customer-value-versus-business-value">Customer value versus business value</a></li><li><a href="#m01-output-versus-outcome">Output versus outcome</a></li><li><a href="#m01-product-discovery-versus-product-delivery">Product discovery versus product delivery</a></li><li><a href="#m01-stakeholder-management-introduction">Stakeholder management (introduction)</a></li><li><a href="#m01-product-sense-and-product-thinking">Product sense and product thinking</a></li><li><a href="#m01-growth-model-and-customer-relationship-plg-versus-slg">Growth model and customer relationship: PLG versus SLG</a></li><li><a href="#m01-b2b-versus-b2c-product-management">B2B versus B2C product management</a></li><li><a href="#m01-platform-products-versus-feature-products">Platform products versus feature products</a></li><li><a href="#m01-common-product-management-mistakes">Common Product Management mistakes</a></li><li><a href="#m01-source-flagged-misconceptions-corrected">Source-flagged misconceptions (corrected)</a></li><li><a href="#m01-practice-and-model-answers">Practice and model answers</a></li><li><a href="#m01-interview-perspective">Interview perspective</a></li><li><a href="#m01-key-takeaways">Key takeaways</a></li><li><a href="#m01-check-your-understanding">Check your understanding</a></li><li><a href="#m01-recommended-resources">Recommended resources</a></li></ol></details><h2 id="m01-how-to-read-this-module"><span class="hnum">1.1</span> How to read this module</h2>
+<p>Each topic is taught at three depths. Look for the coloured boxes:</p>
+<div class="admonition level1">
+<p class="admonition-title">Level 1 · Beginner</p>
+<p>The idea in plain English, no jargon.</p>
+</div>
+<div class="admonition level2">
+<p class="admonition-title">Level 2 · Working PM</p>
+<p>How you use it in a sprint, a roadmap review or a stakeholder meeting.</p>
+</div>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Senior PM</p>
+<p>Strategy, organisational constraints, money and risk.</p>
+</div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes</p>
+<p>Content preserved from the 55-lecture study guide (page references in the module header). Where the guide itself flagged a lecture statement as inaccurate, the corrected version is taught here.</p>
+</div>
+<div class="admonition hypo">
+<p class="admonition-title">Hypothetical example</p>
+<p>Invented numbers for teaching. They are <strong>not</strong> real company data.</p>
+</div>
+<hr />
+<h2 id="m01-what-is-a-product"><span class="hnum">1.2</span> What is a product?</h2>
+<p>A <strong>product</strong> is anything a person or organisation uses to achieve a goal, delivered in a repeatable way. For a PM the useful definition is:</p>
+<blockquote>
+<p>A product is a bundle of <strong>value</strong> (the job it does for someone) and <strong>experience</strong> (how it feels to get that job done), sustained by a <strong>business model</strong> (why the organisation can afford to keep providing it).</p>
+</blockquote>
+<div class="admonition level1">
+<p class="admonition-title">Level 1 · Beginner</p>
+<p>A food-delivery app is a product. Its value is "I get lunch without cooking or leaving my desk." The experience is browsing, ordering, paying, tracking and receiving. The business model is the commission and fees the company earns. If any of the three is broken, the product fails: great value with a terrible experience loses customers; a lovely experience with no business model runs out of money.</p>
+</div>
+<p><strong>Kinds of product you will meet</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example (illustrative)</th>
+<th>What the PM mainly optimises</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consumer app</td>
+<td>A food-ordering or ride-hailing app</td>
+<td>Activation, repeat usage, trust</td>
+</tr>
+<tr>
+<td>B2B SaaS</td>
+<td>A team-collaboration or CRM tool</td>
+<td>Adoption inside accounts, renewals, expansion</td>
+</tr>
+<tr>
+<td>Marketplace</td>
+<td>Buyers and sellers, riders and drivers</td>
+<td>Liquidity: balanced supply and demand</td>
+</tr>
+<tr>
+<td>Platform / API</td>
+<td>A payments API used by other developers</td>
+<td>Developer experience, reliability, ecosystem</td>
+</tr>
+<tr>
+<td>Internal tool</td>
+<td>An operations dashboard</td>
+<td>Employee productivity, error reduction</td>
+</tr>
+<tr>
+<td>AI product</td>
+<td>A support assistant</td>
+<td>Answer quality, safety, cost per resolution</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="viz" role="img" aria-label="Diagram: A product is value + experience + business model"><svg viewBox="0 0 720 212" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="85.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="170.0" y="56.0" class="small b" text-anchor="middle"><tspan x="170.0" dy="0">Customer value (the job</tspan><tspan x="170.0" dy="12">done)</tspan></text><rect x="275.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="360.0" y="63.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Experience (how it feels)</tspan></text><rect x="465.0" y="30" width="170.0" height="58" rx="8" class="node"/><text x="550.0" y="56.0" class="small b" text-anchor="middle"><tspan x="550.0" dy="0">Business model (why it is</tspan><tspan x="550.0" dy="12">sustainable)</tspan></text><rect x="150.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="173.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Product the customer chooses, keeps using and pays for</tspan></text><path d="M170.0,88.0 C170.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,88.0 C360.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M550.0,88.0 C550.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>A product is value + experience + business model.</strong> Removing any one input produces a recognisable failure mode — useless but pretty, useful but painful, or loved but unprofitable.</figcaption></figure>
+<h2 id="m01-what-is-product-management"><span class="hnum">1.3</span> What is Product Management?</h2>
+<p><strong>Product management</strong> is the discipline of deciding <strong>which problems are worth solving, for whom, and how the team will know the solution worked</strong>, then guiding the team to deliver it. The PM does not “own” the product alone; they own the <em>clarity of the problem and the quality of the decisions</em>.</p>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 2)</p>
+<ul>
+<li>Products deliver value by solving user needs; a feature should trace back to a real need.</li>
+<li>PMs balance <strong>user needs, technical feasibility and business goals</strong>, and collaborate with designers, engineers and stakeholders. <em>This does not automatically give a PM formal authority over everyone.</em></li>
+<li>Specialisations differ by company: <strong>Technical PMs</strong> (platforms, infrastructure), <strong>Data PMs</strong>, <strong>Growth PMs</strong> (acquisition → revenue), <strong>Business PMs</strong>. An <strong>AI-enabled PM</strong> uses AI tools in their work; an <strong>AI PM</strong> manages a product whose functionality depends on AI. One person may do both.</li>
+<li>Product–market fit is not proven simply because a market exists or some demand exists.</li>
+</ul>
+</div>
+<h3 id="m01-the-three-circles-and-the-fourth-risk"><span class="hnum">1.3.1</span> The three circles — and the fourth risk</h3>
+<p>A good product sits where three things overlap: <strong>desirable</strong> (people want it), <strong>feasible</strong> (the team can build and run it) and <strong>viable</strong> (it works for the business). Marty Cagan frames the same idea as four risks a PM must retire before and during building: <strong>value</strong> risk, <strong>usability</strong> risk, <strong>feasibility</strong> risk and <strong>business-viability</strong> risk.</p>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Risk</th><th>Question it asks</th><th>Typical evidence</th><th>Main partner</th></tr></thead><tbody><tr><td>Value</td><td>Will anyone choose and use this?</td><td>Interviews, prototype tests, fake-door tests, retention</td><td>Users, design, data</td></tr><tr><td>Usability</td><td>Can they figure out how to use it?</td><td>Usability tests, task success rate, time-on-task</td><td>Design, research</td></tr><tr><td>Feasibility</td><td>Can we build and run it with our time, tech and skills?</td><td>Engineering spikes, architecture review, cost estimates</td><td>Engineering</td></tr><tr><td>Viability</td><td>Does it work for the business — legal, financial, brand, ops?</td><td>Unit economics, legal and compliance review, GTM readiness</td><td>Finance, legal, sales, ops</td></tr></tbody></table></div></div><figcaption><strong>The four product risks and who helps you retire them.</strong> Discovery work exists to retire these risks cheaply, before the expensive part (building) begins.</figcaption></figure>
+<h3 id="m01-what-a-pm-is-responsible-for"><span class="hnum">1.3.2</span> What a PM is responsible for</h3>
+<ol>
+<li><strong>Problem definition</strong> — who has the problem, how often, how painful, what they do today.</li>
+<li><strong>Strategy and focus</strong> — saying “not now” so the team works on the highest-value problem.</li>
+<li><strong>Discovery</strong> — talking to users, reading data, running cheap experiments.</li>
+<li><strong>Requirements and alignment</strong> — turning understanding into artefacts the team can build from (PRDs, user stories, acceptance criteria).</li>
+<li><strong>Delivery partnership</strong> — removing blockers, making scope trade-offs, protecting quality.</li>
+<li><strong>Launch and learning</strong> — go-to-market coordination, metrics, post-launch review.</li>
+<li><strong>Stakeholder communication</strong> — keeping leadership, sales, support, legal and operations informed.</li>
+</ol>
+<div class="admonition level2">
+<p class="admonition-title">Level 2 · Working PM</p>
+<p>On a typical week you might: review last week's funnel, run two customer calls, refine the next sprint's stories with an engineer, answer a sales request with data about why you won't build it this quarter, and update a one-page decision note. The through-line is <em>decisions made with evidence</em>, written down so others can challenge them.</p>
+</div>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Senior PM</p>
+<p>Seniority is less about more features owned and more about <strong>bigger ambiguity and cost of being wrong</strong>: choosing which market to enter, how to price, whether to build vs buy vs partner, how to sequence a multi-team programme, and how to say no to a powerful stakeholder without losing the relationship.</p>
+</div>
+<h2 id="m01-how-a-pm-thinks-trade-offs-evidence-and-outcomes"><span class="hnum">1.4</span> How a PM thinks: trade-offs, evidence and outcomes</h2>
+<p>PMs make decisions with incomplete information. Good ones follow a loop, not a gut feel:</p>
+<figure class="viz" role="img" aria-label="Process: Frame → Explore → Evaluate → Decide → Learn"><svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Frame</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Write the problem in</tspan><tspan x="68.0" dy="11">one sentence with</tspan><tspan x="68.0" dy="11">the affected user</tspan><tspan x="68.0" dy="11">and evidence</tspan></text><line x1="129.0" y1="56.0" x2="153.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Explore</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">Generate options,</tspan><tspan x="214.0" dy="11">including “do</tspan><tspan x="214.0" dy="11">nothing” and</tspan><tspan x="214.0" dy="11">non-software fixes</tspan></text><line x1="275.0" y1="56.0" x2="299.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Evaluate</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Compare value,</tspan><tspan x="360.0" dy="11">effort, risk,</tspan><tspan x="360.0" dy="11">strategic fit; name</tspan><tspan x="360.0" dy="11">assumptions</tspan></text><line x1="421.0" y1="56.0" x2="445.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Decide</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Pick, record why,</tspan><tspan x="506.0" dy="11">and set the metric</tspan><tspan x="506.0" dy="11">and review date</tspan></text><line x1="567.0" y1="56.0" x2="591.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Learn</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Ship small, measure,</tspan><tspan x="652.0" dy="11">then continue,</tspan><tspan x="652.0" dy="11">change or stop</tspan></text></svg><figcaption><strong>The PM decision loop.</strong> The loop repeats at every scale — a button label, a sprint, a quarterly bet. The step people skip most often is “Learn”.</figcaption></figure>
+<p><strong>Trade-offs you will make daily</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Tension</th>
+<th>Example</th>
+<th>Question to ask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed vs quality</td>
+<td>Ship a payment retry now or harden the flow first?</td>
+<td>What is the cost of a failure here — money, trust, regulation?</td>
+</tr>
+<tr>
+<td>Short-term vs long-term</td>
+<td>Quick revenue feature vs platform investment</td>
+<td>What does this make cheaper or harder next quarter?</td>
+</tr>
+<tr>
+<td>New users vs existing users</td>
+<td>Onboarding polish vs power-user requests</td>
+<td>Which segment drives the metric we are accountable for?</td>
+</tr>
+<tr>
+<td>Breadth vs depth</td>
+<td>Ten shallow integrations vs one excellent one</td>
+<td>Where do customers actually get stuck today?</td>
+</tr>
+<tr>
+<td>Customer ask vs customer need</td>
+<td>“Add an export button” vs “I need to share results with finance”</td>
+<td>What job is behind the request?</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition example">
+<p class="admonition-title">Worked example · reading a request as a problem</p>
+<p>A sales lead asks for “a PDF export on the dashboard.” The PM asks <em>what happens after the PDF is created?</em> and learns the customer pastes the numbers into a monthly slide for their boss. Options now include a scheduled email summary, a shareable link, or a PowerPoint export — each has a different cost and risk. The PM picked the problem (“managers need to share monthly numbers”), not the solution.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Interview perspective</p>
+<p>When asked “how do you make product decisions?”, describe the loop above, give one real example with a trade-off you explicitly named, and say what you would measure to know you were right. Interviewers listen for <em>evidence, trade-offs and learning</em>, not frameworks by name.</p>
+</div>
+<h2 id="m01-pm-versus-adjacent-roles"><span class="hnum">1.5</span> PM versus adjacent roles</h2>
+<p>Role boundaries differ by company. These are <strong>typical</strong> emphases, not rules; always ask “who makes the final call on X?” in a new team.</p>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Role</th><th>Core question</th><th>Typical outputs</th><th>Where it overlaps with PM</th><th>How they differ</th></tr></thead><tbody><tr><td>Product Manager</td><td>Which problem should we solve, for whom, and how will we know it worked?</td><td>Strategy, roadmap, PRD, success metrics</td><td>–</td><td>Owns the why and the outcome</td></tr><tr><td>Project Manager</td><td>How do we deliver this scope on time and within budget?</td><td>Plan, schedule, RAID log, status reports</td><td>Delivery coordination</td><td>Project is temporary with a fixed end; product is ongoing and judged on outcomes</td></tr><tr><td>Product Owner (Scrum)</td><td>What is at the top of the backlog and is it clear enough to build?</td><td>Ordered Product Backlog, acceptance criteria</td><td>Backlog and prioritisation</td><td>A Scrum accountability; in some firms the PM does it, in others a separate person with a narrower, delivery-facing scope</td></tr><tr><td>Business Analyst</td><td>What exactly does the business process need?</td><td>Process maps, requirements, UAT cases</td><td>Requirements detail</td><td>Deep on current-state process and rules; less on market and strategy</td></tr><tr><td>Product Designer</td><td>How should it work and feel for the user?</td><td>Flows, wireframes, prototypes, design system</td><td>Discovery and solution shaping</td><td>Owns the experience craft; PM owns the business and prioritisation context</td></tr><tr><td>Product Marketing Manager</td><td>How do we position, message and launch it?</td><td>Positioning, messaging, launch plan, sales enablement</td><td>Go-to-market</td><td>Owns market narrative and launch; PM owns the product</td></tr><tr><td>Engineering Manager</td><td>How do we build it sustainably with a healthy team?</td><td>Technical plan, staffing, quality, team health</td><td>Delivery and scope trade-offs</td><td>Owns people and technical execution; PM owns problem and priority</td></tr></tbody></table></div></div><figcaption><strong>PM compared with neighbouring roles (typical, not universal).</strong> Most real friction comes from unclear decision rights, not from the job titles. Agree who is Responsible, Accountable, Consulted and Informed for each type of decision.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 12)</p>
+<p>Product Managers, Product Owners and Business Analysts may divide discovery, requirements and prioritisation differently across companies. Product management focuses on <strong>value and outcomes</strong>; project and program management emphasise <strong>delivery coordination</strong> at different scopes. Exact responsibilities vary.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Common confusion</p>
+<p>“PM = Product Owner” is true in some teams and false in others. In Scrum, the Product Owner is <strong>one person</strong> accountable for maximising the value of the product and managing the Product Backlog. A PM may <em>be</em> that person, or may work above the team setting strategy while a PO handles day-to-day backlog detail.</p>
+</div>
+<h2 id="m01-pm-specialisations-and-career-paths"><span class="hnum">1.6</span> PM specialisations and career paths</h2>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 2)</p>
+<p>A possible progression is <strong>Associate PM → PM → Senior PM → Group PM / Director → VP Product → Chief Product Officer.</strong> Domain expertise, communication, analytical thinking and case-study practice can support a transition into PM. Career paths vary.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Specialisation</th>
+<th>Focus</th>
+<th>Typical metrics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Growth PM</td>
+<td>Acquisition, activation, retention, monetisation experiments</td>
+<td>Conversion, retention, CAC, LTV</td>
+</tr>
+<tr>
+<td>Technical / Platform PM</td>
+<td>APIs, infrastructure, developer tools</td>
+<td>Reliability, latency, API adoption, developer satisfaction</td>
+</tr>
+<tr>
+<td>Data PM</td>
+<td>Data products, pipelines, analytics tooling</td>
+<td>Data quality, adoption, time-to-insight</td>
+</tr>
+<tr>
+<td>Business / Strategy PM</td>
+<td>P&amp;L ownership, partnerships, pricing</td>
+<td>Revenue, margin, contribution</td>
+</tr>
+<tr>
+<td>AI PM</td>
+<td>Model-powered features, evaluation, safety</td>
+<td>Answer accuracy, cost per task, escalation rate</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m01-product-lifecycle-versus-product-development-lifecycle"><span class="hnum">1.7</span> Product lifecycle versus product development lifecycle</h2>
+<p>Two different lifecycles are easy to mix up.</p>
+<ul>
+<li><strong>Product Life Cycle (PLC)</strong> — how a product's <em>market life</em> evolves: <strong>introduction → growth → maturity → decline</strong>. It guides strategy: invest to find fit and acquire in introduction; scale and defend in growth; optimise margin and extend in maturity; decide to harvest, reinvent or retire in decline.</li>
+<li><strong>Product Development Lifecycle</strong> (often the <strong>SDLC</strong> for software) — how a <em>piece of work</em> moves from idea to release: <strong>discover → plan → design → build → test (QA/UAT) → release → learn</strong>.</li>
+</ul>
+<figure class="viz" role="img" aria-label="Process: Introduction → Growth → Maturity → Decline"><svg viewBox="0 0 720 132" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="94.25" y="28" class="b small" text-anchor="middle"><tspan x="94.25" dy="0">Introduction</tspan></text><text x="86.25" y="58" class="mut tiny" text-anchor="middle"><tspan x="86.25" dy="0">Prove value; small base;</tspan><tspan x="86.25" dy="11">high learning, low profit</tspan></text><line x1="165.5" y1="52.0" x2="189.5" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="192.5" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="208.5" cy="22" r="11" fill="var(--c1)"/><text x="208.5" y="26" class="on-fill b small" text-anchor="middle"><tspan x="208.5" dy="0">2</tspan></text><text x="276.75" y="28" class="b small" text-anchor="middle"><tspan x="276.75" dy="0">Growth</tspan></text><text x="268.75" y="58" class="mut tiny" text-anchor="middle"><tspan x="268.75" dy="0">Fit found; scale</tspan><tspan x="268.75" dy="11">acquisition and reliability</tspan></text><line x1="348.0" y1="52.0" x2="372.0" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="375.0" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="391.0" cy="22" r="11" fill="var(--c1)"/><text x="391.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="391.0" dy="0">3</tspan></text><text x="459.25" y="28" class="b small" text-anchor="middle"><tspan x="459.25" dy="0">Maturity</tspan></text><text x="451.25" y="58" class="mut tiny" text-anchor="middle"><tspan x="451.25" dy="0">Saturation; defend,</tspan><tspan x="451.25" dy="11">optimise margin, extend</tspan></text><line x1="530.5" y1="52.0" x2="554.5" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="557.5" y="6" width="152.5" height="92" rx="10" class="node"/><circle cx="573.5" cy="22" r="11" fill="var(--c1)"/><text x="573.5" y="26" class="on-fill b small" text-anchor="middle"><tspan x="573.5" dy="0">4</tspan></text><text x="641.75" y="28" class="b small" text-anchor="middle"><tspan x="641.75" dy="0">Decline</tspan></text><text x="633.75" y="58" class="mut tiny" text-anchor="middle"><tspan x="633.75" dy="0">Demand falls; harvest,</tspan><tspan x="633.75" dy="11">pivot or sunset</tspan></text></svg><figcaption><strong>Product Life Cycle (market view).</strong> Classic PLC is a model, not a law — good product management can renew a mature product (new segments, new jobs) before decline sets in.</figcaption></figure>
+<figure class="viz" role="img" aria-label="Process: Discover → Define → Design → Build &amp; test → Release → Learn"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Discover</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Problem, users, evidence</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Define</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Scope, requirements, success metric</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Design</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Flows, prototypes, tech approach</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Build &amp; test</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Develop, QA, UAT</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Release</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Rollout, monitoring, rollback plan</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Learn</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Measure, review, iterate</tspan></text></svg><figcaption><strong>Product development lifecycle (work view).</strong> In practice these overlap and repeat; the arrows show emphasis, not a one-way waterfall.</figcaption></figure>
+<h3 id="m01-waterfall-agile-scrum-kanban-safe-what-to-know-as-a-pm"><span class="hnum">1.7.1</span> Waterfall, Agile, Scrum, Kanban, SAFe — what to know as a PM</h3>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 12)</p>
+<ul>
+<li><strong>Waterfall</strong>: sequential phases; late changes are costly. <strong>Agile</strong>: iterative delivery and learning from feedback; the best choice depends on context.</li>
+<li><strong>Scrum</strong> organises work into <strong>sprints</strong>. <em>A sprint is at most one month; it does not have to be two weeks.</em> Scrum defines accountabilities, events and artefacts — read the official Scrum Guide.</li>
+<li><strong>Kanban</strong> manages and improves <em>flow</em>, including <strong>limiting work in progress (WIP)</strong> — it is not simply a mix of Scrum and XP.</li>
+<li><strong>SAFe</strong> coordinates work across many teams; <strong>XP</strong> emphasises engineering practices. Scrum and SAFe are not the only Agile approaches, and Agile existed well before the mid-2010s.</li>
+<li><strong>UAT</strong> checks whether the solution meets acceptance needs; it cannot guarantee zero production issues.</li>
+<li><strong>Definition of Ready</strong> (criteria a team may use before starting work) and <strong>Definition of Done</strong> (shared quality criteria for completed work) are different things.</li>
+</ul>
+</div>
+<figure class="viz table-fig"><div class="tablewrap"><div class="tablewrap"><table><thead><tr><th>Approach</th><th>Cadence</th><th>Best when</th><th>Watch out for</th></tr></thead><tbody><tr><td>Waterfall</td><td>Phases in sequence, one big release</td><td>Requirements are stable and well known; heavy compliance sign-offs</td><td>Late discovery of wrong assumptions</td></tr><tr><td>Scrum</td><td>Fixed-length sprints (≤ 1 month) with planning, review, retrospective</td><td>Product learning and frequent, inspectable increments</td><td>Ceremony without outcome focus; velocity treated as productivity</td></tr><tr><td>Kanban</td><td>Continuous flow with WIP limits</td><td>Support, maintenance, unpredictable arrivals</td><td>Never-ending board with no goals</td></tr><tr><td>SAFe / scaled</td><td>Planning increments across many teams</td><td>Large programmes needing coordinated dependencies</td><td>Process overhead; teams lose autonomy</td></tr><tr><td>Dual-track Agile</td><td>Discovery and delivery run in parallel</td><td>Product bets with high uncertainty</td><td>Discovery becoming a separate silo from delivery</td></tr></tbody></table></div></div><figcaption><strong>Delivery approaches at a glance.</strong> Pick the lightest process that gives you fast feedback and manageable risk. There is no universally best choice.</figcaption></figure>
+<div class="admonition level2">
+<p class="admonition-title">Level 2 · What you do in Scrum as a PM or PO</p>
+<p>You keep an <strong>ordered Product Backlog</strong>, write items so the team can ask good questions, attend <strong>Sprint Planning</strong> to propose a Sprint Goal, answer questions during the sprint, and use the <strong>Sprint Review</strong> to gather stakeholder feedback. You do not tell developers <em>how</em> to build it, and you do not treat story points as individual productivity.</p>
+</div>
+<h2 id="m01-product-operating-models"><span class="hnum">1.8</span> Product operating models</h2>
+<p>An <strong>operating model</strong> is how the organisation turns ideas into shipped product: who decides, how teams are formed, how funding and priorities flow.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>How it works</th>
+<th>Strengths</th>
+<th>Failure mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Project-based / feature factory</strong></td>
+<td>Business hands requirements to delivery; success = “shipped on time”</td>
+<td>Predictable scope and cost</td>
+<td>Output without outcome; teams don't own results</td>
+</tr>
+<tr>
+<td><strong>Product-based (project-to-product)</strong></td>
+<td>Long-lived teams own a product area and its metrics</td>
+<td>Continuity, learning, accountability</td>
+<td>Needs strong product leadership and trust</td>
+</tr>
+<tr>
+<td><strong>Empowered product teams</strong></td>
+<td>Teams get <strong>problems to solve with measurable outcomes</strong>, not solutions</td>
+<td>Faster learning, higher morale, better ideas</td>
+<td>Requires capable PM/design/engineering trio and clear strategy</td>
+</tr>
+<tr>
+<td><strong>Platform + feature teams</strong></td>
+<td>Platform team builds reusable capabilities; feature teams assemble them</td>
+<td>Reuse, consistency</td>
+<td>Platform becomes a bottleneck or builds what nobody uses</td>
+</tr>
+<tr>
+<td><strong>Matrix / functional</strong></td>
+<td>Reporting by function; work organised by project</td>
+<td>Deep craft</td>
+<td>Hand-offs, diluted ownership</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Senior PM</p>
+<p>Operating-model problems often masquerade as product problems. If every initiative arrives as a solution from the top and teams are measured on delivery, no amount of discovery skill will help. Senior PMs diagnose the model, then change <em>incentives and decision rights</em> — e.g., replacing a feature roadmap with outcome-based goals and quarterly reviews of learning.</p>
+</div>
+<h2 id="m01-vision-mission-and-strategy-overview"><span class="hnum">1.9</span> Vision, mission and strategy (overview)</h2>
+<ul>
+<li><strong>Mission</strong> — why the organisation exists and what it does.</li>
+<li><strong>Vision</strong> — the future you want to create for users.</li>
+<li><strong>Strategy</strong> — the <em>choices</em> about whom to serve, which problem to solve and how to win sustainably (including what <em>not</em> to do).</li>
+<li><strong>Roadmap</strong> — a communicated plan of outcomes and likely work over time; not a promise of dates.</li>
+</ul>
+<figure class="viz" role="img" aria-label="Diagram: From vision to outcome"><svg viewBox="0 0 720 542" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="150.0" y="30" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="63.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Vision</tspan></text><rect x="150.0" y="140" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="173.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Strategy (who, what problem, how we win)</tspan></text><rect x="150.0" y="250" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="283.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Goals / OKRs (measurable outcomes)</tspan></text><rect x="150.0" y="360" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="393.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Roadmap (themes, bets, sequence)</tspan></text><rect x="150.0" y="470" width="420.0" height="58" rx="8" class="node"/><text x="360.0" y="503.0" class="small b" text-anchor="middle"><tspan x="360.0" dy="0">Backlog and delivery</tspan></text><path d="M360.0,88.0 C360.0,112.5 360.0,112.5 360.0,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,198.0 C360.0,222.5 360.0,222.5 360.0,247.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,308.0 C360.0,332.5 360.0,332.5 360.0,357.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M360.0,418.0 C360.0,442.5 360.0,442.5 360.0,467.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>From vision to outcome.</strong> Each layer constrains the one below. If a backlog item cannot be traced upward to a goal, question it. Module 2 develops strategy in depth.</figcaption></figure>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 10, 13; Extra topic 1)</p>
+<p>A vision need not serve every person on earth, and it can evolve. A roadmap can be <strong>feature-based</strong> or <strong>goal-based</strong>; build it with engineering, design and stakeholders; treat it as an evolving plan, not a guarantee.</p>
+</div>
+<h2 id="m01-productmarket-fit"><span class="hnum">1.10</span> Product–market fit</h2>
+<p><strong>Product–market fit (PMF)</strong> means a product satisfies a real market need strongly enough that customers keep using, paying for and recommending it. Marc Andreessen's often-quoted framing is being “in a good market with a product that can satisfy that market.”</p>
+<p><strong>Signals of fit (use several, never one):</strong></p>
+<ul>
+<li>Retention curves that <strong>flatten</strong> rather than decay to zero (see Module 7).</li>
+<li>Growing share of new users arriving by word-of-mouth or referral.</li>
+<li>The <strong>“very disappointed” survey test</strong> (popularised by Sean Ellis): if roughly <strong>40%+</strong> of active users say they would be <em>very disappointed</em> if the product disappeared, that is a commonly used signal of fit. It is a heuristic, not a law.</li>
+<li>Customers pulling the product faster than you can serve it; sales cycles shortening.</li>
+<li>Unit economics that work at the margin (Module 7).</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Not evidence of fit</p>
+<p>A large TAM, a polished prototype, a high survey intent score, or “people said they'd use it.” The course notes make the same point: a survey preference is not proof of purchase, and picking the largest segment alone does not prove fit.</p>
+</div>
+<figure class="viz" role="img" aria-label="Line chart: Retention curves — fit versus no fit (hypothetical cohorts)"><svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><line x1="64" y1="268.0" x2="696" y2="268.0" class="grid"/><text x="56" y="272.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">0%</tspan></text><line x1="64" y1="206.0" x2="696" y2="206.0" class="grid"/><text x="56" y="210.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">25%</tspan></text><line x1="64" y1="144.0" x2="696" y2="144.0" class="grid"/><text x="56" y="148.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">50%</tspan></text><line x1="64" y1="82.0" x2="696" y2="82.0" class="grid"/><text x="56" y="86.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">75%</tspan></text><line x1="64" y1="20.0" x2="696" y2="20.0" class="grid"/><text x="56" y="24.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">100%</tspan></text><text x="64.0" y="286" class="small" text-anchor="middle"><tspan x="64.0" dy="0">W0</tspan></text><text x="154.28571428571428" y="286" class="small" text-anchor="middle"><tspan x="154.28571428571428" dy="0">W1</tspan></text><text x="244.57142857142856" y="286" class="small" text-anchor="middle"><tspan x="244.57142857142856" dy="0">W2</tspan></text><text x="334.85714285714283" y="286" class="small" text-anchor="middle"><tspan x="334.85714285714283" dy="0">W3</tspan></text><text x="425.1428571428571" y="286" class="small" text-anchor="middle"><tspan x="425.1428571428571" dy="0">W4</tspan></text><text x="515.4285714285714" y="286" class="small" text-anchor="middle"><tspan x="515.4285714285714" dy="0">W6</tspan></text><text x="605.7142857142857" y="286" class="small" text-anchor="middle"><tspan x="605.7142857142857" dy="0">W8</tspan></text><text x="696.0" y="286" class="small" text-anchor="middle"><tspan x="696.0" dy="0">W12</tspan></text><polyline points="64.0,20.0 154.3,153.9 244.6,183.7 334.9,196.1 425.1,201.0 515.4,203.5 605.7,206.0 696.0,206.0" fill="none" stroke="var(--c1)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="64.0" cy="20.0" r="3.5" fill="var(--c1)"/><circle cx="154.3" cy="153.9" r="3.5" fill="var(--c1)"/><circle cx="244.6" cy="183.7" r="3.5" fill="var(--c1)"/><circle cx="334.9" cy="196.1" r="3.5" fill="var(--c1)"/><circle cx="425.1" cy="201.0" r="3.5" fill="var(--c1)"/><circle cx="515.4" cy="203.5" r="3.5" fill="var(--c1)"/><circle cx="605.7" cy="206.0" r="3.5" fill="var(--c1)"/><circle cx="696.0" cy="206.0" r="3.5" fill="var(--c1)"/><text x="64.0" y="11.0" class="small b" text-anchor="middle"><tspan x="64.0" dy="0">100%</tspan></text><text x="154.28571428571428" y="144.92000000000002" class="small b" text-anchor="middle"><tspan x="154.28571428571428" dy="0">46%</tspan></text><text x="244.57142857142856" y="174.68" class="small b" text-anchor="middle"><tspan x="244.57142857142856" dy="0">34%</tspan></text><text x="334.85714285714283" y="187.07999999999998" class="small b" text-anchor="middle"><tspan x="334.85714285714283" dy="0">29%</tspan></text><text x="425.1428571428571" y="192.04000000000002" class="small b" text-anchor="middle"><tspan x="425.1428571428571" dy="0">27%</tspan></text><text x="515.4285714285714" y="194.51999999999998" class="small b" text-anchor="middle"><tspan x="515.4285714285714" dy="0">26%</tspan></text><text x="605.7142857142857" y="197.0" class="small b" text-anchor="middle"><tspan x="605.7142857142857" dy="0">25%</tspan></text><text x="696.0" y="197.0" class="small b" text-anchor="middle"><tspan x="696.0" dy="0">25%</tspan></text><polyline points="64.0,20.0 154.3,168.8 244.6,213.4 334.9,235.8 425.1,248.2 515.4,258.1 605.7,263.0 696.0,265.5" fill="none" stroke="var(--c2)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="64.0" cy="20.0" r="3.5" fill="var(--c2)"/><circle cx="154.3" cy="168.8" r="3.5" fill="var(--c2)"/><circle cx="244.6" cy="213.4" r="3.5" fill="var(--c2)"/><circle cx="334.9" cy="235.8" r="3.5" fill="var(--c2)"/><circle cx="425.1" cy="248.2" r="3.5" fill="var(--c2)"/><circle cx="515.4" cy="258.1" r="3.5" fill="var(--c2)"/><circle cx="605.7" cy="263.0" r="3.5" fill="var(--c2)"/><circle cx="696.0" cy="265.5" r="3.5" fill="var(--c2)"/><text x="64.0" y="37.0" class="small b" text-anchor="middle"><tspan x="64.0" dy="0">100%</tspan></text><text x="154.28571428571428" y="185.8" class="small b" text-anchor="middle"><tspan x="154.28571428571428" dy="0">40%</tspan></text><text x="244.57142857142856" y="230.44" class="small b" text-anchor="middle"><tspan x="244.57142857142856" dy="0">22%</tspan></text><text x="334.85714285714283" y="252.76" class="small b" text-anchor="middle"><tspan x="334.85714285714283" dy="0">13%</tspan></text><text x="425.1428571428571" y="265.15999999999997" class="small b" text-anchor="middle"><tspan x="425.1428571428571" dy="0">8%</tspan></text><text x="515.4285714285714" y="275.08" class="small b" text-anchor="middle"><tspan x="515.4285714285714" dy="0">4%</tspan></text><text x="605.7142857142857" y="280.04" class="small b" text-anchor="middle"><tspan x="605.7142857142857" dy="0">2%</tspan></text><text x="696.0" y="282.52" class="small b" text-anchor="middle"><tspan x="696.0" dy="0">1%</tspan></text><line x1="64" y1="268" x2="696" y2="268" class="axis"/><text x="14" y="144.0" class="mut small" text-anchor="middle" transform="rotate(-90 14 144.0)">% of cohort still active</text><rect x="64" y="316" width="10" height="10" rx="2" fill="var(--c1)"/><text x="78" y="325" class="small" text-anchor="start"><tspan x="78" dy="0">Cohort A: curve flattens (signal of fit)</tspan></text><rect x="354.0" y="316" width="10" height="10" rx="2" fill="var(--c2)"/><text x="368.0" y="325" class="small" text-anchor="start"><tspan x="368.0" dy="0">Cohort B: keeps decaying (no fit yet)</tspan></text></svg><figcaption><strong>Retention curves — fit versus no fit (hypothetical cohorts).</strong> Hypothetical illustration. A flattening curve means a core group finds lasting value; decay to near zero means the product is a trial, not a habit.</figcaption></figure>
+<h2 id="m01-customer-value-versus-business-value"><span class="hnum">1.11</span> Customer value versus business value</h2>
+<ul>
+<li><strong>Customer value</strong> — benefit the customer gets relative to what it costs them (money, time, effort, risk).</li>
+<li><strong>Business value</strong> — what the organisation gains: revenue, margin, retention, strategic position, cost savings, learning.</li>
+</ul>
+<p>Good products create value for customers <em>first</em>, then capture a fair share. Both must be positive or the product is not sustainable.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Customer value</th>
+<th>Business value</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clear fee display at checkout</td>
+<td>High (trust, fewer surprises)</td>
+<td>Medium–high (fewer abandons)</td>
+<td>Win–win</td>
+</tr>
+<tr>
+<td>Hidden fees revealed at the last step</td>
+<td>Negative</td>
+<td>Short-term gain, long-term trust loss</td>
+<td>Reject — exploits users</td>
+</tr>
+<tr>
+<td>Deep discount to win users</td>
+<td>High for now</td>
+<td>Negative contribution margin</td>
+<td>Only as a bounded experiment</td>
+</tr>
+<tr>
+<td>Heavy personalisation on sensitive data</td>
+<td>Possible</td>
+<td>Possible</td>
+<td>Gate by consent, privacy and regulation</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m01-output-versus-outcome"><span class="hnum">1.12</span> Output versus outcome</h2>
+<ul>
+<li><strong>Output</strong> — what the team produces: features shipped, tickets closed, story points.</li>
+<li><strong>Outcome</strong> — the change in user behaviour or business results that follows: higher checkout completion, fewer support contacts, better retention.</li>
+</ul>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Companion ch. 1, Extra topic 2)</p>
+<p>“A feature is something the team builds; an outcome is the change in user behaviour or business results. Neither a polished screen nor a shipped story alone proves value.” In OKR terms: if the release happens but completion does not improve, <strong>the initiative shipped but the key result has not been achieved.</strong></p>
+</div>
+<div class="admonition hypo">
+<p class="admonition-title">Hypothetical worked example · feature factory vs outcome focus</p>
+<p>A food-ordering team ships 12 features in a quarter. Checkout completion is <strong>70.0%</strong> before and <strong>70.4%</strong> after. Another team ships 3 changes: show the delivery fee early, add a retry for failed payments, remove one form field; completion rises from 70.0% to 76.0% and complaints do not increase.</p>
+<p>Output: Team A 12, Team B 3. Outcome: Team A +0.4 pts, Team B +6.0 pts. The relevant question is not “how much did we build?” but “what changed for users and the business?”</p>
+</div>
+<figure class="viz" role="img" aria-label="Bar chart: Output (hypothetical quarter)"><svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><line x1="64" y1="270.0" x2="700" y2="270.0" class="grid"/><text x="56" y="274.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">0</tspan></text><line x1="64" y1="207.5" x2="700" y2="207.5" class="grid"/><text x="56" y="211.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">5</tspan></text><line x1="64" y1="145.0" x2="700" y2="145.0" class="grid"/><text x="56" y="149.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">10</tspan></text><line x1="64" y1="82.5" x2="700" y2="82.5" class="grid"/><text x="56" y="86.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">15</tspan></text><line x1="64" y1="20.0" x2="700" y2="20.0" class="grid"/><text x="56" y="24.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">20</tspan></text><rect x="200.0" y="120.0" width="43.0" height="150.0" rx="3" fill="var(--c1)"/><text x="221.5" y="115.0" class="small b" text-anchor="middle"><tspan x="221.5" dy="0">12</tspan></text><text x="223.0" y="288" class="small" text-anchor="middle"><tspan x="223.0" dy="0">Team A</tspan></text><rect x="518.0" y="232.5" width="43.0" height="37.5" rx="3" fill="var(--c1)"/><text x="539.5" y="227.5" class="small b" text-anchor="middle"><tspan x="539.5" dy="0">3</tspan></text><text x="541.0" y="288" class="small" text-anchor="middle"><tspan x="541.0" dy="0">Team B</tspan></text><line x1="64" y1="270" x2="700" y2="270" class="axis"/><text x="14" y="145.0" class="mut small" text-anchor="middle" transform="rotate(-90 14 145.0)">features shipped</text></svg><figcaption><strong>Output (hypothetical quarter).</strong> Team A shipped four times as many features.</figcaption></figure>
+<figure class="viz" role="img" aria-label="Bar chart: Outcome (same hypothetical quarter)"><svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><line x1="64" y1="270.0" x2="700" y2="270.0" class="grid"/><text x="56" y="274.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">0</tspan></text><line x1="64" y1="207.5" x2="700" y2="207.5" class="grid"/><text x="56" y="211.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">2.5</tspan></text><line x1="64" y1="145.0" x2="700" y2="145.0" class="grid"/><text x="56" y="149.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">5</tspan></text><line x1="64" y1="82.5" x2="700" y2="82.5" class="grid"/><text x="56" y="86.5" class="mut small" text-anchor="end"><tspan x="56" dy="0">7.5</tspan></text><line x1="64" y1="20.0" x2="700" y2="20.0" class="grid"/><text x="56" y="24.0" class="mut small" text-anchor="end"><tspan x="56" dy="0">10</tspan></text><rect x="200.0" y="260.0" width="43.0" height="10.0" rx="3" fill="var(--c1)"/><text x="221.5" y="255.0" class="small b" text-anchor="middle"><tspan x="221.5" dy="0">0.4</tspan></text><text x="223.0" y="288" class="small" text-anchor="middle"><tspan x="223.0" dy="0">Team A</tspan></text><rect x="518.0" y="120.0" width="43.0" height="150.0" rx="3" fill="var(--c1)"/><text x="539.5" y="115.0" class="small b" text-anchor="middle"><tspan x="539.5" dy="0">6</tspan></text><text x="541.0" y="288" class="small" text-anchor="middle"><tspan x="541.0" dy="0">Team B</tspan></text><line x1="64" y1="270" x2="700" y2="270" class="axis"/><text x="14" y="145.0" class="mut small" text-anchor="middle" transform="rotate(-90 14 145.0)">percentage points</text></svg><figcaption><strong>Outcome (same hypothetical quarter).</strong> Team B moved the metric 15× more with a quarter of the output. Output and outcome answer different questions.</figcaption></figure>
+<div class="admonition level3">
+<p class="admonition-title">Level 3 · Why leaders care</p>
+<p>Outputs are cheap to count and easy to inflate; outcomes are what pay for the organisation. Senior PMs translate roadmaps into <strong>outcome language</strong> for executives: “reduce failed payments by 30% this quarter,” not “build payment retry screen.” They also protect against Goodhart's law — when a metric becomes a target it stops being a good metric — by pairing each outcome with guardrails.</p>
+</div>
+<h2 id="m01-product-discovery-versus-product-delivery"><span class="hnum">1.13</span> Product discovery versus product delivery</h2>
+<ul>
+<li><strong>Discovery</strong> — deciding <em>what</em> to build: understanding the problem, testing value and usability, estimating feasibility and viability.</li>
+<li><strong>Delivery</strong> — building, testing and releasing it reliably.</li>
+</ul>
+<p>In <strong>dual-track</strong> teams both happen continuously: discovery de-risks the next items while delivery builds the current ones.</p>
+<figure class="viz" role="img" aria-label="Diagram: Dual-track product work"><svg viewBox="0 0 720 212" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><text x="4" y="63.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Discovery</tspan></text><rect x="130.0" y="30" width="123.0" height="58" rx="8" class="node"/><text x="191.5" y="63.0" class="small b" text-anchor="middle"><tspan x="191.5" dy="0">Interview users</tspan></text><rect x="273.0" y="30" width="123.0" height="58" rx="8" class="node"/><text x="334.5" y="63.0" class="small b" text-anchor="middle"><tspan x="334.5" dy="0">Prototype and test</tspan></text><rect x="416.0" y="30" width="123.0" height="58" rx="8" class="node"/><text x="477.5" y="63.0" class="small b" text-anchor="middle"><tspan x="477.5" dy="0">Validate with data</tspan></text><rect x="559.0" y="30" width="123.0" height="58" rx="8" class="node"/><text x="620.5" y="56.0" class="small b" text-anchor="middle"><tspan x="620.5" dy="0">Decide what to</tspan><tspan x="620.5" dy="12">build</tspan></text><text x="4" y="173.0" class="small b mut" text-anchor="start"><tspan x="4" dy="0">Delivery</tspan></text><rect x="130.0" y="140" width="123.0" height="58" rx="8" class="node"/><text x="191.5" y="173.0" class="small b" text-anchor="middle"><tspan x="191.5" dy="0">Refine stories</tspan></text><rect x="273.0" y="140" width="123.0" height="58" rx="8" class="node"/><text x="334.5" y="173.0" class="small b" text-anchor="middle"><tspan x="334.5" dy="0">Build and test</tspan></text><rect x="416.0" y="140" width="123.0" height="58" rx="8" class="node"/><text x="477.5" y="166.0" class="small b" text-anchor="middle"><tspan x="477.5" dy="0">Release behind a</tspan><tspan x="477.5" dy="12">flag</tspan></text><rect x="559.0" y="140" width="123.0" height="58" rx="8" class="node"/><text x="620.5" y="173.0" class="small b" text-anchor="middle"><tspan x="620.5" dy="0">Measure outcome</tspan></text><path d="M620.5,88.0 C620.5,112.5 191.5,112.5 191.5,137.0" class="edge" fill="none" marker-end="url(#ah2)"/><path d="M682.0,169.0 L704.0,169.0 L704.0,16.0 L191.5,16.0 L191.5,27.0" class="edge" fill="none" marker-end="url(#ah2)"/></svg><figcaption><strong>Dual-track product work.</strong> Learning from delivery (the metric) feeds the next round of discovery; discovery decisions feed the delivery backlog.</figcaption></figure>
+<div class="admonition tip">
+<p class="admonition-title">When not to over-discover</p>
+<p>If a change is small, reversible and cheap (a label, a default), just ship it behind a flag and measure. Reserve heavy discovery for costly, hard-to-reverse bets.</p>
+</div>
+<h2 id="m01-stakeholder-management-introduction"><span class="hnum">1.14</span> Stakeholder management (introduction)</h2>
+<p>A <strong>stakeholder</strong> is anyone affected by or able to affect the product: leadership, sales, support, legal, compliance, finance, operations, partners, and users.</p>
+<p>Four habits cover most of it:</p>
+<ol>
+<li><strong>Map them</strong> — who has <em>influence</em> and who has <em>interest</em>? (Module 6 covers the power–interest grid.)</li>
+<li><strong>Align on the goal first</strong> — agree the outcome before debating solutions.</li>
+<li><strong>Make trade-offs visible</strong> — one page: options, cost, benefit, risk, recommendation.</li>
+<li><strong>Close the loop</strong> — record the decision, the owner and a review date.</li>
+</ol>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Extra topic 11)</p>
+<p>A large customer wants an export this week while the team is fixing payment failures. Compare user impact, revenue risk, urgency, engineering effort and operational risk; present a time-limited workaround or staged plan; record who decided and when to revisit.</p>
+</div>
+<h2 id="m01-product-sense-and-product-thinking"><span class="hnum">1.15</span> Product sense and product thinking</h2>
+<p><strong>Product sense</strong> is the ability to quickly see a product through the user's eyes and the business's, spot what matters, and propose sensible improvements. <strong>Product thinking</strong> is the habit of starting from the user problem and outcome rather than from a feature or technology.</p>
+<p>Build it deliberately:</p>
+<ul>
+<li><strong>Critique products you use</strong>, writing: who is it for, what job, what works, what frustrates, what would you test, what could go wrong.</li>
+<li><strong>Watch real people</strong> use something — your own app or someone else's.</li>
+<li><strong>Read teardowns and case studies</strong>, then predict the metric they would have moved.</li>
+<li><strong>Practise estimation</strong> and metric reasoning (Modules 3 and 7).</li>
+</ul>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lectures 4, 19)</p>
+<p>A critique should explain <strong>the user, the task, the difficulty and the expected benefit</strong> — not “the app is bad.” Separate <strong>observations from assumptions</strong>; an outsider can't know a company's internal data or reasons.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked example · a 90-second product critique (illustrative)</p>
+<p><strong>Product:</strong> a grocery-delivery app. <strong>User:</strong> a busy parent ordering weekly staples. <strong>Job:</strong> “Restock the kitchen without a store trip.” <strong>Works:</strong> saved baskets make repeat orders fast. <strong>Pain:</strong> delivery fee and minimum basket value are discovered late. <strong>Hypothesis:</strong> showing the fee and “add ₹X to avoid fee” in the cart reduces abandonment without hurting order value. <strong>Metric:</strong> checkout completion; <strong>guardrail:</strong> complaints and refund rate. <strong>Risk:</strong> the fee varies by distance — show an honest estimate or say “unavailable”, never an invented number.</p>
+</div>
+<h2 id="m01-growth-model-and-customer-relationship-plg-versus-slg"><span class="hnum">1.16</span> Growth model and customer relationship: PLG versus SLG</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Product-led growth (PLG)</strong></th>
+<th><strong>Sales-led growth (SLG)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main acquisition engine</td>
+<td>The product itself: self-serve sign-up, free tier or trial, virality</td>
+<td>Sales team: outbound, demos, negotiation</td>
+</tr>
+<tr>
+<td>Typical buyer experience</td>
+<td>Try → get value → upgrade</td>
+<td>Talk to sales → proof of concept → contract</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Lower price points, easy individual adoption, bottom-up spread</td>
+<td>High price/complex purchases, long procurement, heavy integration</td>
+</tr>
+<tr>
+<td>PM focus</td>
+<td>Activation, time-to-value, in-product conversion</td>
+<td>Enterprise features, security/compliance, integrations, sales enablement</td>
+</tr>
+<tr>
+<td>Key metrics</td>
+<td>Activation rate, free→paid conversion, expansion</td>
+<td>Win rate, sales cycle, ACV, net revenue retention</td>
+</tr>
+<tr>
+<td>Risk</td>
+<td>Big deals need sales-assist</td>
+<td>Product neglected in favour of custom asks</td>
+</tr>
+</tbody>
+</table></div>
+<p>Most mature B2B companies blend the two (“product-led, sales-assisted”). Module 8 develops growth loops and PLG in detail.</p>
+<h2 id="m01-b2b-versus-b2c-product-management"><span class="hnum">1.17</span> B2B versus B2C product management</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>B2C</th>
+<th>B2B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buyer vs user</td>
+<td>Usually the same person (sometimes different — e.g., a parent buys, a child uses)</td>
+<td>Often different: buyer, admin, end-user, and approver</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Large, fast feedback and statistical A/B tests</td>
+<td>Fewer customers; qualitative depth matters more</td>
+</tr>
+<tr>
+<td>Success metrics</td>
+<td>Activation, retention, engagement, ARPU</td>
+<td>Adoption within accounts, renewal, expansion, NRR</td>
+</tr>
+<tr>
+<td>Sales cycle</td>
+<td>Minutes to days</td>
+<td>Weeks to months</td>
+</tr>
+<tr>
+<td>Risk of customisation</td>
+<td>Low</td>
+<td>High — one large customer can steer the roadmap</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>Privacy, consumer protection</td>
+<td>Security reviews, SLAs, contracts, data residency</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition source">
+<p class="admonition-title">From your course notes (Lecture 20)</p>
+<p>For B2B, the <strong>buyer and the actual end-user may be different people</strong> — test with both.</p>
+</div>
+<h2 id="m01-platform-products-versus-feature-products"><span class="hnum">1.18</span> Platform products versus feature products</h2>
+<ul>
+<li>A <strong>feature product</strong> solves a bounded job for end-users (a scheduling app).</li>
+<li>A <strong>platform</strong> provides capabilities others build on (payments API, identity service, internal developer platform). Its customers are often <em>developers or other teams</em>.</li>
+</ul>
+<p>Platform PMs optimise <strong>developer experience</strong> (clear docs, fast integration, stable APIs, predictable pricing), <strong>reliability</strong> and <strong>ecosystem growth</strong>, and must manage <strong>backwards compatibility</strong> — breaking an API breaks someone else's product.</p>
+<div class="admonition warning">
+<p class="admonition-title">Platform trap</p>
+<p>Building a platform before you have two or three real consumers usually produces abstractions nobody wants. Prove the use case with a feature first, then generalise.</p>
+</div>
+<h2 id="m01-common-product-management-mistakes"><span class="hnum">1.19</span> Common Product Management mistakes</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Why it hurts</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Starting with a solution</td>
+<td>You optimise the wrong thing</td>
+<td>Write the problem statement and evidence first</td>
+</tr>
+<tr>
+<td>Confusing activity with progress</td>
+<td>Shipping ≠ impact</td>
+<td>Define the outcome metric before building</td>
+</tr>
+<tr>
+<td>Treating stakeholder requests as requirements</td>
+<td>Roadmap becomes a request queue</td>
+<td>Ask for the underlying job; show trade-offs</td>
+</tr>
+<tr>
+<td>Skipping discovery because “we know our users”</td>
+<td>Confirmation bias</td>
+<td>Do 5–8 interviews; watch behaviour</td>
+</tr>
+<tr>
+<td>Over-relying on data (or on gut)</td>
+<td>Blind spots either way</td>
+<td>Combine quantitative “what” with qualitative “why”</td>
+</tr>
+<tr>
+<td>Vague success metrics</td>
+<td>Can't tell if you won</td>
+<td>Define numerator, denominator, period, guardrails</td>
+</tr>
+<tr>
+<td>Too many priorities</td>
+<td>Nothing ships well</td>
+<td>Limit WIP; make “not now” explicit</td>
+</tr>
+<tr>
+<td>Weak relationships with engineering/design</td>
+<td>Surprises, rework</td>
+<td>Involve them early; ask for estimates and risks, don't dictate dates</td>
+</tr>
+<tr>
+<td>No post-launch review</td>
+<td>No learning</td>
+<td>Schedule a review before launch</td>
+</tr>
+<tr>
+<td>Inventing numbers</td>
+<td>Loses credibility</td>
+<td>Label assumptions; say “not measured” when true</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition warning">
+<p class="admonition-title">Integrity note from your course</p>
+<p>The guide repeatedly flags that candidates should <strong>not misrepresent job titles, invent metrics or claim work they did not do</strong>. Present course or personal projects as such, label assumptions, and say plainly when you did not measure a result. This is both ethical and practical: interviewers probe.</p>
+</div>
+<h2 id="m01-source-flagged-misconceptions-corrected"><span class="hnum">1.20</span> Source-flagged misconceptions (corrected)</h2>
+<ul>
+<li>A <strong>sprint is ≤ 1 month</strong> — not necessarily two weeks.</li>
+<li><strong>MVP ≠ prototype ≠ public launch.</strong> An MVP is the smallest useful version or <em>experiment</em> that teaches you something important; it must still be safe and fit its test.</li>
+<li><strong>Kanban is flow management with WIP limits,</strong> not a Scrum–XP hybrid.</li>
+<li><strong>A focus group is a moderated research discussion,</strong> not another name for a target audience.</li>
+<li><strong>There is no universal rule</strong> that every product has two or three personas.</li>
+<li>A <strong>unicorn</strong> is a private company valued at ≥ US$1 billion, not one with $1 billion revenue.</li>
+<li><strong>Product–market fit is not proven</strong> by market size alone.</li>
+</ul>
+<h2 id="m01-practice-and-model-answers"><span class="hnum">1.21</span> Practice and model answers</h2>
+<div class="admonition question">
+<p class="admonition-title">Exercise 1 · Role clarity</p>
+<p>Your company has a Product Owner, a Project Manager and you (PM). A VP asks for a new report “by end of next month.” Write who should decide (a) whether the report is worth building, (b) the scope for the first release, (c) the delivery plan and dates.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>(a) <strong>PM</strong> with the VP: this is a value/priority decision tied to outcomes. (b) <strong>PM/Product Owner</strong> with design and engineering: scope is a trade-off between value and effort. (c) <strong>Project Manager</strong> with engineering: schedule, dependencies, risks. The PM stays involved by monitoring scope trade-offs. State the assumption that these decision rights are typical, and confirm them with the team.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 2 · Turn an output into an outcome</p>
+<p>“Build a chatbot for support” is on the roadmap. Rewrite it as an outcome with a metric, a baseline and a guardrail.</p>
+</div>
+<details class="answer">
+<summary>Model answer</summary>
+<p>Outcome: “Resolve common order-status questions without agent contact.” Metric: <em>self-service resolution rate</em> for order-status queries, baseline 35% (assumption — must be measured), target 55% in one quarter. Guardrails: customer satisfaction of bot-handled chats ≥ baseline; escalation-to-human success; incorrect-answer rate from sampled review.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Exercise 3 · Critique in 90 seconds</p>
+<p>Pick an app you use daily. Using the structure <em>user → job → what works → pain → hypothesis → metric → guardrail → risk</em>, write a critique in under 150 words.</p>
+</div>
+<details class="answer">
+<summary>Model answer outline</summary>
+<p>Any app works; assess your answer against the structure above and the Level-1 test: could a non-expert understand the user and the problem? Did you separate observation from assumption? Did you include a guardrail?</p>
+</details>
+<h2 id="m01-interview-perspective"><span class="hnum">1.22</span> Interview perspective</h2>
+<details class="question">
+<summary>“What does a Product Manager do?” — 60-second answer</summary>
+<p>“A PM decides which problems are worth solving for which users, and defines how we'll know the solution worked. Day to day I talk to users and look at data to understand the problem, work with design and engineering to shape and deliver a solution, and align stakeholders on trade-offs. I'm accountable for outcomes — for example, improving checkout completion — not just for shipping features. I try to make decisions with evidence, write them down, and review results afterwards.”</p>
+</details>
+<details class="question">
+<summary>“How is a PM different from a Project Manager or Product Owner?”</summary>
+<p><em>What the interviewer tests:</em> role clarity and humility about variation. <em>Structure:</em> define each by core question; note overlap; give a team example. <em>Answer:</em> “A project manager owns delivery of a defined scope on a timeline; a PM owns the problem, the outcome and the priority. A Scrum Product Owner manages the Product Backlog and its value for a team; in some companies the PM does that too. In my last team I treated the roles as decision rights: I'd confirm who decides scope, who decides dates, and who decides priority.” <em>Mistake to avoid:</em> claiming PMs “manage” engineers or that titles mean the same everywhere.</p>
+</details>
+<h2 id="m01-key-takeaways"><span class="hnum">1.23</span> Key takeaways</h2>
+<ul>
+<li>A product is <strong>value + experience + business model</strong>.</li>
+<li>A PM's job is to <strong>choose and clarify the problem</strong> and be accountable for the <strong>outcome</strong>, working through influence, not authority.</li>
+<li>Retire the <strong>four risks</strong> — value, usability, feasibility, viability — as cheaply as possible.</li>
+<li><strong>Output ≠ outcome.</strong> Define the metric and guardrails before building.</li>
+<li><strong>Discovery and delivery</strong> run together in good teams.</li>
+<li>Role names vary; <strong>decision rights</strong> are what matter.</li>
+<li>Be honest: label assumptions and don't invent results.</li>
+</ul>
+<h2 id="m01-check-your-understanding"><span class="hnum">1.24</span> Check your understanding</h2>
+<div class="quiz" data-quiz="m01"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">A team ships 12 features but checkout completion barely moves. Which statement is most accurate?</p><ol><li class="">They did great work because output was high.</li><li class="is-correct">They produced high output but low outcome.</li><li class="">Checkout completion is not a valid metric.</li><li class="">They should ship more features.</li></ol><div class="why"><strong>Why:</strong> Output counts what was built; outcome measures the change in user or business results. High output with flat outcome is the feature-factory pattern.</div></div><div class="qitem" data-correct="1"><p class="q">In Scrum, how long can a sprint be?</p><ol><li class="">Exactly two weeks</li><li class="is-correct">At most one month</li><li class="">At least one month</li><li class="">Any length, including quarterly</li></ol><div class="why"><strong>Why:</strong> The Scrum Guide sets sprints at one month or less; two weeks is a common choice, not a rule.</div></div><div class="qitem" data-correct="2"><p class="q">Which is NOT strong evidence of product–market fit?</p><ol><li class="">Retention curves that flatten</li><li class="">Rising organic referrals</li><li class="is-correct">A very large estimated TAM</li><li class="">Many users saying they&#x27;d be very disappointed to lose the product</li></ol><div class="why"><strong>Why:</strong> Market size says there could be demand; fit requires evidence that real customers keep using and valuing the product.</div></div><div class="qitem" data-correct="1"><p class="q">Which risk does a usability test mainly reduce?</p><ol><li class="">Value risk</li><li class="is-correct">Usability risk</li><li class="">Feasibility risk</li><li class="">Viability risk</li></ol><div class="why"><strong>Why:</strong> Usability tests check whether users can figure out how to use the solution. Value, feasibility and viability need other evidence.</div></div><div class="qitem" data-correct="2"><p class="q">A sales lead asks for a PDF export. What should the PM do first?</p><ol><li class="">Add it to the sprint</li><li class="">Refuse the request</li><li class="is-correct">Ask what the customer does with it and what outcome they need</li><li class="">Ask engineering for a date</li></ol><div class="why"><strong>Why:</strong> Requests are solutions; the underlying job determines the best option and the cost-benefit.</div></div><div class="qitem" data-correct="2"><p class="q">Which model most strongly encourages empowered teams?</p><ol><li class="">Feature factory</li><li class="">Project-based delivery with fixed scope</li><li class="is-correct">Teams assigned problems and outcomes</li><li class="">Waterfall</li></ol><div class="why"><strong>Why:</strong> Empowered teams are given problems to solve and measurable outcomes, not a list of solutions.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
+<h2 id="m01-recommended-resources"><span class="hnum">1.25</span> Recommended resources</h2>
+<ul>
+<li><a href="https://scrumguides.org/scrum-guide.html">The Scrum Guide</a> — official rules for Scrum.</li>
+<li><a href="https://www.atlassian.com/agile/product-management">Atlassian: Product management</a> — practical overviews (from your course reference list).</li>
+<li><a href="https://www.svpg.com/articles/">Silicon Valley Product Group articles</a> — Marty Cagan on empowered teams and the four risks.</li>
+<li><a href="https://www.producttalk.org/">Product Talk (Teresa Torres)</a> — continuous discovery habits.</li>
+<li><a href="https://www.lennysnewsletter.com/">Lenny's Newsletter</a> — practitioner essays and PM career guidance.</li>
+</ul><div class="modnav"><span></span><a href="m02.html"><small>Next →</small>Module 2: Product Strategy and Strategic Thinking</a></div>
+</div></main>
+</div>
+<button class="iconbtn totop" id="toTop" type="button" aria-label="Back to top">↑ Top</button>
+<script src="assets/search-index.js"></script>
+<script src="assets/app.js"></script>
+</body></html>
