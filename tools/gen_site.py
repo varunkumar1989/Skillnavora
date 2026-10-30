@@ -21,6 +21,7 @@ UPSKILL = [("quiz.html", "Quiz zone", "Test yourself with quick quizzes", '<circ
            ("events.html", "Events", "Free live sessions, workshops and masterclasses", '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'),
            ("", "Resources & AI tools", "", ""),
            ("resources.html", "Resources & AI tools", "All handbooks, PDFs, AI tools and useful links in four tabs", '<path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/>'),
+           ("tools.html", "Tool tutorials", "Every tool in our programs: free tutorial, official site and our lesson", '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>'),
            ("handbooks/index.html", "SkillNavora Handbooks", "Data Science, Tableau, GenAI, DSA and PM handbooks with every PDF", '<path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/>'),
            ("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>'),
            ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>'),
@@ -172,7 +173,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
 {'<a class="callfab" id="callfab" hidden aria-label="Call us" title="Call us"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>' if wa else ''}{f'<a class="wa" id="wa" hidden target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span>{WA}</span><em class="t">Chat on WhatsApp</em></a>' if wa else ''}
 {MODALS_HTML.replace('{r}', r) if not app else ''}
 <script src="{r}assets/config.js"></script>
-<script src="{r}assets/site.js"></script>{scripts.replace('{r}', r)}{'' if app else f'<script src="{r}assets/engage.js"></script><script src="{r}assets/gate.js"></script>'}
+<script src="{r}assets/site.js"></script>{scripts.replace('{r}', r)}{f'<script src="{r}assets/gate.js"></script>' if app else f'<script src="{r}assets/engage.js"></script><script src="{r}assets/gate.js"></script>'}
 </body>
 </html>
 """
@@ -390,7 +391,7 @@ PROG_HB = {
                     [("Open the Data Science & AI handbook", "../data-science/index.html"), ("DSA handbook (interactive) ↗", ART + "#dsa"), ("All SkillNavora handbooks", "../handbooks/index.html"),
                      ("Complete handbook PDFs", "../data-science/index.html#downloads"), ("Resources for Data Engineers", "../resources.html#data")]),
     "genai-launchpad": _hbsec("Free handbook", "GenAI Launchpad Handbook",
-                    "LLMs, prompting, APIs, embeddings, RAG, tool use, agents, MCP, evaluation, fine-tuning, GenAI for data work and a capstone app, plus the AI Tools Lab, in one 400-page PDF and interactive lessons.",
+                    "LLMs, prompting, APIs, embeddings, RAG, tool use, agents, MCP, evaluation, fine-tuning, GenAI for data work and a capstone app, plus the AI Tools Lab, in one 426-page PDF and interactive lessons.",
                     [("Open the GenAI Launchpad handbook", "../handbooks/index.html#genai"), ("Interactive handbook ↗", ART + "#genai"), ("GenAI lessons", "../data-science/index.html#t-genai"), ("Resources for GenAI", "../resources.html#genai")]),
 }
 for cid, path, name, short, _ in PROGRAMS:
@@ -559,6 +560,14 @@ res = uhero("Upskill for free · Resources & AI tools", 'Resources <span class="
 {restabs.build(_hero + _pm, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT))}
 </div></section>
 """
+LMS_RES = ('    <div class="panel" id="p-resources" hidden>\n      <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Resources &amp; AI tools</h2>'
+           '<p class="meta" style="margin:0">Choose a course tab: PM, Data Engineers, GenAI or other links. Every handbook, PDF and tool for that course is listed in its tab.</p></div></div>\n'
+           + restabs.build(_hero + _pm, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT), scope="lms") + "\n    </div>\n")
+import tooltuts
+_tt_html, _tt_n = tooltuts.build()
+tt = uhero("Upskill for free · Resources & AI tools", 'Tool <span class="g">tutorials</span>', f"All {_tt_n} tools taught in our programs: a free official tutorial, the official website and the SkillNavora lesson for each, including complete Figma and n8n tutorials.") + f"""
+<section style="padding-top:28px"><div class="wrap">{_tt_html}</div></section>"""
+page("tools.html", "Tool tutorials · SkillNavora", "Free tutorials for every AI, product, design, automation and data tool in SkillNavora programs, including complete Figma and n8n tutorials.", tt, "tools.html")
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
 
 # ================================================================ CONTACT
@@ -696,7 +705,7 @@ lms = f"""<div class="lms-head"><div class="wrap">
     <div class="panel" id="p-courses" hidden><h2 class="h2s">My courses</h2><div class="grid g2" id="mc-list"></div>
       <h2 class="h2s" style="margin-top:40px">Explore more programs</h2><div class="courses" id="mc-all"></div></div>
 
-{HB_PANEL}{RES_PANEL}    <div class="panel" id="p-events" hidden><h2 class="h2s">Upcoming</h2><div class="events" id="ev-up"></div><h2 class="h2s" style="margin-top:40px">Completed</h2><div class="events" id="ev-done"></div></div>
+{HB_PANEL}{LMS_RES}    <div class="panel" id="p-events" hidden><h2 class="h2s">Upcoming</h2><div class="events" id="ev-up"></div><h2 class="h2s" style="margin-top:40px">Completed</h2><div class="events" id="ev-done"></div></div>
 
     <div class="panel" id="p-submissions" hidden><div class="dgrid">
       <div class="card"><h3 class="h3s">Submit your work</h3>

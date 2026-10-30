@@ -103,7 +103,7 @@ def ds_tab(cfg):
 
 def genai_tab(cfg):
     art = cfg.get("genai_artifact") or ""
-    acts = btn("Open the GenAI handbook ↗", DS_SITE + "index.html#t-genai", True) + btn("GenAI Launchpad handbook (400-page PDF) →", "handbooks/index.html#genai", gate=False, new=False) + (btn("Interactive GenAI handbook ↗", art) if art else "") + btn("GenAI Launchpad program →", "program/genai-launchpad.html", gate=False, new=False)
+    acts = btn("Open the GenAI handbook ↗", DS_SITE + "index.html#t-genai", True) + btn("GenAI Launchpad handbook (426-page PDF) →", "handbooks/index.html#genai", gate=False, new=False) + (btn("Interactive GenAI handbook ↗", art) if art else "") + btn("GenAI Launchpad program →", "program/genai-launchpad.html", gate=False, new=False)
     cat = catalog(); gt = [t for t in cat["tracks"] if t["id"] == "genai"]
     out = [hero("GenAI Launchpad · free for registered learners", "Generative & Agentic AI Handbook", "How LLMs work, prompting, APIs, embeddings and RAG, tool use, agents and MCP, evaluation, fine-tuning, responsible AI and your first AI apps, with runnable examples and a PDF for each lesson.", acts)]
     if gt:
@@ -173,11 +173,20 @@ def more_tab():
     return "".join(out)
 
 
-def build(pm_html, cfg):
+def build(pm_html, cfg, scope=None):
+    """Four resource tabs. scope=None: the Resources page (hash links #pm, #data, #genai, #more).
+    scope="lms": the same tabs inside the LMS Resources panel, with their own ids and attributes so the LMS tab code ignores them."""
     tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("more", "Other resources & links")]
-    bar = '<div class="tabs" role="tablist" id="res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="t-{k}" aria-controls="p-{k}" data-tab="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
+    pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
+    bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
     panels = {"pm": pm_html, "data": ds_tab(cfg), "genai": genai_tab(cfg), "more": more_tab()}
-    body = "".join(f'<div class="panel" id="p-{k}" role="tabpanel" aria-labelledby="t-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(tabs))
+    body = "".join(f'<div class="{cls}" id="{pre}p-{k}" role="tabpanel" aria-labelledby="{pre}t-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(tabs))
+    if scope:
+        js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#lr-res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.rpanel'));
+function show(k){tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.rtab===k?'true':'false')});panels.forEach(function(p){p.hidden=p.id!=='lr-p-'+k})}
+tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.rtab)})});
+var c=new URL(location).searchParams.get('res');show(c&&document.getElementById('lr-p-'+c)?c:'pm')})();</script>"""
+        return bar + body + js
     js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.panel[role=tabpanel]'));
 function show(k){if(!document.getElementById('p-'+k))k='pm';tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.tab===k?'true':'false')});panels.forEach(function(p){p.hidden=p.id!=='p-'+k})}
 tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.tab);try{history.replaceState(null,'','#'+t.dataset.tab)}catch(e){}})});

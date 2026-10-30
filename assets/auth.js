@@ -20,6 +20,17 @@ const SN = (function () {
     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "implicit" }
   });
 
+  // Any signed-in admin (login, LMS, dashboard or admin page) gets full access: the visitor details form and the
+  // GitHub request form are skipped for them on every page of the site.
+  if (client) client.auth.getSession().then(async ({ data }) => {
+    try {
+      if (!data || !data.session) return;
+      const { data: adm } = await client.rpc("is_admin");
+      if (adm) localStorage.setItem("sn_admin", JSON.stringify({ t: Date.now(), email: data.session.user.email || "" }));
+      else localStorage.removeItem("sn_admin");
+    } catch {}
+  });
+
   function notice(el, kind, text) {
     if (!el) return;
     el.className = "notice " + kind; el.textContent = text; el.hidden = !text;

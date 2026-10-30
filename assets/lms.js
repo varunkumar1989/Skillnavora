@@ -4,6 +4,8 @@
   const msg = $("app-msg");
   if (!client) { setupMessage(msg); return; }
   const s = await SN.session();
+  // Signed-in learners already registered, so the visitor details form is skipped for them; PDFs open inside the LMS.
+  if (s) { try { localStorage.setItem("sn_access", localStorage.getItem("sn_access") || JSON.stringify({ t: Date.now(), via: "lms" })); } catch {} }
   if (!s) return location.replace("login.html?next=" + encodeURIComponent("lms.html" + location.search));
   const uid = s.user.id, params = new URLSearchParams(location.search);
   const COURSE = id => COURSES.find(c => c.id === id);
