@@ -506,9 +506,9 @@ INTERVIEW_LINKS = [("NextLeap", "PM interview question bank", "Product design, s
   ("NextLeap", "Guesstimate questions", "Guesstimates asked at top tech companies.", "https://nextleap.app/interview-preparation/product-management/questions/topic/guesstimates"),
   ("HelloPM", "PM interview preparation", "A free guide to every PM interview round.", "https://hellopm.co/resources-for-product-management-interview/"),
   ("HelloPM", "Root cause analysis (RCA) guide", "Step-by-step approach with worked examples.", "https://hellopm.co/how-to-approach-rca-questions/")]
-DSA_ARTIFACT = ''      # paste the Claude artifact link of the DSA handbook here
-DS_ARTIFACT = ''       # Data Science & AI handbook artifact link
-GENAI_ARTIFACT = ''    # GenAI handbook artifact link
+DSA_ARTIFACT = 'https://claude.ai/artifact/6ZmRZxv6gku76e6ZVD7PYo'      # paste the Claude artifact link of the DSA handbook here
+DS_ARTIFACT = 'https://claude.ai/artifact/YSeVPBidAPBVtNhxGdVhPd'       # Data Science & AI handbook artifact link
+GENAI_ARTIFACT = 'https://claude.ai/artifact/7WMoLJ1WZ3Fm6MqmyD4S3m'    # GenAI handbook artifact link
 RES_PANEL = f'''    <div class="panel" id="p-resources" hidden>
       <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Resources for AI Tools</h2>
         <p class="meta" style="margin:0">Every AI and product tool with its official website, the complete PM Master Handbook, interview practice, the PM frameworks cheat sheet, a PRD template and hand-picked free courses.</p></div></div>
