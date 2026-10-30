@@ -378,6 +378,20 @@ INSTRUCTOR_S = """<section id="instructor"><div class="wrap"><div class="kicker"
 TOOLS_SUB = {"ai-pm": "Hands-on with the tools product teams use every day, from Jira and Figma to Claude and Claude Code.",
              "ai-de": "Hands-on with the tools data engineering teams use every day, from SQL, Python and Airflow to Spark, Snowflake and AI assistants.",
              "genai-launchpad": "Hands-on with the AI tools professionals use every day, with no coding needed."}
+
+ART = "https://claude.ai/artifact/7278116b7jCN2ny9XnmtVM"
+def _hbsec(kicker, title, text, links):
+    btns = "".join(f'<a class="btn {"btn-primary" if i == 0 else "btn-line"} btn-sm" href="{h}"{" target=\"_blank\" rel=\"noopener\"" if h.startswith("http") else ""}>{E(t)}</a>' for i, (t, h) in enumerate(links))
+    return f'<section id="handbooks"><div class="wrap"><div class="kicker">{E(kicker)}</div><h2 class="sec-h">{E(title)}</h2><p class="meta" style="max-width:70ch">{E(text)}</p><div class="acts" style="flex-wrap:wrap;gap:10px;margin-top:18px">{btns}</div></div></section>'
+PROG_HB = {
+    "ai-de": _hbsec("Free handbooks", "Data Science & AI and DSA handbooks",
+                    "116 class-wise lessons (Excel, SQL, Power BI, Tableau, Python, DSA, statistics, machine learning, GenAI and career) with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson. Share your details once to open any PDF or file.",
+                    [("Open the Data Science & AI handbook", "../data-science/index.html"), ("DSA handbook (interactive) ↗", ART + "#dsa"), ("All SkillNavora handbooks", "../handbooks/index.html"),
+                     ("Complete handbook PDFs", "../data-science/index.html#downloads"), ("Resources for Data Engineers", "../resources.html#data")]),
+    "genai-launchpad": _hbsec("Free handbook", "GenAI Launchpad Handbook",
+                    "LLMs, prompting, APIs, embeddings, RAG, tool use, agents, MCP, evaluation, fine-tuning, GenAI for data work and a capstone app, plus the AI Tools Lab, in one 400-page PDF and interactive lessons.",
+                    [("Open the GenAI Launchpad handbook", "../handbooks/index.html#genai"), ("Interactive handbook ↗", ART + "#genai"), ("GenAI lessons", "../data-science/index.html#t-genai"), ("Resources for GenAI", "../resources.html#genai")]),
+}
 for cid, path, name, short, _ in PROGRAMS:
     import json as _j
     _ld = _j.dumps({"@context": "https://schema.org", "@type": "Course", "name": name, "description": short,
@@ -398,6 +412,7 @@ for cid, path, name, short, _ in PROGRAMS:
 </div></div>
 {AUD()}
 <section id="outcomes" class="tint"><div class="wrap"><div class="kicker">Outcomes</div><h2 class="sec-h">What you'll be able to do</h2><ul class="checks two" id="p-outcomes" style="margin-top:24px"></ul></div></section>
+{PROG_HB.get(cid, '')}
 {sec("Curriculum", "What you'll learn", "Each module mixes live classes, real-world case studies, hands-on assignments and feedback. Recordings and materials stay in your LMS.", '<div class="mods" id="p-curriculum"></div>', sid="curriculum")}
 {TOOLS_S("Tools you'll use", "tint", TOOLS_SUB.get(cid, TOOLS_SUB["ai-pm"])).replace('<section', '<section id="tools"', 1)}
 {INSTRUCTOR_S}
