@@ -101,59 +101,59 @@ var init_error = __esm({
       return AnthropicError2;
     })();
     APIError = class _APIError extends AnthropicError {
-      constructor(status, error, message, headers, type) {
-        super(`${_APIError.makeMessage(status, error, message)}`);
-        this.status = status;
+      constructor(status2, error, message, headers, type) {
+        super(`${_APIError.makeMessage(status2, error, message)}`);
+        this.status = status2;
         this.headers = headers;
         this.requestID = headers?.get("request-id");
         this.workspaceID = headers?.get("anthropic-workspace-id");
         this.error = error;
         this.type = type ?? null;
       }
-      static makeMessage(status, error, message) {
+      static makeMessage(status2, error, message) {
         const msg = error?.message ? typeof error.message === "string" ? error.message : JSON.stringify(error.message) : error ? JSON.stringify(error) : message;
-        if (status && msg) {
-          return `${status} ${msg}`;
+        if (status2 && msg) {
+          return `${status2} ${msg}`;
         }
-        if (status) {
-          return `${status} status code (no body)`;
+        if (status2) {
+          return `${status2} status code (no body)`;
         }
         if (msg) {
           return msg;
         }
         return "(no status code or body)";
       }
-      static generate(status, errorResponse, message, headers) {
-        if (!status || !headers) {
+      static generate(status2, errorResponse, message, headers) {
+        if (!status2 || !headers) {
           return new APIConnectionError({ message, cause: castToError(errorResponse) });
         }
         const error = errorResponse;
         const type = error?.["error"]?.["type"];
-        if (status === 400) {
-          return new BadRequestError(status, error, message, headers, type);
+        if (status2 === 400) {
+          return new BadRequestError(status2, error, message, headers, type);
         }
-        if (status === 401) {
-          return new AuthenticationError(status, error, message, headers, type);
+        if (status2 === 401) {
+          return new AuthenticationError(status2, error, message, headers, type);
         }
-        if (status === 403) {
-          return new PermissionDeniedError(status, error, message, headers, type);
+        if (status2 === 403) {
+          return new PermissionDeniedError(status2, error, message, headers, type);
         }
-        if (status === 404) {
-          return new NotFoundError(status, error, message, headers, type);
+        if (status2 === 404) {
+          return new NotFoundError(status2, error, message, headers, type);
         }
-        if (status === 409) {
-          return new ConflictError(status, error, message, headers, type);
+        if (status2 === 409) {
+          return new ConflictError(status2, error, message, headers, type);
         }
-        if (status === 422) {
-          return new UnprocessableEntityError(status, error, message, headers, type);
+        if (status2 === 422) {
+          return new UnprocessableEntityError(status2, error, message, headers, type);
         }
-        if (status === 429) {
-          return new RateLimitError(status, error, message, headers, type);
+        if (status2 === 429) {
+          return new RateLimitError(status2, error, message, headers, type);
         }
-        if (status >= 500) {
-          return new InternalServerError(status, error, message, headers, type);
+        if (status2 >= 500) {
+          return new InternalServerError(status2, error, message, headers, type);
         }
-        return new _APIError(status, error, message, headers, type);
+        return new _APIError(status2, error, message, headers, type);
       }
     };
     APIUserAbortError = class extends APIError {
@@ -2007,15 +2007,15 @@ async function* _iterSSEMessages(response, controller) {
   const iter = ReadableStreamToAsyncIterable(response.body);
   for await (const chunk of iter) {
     for (const line of lineDecoder.decode(chunk)) {
-      const sse = sseDecoder.decode(line);
-      if (sse)
-        yield sse;
+      const sse2 = sseDecoder.decode(line);
+      if (sse2)
+        yield sse2;
     }
   }
   for (const line of lineDecoder.flush()) {
-    const sse = sseDecoder.decode(line);
-    if (sse)
-      yield sse;
+    const sse2 = sseDecoder.decode(line);
+    if (sse2)
+      yield sse2;
   }
 }
 function partition(str, delimiter2) {
@@ -2068,30 +2068,30 @@ var init_streaming = __esm({
             consumed = true;
             let done = false;
             try {
-              for await (const sse of _iterSSEMessages(response, controller)) {
-                if (sse.event === "completion") {
+              for await (const sse2 of _iterSSEMessages(response, controller)) {
+                if (sse2.event === "completion") {
                   try {
-                    yield JSON.parse(sse.data);
+                    yield JSON.parse(sse2.data);
                   } catch (e) {
-                    logger.error(`Could not parse message into JSON:`, sse.data);
-                    logger.error(`From chunk:`, sse.raw);
+                    logger.error(`Could not parse message into JSON:`, sse2.data);
+                    logger.error(`From chunk:`, sse2.raw);
                     throw e;
                   }
                 }
-                if (sse.event === "message_start" || sse.event === "message_delta" || sse.event === "message_stop" || sse.event === "content_block_start" || sse.event === "content_block_delta" || sse.event === "content_block_stop" || sse.event === "message" || sse.event === "user.message" || sse.event === "user.interrupt" || sse.event === "user.tool_confirmation" || sse.event === "user.custom_tool_result" || sse.event === "user.tool_result" || sse.event === "agent.message" || sse.event === "agent.thinking" || sse.event === "agent.tool_use" || sse.event === "agent.tool_result" || sse.event === "agent.mcp_tool_use" || sse.event === "agent.mcp_tool_result" || sse.event === "agent.custom_tool_use" || sse.event === "agent.thread_context_compacted" || sse.event === "session.status_running" || sse.event === "session.status_idle" || sse.event === "session.status_rescheduled" || sse.event === "session.status_terminated" || sse.event === "session.error" || sse.event === "session.deleted" || sse.event === "session.updated" || sse.event === "span.model_request_start" || sse.event === "span.model_request_end" || sse.event === "span.outcome_evaluation_start" || sse.event === "span.outcome_evaluation_ongoing" || sse.event === "span.outcome_evaluation_end" || sse.event === "user.define_outcome" || sse.event === "agent.thread_message_received" || sse.event === "agent.thread_message_sent" || sse.event === "agent.session_thread_message_received" || sse.event === "agent.session_thread_message_sent" || sse.event === "session.thread_created" || sse.event === "session.thread_status_created" || sse.event === "session.thread_status_running" || sse.event === "session.thread_status_idle" || sse.event === "session.thread_status_rescheduled" || sse.event === "session.thread_status_terminated" || sse.event === "event_start" || sse.event === "event_delta" || sse.event === "system.message") {
+                if (sse2.event === "message_start" || sse2.event === "message_delta" || sse2.event === "message_stop" || sse2.event === "content_block_start" || sse2.event === "content_block_delta" || sse2.event === "content_block_stop" || sse2.event === "message" || sse2.event === "user.message" || sse2.event === "user.interrupt" || sse2.event === "user.tool_confirmation" || sse2.event === "user.custom_tool_result" || sse2.event === "user.tool_result" || sse2.event === "agent.message" || sse2.event === "agent.thinking" || sse2.event === "agent.tool_use" || sse2.event === "agent.tool_result" || sse2.event === "agent.mcp_tool_use" || sse2.event === "agent.mcp_tool_result" || sse2.event === "agent.custom_tool_use" || sse2.event === "agent.thread_context_compacted" || sse2.event === "session.status_running" || sse2.event === "session.status_idle" || sse2.event === "session.status_rescheduled" || sse2.event === "session.status_terminated" || sse2.event === "session.error" || sse2.event === "session.deleted" || sse2.event === "session.updated" || sse2.event === "span.model_request_start" || sse2.event === "span.model_request_end" || sse2.event === "span.outcome_evaluation_start" || sse2.event === "span.outcome_evaluation_ongoing" || sse2.event === "span.outcome_evaluation_end" || sse2.event === "user.define_outcome" || sse2.event === "agent.thread_message_received" || sse2.event === "agent.thread_message_sent" || sse2.event === "agent.session_thread_message_received" || sse2.event === "agent.session_thread_message_sent" || sse2.event === "session.thread_created" || sse2.event === "session.thread_status_created" || sse2.event === "session.thread_status_running" || sse2.event === "session.thread_status_idle" || sse2.event === "session.thread_status_rescheduled" || sse2.event === "session.thread_status_terminated" || sse2.event === "event_start" || sse2.event === "event_delta" || sse2.event === "system.message") {
                   try {
-                    yield JSON.parse(sse.data);
+                    yield JSON.parse(sse2.data);
                   } catch (e) {
-                    logger.error(`Could not parse message into JSON:`, sse.data);
-                    logger.error(`From chunk:`, sse.raw);
+                    logger.error(`Could not parse message into JSON:`, sse2.data);
+                    logger.error(`From chunk:`, sse2.raw);
                     throw e;
                   }
                 }
-                if (sse.event === "ping") {
+                if (sse2.event === "ping") {
                   continue;
                 }
-                if (sse.event === "error") {
-                  const body = safeJSON(sse.data) ?? sse.data;
+                if (sse2.event === "error") {
+                  const body = safeJSON(sse2.data) ?? sse2.data;
                   const type = body?.error?.type;
                   throw new APIError(void 0, body, void 0, response.headers, type);
                 }
@@ -2225,7 +2225,7 @@ var init_streaming = __esm({
         if (!line) {
           if (!this.event && !this.data.length)
             return null;
-          const sse = {
+          const sse2 = {
             event: this.event,
             data: this.data.join("\n"),
             raw: this.chunks
@@ -2233,7 +2233,7 @@ var init_streaming = __esm({
           this.event = null;
           this.data = [];
           this.chunks = [];
-          return sse;
+          return sse2;
         }
         this.chunks.push(line);
         if (line.startsWith(":")) {
@@ -8742,8 +8742,8 @@ import * as path3 from "node:path";
 import * as cp from "node:child_process";
 import * as crypto2 from "node:crypto";
 import * as readline from "node:readline";
-function resolveMaxBytes(configured) {
-  return configured === void 0 ? DEFAULT_MAX_FILE_BYTES : configured;
+function resolveMaxBytes(configured2) {
+  return configured2 === void 0 ? DEFAULT_MAX_FILE_BYTES : configured2;
 }
 function rejectUnrestrictedPaths(value) {
   if (value === void 0)
@@ -17163,15 +17163,15 @@ async function generateToolResponse(params, runnable, available, lastMessage, re
       const sequence = sequences.get(family) ?? { tail: Promise.resolve(), failed: false };
       sequences.set(family, sequence);
       const registered = params.tools.some((t) => isRunnableToolset(t) && toolsetFamily(t) === family);
-      const run = started ?? sequence.tail.then(() => sequence.failed ? toolsetResultBlock(toolUse, notExecutedText(family), true) : runToolsetCall(params, family, toolUse, requestOptions));
-      sequence.tail = run.then(({ is_error }) => {
+      const run2 = started ?? sequence.tail.then(() => sequence.failed ? toolsetResultBlock(toolUse, notExecutedText(family), true) : runToolsetCall(params, family, toolUse, requestOptions));
+      sequence.tail = run2.then(({ is_error }) => {
         if (is_error && registered)
           sequence.failed = true;
       }, () => {
         sequence.failed = true;
       });
-      calls?.set(toolUse.id, { status: "started", result: run });
-      return run;
+      calls?.set(toolUse.id, { status: "started", result: run2 });
+      return run2;
     }
     if (started) {
       return started;
@@ -20448,8 +20448,8 @@ var init_client = __esm({
         getUserAgent() {
           return `Anthropic/JS ${VERSION}`;
         }
-        makeStatusError(status, error, message, headers) {
-          return APIError.generate(status, error, message, headers);
+        makeStatusError(status2, error, message, headers) {
+          return APIError.generate(status2, error, message, headers);
         }
         buildURL(path4, query, defaultBaseURL) {
           const baseURL = !__classPrivateFieldGet(this, _BaseAnthropic_instances, "m", _BaseAnthropic_baseURLOverridden).call(this) && defaultBaseURL || this.baseURL;
@@ -20928,7 +20928,7 @@ var init_sdk = __esm({
 
 // tools/ai.src.js
 init_sdk();
-var json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
+var json = (body, status2 = 200) => new Response(JSON.stringify(body), { status: status2, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 var COMMON = `You work inside skillnavora.in, an Indian learning platform for AI product management, data engineering (Excel, SQL, Python, Power BI, Tableau, statistics, machine learning), generative AI and agents, plus SFMC, digital marketing, content creation, forward-deployed engineering and public speaking.
 - Learners should not need any other AI app: give complete, practical help here.
 - Use clear, simple English (or Hindi/Hinglish if the learner writes in it). Use Indian examples (\u20B9, Indian companies and apps) where natural.
@@ -21103,11 +21103,162 @@ function validMessages(m, maxChars) {
   if (!Array.isArray(m) || m.length === 0 || m.length > 20) return false;
   return m.every((x, i) => x && typeof x.content === "string" && x.content.trim() && x.content.length <= (x.role === "user" ? maxChars : 3e4) && x.role === (i % 2 === 0 ? "user" : "assistant")) && m[m.length - 1].role === "user";
 }
-var SAME_SITE = [/^https:\/\/(www\.)?skillnavora\.in$/, /^https:\/\/[a-z0-9-]*\.?skillnavora\.pages\.dev$/, /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/];
-async function onRequestPost({ request, env }) {
-  const origin = request.headers.get("origin");
-  if (origin && !SAME_SITE.some((r) => r.test(origin))) return json({ error: "forbidden" }, 403);
-  if (!env.ANTHROPIC_API_KEY) return json({ error: "not_configured" }, 503);
+var DEFAULT_ORDER = "gemini,groq,workersai,claude,openai";
+var OPENAI_COMPAT = {
+  gemini: { key: "GEMINI_API_KEY", url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", model: "GEMINI_MODEL", def: "gemini-2.5-flash", label: "Google Gemini", cap: 8192 },
+  groq: { key: "GROQ_API_KEY", url: "https://api.groq.com/openai/v1/chat/completions", model: "GROQ_MODEL", def: "llama-3.3-70b-versatile", label: "Groq (Llama)", cap: 8e3 },
+  openai: { key: "OPENAI_API_KEY", url: "https://api.openai.com/v1/chat/completions", model: "OPENAI_MODEL", def: "gpt-4o-mini", label: "OpenAI ChatGPT", cap: 16e3 }
+};
+var LABELS = { gemini: "Google Gemini", groq: "Groq (Llama)", workersai: "Cloudflare Workers AI", claude: "Anthropic Claude", openai: "OpenAI ChatGPT" };
+var configured = (name, env) => name === "workersai" ? !!(env.AI && env.AI.run) : name === "claude" ? !!env.ANTHROPIC_API_KEY : !!(OPENAI_COMPAT[name] && env[OPENAI_COMPAT[name].key]);
+var order = (env) => (env.AI_ORDER || DEFAULT_ORDER).split(",").map((x) => x.trim().toLowerCase()).filter((x) => LABELS[x]);
+var ProviderError = class extends Error {
+  constructor(provider, status2, message) {
+    super(message);
+    this.provider = provider;
+    this.status = status2;
+  }
+};
+async function* sse(body) {
+  const rd = body.getReader(), dec = new TextDecoder();
+  let buf = "";
+  for (; ; ) {
+    const { done, value } = await rd.read();
+    if (done) break;
+    buf += dec.decode(value, { stream: true });
+    let i;
+    while ((i = buf.indexOf("\n")) >= 0) {
+      const line = buf.slice(0, i).trim();
+      buf = buf.slice(i + 1);
+      if (line.startsWith("data:")) yield line.slice(5).trim();
+    }
+  }
+  if (buf.trim().startsWith("data:")) yield buf.trim().slice(5).trim();
+}
+async function* openaiCompat(name, env, sysText, messages, max) {
+  const P = OPENAI_COMPAT[name];
+  const res = await fetch(P.url, {
+    method: "POST",
+    headers: { authorization: "Bearer " + env[P.key], "content-type": "application/json" },
+    body: JSON.stringify({ model: env[P.model] || P.def, stream: true, max_tokens: Math.min(max, P.cap), messages: [{ role: "system", content: sysText }, ...messages] })
+  });
+  if (!res.ok) {
+    let m = "";
+    try {
+      m = (await res.text()).slice(0, 300);
+    } catch {
+    }
+    throw new ProviderError(name, res.status, m);
+  }
+  for await (const d of sse(res.body)) {
+    if (d === "[DONE]") return;
+    let j;
+    try {
+      j = JSON.parse(d);
+    } catch {
+      continue;
+    }
+    if (j.error) throw new ProviderError(name, 500, JSON.stringify(j.error).slice(0, 300));
+    const t = j.choices && j.choices[0] && j.choices[0].delta && j.choices[0].delta.content;
+    if (t) yield t;
+    if (j.choices && j.choices[0] && j.choices[0].finish_reason === "length") yield "\n\n_(Answer cut short. Ask me to continue.)_";
+  }
+}
+async function* workersAI(env, sysText, messages, max) {
+  let out;
+  try {
+    out = await env.AI.run(env.WORKERS_AI_MODEL || "@cf/meta/llama-3.3-70b-instruct-fp8-fast", { stream: true, max_tokens: Math.min(max, 4096), messages: [{ role: "system", content: sysText }, ...messages] });
+  } catch (e) {
+    throw new ProviderError("workersai", 502, String(e && e.message || e).slice(0, 300));
+  }
+  if (out instanceof Response) out = out.body;
+  if (!(out instanceof ReadableStream)) {
+    const t = out && (out.response || "");
+    if (t) yield t;
+    return;
+  }
+  for await (const d of sse(out)) {
+    if (d === "[DONE]") return;
+    let j;
+    try {
+      j = JSON.parse(d);
+    } catch {
+      continue;
+    }
+    if (j.response) yield j.response;
+  }
+}
+async function* claude(env, system, messages, max, effort) {
+  const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY, maxRetries: 1 });
+  const params = { model: env.AI_MODEL || "claude-opus-5-5", max_tokens: max, output_config: { effort }, system, messages };
+  for (const withFallback of [true, false]) {
+    const stream2 = withFallback ? client.beta.messages.stream({ ...params, betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" }) : client.messages.stream(params);
+    stream2.on("error", () => {
+    });
+    let sent = false;
+    try {
+      for await (const ev of stream2) {
+        if (ev.type === "content_block_delta" && ev.delta && ev.delta.type === "text_delta" && ev.delta.text) {
+          sent = true;
+          yield ev.delta.text;
+        }
+      }
+      const m = await stream2.finalMessage();
+      if (!sent && m.stop_reason === "refusal") yield "Sorry, I can't help with that. Try asking a learning or career question.";
+      if (m.stop_reason === "max_tokens") yield "\n\n_(Answer cut short. Ask me to continue.)_";
+      return;
+    } catch (e) {
+      if (sent) throw e;
+      const status2 = e instanceof Anthropic.APIError ? e.status : 0;
+      if (withFallback && status2 === 400) continue;
+      throw new ProviderError("claude", status2 || 500, String(e && e.message || e).slice(0, 300));
+    }
+  }
+}
+function run(name, env, ctx) {
+  if (name === "claude") return claude(env, ctx.system, ctx.messages, ctx.max, ctx.effort);
+  if (name === "workersai") return workersAI(env, ctx.sysText, ctx.messages, ctx.max);
+  return openaiCompat(name, env, ctx.sysText, ctx.messages, ctx.max);
+}
+function sameSite(request) {
+  const o = request.headers.get("origin");
+  if (!o) return true;
+  try {
+    const h = new URL(o).host, self = new URL(request.url).host;
+    return h === self || /(^|\.)skillnavora\.in$/.test(h) || /^(localhost|127\.0\.0\.1)(:\d+)?$/.test(h);
+  } catch {
+    return false;
+  }
+}
+async function status(request, env) {
+  const url = new URL(request.url), names = order(env);
+  const providers = names.map((n) => ({ name: n, label: LABELS[n], connected: configured(n, env) }));
+  const body = { ok: providers.some((p) => p.connected), order: names, providers, daily_limit_per_visitor: Number(env.AI_DAILY_LIMIT) || 200 };
+  if (url.searchParams.get("test") === "1") {
+    const ip = request.headers.get("cf-connecting-ip") || "anon";
+    if (!allowed(ip, 20)) return json({ error: "limit" }, 429);
+    for (const p of providers) {
+      if (!p.connected) continue;
+      const t0 = Date.now();
+      try {
+        let txt = "";
+        for await (const c of run(p.name, env, { system: [{ type: "text", text: "Reply with one word." }], sysText: "Reply with one word.", messages: [{ role: "user", content: "Say OK" }], max: 16, effort: "low" })) {
+          txt += c;
+          if (txt.length > 40) break;
+        }
+        p.test = txt ? "working" : "no reply";
+      } catch (e) {
+        p.test = "error " + (e.status || "") + ": " + String(e.message || e).slice(0, 160);
+      }
+      p.ms = Date.now() - t0;
+    }
+  }
+  return json(body);
+}
+async function answer(request, env) {
+  if (!sameSite(request)) return json({ error: "forbidden" }, 403);
+  const names = order(env).filter((n) => configured(n, env));
+  if (!names.length) return json({ error: "not_configured", detail: "No AI provider is connected. Add GEMINI_API_KEY, GROQ_API_KEY, ANTHROPIC_API_KEY or OPENAI_API_KEY in Cloudflare, or turn on the Workers AI binding." }, 503);
   let body;
   try {
     body = await request.json();
@@ -21118,80 +21269,68 @@ async function onRequestPost({ request, env }) {
   if (!mode) return json({ error: "bad_request" }, 400);
   const messages = body.messages;
   if (!validMessages(messages, ["prd", "brd", "frd"].includes(body.mode) ? 4e4 : 8e3)) return json({ error: "bad_request" }, 400);
+  if (body.mode === "pm" && !PM_CAPS[body.cap]) return json({ error: "bad_request" }, 400);
   const ip = request.headers.get("cf-connecting-ip") || "anon";
-  if (!allowed(ip, Number(env.AI_DAILY_LIMIT) || 60)) return json({ error: "limit" }, 429);
+  if (!allowed(ip, Number(env.AI_DAILY_LIMIT) || 200)) return json({ error: "limit" }, 429);
   const system = [{ type: "text", text: mode.system }];
-  if (body.mode === "pm") {
-    const cap = PM_CAPS[body.cap];
-    if (!cap) return json({ error: "bad_request" }, 400);
-    system.push({ type: "text", text: "CAPABILITY: " + cap });
-  }
+  if (body.mode === "pm") system.push({ type: "text", text: "CAPABILITY: " + PM_CAPS[body.cap] });
   if (mode.cacheIndex) {
     const idx = await courseIndex(request, env);
     if (idx) system.push({ type: "text", text: "COURSE INDEX (title | path | topics):\n" + idx, cache_control: { type: "ephemeral" } });
-    const ctx = await pageContext(request, env, body.page);
-    if (ctx) system.push({ type: "text", text: "PAGE CONTEXT (" + body.page + "):\n" + ctx });
+    const ctx2 = await pageContext(request, env, body.page);
+    if (ctx2) system.push({ type: "text", text: "PAGE CONTEXT (" + body.page + "):\n" + ctx2 });
   }
-  const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
-  const stream2 = client.beta.messages.stream({
-    model: env.AI_MODEL || "claude-opus-5-5",
-    max_tokens: mode.max,
-    output_config: { effort: mode.effort },
-    betas: ["server-side-fallback-2026-07-01"],
-    fallbacks: "default",
-    system,
-    messages: messages.map((m) => ({ role: m.role, content: m.content }))
-  });
-  const enc = new TextEncoder(), queue = [];
-  let final = null, failure = null, wake = null;
-  const poke = () => {
-    if (wake) {
-      const w = wake;
-      wake = null;
-      w();
+  const ctx = { system, sysText: system.map((b) => b.text).join("\n\n"), messages: messages.map((m) => ({ role: m.role, content: m.content })), max: mode.max, effort: mode.effort };
+  const errors = [];
+  for (const name of names) {
+    const gen = run(name, env, ctx);
+    let first;
+    try {
+      first = await gen.next();
+    } catch (e) {
+      errors.push({ provider: name, status: e.status || 0, message: String(e.message || e).slice(0, 200) });
+      console.error("AI provider failed", name, e.status, e.message);
+      continue;
     }
-  };
-  const wait = () => new Promise((r) => {
-    wake = r;
-  });
-  stream2.on("text", (t) => {
-    queue.push(t);
-    poke();
-  });
-  stream2.on("error", () => {
-  });
-  stream2.finalMessage().then((m) => {
-    final = m;
-    poke();
-  }, (e) => {
-    failure = e;
-    poke();
-  });
-  while (!queue.length && !final && !failure) await wait();
-  if (!queue.length && failure) {
-    const error = failure;
-    if (error instanceof Anthropic.RateLimitError) return json({ error: "busy" }, 429);
-    if (error instanceof Anthropic.AuthenticationError || error instanceof Anthropic.PermissionDeniedError) return json({ error: "not_configured" }, 503);
-    if (error instanceof Anthropic.APIError) return json({ error: "upstream", status: error.status }, 502);
-    return json({ error: "server" }, 500);
-  }
-  if (!queue.length && final && final.stop_reason === "refusal") return json({ error: "refusal" }, 422);
-  const out = new ReadableStream({
-    async pull(controller) {
-      while (!queue.length && !final && !failure) await wait();
-      if (queue.length) {
-        controller.enqueue(enc.encode(queue.splice(0).join("")));
-        return;
+    if (first.done) {
+      errors.push({ provider: name, status: 0, message: "empty reply" });
+      continue;
+    }
+    const enc = new TextEncoder();
+    const out = new ReadableStream({
+      start(c) {
+        c.enqueue(enc.encode(first.value));
+      },
+      async pull(c) {
+        try {
+          const n = await gen.next();
+          if (n.done) c.close();
+          else c.enqueue(enc.encode(n.value));
+        } catch (e) {
+          console.error("AI stream interrupted", name, e && e.message);
+          c.enqueue(enc.encode("\n\n_(Connection interrupted. Please try again.)_"));
+          c.close();
+        }
+      },
+      cancel() {
+        try {
+          gen.return();
+        } catch {
+        }
       }
-      if (failure) controller.enqueue(enc.encode("\n\n_(Connection interrupted. Please try again.)_"));
-      else if (final.stop_reason === "max_tokens") controller.enqueue(enc.encode("\n\n_(Answer cut short. Ask me to continue.)_"));
-      controller.close();
-    }
-  });
-  return new Response(out, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff" } });
+    });
+    return new Response(out, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff", "x-ai-provider": LABELS[name] } });
+  }
+  const allBusy = errors.length && errors.every((e) => e.status === 429);
+  const auth = errors.length && errors.every((e) => e.status === 401 || e.status === 403);
+  return json({ error: allBusy ? "busy" : auth ? "bad_key" : "upstream", detail: errors }, allBusy ? 429 : 502);
 }
-var onRequest = () => json({ error: "method_not_allowed" }, 405);
+async function onRequest({ request, env }) {
+  if (request.method === "POST") return answer(request, env);
+  if (request.method === "GET") return status(request, env);
+  if (request.method === "OPTIONS") return new Response(null, { status: 204 });
+  return json({ error: "method_not_allowed" }, 405);
+}
 export {
-  onRequest,
-  onRequestPost
+  onRequest
 };

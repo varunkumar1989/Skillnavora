@@ -60,27 +60,44 @@
 
   /* ---------- API ---------- */
   const ERR = {
-    not_configured: "The AI is being switched on right now. Please try again in a little while, or book a free counselling call for help.",
+    not_configured: "The AI isn't connected yet (no AI key is set up on the server). Please try again later, or book a free counselling call for help.",
+    bad_key: "The AI keys on the server were rejected. The SkillNavora team has been notified; please try again later.",
     limit: "You've reached today's free AI limit. Please come back tomorrow, or book a free counselling call.",
     busy: "Lots of learners are using the AI right now. Please try again in a minute.",
     refusal: "Sorry, I can't help with that. Try asking a learning or career question.",
     bad_request: "That message is too long or empty. Please shorten it and try again.",
     forbidden: "Please use the AI tools on skillnavora.in.",
+    upstream: "The AI services didn't answer just now. Please try again in a minute.",
   };
+  const NAMES = { gemini: "Gemini", groq: "Groq", workersai: "Cloudflare AI", claude: "Claude", openai: "ChatGPT" };
+  let lastProvider = "";
   async function ask(mode, messages, onText, extra) {
     let r;
     try { r = await fetch(R + "api/ai", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(Object.assign({ mode, messages }, extra || {})) }); }
     catch { throw new Error("Network problem. Check your internet connection and try again."); }
     const ct = r.headers.get("content-type") || "";
     if (!r.ok || ct.includes("application/json")) {
-      let code = ""; try { code = (await r.json()).error; } catch {}
-      if (r.status === 404 || r.status === 405) code = "not_configured";
-      throw new Error(ERR[code] || "Something went wrong. Please try again.");
+      let j = {}; try { j = await r.json(); } catch {}
+      let code = j.error || "";
+      if (!code && (r.status === 404 || r.status === 405)) code = "not_configured";
+      let why = Array.isArray(j.detail) ? j.detail.map(d => (NAMES[d.provider] || d.provider) + (d.status ? " " + d.status : "")).join(", ") : "";
+      throw new Error((ERR[code] || "Something went wrong (error " + r.status + "). Please try again.") + (why ? " (Details: " + why + ")" : ""));
     }
+    lastProvider = r.headers.get("x-ai-provider") || "";
     const rd = r.body.getReader(), dec = new TextDecoder(); let text = "";
     for (;;) { const { done, value } = await rd.read(); if (done) break; text += dec.decode(value, { stream: true }); onText && onText(text); }
     return text;
   }
+  /* "Continue in" buttons: open the same question in the learner's favourite AI app (free with their own account). */
+  const APPS = [["ChatGPT", "https://chatgpt.com/?q="], ["Claude", "https://claude.ai/new?q="], ["Gemini", "https://gemini.google.com/app"], ["Perplexity", "https://www.perplexity.ai/search?q="],
+    ["Copilot", "https://copilot.microsoft.com/?q="], ["DeepSeek", "https://chat.deepseek.com/"], ["Meta AI", "https://www.meta.ai/"], ["Grok", "https://grok.com/?q="]];
+  const cont = q => { q = String(q || "").slice(0, 1800); if (!q) return "";
+    return `<div class="ai-cont"><small>${lastProvider ? "Answered by " + esc(lastProvider) + " · " : ""}Continue in:</small>` + APPS.map(([n, u]) => `<a href="${esc(/=$/.test(u) ? u + encodeURIComponent(q) : u)}" target="_blank" rel="noopener" data-q="${esc(q)}">${esc(n)} ↗</a>`).join("") + "</div>"; };
+  document.addEventListener("click", e => { const a = e.target.closest && e.target.closest(".ai-cont a"); if (!a) return; try { navigator.clipboard.writeText(a.dataset.q); } catch {}
+    const t = document.createElement("div"); t.className = "gate-toast"; t.textContent = "Question copied. If it isn't filled in, paste it there."; document.body.appendChild(t); setTimeout(() => t.remove(), 2600); });
+  const cs = document.createElement("style");
+  cs.textContent = ".ai-cont{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px;padding-top:8px;border-top:1px dashed var(--line,#e1e6f0)}.ai-cont small{color:var(--mu,#55607a);font-size:12px;margin-right:2px}.ai-cont a{font:600 12px var(--body,system-ui)!important;text-decoration:none;border:1px solid var(--line,#e1e6f0);border-radius:99px;padding:3px 9px;color:var(--ink,#0d1630)!important;background:var(--surface,#fff)}.ai-cont a:hover{border-color:var(--brand,#6C4CF5)}";
+  document.head.appendChild(cs);
   const errBox = msg => `<div class="ai-err">${esc(msg)}</div>`;
   const download = (name, data, type) => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([data], { type })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); };
 
@@ -110,6 +127,7 @@
       try {
         const text = await ask("tutor", hist.slice(-12), t => { a.innerHTML = md(t); log.scrollTop = log.scrollHeight; }, page ? { page } : null);
         hist.push({ role: "assistant", content: text.slice(0, 20000) || "…" });
+        a.insertAdjacentHTML("beforeend", cont(q));
       } catch (e) { hist.pop(); a.innerHTML = errBox(e.message); }
       ss.set("sn_tutor", JSON.stringify(hist.slice(-20))); busy = false; inp.focus();
     }
@@ -164,6 +182,7 @@
         doc = text; lastDoc = mode; ls.set("sn_prd_k", mode); hist = messages.concat({ role: "assistant", content: text }).slice(-6);
         if (hist[0].role !== "user") hist = hist.slice(1);
         ls.set("sn_prd", doc); ls.set("sn_prd_h", JSON.stringify(hist)); show();
+        out.insertAdjacentHTML("beforeend", cont(messages[messages.length - 1].content));
       } catch (e) { out.innerHTML = errBox(e.message) + (doc ? md(doc) : ""); acts.hidden = rev.hidden = !doc; }
       btns.forEach(b => { b.disabled = false; }); busy = false;
     }
@@ -263,6 +282,7 @@
         const r = await ask("speak", [{ role: "user", content: msg }], x => { out.innerHTML = md(x); });
         const bv = r.split(/###\s*Better version/i)[1]; better = bv ? bv.split(/\n###\s/)[0].replace(/[*_#>`]/g, "").trim() : "";
         $("sc-acts").hidden = false; $("sc-say").hidden = !better || !window.speechSynthesis;
+        out.insertAdjacentHTML("beforeend", cont("Act as my English and public speaking coach. " + msg));
         out.scrollIntoView({ behavior: "smooth", block: "start" });
       } catch (e) { out.innerHTML = errBox(e.message); }
       btn.disabled = false; busy = false;
@@ -296,7 +316,7 @@
       try {
         const text = await ask("pm", messages, t => { out.innerHTML = md(t); }, { cap });
         doc = text; hist = messages.concat({ role: "assistant", content: text }).slice(-6); if (hist[0].role !== "user") hist = hist.slice(1);
-        acts.hidden = rev.hidden = false;
+        acts.hidden = rev.hidden = false; out.insertAdjacentHTML("beforeend", cont(messages[messages.length - 1].content));
       } catch (e) { out.innerHTML = errBox(e.message) + (doc ? md(doc) : ""); }
       btns.forEach(b => { b.disabled = false; }); busy = false;
     }
@@ -326,7 +346,7 @@
       if (a.length < 20) { out.hidden = false; out.innerHTML = errBox("Write your answer first (at least a few sentences)."); return; }
       if (busy || !canUse()) return; busy = true; out.hidden = false; out.innerHTML = '<p class="ai-dots">Reviewing your answer</p>';
       const msg = `Role: ${$("pr-role").value}\nQuestion type: ${$("pr-type").value}\nQuestion: ${q}\nMy answer:\n${a.slice(0, 6000)}`;
-      try { await ask("interview", [{ role: "user", content: msg }], t => { out.innerHTML = md(t); }); }
+      try { await ask("interview", [{ role: "user", content: msg }], t => { out.innerHTML = md(t); }); out.insertAdjacentHTML("beforeend", cont("Act as an interviewer and score my answer out of 10.\n" + msg)); }
       catch (e) { out.innerHTML = errBox(e.message); }
       busy = false;
     });

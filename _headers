@@ -4,7 +4,7 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Permissions-Policy: camera=(), microphone=(self), geolocation=()
 
 # Cloudflare Pages: always check for a newer version of styles and scripts,
 # so design changes and edits to assets/config.js show up straight away.

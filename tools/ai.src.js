@@ -1,7 +1,7 @@
 // SkillNavora AI tools: POST /api/ai
-// Runs on Cloudflare Pages Functions. Uses the same ANTHROPIC_API_KEY secret as /api/chat
-// (Workers & Pages -> skillnavora -> Settings -> Variables and secrets). The key stays on
-// Cloudflare and is never sent to visitors.
+// Runs on Cloudflare Pages Functions. API keys are Cloudflare secrets
+// (Workers & Pages -> skillnavora -> Settings -> Variables and secrets -> Production); they stay on
+// Cloudflare and are never sent to visitors.
 //
 // Modes:
 //   tutor     AI Tutor: answers study questions, grounded on the SkillNavora course index
@@ -10,7 +10,10 @@
 //   interview Practice with AI: scores an interview answer
 //
 // The reply is streamed back as plain text so long answers (PRDs) appear as they are written.
-// Optional settings: AI_MODEL (model id), AI_DAILY_LIMIT (requests per visitor per day, default 60).
+// Providers (any mix): GEMINI_API_KEY, GROQ_API_KEY, Workers AI binding "AI" (wrangler.toml),
+// ANTHROPIC_API_KEY, OPENAI_API_KEY. Optional: AI_ORDER, AI_DAILY_LIMIT (default 200), AI_MODEL (Claude),
+// GEMINI_MODEL, GROQ_MODEL, OPENAI_MODEL, WORKERS_AI_MODEL. GET /api/ai shows which are connected;
+// GET /api/ai?test=1 sends a tiny test question to each.
 import Anthropic from "@anthropic-ai/sdk";
 
 const json = (body, status = 200) =>
@@ -195,12 +198,122 @@ function validMessages(m, maxChars) {
     x.role === (i % 2 === 0 ? "user" : "assistant")) && m[m.length - 1].role === "user";
 }
 
-const SAME_SITE = [/^https:\/\/(www\.)?skillnavora\.in$/, /^https:\/\/[a-z0-9-]*\.?skillnavora\.pages\.dev$/, /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/];
+// ---------------------------------------------------------------- providers
+// Tried in order; the first one that starts answering wins. Free allowances first by default.
+// AI_ORDER (comma list) changes the order. Each needs its secret, except Workers AI (binding "AI").
+const DEFAULT_ORDER = "gemini,groq,workersai,claude,openai";
+const OPENAI_COMPAT = {
+  gemini: { key: "GEMINI_API_KEY", url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", model: "GEMINI_MODEL", def: "gemini-2.5-flash", label: "Google Gemini", cap: 8192 },
+  groq: { key: "GROQ_API_KEY", url: "https://api.groq.com/openai/v1/chat/completions", model: "GROQ_MODEL", def: "llama-3.3-70b-versatile", label: "Groq (Llama)", cap: 8000 },
+  openai: { key: "OPENAI_API_KEY", url: "https://api.openai.com/v1/chat/completions", model: "OPENAI_MODEL", def: "gpt-4o-mini", label: "OpenAI ChatGPT", cap: 16000 },
+};
+const LABELS = { gemini: "Google Gemini", groq: "Groq (Llama)", workersai: "Cloudflare Workers AI", claude: "Anthropic Claude", openai: "OpenAI ChatGPT" };
+const configured = (name, env) => name === "workersai" ? !!(env.AI && env.AI.run) : name === "claude" ? !!env.ANTHROPIC_API_KEY : !!(OPENAI_COMPAT[name] && env[OPENAI_COMPAT[name].key]);
+const order = env => (env.AI_ORDER || DEFAULT_ORDER).split(",").map(x => x.trim().toLowerCase()).filter(x => LABELS[x]);
 
-export async function onRequestPost({ request, env }) {
-  const origin = request.headers.get("origin");
-  if (origin && !SAME_SITE.some(r => r.test(origin))) return json({ error: "forbidden" }, 403);
-  if (!env.ANTHROPIC_API_KEY) return json({ error: "not_configured" }, 503);
+class ProviderError extends Error {
+  constructor(provider, status, message) { super(message); this.provider = provider; this.status = status; }
+}
+
+// Reads a server-sent-events body and yields each "data:" payload.
+async function* sse(body) {
+  const rd = body.getReader(), dec = new TextDecoder(); let buf = "";
+  for (;;) {
+    const { done, value } = await rd.read(); if (done) break;
+    buf += dec.decode(value, { stream: true });
+    let i; while ((i = buf.indexOf("\n")) >= 0) { const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1); if (line.startsWith("data:")) yield line.slice(5).trim(); }
+  }
+  if (buf.trim().startsWith("data:")) yield buf.trim().slice(5).trim();
+}
+
+async function* openaiCompat(name, env, sysText, messages, max) {
+  const P = OPENAI_COMPAT[name];
+  const res = await fetch(P.url, { method: "POST", headers: { authorization: "Bearer " + env[P.key], "content-type": "application/json" },
+    body: JSON.stringify({ model: env[P.model] || P.def, stream: true, max_tokens: Math.min(max, P.cap), messages: [{ role: "system", content: sysText }, ...messages] }) });
+  if (!res.ok) { let m = ""; try { m = (await res.text()).slice(0, 300); } catch {} throw new ProviderError(name, res.status, m); }
+  for await (const d of sse(res.body)) {
+    if (d === "[DONE]") return;
+    let j; try { j = JSON.parse(d); } catch { continue; }
+    if (j.error) throw new ProviderError(name, 500, JSON.stringify(j.error).slice(0, 300));
+    const t = j.choices && j.choices[0] && j.choices[0].delta && j.choices[0].delta.content;
+    if (t) yield t;
+    if (j.choices && j.choices[0] && j.choices[0].finish_reason === "length") yield "\n\n_(Answer cut short. Ask me to continue.)_";
+  }
+}
+
+async function* workersAI(env, sysText, messages, max) {
+  let out;
+  try { out = await env.AI.run(env.WORKERS_AI_MODEL || "@cf/meta/llama-3.3-70b-instruct-fp8-fast", { stream: true, max_tokens: Math.min(max, 4096), messages: [{ role: "system", content: sysText }, ...messages] }); }
+  catch (e) { throw new ProviderError("workersai", 502, String(e && e.message || e).slice(0, 300)); }
+  if (out instanceof Response) out = out.body;
+  if (!(out instanceof ReadableStream)) { const t = out && (out.response || ""); if (t) yield t; return; }
+  for await (const d of sse(out)) {
+    if (d === "[DONE]") return;
+    let j; try { j = JSON.parse(d); } catch { continue; }
+    if (j.response) yield j.response;
+  }
+}
+
+async function* claude(env, system, messages, max, effort) {
+  const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY, maxRetries: 1 });
+  const params = { model: env.AI_MODEL || "claude-opus-5-5", max_tokens: max, output_config: { effort }, system, messages };
+  // First with server-side refusal fallbacks; if the account rejects that option, once without it.
+  for (const withFallback of [true, false]) {
+    const stream = withFallback ? client.beta.messages.stream({ ...params, betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" }) : client.messages.stream(params);
+    stream.on("error", () => {});
+    let sent = false;
+    try {
+      for await (const ev of stream) {
+        if (ev.type === "content_block_delta" && ev.delta && ev.delta.type === "text_delta" && ev.delta.text) { sent = true; yield ev.delta.text; }
+      }
+      const m = await stream.finalMessage();
+      if (!sent && m.stop_reason === "refusal") yield "Sorry, I can't help with that. Try asking a learning or career question.";
+      if (m.stop_reason === "max_tokens") yield "\n\n_(Answer cut short. Ask me to continue.)_";
+      return;
+    } catch (e) {
+      if (sent) throw e;
+      const status = e instanceof Anthropic.APIError ? e.status : 0;
+      if (withFallback && status === 400) continue;
+      throw new ProviderError("claude", status || 500, String(e && e.message || e).slice(0, 300));
+    }
+  }
+}
+
+function run(name, env, ctx) {
+  if (name === "claude") return claude(env, ctx.system, ctx.messages, ctx.max, ctx.effort);
+  if (name === "workersai") return workersAI(env, ctx.sysText, ctx.messages, ctx.max);
+  return openaiCompat(name, env, ctx.sysText, ctx.messages, ctx.max);
+}
+
+// Requests must come from the page's own site (skillnavora.in, www, previews, or local testing).
+function sameSite(request) {
+  const o = request.headers.get("origin");
+  if (!o) return true;
+  try { const h = new URL(o).host, self = new URL(request.url).host; return h === self || /(^|\.)skillnavora\.in$/.test(h) || /^(localhost|127\.0\.0\.1)(:\d+)?$/.test(h); } catch { return false; }
+}
+
+async function status(request, env) {
+  const url = new URL(request.url), names = order(env);
+  const providers = names.map(n => ({ name: n, label: LABELS[n], connected: configured(n, env) }));
+  const body = { ok: providers.some(p => p.connected), order: names, providers, daily_limit_per_visitor: Number(env.AI_DAILY_LIMIT) || 200 };
+  if (url.searchParams.get("test") === "1") {
+    const ip = request.headers.get("cf-connecting-ip") || "anon";
+    if (!allowed(ip, 20)) return json({ error: "limit" }, 429);
+    for (const p of providers) {
+      if (!p.connected) continue;
+      const t0 = Date.now();
+      try { let txt = ""; for await (const c of run(p.name, env, { system: [{ type: "text", text: "Reply with one word." }], sysText: "Reply with one word.", messages: [{ role: "user", content: "Say OK" }], max: 16, effort: "low" })) { txt += c; if (txt.length > 40) break; } p.test = txt ? "working" : "no reply"; }
+      catch (e) { p.test = "error " + (e.status || "") + ": " + String(e.message || e).slice(0, 160); }
+      p.ms = Date.now() - t0;
+    }
+  }
+  return json(body);
+}
+
+async function answer(request, env) {
+  if (!sameSite(request)) return json({ error: "forbidden" }, 403);
+  const names = order(env).filter(n => configured(n, env));
+  if (!names.length) return json({ error: "not_configured", detail: "No AI provider is connected. Add GEMINI_API_KEY, GROQ_API_KEY, ANTHROPIC_API_KEY or OPENAI_API_KEY in Cloudflare, or turn on the Workers AI binding." }, 503);
 
   let body;
   try { body = await request.json(); } catch { return json({ error: "bad_request" }, 400); }
@@ -208,62 +321,49 @@ export async function onRequestPost({ request, env }) {
   if (!mode) return json({ error: "bad_request" }, 400);
   const messages = body.messages;
   if (!validMessages(messages, ["prd", "brd", "frd"].includes(body.mode) ? 40000 : 8000)) return json({ error: "bad_request" }, 400);
+  if (body.mode === "pm" && !PM_CAPS[body.cap]) return json({ error: "bad_request" }, 400);
 
   const ip = request.headers.get("cf-connecting-ip") || "anon";
-  if (!allowed(ip, Number(env.AI_DAILY_LIMIT) || 60)) return json({ error: "limit" }, 429);
+  if (!allowed(ip, Number(env.AI_DAILY_LIMIT) || 200)) return json({ error: "limit" }, 429);
 
   const system = [{ type: "text", text: mode.system }];
-  if (body.mode === "pm") {
-    const cap = PM_CAPS[body.cap];
-    if (!cap) return json({ error: "bad_request" }, 400);
-    system.push({ type: "text", text: "CAPABILITY: " + cap });
-  }
+  if (body.mode === "pm") system.push({ type: "text", text: "CAPABILITY: " + PM_CAPS[body.cap] });
   if (mode.cacheIndex) {
     const idx = await courseIndex(request, env);
     if (idx) system.push({ type: "text", text: "COURSE INDEX (title | path | topics):\n" + idx, cache_control: { type: "ephemeral" } });
     const ctx = await pageContext(request, env, body.page);
     if (ctx) system.push({ type: "text", text: "PAGE CONTEXT (" + body.page + "):\n" + ctx });
   }
+  const ctx = { system, sysText: system.map(b => b.text).join("\n\n"), messages: messages.map(m => ({ role: m.role, content: m.content })), max: mode.max, effort: mode.effort };
 
-  const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
-  const stream = client.beta.messages.stream({
-    model: env.AI_MODEL || "claude-opus-5-5",
-    max_tokens: mode.max,
-    output_config: { effort: mode.effort },
-    betas: ["server-side-fallback-2026-07-01"],
-    fallbacks: "default",
-    system,
-    messages: messages.map(m => ({ role: m.role, content: m.content }))
-  });
-
-  // Collect text as it arrives; fail fast with a JSON error if the request is rejected before any text.
-  const enc = new TextEncoder(), queue = [];
-  let final = null, failure = null, wake = null;
-  const poke = () => { if (wake) { const w = wake; wake = null; w(); } };
-  const wait = () => new Promise(r => { wake = r; });
-  stream.on("text", t => { queue.push(t); poke(); });
-  stream.on("error", () => {});
-  stream.finalMessage().then(m => { final = m; poke(); }, e => { failure = e; poke(); });
-  while (!queue.length && !final && !failure) await wait();
-  if (!queue.length && failure) {
-    const error = failure;
-    if (error instanceof Anthropic.RateLimitError) return json({ error: "busy" }, 429);
-    if (error instanceof Anthropic.AuthenticationError || error instanceof Anthropic.PermissionDeniedError) return json({ error: "not_configured" }, 503);
-    if (error instanceof Anthropic.APIError) return json({ error: "upstream", status: error.status }, 502);
-    return json({ error: "server" }, 500);
+  // Try providers in order until one starts answering.
+  const errors = [];
+  for (const name of names) {
+    const gen = run(name, env, ctx);
+    let first;
+    try { first = await gen.next(); }
+    catch (e) { errors.push({ provider: name, status: e.status || 0, message: String(e.message || e).slice(0, 200) }); console.error("AI provider failed", name, e.status, e.message); continue; }
+    if (first.done) { errors.push({ provider: name, status: 0, message: "empty reply" }); continue; }
+    const enc = new TextEncoder();
+    const out = new ReadableStream({
+      start(c) { c.enqueue(enc.encode(first.value)); },
+      async pull(c) {
+        try { const n = await gen.next(); if (n.done) c.close(); else c.enqueue(enc.encode(n.value)); }
+        catch (e) { console.error("AI stream interrupted", name, e && e.message); c.enqueue(enc.encode("\n\n_(Connection interrupted. Please try again.)_")); c.close(); }
+      },
+      cancel() { try { gen.return(); } catch {} }
+    });
+    return new Response(out, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff", "x-ai-provider": LABELS[name] } });
   }
-  if (!queue.length && final && final.stop_reason === "refusal") return json({ error: "refusal" }, 422);
-
-  const out = new ReadableStream({
-    async pull(controller) {
-      while (!queue.length && !final && !failure) await wait();
-      if (queue.length) { controller.enqueue(enc.encode(queue.splice(0).join(""))); return; }
-      if (failure) controller.enqueue(enc.encode("\n\n_(Connection interrupted. Please try again.)_"));
-      else if (final.stop_reason === "max_tokens") controller.enqueue(enc.encode("\n\n_(Answer cut short. Ask me to continue.)_"));
-      controller.close();
-    }
-  });
-  return new Response(out, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff" } });
+  const allBusy = errors.length && errors.every(e => e.status === 429);
+  const auth = errors.length && errors.every(e => e.status === 401 || e.status === 403);
+  return json({ error: allBusy ? "busy" : auth ? "bad_key" : "upstream", detail: errors }, allBusy ? 429 : 502);
 }
 
-export const onRequest = () => json({ error: "method_not_allowed" }, 405);
+// One handler for every method, so Cloudflare never routes a question to the wrong function.
+export async function onRequest({ request, env }) {
+  if (request.method === "POST") return answer(request, env);
+  if (request.method === "GET") return status(request, env);
+  if (request.method === "OPTIONS") return new Response(null, { status: 204 });
+  return json({ error: "method_not_allowed" }, 405);
+}
