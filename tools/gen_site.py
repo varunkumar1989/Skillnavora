@@ -112,6 +112,8 @@ MODALS_HTML = f'''<div class="modal" id="m-counsel" role="dialog" aria-modal="tr
 </div>'''
 
 
+import aipages
+
 def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs="", sticky=False, wa=True, footer=True, app=False):
     r = "../" * path.count("/")
     canon = DOMAIN + "/" + ("" if path == "index.html" else path.replace(".html", ""))
@@ -158,6 +160,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
   <nav class="nav" id="nav" aria-label="Main">
     <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC, digital marketing, FDE, public speaking, content", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_PROGRAMS + [("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
     <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
+    <div class="dd{on([p for p, *_ in aipages.AI_NAV if p != 'practice.html'])}"><button type="button" aria-expanded="false">AI Studio <span class="nav-new">Free</span> {CHEV}</button><div class="dd-menu">{"".join(item(*x) for x in aipages.AI_NAV)}</div></div>
     <div class="dd{on(['jobs.html', 'refer.html', 'hire.html'])}"><button type="button" aria-expanded="false">Job board {CHEV}</button><div class="dd-menu">
       <a href="{r}jobs.html#portals-box"><span class="dd-ico">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>')}</span><span><b>Job portals</b><small>LinkedIn, Naukri, Wellfound and more</small></span></a>
       <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>Product, AI and data engineering openings</small></span></a>
@@ -479,7 +482,7 @@ chal = uhero("Upskill for free · Challenges", 'Real-world <span class="g">chall
 page("challenges.html", "Challenges · SkillNavora", "Free product, AI and engineering challenges with clear briefs. Submit solutions for feedback.", chal, "challenges.html",
      UP_JS + '<script src="{r}assets/upskill.js"></script>', attrs=' data-page="challenges"')
 
-prac = uhero("Upskill for free · Practice with AI", 'Practice with <span class="g">AI</span>', "Get a real interview question, answer it against the clock, then send your answer to an AI assistant for a score and detailed feedback.") + f"""
+prac = uhero("AI Studio · AI mock interview", 'Practice with <span class="g">AI</span>', "Get a real interview question, answer it against the clock, then get a score, a model answer and follow-up questions from our AI coach, right here.") + aipages.CSS + f"""
 <section><div class="wrap practice">
   <div class="card form">
     <label>I'm preparing for<select id="pr-role"></select></label>
@@ -492,16 +495,16 @@ prac = uhero("Upskill for free · Practice with AI", 'Practice with <span class=
     <div class="kicker">Your question</div><p class="qbox" id="pr-q"></p>
     <label>Your answer <span class="meta">(saved on this device)</span><textarea id="pr-answer" style="min-height:220px" placeholder="Think out loud: clarify, structure, decide, measure…"></textarea></label>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
-      <button class="btn btn-primary btn-sm" id="pr-claude" type="button">Get feedback in Claude ↗</button>
-      <button class="btn btn-line btn-sm" id="pr-chatgpt" type="button">Get feedback in ChatGPT ↗</button>
+      <button class="btn btn-primary btn-sm" id="pr-ai" type="button">✨ Get AI feedback</button>
       <button class="btn btn-line btn-sm" id="pr-copy" type="button">Copy prompt</button>
       <button class="btn btn-line btn-sm" id="pr-next" type="button" style="margin-left:auto">New question ↻</button></div>
     <p class="meta" id="pr-copied" aria-live="polite" style="margin:10px 0 0"></p>
-    <p class="meta" style="margin:10px 0 0">Your answer is sent only to the AI assistant you choose, in your own account. Don't include private or company data.</p>
+    <div class="ai-doc ai-out" id="pr-ai-out" hidden style="margin-top:16px;min-height:0"></div>
+    <p class="meta" style="margin:10px 0 0">Feedback is generated right here by SkillNavora's AI coach. Don't include private or company data. More tools in <a href="ai.html">AI Studio</a>.</p>
   </div>
 </div></section>"""
 page("practice.html", "Practice with AI · SkillNavora", "Free AI mock interview practice for product managers, data engineers and GenAI professionals.", prac, "practice.html",
-     UP_JS + '<script src="{r}assets/upskill.js"></script>', attrs=' data-page="practice"')
+     UP_JS + '<script src="{r}assets/upskill.js"></script><script src="{r}assets/ai.js"></script>', attrs=' data-page="practice"')
 
 FW = [("RICE", "Prioritise a backlog", "Reach × Impact × Confidence ÷ Effort. Score each idea, then sanity-check the ranking."),
       ("Kano", "Decide which features delight", "Classify features as Must-be, Performance, Attractive, Indifferent or Reverse using a short survey."),
@@ -621,6 +624,16 @@ _lb_html, _lb_n = labpage.build()
 page("lab.html", "Practice Lab · SkillNavora", "Free practice lab: run SQL, Excel formulas and Python in your browser, spot the trap and see the fix. AI PM and GenAI real-life scenarios with hints.",
      uhero("Upskill for free · Practice & interview prep", 'Practice <span class="g">Lab</span>', f"{_lb_n} hands-on challenges from basic to advanced. Run real SQL, Excel formulas and Python in your browser, spot the trap before your interviewer does, and see the fix. Free, no sign-up.")
      + f"""<section style="padding-top:24px"><div class="wrap">{_lb_html}</div></section>""", "lab.html", '<script src="{r}assets/vendor/formula-parser.min.js"></script><script src="{r}assets/lab.js"></script>')
+_AIJS = '<script src="{r}assets/ai.js"></script>'
+aipages.write_index(OUT)
+page("ai.html", "AI Studio: free AI Tutor, PRD Writer and Speaking Coach · SkillNavora", "Free AI tools for learners: an AI Tutor for PM, data and GenAI questions, an AI PRD Writer, an AI Speaking Coach for English and interviews, and AI mock interviews.",
+     uhero("Free · Built into SkillNavora", 'AI <span class="g">Studio</span>', "Your AI tutor, PRD writer, speaking coach and interview coach, all in one place. Ask, write, speak and practise without leaving SkillNavora.") + aipages.hub(), "ai.html")
+page("ai-tutor.html", "AI Tutor · SkillNavora", "Ask the SkillNavora AI Tutor any question on product management, Excel, SQL, Python, Power BI, Tableau, machine learning, GenAI, agents, careers or English.",
+     uhero("AI Studio · AI Tutor", 'Ask <span class="g">Navora</span>, your AI Tutor', "Clear answers with examples, code and the right SkillNavora lesson, 24×7. English, Hindi or Hinglish.") + aipages.tutor(), "ai-tutor.html", _AIJS)
+page("prd-writer.html", "AI PRD Writer · SkillNavora", "Free AI PRD writer: turn a product idea into a complete product requirements document with personas, user stories, requirements, metrics and a launch plan.",
+     uhero("AI Studio · AI PRD Writer", 'Idea to <span class="g">PRD</span> in a minute', "Describe your product idea. Get a complete PRD with users, stories, requirements, success metrics and launch plan, then refine it by asking.") + aipages.prd(), "prd-writer.html", _AIJS)
+page("speaking-coach.html", "AI Speaking Coach · SkillNavora", "Free AI speaking coach: practise English, public speaking and interview answers out loud and get scores for fluency, grammar, structure and pace.",
+     uhero("AI Studio · AI Speaking Coach", 'Speak with <span class="g">confidence</span>', "Answer out loud. Get instant scores for fluency, grammar, structure and pace, the exact words to fix, a better version to listen to, and your next drill.") + aipages.speaking(), "speaking-coach.html", _AIJS)
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
 
 # ================================================================ CONTACT

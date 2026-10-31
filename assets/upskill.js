@@ -91,8 +91,8 @@
     // AI feedback prompt
     const prompt = () => `You are an experienced interviewer for ${role.value} roles. Evaluate my answer to this ${type.value.toLowerCase()} interview question.\n\nQuestion: ${current}\n\nMy answer:\n${ans.value.trim() || "(I haven't written an answer yet. Ask me clarifying questions first, then let me answer, and then evaluate me.)"}\n\nPlease give: 1) a score out of 10, 2) what was strong, 3) what was missing or weak, 4) a model answer outline, and 5) two follow-up questions an interviewer would ask. Be specific and honest.`;
     const open = base => window.open(base + encodeURIComponent(prompt()), "_blank", "noopener");
-    $("pr-claude").addEventListener("click", () => open("https://claude.ai/new?q="));
-    $("pr-chatgpt").addEventListener("click", () => open("https://chatgpt.com/?q="));
+    $("pr-claude") && $("pr-claude").addEventListener("click", () => open("https://claude.ai/new?q="));
+    $("pr-chatgpt") && $("pr-chatgpt").addEventListener("click", () => open("https://chatgpt.com/?q="));
     $("pr-copy").addEventListener("click", async () => { try { await navigator.clipboard.writeText(prompt()); $("pr-copied").textContent = "Copied! Paste it into any AI assistant."; } catch { $("pr-copied").textContent = "Couldn't copy. Select the text and copy it manually."; } });
     fillTypes();
   }

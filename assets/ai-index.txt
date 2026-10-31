@@ -1,0 +1,191 @@
+## Advanced Excel: From the Excel window to dashboards: formatting, 100+ functions, lookups, pivot tables, advanced charts, Power Query, Power Pivot and AI in Excel.
+Getting Started with Excel for Data Analysis | /data-science/lessons/excel-01-getting-started-with-excel-for-data-analysis.html | Advanced Excel
+Data Entry, Data Validation & Data Cleaning | /data-science/lessons/excel-02-data-entry-data-validation-and-data-cleaning.html | Advanced Excel
+Number, Custom & Conditional Formatting | /data-science/lessons/excel-03-number-custom-and-conditional-formatting.html | Advanced Excel
+Formulas, Cell References & Aggregate Functions | /data-science/lessons/excel-04-formulas-cell-references-and-aggregate-functions.html | Advanced Excel
+Text Functions, Logical Functions & IF | /data-science/lessons/excel-05-text-functions-logical-functions-and-if.html | Advanced Excel
+Sorting, Filtering & Dynamic Arrays | /data-science/lessons/excel-06-sorting-filtering-and-dynamic-arrays.html | Advanced Excel
+Lookup Functions: VLOOKUP, XLOOKUP and INDEX-MATCH | /data-science/lessons/excel-07-lookup-functions-vlookup-xlookup-and-index-match.html | Advanced Excel
+Pivot Tables from Basic to Advanced | /data-science/lessons/excel-08-pivot-tables-from-basic-to-advanced.html | Advanced Excel
+Date, Time & Number Functions and Named Ranges | /data-science/lessons/excel-09-date-time-and-number-functions-and-named-ranges.html | Advanced Excel
+Charts and Advanced Charts | /data-science/lessons/excel-10-charts-and-advanced-charts.html | Advanced Excel
+Interactive Dashboard: Superstore Case Study | /data-science/lessons/excel-11-interactive-dashboard-superstore-case-study.html | Advanced Excel
+Power Query, Power Pivot, Analysis ToolPak & What-If Analysis | /data-science/lessons/excel-12-power-query-power-pivot-analysis-toolpak-and-what-if-analysi.html | Advanced Excel
+## SQL for Data Analysis: Relational databases, ER diagrams and keys, DDL/DML, filtering, aggregation, joins, set operators, subqueries, window functions, CTEs, views, procedures and performance.
+Databases, RDBMS & SQL Basics | /data-science/lessons/sql-01-databases-rdbms-and-sql-basics.html | SQL for Data Analysis
+ER Diagrams, Relationships, Keys & Normalisation | /data-science/lessons/sql-02-er-diagrams-relationships-keys-and-normalisation.html | SQL for Data Analysis
+Data Types, Operators, NULLs, Variables & Comments | /data-science/lessons/sql-03-data-types-operators-nulls-variables-and-comments.html | SQL for Data Analysis
+DDL, DML & Constraints: CREATE, ALTER, INSERT, UPDATE, DELETE | /data-science/lessons/sql-04-ddl-dml-and-constraints-create-alter-insert-update-delete.html | SQL for Data Analysis
+SELECT, WHERE, ORDER BY & Filtering Operators | /data-science/lessons/sql-05-select-where-order-by-and-filtering-operators.html | SQL for Data Analysis
+SQL Functions: Aggregate, Text, Date & Number | /data-science/lessons/sql-06-sql-functions-aggregate-text-date-and-number.html | SQL for Data Analysis
+GROUP BY, HAVING, CASE WHEN, ROLLUP, CUBE & COALESCE | /data-science/lessons/sql-07-group-by-having-case-when-rollup-cube-and-coalesce.html | SQL for Data Analysis
+Joins and a Retail Case Study | /data-science/lessons/sql-08-joins-and-a-retail-case-study.html | SQL for Data Analysis
+Set Operators: UNION, UNION ALL, INTERSECT & EXCEPT | /data-science/lessons/sql-09-set-operators-union-union-all-intersect-and-except.html | SQL for Data Analysis
+Subqueries, Derived Tables & EXISTS | /data-science/lessons/sql-10-subqueries-derived-tables-and-exists.html | SQL for Data Analysis
+OFFSET-FETCH and Window Functions I: OVER, PARTITION BY & Ranking | /data-science/lessons/sql-11-offset-fetch-and-window-functions-i-over-partition-by-and-ra.html | SQL for Data Analysis
+Window Functions II: Running Totals, LEAD, LAG & Frames | /data-science/lessons/sql-12-window-functions-ii-running-totals-lead-lag-and-frames.html | SQL for Data Analysis
+CTEs, Views, Temporary Tables, Stored Procedures & Functions | /data-science/lessons/sql-13-ctes-views-temporary-tables-stored-procedures-and-functions.html | SQL for Data Analysis
+Transactions, Indexes, Performance & Security | /data-science/lessons/sql-14-transactions-indexes-performance-and-security.html | SQL for Data Analysis
+End-to-End SQL Case Study & Interview Practice | /data-science/lessons/sql-15-end-to-end-sql-case-study-and-interview-practice.html | SQL for Data Analysis
+## Power BI: ETL with Power Query, star-schema modelling, DAX measures and time intelligence, interactive reports, case studies, publishing, security and Copilot.
+Getting Started with Power BI & Your First HR Report | /data-science/lessons/powerbi-01-getting-started-with-power-bi-and-your-first-hr-report.html | Power BI
+Power Query, Star Schema & Data Modelling (Adventure Cycles) | /data-science/lessons/powerbi-02-power-query-star-schema-and-data-modelling-adventure-cycles.html | Power BI
+DAX Fundamentals: Measures, Filter Context & CALCULATE | /data-science/lessons/powerbi-03-dax-fundamentals-measures-filter-context-and-calculate.html | Power BI
+DAX Time Intelligence, Ranking, Parameters & Dynamic Measures | /data-science/lessons/powerbi-04-dax-time-intelligence-ranking-parameters-and-dynamic-measure.html | Power BI
+Visuals, Filters, Drill-through, Tooltips, Buttons & Report Design | /data-science/lessons/powerbi-05-visuals-filters-drill-through-tooltips-buttons-and-report-de.html | Power BI
+Power BI Service, Connectivity Modes, Security & Capstone | /data-science/lessons/powerbi-06-power-bi-service-connectivity-modes-security-and-capstone.html | Power BI
+## Tableau: Tableau Public and Desktop: connecting data, dimensions and measures, every core chart, calculated fields, table calculations and LOD expressions, filters, parameters and sets, data modelling, dashboards, stories and publishing.
+Getting Started with Tableau: Interface, Data Connections and Your First Views | /data-science/lessons/tableau-01-getting-started-with-tableau-interface-data-connections-and.html | Tableau
+Charts in Tableau: From Bar and Line to Maps, Dual Axis, Histograms and Pareto | /data-science/lessons/tableau-02-charts-in-tableau-from-bar-and-line-to-maps-dual-axis-histog.html | Tableau
+Calculations in Tableau: Calculated Fields, Table Calculations and LOD Expressions | /data-science/lessons/tableau-03-calculations-in-tableau-calculated-fields-table-calculations.html | Tableau
+Filters, Parameters, Sets, Groups and Hierarchies in Tableau | /data-science/lessons/tableau-04-filters-parameters-sets-groups-and-hierarchies-in-tableau.html | Tableau
+Data Modelling in Tableau: Relationships, Joins, Unions, Blending, Extracts and Tableau Prep | /data-science/lessons/tableau-05-data-modelling-in-tableau-relationships-joins-unions-blendin.html | Tableau
+Dashboards, Actions, Stories and Publishing in Tableau (Capstone) | /data-science/lessons/tableau-06-dashboards-actions-stories-and-publishing-in-tableau-capston.html | Tableau
+## AI for Data Analysis: Generative AI for analysts: prompting, AI vs GenAI vs agentic AI, AI over SQL (Metabase, MinusX), Copilot and Gemini in Excel, and office agents.
+Generative AI for Analysts: How It Works, Prompting & AI vs GenAI vs Agentic AI | /data-science/lessons/ai-analytics-01-generative-ai-for-analysts-how-it-works-prompting-and-ai-vs.html | AI for Data Analysis
+AI with SQL: Text-to-SQL, Docker, Metabase & MinusX | /data-science/lessons/ai-analytics-02-ai-with-sql-text-to-sql-docker-metabase-and-minusx.html | AI for Data Analysis
+AI in Excel & Office: Copilot, Gemini, Claude, Python in Excel & Agents | /data-science/lessons/ai-analytics-03-ai-in-excel-and-office-copilot-gemini-claude-python-in-excel.html | AI for Data Analysis
+The AI-Assisted Analyst Workflow, Agents & Governance (Capstone) | /data-science/lessons/ai-analytics-04-the-ai-assisted-analyst-workflow-agents-and-governance-capst.html | AI for Data Analysis
+## Python for Data Science: Python from zero: data types, control flow, data structures, functions, OOP, files, NumPy, pandas, visualisation, dates, SQL connections, EDA and DSA for data roles.
+Introduction to Python: Why, Install & Jupyter Notebooks | /data-science/lessons/python-01-introduction-to-python-why-install-and-jupyter-notebooks.html | Python for Data Science
+Variables, Data Types, Type Conversion, print(), f-strings & input() | /data-science/lessons/python-02-variables-data-types-type-conversion-print-f-strings-and-inp.html | Python for Data Science
+Operators, Strings, Indexing, Slicing & String Methods | /data-science/lessons/python-03-operators-strings-indexing-slicing-and-string-methods.html | Python for Data Science
+Control Flow: if, elif, else, Nested Conditions & match | /data-science/lessons/python-04-control-flow-if-elif-else-nested-conditions-and-match.html | Python for Data Science
+Loops: while, for, range, break, continue & Patterns | /data-science/lessons/python-05-loops-while-for-range-break-continue-and-patterns.html | Python for Data Science
+Lists: Creating, Slicing, Methods, Sorting & Comprehensions | /data-science/lessons/python-06-lists-creating-slicing-methods-sorting-and-comprehensions.html | Python for Data Science
+Tuples & Sets: Immutable Records, Unpacking and Set Algebra | /data-science/lessons/python-07-tuples-and-sets-immutable-records-unpacking-and-set-algebra.html | Python for Data Science
+Dictionaries: Key-Value Data, Counting and Grouping | /data-science/lessons/python-08-dictionaries-key-value-data-counting-and-grouping.html | Python for Data Science
+Functions: Reusable Code, Arguments, Scope and Docstrings | /data-science/lessons/python-09-functions-reusable-code-arguments-scope-and-docstrings.html | Python for Data Science
+Comprehensions, Lambda, map/filter and Generators | /data-science/lessons/python-10-comprehensions-lambda-map-filter-and-generators.html | Python for Data Science
+Object-Oriented Python: Classes, Objects, Inheritance and Dataclasses | /data-science/lessons/python-11-object-oriented-python-classes-objects-inheritance-and-datac.html | Python for Data Science
+Files, Exceptions, JSON and CSV | /data-science/lessons/python-12-files-exceptions-json-and-csv.html | Python for Data Science
+Modules, Packages, Virtual Environments and Git | /data-science/lessons/python-13-modules-packages-virtual-environments-and-git.html | Python for Data Science
+Debugging, Testing, Regular Expressions and Code Quality | /data-science/lessons/python-14-debugging-testing-regular-expressions-and-code-quality.html | Python for Data Science
+NumPy: Fast Arrays, Vectorisation and Broadcasting | /data-science/lessons/python-15-numpy-fast-arrays-vectorisation-and-broadcasting.html | Python for Data Science
+pandas I: Series, DataFrames, Reading Data, Selecting and Filtering | /data-science/lessons/python-16-pandas-i-series-dataframes-reading-data-selecting-and-filter.html | Python for Data Science
+pandas II: Data Cleaning: Missing Values, Types, Duplicates, Text and Outliers | /data-science/lessons/python-17-pandas-ii-data-cleaning-missing-values-types-duplicates-text.html | Python for Data Science
+pandas III: GroupBy, Pivot Tables, Merge/Join and Reshape (melt/unpivot) | /data-science/lessons/python-18-pandas-iii-groupby-pivot-tables-merge-join-and-reshape-melt.html | Python for Data Science
+pandas IV: Dates, Time Series, Resampling and Rolling Windows | /data-science/lessons/python-19-pandas-iv-dates-time-series-resampling-and-rolling-windows.html | Python for Data Science
+Data Visualisation I: Matplotlib and Choosing the Right Chart | /data-science/lessons/python-20-data-visualisation-i-matplotlib-and-choosing-the-right-chart.html | Python for Data Science
+Data Visualisation II: Seaborn Statistical Charts and Interactive Plotly | /data-science/lessons/python-21-data-visualisation-ii-seaborn-statistical-charts-and-interac.html | Python for Data Science
+Exploratory Data Analysis (EDA) Case Study: Telecom Customer Churn | /data-science/lessons/python-22-exploratory-data-analysis-eda-case-study-telecom-customer-ch.html | Python for Data Science
+Python and SQL: sqlite3, DuckDB, SQLAlchemy and pandas.read_sql | /data-science/lessons/python-23-python-and-sql-sqlite3-duckdb-sqlalchemy-and-pandas-read-sql.html | Python for Data Science
+APIs, JSON and Web Scraping with requests and BeautifulSoup | /data-science/lessons/python-24-apis-json-and-web-scraping-with-requests-and-beautifulsoup.html | Python for Data Science
+Performance and Bigger Data: Vectorisation, Memory, Parquet, Polars and DuckDB | /data-science/lessons/python-25-performance-and-bigger-data-vectorisation-memory-parquet-pol.html | Python for Data Science
+DSA I: Big-O, Arrays, Strings, Hashing, Two Pointers and Sliding Window | /data-science/lessons/python-26-dsa-i-big-o-arrays-strings-hashing-two-pointers-and-sliding.html | Python for Data Science
+DSA II: Stacks, Queues, Linked Lists, Recursion, Sorting and Binary Search | /data-science/lessons/python-27-dsa-ii-stacks-queues-linked-lists-recursion-sorting-and-bina.html | Python for Data Science
+DSA III: Trees, Heaps, Graphs (BFS/DFS) and Dynamic Programming | /data-science/lessons/python-28-dsa-iii-trees-heaps-graphs-bfs-dfs-and-dynamic-programming.html | Python for Data Science
+Python Capstone: End-to-End Retail Sales Analytics Project | /data-science/lessons/python-29-python-capstone-end-to-end-retail-sales-analytics-project.html | Python for Data Science
+## Statistics & Machine Learning: Probability, CLT, hypothesis tests, the ML lifecycle, regression, classification, trees, ensembles, clustering, PCA, time series, NLP, deep learning basics, evaluation, explainability and deployment.
+Descriptive Statistics: Centre, Spread, Shape and Relationships | /data-science/lessons/ml-01-descriptive-statistics-centre-spread-shape-and-relationships.html | Statistics & Machine Learning
+Probability and Distributions: Rules, Bayes, Binomial, Poisson and Normal | /data-science/lessons/ml-02-probability-and-distributions-rules-bayes-binomial-poisson-a.html | Statistics & Machine Learning
+Sampling, the Central Limit Theorem and Confidence Intervals | /data-science/lessons/ml-03-sampling-the-central-limit-theorem-and-confidence-intervals.html | Statistics & Machine Learning
+Hypothesis Testing I: The Framework, p-values, z-tests and t-tests | /data-science/lessons/ml-04-hypothesis-testing-i-the-framework-p-values-z-tests-and-t-te.html | Statistics & Machine Learning
+Hypothesis Testing II: Chi-Square, ANOVA, Non-Parametric Tests and Correlation Tests | /data-science/lessons/ml-05-hypothesis-testing-ii-chi-square-anova-non-parametric-tests.html | Statistics & Machine Learning
+A/B Testing and Experimentation: Design, Power, Analysis and Pitfalls | /data-science/lessons/ml-06-a-b-testing-and-experimentation-design-power-analysis-and-pi.html | Statistics & Machine Learning
+Introduction to Machine Learning: Types, Business Framing and the ML Lifecycle | /data-science/lessons/ml-07-introduction-to-machine-learning-types-business-framing-and.html | Statistics & Machine Learning
+The scikit-learn Workflow: Train/Test Split, Baselines, Pipelines and Saving Models | /data-science/lessons/ml-08-the-scikit-learn-workflow-train-test-split-baselines-pipelin.html | Statistics & Machine Learning
+Data Preprocessing and Feature Engineering for ML | /data-science/lessons/ml-09-data-preprocessing-and-feature-engineering-for-ml.html | Statistics & Machine Learning
+Linear Regression: Fitting, Interpreting, Assumptions and Diagnostics | /data-science/lessons/ml-10-linear-regression-fitting-interpreting-assumptions-and-diagn.html | Statistics & Machine Learning
+Gradient Descent: How Models Learn (Built from Scratch in NumPy) | /data-science/lessons/ml-11-gradient-descent-how-models-learn-built-from-scratch-in-nump.html | Statistics & Machine Learning
+Overfitting, Polynomial Regression and Regularisation (Ridge, Lasso, Elastic Net) | /data-science/lessons/ml-12-overfitting-polynomial-regression-and-regularisation-ridge-l.html | Statistics & Machine Learning
+Logistic Regression: Probabilities, Odds Ratios and Credit-Risk Scoring | /data-science/lessons/ml-13-logistic-regression-probabilities-odds-ratios-and-credit-ris.html | Statistics & Machine Learning
+Classification Metrics: Confusion Matrix, Precision, Recall, ROC, PR and Business Value | /data-science/lessons/ml-14-classification-metrics-confusion-matrix-precision-recall-roc.html | Statistics & Machine Learning
+Cross-Validation and Hyperparameter Tuning: K-Fold, GridSearchCV, RandomizedSearchCV and Optuna | /data-science/lessons/ml-15-cross-validation-and-hyperparameter-tuning-k-fold-gridsearch.html | Statistics & Machine Learning
+K-Nearest Neighbours: Classifier and Regressor (Bank Loans Case Study) | /data-science/lessons/ml-16-k-nearest-neighbours-classifier-and-regressor-bank-loans-cas.html | Statistics & Machine Learning
+Decision Trees: Splits, Impurity, Pruning and Interpretable Rules | /data-science/lessons/ml-17-decision-trees-splits-impurity-pruning-and-interpretable-rul.html | Statistics & Machine Learning
+Ensembles I: Bagging and Random Forests | /data-science/lessons/ml-18-ensembles-i-bagging-and-random-forests.html | Statistics & Machine Learning
+Ensembles II: Gradient Boosting, XGBoost, LightGBM and CatBoost | /data-science/lessons/ml-19-ensembles-ii-gradient-boosting-xgboost-lightgbm-and-catboost.html | Statistics & Machine Learning
+Support Vector Machines and Naive Bayes | /data-science/lessons/ml-20-support-vector-machines-and-naive-bayes.html | Statistics & Machine Learning
+Imbalanced Classification: Fraud Detection with Class Weights, Resampling and Thresholds | /data-science/lessons/ml-21-imbalanced-classification-fraud-detection-with-class-weights.html | Statistics & Machine Learning
+Clustering I: K-Means and RFM Customer Segmentation | /data-science/lessons/ml-22-clustering-i-k-means-and-rfm-customer-segmentation.html | Statistics & Machine Learning
+Clustering II and Dimensionality Reduction: Hierarchical, DBSCAN, Gaussian Mixtures, PCA, t-SNE and UMAP | /data-science/lessons/ml-23-clustering-ii-and-dimensionality-reduction-hierarchical-dbsc.html | Statistics & Machine Learning
+Time-Series Forecasting: Decomposition, Baselines, ETS, ARIMA and ML with Lag Features | /data-science/lessons/ml-24-time-series-forecasting-decomposition-baselines-ets-arima-an.html | Statistics & Machine Learning
+NLP and Text Analytics: Cleaning, TF-IDF, Sentiment Classification, Topics and Embeddings | /data-science/lessons/ml-25-nlp-and-text-analytics-cleaning-tf-idf-sentiment-classificat.html | Statistics & Machine Learning
+Neural Networks and Deep Learning: From a Neuron to Transformers | /data-science/lessons/ml-26-neural-networks-and-deep-learning-from-a-neuron-to-transform.html | Statistics & Machine Learning
+Explainable AI and MLOps: SHAP, Fairness, Deployment, Monitoring and Responsible ML | /data-science/lessons/ml-27-explainable-ai-and-mlops-shap-fairness-deployment-monitoring.html | Statistics & Machine Learning
+ML Capstone: End-to-End Churn Prediction and Retention Strategy | /data-science/lessons/ml-28-ml-capstone-end-to-end-churn-prediction-and-retention-strate.html | Statistics & Machine Learning
+## Generative AI & Agentic AI: How LLMs work, prompting, LLM APIs in Python, embeddings and vector search, RAG, tool use, agents, MCP, evaluation, guardrails, fine-tuning and responsible AI.
+How Large Language Models Work: Tokens, Embeddings, Transformers and Training | /data-science/lessons/genai-01-how-large-language-models-work-tokens-embeddings-transformer.html | Generative AI & Agentic AI
+Prompt Engineering in Depth: Patterns, Templates, Few-Shot, Reasoning and Structured Output | /data-science/lessons/genai-02-prompt-engineering-in-depth-patterns-templates-few-shot-reas.html | Generative AI & Agentic AI
+Calling LLM APIs from Python: Messages, Streaming, Structured Output, Costs and Reliability | /data-science/lessons/genai-03-calling-llm-apis-from-python-messages-streaming-structured-o.html | Generative AI & Agentic AI
+Embeddings and Vector Search: Meaning as Numbers, Similarity and Vector Databases | /data-science/lessons/genai-04-embeddings-and-vector-search-meaning-as-numbers-similarity-a.html | Generative AI & Agentic AI
+Retrieval-Augmented Generation (RAG): Build, Evaluate and Improve a Q&A Assistant | /data-science/lessons/genai-05-retrieval-augmented-generation-rag-build-evaluate-and-improv.html | Generative AI & Agentic AI
+Tool Use and Function Calling: Letting LLMs Query Data, Call APIs and Take Actions | /data-science/lessons/genai-06-tool-use-and-function-calling-letting-llms-query-data-call-a.html | Generative AI & Agentic AI
+AI Agents and Agentic AI: Loops, Planning, Memory, Multi-Agent Systems and When to Use Them | /data-science/lessons/genai-07-ai-agents-and-agentic-ai-loops-planning-memory-multi-agent-s.html | Generative AI & Agentic AI
+Model Context Protocol (MCP): Connecting AI Assistants to Your Data and Tools | /data-science/lessons/genai-08-model-context-protocol-mcp-connecting-ai-assistants-to-your.html | Generative AI & Agentic AI
+Evaluating LLM Applications and Building Guardrails: Test Sets, LLM-as-Judge, Injection, PII and Safety | /data-science/lessons/genai-09-evaluating-llm-applications-and-building-guardrails-test-set.html | Generative AI & Agentic AI
+Customising Models: Prompting vs RAG vs Fine-Tuning, LoRA, Distillation and Open-Weight Models | /data-science/lessons/genai-10-customising-models-prompting-vs-rag-vs-fine-tuning-lora-dist.html | Generative AI & Agentic AI
+GenAI for Data Work: Text-to-SQL, AI Coding Assistants, Data Cleaning and Automated Insights | /data-science/lessons/genai-11-genai-for-data-work-text-to-sql-ai-coding-assistants-data-cl.html | Generative AI & Agentic AI
+Building and Shipping a GenAI App: Architecture, Streamlit/FastAPI, Cost, Observability and Responsible AI (Capstone) | /data-science/lessons/genai-12-building-and-shipping-a-genai-app-architecture-streamlit-fas.html | Generative AI & Agentic AI
+## AI Agents, MCP & APIs for PMs and BAs: No-code track for PMs, BAs and senior PMs: APIs, MCP with Claude, how AI agents work and how to build them, connecting apps with n8n, Make, Zapier and Replit, a complete Claude Code tutorial, and voice agents and voice cloning.
+APIs Without Code: How Apps Talk, REST, JSON, Authentication, Webhooks and Postman for PMs and BAs | /data-science/lessons/agents-01-apis-without-code-how-apps-talk-rest-json-authentication-web.html | AI Agents, MCP & APIs for PMs and BAs
+MCP (Model Context Protocol) Without Code: Connect Claude to Your Apps and Data | /data-science/lessons/agents-02-mcp-model-context-protocol-without-code-connect-claude-to-yo.html | AI Agents, MCP & APIs for PMs and BAs
+How AI Agents Work and How to Build One Without Code | /data-science/lessons/agents-03-how-ai-agents-work-and-how-to-build-one-without-code.html | AI Agents, MCP & APIs for PMs and BAs
+Connect All Your Apps with Claude, n8n, Make, Zapier and Replit | /data-science/lessons/agents-04-connect-all-your-apps-with-claude-n8n-make-zapier-and-replit.html | AI Agents, MCP & APIs for PMs and BAs
+Claude Code Complete Tutorial: From First Prompt to Agents, MCP, Hooks and Automation | /data-science/lessons/agents-05-claude-code-complete-tutorial-from-first-prompt-to-agents-mc.html | AI Agents, MCP & APIs for PMs and BAs
+Voice Agents and Voice Cloning: Tools, Architecture, Build Steps and Responsible Use | /data-science/lessons/agents-06-voice-agents-and-voice-cloning-tools-architecture-build-step.html | AI Agents, MCP & APIs for PMs and BAs
+## AI & No-Code Tools Lab: Complete tutorials for the design and automation tools used across the programs: Figma (design systems, prototypes, Dev Mode, Figma Make) and n8n (workflows, APIs, AI agents, MCP).
+Figma Complete Tutorial: Interface, Auto Layout, Components, Variables, Prototypes, Dev Mode and Figma AI | /data-science/lessons/tools-01-figma-complete-tutorial-interface-auto-layout-components-var.html | AI & No-Code Tools Lab
+n8n Complete Tutorial: Workflow Automation, Data Pipelines and AI Agents | /data-science/lessons/tools-02-n8n-complete-tutorial-workflow-automation-data-pipelines-and.html | AI & No-Code Tools Lab
+## Capstone, Portfolio & Interviews: End-to-end capstone, portfolio and GitHub, analyst and data scientist interview preparation with model answers, and a 90-day plan.
+Portfolio, GitHub and Resume for Data Roles | /data-science/lessons/career-01-portfolio-github-and-resume-for-data-roles.html | Capstone, Portfolio & Interviews
+Data Analyst Interview Preparation: SQL, Excel, Power BI, Statistics and Case Questions | /data-science/lessons/career-02-data-analyst-interview-preparation-sql-excel-power-bi-statis.html | Capstone, Portfolio & Interviews
+Data Scientist, ML and GenAI Interview Preparation: Questions and Model Answers | /data-science/lessons/career-03-data-scientist-ml-and-genai-interview-preparation-questions.html | Capstone, Portfolio & Interviews
+Your 90-Day Plan: Learning Roadmap, Job Search Strategy and Growing in Your First Role | /data-science/lessons/career-04-your-90-day-plan-learning-roadmap-job-search-strategy-and-gr.html | Capstone, Portfolio & Interviews
+## Salesforce Marketing Cloud (SFMC): Complete SFMC guide: data extensions, SQL, AMPscript, Email Studio, Automation Studio, Journey Builder, mobile channels, deliverability, Einstein and certification.
+Salesforce Marketing Cloud (SFMC) Complete Guide: Email Studio, Data Extensions, SQL, AMPscript, Journey Builder and Certification | /data-science/lessons/sfmc-01-salesforce-marketing-cloud-sfmc-complete-guide-email-studio.html | Salesforce Marketing Cloud (SFMC)
+## Digital Marketing: Complete digital marketing guide: strategy, SEO and AI search, Google and Meta Ads, social and influencers, email and WhatsApp, GA4 and attribution, CRO, budgets and AI.
+Digital Marketing Complete Guide: Strategy, SEO, Google and Meta Ads, Social, Email, WhatsApp, Analytics and AI | /data-science/lessons/marketing-01-digital-marketing-complete-guide-strategy-seo-google-and-met.html | Digital Marketing
+## Content Creation: Complete content creation guide: niche and pillars, hooks and writing, short and long video, design, AI tools, publishing system, growth, analytics and monetisation.
+Content Creation Complete Guide: Strategy, Writing, Short and Long Video, Design, AI Tools, Distribution and Monetisation | /data-science/lessons/content-01-content-creation-complete-guide-strategy-writing-short-and-l.html | Content Creation
+## Forward Deployed Engineer (FDE): Complete FDE guide: the role, skills stack, deployment lifecycle, LLM solutions for customers, integration patterns, a capstone and interview preparation.
+Forward Deployed Engineer (FDE) Complete Guide: The Role, Skills, AI Deployments, Integrations and Interviews | /data-science/lessons/fde-01-forward-deployed-engineer-fde-complete-guide-the-role-skills.html | Forward Deployed Engineer (FDE)
+## Public Speaking: Complete public speaking guide: confidence, structure (PREP, STAR, pyramid), storytelling, data and slides, voice and body language, Q&A, meetings, interviews, video and AI practice tools.
+Public Speaking Complete Guide: Confidence, Structure, Storytelling, Delivery, Slides, Meetings, Interviews and Video | /data-science/lessons/speaking-01-public-speaking-complete-guide-confidence-structure-storytel.html | Public Speaking
+## Product Management Master Handbook
+Appendix: Source Coverage &amp; Gap Analysis | /handbooks/pm/appendix.html | Product management
+Case Study Library | /handbooks/pm/cases.html | Product management
+Framework Library | /handbooks/pm/frameworks.html | Product management
+Glossary | /handbooks/pm/glossary.html | Product management
+Learning dashboard | /handbooks/pm/index.html | Product management
+Interview Handbook | /handbooks/pm/interview.html | Product management
+Module 1: Fundamentals of Product Management | /handbooks/pm/m01.html | Product management
+Module 2: Product Strategy and Strategic Thinking | /handbooks/pm/m02.html | Product management
+Module 3: Problem Discovery and Market Research | /handbooks/pm/m03.html | Product management
+Module 4: Problem Framing and Prioritization | /handbooks/pm/m04.html | Product management
+Module 5: UX and Design Collaboration | /handbooks/pm/m05.html | Product management
+Module 6: Effective Communication and Stakeholder Management | /handbooks/pm/m06.html | Product management
+Module 7: Product Analytics and Metrics | /handbooks/pm/m07.html | Product management
+Module 8: Product Launch, Growth, and Monetization | /handbooks/pm/m08.html | Product management
+Module 9: Tech 101 and System Design for PMs | /handbooks/pm/m09.html | Product management
+Module 10: LLMs, RAGs, and AI Foundations | /handbooks/pm/m10.html | Product management
+Module 11: Vibe Coding for Product Managers | /handbooks/pm/m11.html | Product management
+Module 12: Agentic AI and AI Systems | /handbooks/pm/m12.html | Product management
+Module 13: AI Tools Landscape and Your Starter Stack | /handbooks/pm/m13.html | Product management
+Module 14: Claude for Daily PM Work: Basic to Advanced | /handbooks/pm/m14.html | Product management
+Module 15: Claude Code: Basic to Advanced | /handbooks/pm/m15.html | Product management
+Module 16: Lovable: Basic to Advanced | /handbooks/pm/m16.html | Product management
+Module 17: Replit and Other AI App Builders | /handbooks/pm/m17.html | Product management
+Module 18: Figma and AI Design Tools | /handbooks/pm/m18.html | Product management
+Module 19: Notion, PRD Tools and AI Documentation | /handbooks/pm/m19.html | Product management
+Module 20: Automation with Zapier, Make and n8n | /handbooks/pm/m20.html | Product management
+Module 21: AI Chatbots for Business: WhatsApp, Slack and Web | /handbooks/pm/m21.html | Product management
+Module 22: Voice Agents for Businesses | /handbooks/pm/m22.html | Product management
+Module 23: Learning Paths, Courses and Communities | /handbooks/pm/m23.html | Product management
+Practical Projects &amp; Portfolio | /handbooks/pm/projects.html | Product management
+References &amp; Resources | /handbooks/pm/resources.html | Product management
+Start Here | /handbooks/pm/start.html | Product management
+Templates &amp; datasets | /handbooks/pm/templates.html | Product management
+## Practice and other pages
+Practice Lab (run SQL, Excel, Python; PM and GenAI scenarios) | /lab.html | practice
+Practice tests by topic | /tests.html | practice
+Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview
+AI mock interview with feedback | /practice.html | interview
+AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking
+AI PRD Writer | /prd-writer.html | product management
+Tool tutorials: Figma, n8n, Make, Zapier, Replit, Claude Code | /tools.html | tools
+Handbooks and PDFs hub | /handbooks/index.html | handbooks
+Resources & AI tools (links, newsletters, job portals) | /resources.html | resources
+Programs: AI Product Management, AI for Data Engineers, GenAI Launchpad | /programs.html | programs
+Free counselling call / contact | /contact.html | contact

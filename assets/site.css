@@ -1411,3 +1411,5 @@ body.has-sticky .refab{bottom:284px}
 .qlinks b{font:700 12px var(--display);letter-spacing:.1em;text-transform:uppercase;margin-right:4px;opacity:.8}
 .qlinks a{padding:7px 12px;border-radius:999px;background:var(--card,#fff);border:1px solid rgba(124,58,237,.2);font-weight:600;font-size:13.5px;text-decoration:none}
 .qlinks a:hover{border-color:#7C3AED}
+.nav-new{display:inline-block;font:800 10px/1 var(--body);letter-spacing:.05em;text-transform:uppercase;background:linear-gradient(135deg,#6C4CF5,#22D3EE);color:#fff;border-radius:99px;padding:4px 7px;margin-left:4px;vertical-align:2px}
+.chat-tutor{display:block;margin:2px 0 8px;font:600 13.5px var(--body);color:var(--brand)}

@@ -279,6 +279,7 @@
     function start() {
       body.innerHTML = "";
       add("assistant", "Hi! I'm the SkillNavora assistant. Ask me anything about our programs, fees, tools, schedule or career support.");
+      { const a = document.createElement("a"); a.className = "chat-tutor"; a.href = R + "ai-tutor.html"; a.textContent = "📚 Study question (SQL, PM, GenAI, English)? Ask the AI Tutor →"; body.appendChild(a); }
       if (!hist.length) { const s = document.createElement("div"); s.className = "sugg"; s.innerHTML = SUG.map(q => `<button type="button">${esc(q)}</button>`).join(""); body.appendChild(s);
         s.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { s.remove(); send(b.textContent); } }); }
       hist.forEach(m => add(m.role, m.content));
