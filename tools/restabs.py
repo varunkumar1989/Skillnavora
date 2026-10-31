@@ -60,8 +60,8 @@ def ds_tab(cfg):
     if tracks:
         out.append(h("Handbook tracks", "Every lesson opens in the handbook site and has its own PDF. You will be asked for your details once."))
         for t in tracks:
-            if t["id"] in ("genai",):
-                continue
+            if t["id"] in ("genai",) or t.get("extra"):
+                continue   # Other programs have their own tab
             out.append(f'<details class="trk"><summary><b>{E(t["name"])}</b><span>{len(t["lessons"])} lessons</span>'
                        f'<a href="{DS_SITE}pdf/tracks/{t["track_pdf"]}" target="_blank" rel="noopener" data-gate="1" onclick="event.stopPropagation()">Track PDF ↗</a></summary><div class="hb-list">{lesson_rows(t)}</div></details>')
     out.append(h("Practice datasets and files", "Fictional data you can download for every Excel, SQL, Power BI, Python and ML exercise."))
@@ -189,6 +189,7 @@ QUICK = {
     "pm": [("PM handbook", "handbooks/index.html#pm"), ("Top 100 PM questions", "questions.html#pm"), ("PM practice test", "tests.html#pm"), ("Practice Lab", "lab.html#pm"), ("Tool tutorials", "tools.html#tt-ai-pm"), ("AI Agents & MCP for PMs", "handbooks/index.html#genai")],
     "data": [("Data Science & AI handbook", "data-science/index.html"), ("DSA", "handbooks/index.html#dsa"), ("Top 100 data questions", "questions.html#data"), ("Data practice test", "tests.html#data"), ("Practice Lab: run SQL, Excel, Python", "lab.html#data"), ("Tool tutorials", "tools.html#tt-ai-de"), ("Job board", "jobs.html")],
     "genai": [("GenAI Launchpad handbook", "handbooks/index.html#genai"), ("Top 100 GenAI questions", "questions.html#genai"), ("GenAI practice test", "tests.html#genai"), ("Practice Lab + prompt checker", "lab.html#genai"), ("Tool tutorials", "tools.html#tt-genai-launchpad"), ("Claude Code tutorial", "handbooks/index.html#genai")],
+    "other": [("SFMC", "#op-sfmc"), ("Digital marketing", "#op-marketing"), ("Content creation", "#op-content"), ("FDE", "#op-fde"), ("Public speaking", "#op-speaking"), ("Practice test", "tests.html#other"), ("Interview questions", "questions.html#other")],
     "more": [("Newsletters & AI news", "#news"), ("Job alerts", "jobs.html#portals-box"), ("Communities", "#more"), ("Free datasets", "#more"), ("Other programs", "handbooks/index.html#other")],
 }
 
@@ -205,13 +206,52 @@ NEWS = [("TLDR AI", "Daily 5-minute AI and tech news.", "https://tldr.tech/ai", 
         ("Morning Brew", "Daily business news.", "https://www.morningbrew.com/", "Business"), ("Import AI", "Weekly AI research digest.", "https://importai.substack.com/", "AI research")]
 
 
+OTHER = [  # (track id, guide page, free official courses)
+    ("sfmc", "guides/sfmc.html", [("Trailhead: Marketing Cloud Engagement", "Free official Salesforce modules and badges.", "https://trailhead.salesforce.com/", "Course"),
+                                   ("AMPscript guide", "Salesforce Developers reference.", "https://developer.salesforce.com/docs/marketing/marketing-cloud-ampscript/guide/", "Docs"),
+                                   ("Marketing Cloud help", "Official product documentation.", "https://help.salesforce.com/", "Docs"),
+                                   ("Salesforce certifications", "Exam guides for Email Specialist, Admin, Developer, Consultant.", "https://trailhead.salesforce.com/credentials/administratoroverview", "Certification")]),
+    ("marketing", "guides/digital-marketing.html", [("Google Skillshop", "Free Google Ads and Analytics certifications.", "https://skillshop.withgoogle.com/", "Certification"),
+                                                     ("Meta Blueprint", "Free Facebook and Instagram ads courses.", "https://www.facebook.com/business/learn", "Course"),
+                                                     ("HubSpot Academy", "Free inbound, SEO, email and content courses.", "https://academy.hubspot.com/", "Course"),
+                                                     ("Google Search Central: SEO starter guide", "Official SEO basics.", "https://developers.google.com/search/docs/fundamentals/seo-starter-guide", "Docs")]),
+    ("content", "guides/content-creation.html", [("YouTube Creators", "Official lessons on growing a channel.", "https://www.youtube.com/creators/", "Course"),
+                                                  ("Instagram for Creators", "Reels, growth and monetisation tips.", "https://creators.instagram.com/", "Guide"),
+                                                  ("Canva Design School", "Free design courses and templates.", "https://www.canva.com/designschool/", "Course"),
+                                                  ("CapCut tutorials", "Video editing basics.", "https://www.capcut.com/resource", "Tool")]),
+    ("fde", "guides/fde.html", [("Anthropic: Building effective agents", "How production AI agents are designed.", "https://www.anthropic.com/engineering/building-effective-agents", "Guide"),
+                                 ("Claude and Agent SDK docs", "Build and deploy AI solutions.", "https://docs.claude.com/", "Docs"),
+                                 ("Model Context Protocol", "Connect AI to customer systems.", "https://modelcontextprotocol.io/", "Docs"),
+                                 ("DeepLearning.AI short courses", "Free courses on RAG, agents and evaluation.", "https://www.deeplearning.ai/short-courses/", "Course")]),
+    ("speaking", "guides/public-speaking.html", [("Toastmasters International", "Practice speaking with feedback in clubs near you.", "https://www.toastmasters.org/", "Practice"),
+                                                  ("TED talks", "Learn from great speakers.", "https://www.ted.com/", "Watch"),
+                                                  ("Microsoft Speaker Coach", "AI feedback on pace and fillers in PowerPoint.", "https://support.microsoft.com/office/rehearse-your-slide-show-with-speaker-coach-cd7fc941-5c3b-498c-a225-83ef3f64f07b", "Tool"),
+                                                  ("Yoodli AI speech coach", "Practise talks and interviews with AI feedback.", "https://yoodli.ai/", "Tool")]),
+]
+
+
+def other_tab():
+    cat = catalog(); tr = {t["id"]: t for t in cat["tracks"]}
+    out = [hero("Other programs · free complete guides", "SFMC, Digital Marketing, Content Creation, FDE and Public Speaking",
+                "Each program has a complete basic-to-advanced guide with worked examples, quizzes and interview questions, a PDF, practice tests and the best free official courses.",
+                btn("Practice test", "tests.html#other", True, gate=False, new=False) + btn("Interview questions", "questions.html#other", gate=False, new=False))]
+    for tid, page, links in OTHER:
+        t = tr.get(tid)
+        if not t: continue
+        L = t["lessons"][0]
+        out.append(f'<section class="op-sec" id="op-{tid}">' + h(t["name"], t["desc"]) + '<div class="hb-acts" style="margin:0 0 12px">'
+                   + btn("Open the complete guide", page, True, gate=False, new=False) + btn("Guide PDF ↗", DS_SITE + "pdf/" + L["track"] + "/" + L["pdf"])
+                   + btn("Read as a lesson ↗", DS_SITE + "lessons/" + L["file"], gate=False) + "</div>" + grid(links) + "</section>")
+    return "".join(out)
+
+
 def build(pm_html, cfg, scope=None):
     """Four resource tabs. scope=None: the Resources page (hash links #pm, #data, #genai, #more).
     scope="lms": the same tabs inside the LMS Resources panel, with their own ids and attributes so the LMS tab code ignores them."""
-    tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("more", "Other resources & links")]
+    tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("other", "Other programs"), ("more", "Other resources & links")]
     pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
     bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
-    panels = {"pm": quick("pm") + pm_html, "data": quick("data") + ds_tab(cfg), "genai": quick("genai") + genai_tab(cfg), "more": quick("more") + more_tab()}
+    panels = {"pm": quick("pm") + pm_html, "data": quick("data") + ds_tab(cfg), "genai": quick("genai") + genai_tab(cfg), "other": quick("other") + other_tab(), "more": quick("more") + more_tab()}
     body = "".join(f'<div class="{cls}" id="{pre}p-{k}" role="tabpanel" aria-labelledby="{pre}t-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(tabs))
     if scope:
         js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#lr-res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.rpanel'));
