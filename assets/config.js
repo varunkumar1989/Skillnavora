@@ -111,6 +111,7 @@ const COURSES = [
       { title: "Browser automation and AI agents", topics: ["Scripts, RPA and AI browser agents: when to use which", "Playwright basics and Chrome Recorder for PMs", "Computer-use agents, deep research agents and competitor research", "Safety, approvals, prompt injection and evaluating browser agents"] },
       { title: "Your AI second brain and context engineering", topics: ["PARA and CODE: capture, organise, distil, express", "NotebookLM, Claude Projects, Notion AI and Obsidian", "Context engineering and managing AI memory", "Insight repository, decision log and MCP-connected knowledge"] },
       { title: "Agent orchestration and monitoring", topics: ["Workflows vs agents; chaining, routing and parallel work", "Orchestrator-workers, evaluator-optimizer and multi-agent systems", "State, checkpoints, approvals and error recovery", "Triggers, cost control and production monitoring"] },
+      { title: "Advanced AI product management", topics: ["AI product strategy: moats, data flywheels, build vs buy vs partner", "Designing AI experiences (AI UX) and pricing AI products", "ML products for PMs, AI governance and responsible AI", "Platform & API product management, product operations, multimodal AI"] },
       { title: "Capstone, mock tests and interview preparation", topics: ["Capstone: build and pitch your own AI product", "Weekly mock tests", "Product sense, metrics, strategy, RCA and behavioural rounds", "1:1 mock interviews with feedback"] },
       { title: "Job assistance program", topics: ["Resume and LinkedIn makeover", "Portfolio of 25+ case studies", "Referrals and job-search strategy", "Offer negotiation and salary discussions"] }
     ],
@@ -192,6 +193,7 @@ const COURSES = [
       { title: "Your AI second brain", topics: ["PARA and CODE with Notion, Obsidian or NotebookLM", "Context engineering and AI memory", "Automating notes from meetings, email and reading"] },
       { title: "AI evals: checking AI quality", topics: ["What evals are and simple rubrics", "Test sets and AI-as-judge", "Safety checks and monitoring"] },
       { title: "Agent orchestration and monitoring", topics: ["Workflows vs agents and simple patterns", "Approvals, retries and schedules", "Cost control and monitoring"] },
+      { title: "AI strategy, AI UX, governance and AI media", topics: ["Where AI creates value and choosing tools", "Designing AI experiences people trust", "Responsible AI and data protection", "Images, voice and video with AI"] },
       { title: "Responsible AI", topics: ["Privacy and data safety", "Bias and accuracy", "Company AI policies"] },
       { title: "Capstone", topics: ["Solve a real problem with AI", "Demo day", "Certificate"] }
     ],

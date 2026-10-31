@@ -61,6 +61,11 @@ CAT = [
   ("Problem framing, personas, JTBD, journeys", [C["toolkit"], ("PM handbook: problem framing", PM(4))]), ("PRD creation", [("AI PRD Writer", "prd-writer.html"), C["prdlib"], C["skills"]]),
   ("Prioritisation & roadmaps", [C["toolkit"], ("PM handbook: strategy", PM(2))]), ("Metrics design & experiment planning", [C["toolkit"], ("PM handbook: analytics", PM(7))]),
   ("Product teardown & launch planning", [C["toolkit"], ("PM handbook: launch & growth", PM(8))]), ("Stakeholder communication, decision logs, weekly reports", [C["toolkit"], C["brain"], C["skills"]])]),
+ ("9. Advanced AI product management", [
+  ("AI product strategy, moats, data flywheels, build vs buy", [("AI Product Strategy", "ai-product-strategy.html")]), ("AI UX: trust, explainability, feedback, failure design", [("Designing AI Experiences", "ai-ux-design.html")]),
+  ("Pricing, packaging and unit economics of AI", [("Pricing & Monetising AI", "ai-pricing.html")]), ("Recommendation, classification and ML lifecycle", [("ML Products for PMs", "ml-products.html")]),
+  ("AI governance, regulation (EU AI Act, DPDP), risk assessment", [("AI Governance & Responsible AI", "ai-governance.html")]), ("Platforms, APIs, developer experience, ecosystems", [("Platform & API PM", "platform-api-pm.html")]),
+  ("Product operations: rituals, tools, insight pipelines", [("Product Operations", "product-ops.html")]), ("Multimodal AI: vision, image, voice, video, deepfake safety", [("Multimodal AI & AI Media", "multimodal-ai.html")])]),
 ]
 
 JD = [  # skills that AI-era job descriptions commonly list (synthesised from typical postings)

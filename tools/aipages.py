@@ -5,6 +5,7 @@ E = html.escape
 
 AI_NAV = [  # (path, name, small, svg path)
     ("ai.html", "AI Studio", "All AI tools in one place, free", '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/>'),
+    ("ai-academy.html", "AI Skills Academy", "All AI skills courses: lessons, PDFs, interactive", '<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>'),
     ("ai-skills-map.html", "AI Skills Map", "Every AI skill and where to learn it", '<circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2 6.4-6.4 2 2-6.4z"/>'),
     ("ai-tutor.html", "AI Tutor", "Ask any study question, 24×7", '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>'),
     ("prd-writer.html", "AI PRD / BRD / FRD Writer", "Write any requirements document with AI", '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>'),
@@ -52,7 +53,7 @@ CSS = """<style>
 .sc-mic{width:96px;height:96px;border-radius:50%;border:0;background:linear-gradient(135deg,#6C4CF5,#22D3EE);color:#fff;cursor:pointer;display:grid;place-items:center;margin:10px auto;box-shadow:0 0 0 10px rgba(108,76,245,.12)}
 .sc-mic svg{width:40px;height:40px}.sc-mic.rec{background:#dc2626;animation:scp 1.2s infinite}@keyframes scp{50%{box-shadow:0 0 0 18px rgba(220,38,38,.15)}}
 .sc-time{text-align:center;font:700 22px ui-monospace,monospace}.sc-live{min-height:90px;border:1px dashed var(--line);border-radius:14px;padding:12px 14px;margin:12px 0;color:var(--ink);background:var(--bg)}
-.sc-live i{color:var(--mu)}.sc-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin:12px 0}.sc-metrics div{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:10px 12px;text-align:center}
+.sc-live:empty::before{content:attr(data-ph);color:var(--mu);font-style:italic;pointer-events:none}.sc-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin:12px 0}.sc-metrics div{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:10px 12px;text-align:center}
 .sc-metrics b{display:block;font-size:22px}.sc-metrics small{color:var(--mu);font-size:12.5px}
 .sc-target{font-size:20px;line-height:1.7}.sc-target .ok{background:#DCFCE7;color:#166534;border-radius:6px;padding:0 3px}.sc-target .miss{background:#FEE2E2;color:#991B1B;border-radius:6px;padding:0 3px;text-decoration:underline wavy}
 .sc-center{text-align:center}
@@ -60,21 +61,23 @@ CSS = """<style>
 </style>"""
 
 FEATURES = [
-    ("ai-skills-map.html", 1, "AI Skills Map", "Every AI skill in one map: what to learn first, the full catalogue of AI capabilities, and where to learn each on SkillNavora, plus what employers ask for.",
+    ("ai-academy.html", 1, "AI Skills Academy", "Every AI skills course in one place: the 7 core skills plus AI strategy, AI UX, pricing, ML products, governance, platforms, product ops and multimodal AI.",
+     ["14 courses, basic to advanced", "Lessons + PDFs + interactive versions", "In the PM and GenAI programs"], "Open the academy"),
+    ("ai-skills-map.html", 2, "AI Skills Map", "Every AI skill in one map: what to learn first, the full catalogue of AI capabilities, and where to learn each on SkillNavora, plus what employers ask for.",
      ["7-skill learning order", "Every capability mapped to lessons", "Job-description skills by role"], "Open the map"),
-    ("ai-tutor.html", 2, "AI Tutor", "Your 24×7 study buddy. Ask anything about product management, Excel, SQL, Python, Power BI, Tableau, ML, GenAI, agents, careers or English.",
+    ("ai-tutor.html", 3, "AI Tutor", "Your 24×7 study buddy. Ask anything about product management, Excel, SQL, Python, Power BI, Tableau, ML, GenAI, agents, careers or English.",
      ["Explains with examples and code", "Links you to the right SkillNavora lesson", "Hindi / Hinglish supported"], "Ask a question"),
-    ("prd-writer.html", 3, "AI PRD / BRD / FRD Writer", "Describe a product idea or business project and get a complete PRD, BRD or FRD in a minute, framed the way top companies write them.",
+    ("prd-writer.html", 4, "AI PRD / BRD / FRD Writer", "Describe a product idea or business project and get a complete PRD, BRD or FRD in a minute, framed the way top companies write them.",
      ["PRD for product managers", "BRD and FRD for business analysts", "Revise by asking; download Word, Markdown or PDF"], "Write a document"),
-    ("pm-toolkit.html", 4, "AI PM Toolkit", "Pick a PM capability, add your context, review the result: problem discovery, opportunity sizing, A/B test design, API planning, launch plans, metrics and more.",
+    ("pm-toolkit.html", 5, "AI PM Toolkit", "Pick a PM capability, add your context, review the result: problem discovery, opportunity sizing, A/B test design, API planning, launch plans, metrics and more.",
      ["13 capabilities in one place", "Ready-to-use deliverables", "Refine by asking; download Word"], "Open the toolkit"),
-    ("prd-library.html", 5, "PRD library: 120 ideas", "Learn to frame PRDs from the best: a section-by-section template, examples, common mistakes and 120 product ideas across 15 industries.",
+    ("prd-library.html", 6, "PRD library: 120 ideas", "Learn to frame PRDs from the best: a section-by-section template, examples, common mistakes and 120 product ideas across 15 industries.",
      ["Write any idea with AI in one click", "Best guides, templates and apps", "Free Word template"], "Open the PRD library"),
-    ("brd-frd.html", 6, "BRD & FRD guide", "For business analysts: BRD vs FRD vs PRD, templates, BA techniques and 25 real project ideas from banking to GenAI.",
+    ("brd-frd.html", 7, "BRD & FRD guide", "For business analysts: BRD vs FRD vs PRD, templates, BA techniques and 25 real project ideas from banking to GenAI.",
      ["BRD and FRD templates", "25 project ideas with requirements", "Best BA guides and apps"], "Open the BRD & FRD guide"),
-    ("speaking-coach.html", 7, "AI Speaking Coach", "Speak into your mic and get instant coaching on English, public speaking and interview answers, like a personal coach.",
+    ("speaking-coach.html", 8, "AI Speaking Coach", "Speak into your mic and get instant coaching on English, public speaking and interview answers, like a personal coach.",
      ["Fluency, grammar and pace scores", "Filler words and pauses counted", "Pronunciation drills with listen-and-repeat"], "Start speaking"),
-    ("practice.html", 8, "AI mock interview", "Get a real PM, data or GenAI interview question, answer it against the clock and get a score with a model answer.",
+    ("practice.html", 9, "AI mock interview", "Get a real PM, data or GenAI interview question, answer it against the clock and get a score with a model answer.",
      ["Score out of 10", "Gaps and a model answer", "Likely follow-up questions"], "Practise an interview"),
 ]
 
@@ -150,6 +153,9 @@ SPEAK = {
     "pm": {"name": "PM interview", "small": "Product sense, metrics", "q": ["How would you improve Google Maps for auto-rickshaw drivers?", "Swiggy orders dropped 10% last week. How would you investigate?", "What is your favourite product and why?", "Design an app to help senior citizens pay bills.", "How would you measure success for WhatsApp Channels?"]},
     "data": {"name": "Data / AI interview", "small": "Explain technical ideas", "q": ["Explain a JOIN to a non-technical manager.", "Walk me through a data project you are proud of.", "How would you explain overfitting to a business stakeholder?", "What is RAG and when would you use it?"]},
     "present": {"name": "Presentation", "small": "1–2 minute talk", "q": ["Pitch your product idea to an investor in 60 seconds.", "Give a 1-minute status update to your leadership team.", "Present one insight from data and the decision you recommend.", "Introduce yourself to a new team in a meeting."]},
+    "free": {"name": "Free speech", "small": "Any topic you choose", "q": ["Speak about any topic you like for 1–2 minutes. Type your topic below (optional), then tap the mic.", "Free speech: talk about something you know well — your job, a hobby, a book, a film or your city.", "Free speech: explain an idea you care about as if teaching a friend."]},
+    "shadow": {"name": "Shadowing", "small": "Listen, then repeat", "q": ["Thank you for the opportunity. I'm really excited about this role.", "Could you please share the agenda before the meeting?", "In my last project, I led a team of five and delivered the launch two weeks early.", "I'd like to clarify the requirements before we start.", "Let me walk you through the key numbers from last quarter.", "That's a great question. Let me think about it for a moment.", "I disagree slightly, and here's why: the data shows a different trend.", "We reduced customer complaints by thirty percent in three months.", "Would it be possible to reschedule our call to Thursday afternoon?", "I'm a quick learner, and I enjoy solving problems with data."]},
+    "engint": {"name": "English interview", "small": "Common interview questions", "q": ["Introduce yourself in one minute.", "What are your greatest strengths?", "Tell me about a weakness and how you're improving it.", "Why do you want to work for our company?", "Describe your current role and responsibilities.", "Tell me about a challenge you faced and how you handled it.", "How do you handle pressure and tight deadlines?", "Describe a time you worked in a team to achieve a goal.", "What do you do to keep learning new skills?", "Why are you looking for a change?", "Where do you see yourself in three years?", "Do you have any questions for us?"]},
     "drill": {"name": "Pronunciation drill", "small": "Listen and repeat", "q": ["We will review the very valuable video on Wednesday.", "I think these three things are worth thinking through together.", "The development of the product depends on data analysis.", "Please send the schedule for the vegetable delivery by evening.", "Our company's revenue grew faster than we expected this quarter.", "I would like to develop a comfortable, reliable environment."]},
 }
 
@@ -158,17 +164,31 @@ def speaking():
     return CSS + f'''<section style="padding-top:24px"><div class="wrap" data-ai="speak">
 <div class="sc-modes" id="sc-modes">{modes}</div>
 <div class="ai-grid2"><div class="card">
-<div class="kicker" id="sc-kicker">Your question</div><p class="sc-q" id="sc-q"></p><div class="sc-target" id="sc-target" hidden></div>
+<div class="kicker" id="sc-kicker">Your question</div><p class="sc-q" id="sc-q"></p><div class="sc-target" id="sc-target" hidden></div><label id="sc-topicw" hidden style="display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:14px;margin:4px 0 10px">Your topic (optional)<input id="sc-topic" maxlength="120" placeholder="e.g. Why I love cricket, My dream job, AI in education" style="border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit;background:var(--bg);color:var(--ink)"></label>
 <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-line btn-sm" type="button" id="sc-next">New question ↻</button><button class="btn btn-line btn-sm" type="button" id="sc-listen">🔊 Listen</button>
 <select id="sc-lang" aria-label="Accent" style="border:1px solid var(--line);border-radius:10px;padding:6px 10px;background:var(--surface);color:var(--ink)"><option value="en-IN">English (India)</option><option value="en-US">English (US)</option><option value="en-GB">English (UK)</option></select></div>
 <div class="sc-center"><button class="sc-mic" id="sc-mic" type="button" aria-label="Start speaking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></button>
 <div class="sc-time" id="sc-time">00:00</div><p class="ai-note" id="sc-status">Tap the mic and answer out loud. Tap again to stop.</p></div>
-<div class="sc-live" id="sc-live" contenteditable="true" aria-label="Your answer (transcript, you can edit or type)"><i>Your words will appear here as you speak. No mic? Type your answer here instead.</i></div>
+<div class="sc-live" id="sc-live" contenteditable="true" role="textbox" aria-multiline="true" data-ph="Your words will appear here as you speak. No mic? Type your answer here instead." aria-label="Your answer (transcript, you can edit or type)"></div>
 <div class="sc-metrics" id="sc-metrics" hidden></div>
 <button class="btn btn-primary" type="button" id="sc-go" style="width:100%">Get AI feedback</button>
 <p class="ai-note">Speech recognition runs in your browser (best in Chrome or Edge). Audio is not recorded or stored; only the text is sent for feedback.</p></div>
 <div><div class="ai-acts" id="sc-acts" hidden><button class="btn btn-line btn-sm" type="button" id="sc-say">🔊 Hear the better version</button><button class="btn btn-line btn-sm" type="button" id="sc-again">Try again</button></div>
 <div class="ai-doc ai-out" id="sc-out"><div class="ai-empty"><b>Your coaching report will appear here</b>Scores for fluency, grammar, structure and delivery, the exact words to fix, a better version and your next drill.</div></div></div></div>
+<section class="card" id="learn-english" style="margin-top:22px"><h2 style="margin:0 0 6px;font-size:22px">Learn and practise English speaking</h2>
+<p class="ai-note" style="margin:0 0 12px">Practise a little every day: 10 minutes of shadowing, one free speech, and one interview answer, then read your AI feedback.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+<div><h3 style="font-size:16px;margin:0 0 6px">How to shadow (5 steps)</h3><ol style="margin:0;padding-left:18px;color:var(--mu)"><li>Pick a short clip (BBC Learning English, TED, a news anchor).</li><li>Listen once without reading.</li><li>Listen again with the transcript; mark stress and pauses.</li><li>Play 1 sentence, pause, repeat it out loud copying rhythm and intonation.</li><li>Record yourself here in <b>Shadowing</b> mode and compare.</li></ol></div>
+<div><h3 style="font-size:16px;margin:0 0 6px">Daily 15-minute plan</h3><ul style="margin:0;padding-left:18px;color:var(--mu)"><li>5 min shadowing (Shadowing mode)</li><li>5 min free speech on any topic (Free speech mode)</li><li>5 min one interview answer (English interview mode) and fix the 3 suggestions</li></ul></div>
+<div><h3 style="font-size:16px;margin:0 0 6px">Free videos and websites</h3><ul style="margin:0;padding-left:18px">
+<li><a href="https://www.bbc.co.uk/learningenglish/" target="_blank" rel="noopener">BBC Learning English</a> · <a href="https://www.youtube.com/@bbclearningenglish" target="_blank" rel="noopener">YouTube</a></li>
+<li><a href="https://www.youtube.com/@rachelsenglish" target="_blank" rel="noopener">Rachel's English</a>: pronunciation and shadowing</li>
+<li><a href="https://www.youtube.com/@EnglishwithLucy" target="_blank" rel="noopener">English with Lucy</a>: vocabulary and speaking</li>
+<li><a href="https://learningenglish.voanews.com/" target="_blank" rel="noopener">VOA Learning English</a>: slow news with transcripts</li>
+<li><a href="https://www.ted.com/talks" target="_blank" rel="noopener">TED Talks</a>: transcripts for shadowing</li>
+<li><a href="https://www.cambridgeenglish.org/learning-english/" target="_blank" rel="noopener">Cambridge English</a>: free practice</li>
+<li><a href="https://www.toastmasters.org/" target="_blank" rel="noopener">Toastmasters</a>: speaking clubs in India</li></ul></div></div>
+<p class="ai-note" style="margin:12px 0 0">Full guide: <a href="guides/public-speaking.html">Public Speaking complete guide</a> · <a href="questions.html">Top interview questions</a></p></section>
 <script type="application/json" id="sc-data">{json.dumps(SPEAK)}</script></div></section>'''
 
 def write_index(out):
@@ -191,6 +211,16 @@ def write_index(out):
           "Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview",
           "AI mock interview with feedback | /practice.html | interview",
           "AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking",
+          "AI Skills Academy: all AI skills courses in one place | /ai-academy.html | PM, GenAI",
+          "AI Product Strategy (moats, flywheels, build vs buy) | /ai-product-strategy.html | PM",
+          "Designing AI Experiences (AI UX) | /ai-ux-design.html | PM, design",
+          "Pricing & Monetising AI Products | /ai-pricing.html | PM",
+          "Machine Learning Products for PMs | /ml-products.html | PM, data",
+          "AI Governance & Responsible AI (EU AI Act, DPDP) | /ai-governance.html | PM, GenAI",
+          "Platform & API Product Management | /platform-api-pm.html | PM",
+          "Product Operations | /product-ops.html | PM",
+          "Multimodal AI & AI Media (images, voice, video) | /multimodal-ai.html | PM, GenAI",
+          "Speaking Coach modes: free speech, shadowing, English interview | /speaking-coach.html | English, speaking",
           "AI Skills Map: full catalogue of AI skills mapped to SkillNavora lessons, 7-skill learning order, job-description skills | /ai-skills-map.html | all programs",
           "Prompt & Context Engineering: evidence-based requests, structured outputs, task decomposition, context compression, documents and OCR, attribution, knowledge graphs (8 classes + PDF) | /context-engineering.html | PM, GenAI",
           "AI Skills & Templates: Agent Skills, Projects, Custom GPTs, Gems, PM skill library, testing skills, case study to PRD to presentation project (8 classes + PDF) | /ai-skills.html | PM, GenAI",

@@ -67,3 +67,53 @@ footerTemplate:{json.dumps('<div style="font-size:8px;color:#888;width:100%;padd
     env = dict(os.environ, NODE_PATH=subprocess.run(["npm", "root", "-g"], capture_output=True, text=True).stdout.strip())
     subprocess.run(["node", "-e", js], check=True, env=env)
     return dst
+
+# ---------------------------------------------------------------- illustrations (inline SVG, work in PDF, web and artifact)
+_PAL = ["#6C4CF5", "#0E9FB8", "#16A34A", "#D97706", "#DB2777", "#2E3192"]
+def _wrap(text, n):
+    words, lines, cur = str(text).split(), [], ""
+    for w in words:
+        if len(cur) + len(w) + 1 > n and cur: lines.append(cur); cur = w
+        else: cur = (cur + " " + w).strip()
+    if cur: lines.append(cur)
+    return lines[:4]
+def _txt(x, y, text, n=16, size=12, color="#14112a", weight=600):
+    ls = _wrap(text, n); y0 = y - (len(ls) - 1) * (size * 0.6)
+    return "".join(f'<text x="{x}" y="{y0 + i * size * 1.2:.1f}" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="{size}" font-weight="{weight}" fill="{color}">{E(l)}</text>' for i, l in enumerate(ls))
+def _fig(svg, w, h, caption, maxw=None):
+    return (f'<figure class="ill" style="margin:12px auto;{"max-width:%dpx;" % maxw if maxw else ""}padding:10px;background:#ffffff;border:1px solid #e3e0f2;border-radius:12px;page-break-inside:avoid">'
+            f'<svg viewBox="0 0 {w} {h}" width="100%" role="img" aria-label="{E(caption)}" style="display:block;max-width:100%;height:auto">{svg}</svg>'
+            f'<figcaption style="font:600 12px Inter,Segoe UI,Arial,sans-serif;color:#55607a;text-align:center;margin-top:4px">{E(caption)}</figcaption></figure>')
+def ill_flow(steps, caption):
+    n = len(steps); per = min(n, 4); rows = (n + per - 1) // per; bw, bh, gx, gy = 150, 62, 34, 30
+    W = per * bw + (per - 1) * gx + 20; H = rows * bh + (rows - 1) * gy + 20; s = ""
+    for i, st in enumerate(steps):
+        r, c = divmod(i, per); x = 10 + c * (bw + gx); y = 10 + r * (bh + gy); col = _PAL[i % len(_PAL)]
+        s += f'<rect x="{x}" y="{y}" width="{bw}" height="{bh}" rx="12" fill="{col}" fill-opacity=".12" stroke="{col}" stroke-width="2"/>'
+        s += f'<circle cx="{x + 14}" cy="{y + 14}" r="10" fill="{col}"/><text x="{x + 14}" y="{y + 18}" text-anchor="middle" font-family="Inter,Arial" font-size="11" font-weight="800" fill="#fff">{i + 1}</text>'
+        s += _txt(x + bw / 2 + 6, y + bh / 2 + 4, st, 17, 12)
+        if i < n - 1:
+            if c < per - 1: s += f'<path d="M{x + bw + 4} {y + bh / 2} h{gx - 10}" stroke="#8a86a8" stroke-width="2" fill="none" marker-end="url(#ah)"/>'
+            else: s += f'<path d="M{x + bw / 2} {y + bh + 4} v{gy - 10}" stroke="#8a86a8" stroke-width="2" fill="none" marker-end="url(#ah)"/>'
+    defs = '<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#8a86a8"/></marker></defs>'
+    return _fig(defs + s, W, H, caption)
+def ill_cycle(steps, caption):
+    import math
+    n = len(steps); W = H = 420; cx = cy = 210; R = 140; s = f'<circle cx="{cx}" cy="{cy}" r="{R}" fill="none" stroke="#c9c4ea" stroke-width="3" stroke-dasharray="6 6"/>'
+    for i, st in enumerate(steps):
+        a = -math.pi / 2 + 2 * math.pi * i / n; x = cx + R * math.cos(a); y = cy + R * math.sin(a); col = _PAL[i % len(_PAL)]
+        s += f'<circle cx="{x:.1f}" cy="{y:.1f}" r="52" fill="{col}" fill-opacity=".14" stroke="{col}" stroke-width="2"/>' + _txt(x, y + 4, st, 13, 11.5)
+    return _fig(s, W, H, caption, 340)
+def ill_quad(xlab, ylab, quads, caption):
+    W, H = 460, 380; s = '<rect x="60" y="20" width="380" height="300" fill="#faf9ff" stroke="#c9c4ea"/><path d="M250 20 V320 M60 170 H440" stroke="#c9c4ea" stroke-width="2"/>'
+    pos = [(155, 95), (345, 95), (155, 245), (345, 245)]
+    for i, ((x, y), q) in enumerate(zip(pos, quads)): s += _txt(x, y, q, 22, 12.5, _PAL[[2, 0, 4, 3][i]], 700)
+    s += _txt(250, 348, xlab + " →", 50, 12, "#55607a"); s += f'<text x="22" y="170" transform="rotate(-90 22 170)" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#55607a">{E(ylab)} →</text>'
+    return _fig(s, W, H, caption)
+def ill_stack(layers, caption):
+    W = 460; bh = 46; H = len(layers) * (bh + 8) + 12; s = ""
+    for i, (name, desc) in enumerate(layers):
+        y = 6 + i * (bh + 8); inset = i * 14; col = _PAL[i % len(_PAL)]
+        s += f'<rect x="{10 + inset}" y="{y}" width="{W - 20 - 2 * inset}" height="{bh}" rx="10" fill="{col}" fill-opacity=".14" stroke="{col}" stroke-width="2"/>'
+        s += f'<text x="{W / 2}" y="{y + 19}" text-anchor="middle" font-family="Inter,Arial" font-size="13" font-weight="800" fill="#14112a">{E(name)}</text><text x="{W / 2}" y="{y + 36}" text-anchor="middle" font-family="Inter,Arial" font-size="11" fill="#55607a">{E(desc)}</text>'
+    return _fig(s, W, H, caption)

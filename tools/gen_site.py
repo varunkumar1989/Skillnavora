@@ -112,7 +112,7 @@ MODALS_HTML = f'''<div class="modal" id="m-counsel" role="dialog" aria-modal="tr
 </div>'''
 
 
-import aipages
+import aipages, academy
 
 def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs="", sticky=False, wa=True, footer=True, app=False):
     r = "../" * path.count("/")
@@ -445,6 +445,7 @@ for cid, path, name, short, _ in PROGRAMS:
 <section id="outcomes" class="tint"><div class="wrap"><div class="kicker">Outcomes</div><h2 class="sec-h">What you'll be able to do</h2><ul class="checks two" id="p-outcomes" style="margin-top:24px"></ul></div></section>
 {PROG_HB.get(cid, '')}
 {sec("Curriculum", "What you'll learn", "Each module mixes live classes, real-world case studies, hands-on assignments and feedback. Recordings and materials stay in your LMS.", '<div class="mods" id="p-curriculum"></div>', sid="curriculum")}
+{academy.program_section(cid) if cid in ("ai-pm", "genai-launchpad") else ""}
 {TOOLS_S("Tools you'll use", "tint", TOOLS_SUB.get(cid, TOOLS_SUB["ai-pm"])).replace('<section', '<section id="tools"', 1)}
 {INSTRUCTOR_S}
 {sec("Projects", "Build a portfolio recruiters notice", "", '<div class="grid g3" id="p-projects"></div>')}
@@ -615,6 +616,7 @@ for _gp, _tid in GUIDE_TRACK.items():
     _body = uhero("Programs · Other programs", E(_t["name"]), E(_t["desc"])) + f"""
 <section style="padding-top:24px"><div class="wrap">
   <div class="acts" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px"><a class="btn btn-primary" href="{_pdf}">Complete guide PDF</a><a class="btn btn-line" href="../contact.html">Ask about live training</a><a class="btn btn-line" href="../tests.html#other">Practice test</a><a class="btn btn-line" href="../questions.html#other">Interview questions</a></div>
+  {'<div class="card" style="margin:0 0 16px;border:2px solid #6C4CF5"><b>Practise with the AI Speaking Coach:</b> <a href="../speaking-coach.html#free">Free speech (any topic)</a> · <a href="../speaking-coach.html#shadow">Shadowing</a> · <a href="../speaking-coach.html#engint">English interview practice</a> · <a href="../speaking-coach.html#drill">Pronunciation drills</a> · <a href="../speaking-coach.html#learn-english">Free videos &amp; websites to learn English</a></div>' if _tid == "speaking" else ""}
   <p class="meta" style="margin:0 0 12px">The complete guide is below. It opens right here: scroll inside it, or download the PDF.</p>
   <iframe class="guide-frame" src="{_src}" title="{E(_t['name'])} complete guide" loading="lazy" style="width:100%;height:85vh;border:1px solid var(--line,#e2dcf3);border-radius:16px;background:#fff"></iframe>
 </div></section>"""
@@ -652,8 +654,10 @@ for _C, _hero in [(course_browser.COURSE, (_K, 'Browser <span class="g">Automati
                   (course_brain.COURSE, (_K, 'Your AI <span class="g">Second Brain</span>')),
                   (course_context.COURSE, (_K + ' · Skill 1 of 7', 'Prompt &amp; <span class="g">Context</span> Engineering')),
                   (course_skills.COURSE, (_K + ' · Skill 2 of 7', 'AI <span class="g">Skills</span> &amp; Templates')),
-                  (course_orch.COURSE, (_K + ' · Skill 7 of 7', 'Agent <span class="g">Orchestration</span> &amp; Monitoring'))]:
+                  (course_orch.COURSE, (_K + ' · Skill 7 of 7', 'Agent <span class="g">Orchestration</span> &amp; Monitoring'))] + [(_M, (_K + ' · Advanced AI PM', E(_M["title"]))) for _M in __import__("courses_more").ALL]:
     page(_C["page"], _C["title"] + ": free PDF, basic to advanced · SkillNavora", _C["intro"], uhero(_hero[0], _hero[1], _C["intro"]) + coursekit.web_page(_C), _C["page"])
+page("ai-academy.html", "AI Skills Academy: every AI skills course in one place · SkillNavora", "All SkillNavora AI skills courses in one section: the 7 core AI skills and advanced AI product management topics, each with lessons, a PDF and an interactive version.",
+     uhero("AI Product Management · GenAI Launchpad", 'AI Skills <span class="g">Academy</span>', "Every AI skills course in one place: lessons, free PDFs and interactive versions, from prompting and context to strategy, AI UX, pricing, governance and more.") + academy.hub(), "ai-academy.html")
 page("ai-skills-map.html", "AI Skills Map: every AI skill and where to learn it · SkillNavora", "The complete AI skills catalogue for professionals: prompting, context, skills, second brain, research, evals, automation, orchestration, media, engineering and PM skills, mapped to free SkillNavora lessons, plus what job descriptions ask for.",
      uhero("AI Studio · AI Skills Map", 'Every <span class="g">AI skill</span>, one map', "What to learn first, the full catalogue of AI skills, and exactly where to learn each one on SkillNavora, plus the skills employers ask for in AI-era job descriptions.") + skillsmap.page(), "ai-skills-map.html")
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")

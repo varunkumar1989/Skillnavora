@@ -219,12 +219,13 @@
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     const words = s => (s.toLowerCase().match(/[a-z']+/g) || []);
     const FILLERS = /\b(um+|uh+|umm+|hmm+|er+|ah+|basically|actually|literally|you know|i mean|kind of|sort of)\b/gi;
-    const placeholder = () => { live.innerHTML = '<i>Your words will appear here as you speak. No mic? Type your answer here instead.</i>'; };
-    const text = () => live.querySelector("i") ? "" : live.innerText.trim();
+    const placeholder = () => { live.innerHTML = ""; };
+    const text = () => live.innerText.trim();
     function pick(next) {
       const pool = DATA[mode].q; let n; do { n = pool[Math.floor(Math.random() * pool.length)]; } while (next && pool.length > 1 && n === q); q = n;
-      const drill = mode === "drill";
-      $("sc-kicker").textContent = drill ? "Read this sentence aloud" : "Your question";
+      const drill = mode === "drill" || mode === "shadow";
+      $("sc-kicker").textContent = mode === "shadow" ? "Tap Listen, then repeat it aloud" : drill ? "Read this sentence aloud" : mode === "free" ? "Free speech" : "Your question";
+      if ($("sc-topicw")) $("sc-topicw").hidden = mode !== "free";
       qEl.hidden = drill; tgt.hidden = !drill; qEl.textContent = q; tgt.textContent = q;
       finalTxt = ""; elapsed = 0; pauses = 0; placeholder(); $("sc-metrics").hidden = true; $("sc-time").textContent = "00:00";
     }
@@ -236,7 +237,7 @@
       const pace = !wpm ? "—" : wpm < 110 ? "Slow" : wpm > 170 ? "Fast" : "Good";
       $("sc-metrics").innerHTML = `<div><b>${w}</b><small>words</small></div><div><b>${fmt(elapsed)}</b><small>time</small></div><div><b>${wpm || "—"}</b><small>words / min · ${pace}</small></div><div><b>${fill}</b><small>filler words</small></div><div><b>${pauses}</b><small>long pauses</small></div>`;
       $("sc-metrics").hidden = !w;
-      if (mode === "drill" && w) {
+      if ((mode === "drill" || mode === "shadow") && w) {
         const said = new Set(words(t)); let ok = 0;
         tgt.innerHTML = q.split(/(\s+)/).map(tok => { const k = (tok.toLowerCase().match(/[a-z']+/) || [""])[0]; if (!k) return esc(tok); const hit = said.has(k); ok += hit; return `<span class="${hit ? "ok" : "miss"}">${esc(tok)}</span>`; }).join("");
         const total = words(q).length; m.drill_accuracy = Math.round(100 * ok / total);
@@ -262,7 +263,7 @@
       live.innerHTML = ""; tick = setInterval(() => { elapsed = (Date.now() - t0) / 1000; $("sc-time").textContent = fmt(elapsed); }, 250);
     }
     mic.addEventListener("click", () => on ? stop() : start());
-    live.addEventListener("focus", () => { if (live.querySelector("i")) live.innerHTML = ""; });
+    live.addEventListener("input", () => { if (!live.innerText.trim() && live.innerHTML !== "") live.innerHTML = ""; });
     live.addEventListener("blur", () => { if (!live.innerText.trim()) placeholder(); });
     $("sc-modes").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; if (on) stop(); mode = b.dataset.mode; $("sc-modes").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); pick(); });
     $("sc-next").addEventListener("click", () => { if (on) stop(); pick(true); });
@@ -276,7 +277,7 @@
       if (words(t).length < 3) { out.innerHTML = errBox("Say or type at least one full sentence first."); return; }
       if (busy || !canUse()) return; busy = true;
       const m = metrics(), btn = $("sc-go"); btn.disabled = true;
-      const msg = `MODE: ${DATA[mode].name}\n${mode === "drill" ? "TARGET SENTENCE (learner read this aloud): " : "QUESTION: "}${q}\nDELIVERY METRICS: ${JSON.stringify(m)}${m.seconds ? "" : " (typed, not spoken: skip pace feedback)"}\nTRANSCRIPT:\n${t.slice(0, 6000)}`;
+      const msg = `MODE: ${DATA[mode].name}\n${mode === "drill" || mode === "shadow" ? "TARGET SENTENCE (learner " + (mode === "shadow" ? "listened and repeated" : "read") + " this aloud): " : mode === "free" ? "FREE SPEECH TOPIC: " : "QUESTION: "}${mode === "free" ? ($("sc-topic").value.trim() || "learner's own choice") : q}\nDELIVERY METRICS: ${JSON.stringify(m)}${m.seconds ? "" : " (typed, not spoken: skip pace feedback)"}\nTRANSCRIPT:\n${t.slice(0, 6000)}`;
       out.innerHTML = '<p class="ai-dots">Listening back to your answer</p>'; $("sc-acts").hidden = true;
       try {
         const r = await ask("speak", [{ role: "user", content: msg }], x => { out.innerHTML = md(x); });
@@ -287,7 +288,9 @@
       } catch (e) { out.innerHTML = errBox(e.message); }
       btn.disabled = false; busy = false;
     });
-    pick();
+    const fromHash = () => { const h = location.hash.slice(1), b = $("sc-modes").querySelector('[data-mode="' + h + '"]'); if (DATA[h] && b) { b.click(); return true; } return false; };
+    if (!fromHash()) pick();
+    window.addEventListener("hashchange", fromHash);
   }
 
   /* ================================ AI PM TOOLKIT ================================ */
