@@ -646,6 +646,10 @@ page("brd-frd.html", "BRD & FRD guide for business analysts · SkillNavora", "BR
 import evals_course
 page("ai-evals.html", "AI Evals for Product Managers: free PDF, basic to advanced · SkillNavora", "What AI evals are and how product managers use them: success criteria, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety, A/B tests and monitoring. 10 classes and a free PDF.",
      uhero("AI Product Management · AI Evals", 'AI <span class="g">Evals</span> for Product Managers', "How to measure, improve and safely launch AI features. 10 classes from basic to advanced, with templates, a metrics cheat sheet and interview questions.") + evals_course.web_page(), "ai-evals.html")
+import coursekit, course_browser, course_brain
+for _C, _hero in [(course_browser.COURSE, ('AI Product Management · GenAI Launchpad', 'Browser <span class="g">Automation</span> &amp; AI Agents')),
+                  (course_brain.COURSE, ('AI Product Management · GenAI Launchpad', 'Your AI <span class="g">Second Brain</span>'))]:
+    page(_C["page"], _C["title"] + ": free PDF, basic to advanced · SkillNavora", _C["intro"], uhero(_hero[0], _hero[1], _C["intro"]) + coursekit.web_page(_C), _C["page"])
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
 
 # ================================================================ CONTACT

@@ -188,6 +188,8 @@ def write_index(out):
           "Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview",
           "AI mock interview with feedback | /practice.html | interview",
           "AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking",
+          "Browser Automation & AI Agents: scripts vs RPA vs AI agents, Playwright, computer use, deep research agents, workflows, safety, evals (8 classes + PDF) | /browser-automation.html | PM, GenAI",
+          "Your AI Second Brain: PARA, CODE, NotebookLM, Notion, Obsidian, context engineering, AI memory, MCP (8 classes + PDF) | /ai-second-brain.html | PM, GenAI, productivity",
           "AI Evals for Product Managers: what evals are, rubrics, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety, A/B tests, monitoring (10 classes + PDF) | /ai-evals.html | product management, AI",
           "AI PM Toolkit: problem discovery, opportunity sizing, A/B test design, API planning, launch, metrics, research, competitive analysis, user stories, roadmap, RCA, stakeholder update | /pm-toolkit.html | product management",
           "AI PRD / BRD / FRD Writer | /prd-writer.html | product management, business analysis",

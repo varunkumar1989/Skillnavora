@@ -106,6 +106,8 @@ const COURSES = [
       { title: "AI prototyping and automation tools", topics: ["Lovable, Bolt, v0 and Replit for app prototypes", "Figma Make and AI design tools", "n8n, Zapier and Make automations", "ChatGPT, Gemini, Perplexity and NotebookLM for research"] },
       { title: "Agentic AI and AI product design", topics: ["Agents, tool use and MCP", "Human-in-the-loop and guardrails", "AI metrics and evaluation", "Writing an AI PRD"] },
       { title: "AI evals: measuring AI quality (basic to advanced)", topics: ["What evals are and why PMs own them; success criteria and rubrics", "Golden datasets, code graders, human review and LLM-as-judge", "Error analysis, RAG and agent evals, safety and red-teaming", "A/B tests, monitoring, regression gates and the eval section of an AI PRD"] },
+      { title: "Browser automation and AI agents", topics: ["Scripts, RPA and AI browser agents: when to use which", "Playwright basics and Chrome Recorder for PMs", "Computer-use agents, deep research agents and competitor research", "Safety, approvals, prompt injection and evaluating browser agents"] },
+      { title: "Your AI second brain and context engineering", topics: ["PARA and CODE: capture, organise, distil, express", "NotebookLM, Claude Projects, Notion AI and Obsidian", "Context engineering and managing AI memory", "Insight repository, decision log and MCP-connected knowledge"] },
       { title: "Capstone, mock tests and interview preparation", topics: ["Capstone: build and pitch your own AI product", "Weekly mock tests", "Product sense, metrics, strategy, RCA and behavioural rounds", "1:1 mock interviews with feedback"] },
       { title: "Job assistance program", topics: ["Resume and LinkedIn makeover", "Portfolio of 25+ case studies", "Referrals and job-search strategy", "Offer negotiation and salary discussions"] }
     ],
@@ -180,6 +182,10 @@ const COURSES = [
       { title: "Websites and no-code apps", topics: ["Lovable from prompt to app", "Building a website with Claude", "Publishing with your own domain"] },
       { title: "Automation", topics: ["Zapier and Make basics", "n8n with AI steps", "Email and sheet workflows"] },
       { title: "Chatbots and voice agents", topics: ["WhatsApp and website bots", "Voice receptionists", "Handoff to humans"] },
+      { title: "AI agents, MCP and deep research", topics: ["What AI agents are and how they use tools", "MCP: connecting AI to your apps", "Deep research agents and checking sources"] },
+      { title: "Browser automation and AI agents", topics: ["No-code record-and-replay and AI browser agents", "Writing safe agent tasks with stop points", "Real workflows: research, forms, price tracking"] },
+      { title: "Your AI second brain", topics: ["PARA and CODE with Notion, Obsidian or NotebookLM", "Context engineering and AI memory", "Automating notes from meetings, email and reading"] },
+      { title: "AI evals: checking AI quality", topics: ["What evals are and simple rubrics", "Test sets and AI-as-judge", "Safety checks and monitoring"] },
       { title: "Responsible AI", topics: ["Privacy and data safety", "Bias and accuracy", "Company AI policies"] },
       { title: "Capstone", topics: ["Solve a real problem with AI", "Demo day", "Certificate"] }
     ],
