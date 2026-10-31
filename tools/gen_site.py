@@ -684,7 +684,7 @@ about = uhero("About Us", 'About <span class="g">SkillNavora</span>', "An all-in
     <div><h3 style="margin:0">Varun Kumar</h3><p class="meta" style="margin:4px 0 12px"><b>Founder &amp; CEO, SkillNavora</b> · Gurgaon, India</p>
     <p style="margin:0 0 10px">Varun works in Product at American Express (Amex) and brings more than a decade of experience building products and leading cross-functional teams. He founded SkillNavora to give learners the practical, AI-first training he wishes he had had: real frameworks, real case studies and the tools modern product and data teams use every day.</p>
     <p style="margin:0">He wrote the SkillNavora PM Master Handbook and designs the curriculum for every program, and he mentors learners on product thinking, interviews and career moves into product and AI roles.</p>
-    <div class="acts" style="margin-top:14px"><a class="btn btn-line btn-sm" href="https://www.linkedin.com/in/varun-pm01" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn btn-line btn-sm" href="mentor.html">Become a mentor</a><a class="btn btn-line btn-sm" href="careers.html">Join the team</a></div></div></div>
+    <div class="acts" style="margin-top:14px"><a class="btn btn-line btn-sm" href="https://www.linkedin.com/in/varun-pm01" target="_blank" rel="noopener">LinkedIn ↗</a></div></div></div>
 </div></section>
 <section id="why-us"><div class="wrap"><div class="kicker">Why us</div><h2 class="sec-h">Why learners choose SkillNavora</h2>
   <div class="why-grid" style="margin-top:22px">{''.join(f'<div class="why-card"><div class="n">{i:02d}</div><h3>{E(t)}</h3><p class="meta" style="margin:0">{E(d)}</p></div>' for i, (t, d) in enumerate(WHY_US, 1))}</div>
