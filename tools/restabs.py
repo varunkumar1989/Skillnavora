@@ -145,17 +145,24 @@ def genai_tab(cfg):
     return "".join(out)
 
 
+JOB_ALERTS = [("LinkedIn job alerts", "Save a search and get daily emails.", "https://www.linkedin.com/jobs/", "Alerts"), ("Naukri job alerts", "Create alerts by role, city and salary.", "https://www.naukri.com/", "Alerts"),
+              ("foundit (Monster India)", "Jobs and alerts across India.", "https://www.foundit.in/", "Jobs"), ("Glassdoor", "Jobs, salaries and company reviews.", "https://www.glassdoor.co.in/", "Research"),
+              ("Y Combinator: Work at a Startup", "Jobs at YC start-ups worldwide.", "https://www.workatastartup.com/", "Start-ups"), ("Remotive", "Remote tech jobs.", "https://remotive.com/", "Remote"),
+              ("We Work Remotely", "Remote jobs board.", "https://weworkremotely.com/", "Remote"), ("Google Jobs search", "Search all boards at once.", "https://www.google.com/search?q=product+manager+jobs+india&ibp=htl;jobs", "Search")]
 PORTALS = [("LinkedIn Jobs", "Roles, alerts and recruiters.", "https://www.linkedin.com/jobs/", "Jobs"), ("Naukri", "India's largest job portal.", "https://www.naukri.com", "Jobs"), ("Indeed India", "Job search and company reviews.", "https://in.indeed.com", "Jobs"),
                      ("Wellfound", "Start-up jobs.", "https://wellfound.com", "Start-ups"), ("Instahyre", "Curated tech and product roles.", "https://www.instahyre.com", "Jobs"), ("Cutshort", "Tech and data roles with skills matching.", "https://cutshort.io", "Jobs"),
                      ("Hirist", "IT jobs in India.", "https://www.hirist.tech", "Jobs"), ("Internshala", "Internships and fresher jobs.", "https://internshala.com", "Freshers")]
 
 
 def portals_html():
-    return h("Job portals", "Search roles and set alerts on the biggest Indian and global job sites.") + grid(PORTALS)
+    return (h("Job portals", "Search roles and set alerts on the biggest Indian and global job sites.") + grid(PORTALS)
+            + h("Latest jobs and daily job alerts", "Set an alert once and get new openings in your inbox every day.") + grid(JOB_ALERTS))
 
 
 def more_tab():
     out = [hero("Useful links", "Other resources & useful links", "Communities, newsletters, YouTube channels, certifications, free datasets and career tools, hand-picked for learners in product, data and AI.", "")]
+    out.append('<div id="news"></div>' + h("Daily newsletters & latest AI and tech news", "Subscribe to stay current. Each opens the publisher's own site."))
+    out.append(grid(NEWS))
     out.append(h("Communities"))
     out.append(grid([("Kaggle", "Competitions, notebooks and datasets.", "https://www.kaggle.com", "Data"), ("Stack Overflow", "Programming questions and answers.", "https://stackoverflow.com", "Code"), ("r/datascience", "Reddit community for data science.", "https://www.reddit.com/r/datascience/", "Community"),
                      ("r/ProductManagement", "Reddit community for PMs.", "https://www.reddit.com/r/ProductManagement/", "Community"), ("GitHub", "Host your portfolio and projects.", "https://github.com", "Portfolio"), ("Hugging Face forums", "Open-source AI community.", "https://discuss.huggingface.co", "AI"),
@@ -178,13 +185,33 @@ def more_tab():
     return "".join(out)
 
 
+QUICK = {
+    "pm": [("PM handbook", "handbooks/index.html#pm"), ("Top 100 PM questions", "questions.html#pm"), ("PM practice test", "tests.html#pm"), ("Tool tutorials", "tools.html#tt-ai-pm"), ("AI Agents & MCP for PMs", "handbooks/index.html#genai")],
+    "data": [("Data Science & AI handbook", "data-science/index.html"), ("DSA", "handbooks/index.html#dsa"), ("Top 100 data questions", "questions.html#data"), ("Data practice test", "tests.html#data"), ("Tool tutorials", "tools.html#tt-ai-de"), ("Job board", "jobs.html")],
+    "genai": [("GenAI Launchpad handbook", "handbooks/index.html#genai"), ("Top 100 GenAI questions", "questions.html#genai"), ("GenAI practice test", "tests.html#genai"), ("Tool tutorials", "tools.html#tt-genai-launchpad"), ("Claude Code tutorial", "handbooks/index.html#genai")],
+    "more": [("Newsletters & AI news", "#news"), ("Job alerts", "jobs.html#portals-box"), ("Communities", "#more"), ("Free datasets", "#more"), ("Other programs", "handbooks/index.html#other")],
+}
+
+
+def quick(k):
+    return '<nav class="qlinks" aria-label="Quick links"><b>Quick links</b>' + "".join(f'<a href="{E(u)}">{E(t)}</a>' for t, u in QUICK[k]) + "</nav>"
+
+
+NEWS = [("TLDR AI", "Daily 5-minute AI and tech news.", "https://tldr.tech/ai", "AI news"), ("The Rundown AI", "Daily AI news and tools.", "https://www.therundown.ai/", "AI news"),
+        ("Ben's Bites", "AI news and how people use it.", "https://www.bensbites.com/", "AI news"), ("The Batch (DeepLearning.AI)", "Weekly AI news by Andrew Ng's team.", "https://www.deeplearning.ai/the-batch/", "AI weekly"),
+        ("Lenny's Newsletter", "Product, growth and careers.", "https://www.lennysnewsletter.com/", "Product"), ("Product Hunt Daily", "New products every day.", "https://www.producthunt.com/newsletters", "Product"),
+        ("Data Elixir", "Weekly data science picks.", "https://dataelixir.com/", "Data"), ("Data Engineering Weekly", "Data engineering news.", "https://www.dataengineeringweekly.com/", "Data"),
+        ("Inc42", "Indian start-up and tech news.", "https://inc42.com/", "India tech"), ("YourStory", "Indian start-ups and founders.", "https://yourstory.com/", "India tech"),
+        ("Morning Brew", "Daily business news.", "https://www.morningbrew.com/", "Business"), ("Import AI", "Weekly AI research digest.", "https://importai.substack.com/", "AI research")]
+
+
 def build(pm_html, cfg, scope=None):
     """Four resource tabs. scope=None: the Resources page (hash links #pm, #data, #genai, #more).
     scope="lms": the same tabs inside the LMS Resources panel, with their own ids and attributes so the LMS tab code ignores them."""
     tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("more", "Other resources & links")]
     pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
     bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
-    panels = {"pm": pm_html, "data": ds_tab(cfg), "genai": genai_tab(cfg), "more": more_tab()}
+    panels = {"pm": quick("pm") + pm_html, "data": quick("data") + ds_tab(cfg), "genai": quick("genai") + genai_tab(cfg), "more": quick("more") + more_tab()}
     body = "".join(f'<div class="{cls}" id="{pre}p-{k}" role="tabpanel" aria-labelledby="{pre}t-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(tabs))
     if scope:
         js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#lr-res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.rpanel'));
@@ -195,5 +222,5 @@ var c=new URL(location).searchParams.get('res');show(c&&document.getElementById(
     js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.panel[role=tabpanel]'));
 function show(k){if(!document.getElementById('p-'+k))k='pm';tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.tab===k?'true':'false')});panels.forEach(function(p){p.hidden=p.id!=='p-'+k})}
 tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.tab);try{history.replaceState(null,'','#'+t.dataset.tab)}catch(e){}})});
-function fromHash(){show((location.hash||'#pm').slice(1))}window.addEventListener('hashchange',fromHash);fromHash()})();</script>"""
+function fromHash(){var h=(location.hash||'#pm').slice(1),el=document.getElementById(h);if(document.getElementById('p-'+h))return show(h);var p=el&&el.closest('.panel[role=tabpanel]');show(p?p.id.slice(2):'pm');if(el)el.scrollIntoView()}window.addEventListener('hashchange',fromHash);fromHash()})();</script>"""
     return bar + body + js

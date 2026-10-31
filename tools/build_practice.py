@@ -11,7 +11,7 @@ PAGE = {f'{t["id"]}-{L["num"]:02d}': ("data-science/" + L["page"], L["title"], t
 
 SEG = {"pm": "AI Product Management", "data": "Data Science & AI", "genai": "GenAI, Agents & AI Tools", "other": "Other programs"}
 TRACK_SEG = {"excel": "data", "sql": "data", "powerbi": "data", "tableau": "data", "python": "data", "ml": "data", "career": "data", "ai-analytics": "genai",
-             "genai": "genai", "agents": "genai", "tools": "genai", "sfmc": "other", "marketing": "other", "content": "other", "fde": "other"}
+             "genai": "genai", "agents": "genai", "tools": "genai", "sfmc": "other", "marketing": "other", "content": "other", "fde": "other", "speaking": "other"}
 TRACK_NAME = {t["id"]: t["name"] for t in CAT["tracks"]}
 
 

@@ -18,7 +18,8 @@ PROGRAMS = [("ai-pm", "program/ai-product-management.html", "AI-First Product Ma
 OTHER_PROGRAMS = [("guides/sfmc.html", "SFMC training", "Salesforce Marketing Cloud: Email Studio to Journey Builder", '<path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 13 3.5 3.5 0 0 0 6 19z"/>'),
            ("guides/digital-marketing.html", "Digital marketing", "SEO, ads, social, email and analytics, end to end", '<path d="M3 11l18-8-8 18-2-8z"/>'),
            ("guides/content-creation.html", "Content creation", "Strategy, writing, video, design and AI for creators", '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>'),
-           ("guides/fde.html", "Forward Deployed Engineer", "The FDE role: customers, AI deployment and integrations", '<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>')]
+           ("guides/fde.html", "Forward Deployed Engineer", "The FDE role: customers, AI deployment and integrations", '<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>'),
+           ("guides/public-speaking.html", "Public speaking", "Speak with confidence: talks, meetings, interviews and video", '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/>')]
 ABOUT = [("about.html", "About SkillNavora", "Our story, mission and team", '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'),
          ("about.html#team", "SkillNavora team", "Meet our founder and mentors", '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'),
          ("about.html#why-us", "Why us", "What makes SkillNavora different", '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/>'),
@@ -116,11 +117,20 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     canon = DOMAIN + "/" + ("" if path == "index.html" else path.replace(".html", ""))
     cur = lambda h: ' aria-current="page"' if h.split('#')[0] == active else ""
     prog_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b data-course-name="{cid}">{E(n)}</b><small>{E(s)}</small></span></a>' for cid, p, n, s, ic in PROGRAMS)
+    RARR = '<svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>'
+    item = lambda p, n, sm, ic: f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>'
+    sub = lambda n, sm, ic, items: (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span>{RARR}</button>'
+                                    f'<div class="dd-subm">{"".join(item(*x) for x in items)}</div></div>')
     other_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>' for p, n, sm, ic in OTHER_PROGRAMS)
     about_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>' for p, n, sm, ic in ABOUT)
-    up_menu = "".join((f'</div><div class="dd-grp"><div class="dd-h">{E(n)}</div>' if not p else f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(s)}</small></span></a>') for p, n, s, ic in UPSKILL)
-    up_menu = '<div class="dd-grp">' + up_menu + "</div>"
-    up_menu = up_menu.replace('<div class="dd-grp"></div>', "")
+    U = {p: (p, n, sm, ic) for p, n, sm, ic in UPSKILL if p}
+    Q = lambda h, n, sm: ("questions.html#" + h, n, sm, U["questions.html"][3])
+    up_menu = (sub("Resources & AI tools", "Handbooks, PDFs, tools and links by course", U["resources.html"][3],
+                   [U[k] for k in ("resources.html#pm", "resources.html#data", "resources.html#genai", "tools.html", "handbooks/index.html", "resources.html#more")])
+               + sub("Practice & interview prep", "Tests, top 100 questions, quizzes and mock interviews", U["tests.html"][3],
+                     [U["tests.html"], Q("pm", "Top 100 questions: PM", "AI product management interview questions"), Q("data", "Top 100 questions: Data", "Data science, SQL, Excel, Power BI, ML"),
+                      Q("genai", "Top 100 questions: GenAI", "GenAI, agents, MCP and AI tools"), U["quiz.html"], U["challenges.html"], U["practice.html"]])
+               + item(*U["events.html"]))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
 <html lang="en">
@@ -146,7 +156,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
 {TOPBAR_HTML if not app and not path.startswith("program/") else ""}<header class="top"><div class="wrap">
   <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img src="{r}assets/logo-s.svg" alt="" width="36" height="36"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></a>
   <nav class="nav" id="nav" aria-label="Main">
-    <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}<div class="dd-h">Other programs</div>{other_menu}<a href="{r}programs.html"{cur('programs.html')}><span class="dd-ico">{SVG('<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>')}</span><span><b>All programs</b><small>Compare programs, fees and FAQs</small></span></a><a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
+    <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC, digital marketing, FDE, public speaking, content", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_PROGRAMS + [("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
     <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
     <div class="dd{on(['jobs.html', 'refer.html', 'hire.html'])}"><button type="button" aria-expanded="false">Job board {CHEV}</button><div class="dd-menu">
       <a href="{r}jobs.html#portals-box"><span class="dd-ico">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>')}</span><span><b>Job portals</b><small>LinkedIn, Naukri, Wellfound and more</small></span></a>
@@ -591,7 +601,7 @@ page("tests.html", "Practice tests · SkillNavora", "Free practice tests for pro
 _iv_html, _iv_n = practice.questions_page()
 page("questions.html", "Top 100 interview questions · SkillNavora", "The top 100 interview questions with model answers for AI product management, data science and AI, and GenAI and agents.",
      uhero("Upskill for free · Practice & test yourself", 'Top 100 <span class="g">interview questions</span>', "For AI Product Management, Data Science & AI, and GenAI & Agents, with model answers and the lesson that teaches each topic.") + f"""<section style="padding-top:28px"><div class="wrap">{_iv_html}</div></section>""", "questions.html")
-GUIDE_TRACK = {"guides/sfmc.html": "sfmc", "guides/digital-marketing.html": "marketing", "guides/content-creation.html": "content", "guides/fde.html": "fde"}
+GUIDE_TRACK = {"guides/sfmc.html": "sfmc", "guides/digital-marketing.html": "marketing", "guides/content-creation.html": "content", "guides/fde.html": "fde", "guides/public-speaking.html": "speaking"}
 _cat = json.load(open(os.path.join(OUT, "data-science/catalog.json")))
 _tr = {t["id"]: t for t in _cat["tracks"]}
 for _gp, _tid in GUIDE_TRACK.items():

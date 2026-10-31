@@ -50,6 +50,13 @@
     }
   });
   document.addEventListener("click", () => document.querySelectorAll(".dd[data-open]").forEach(x => x.removeAttribute("data-open")));
+  // Fly-out sub-menus: hover opens them on desktop; a tap or click toggles them (touch and mobile menu).
+  document.querySelectorAll(".dd-subt").forEach(b => b.addEventListener("click", e => {
+    e.stopPropagation(); e.preventDefault();
+    const sub = b.parentNode, open = !sub.hasAttribute("data-sub-open");
+    sub.parentNode.querySelectorAll(".dd-sub[data-sub-open]").forEach(x => { x.removeAttribute("data-sub-open"); x.firstElementChild.setAttribute("aria-expanded", "false"); });
+    if (open) { sub.setAttribute("data-sub-open", ""); b.setAttribute("aria-expanded", "true"); }
+  }));
   document.addEventListener("keydown", e => { if (e.key === "Escape") document.querySelectorAll(".dd[data-open]").forEach(x => x.removeAttribute("data-open")); });
 
   /* ---- "Log in" becomes "My learning" when signed in ---- */
