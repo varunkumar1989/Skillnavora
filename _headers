@@ -12,6 +12,10 @@
   Cache-Control: public, max-age=0, must-revalidate
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
+/data-science/assets/*
+  Cache-Control: public, max-age=0, must-revalidate
+/handbooks/pm/*.html
+  Cache-Control: public, max-age=0, must-revalidate
 
 # Handbooks, class decks and brochures are opened through the details form: keep them out of search results
 /handbook/*

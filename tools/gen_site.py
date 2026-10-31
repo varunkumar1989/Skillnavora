@@ -616,7 +616,7 @@ for _gp, _tid in GUIDE_TRACK.items():
     _L = _t["lessons"][0]
     _src = "../data-science/" + _L["page"]; _pdf = "../data-science/" + _t["pdf"]
     _body = uhero("Programs · Other programs", E(_t["name"]), E(_t["desc"])) + f"""
-<section style="padding-top:24px"><div class="wrap">
+<section style="padding-top:24px" data-gate-lock="{E(_t['name'])} complete guide"><div class="wrap">
   <div class="acts" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px"><a class="btn btn-primary" href="{_pdf}">Complete guide PDF</a><a class="btn btn-line" href="../contact.html">Ask about live training</a><a class="btn btn-line" href="../tests.html#other">Practice test</a><a class="btn btn-line" href="../questions.html#other">Interview questions</a></div>
   {'<div class="card" style="margin:0 0 16px;border:2px solid #6C4CF5"><b>Practise with the AI Speaking Coach:</b> <a href="../speaking-coach.html#free">Free speech (any topic)</a> · <a href="../speaking-coach.html#shadow">Shadowing</a> · <a href="../speaking-coach.html#engint">English interview practice</a> · <a href="../speaking-coach.html#drill">Pronunciation drills</a> · <a href="../speaking-coach.html#learn-english">Free videos &amp; websites to learn English</a></div>' if _tid == "speaking" else ""}
   <p class="meta" style="margin:0 0 12px">The complete guide is below. It opens right here: scroll inside it, or download the PDF.</p>
@@ -1236,3 +1236,6 @@ open(f"{OUT}/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<
     "".join(f"  <url><loc>{u}</loc><lastmod>2026-10-23</lastmod></url>\n" for u in urls) + "</urlset>\n")
 open(f"{OUT}/robots.txt", "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 print("\n".join(urls))
+
+import gate_inject
+print("PM handbook pages with gate:", gate_inject.inject())
