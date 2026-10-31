@@ -105,10 +105,11 @@ const COURSES = [
       { title: "Claude Code: build and launch a website", topics: ["Setting up Claude Code and GitHub", "Building a landing page or product website from a prompt", "Deploying free on Cloudflare Pages or Netlify, with your own domain", "Adding forms, analytics and an AI chatbot; iterating safely with Git"] },
       { title: "AI prototyping and automation tools", topics: ["Lovable, Bolt, v0 and Replit for app prototypes", "Figma Make and AI design tools", "n8n, Zapier and Make automations", "ChatGPT, Gemini, Perplexity and NotebookLM for research"] },
       { title: "Agentic AI and AI product design", topics: ["Agents, tool use and MCP", "Human-in-the-loop and guardrails", "AI metrics and evaluation", "Writing an AI PRD"] },
+      { title: "AI evals: measuring AI quality (basic to advanced)", topics: ["What evals are and why PMs own them; success criteria and rubrics", "Golden datasets, code graders, human review and LLM-as-judge", "Error analysis, RAG and agent evals, safety and red-teaming", "A/B tests, monitoring, regression gates and the eval section of an AI PRD"] },
       { title: "Capstone, mock tests and interview preparation", topics: ["Capstone: build and pitch your own AI product", "Weekly mock tests", "Product sense, metrics, strategy, RCA and behavioural rounds", "1:1 mock interviews with feedback"] },
       { title: "Job assistance program", topics: ["Resume and LinkedIn makeover", "Portfolio of 25+ case studies", "Referrals and job-search strategy", "Offer negotiation and salary discussions"] }
     ],
-    projects: ["25+ real-world case studies across fintech, e-commerce, SaaS and consumer apps", "AI feature PRD with metrics and guardrails", "Your own product website, built with Claude Code and launched live", "Clickable Figma prototype tested with real users", "End-to-end capstone product"],
+    projects: ["25+ real-world case studies across fintech, e-commerce, SaaS and consumer apps", "AI feature PRD with metrics and guardrails", "Eval plan and golden dataset for an AI feature", "Your own product website, built with Claude Code and launched live", "Clickable Figma prototype tested with real users", "End-to-end capstone product"],
     toolGroups: [
       { name: "Product and delivery", tools: ["Jira", "Confluence", "Asana", "Notion", "Linear", "Trello", "ClickUp", "Productboard", "Aha!"] },
       { name: "Design and collaboration", tools: ["Figma", "FigJam", "Miro", "Balsamiq", "Whimsical", "Slack", "Loom"] },

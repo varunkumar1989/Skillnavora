@@ -643,6 +643,9 @@ page("prd-library.html", "PRD library: template, examples and 120 PRD ideas · S
      uhero("Resources for PM · PRD library", f'PRD <span class="g">library</span>', f"How top product managers frame a PRD, a free template, and {_prdn} ideas across 15 industries you can turn into a full PRD with AI in one click.") + _prdl, "prd-library.html")
 page("brd-frd.html", "BRD & FRD guide for business analysts · SkillNavora", "BRD vs FRD vs PRD, BRD and FRD templates, a traced sample, business analysis techniques, 25 project ideas and the best BA guides and tools.",
      uhero("Resources for Data Engineers · Business analyst", 'BRD &amp; <span class="g">FRD</span> guide', f"For business and data analysts: what goes into a Business Requirements Document and a Functional Requirements Document, free templates, and {len(reqdocs.BRD_IDEAS)} real project ideas to practise with AI.") + reqdocs.brd_frd(), "brd-frd.html")
+import evals_course
+page("ai-evals.html", "AI Evals for Product Managers: free PDF, basic to advanced · SkillNavora", "What AI evals are and how product managers use them: success criteria, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety, A/B tests and monitoring. 10 classes and a free PDF.",
+     uhero("AI Product Management · AI Evals", 'AI <span class="g">Evals</span> for Product Managers', "How to measure, improve and safely launch AI features. 10 classes from basic to advanced, with templates, a metrics cheat sheet and interview questions.") + evals_course.web_page(), "ai-evals.html")
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
 
 # ================================================================ CONTACT
