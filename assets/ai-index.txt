@@ -183,6 +183,7 @@ Practice tests by topic | /tests.html | practice
 Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview
 AI mock interview with feedback | /practice.html | interview
 AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking
+AI Builder Tools: Claude, Claude Code, ChatGPT & Codex, Gemini, Lovable: create websites, pages, connect tools and other websites, publish on a domain (10 classes + PDF) | /ai-builder-tools.html | PM, GenAI, tools
 AI Skills Academy: all AI skills courses in one place | /ai-academy.html | PM, GenAI
 AI Product Strategy (moats, flywheels, build vs buy) | /ai-product-strategy.html | PM
 Designing AI Experiences (AI UX) | /ai-ux-design.html | PM, design
