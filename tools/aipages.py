@@ -5,6 +5,7 @@ E = html.escape
 
 AI_NAV = [  # (path, name, small, svg path)
     ("ai.html", "AI Studio", "All AI tools in one place, free", '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/>'),
+    ("ai-skills-map.html", "AI Skills Map", "Every AI skill and where to learn it", '<circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2 6.4-6.4 2 2-6.4z"/>'),
     ("ai-tutor.html", "AI Tutor", "Ask any study question, 24×7", '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>'),
     ("prd-writer.html", "AI PRD / BRD / FRD Writer", "Write any requirements document with AI", '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>'),
     ("pm-toolkit.html", "AI PM Toolkit", "13 PM capabilities: discovery, sizing, A/B tests…", '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>'),
@@ -59,19 +60,21 @@ CSS = """<style>
 </style>"""
 
 FEATURES = [
-    ("ai-tutor.html", 1, "AI Tutor", "Your 24×7 study buddy. Ask anything about product management, Excel, SQL, Python, Power BI, Tableau, ML, GenAI, agents, careers or English.",
+    ("ai-skills-map.html", 1, "AI Skills Map", "Every AI skill in one map: what to learn first, the full catalogue of AI capabilities, and where to learn each on SkillNavora, plus what employers ask for.",
+     ["7-skill learning order", "Every capability mapped to lessons", "Job-description skills by role"], "Open the map"),
+    ("ai-tutor.html", 2, "AI Tutor", "Your 24×7 study buddy. Ask anything about product management, Excel, SQL, Python, Power BI, Tableau, ML, GenAI, agents, careers or English.",
      ["Explains with examples and code", "Links you to the right SkillNavora lesson", "Hindi / Hinglish supported"], "Ask a question"),
-    ("prd-writer.html", 2, "AI PRD / BRD / FRD Writer", "Describe a product idea or business project and get a complete PRD, BRD or FRD in a minute, framed the way top companies write them.",
+    ("prd-writer.html", 3, "AI PRD / BRD / FRD Writer", "Describe a product idea or business project and get a complete PRD, BRD or FRD in a minute, framed the way top companies write them.",
      ["PRD for product managers", "BRD and FRD for business analysts", "Revise by asking; download Word, Markdown or PDF"], "Write a document"),
-    ("pm-toolkit.html", 3, "AI PM Toolkit", "Pick a PM capability, add your context, review the result: problem discovery, opportunity sizing, A/B test design, API planning, launch plans, metrics and more.",
+    ("pm-toolkit.html", 4, "AI PM Toolkit", "Pick a PM capability, add your context, review the result: problem discovery, opportunity sizing, A/B test design, API planning, launch plans, metrics and more.",
      ["13 capabilities in one place", "Ready-to-use deliverables", "Refine by asking; download Word"], "Open the toolkit"),
-    ("prd-library.html", 4, "PRD library: 120 ideas", "Learn to frame PRDs from the best: a section-by-section template, examples, common mistakes and 120 product ideas across 15 industries.",
+    ("prd-library.html", 5, "PRD library: 120 ideas", "Learn to frame PRDs from the best: a section-by-section template, examples, common mistakes and 120 product ideas across 15 industries.",
      ["Write any idea with AI in one click", "Best guides, templates and apps", "Free Word template"], "Open the PRD library"),
-    ("brd-frd.html", 5, "BRD & FRD guide", "For business analysts: BRD vs FRD vs PRD, templates, BA techniques and 25 real project ideas from banking to GenAI.",
+    ("brd-frd.html", 6, "BRD & FRD guide", "For business analysts: BRD vs FRD vs PRD, templates, BA techniques and 25 real project ideas from banking to GenAI.",
      ["BRD and FRD templates", "25 project ideas with requirements", "Best BA guides and apps"], "Open the BRD & FRD guide"),
-    ("speaking-coach.html", 6, "AI Speaking Coach", "Speak into your mic and get instant coaching on English, public speaking and interview answers, like a personal coach.",
+    ("speaking-coach.html", 7, "AI Speaking Coach", "Speak into your mic and get instant coaching on English, public speaking and interview answers, like a personal coach.",
      ["Fluency, grammar and pace scores", "Filler words and pauses counted", "Pronunciation drills with listen-and-repeat"], "Start speaking"),
-    ("practice.html", 7, "AI mock interview", "Get a real PM, data or GenAI interview question, answer it against the clock and get a score with a model answer.",
+    ("practice.html", 8, "AI mock interview", "Get a real PM, data or GenAI interview question, answer it against the clock and get a score with a model answer.",
      ["Score out of 10", "Gaps and a model answer", "Likely follow-up questions"], "Practise an interview"),
 ]
 
@@ -188,6 +191,10 @@ def write_index(out):
           "Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview",
           "AI mock interview with feedback | /practice.html | interview",
           "AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking",
+          "AI Skills Map: full catalogue of AI skills mapped to SkillNavora lessons, 7-skill learning order, job-description skills | /ai-skills-map.html | all programs",
+          "Prompt & Context Engineering: evidence-based requests, structured outputs, task decomposition, context compression, documents and OCR, attribution, knowledge graphs (8 classes + PDF) | /context-engineering.html | PM, GenAI",
+          "AI Skills & Templates: Agent Skills, Projects, Custom GPTs, Gems, PM skill library, testing skills, case study to PRD to presentation project (8 classes + PDF) | /ai-skills.html | PM, GenAI",
+          "Agent Orchestration & Monitoring: workflows vs agents, routing, parallel, orchestrator-workers, state, approvals, multi-agent, cost, monitoring (8 classes + PDF) | /agent-orchestration.html | PM, GenAI",
           "Browser Automation & AI Agents: scripts vs RPA vs AI agents, Playwright, computer use, deep research agents, workflows, safety, evals (8 classes + PDF) | /browser-automation.html | PM, GenAI",
           "Your AI Second Brain: PARA, CODE, NotebookLM, Notion, Obsidian, context engineering, AI memory, MCP (8 classes + PDF) | /ai-second-brain.html | PM, GenAI, productivity",
           "AI Evals for Product Managers: what evals are, rubrics, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety, A/B tests, monitoring (10 classes + PDF) | /ai-evals.html | product management, AI",

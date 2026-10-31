@@ -646,10 +646,16 @@ page("brd-frd.html", "BRD & FRD guide for business analysts · SkillNavora", "BR
 import evals_course
 page("ai-evals.html", "AI Evals for Product Managers: free PDF, basic to advanced · SkillNavora", "What AI evals are and how product managers use them: success criteria, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety, A/B tests and monitoring. 10 classes and a free PDF.",
      uhero("AI Product Management · AI Evals", 'AI <span class="g">Evals</span> for Product Managers', "How to measure, improve and safely launch AI features. 10 classes from basic to advanced, with templates, a metrics cheat sheet and interview questions.") + evals_course.web_page(), "ai-evals.html")
-import coursekit, course_browser, course_brain
-for _C, _hero in [(course_browser.COURSE, ('AI Product Management · GenAI Launchpad', 'Browser <span class="g">Automation</span> &amp; AI Agents')),
-                  (course_brain.COURSE, ('AI Product Management · GenAI Launchpad', 'Your AI <span class="g">Second Brain</span>'))]:
+import coursekit, course_browser, course_brain, course_context, course_skills, course_orch, skillsmap
+_K = 'AI Product Management · GenAI Launchpad'
+for _C, _hero in [(course_browser.COURSE, (_K, 'Browser <span class="g">Automation</span> &amp; AI Agents')),
+                  (course_brain.COURSE, (_K, 'Your AI <span class="g">Second Brain</span>')),
+                  (course_context.COURSE, (_K + ' · Skill 1 of 7', 'Prompt &amp; <span class="g">Context</span> Engineering')),
+                  (course_skills.COURSE, (_K + ' · Skill 2 of 7', 'AI <span class="g">Skills</span> &amp; Templates')),
+                  (course_orch.COURSE, (_K + ' · Skill 7 of 7', 'Agent <span class="g">Orchestration</span> &amp; Monitoring'))]:
     page(_C["page"], _C["title"] + ": free PDF, basic to advanced · SkillNavora", _C["intro"], uhero(_hero[0], _hero[1], _C["intro"]) + coursekit.web_page(_C), _C["page"])
+page("ai-skills-map.html", "AI Skills Map: every AI skill and where to learn it · SkillNavora", "The complete AI skills catalogue for professionals: prompting, context, skills, second brain, research, evals, automation, orchestration, media, engineering and PM skills, mapped to free SkillNavora lessons, plus what job descriptions ask for.",
+     uhero("AI Studio · AI Skills Map", 'Every <span class="g">AI skill</span>, one map', "What to learn first, the full catalogue of AI skills, and exactly where to learn each one on SkillNavora, plus the skills employers ask for in AI-era job descriptions.") + skillsmap.page(), "ai-skills-map.html")
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
 
 # ================================================================ CONTACT

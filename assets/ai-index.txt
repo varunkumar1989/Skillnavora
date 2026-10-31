@@ -183,6 +183,10 @@ Practice tests by topic | /tests.html | practice
 Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview
 AI mock interview with feedback | /practice.html | interview
 AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking
+AI Skills Map: full catalogue of AI skills mapped to SkillNavora lessons, 7-skill learning order, job-description skills | /ai-skills-map.html | all programs
+Prompt & Context Engineering: evidence-based requests, structured outputs, task decomposition, context compression, documents and OCR, attribution, knowledge graphs (8 classes + PDF) | /context-engineering.html | PM, GenAI
+AI Skills & Templates: Agent Skills, Projects, Custom GPTs, Gems, PM skill library, testing skills, case study to PRD to presentation project (8 classes + PDF) | /ai-skills.html | PM, GenAI
+Agent Orchestration & Monitoring: workflows vs agents, routing, parallel, orchestrator-workers, state, approvals, multi-agent, cost, monitoring (8 classes + PDF) | /agent-orchestration.html | PM, GenAI
 Browser Automation & AI Agents: scripts vs RPA vs AI agents, Playwright, computer use, deep research agents, workflows, safety, evals (8 classes + PDF) | /browser-automation.html | PM, GenAI
 Your AI Second Brain: PARA, CODE, NotebookLM, Notion, Obsidian, context engineering, AI memory, MCP (8 classes + PDF) | /ai-second-brain.html | PM, GenAI, productivity
 AI Evals for Product Managers: what evals are, rubrics, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety, A/B tests, monitoring (10 classes + PDF) | /ai-evals.html | product management, AI
