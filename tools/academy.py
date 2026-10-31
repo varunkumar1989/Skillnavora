@@ -33,7 +33,7 @@ def grid(R=""):
 def hub():
     return f"""<section style="padding-top:28px"><div class="wrap">
 <div class="card" style="border:2px solid #6C4CF5;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between"><div style="max-width:720px"><b>One place for every AI skill course.</b> Each course has lessons on the website, a free PDF and an interactive version. Part of the <a href="program/ai-product-management.html">AI Product Management</a> and <a href="program/genai-launchpad.html">GenAI Launchpad</a> programs.</div>
-<div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-primary" href="study-hub.html">Study Hub (4 tabs)</a><a class="btn btn-line" href="ai-skills-map.html">AI Skills Map</a><a class="btn btn-line" href="{ARTIFACT}">Interactive academy</a></div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-primary" href="study-hub.html">Study Hub (4 tabs)</a><a class="btn btn-line" href="study-library.html">Study Library (everything)</a><a class="btn btn-line" href="ai-skills-map.html">AI Skills Map</a><a class="btn btn-line" href="{ARTIFACT}">Interactive academy</a></div></div>
 {grid()}</div></section>"""
 
 def program_section(cid):

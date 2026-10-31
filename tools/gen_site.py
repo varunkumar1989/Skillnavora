@@ -660,9 +660,11 @@ for _C, _hero in [(course_browser.COURSE, (_K, 'Browser <span class="g">Automati
     page(_C["page"], _C["title"] + ": free PDF, basic to advanced · SkillNavora", _C["intro"], uhero(_hero[0], _hero[1], _C["intro"]) + coursekit.web_page(_C), _C["page"])
 page("ai-academy.html", "AI Skills Academy: every AI skills course in one place · SkillNavora", "All SkillNavora AI skills courses in one section: the 7 core AI skills and advanced AI product management topics, each with lessons, a PDF and an interactive version.",
      uhero("AI Product Management · GenAI Launchpad", 'AI Skills <span class="g">Academy</span>', "Every AI skills course in one place: lessons, free PDFs and interactive versions, from prompting and context to strategy, AI UX, pricing, governance and more.") + academy.hub(), "ai-academy.html")
-import academy_interactive, study_hub
+import academy_interactive, study_hub, study_library
 page("ai-academy-interactive.html", "Interactive AI Skills Academy · SkillNavora", "All AI skills courses as one interactive page: tabs for every course, illustrated classes, takeaways, practice, cheat sheets and interview questions.",
      academy_interactive.site_html(), "ai-academy.html")
+page("study-library.html", "SkillNavora Study Library: all study material in one place", "Every program, handbook, lesson, AI skills course, practice set, tool, learning site and PDF on SkillNavora in one page with 11 tabs and a filter.",
+     study_library.site_html(), "study-library.html")
 page("study-hub.html", "Study Hub: AI PM, Data Engineer, AI Engineer, GenAI Launchpad · SkillNavora", "All SkillNavora study material in one place with four tabs: AI Product Management, AI for Data Engineers, AI Engineer and GenAI Launchpad, with every lesson, class, PDF and practice set.",
      uhero("Study Hub", 'All your study material, <span class="g">one place</span>', "Pick your path: AI Product Management, AI for Data Engineers, AI Engineer or GenAI Launchpad. Every lesson, class, PDF and practice set is one click away.") + study_hub.build(), "study-hub.html")
 page("ai-skills-map.html", "AI Skills Map: every AI skill and where to learn it · SkillNavora", "The complete AI skills catalogue for professionals: prompting, context, skills, second brain, research, evals, automation, orchestration, media, engineering and PM skills, mapped to free SkillNavora lessons, plus what job descriptions ask for.",

@@ -6,7 +6,9 @@ import course_aiengineer
 E = html.escape
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.skillnavora.in/"
-PROGRAMS = json.load(open("/tmp/claude-0/-home-user/20ecdeba-c201-50e4-9856-79c86c6b1138/scratchpad/aiacad/programs.json"))
+INTERNAL_BLANK = True   # artifact: every link opens a new tab; website version: internal links stay in the same tab
+import study_hub
+PROGRAMS = list(study_hub.programs().values())
 CAT = json.load(open(os.path.join(ROOT, "data-science/catalog.json")))
 LESSON_SRC = "/home/user/data-science-and-ai/course/source/lessons"
 
@@ -19,10 +21,11 @@ def fm(path):
         if k and k.group(1) != "outcomes": cur = k.group(1); d[cur] = k.group(2).strip().strip('"')
     return d
 
+def _blank(href): return href.startswith("http") or INTERNAL_BLANK
 def a(href, text, new=True):
-    return f'<a href="{E(SITE + href if not href.startswith("http") else href)}" target="_blank" rel="noopener">{text} ↗</a>'
+    return f'<a href="{E(SITE + href if not href.startswith("http") else href)}"' + (' target="_blank" rel="noopener"' if _blank(href) else "") + f'>{text}{" ↗" if _blank(href) else ""}</a>'
 def link_btn(href, text, pri=False):
-    return f'<a class="btn{" pri" if pri else ""}" href="{E(SITE + href if not href.startswith("http") else href)}" target="_blank" rel="noopener">{E(text)} ↗</a>'
+    return f'<a class="btn{" pri" if pri else ""}" href="{E(SITE + href if not href.startswith("http") else href)}"' + (' target="_blank" rel="noopener"' if _blank(href) else "") + f'>{E(text)}{" ↗" if _blank(href) else ""}</a>'
 
 def tab(key, eyebrow, title, lede, acts, inner):
     return f'<section class="tab" id="{key}" hidden><header class="th"><p class="eyebrow">{E(eyebrow)}</p><h2>{E(title)}</h2><p class="lede">{lede}</p><div class="acts">{acts}</div></header>{inner}</section>'
@@ -161,3 +164,25 @@ def html_page():
             f'<div class="a-wrap"><div class="a-top"><p class="eyebrow">skillnavora.in · all study material</p><h1>SkillNavora <span>Study Library</span></h1><p>One page that covers every program, handbook, lesson, course, practice set, tool and PDF on the website.</p></div>'
             f'<nav class="a-tabs" aria-label="Sections">{nav}</nav><input id="flt" type="search" placeholder="Filter this section: SQL, RAG, Tableau, PRD, Claude…" aria-label="Filter this section">{body}'
             f'<p class="foot">© SkillNavora · <a href="{SITE}" target="_blank" rel="noopener">skillnavora.in</a></p></div>' + js)
+
+
+def site_html():
+    """The same library as a page on skillnavora.in: relative links, same tab, site header, locked until details are given."""
+    global SITE, INTERNAL_BLANK
+    saved = (SITE, INTERNAL_BLANK); SITE, INTERNAL_BLANK = "", False
+    try:
+        nav = "".join(f'<a href="#{k}" data-t="{k}">{E(n)}</a>' for k, n, _ in TABS)
+        body = "".join(fn() for _, _, fn in TABS)
+    finally:
+        SITE, INTERNAL_BLANK = saved
+    ids = [k for k, _, _ in TABS]
+    extra = "".join(f"{AI._scope(sel)}{{{inner}}}" for sel, inner in AI._split_rules(EXTRA))
+    css = AI.site_style().replace("</style>", extra.replace(".acad .a-wrap", ".acad .a-wrap") + "</style>")
+    js = ("<script>(function(){var ids=" + json.dumps(ids) + ";var hh=document.querySelector('header.top');if(hh)document.documentElement.style.setProperty('--a-hh',hh.offsetHeight+'px');function show(){var h=(location.hash||'#start').slice(1),k=ids.indexOf(h)>-1?h:'start';document.querySelectorAll('.tab').forEach(function(s){s.hidden=s.id!==k});"
+          "document.querySelectorAll('nav.a-tabs a').forEach(function(a){a.setAttribute('aria-current',a.dataset.t===k?'true':'false');if(a.dataset.t===k&&a.scrollIntoView)a.scrollIntoView({block:'nearest',inline:'nearest'})});window.scrollTo(0,0);filter()}"
+          "function filter(){var q=document.getElementById('flt').value.toLowerCase();var v=document.querySelector('.tab:not([hidden])');if(!v)return;v.querySelectorAll('details.grp').forEach(function(g){var n=0;g.querySelectorAll('.item,li').forEach(function(i){var ok=!q||i.textContent.toLowerCase().indexOf(q)>-1;i.style.display=ok?'':'none';if(ok)n++});g.style.display=(!q||n||g.querySelector('summary').textContent.toLowerCase().indexOf(q)>-1)?'':'none';if(q&&n)g.open=true});"
+          "v.querySelectorAll(':scope > ol.items > li, :scope > ul.items > li').forEach(function(i){i.style.display=(!q||i.textContent.toLowerCase().indexOf(q)>-1)?'':'none'})}"
+          "window.addEventListener('hashchange',show);document.getElementById('flt').addEventListener('input',filter);show()})();</script>")
+    return (css + '<section class="acad" data-gate-lock="SkillNavora Study Library"><div class="wrap"><div class="a-wrap"><div class="a-top"><p class="eyebrow">skillnavora.in · all study material</p><h1>SkillNavora <span>Study Library</span></h1>'
+            '<p>One page that covers every program, handbook, lesson, course, practice set, tool and PDF on the website.</p></div>'
+            f'<nav class="a-tabs" aria-label="Sections">{nav}</nav><input id="flt" type="search" placeholder="Filter this section: SQL, RAG, Tableau, PRD, Claude…" aria-label="Filter this section">{body}</div></div></section>' + js)
