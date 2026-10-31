@@ -186,9 +186,9 @@ def more_tab():
 
 
 QUICK = {
-    "pm": [("PM handbook", "handbooks/index.html#pm"), ("Top 100 PM questions", "questions.html#pm"), ("PM practice test", "tests.html#pm"), ("Tool tutorials", "tools.html#tt-ai-pm"), ("AI Agents & MCP for PMs", "handbooks/index.html#genai")],
-    "data": [("Data Science & AI handbook", "data-science/index.html"), ("DSA", "handbooks/index.html#dsa"), ("Top 100 data questions", "questions.html#data"), ("Data practice test", "tests.html#data"), ("Tool tutorials", "tools.html#tt-ai-de"), ("Job board", "jobs.html")],
-    "genai": [("GenAI Launchpad handbook", "handbooks/index.html#genai"), ("Top 100 GenAI questions", "questions.html#genai"), ("GenAI practice test", "tests.html#genai"), ("Tool tutorials", "tools.html#tt-genai-launchpad"), ("Claude Code tutorial", "handbooks/index.html#genai")],
+    "pm": [("PM handbook", "handbooks/index.html#pm"), ("Top 100 PM questions", "questions.html#pm"), ("PM practice test", "tests.html#pm"), ("Practice Lab", "lab.html#pm"), ("Tool tutorials", "tools.html#tt-ai-pm"), ("AI Agents & MCP for PMs", "handbooks/index.html#genai")],
+    "data": [("Data Science & AI handbook", "data-science/index.html"), ("DSA", "handbooks/index.html#dsa"), ("Top 100 data questions", "questions.html#data"), ("Data practice test", "tests.html#data"), ("Practice Lab: run SQL, Excel, Python", "lab.html#data"), ("Tool tutorials", "tools.html#tt-ai-de"), ("Job board", "jobs.html")],
+    "genai": [("GenAI Launchpad handbook", "handbooks/index.html#genai"), ("Top 100 GenAI questions", "questions.html#genai"), ("GenAI practice test", "tests.html#genai"), ("Practice Lab + prompt checker", "lab.html#genai"), ("Tool tutorials", "tools.html#tt-genai-launchpad"), ("Claude Code tutorial", "handbooks/index.html#genai")],
     "more": [("Newsletters & AI news", "#news"), ("Job alerts", "jobs.html#portals-box"), ("Communities", "#more"), ("Free datasets", "#more"), ("Other programs", "handbooks/index.html#other")],
 }
 

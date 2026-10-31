@@ -128,7 +128,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     up_menu = (sub("Resources & AI tools", "Handbooks, PDFs, tools and links by course", U["resources.html"][3],
                    [U[k] for k in ("resources.html#pm", "resources.html#data", "resources.html#genai", "tools.html", "handbooks/index.html", "resources.html#more")])
                + sub("Practice & interview prep", "Tests, top 100 questions, quizzes and mock interviews", U["tests.html"][3],
-                     [U["tests.html"], Q("pm", "Top 100 questions: PM", "AI product management interview questions"), Q("data", "Top 100 questions: Data", "Data science, SQL, Excel, Power BI, ML"),
+                     [("lab.html", "Practice Lab: run code", "SQL, Excel, Python, Power BI, PM and GenAI challenges", U["tests.html"][3]), U["tests.html"], Q("pm", "Top 100 questions: PM", "AI product management interview questions"), Q("data", "Top 100 questions: Data", "Data science, SQL, Excel, Power BI, ML"),
                       Q("genai", "Top 100 questions: GenAI", "GenAI, agents, MCP and AI tools"), U["quiz.html"], U["challenges.html"], U["practice.html"]])
                + item(*U["events.html"]))
     on = lambda group: " on" if active in group else ""
@@ -616,6 +616,11 @@ for _gp, _tid in GUIDE_TRACK.items():
   <iframe class="guide-frame" src="{_src}" title="{E(_t['name'])} complete guide" loading="lazy" style="width:100%;height:85vh;border:1px solid var(--line,#e2dcf3);border-radius:16px;background:#fff"></iframe>
 </div></section>"""
     page(_gp, f"{_t['name']} complete guide · SkillNavora", _t["desc"], _body, _gp)
+import labpage
+_lb_html, _lb_n = labpage.build()
+page("lab.html", "Practice Lab · SkillNavora", "Free practice lab: run SQL, Excel formulas and Python in your browser, spot the trap and see the fix. AI PM and GenAI real-life scenarios with hints.",
+     uhero("Upskill for free · Practice & interview prep", 'Practice <span class="g">Lab</span>', f"{_lb_n} hands-on challenges from basic to advanced. Run real SQL, Excel formulas and Python in your browser, spot the trap before your interviewer does, and see the fix. Free, no sign-up.")
+     + f"""<section style="padding-top:24px"><div class="wrap">{_lb_html}</div></section>""", "lab.html", '<script src="{r}assets/vendor/formula-parser.min.js"></script><script src="{r}assets/lab.js"></script>')
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
 
 # ================================================================ CONTACT
