@@ -12,7 +12,7 @@ RESEARCH = ("4", "Research & data analysis", "data-science/index.html", "SQL, Ex
 def card(C, tab, num=None, R=""):
     n = f'<span class="ac-n">Skill {num}</span>' if num else '<span class="ac-n">Advanced AI PM</span>'
     return (f'<article class="ac-card">{n}<h3>{E(C["title"])}</h3><p>{E(C["intro"])}</p><span class="ac-meta">{len(C["classes"])} classes · basic to advanced · PDF</span>'
-            f'<div class="ac-acts"><a class="btn btn-primary btn-sm" href="{R}{C["page"]}">Open lessons</a><a class="btn btn-line btn-sm" href="{R}handbook/{C["pdf"]}">PDF</a>'
+            f'<div class="ac-acts"><a class="btn btn-primary btn-sm" href="{R}{C["page"]}" data-gate="1" data-gate-label="{E(C["title"])}">Open lessons</a><a class="btn btn-line btn-sm" href="{R}handbook/{C["pdf"]}">PDF</a>'
             f'<a class="btn btn-line btn-sm" href="{R}{ARTIFACT}#{tab}">Interactive</a></div></article>')
 
 CSS = """<style>.ac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}.ac-card{display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px}
@@ -33,7 +33,7 @@ def grid(R=""):
 def hub():
     return f"""<section style="padding-top:28px"><div class="wrap">
 <div class="card" style="border:2px solid #6C4CF5;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between"><div style="max-width:720px"><b>One place for every AI skill course.</b> Each course has lessons on the website, a free PDF and an interactive version. Part of the <a href="program/ai-product-management.html">AI Product Management</a> and <a href="program/genai-launchpad.html">GenAI Launchpad</a> programs.</div>
-<div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-primary" href="ai-skills-map.html">AI Skills Map</a><a class="btn btn-line" href="{ARTIFACT}">Interactive academy</a></div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-primary" href="study-hub.html">Study Hub (4 tabs)</a><a class="btn btn-line" href="ai-skills-map.html">AI Skills Map</a><a class="btn btn-line" href="{ARTIFACT}">Interactive academy</a></div></div>
 {grid()}</div></section>"""
 
 def program_section(cid):

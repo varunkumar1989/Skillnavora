@@ -43,16 +43,26 @@ def pdf_html(C):
 <section class="class"><span class="lvl" style="background:#2E3192">Learn more</span><h2>Further reading and tools</h2><ul>{links}</ul>
 <p class="foot">© SkillNavora · skillnavora.in · Part of the AI Product Management and GenAI Launchpad programs. Practise with the free AI Tutor, AI PM Toolkit and Practice Lab on skillnavora.in.</p></section></body></html>"""
 
+def _ikey(C):
+    """Tab id of this course in the interactive academy (ai-academy-interactive.html)."""
+    import academy_interactive as A
+    for k, c, _ in A.ALL:
+        if c["slug"] == C["slug"]: return k
+    return C["slug"]
+
+CLS_CSS = '<style>.cls-link{transition:transform .15s,border-color .15s}.cls-link:hover{transform:translateY(-2px);border-color:var(--brand)}</style>'
+
 def web_page(C):
-    cards = "".join(f'<div class="card" style="display:flex;flex-direction:column;gap:6px"><span style="font:700 11px var(--body);letter-spacing:.06em;text-transform:uppercase;color:{LEVEL[lv][1]}">{LEVEL[lv][0]} · Class {i}</span><h3 style="margin:0;font-size:18px">{E(t)}</h3><p style="margin:0;color:var(--mu)">{E(g)}</p><ul style="margin:4px 0 0;padding-left:18px;color:var(--mu);font-size:14px">' + "".join(f"<li>{E(x)}</li>" for x in tk) + "</ul></div>"
+    key = _ikey(C)
+    cards = "".join(f'<a class="card cls-link" href="ai-academy-interactive.html#{key}-c{i}" style="display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit"><span style="font:700 11px var(--body);letter-spacing:.06em;text-transform:uppercase;color:{LEVEL[lv][1]}">{LEVEL[lv][0]} · Class {i}</span><h3 style="margin:0;font-size:18px">{E(t)}</h3><p style="margin:0;color:var(--mu)">{E(g)}</p><ul style="margin:4px 0 0;padding-left:18px;color:var(--mu);font-size:14px">' + "".join(f"<li>{E(x)}</li>" for x in tk) + '</ul><span style="margin-top:auto;font-weight:700;color:var(--brand)">Open the full class →</span></a>'
                     for i, (lv, t, g, _, tk, _) in enumerate(C["classes"], 1))
     qa = "".join(f"<details class='card' style='padding:14px 18px'><summary style='cursor:pointer;font-weight:700'>{E(q)}</summary><p style='margin:8px 0 0;color:var(--mu)'>{E(a)}</p></details>" for q, a in C["qa"][:8])
     from urllib.parse import quote
-    return f"""<section style="padding-top:28px"><div class="wrap">
+    return CLS_CSS + f"""<section style="padding-top:28px"><div class="wrap">
 <div class="card" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;border:2px solid #6C4CF5;margin-bottom:26px"><div style="max-width:640px"><div class="kicker">Free PDF · {len(C['classes'])} classes · basic to advanced</div><h2 style="margin:6px 0">{E(C['title'])}</h2><p style="margin:0;color:var(--mu)">{E(C['intro'])}</p></div>
 <div style="display:flex;flex-direction:column;gap:8px"><a class="btn btn-primary" href="handbook/{E(C['pdf'])}">Download the PDF</a><a class="btn btn-line" href="ai-tutor.html?q={quote(C['tutor_q'])}">Ask the AI Tutor</a>{C.get('extra_btn','')}</div></div>
 <h2 class="sec-h" style="font-size:26px">In one line</h2><p class="sub" style="max-width:820px">{E(C['oneline'])}</p>
-<h2 class="sec-h" style="font-size:24px;margin-top:26px">The {len(C['classes'])} classes</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">{cards}</div>
+<h2 class="sec-h" style="font-size:24px;margin-top:26px">The {len(C['classes'])} classes <span class="meta" style="font-size:14px;font-weight:500">(click a class to read it in full)</span></h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">{cards}</div>
 <h2 class="sec-h" style="font-size:24px;margin-top:30px">Interview questions</h2><div style="display:grid;gap:10px">{qa}</div><p class="meta" style="margin-top:10px">All {len(C['qa'])} questions with answers, templates and the cheat sheet are in the PDF.</p>
 </div></section>"""
 

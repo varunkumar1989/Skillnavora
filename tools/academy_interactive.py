@@ -94,7 +94,7 @@ def _scope(sel):
     return ",".join(".acad " + s.strip() if not s.strip().startswith(".acad") else s.strip() for s in sel.split(","))
 
 def site_html():
-    return site_style() + '<section class="acad"><div class="wrap">' + body("") + "</div></section>" + script()
+    return site_style() + '<section class="acad" data-gate-lock="Interactive AI Skills Academy"><div class="wrap">' + body("") + "</div></section>" + script()
 
 def artifact_html():
     return ('<title>SkillNavora AI Skills Academy</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'

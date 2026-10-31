@@ -20,6 +20,8 @@
     if (a.hasAttribute("data-gate")) return true;
     let u; try { u = new URL(a.href, location.href); } catch { return false; }
     if (/(^|\.)claude\.ai$/i.test(u.hostname) && /^\/artifact/.test(u.pathname)) return true;
+    // Full class content (interactive academy) opens only after details are given; links from inside the academy page itself are fine.
+    if (u.hostname === location.hostname && /\/ai-academy-interactive\.html$/.test(u.pathname) && u.pathname !== location.pathname) return true;
     return u.hostname === location.hostname && (FILE.test(u.pathname) || DIR.test(u.pathname));
   };
   const labelOf = a => (a.dataset.gateLabel || a.textContent || a.getAttribute("href") || "").replace(/\s+/g, " ").replace(/[↗→]/g, "").trim().slice(0, 90);
@@ -135,7 +137,8 @@
       set(KEY, JSON.stringify({ t: Date.now(), n: v("name").split(" ")[0] }));
       b.disabled = false; b.textContent = t; f.reset(); modal.classList.remove("open");
       toast("Access unlocked. Thank you!");
-      if (pending) { const p = pending; pending = null; pending0 = p.label; go(p.href, p.blank); }
+      window.dispatchEvent(new Event("sn-access"));
+      if (pending) { const p = pending; pending = null; pending0 = p.label; if (p.href) go(p.href, p.blank); }
     });
   };
   const toast = text => { const d = document.createElement("div"); d.className = "gate-toast"; d.textContent = text; document.body.appendChild(d); setTimeout(() => d.remove(), 3200); };
@@ -156,5 +159,22 @@
   }, true);
   // Middle-click / context menu on gated links ask too
   document.addEventListener("auxclick", e => { const a = e.target.closest && e.target.closest("a"); if (a && gated(a) && !has() && e.button === 1) { e.preventDefault(); ask(a); } }, true);
+  // Pages that hold full class content lock themselves (blurred) until the visitor gives details; admins and returning visitors skip it.
+  const lockPage = el => {
+    if (has() || el.classList.contains("sn-locked")) return;
+    const label = el.getAttribute("data-gate-lock") || "this page";
+    if (!document.getElementById("sn-lock-css")) { const st = document.createElement("style"); st.id = "sn-lock-css";
+      st.textContent = ".sn-locked{filter:blur(7px);pointer-events:none;user-select:none;max-height:75vh;overflow:hidden}.sn-lockbar{position:sticky;top:90px;z-index:60;max-width:560px;margin:24px auto -140px;background:var(--surface,#fff);color:var(--ink,#17142E);border:2px solid #6C4CF5;border-radius:16px;padding:18px 20px;text-align:center;box-shadow:0 18px 50px rgba(30,20,80,.25)}.sn-lockbar p{margin:6px 0 12px;color:var(--mu,#55607a)}"; document.head.appendChild(st); }
+    el.classList.add("sn-locked");
+    const bar = document.createElement("div"); bar.className = "sn-lockbar"; bar.setAttribute("data-nogate", "");
+    bar.innerHTML = "<b style=\"font-size:18px\">Free access: enter your details to read the classes</b><p>Tell us a little about you once. Then every class, tab and PDF opens.</p><button type=\"button\" class=\"btn btn-primary\">Unlock free access</button>";
+    el.parentNode.insertBefore(bar, el);
+    const open = () => { if (!modal) build(); pending = { href: "", blank: false, label }; modal.querySelector("#gate-res").innerHTML = '<div class="gate-chip">Opening: <b></b></div>'; modal.querySelector(".gate-chip b").textContent = label; modal.classList.add("open"); setTimeout(() => modal.querySelector("input[name=name]").focus(), 30); };
+    bar.querySelector("button").addEventListener("click", open);
+    window.addEventListener("sn-access", () => { el.classList.remove("sn-locked"); bar.remove(); }, { once: true });
+    open();
+  };
+  const initLocks = () => document.querySelectorAll("[data-gate-lock]").forEach(lockPage);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initLocks); else initLocks();
   window.SNgate = { has, ask: href => { const a = document.createElement("a"); a.href = href; ask(a); } };
 })();

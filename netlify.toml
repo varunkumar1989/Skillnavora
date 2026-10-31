@@ -1,8 +1,22 @@
 # Netlify: deploys the whole SkillNavora study material (static site) straight from GitHub.
 # Build command: none. Publish directory: the repository root.
+# On Netlify the front page is the Study Hub (four tabs: AI PM, AI for Data Engineers, AI Engineer, GenAI Launchpad);
+# the full website home stays available at /home. Cloudflare Pages ignores this file.
 # Note: the live AI tools and lead API are Cloudflare Pages Functions (functions/api); the study material works without them.
 [build]
   publish = "."
+
+[[redirects]]
+  from = "/"
+  to = "/study-hub.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/home"
+  to = "/index.html"
+  status = 200
+  force = true
 
 [[headers]]
   for = "/*.pdf"

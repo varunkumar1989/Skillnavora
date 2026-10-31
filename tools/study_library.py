@@ -126,7 +126,7 @@ def t_pdfs():
 def t_netlify():
     steps = ["Open <b>app.netlify.com</b> → <b>Add new site</b> → <b>Import an existing project</b> → GitHub → choose the <b>skillnavora</b> repository.",
              "Branch to deploy: <b>main</b>. Build command: leave empty. Publish directory: <b>.</b> (a single dot). The <code>netlify.toml</code> in the repository already says this.",
-             "Click <b>Deploy</b>. Every page, lesson, PDF and course loads from Netlify, and every push to GitHub redeploys automatically.",
+             "Click <b>Deploy</b>. Every page, lesson, PDF and course loads from Netlify, and every push to GitHub redeploys automatically. On Netlify the front page is the <b>Study Hub</b> with four tabs: AI Product Management, AI for Data Engineers, AI Engineer and GenAI Launchpad (the normal website home is at <code>/home</code>).",
              "Optional: <b>Domain management</b> → add your domain and follow the DNS steps; HTTPS turns on automatically.",
              "Drag-and-drop alternative: download the repository as a ZIP from GitHub, unzip, and drop the folder onto <b>app.netlify.com/drop</b> (very large PDFs may take a few minutes)."]
     notes = ["<b>Works on Netlify:</b> all study material: programs, handbooks, every lesson and PDF, the AI Skills Academy and interactive pages, practice tests, Practice Lab, PRD library, tools and learning sites, the details form (it falls back to WhatsApp/email if the lead API is missing).",
