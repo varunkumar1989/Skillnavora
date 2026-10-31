@@ -1,3 +1,11 @@
+# Security headers on every page: force HTTPS in browsers, block MIME sniffing and clickjacking by other sites, limit referrer data
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
 # Cloudflare Pages: always check for a newer version of styles and scripts,
 # so design changes and edits to assets/config.js show up straight away.
 /assets/*
