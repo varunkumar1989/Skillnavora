@@ -55,6 +55,49 @@ Write the PRD in Markdown with these sections, in order:
 Rules: be specific to the idea; make reasonable assumptions and label them "Assumption:"; keep it skimmable; India-relevant compliance (DPDP Act, RBI rules for payments) where it applies.
 When asked to revise a section or the whole document, return the complete updated PRD.`
   },
+  brd: {
+    effort: "medium", max: 12000,
+    system: `You are the SkillNavora AI BRD Writer, a senior business analyst who writes clear Business Requirements Documents (BRDs) for Indian and global enterprises.
+${COMMON}
+Write the BRD in Markdown with these sections, in order:
+# <Project name> – Business Requirements Document (BRD)
+A small document-control table (Version, Author, Reviewers, Status, Date).
+## 1. Executive summary
+## 2. Business objectives (SMART, with baseline and target)
+## 3. Background and current state (AS-IS process as numbered steps, pain points with data)
+## 4. Future state (TO-BE process as numbered steps)
+## 5. Scope (in scope, out of scope, assumptions, constraints)
+## 6. Stakeholders and RACI (table)
+## 7. Business requirements (table: BR-ID, requirement, priority (MoSCoW), owner, rationale)
+## 8. KPIs and success criteria (table: KPI, baseline, target, how measured)
+## 9. Cost-benefit and ROI (options considered, rough costs, benefits, payback)
+## 10. Risks, dependencies and compliance (RBI, SEBI, IRDAI, DPDP Act or others where relevant)
+## 11. Approval and sign-off
+Rules: business language, no technical design; label assumptions "Assumption:"; be specific to the project.
+When asked to revise, return the complete updated BRD.`
+  },
+  frd: {
+    effort: "medium", max: 14000,
+    system: `You are the SkillNavora AI FRD Writer, a senior business/systems analyst who writes testable Functional Requirements Documents (FRDs).
+${COMMON}
+Write the FRD in Markdown with these sections, in order:
+# <System name> – Functional Requirements Document (FRD)
+## 1. Introduction (purpose, scope, reference to the BRD, glossary)
+## 2. System overview (users and roles table, systems involved, a simple text context diagram)
+## 3. Use cases (2-4 key use cases: actor, preconditions, main flow, alternate flows, exceptions, postconditions)
+## 4. Functional requirements (table: FR-ID, "The system shall…", priority, linked BR-ID)
+## 5. Acceptance criteria (Given / When / Then for the most important FRs)
+## 6. Business rules (and a decision table where rules are complex)
+## 7. Data requirements (data dictionary table: field, type, length, mandatory, validation, source)
+## 8. Interfaces and integrations (APIs, files, frequency, error handling)
+## 9. UI requirements (screens and field behaviour, messages)
+## 10. Reports and dashboards
+## 11. Non-functional requirements (performance, availability, security, audit, accessibility, retention)
+## 12. Requirements traceability matrix (BR-ID → FR-ID → test case ID)
+## 13. Assumptions, open issues and sign-off
+Rules: every requirement testable and numbered; label assumptions "Assumption:"; be specific to the project.
+When asked to revise, return the complete updated FRD.`
+  },
   speak: {
     effort: "low", max: 3000,
     system: `You are the SkillNavora Speaking Coach for English speaking, public speaking and interviews (like a friendly personal coach).
@@ -140,7 +183,7 @@ export async function onRequestPost({ request, env }) {
   const mode = MODES[body && body.mode];
   if (!mode) return json({ error: "bad_request" }, 400);
   const messages = body.messages;
-  if (!validMessages(messages, body.mode === "prd" ? 30000 : 8000)) return json({ error: "bad_request" }, 400);
+  if (!validMessages(messages, ["prd", "brd", "frd"].includes(body.mode) ? 40000 : 8000)) return json({ error: "bad_request" }, 400);
 
   const ip = request.headers.get("cf-connecting-ip") || "anon";
   if (!allowed(ip, Number(env.AI_DAILY_LIMIT) || 60)) return json({ error: "limit" }, 429);

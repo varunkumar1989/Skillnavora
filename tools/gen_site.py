@@ -634,6 +634,13 @@ page("prd-writer.html", "AI PRD Writer · SkillNavora", "Free AI PRD writer: tur
      uhero("AI Studio · AI PRD Writer", 'Idea to <span class="g">PRD</span> in a minute', "Describe your product idea. Get a complete PRD with users, stories, requirements, success metrics and launch plan, then refine it by asking.") + aipages.prd(), "prd-writer.html", _AIJS)
 page("speaking-coach.html", "AI Speaking Coach · SkillNavora", "Free AI speaking coach: practise English, public speaking and interview answers out loud and get scores for fluency, grammar, structure and pace.",
      uhero("AI Studio · AI Speaking Coach", 'Speak with <span class="g">confidence</span>', "Answer out loud. Get instant scores for fluency, grammar, structure and pace, the exact words to fix, a better version to listen to, and your next drill.") + aipages.speaking(), "speaking-coach.html", _AIJS)
+import reqdocs
+reqdocs.write_templates(OUT)
+_prdl, _prdn = reqdocs.prd_library()
+page("prd-library.html", "PRD library: template, examples and 120 PRD ideas · SkillNavora", "Learn to write PRDs: a section-by-section PRD template with examples, framing tips, common mistakes, 120 PRD ideas across 15 industries and the best guides and apps.",
+     uhero("Resources for PM · PRD library", f'PRD <span class="g">library</span>', f"How top product managers frame a PRD, a free template, and {_prdn} ideas across 15 industries you can turn into a full PRD with AI in one click.") + _prdl, "prd-library.html")
+page("brd-frd.html", "BRD & FRD guide for business analysts · SkillNavora", "BRD vs FRD vs PRD, BRD and FRD templates, a traced sample, business analysis techniques, 25 project ideas and the best BA guides and tools.",
+     uhero("Resources for Data Engineers · Business analyst", 'BRD &amp; <span class="g">FRD</span> guide', f"For business and data analysts: what goes into a Business Requirements Document and a Functional Requirements Document, free templates, and {len(reqdocs.BRD_IDEAS)} real project ideas to practise with AI.") + reqdocs.brd_frd(), "brd-frd.html")
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
 
 # ================================================================ CONTACT

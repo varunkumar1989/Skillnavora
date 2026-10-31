@@ -183,7 +183,9 @@ Practice tests by topic | /tests.html | practice
 Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview
 AI mock interview with feedback | /practice.html | interview
 AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking
-AI PRD Writer | /prd-writer.html | product management
+AI PRD / BRD / FRD Writer | /prd-writer.html | product management, business analysis
+PRD library: template, framing guide, 120 PRD ideas, best guides and apps | /prd-library.html | product management
+BRD & FRD guide for business analysts: templates, BA techniques, 25 project ideas | /brd-frd.html | business analysis
 Tool tutorials: Figma, n8n, Make, Zapier, Replit, Claude Code | /tools.html | tools
 Handbooks and PDFs hub | /handbooks/index.html | handbooks
 Resources & AI tools (links, newsletters, job portals) | /resources.html | resources

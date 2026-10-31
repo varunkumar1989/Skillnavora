@@ -6,7 +6,9 @@ E = html.escape
 AI_NAV = [  # (path, name, small, svg path)
     ("ai.html", "AI Studio", "All AI tools in one place, free", '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/>'),
     ("ai-tutor.html", "AI Tutor", "Ask any study question, 24×7", '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>'),
-    ("prd-writer.html", "AI PRD Writer", "Turn an idea into a full PRD", '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>'),
+    ("prd-writer.html", "AI PRD / BRD / FRD Writer", "Write any requirements document with AI", '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>'),
+    ("prd-library.html", "PRD library: 120 ideas", "Template, examples, write any idea with AI", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M8 7h8M8 11h6"/>'),
+    ("brd-frd.html", "BRD & FRD for business analysts", "Templates, 25 project ideas, learn from the best", '<path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/>'),
     ("speaking-coach.html", "AI Speaking Coach", "English, public speaking, interviews", '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/>'),
     ("practice.html", "AI mock interview", "Answer a question, get a score", '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'),
 ]
@@ -58,11 +60,15 @@ CSS = """<style>
 FEATURES = [
     ("ai-tutor.html", 1, "AI Tutor", "Your 24×7 study buddy. Ask anything about product management, Excel, SQL, Python, Power BI, Tableau, ML, GenAI, agents, careers or English.",
      ["Explains with examples and code", "Links you to the right SkillNavora lesson", "Hindi / Hinglish supported"], "Ask a question"),
-    ("prd-writer.html", 2, "AI PRD Writer", "Describe a product idea and get a complete, interview-ready PRD in a minute: users, stories, requirements, metrics and launch plan.",
-     ["10 standard PRD sections", "Revise any section by asking", "Download as Word, Markdown or PDF"], "Write a PRD"),
-    ("speaking-coach.html", 3, "AI Speaking Coach", "Speak into your mic and get instant coaching on English, public speaking and interview answers, like a personal coach.",
+    ("prd-writer.html", 2, "AI PRD / BRD / FRD Writer", "Describe a product idea or business project and get a complete PRD, BRD or FRD in a minute, framed the way top companies write them.",
+     ["PRD for product managers", "BRD and FRD for business analysts", "Revise by asking; download Word, Markdown or PDF"], "Write a document"),
+    ("prd-library.html", 3, "PRD library: 120 ideas", "Learn to frame PRDs from the best: a section-by-section template, examples, common mistakes and 120 product ideas across 15 industries.",
+     ["Write any idea with AI in one click", "Best guides, templates and apps", "Free Word template"], "Open the PRD library"),
+    ("brd-frd.html", 4, "BRD & FRD guide", "For business analysts: BRD vs FRD vs PRD, templates, BA techniques and 25 real project ideas from banking to GenAI.",
+     ["BRD and FRD templates", "25 project ideas with requirements", "Best BA guides and apps"], "Open the BRD & FRD guide"),
+    ("speaking-coach.html", 5, "AI Speaking Coach", "Speak into your mic and get instant coaching on English, public speaking and interview answers, like a personal coach.",
      ["Fluency, grammar and pace scores", "Filler words and pauses counted", "Pronunciation drills with listen-and-repeat"], "Start speaking"),
-    ("practice.html", 4, "AI mock interview", "Get a real PM, data or GenAI interview question, answer it against the clock and get a score with a model answer.",
+    ("practice.html", 6, "AI mock interview", "Get a real PM, data or GenAI interview question, answer it against the clock and get a score with a model answer.",
      ["Score out of 10", "Gaps and a model answer", "Likely follow-up questions"], "Practise an interview"),
 ]
 
@@ -114,20 +120,21 @@ def prd():
     ex = "".join(f'<button type="button" data-ex="{i}">{E(e["name"])}</button>' for i, e in enumerate(PRD_EX))
     return CSS + f'''<section style="padding-top:24px"><div class="wrap ai-grid2" data-ai="prd">
 <div class="card"><form class="ai-f" id="prd-form">
+<div><b style="font-size:14px">Document</b><div class="ai-chips" id="prd-doc" style="margin-top:6px"><button type="button" data-doc="prd" aria-pressed="true">PRD · product</button><button type="button" data-doc="brd" aria-pressed="false">BRD · business</button><button type="button" data-doc="frd" aria-pressed="false">FRD · functional</button></div><p class="ai-note" id="prd-docnote">Product Requirements Document: for product managers. <a href="prd-library.html">PRD library</a></p></div>
 <div><b style="font-size:14px">Fill an example</b><div class="ai-chips" id="prd-ex" style="margin-top:6px">{ex}</div></div>
-<label>Product or feature name<input name="name" maxlength="80" placeholder="e.g. SplitKaro"></label>
+<label><span data-l="name">Product or feature name</span><input name="name" maxlength="80" placeholder="e.g. SplitKaro"></label>
 <label>Type<select name="type">{opts}</select></label>
-<label>Your idea <span class="ai-note" style="margin:0">(required)</span><textarea name="idea" maxlength="2000" required placeholder="What are you building, in 1–3 sentences?"></textarea></label>
-<label>Target users<input name="users" maxlength="300" placeholder="Who is it for?"></label>
+<label><span data-l="idea">Your idea</span> <span class="ai-note" style="margin:0">(required)</span><textarea name="idea" maxlength="2000" required placeholder="What are you building, in 1–3 sentences?"></textarea></label>
+<label><span data-l="users">Target users</span><input name="users" maxlength="300" placeholder="Who is it for?"></label>
 <label>Problem<textarea name="problem" maxlength="1500" placeholder="What pain does it solve? Any data or evidence?"></textarea></label>
 <label>Goals<input name="goals" maxlength="400" placeholder="e.g. 10k users in 3 months, 20% conversion"></label>
 <label>Constraints<input name="constraints" maxlength="400" placeholder="Budget, timeline, tech, regulations"></label>
 <label>Detail level<select name="depth"><option value="standard">Standard (2–3 pages)</option><option value="detailed">Detailed (interview / real project)</option><option value="one-pager">One-pager</option></select></label>
-<button class="btn btn-primary" type="submit">✨ Write my PRD</button>
+<button class="btn btn-primary" type="submit" id="prd-go">✨ Write my PRD</button>
 <p class="ai-note">Tip: you can edit the result by asking for changes below it. Learn how to write PRDs yourself in the <a href="handbooks/pm/index.html">PM Handbook</a>.</p></form></div>
 <div><div class="ai-acts" id="prd-acts" hidden><button class="btn btn-line btn-sm" type="button" data-act="copy">Copy</button><button class="btn btn-line btn-sm" type="button" data-act="doc">Download Word</button><button class="btn btn-line btn-sm" type="button" data-act="md">Download Markdown</button><button class="btn btn-line btn-sm" type="button" data-act="print">Print / Save PDF</button></div>
-<div class="ai-doc ai-out" id="prd-out"><div class="ai-empty"><b>Your PRD will appear here</b>Fill in your idea (or pick an example) and press "Write my PRD".</div></div>
-<form class="ai-form" id="prd-rev" hidden style="border:1px solid var(--line);border-radius:16px;margin-top:12px;background:var(--surface)"><textarea id="prd-rin" maxlength="2000" placeholder="Ask for a change, e.g. 'Add a pricing section' or 'Make the metrics more specific'"></textarea><button class="btn btn-primary btn-sm" type="submit">Update PRD</button></form>
+<div class="ai-doc ai-out" id="prd-out"><div class="ai-empty"><b>Your document will appear here</b>Choose PRD, BRD or FRD, fill in your idea (or pick an example) and press Write.</div></div>
+<form class="ai-form" id="prd-rev" hidden style="border:1px solid var(--line);border-radius:16px;margin-top:12px;background:var(--surface)"><textarea id="prd-rin" maxlength="2000" placeholder="Ask for a change, e.g. 'Add a pricing section' or 'Make the metrics more specific'"></textarea><button class="btn btn-primary btn-sm" type="submit">Update</button></form>
 </div></div></section>'''
 
 SPEAK = {
@@ -178,7 +185,9 @@ def write_index(out):
           "Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview",
           "AI mock interview with feedback | /practice.html | interview",
           "AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking",
-          "AI PRD Writer | /prd-writer.html | product management",
+          "AI PRD / BRD / FRD Writer | /prd-writer.html | product management, business analysis",
+          "PRD library: template, framing guide, 120 PRD ideas, best guides and apps | /prd-library.html | product management",
+          "BRD & FRD guide for business analysts: templates, BA techniques, 25 project ideas | /brd-frd.html | business analysis",
           "Tool tutorials: Figma, n8n, Make, Zapier, Replit, Claude Code | /tools.html | tools",
           "Handbooks and PDFs hub | /handbooks/index.html | handbooks",
           "Resources & AI tools (links, newsletters, job portals) | /resources.html | resources",

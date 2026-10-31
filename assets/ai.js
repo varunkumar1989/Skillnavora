@@ -129,17 +129,39 @@
       { name: "SplitKaro", type: "Consumer mobile app", idea: "A UPI-based app for college students to split hostel, food and trip expenses and settle up in one tap.", users: "College students in India, 18–24, living in hostels or shared flats", problem: "Groups track shared spends on WhatsApp and Excel; people forget who owes what and settling is awkward.", goals: "Reach 50,000 monthly active users in 6 months; 60% of groups settle within 7 days", constraints: "Must work on low-end Android phones; follow NPCI/UPI and DPDP rules" },
       { name: "AI Support Copilot", type: "AI / GenAI feature", idea: "An AI assistant inside our customer-support tool that drafts replies to tickets using our help-centre articles and past tickets.", users: "Support agents at a B2B SaaS company handling 5,000 tickets a day", problem: "Agents spend 6 minutes per ticket searching docs; answers are inconsistent", goals: "Cut average handling time by 30% with CSAT not dropping", constraints: "No customer PII sent to third parties without masking; agents approve every reply" },
       { name: "KiranaPay Credit", type: "B2B / fintech", idea: "Buy-now-pay-later for small kirana shops to buy stock from distributors, repaid daily from UPI collections.", users: "Kirana shop owners in tier-2 and tier-3 cities and their distributors", problem: "Shops run out of working capital and lose sales; distributors take credit risk informally", goals: "₹50 crore disbursed in year 1 with under 2% defaults", constraints: "RBI digital lending guidelines; NBFC partner; Hindi and regional language support" }];
-    let hist = [], doc = ls.get("sn_prd") || "", busy = false;
+    const EXB = [
+      { name: "Digital loan origination", type: "B2B / fintech", idea: "Move personal-loan applications at an NBFC from paper to a digital flow with e-KYC, bank-statement analysis and e-sign.", users: "Credit team, branch staff, risk, compliance, IT, customers", problem: "Approval takes 5 days; 20% of files have document errors; customers drop off", goals: "Approve eligible loans in under 24 hours; cut document errors by 80%", constraints: "RBI digital lending guidelines, DPDP Act, integrate with existing core lending system" },
+      { name: "Vendor onboarding portal", type: "Internal tool", idea: "A self-service portal for suppliers to register, upload GST/PAN documents and get approved, with payments linked to purchase orders.", users: "Procurement, finance (accounts payable), vendors, compliance", problem: "Onboarding takes 3 weeks over email; duplicate vendors; late payments", goals: "Onboard in 3 days; zero duplicate vendors; 95% on-time payments", constraints: "Integrate with SAP; GST validation API; audit trail" },
+      { name: "GenAI support assistant", type: "AI / GenAI feature", idea: "An AI assistant on the website and WhatsApp that answers customer questions from help articles and hands over to agents.", users: "Customers, support agents, support managers, IT security", problem: "Ticket volume grows 25% a year; 40% of tickets are repetitive", goals: "Deflect 30% of tickets with CSAT above 4.2/5", constraints: "No PII to the model without masking; human handoff in 1 click; Hindi and English" }];
+    const DOCS = {
+      prd: { note: 'Product Requirements Document: for product managers. <a href="prd-library.html">PRD library</a>', name: "Product or feature name", idea: "Your idea", users: "Target users", go: "✨ Write my PRD", ex: EX },
+      brd: { note: 'Business Requirements Document: the why and the business needs, for sponsors. <a href="brd-frd.html">BRD & FRD guide</a>', name: "Project name", idea: "Project / business need", users: "Stakeholders", go: "✨ Write my BRD", ex: EXB },
+      frd: { note: 'Functional Requirements Document: what the system must do, for developers and testers. <a href="brd-frd.html">BRD & FRD guide</a>', name: "System / project name", idea: "What the system should do", users: "Users and roles", go: "✨ Write my FRD", ex: EXB } };
+    let kindDoc = "prd";
+    function setDoc(d) {
+      kindDoc = DOCS[d] ? d : "prd"; const D = DOCS[kindDoc];
+      $("prd-doc").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x.dataset.doc === kindDoc));
+      $("prd-docnote").innerHTML = D.note; $("prd-go").textContent = D.go;
+      f.querySelectorAll("[data-l]").forEach(el => { el.textContent = D[el.dataset.l]; });
+      $("prd-ex").innerHTML = D.ex.map((e, i) => `<button type="button" data-ex="${i}">${esc(e.name)}</button>`).join("");
+    }
+    $("prd-doc").addEventListener("click", e => { const b = e.target.closest("button"); if (b) setDoc(b.dataset.doc); });
+    let hist = [], doc = ls.get("sn_prd") || "", busy = false, lastDoc = ls.get("sn_prd_k") || "prd";
     const show = () => { out.innerHTML = md(doc); acts.hidden = rev.hidden = !doc; };
     if (doc) { try { hist = JSON.parse(ls.get("sn_prd_h") || "[]"); } catch {} show(); }
-    $("prd-ex").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; const x = EX[+b.dataset.ex]; for (const k in x) if (f.elements[k]) f.elements[k].value = x[k]; });
+    $("prd-ex").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; const x = DOCS[kindDoc].ex[+b.dataset.ex]; for (const k in x) if (f.elements[k]) f.elements[k].value = x[k]; });
+    const P = new URLSearchParams(location.search);
+    setDoc(P.get("doc") || "prd");
+    ["name", "idea", "users", "problem", "goals", "constraints"].forEach(k => { if (P.get(k)) f.elements[k].value = P.get(k).slice(0, 1500); });
+    if (P.get("type")) { const o = [...f.elements.type.options].find(o => o.text === P.get("type")); if (o) f.elements.type.value = o.text; }
     async function run(messages, label) {
       if (busy || !canUse()) return; busy = true;
       const btns = [f.querySelector("button[type=submit]"), rev.querySelector("button")]; btns.forEach(b => { b.disabled = true; });
       out.innerHTML = `<p class="ai-dots">${esc(label)}</p>`; acts.hidden = true;
       try {
-        const text = await ask("prd", messages, t => { out.innerHTML = md(t); });
-        doc = text; hist = messages.concat({ role: "assistant", content: text }).slice(-6);
+        const mode = messages.mode || kindDoc;
+        const text = await ask(mode, messages, t => { out.innerHTML = md(t); });
+        doc = text; lastDoc = mode; ls.set("sn_prd_k", mode); hist = messages.concat({ role: "assistant", content: text }).slice(-6);
         if (hist[0].role !== "user") hist = hist.slice(1);
         ls.set("sn_prd", doc); ls.set("sn_prd_h", JSON.stringify(hist)); show();
       } catch (e) { out.innerHTML = errBox(e.message) + (doc ? md(doc) : ""); acts.hidden = rev.hidden = !doc; }
@@ -150,14 +172,15 @@
       const v = n => f.elements[n].value.trim();
       if (v("idea").length < 10) { out.innerHTML = errBox("Please describe your idea in at least one sentence."); f.elements.idea.focus(); return; }
       const depth = { standard: "Standard length (about 2–3 pages).", detailed: "Detailed: thorough enough for a real project or a PM interview take-home.", "one-pager": "A one-pager: keep every section to 1–3 bullets." }[v("depth")];
-      const brief = `Write a PRD.\nName: ${v("name") || "(suggest a name)"}\nType: ${v("type")}\nIdea: ${v("idea")}\nTarget users: ${v("users") || "(infer)"}\nProblem: ${v("problem") || "(infer)"}\nGoals: ${v("goals") || "(propose)"}\nConstraints: ${v("constraints") || "(none given)"}\nLength: ${depth}`;
-      run([{ role: "user", content: brief }], "Writing your PRD");
+      const label = { prd: "a PRD", brd: "a BRD (Business Requirements Document)", frd: "an FRD (Functional Requirements Document)" }[kindDoc];
+      const brief = `Write ${label}.\nName: ${v("name") || "(suggest a name)"}\nType: ${v("type")}\nIdea: ${v("idea")}\n${kindDoc === "prd" ? "Target users" : "Stakeholders / users"}: ${v("users") || "(infer)"}\nProblem: ${v("problem") || "(infer)"}\nGoals: ${v("goals") || "(propose)"}\nConstraints: ${v("constraints") || "(none given)"}\nLength: ${depth}`;
+      run([{ role: "user", content: brief }], "Writing your " + kindDoc.toUpperCase());
     });
     rev.addEventListener("submit", e => {
       e.preventDefault(); const q = $("prd-rin").value.trim(); if (!q || !doc) return;
-      const base = hist.length ? hist : [{ role: "user", content: "Here is my PRD." }, { role: "assistant", content: doc }];
-      $("prd-rin").value = "";
-      run(base.concat({ role: "user", content: "Update the PRD: " + q + "\nReturn the complete updated PRD." }), "Updating your PRD");
+      const base = hist.length ? hist : [{ role: "user", content: "Here is my document." }, { role: "assistant", content: doc }];
+      $("prd-rin").value = ""; const msgs = base.concat({ role: "user", content: "Update the document: " + q + "\nReturn the complete updated document." }); msgs.mode = lastDoc;
+      run(msgs, "Updating your " + lastDoc.toUpperCase());
     });
     acts.addEventListener("click", async e => {
       const b = e.target.closest("button"); if (!b || !doc) return;

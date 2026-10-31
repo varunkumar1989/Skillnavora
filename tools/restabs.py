@@ -186,8 +186,8 @@ def more_tab():
 
 
 QUICK = {
-    "pm": [("PM handbook", "handbooks/index.html#pm"), ("Top 100 PM questions", "questions.html#pm"), ("PM practice test", "tests.html#pm"), ("Practice Lab", "lab.html#pm"), ("Tool tutorials", "tools.html#tt-ai-pm"), ("AI Agents & MCP for PMs", "handbooks/index.html#genai")],
-    "data": [("Data Science & AI handbook", "data-science/index.html"), ("DSA", "handbooks/index.html#dsa"), ("Top 100 data questions", "questions.html#data"), ("Data practice test", "tests.html#data"), ("Practice Lab: run SQL, Excel, Python", "lab.html#data"), ("Tool tutorials", "tools.html#tt-ai-de"), ("Job board", "jobs.html")],
+    "pm": [("PRD library (120 ideas)", "prd-library.html"), ("AI PRD Writer", "prd-writer.html"), ("PM handbook", "handbooks/index.html#pm"), ("Top 100 PM questions", "questions.html#pm"), ("PM practice test", "tests.html#pm"), ("Practice Lab", "lab.html#pm"), ("Tool tutorials", "tools.html#tt-ai-pm"), ("AI Agents & MCP for PMs", "handbooks/index.html#genai")],
+    "data": [("BRD & FRD (business analyst)", "brd-frd.html"), ("Data Science & AI handbook", "data-science/index.html"), ("DSA", "handbooks/index.html#dsa"), ("Top 100 data questions", "questions.html#data"), ("Data practice test", "tests.html#data"), ("Practice Lab: run SQL, Excel, Python", "lab.html#data"), ("Tool tutorials", "tools.html#tt-ai-de"), ("Job board", "jobs.html")],
     "genai": [("GenAI Launchpad handbook", "handbooks/index.html#genai"), ("Top 100 GenAI questions", "questions.html#genai"), ("GenAI practice test", "tests.html#genai"), ("Practice Lab + prompt checker", "lab.html#genai"), ("Tool tutorials", "tools.html#tt-genai-launchpad"), ("Claude Code tutorial", "handbooks/index.html#genai")],
     "other": [("SFMC", "#op-sfmc"), ("Digital marketing", "#op-marketing"), ("Content creation", "#op-content"), ("FDE", "#op-fde"), ("Public speaking", "#op-speaking"), ("Practice test", "tests.html#other"), ("Interview questions", "questions.html#other")],
     "more": [("Newsletters & AI news", "#news"), ("Job alerts", "jobs.html#portals-box"), ("Communities", "#more"), ("Free datasets", "#more"), ("Other programs", "handbooks/index.html#other")],
@@ -251,7 +251,14 @@ def build(pm_html, cfg, scope=None):
     tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("other", "Other programs"), ("more", "Other resources & links")]
     pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
     bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
-    panels = {"pm": quick("pm") + pm_html, "data": quick("data") + ds_tab(cfg), "genai": quick("genai") + genai_tab(cfg), "other": quick("other") + other_tab(), "more": quick("more") + more_tab()}
+    feat = lambda kick, h, p, btns: (f'<div class="card" style="margin:0 0 22px;border:2px solid #6C4CF5;background:linear-gradient(135deg,rgba(108,76,245,.07),rgba(34,211,238,.07))">'
+        f'<div class="kicker">{kick}</div><h3 style="margin:6px 0 6px;font-size:21px">{h}</h3><p style="margin:0 0 12px;color:var(--mu)">{p}</p><div style="display:flex;flex-wrap:wrap;gap:8px">'
+        + "".join(f'<a class="btn {"btn-primary" if i == 0 else "btn-line"} btn-sm" href="{u}">{t}</a>' for i, (t, u) in enumerate(btns)) + '</div></div>')
+    prd_box = feat("PRD documents", "PRD library: template, framing guide and 120 PRD ideas", "Learn how top PMs frame a PRD, download the free template, and turn any of 120 ideas across 15 industries into a full PRD with AI.",
+                   [("Open the PRD library", "prd-library.html"), ("✨ AI PRD Writer", "prd-writer.html"), ("PRD template (Word)", "handbook/templates/SkillNavora_PRD_Template.doc")])
+    ba_box = feat("Business analyst", "BRD &amp; FRD: templates, techniques and 25 project ideas", "BRD vs FRD vs PRD, section-by-section templates, a traced sample, BA techniques and real projects from banking to GenAI.",
+                  [("Open the BRD &amp; FRD guide", "brd-frd.html"), ("✨ Write a BRD with AI", "prd-writer.html?doc=brd"), ("✨ Write an FRD with AI", "prd-writer.html?doc=frd")])
+    panels = {"pm": quick("pm") + prd_box + pm_html, "data": quick("data") + ba_box + ds_tab(cfg), "genai": quick("genai") + genai_tab(cfg), "other": quick("other") + other_tab(), "more": quick("more") + more_tab()}
     body = "".join(f'<div class="{cls}" id="{pre}p-{k}" role="tabpanel" aria-labelledby="{pre}t-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(tabs))
     if scope:
         js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#lr-res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.rpanel'));
