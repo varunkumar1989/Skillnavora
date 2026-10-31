@@ -268,3 +268,36 @@
     });
   }
 })();
+
+/* Ask AI side tab: on every page, a tab on the left edge opens AI Studio shortcuts and a quick question box. */
+(function () {
+  if (document.body.hasAttribute("data-app") || /admin\.html$/.test(location.pathname) || document.getElementById("askai")) return;
+  const R = (window.SNsite && window.SNsite.R) || document.body.dataset.root || "";
+  const T = [["ai-tutor.html", "💬", "AI Tutor", "Ask any study question"], ["prd-writer.html", "📝", "PRD / BRD / FRD Writer", "Write requirements with AI"],
+    ["pm-toolkit.html", "🧰", "AI PM Toolkit", "Discovery, sizing, A/B tests…"], ["speaking-coach.html", "🎤", "Speaking Coach", "English & interviews"],
+    ["practice.html", "🎯", "AI mock interview", "Get scored"], ["ai.html", "✨", "All of AI Studio", "Every free AI tool"]];
+  const css = document.createElement("style");
+  css.textContent = `#askai-tab{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:9990;writing-mode:vertical-rl;rotate:180deg;border:0;border-radius:0 12px 12px 0;padding:14px 9px;background:linear-gradient(180deg,#22D3EE,#6C4CF5);color:#fff;font:700 13.5px/1 var(--body,system-ui);letter-spacing:.04em;cursor:pointer;box-shadow:0 8px 24px rgba(60,40,160,.35)}
+#askai-tab:hover{padding-left:12px}#askai{position:fixed;left:0;top:0;bottom:0;width:min(340px,88vw);z-index:9995;background:var(--surface,#fff);color:var(--ink,#0d1630);border-right:1px solid var(--line,#e1e6f0);box-shadow:16px 0 50px rgba(10,15,40,.25);transform:translateX(-105%);transition:transform .22s ease;display:flex;flex-direction:column;padding:18px;gap:12px;overflow:auto}
+#askai.open{transform:none}#askai-bg{position:fixed;inset:0;z-index:9994;background:rgba(5,10,30,.35);display:none}#askai-bg.open{display:block}
+#askai h2{font-size:19px;margin:0}#askai .x{position:absolute;right:12px;top:10px;border:0;background:none;font-size:24px;cursor:pointer;color:inherit}
+#askai form{display:flex;flex-direction:column;gap:8px}#askai textarea{min-height:70px;border:1px solid var(--line,#e1e6f0);border-radius:12px;padding:10px 12px;font:inherit;background:var(--bg,#f5f7fc);color:inherit;resize:vertical}
+#askai a.t{display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit;border:1px solid var(--line,#e1e6f0);border-radius:12px;padding:9px 12px}#askai a.t:hover{border-color:var(--brand,#6C4CF5)}#askai a.t span{font-size:20px}#askai a.t small{display:block;color:var(--mu,#55607a);font-size:12.5px}
+@media (max-width:640px){#askai-tab{padding:11px 7px;font-size:12px}}@media print{#askai-tab,#askai{display:none}}`;
+  document.head.appendChild(css);
+  const tab = document.createElement("button"); tab.id = "askai-tab"; tab.type = "button"; tab.textContent = "✨ Ask AI"; tab.setAttribute("aria-controls", "askai"); tab.setAttribute("aria-expanded", "false");
+  const bg = document.createElement("div"); bg.id = "askai-bg";
+  const box = document.createElement("aside"); box.id = "askai"; box.setAttribute("aria-label", "AI Studio");
+  box.innerHTML = `<button class="x" type="button" aria-label="Close">×</button><div><div class="kicker" style="font-size:12px">AI Studio · Free</div><h2>Ask AI</h2></div>
+<form><textarea maxlength="2000" placeholder="Ask anything: SQL, PRDs, GenAI, English, careers… or about this page" aria-label="Your question"></textarea><button class="btn btn-primary btn-sm" type="submit">Ask the AI Tutor →</button></form>
+${T.map(([h, i, n, s]) => `<a class="t" href="${R + h}"><span>${i}</span><span><b>${n}</b><small>${s}</small></span></a>`).join("")}`;
+  document.body.append(tab, bg, box);
+  const set = o => { box.classList.toggle("open", o); bg.classList.toggle("open", o); tab.setAttribute("aria-expanded", o); if (o) setTimeout(() => box.querySelector("textarea").focus(), 60); };
+  tab.addEventListener("click", () => set(true)); bg.addEventListener("click", () => set(false)); box.querySelector(".x").addEventListener("click", () => set(false));
+  document.addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
+  const ta = box.querySelector("textarea");
+  box.querySelector("form").addEventListener("submit", e => { e.preventDefault(); const q = ta.value.trim(); const path = location.pathname.split("/").filter(Boolean).slice(-2).join("/");
+    const u = new URL(R + "ai-tutor.html", location.href); if (q) u.searchParams.set("q", q); if (path && !/ai-tutor/.test(path)) u.searchParams.set("page", "/" + location.pathname.replace(/^\/+/, ""));
+    location.href = u.href; });
+  ta.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); box.querySelector("form").requestSubmit(); } });
+})();
