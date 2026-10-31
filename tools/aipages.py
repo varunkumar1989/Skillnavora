@@ -14,6 +14,9 @@ AI_NAV = [  # (path, name, small, svg path)
     ("brd-frd.html", "BRD & FRD for business analysts", "Templates, 25 project ideas, learn from the best", '<path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/>'),
     ("speaking-coach.html", "AI Speaking Coach", "English, public speaking, interviews", '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/>'),
     ("practice.html", "AI mock interview", "Answer a question, get a score", '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'),
+    ("web-automation.html", "Web Automation & Playwright MCP", "Webhooks, triggers, browser automation", '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>'),
+    ("ai-builder-tools.html", "AI Builder Tools how-to", "Claude, ChatGPT/Codex, Gemini, Lovable", '<path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7z"/>'),
+    ("ai-engineer.html", "AI Engineer path", "Everything an AI engineer does", '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>')
 ]
 
 CSS = """<style>
@@ -79,6 +82,12 @@ FEATURES = [
      ["Fluency, grammar and pace scores", "Filler words and pauses counted", "Pronunciation drills with listen-and-repeat"], "Start speaking"),
     ("practice.html", 9, "AI mock interview", "Get a real PM, data or GenAI interview question, answer it against the clock and get a score with a model answer.",
      ["Score out of 10", "Gaps and a model answer", "Likely follow-up questions"], "Practise an interview"),
+    ("web-automation.html", 10, "Web Automation & Playwright MCP", "Webhooks, triggers, browser automation with Playwright, the Playwright MCP for Claude, and every major platform: Selenium, Puppeteer, Browser Use, Stagehand, Apify, n8n, Zapier, Make.",
+     ["10 classes + PDF", "Secure webhook receivers", "Let Claude use a real browser"], "Open the course"),
+    ("ai-builder-tools.html", 11, "AI Builder Tools how-to", "What Claude, Claude Code, ChatGPT and Codex, Gemini and Lovable can do and how: create a website, add pages, connect tools and other websites.",
+     ["10 classes + PDF", "Website to custom domain", "Connect Zapier, n8n, webhooks"], "Open the course"),
+    ("ai-engineer.html", 12, "AI Engineer path", "Everything an AI engineer goes through: foundations, LLM engineering, RAG, agents and MCP, fine-tuning, evals, LLMOps, security, system design, roadmap and interviews.",
+     ["12 classes + PDF", "12-month roadmap, 10 projects", "Under Resources, Other programs"], "Open the path")
 ]
 
 def ico(i):
@@ -211,6 +220,8 @@ def write_index(out):
           "Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview",
           "AI mock interview with feedback | /practice.html | interview",
           "AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking",
+          "AI Engineer: the complete path: role, foundations, ML, LLM engineering, RAG, agents, fine-tuning, evals, LLMOps, security, system design, roadmap, projects, interviews (12 classes + PDF) | /ai-engineer.html | AI engineer, career",
+          "Web Automation: webhooks (signatures, idempotency), triggers (cron, events, polling), Playwright, Playwright MCP with Claude, Selenium, Puppeteer, Cypress, Browser Use, Stagehand, Skyvern, Browserbase, Apify, n8n, Zapier, Make, Pipedream, RPA (10 classes + PDF) | /web-automation.html | PM, GenAI, automation",
           "AI Builder Tools: Claude, Claude Code, ChatGPT & Codex, Gemini, Lovable: create websites, pages, connect tools and other websites, publish on a domain (10 classes + PDF) | /ai-builder-tools.html | PM, GenAI, tools",
           "AI Skills Academy: all AI skills courses in one place | /ai-academy.html | PM, GenAI",
           "AI Product Strategy (moats, flywheels, build vs buy) | /ai-product-strategy.html | PM",

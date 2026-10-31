@@ -1,6 +1,6 @@
 """AI Skills Academy: one section that holds every AI/PM mini-course (page + PDF + interactive artifact tab)."""
 import html
-import course_builder, evals_course as ev, course_context, course_skills, course_brain, course_browser, course_orch, courses_more as M
+import course_builder, course_webauto, course_aiengineer, evals_course as ev, course_context, course_skills, course_brain, course_browser, course_orch, courses_more as M
 E = html.escape
 ARTIFACT = "ai-academy-interactive.html"   # on skillnavora.in, opens in the same tab
 EVALS = {"slug": "evals", "title": "AI Evals for Product Managers", "page": "ai-evals.html", "pdf": "AI_Evals_for_Product_Managers.pdf", "classes": ev.CLASSES,
@@ -23,7 +23,10 @@ def grid(R=""):
     core = [card(C, t, n, R) for n, C, t in CORE]
     core.insert(3, f'<article class="ac-card"><span class="ac-n">Skill 4</span><h3>{E(RESEARCH[1])}</h3><p>{E(RESEARCH[3])}</p><span class="ac-meta">Full handbook · 129 lessons</span><div class="ac-acts"><a class="btn btn-primary btn-sm" href="{R}{RESEARCH[2]}">Open handbook</a><a class="btn btn-line btn-sm" href="{R}ai-skills-map.html">Skills map</a></div></article>')
     tools = card(course_builder.COURSE, "builder-tools", None, R).replace('<span class="ac-n">Advanced AI PM</span>', '<span class="ac-n">AI tools · start here</span>')
-    return (CSS + '<h3 class="ac-h">AI tools: build with Claude, ChatGPT, Codex, Gemini and Lovable</h3><div class="ac-grid">' + tools + '</div>'
+    tools += card(course_webauto.COURSE, "web-automation", None, R).replace('<span class="ac-n">Advanced AI PM</span>', '<span class="ac-n">AI tools · automation</span>')
+    career = card(course_aiengineer.COURSE, "ai-engineer", None, R).replace('<span class="ac-n">Advanced AI PM</span>', '<span class="ac-n">Career path · Other programs</span>')
+    return (CSS + '<h3 class="ac-h">AI Engineer career path (everything an AI engineer does)</h3><div class="ac-grid">' + career + '</div>'
+            + '<h3 class="ac-h">AI tools: build and automate with Claude, ChatGPT, Codex, Gemini, Lovable and Playwright</h3><div class="ac-grid">' + tools + '</div>'
             + '<h3 class="ac-h">The 7 core AI skills (learn in this order)</h3><div class="ac-grid">' + "".join(core) + '</div>'
             '<h3 class="ac-h">Advanced AI product management</h3><div class="ac-grid">' + "".join(card(C, t, None, R) for C, t in ADV) + "</div>")
 

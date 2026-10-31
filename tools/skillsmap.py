@@ -37,10 +37,12 @@ CAT = [
   ("SQL analysis", [("SQL track", L("sql-01")), C["lab"]]), ("Spreadsheet analysis", [("Excel track", L("excel-01")), ("AI in Excel", L("ai-analytics-03"))]),
   ("Experiment analysis", [("Hypothesis testing", L("ml-04")), C["toolkit"]]), ("Scenario analysis", [C["toolkit"]])]),
  ("3. Web browsing and action automation", [
+  ("AI engineering career path (full stack of skills)", [("AI Engineer path", "ai-engineer.html")]),
+  ("Webhooks, triggers & Playwright MCP", [("Web Automation course", "web-automation.html")]),
   ("Browser navigation, extraction, forms, downloads, uploads", [C["browser"]]), ("Multi-step website workflows", [C["browser"]]), ("Browser testing & screenshot comparison", [C["browser"]]),
   ("Desktop & file automation", [C["browser"]]), ("API integration", [("APIs without code", L("agents-01")), ("LLM APIs from Python", L("genai-03"))]),
   ("Tool calling", [("Tool use & function calling", L("genai-06"))]), ("MCP integration", [("MCP lesson", L("genai-08")), ("MCP without code", L("agents-02"))]),
-  ("Scheduled & event-driven automation", [C["orch"], ("n8n tutorial", L("tools-02")), ("Connect apps", L("agents-04"))]), ("Monitoring & alerts", [C["orch"]]), ("Approval workflows", [C["orch"], C["browser"]])]),
+  ("Scheduled & event-driven automation", [("Web Automation (triggers)", "web-automation.html"), C["orch"], ("n8n tutorial", L("tools-02")), ("Connect apps", L("agents-04"))]), ("Monitoring & alerts", [C["orch"]]), ("Approval workflows", [C["orch"], C["browser"]])]),
  ("4. Evals, testing and reliability", [
   ("Eval datasets, rubrics, grading", [C["evals"]]), ("Human & AI-assisted grading", [C["evals"]]), ("Factuality & retrieval evaluation", [C["evals"], ("RAG lesson", L("genai-05"))]),
   ("Instruction-following & tool-use evaluation", [C["evals"]]), ("Task-completion & browser-agent evaluation", [C["evals"], C["browser"]]), ("Visual evaluation", [C["skills"]]),

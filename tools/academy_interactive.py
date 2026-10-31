@@ -1,15 +1,15 @@
 """Interactive AI Skills Academy: one generator for (a) the page on skillnavora.in (same tab, site header,
 details form, Ask AI) and (b) the Claude artifact copy."""
 import html, os, re
-import course_builder, evals_course as ev, course_context, course_skills, course_brain, course_browser, course_orch, skillsmap, courses_more as M
+import course_builder, course_webauto, course_aiengineer, evals_course as ev, course_context, course_skills, course_brain, course_browser, course_orch, skillsmap, courses_more as M
 E = html.escape
 HERE = os.path.dirname(os.path.abspath(__file__))
 EV = {"slug": "evals", "pdf": "AI_Evals_for_Product_Managers.pdf", "page": "ai-evals.html", "title": "AI Evals for Product Managers", "classes": ev.CLASSES, "qa": ev.QA, "cheat": ev.CHEAT,
       "oneline": "An eval is a repeatable test that measures how well an AI feature does its job on a fixed set of examples, with a clear way to score each answer. It's the quality bar, the launch gate and the product spec for AI."}
 CORE = [("context", course_context.COURSE, "Skill 1 of 7"), ("skills", course_skills.COURSE, "Skill 2 of 7"), ("brain", course_brain.COURSE, "Skill 3 of 7"), ("evals", EV, "Skill 5 of 7"), ("browser", course_browser.COURSE, "Skill 6 of 7"), ("orch", course_orch.COURSE, "Skill 7 of 7")]
 ADV = [(C["slug"], C, "Advanced AI PM") for C in M.ALL]
-ALL = [("builder-tools", course_builder.COURSE, "AI tools")] + CORE + ADV
-TABS = [("map", "Start here")] + [(k, "AI Builder Tools" if k == "builder-tools" else C["title"].replace(" for Product Managers", "").replace(" for PMs", "")) for k, C, _ in ALL]
+ALL = [("ai-engineer", course_aiengineer.COURSE, "Career path"), ("builder-tools", course_builder.COURSE, "AI tools"), ("web-automation", course_webauto.COURSE, "AI tools")] + CORE + ADV
+TABS = [("map", "Start here")] + [(k, "AI Engineer path" if k == "ai-engineer" else "AI Builder Tools" if k == "builder-tools" else "Web Automation & Playwright MCP" if k == "web-automation" else C["title"].replace(" for Product Managers", "").replace(" for PMs", "")) for k, C, _ in ALL]
 LV = {"basic": "Basic", "intermediate": "Intermediate", "advanced": "Advanced"}
 
 def _a(href, label, site):

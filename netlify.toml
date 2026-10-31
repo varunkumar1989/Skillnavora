@@ -1,0 +1,10 @@
+# Netlify: deploys the whole SkillNavora study material (static site) straight from GitHub.
+# Build command: none. Publish directory: the repository root.
+# Note: the live AI tools and lead API are Cloudflare Pages Functions (functions/api); the study material works without them.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
