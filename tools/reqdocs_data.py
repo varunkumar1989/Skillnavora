@@ -197,6 +197,8 @@ PRD_LINKS = [
         ("Confluence (Atlassian)", "https://www.atlassian.com/software/confluence/templates/product-requirements", "PRD template linked to Jira tickets"),
         ("Coda", "https://coda.io/gallery", "Docs with tables, voting and roadmaps for PRDs"),
         ("ChatPRD", "https://www.chatprd.ai/", "AI assistant for drafting and reviewing PRDs"),
+        ("PowerChords by Lazo", "https://powerchords.lazo.tools/", "PM capabilities: discovery, PRDs, sizing, experiments, launch"),
+        ("SkillNavora AI PM Toolkit", "pm-toolkit.html", "13 PM capabilities with AI, free, right here"),
         ("Productboard", "https://www.productboard.com/", "Collect feedback and link it to features and PRDs"),
         ("Jira", "https://www.atlassian.com/software/jira", "Turn PRD stories into tickets and sprints"),
         ("Figma & FigJam", "https://www.figma.com/", "Wireframes, user flows and design specs to link in your PRD"),

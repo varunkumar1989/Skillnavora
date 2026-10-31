@@ -7,6 +7,7 @@ AI_NAV = [  # (path, name, small, svg path)
     ("ai.html", "AI Studio", "All AI tools in one place, free", '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/>'),
     ("ai-tutor.html", "AI Tutor", "Ask any study question, 24×7", '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>'),
     ("prd-writer.html", "AI PRD / BRD / FRD Writer", "Write any requirements document with AI", '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>'),
+    ("pm-toolkit.html", "AI PM Toolkit", "13 PM capabilities: discovery, sizing, A/B tests…", '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>'),
     ("prd-library.html", "PRD library: 120 ideas", "Template, examples, write any idea with AI", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M8 7h8M8 11h6"/>'),
     ("brd-frd.html", "BRD & FRD for business analysts", "Templates, 25 project ideas, learn from the best", '<path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/>'),
     ("speaking-coach.html", "AI Speaking Coach", "English, public speaking, interviews", '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/>'),
@@ -62,13 +63,15 @@ FEATURES = [
      ["Explains with examples and code", "Links you to the right SkillNavora lesson", "Hindi / Hinglish supported"], "Ask a question"),
     ("prd-writer.html", 2, "AI PRD / BRD / FRD Writer", "Describe a product idea or business project and get a complete PRD, BRD or FRD in a minute, framed the way top companies write them.",
      ["PRD for product managers", "BRD and FRD for business analysts", "Revise by asking; download Word, Markdown or PDF"], "Write a document"),
-    ("prd-library.html", 3, "PRD library: 120 ideas", "Learn to frame PRDs from the best: a section-by-section template, examples, common mistakes and 120 product ideas across 15 industries.",
+    ("pm-toolkit.html", 3, "AI PM Toolkit", "Pick a PM capability, add your context, review the result: problem discovery, opportunity sizing, A/B test design, API planning, launch plans, metrics and more.",
+     ["13 capabilities in one place", "Ready-to-use deliverables", "Refine by asking; download Word"], "Open the toolkit"),
+    ("prd-library.html", 4, "PRD library: 120 ideas", "Learn to frame PRDs from the best: a section-by-section template, examples, common mistakes and 120 product ideas across 15 industries.",
      ["Write any idea with AI in one click", "Best guides, templates and apps", "Free Word template"], "Open the PRD library"),
-    ("brd-frd.html", 4, "BRD & FRD guide", "For business analysts: BRD vs FRD vs PRD, templates, BA techniques and 25 real project ideas from banking to GenAI.",
+    ("brd-frd.html", 5, "BRD & FRD guide", "For business analysts: BRD vs FRD vs PRD, templates, BA techniques and 25 real project ideas from banking to GenAI.",
      ["BRD and FRD templates", "25 project ideas with requirements", "Best BA guides and apps"], "Open the BRD & FRD guide"),
-    ("speaking-coach.html", 5, "AI Speaking Coach", "Speak into your mic and get instant coaching on English, public speaking and interview answers, like a personal coach.",
+    ("speaking-coach.html", 6, "AI Speaking Coach", "Speak into your mic and get instant coaching on English, public speaking and interview answers, like a personal coach.",
      ["Fluency, grammar and pace scores", "Filler words and pauses counted", "Pronunciation drills with listen-and-repeat"], "Start speaking"),
-    ("practice.html", 6, "AI mock interview", "Get a real PM, data or GenAI interview question, answer it against the clock and get a score with a model answer.",
+    ("practice.html", 7, "AI mock interview", "Get a real PM, data or GenAI interview question, answer it against the clock and get a score with a model answer.",
      ["Score out of 10", "Gaps and a model answer", "Likely follow-up questions"], "Practise an interview"),
 ]
 
@@ -185,6 +188,7 @@ def write_index(out):
           "Top 100 interview questions: PM, Data & AI, GenAI | /questions.html | interview",
           "AI mock interview with feedback | /practice.html | interview",
           "AI Speaking Coach (English, public speaking, interviews) | /speaking-coach.html | speaking",
+          "AI PM Toolkit: problem discovery, opportunity sizing, A/B test design, API planning, launch, metrics, research, competitive analysis, user stories, roadmap, RCA, stakeholder update | /pm-toolkit.html | product management",
           "AI PRD / BRD / FRD Writer | /prd-writer.html | product management, business analysis",
           "PRD library: template, framing guide, 120 PRD ideas, best guides and apps | /prd-library.html | product management",
           "BRD & FRD guide for business analysts: templates, BA techniques, 25 project ideas | /brd-frd.html | business analysis",
@@ -195,3 +199,65 @@ def write_index(out):
           "Free counselling call / contact | /contact.html | contact"]
     open(os.path.join(out, "assets/ai-index.txt"), "w", encoding="utf-8").write("\n".join(L) + "\n")
     return len(L)
+
+# ------------------------------------------------------------------ AI PM Toolkit
+# (id, name, one-line, svg path, [(field, label, placeholder)], example values)
+PM_TOOLS = [
+    ("discovery", "Customer problem discovery", "Frame the real customer problem before building.", '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+     [("product", "Product or area", "e.g. Grocery delivery app for tier-2 cities"), ("signal", "What you've noticed", "Complaints, data, a hunch…"), ("users", "Who you think is affected", "e.g. Working parents ordering weekly")],
+     {"product": "Grocery delivery app in tier-2 cities", "signal": "Repeat orders dropped 12% in 2 months; reviews mention 'items missing' and 'late delivery'", "users": "Families doing weekly grocery orders"}),
+    ("prd", "PRD and specification writing", "Draft a complete product requirements document.", '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>', [], {}),
+    ("sizing", "Opportunity sizing and prioritization", "Estimate the market and rank opportunities.", '<path d="M12 2l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5M3 17l9 5 9-5"/>',
+     [("product", "Opportunity", "e.g. Pet-care subscription in Indian metros"), ("market", "Market facts you know", "Population, price, adoption…"), ("options", "Options to prioritise (optional)", "One per line")],
+     {"product": "Monthly pet-food and vet-care subscription in Indian metros", "market": "About 3 crore pet dogs in India; ~40% in metros; average spend ₹2,500/month", "options": "Pet food subscription\nVet teleconsults\nGrooming at home\nPet insurance"}),
+    ("experiment", "Hypothesis and experiment design", "Design a measurable A/B test.", '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+     [("change", "Change you want to test", "e.g. Show delivery time on the home screen"), ("metric", "Metric and current baseline", "e.g. Checkout conversion 3.2%"), ("traffic", "Traffic per day", "e.g. 40,000 users/day")],
+     {"change": "Show the estimated delivery time on product cards", "metric": "Checkout conversion 3.2%", "traffic": "40,000 visitors per day"}),
+    ("api", "API design and integration planning", "Plan a robust API integration.", '<path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0zM12 18v4"/>',
+     [("goal", "What needs to integrate", "e.g. Our app with a payment gateway"), ("systems", "Systems involved", "e.g. Mobile app, backend, Razorpay"), ("needs", "Key needs", "Refunds, webhooks, retries…")],
+     {"goal": "Accept UPI and card payments in our food-ordering app with refunds", "systems": "Android/iOS app, Node.js backend, payment gateway, order service", "needs": "Webhooks for payment status, partial refunds, idempotent retries"}),
+    ("launch", "Launch and channel planning", "Plan a measurable product launch.", '<path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z"/>',
+     [("product", "What you're launching", "e.g. Credit-score coach feature"), ("audience", "Target audience", "e.g. First-time borrowers, 21–30"), ("budget", "Budget and date", "e.g. ₹10 lakh, launch 15 Jan")],
+     {"product": "Credit-score coach inside a fintech app", "audience": "First-time borrowers aged 21–30 in metros", "budget": "₹10 lakh, launch in 6 weeks"}),
+    ("metrics", "Metrics and North Star", "Define the North Star, inputs and guardrails.", '<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>',
+     [("product", "Product", "e.g. Language-learning app"), ("model", "Business model", "e.g. Freemium subscription"), ("stage", "Stage", "e.g. 6 months after launch, 50k users")],
+     {"product": "Spoken English learning app", "model": "Freemium with ₹299/month subscription", "stage": "8 months after launch, 60,000 monthly users"}),
+    ("research", "User research plan", "Plan interviews, screeners and surveys.", '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
+     [("question", "What you want to learn", "e.g. Why trial users don't convert"), ("users", "Who to talk to", "e.g. Trial users from the last 30 days"), ("time", "Time and budget", "e.g. 2 weeks, ₹20,000")],
+     {"question": "Why do free-trial users of our HR app not convert to paid?", "users": "HR managers at 20–200 person companies who started a trial in the last 30 days", "time": "2 weeks, ₹20,000 for incentives"}),
+    ("competitive", "Competitive analysis", "Map competitors and find your edge.", '<path d="M18 20V10M12 20V4M6 20v-6"/>',
+     [("product", "Your product", "e.g. Online spoken-English coaching"), ("competitors", "Competitors you know", "Names, one per line"), ("segment", "Your target segment", "e.g. Job seekers in tier-2 cities")],
+     {"product": "AI spoken-English coaching app", "competitors": "ELSA Speak\nDuolingo\nCambly\nLocal coaching centres", "segment": "Job seekers aged 20–28 in tier-2 Indian cities"}),
+    ("stories", "User stories and acceptance criteria", "Break a feature into testable stories.", '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+     [("feature", "Feature", "e.g. Save cart and resume on another device"), ("users", "Users", "e.g. Logged-in shoppers"), ("rules", "Rules or limits", "Anything the team must respect")],
+     {"feature": "Split a restaurant bill with friends in the app", "users": "Diners paying with UPI", "rules": "Max 10 people; payer gets reminders; works if a friend has no app"}),
+    ("roadmap", "Roadmap and strategy", "Turn goals into a Now / Next / Later roadmap.", '<path d="M3 6h18M3 12h12M3 18h6"/>',
+     [("product", "Product", "e.g. B2B invoicing SaaS"), ("goals", "Company goals this year", "e.g. 2x revenue, enter SMB segment"), ("ideas", "Ideas on the table", "One per line")],
+     {"product": "Invoicing and payments SaaS for Indian SMEs", "goals": "Double ARR; cut churn from 4% to 2.5% monthly", "ideas": "WhatsApp payment reminders\nGST e-invoicing\nMobile app\nAccountant multi-client view\nBank reconciliation"}),
+    ("rca", "Metric drop root-cause analysis", "Investigate why a key metric fell.", '<path d="M22 17l-8.5-8.5-5 5L2 7"/><path d="M16 17h6v-6"/>',
+     [("metric", "Which metric dropped, by how much", "e.g. Daily orders -15% week on week"), ("product", "Product context", "e.g. Food delivery app, 6 cities"), ("changes", "Recent changes you know of", "Releases, pricing, campaigns…")],
+     {"metric": "Daily active users fell 15% week on week", "product": "Food delivery app in 6 cities", "changes": "New app version released Monday; delivery fee raised by ₹10 in 2 cities"}),
+    ("update", "Stakeholder update", "Write a crisp leadership update.", '<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',
+     [("project", "Project", "e.g. Checkout revamp"), ("status", "What happened since last update", "Progress, metrics, blockers"), ("ask", "What you need", "Decision, budget, help")],
+     {"project": "Checkout revamp", "status": "Design done, 60% built; payment-failure rate down from 4% to 2.6% in beta; QA is 1 week behind", "ask": "Approve 1 extra QA engineer for 3 weeks"}),
+]
+
+def pm_toolkit():
+    cards = "".join(f'''<article class="ai-card pt-card" data-cap="{c}"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{ic}</svg></span><h3>{E(n)}</h3><p>{E(d)}</p>
+<span style="display:flex;justify-content:space-between;gap:8px;margin-top:auto;padding-top:8px">{'<a class="go" href="prd-writer.html">Use capability →</a><a class="go" style="color:var(--mu)" href="prd-library.html">Read more →</a>' if c == "prd" else '<button type="button" class="go pt-use" style="background:none;border:0;padding:0;cursor:pointer;font:inherit;font-weight:700">Use capability →</button>'}</span></article>'''
+                    for c, n, d, ic, F, X in PM_TOOLS)
+    data = {c: {"name": n, "desc": d, "fields": F, "ex": X} for c, n, d, ic, F, X in PM_TOOLS if c != "prd"}
+    return CSS + f'''<style>.pt-steps{{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 26px}}.pt-steps div{{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--surface);font-weight:700}}.pt-steps span{{font:700 12px ui-monospace,monospace;color:var(--brand);margin-right:8px}}.pt-steps div.on{{border-color:var(--brand);box-shadow:0 0 0 3px rgba(108,76,245,.15)}}
+.pt-card{{cursor:pointer}}@media (max-width:640px){{.pt-steps{{grid-template-columns:1fr}}}}</style>
+<section style="padding-top:28px"><div class="wrap" data-ai="pm">
+<div class="pt-steps"><div id="pt-s1" class="on"><span>01</span>Pick a capability</div><div id="pt-s2"><span>02</span>Add your context</div><div id="pt-s3"><span>03</span>Review the result</div></div>
+<div id="pt-pick"><h2 class="sec-h" style="font-size:26px">What do you need to do?</h2><p class="sub">{len(PM_TOOLS)} PM capabilities. Start with the work in front of you.</p><div class="ai-cards">{cards}</div></div>
+<div id="pt-work" hidden><button class="btn btn-line btn-sm" type="button" id="pt-back">← All capabilities</button>
+<div class="ai-grid2" style="margin-top:14px"><div class="card"><form class="ai-f" id="pt-form"><div><div class="kicker">Capability</div><h3 id="pt-name" style="margin:4px 0 2px;font-size:20px"></h3><p class="ai-note" id="pt-desc" style="margin:0"></p></div>
+<button type="button" class="btn btn-line btn-sm" id="pt-ex" style="align-self:flex-start">Fill an example</button><div id="pt-fields" class="ai-f"></div>
+<label>Anything else (optional)<textarea name="extra" maxlength="3000" placeholder="Data, constraints, links, what you've tried…"></textarea></label>
+<button class="btn btn-primary" type="submit">✨ Run capability</button></form></div>
+<div><div class="ai-acts" id="pt-acts" hidden><button class="btn btn-line btn-sm" type="button" data-act="copy">Copy</button><button class="btn btn-line btn-sm" type="button" data-act="doc">Download Word</button><button class="btn btn-line btn-sm" type="button" data-act="md">Download Markdown</button></div>
+<div class="ai-doc ai-out" id="pt-out"><div class="ai-empty"><b>Your result will appear here</b>Add your context (or use the example) and press Run.</div></div>
+<form class="ai-form" id="pt-rev" hidden style="border:1px solid var(--line);border-radius:16px;margin-top:12px;background:var(--surface)"><textarea id="pt-rin" maxlength="2000" placeholder="Refine it, e.g. 'Use ₹ and Indian market data' or 'Add a risks section'"></textarea><button class="btn btn-primary btn-sm" type="submit">Refine</button></form></div></div></div>
+<script type="application/json" id="pt-data">{json.dumps(data)}</script></div></section>'''

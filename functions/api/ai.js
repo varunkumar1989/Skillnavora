@@ -21015,6 +21015,14 @@ Write the FRD in Markdown with these sections, in order:
 Rules: every requirement testable and numbered; label assumptions "Assumption:"; be specific to the project.
 When asked to revise, return the complete updated FRD.`
   },
+  pm: {
+    effort: "medium",
+    max: 1e4,
+    system: `You are the SkillNavora AI PM Toolkit: a senior product manager who turns a learner's context into a professional, ready-to-use deliverable.
+${COMMON}
+Rules: work only from the context given and label every assumption "Assumption:"; be specific, quantified and practical; use Markdown headings, tables and bullets; finish with "### Next steps" (3 bullets) and "\u{1F4D8} Learn more:" with 1-2 links from: [PRD library](/prd-library.html), [PM handbook](/handbooks/index.html#pm), [Practice Lab](/lab.html#pm), [Top 100 PM questions](/questions.html#pm), [BRD & FRD guide](/brd-frd.html).
+The CAPABILITY section below says exactly what to produce.`
+  },
   speak: {
     effort: "low",
     max: 3e3,
@@ -21050,6 +21058,20 @@ A concise model answer (structured, with metrics where relevant).
 ### Likely follow-up questions
 2-3 questions.`
   }
+};
+var PM_CAPS = {
+  discovery: "Customer problem discovery. Output: ### Problem statement (one crisp sentence: who, what pain, when, impact) \xB7 ### Who is affected (segments, size estimate) \xB7 ### Jobs-to-be-done (3) \xB7 ### Current alternatives and their gaps \xB7 ### Assumptions to validate (table: assumption, risk if wrong, how to test) \xB7 ### 8 customer interview questions (open, non-leading, past-behaviour based) \xB7 ### What evidence would prove this problem is worth solving.",
+  sizing: "Opportunity sizing and prioritization. Output: ### TAM / SAM / SOM (top-down and bottom-up estimates with every assumption and a formula, in \u20B9 or $ as given) \xB7 ### Sensitivity (best / base / worst) \xB7 ### Prioritization (RICE table for the options given or 4-6 options you propose: Reach, Impact, Confidence, Effort, Score) \xB7 ### Recommendation and why \xB7 ### Risks to the estimate.",
+  experiment: "Hypothesis and experiment design. Output: ### Hypothesis (We believe [change] for [users] will [outcome], measured by [metric]) \xB7 ### Primary metric, secondary metrics, guardrail metrics \xB7 ### Experiment design (A/B or alternative, unit of randomisation, variants, targeting) \xB7 ### Sample size and duration (show the calculation with stated baseline, minimum detectable effect, 95% confidence, 80% power) \xB7 ### Decision rules (ship / iterate / kill) \xB7 ### Pitfalls (novelty effect, peeking, sample-ratio mismatch, seasonality).",
+  api: "API design and integration planning. Output: ### Integration goal and actors \xB7 ### Sequence of calls (numbered flow) \xB7 ### Endpoints (table: method, path, purpose, auth) with one example request and response in JSON \xB7 ### Data mapping (table) \xB7 ### Auth, rate limits, idempotency, retries and webhooks \xB7 ### Error handling (table: case, code, behaviour) \xB7 ### Security and compliance \xB7 ### Test plan and rollout \xB7 ### Questions for the partner's team.",
+  launch: "Launch and channel planning. Output: ### Launch goals and success metrics \xB7 ### Target segments and positioning (one-line value proposition, 3 messages) \xB7 ### Channel plan (table: channel, audience, message, owner, budget share, KPI) \xB7 ### Timeline (T-4 weeks to T+4 weeks) \xB7 ### Launch-readiness checklist (product, support, sales, legal, analytics) \xB7 ### Rollout and rollback plan \xB7 ### Post-launch review questions.",
+  metrics: "Metrics and North Star definition. Output: ### North Star metric (definition, why it captures value, how to compute) \xB7 ### Input metrics tree (3-5 drivers, each with a formula) \xB7 ### Guardrail metrics \xB7 ### Funnel (AARRR) with the metric at each stage \xB7 ### Dashboard spec (table: metric, definition, source, owner, frequency) \xB7 ### Targets for 90 days and how to set them \xB7 ### Common traps for this product.",
+  research: "User research plan. Output: ### Research goals and decisions this will inform \xB7 ### Method (interviews, survey, usability test, diary study) and why \xB7 ### Participants and screener (6-8 screener questions) \xB7 ### Discussion guide (warm-up, 10-12 core questions, wrap-up) \xB7 ### Survey questions if useful (with scales) \xB7 ### Synthesis plan (affinity map, insight template) \xB7 ### Timeline and budget.",
+  competitive: "Competitive analysis. Output: ### Market map (direct, indirect, substitute competitors; note when you are unsure about a real company's current details) \xB7 ### Comparison table (features, pricing model, target user, strengths, weaknesses) \xB7 ### Positioning map axes and where each sits \xB7 ### Gaps and opportunities \xB7 ### How to differentiate (3 options) \xB7 ### What to monitor. Do not invent precise numbers about real companies; say 'check current data' where needed.",
+  stories: "User stories and acceptance criteria. Output: ### Epic summary \xB7 ### User stories (numbered: As a\u2026, I want\u2026, so that\u2026; priority P0/P1/P2; estimate S/M/L) \xB7 ### Acceptance criteria in Given / When / Then for every P0 story \xB7 ### Edge cases and error states \xB7 ### Analytics events to track (table: event, properties, trigger) \xB7 ### Definition of done.",
+  update: "Stakeholder update / executive summary. Output: a ready-to-send update with ### TL;DR (3 lines, status Green/Amber/Red) \xB7 ### Progress vs plan \xB7 ### Key metrics \xB7 ### Risks and asks (what decision or help you need, from whom, by when) \xB7 ### Next 2 weeks. Then a 5-line Slack version. Crisp, answer-first (pyramid principle).",
+  roadmap: "Product roadmap and strategy. Output: ### Vision (one line) and strategy pillars (3) \xB7 ### Now / Next / Later roadmap table (initiative, problem, outcome metric, confidence) \xB7 ### What we are not doing and why \xB7 ### Dependencies and risks \xB7 ### How to communicate it to leadership and to customers.",
+  rca: "Metric drop root-cause analysis. Output: ### Clarify the drop (questions to ask first) \xB7 ### Is it real? (data checks: tracking, definitions, outages, seasonality) \xB7 ### Segment it (table: dimension, what to check, what it would mean) \xB7 ### Internal vs external causes \xB7 ### Hypotheses ranked by likelihood with how to test each \xB7 ### Recommended next steps and the SQL or dashboard cuts to run."
 };
 var cachedIndex = { text: "", at: 0 };
 async function courseIndex(request, env) {
@@ -21099,6 +21121,11 @@ async function onRequestPost({ request, env }) {
   const ip = request.headers.get("cf-connecting-ip") || "anon";
   if (!allowed(ip, Number(env.AI_DAILY_LIMIT) || 60)) return json({ error: "limit" }, 429);
   const system = [{ type: "text", text: mode.system }];
+  if (body.mode === "pm") {
+    const cap = PM_CAPS[body.cap];
+    if (!cap) return json({ error: "bad_request" }, 400);
+    system.push({ type: "text", text: "CAPABILITY: " + cap });
+  }
   if (mode.cacheIndex) {
     const idx = await courseIndex(request, env);
     if (idx) system.push({ type: "text", text: "COURSE INDEX (title | path | topics):\n" + idx, cache_control: { type: "ephemeral" } });

@@ -270,6 +270,54 @@
     pick();
   }
 
+  /* ================================ AI PM TOOLKIT ================================ */
+  if (kind === "pm") {
+    const DATA = JSON.parse($("pt-data").textContent), f = $("pt-form"), out = $("pt-out"), acts = $("pt-acts"), rev = $("pt-rev");
+    let cap = null, hist = [], doc = "", busy = false;
+    const step = n => [1, 2, 3].forEach(i => $("pt-s" + i).classList.toggle("on", i <= n));
+    function open(c, push) {
+      if (!DATA[c]) return; cap = c; const D = DATA[c];
+      $("pt-name").textContent = D.name; $("pt-desc").textContent = D.desc;
+      $("pt-fields").innerHTML = D.fields.map(([n, l, ph]) => `<label>${esc(l)}<textarea name="${esc(n)}" maxlength="1500" style="min-height:64px" placeholder="${esc(ph)}"></textarea></label>`).join("");
+      f.elements.extra.value = ""; hist = []; doc = "";
+      out.innerHTML = '<div class="ai-empty"><b>Your result will appear here</b>Add your context (or use the example) and press Run.</div>'; acts.hidden = rev.hidden = true;
+      $("pt-pick").hidden = true; $("pt-work").hidden = false; step(2);
+      if (push !== false) history.replaceState(null, "", "#" + c);
+      window.scrollTo({ top: root.offsetTop - 80 });
+    }
+    function back() { cap = null; $("pt-work").hidden = true; $("pt-pick").hidden = false; step(1); history.replaceState(null, "", location.pathname); }
+    $("pt-pick").addEventListener("click", e => { if (e.target.closest("a")) return; const c = e.target.closest(".pt-card"); if (c && DATA[c.dataset.cap]) open(c.dataset.cap); });
+    $("pt-back").addEventListener("click", back);
+    $("pt-ex").addEventListener("click", () => { const X = DATA[cap].ex; for (const k in X) if (f.elements[k]) f.elements[k].value = X[k]; });
+    async function run(messages, label) {
+      if (busy || !canUse()) return; busy = true; step(3);
+      const btns = [f.querySelector("button[type=submit]"), rev.querySelector("button")]; btns.forEach(b => { b.disabled = true; });
+      out.innerHTML = `<p class="ai-dots">${esc(label)}</p>`; acts.hidden = true;
+      try {
+        const text = await ask("pm", messages, t => { out.innerHTML = md(t); }, { cap });
+        doc = text; hist = messages.concat({ role: "assistant", content: text }).slice(-6); if (hist[0].role !== "user") hist = hist.slice(1);
+        acts.hidden = rev.hidden = false;
+      } catch (e) { out.innerHTML = errBox(e.message) + (doc ? md(doc) : ""); }
+      btns.forEach(b => { b.disabled = false; }); busy = false;
+    }
+    f.addEventListener("submit", e => {
+      e.preventDefault();
+      const D = DATA[cap], parts = D.fields.map(([n, l]) => [l, f.elements[n].value.trim()]).filter(x => x[1]);
+      if (!parts.length) { out.innerHTML = errBox("Add some context first, or press Fill an example."); return; }
+      const extra = f.elements.extra.value.trim();
+      run([{ role: "user", content: `Capability: ${D.name}\n` + parts.map(([l, v]) => `${l}: ${v}`).join("\n") + (extra ? `\nMore context: ${extra}` : "") }], "Working on it");
+    });
+    rev.addEventListener("submit", e => { e.preventDefault(); const q = $("pt-rin").value.trim(); if (!q || !doc) return; $("pt-rin").value = ""; run(hist.concat({ role: "user", content: "Refine the deliverable: " + q + "\nReturn the complete updated version." }), "Refining"); });
+    acts.addEventListener("click", async e => {
+      const b = e.target.closest("button"); if (!b || !doc) return; const title = (DATA[cap].name || "SkillNavora").replace(/[^\w\- ]+/g, "").trim();
+      if (b.dataset.act === "copy") { try { await navigator.clipboard.writeText(doc); b.textContent = "Copied ✓"; setTimeout(() => b.textContent = "Copy", 1500); } catch {} }
+      if (b.dataset.act === "md") download(title + ".md", doc, "text/markdown");
+      if (b.dataset.act === "doc") download(title + ".doc", `<html><head><meta charset="utf-8"><title>${esc(title)}</title><style>body{font-family:Calibri,Arial,sans-serif;line-height:1.5}table{border-collapse:collapse}td,th{border:1px solid #999;padding:4px 8px}</style></head><body>${md(doc)}<p style="color:#888;font-size:11px">Made with SkillNavora AI PM Toolkit · skillnavora.in</p></body></html>`, "application/msword");
+    });
+    const route = () => { const h = location.hash.slice(1); if (DATA[h] && h !== cap) open(h, false); };
+    window.addEventListener("hashchange", route); route();
+  }
+
   /* ===================== Practice with AI: feedback right here ===================== */
   if ($("pr-ai")) {
     const out = $("pr-ai-out"); let busy = false;

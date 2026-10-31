@@ -186,7 +186,7 @@ def more_tab():
 
 
 QUICK = {
-    "pm": [("PRD library (120 ideas)", "prd-library.html"), ("AI PRD Writer", "prd-writer.html"), ("PM handbook", "handbooks/index.html#pm"), ("Top 100 PM questions", "questions.html#pm"), ("PM practice test", "tests.html#pm"), ("Practice Lab", "lab.html#pm"), ("Tool tutorials", "tools.html#tt-ai-pm"), ("AI Agents & MCP for PMs", "handbooks/index.html#genai")],
+    "pm": [("PRD library (120 ideas)", "prd-library.html"), ("AI PRD Writer", "prd-writer.html"), ("AI PM Toolkit", "pm-toolkit.html"), ("PM handbook", "handbooks/index.html#pm"), ("Top 100 PM questions", "questions.html#pm"), ("PM practice test", "tests.html#pm"), ("Practice Lab", "lab.html#pm"), ("Tool tutorials", "tools.html#tt-ai-pm"), ("AI Agents & MCP for PMs", "handbooks/index.html#genai")],
     "data": [("BRD & FRD (business analyst)", "brd-frd.html"), ("Data Science & AI handbook", "data-science/index.html"), ("DSA", "handbooks/index.html#dsa"), ("Top 100 data questions", "questions.html#data"), ("Data practice test", "tests.html#data"), ("Practice Lab: run SQL, Excel, Python", "lab.html#data"), ("Tool tutorials", "tools.html#tt-ai-de"), ("Job board", "jobs.html")],
     "genai": [("GenAI Launchpad handbook", "handbooks/index.html#genai"), ("Top 100 GenAI questions", "questions.html#genai"), ("GenAI practice test", "tests.html#genai"), ("Practice Lab + prompt checker", "lab.html#genai"), ("Tool tutorials", "tools.html#tt-genai-launchpad"), ("Claude Code tutorial", "handbooks/index.html#genai")],
     "other": [("SFMC", "#op-sfmc"), ("Digital marketing", "#op-marketing"), ("Content creation", "#op-content"), ("FDE", "#op-fde"), ("Public speaking", "#op-speaking"), ("Practice test", "tests.html#other"), ("Interview questions", "questions.html#other")],
