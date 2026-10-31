@@ -1372,3 +1372,19 @@ body.has-sticky .refab{bottom:284px}
 #res-tabs{position:sticky;top:64px;z-index:5;background:var(--bg);padding-top:6px}
 .panel[role=tabpanel]>.grid+.h3s,.panel[role=tabpanel] .hb-hero+.h3s{margin-top:28px}
 .mbox.gate .phone{grid-template-columns:108px 1fr}
+
+/* Grouped dropdown sections (Upskill for free: Practice & test yourself / Resources & AI tools) */
+.dd-grp{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.14);border-radius:14px;margin:6px;padding:2px 0 6px}
+.dd-grp .dd-h::before{display:none}
+@media (min-width:1100px){.dd[data-open] .dd-menu:has(> .dd-grp){display:grid;grid-template-columns:1fr 1fr;width:min(720px,92vw);align-items:start}}
+/* About page */
+.about-hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+.founder{display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:center}
+.founder img{width:160px;height:160px;border-radius:24px;object-fit:cover;box-shadow:0 18px 40px rgba(108,76,245,.25)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.why-card{border-radius:18px;padding:20px;border:1px solid var(--line,#e6e1f5);background:linear-gradient(160deg,rgba(124,58,237,.08),rgba(34,211,238,.06))}
+.why-card .n{font:800 13px var(--display);letter-spacing:.1em;color:#7C3AED}
+.why-card h3{margin:6px 0 8px;font-size:18px}
+.cmp{width:100%;border-collapse:collapse;font-size:14.5px}.cmp th,.cmp td{padding:10px 12px;border-bottom:1px solid var(--line,#e6e1f5);text-align:left;vertical-align:top}.cmp th{font-family:var(--display)}
+.cmp td:nth-child(2){color:#15803d;font-weight:600}
+@media (max-width:760px){.about-hero-grid,.founder{grid-template-columns:1fr}.founder img{width:120px;height:120px}}

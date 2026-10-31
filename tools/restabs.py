@@ -103,7 +103,7 @@ def ds_tab(cfg):
 
 def genai_tab(cfg):
     art = cfg.get("genai_artifact") or ""
-    acts = btn("Open the GenAI handbook ↗", DS_SITE + "index.html#t-genai", True) + btn("GenAI Launchpad handbook (426-page PDF) →", "handbooks/index.html#genai", gate=False, new=False) + (btn("Interactive GenAI handbook ↗", art) if art else "") + btn("GenAI Launchpad program →", "program/genai-launchpad.html", gate=False, new=False)
+    acts = btn("Open the GenAI handbook ↗", DS_SITE + "index.html#t-genai", True) + btn("GenAI Launchpad handbook (482-page PDF) →", "handbooks/index.html#genai", gate=False, new=False) + (btn("Interactive GenAI handbook ↗", art) if art else "") + btn("GenAI Launchpad program →", "program/genai-launchpad.html", gate=False, new=False)
     cat = catalog(); gt = [t for t in cat["tracks"] if t["id"] == "genai"]
     out = [hero("GenAI Launchpad · free for registered learners", "Generative & Agentic AI Handbook", "How LLMs work, prompting, APIs, embeddings and RAG, tool use, agents and MCP, evaluation, fine-tuning, responsible AI and your first AI apps, with runnable examples and a PDF for each lesson.", acts)]
     if gt:
@@ -145,12 +145,17 @@ def genai_tab(cfg):
     return "".join(out)
 
 
-def more_tab():
-    out = [hero("Useful links", "Other resources & useful links", "Job portals, communities, newsletters, YouTube channels, certifications, free datasets and career tools, hand-picked for learners in product, data and AI.", "")]
-    out.append(h("Job portals", "Search roles and set alerts. Our own job board is under Job board in the menu."))
-    out.append(grid([("LinkedIn Jobs", "Roles, alerts and recruiters.", "https://www.linkedin.com/jobs/", "Jobs"), ("Naukri", "India's largest job portal.", "https://www.naukri.com", "Jobs"), ("Indeed India", "Job search and company reviews.", "https://in.indeed.com", "Jobs"),
+PORTALS = [("LinkedIn Jobs", "Roles, alerts and recruiters.", "https://www.linkedin.com/jobs/", "Jobs"), ("Naukri", "India's largest job portal.", "https://www.naukri.com", "Jobs"), ("Indeed India", "Job search and company reviews.", "https://in.indeed.com", "Jobs"),
                      ("Wellfound", "Start-up jobs.", "https://wellfound.com", "Start-ups"), ("Instahyre", "Curated tech and product roles.", "https://www.instahyre.com", "Jobs"), ("Cutshort", "Tech and data roles with skills matching.", "https://cutshort.io", "Jobs"),
-                     ("Hirist", "IT jobs in India.", "https://www.hirist.tech", "Jobs"), ("Internshala", "Internships and fresher jobs.", "https://internshala.com", "Freshers")]))
+                     ("Hirist", "IT jobs in India.", "https://www.hirist.tech", "Jobs"), ("Internshala", "Internships and fresher jobs.", "https://internshala.com", "Freshers")]
+
+
+def portals_html():
+    return h("Job portals", "Search roles and set alerts on the biggest Indian and global job sites.") + grid(PORTALS)
+
+
+def more_tab():
+    out = [hero("Useful links", "Other resources & useful links", "Communities, newsletters, YouTube channels, certifications, free datasets and career tools, hand-picked for learners in product, data and AI.", "")]
     out.append(h("Communities"))
     out.append(grid([("Kaggle", "Competitions, notebooks and datasets.", "https://www.kaggle.com", "Data"), ("Stack Overflow", "Programming questions and answers.", "https://stackoverflow.com", "Code"), ("r/datascience", "Reddit community for data science.", "https://www.reddit.com/r/datascience/", "Community"),
                      ("r/ProductManagement", "Reddit community for PMs.", "https://www.reddit.com/r/ProductManagement/", "Community"), ("GitHub", "Host your portfolio and projects.", "https://github.com", "Portfolio"), ("Hugging Face forums", "Open-source AI community.", "https://discuss.huggingface.co", "AI"),

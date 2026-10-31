@@ -1,7 +1,7 @@
 import re
 #!/usr/bin/env python3
 """Generate the SkillNavora LMS site into /home/user/skillnavora."""
-import os, re, html, shutil
+import os, re, html, shutil, json
 
 OUT = "/home/user/skillnavora"
 DOMAIN = "https://www.skillnavora.in"
@@ -15,7 +15,20 @@ PROGRAMS = [("ai-pm", "program/ai-product-management.html", "AI-First Product Ma
              '<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>'),
             ("genai-launchpad", "program/genai-launchpad.html", "GenAI Launchpad", "Practical GenAI for every professional",
              '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>')]
-UPSKILL = [("quiz.html", "Quiz zone", "Test yourself with quick quizzes", '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>'),
+OTHER_PROGRAMS = [("guides/sfmc.html", "SFMC training", "Salesforce Marketing Cloud: Email Studio to Journey Builder", '<path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 13 3.5 3.5 0 0 0 6 19z"/>'),
+           ("guides/digital-marketing.html", "Digital marketing", "SEO, ads, social, email and analytics, end to end", '<path d="M3 11l18-8-8 18-2-8z"/>'),
+           ("guides/content-creation.html", "Content creation", "Strategy, writing, video, design and AI for creators", '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>'),
+           ("guides/fde.html", "Forward Deployed Engineer", "The FDE role: customers, AI deployment and integrations", '<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>')]
+ABOUT = [("about.html", "About SkillNavora", "Our story, mission and team", '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'),
+         ("about.html#team", "SkillNavora team", "Meet our founder and mentors", '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'),
+         ("about.html#why-us", "Why us", "What makes SkillNavora different", '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/>'),
+         ("reviews.html", "Reviews", "What learners say", '<path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>'),
+         ("blogs.html", "Blog", "Guides, case studies and career advice", '<path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/>'),
+         ("contact.html", "Contact us", "Talk to our team", '<path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/>')]
+UPSKILL = [("", "Practice & test yourself", "", ""),
+           ("tests.html", "Practice tests", "W3Schools-style tests with hints and solutions", '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'),
+           ("questions.html", "Top 100 questions", "Interview questions with answers for PM, data and GenAI", '<circle cx="12" cy="12" r="10"/><path d="M12 16v.01M12 13a2 2 0 1 0-2-2"/>'),
+           ("quiz.html", "Quiz zone", "Test yourself with quick quizzes", '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>'),
            ("challenges.html", "Challenges", "Solve real product and AI problems", '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>'),
            ("practice.html", "Practice with AI", "Mock interview questions with AI feedback", '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>'),
            ("events.html", "Events", "Free live sessions, workshops and masterclasses", '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'),
@@ -26,7 +39,7 @@ UPSKILL = [("quiz.html", "Quiz zone", "Test yourself with quick quizzes", '<circ
            ("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>'),
            ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>'),
            ("resources.html#genai", "Resources for GenAI", "GenAI handbook, AI tools and free courses", '<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>'),
-           ("resources.html#more", "Other resources & links", "Job portals, communities, courses and datasets", '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>')]
+           ("resources.html#more", "Other resources & links", "Communities, YouTube, certifications and datasets", '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>')]
 CHEV = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>'
 SVG = lambda p, w=2: f'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{w}" stroke-linecap="round" stroke-linejoin="round">{p}</svg>'
 WA = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>'
@@ -103,7 +116,11 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     canon = DOMAIN + "/" + ("" if path == "index.html" else path.replace(".html", ""))
     cur = lambda h: ' aria-current="page"' if h.split('#')[0] == active else ""
     prog_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b data-course-name="{cid}">{E(n)}</b><small>{E(s)}</small></span></a>' for cid, p, n, s, ic in PROGRAMS)
-    up_menu = "".join((f'<div class="dd-h">{E(n)}</div>' if not p else f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(s)}</small></span></a>') for p, n, s, ic in UPSKILL)
+    other_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>' for p, n, sm, ic in OTHER_PROGRAMS)
+    about_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>' for p, n, sm, ic in ABOUT)
+    up_menu = "".join((f'</div><div class="dd-grp"><div class="dd-h">{E(n)}</div>' if not p else f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(s)}</small></span></a>') for p, n, s, ic in UPSKILL)
+    up_menu = '<div class="dd-grp">' + up_menu + "</div>"
+    up_menu = up_menu.replace('<div class="dd-grp"></div>', "")
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
 <html lang="en">
@@ -129,17 +146,16 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
 {TOPBAR_HTML if not app and not path.startswith("program/") else ""}<header class="top"><div class="wrap">
   <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img src="{r}assets/logo-s.svg" alt="" width="36" height="36"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></a>
   <nav class="nav" id="nav" aria-label="Main">
-    <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}<a href="{r}programs.html"{cur('programs.html')}><span class="dd-ico">{SVG('<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>')}</span><span><b>All programs</b><small>Compare programs, fees and FAQs</small></span></a><a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
+    <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}<div class="dd-h">Other programs</div>{other_menu}<a href="{r}programs.html"{cur('programs.html')}><span class="dd-ico">{SVG('<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>')}</span><span><b>All programs</b><small>Compare programs, fees and FAQs</small></span></a><a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
     <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
-    <a href="{r}blogs.html"{cur('blogs.html') if path != 'blogs.html' and not path.startswith('blog/') else ' aria-current="page"'}>Blogs</a>
     <div class="dd{on(['jobs.html', 'refer.html', 'hire.html'])}"><button type="button" aria-expanded="false">Job board {CHEV}</button><div class="dd-menu">
+      <a href="{r}jobs.html#portals-box"><span class="dd-ico">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>')}</span><span><b>Job portals</b><small>LinkedIn, Naukri, Wellfound and more</small></span></a>
       <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>Product, AI and data engineering openings</small></span></a>
       <a href="{r}refer.html"{cur('refer.html')}><span class="dd-ico">{SVG('<path d="M20 12v10H4V12"/><path d="M2 7h20v5H2zM12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>')}</span><span><b>Refer &amp; earn</b><small>Refer learners or candidates, earn rewards</small></span></a>
       <a href="{r}hire.html"{cur('hire.html')}><span class="dd-ico">{SVG('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>')}</span><span><b>Hire from us</b><small>Is your company hiring? Get in touch</small></span></a></div></div>
     <a href="#" data-community hidden>Community</a>
-    <a href="{r}reviews.html"{cur('reviews.html')}>Reviews</a>
     <div class="dd{on(['careers.html', 'mentor.html'])}"><button type="button" aria-expanded="false">Careers {CHEV}</button><div class="dd-menu"><a href="{r}careers.html"{cur('careers.html')}><span class="dd-ico">{SVG('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>')}</span><span><b>Join our team</b><small>Open roles at SkillNavora</small></span></a><a href="{r}mentor.html"{cur('mentor.html')}><span class="dd-ico">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><span><b>Become a mentor</b><small>Guide learners, run sessions and mock interviews</small></span></a></div></div>
-    <a href="{r}contact.html"{cur('contact.html')}>Contact Us</a>
+    <div class="dd{on(['about.html', 'reviews.html', 'blogs.html', 'contact.html'] + (['blogs.html'] if path.startswith('blog/') else []))}"><button type="button" aria-expanded="false">About Us {CHEV}</button><div class="dd-menu">{about_menu}</div></div>
   </nav>
   <div class="tools">
     <button class="icon-btn theme" type="button" aria-label="Switch light or dark mode">{SVG('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>').replace('<svg', '<svg class="sun"')}{SVG('<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>').replace('<svg', '<svg class="moon"')}</button>
@@ -391,7 +407,7 @@ PROG_HB = {
                     [("Open the Data Science & AI handbook", "../data-science/index.html"), ("DSA handbook (interactive) ↗", ART + "#dsa"), ("All SkillNavora handbooks", "../handbooks/index.html"),
                      ("Complete handbook PDFs", "../data-science/index.html#downloads"), ("Resources for Data Engineers", "../resources.html#data")]),
     "genai-launchpad": _hbsec("Free handbook", "GenAI Launchpad Handbook",
-                    "LLMs, prompting, APIs, embeddings, RAG, tool use, agents, MCP, evaluation, fine-tuning, GenAI for data work and a capstone app, plus the AI Tools Lab, in one 426-page PDF and interactive lessons.",
+                    "LLMs, prompting, APIs, embeddings, RAG, tool use, agents, MCP, evaluation, fine-tuning, GenAI for data work and a capstone app, plus the AI Tools Lab, in one 482-page PDF and interactive lessons.",
                     [("Open the GenAI Launchpad handbook", "../handbooks/index.html#genai"), ("Interactive handbook ↗", ART + "#genai"), ("GenAI lessons", "../data-science/index.html#t-genai"), ("Resources for GenAI", "../resources.html#genai")]),
 }
 for cid, path, name, short, _ in PROGRAMS:
@@ -568,6 +584,28 @@ _tt_html, _tt_n = tooltuts.build()
 tt = uhero("Upskill for free · Resources & AI tools", 'Tool <span class="g">tutorials</span>', f"All {_tt_n} tools taught in our programs: a free official tutorial, the official website and the SkillNavora lesson for each, including complete Figma and n8n tutorials.") + f"""
 <section style="padding-top:28px"><div class="wrap">{_tt_html}</div></section>"""
 page("tools.html", "Tool tutorials · SkillNavora", "Free tutorials for every AI, product, design, automation and data tool in SkillNavora programs, including complete Figma and n8n tutorials.", tt, "tools.html")
+import practice
+_pt_html, _pt_n = practice.tests_page()
+page("tests.html", "Practice tests · SkillNavora", "Free practice tests for product management, data science, SQL, Excel, Python, Power BI, GenAI, agents and more, with hints and solutions.",
+     uhero("Upskill for free · Practice & test yourself", 'Practice <span class="g">tests</span>', f"{_pt_n} questions and exercises from every SkillNavora handbook. Get a hint when you are wrong, then try again.") + f"""<section style="padding-top:28px"><div class="wrap">{_pt_html}</div></section>""", "tests.html")
+_iv_html, _iv_n = practice.questions_page()
+page("questions.html", "Top 100 interview questions · SkillNavora", "The top 100 interview questions with model answers for AI product management, data science and AI, and GenAI and agents.",
+     uhero("Upskill for free · Practice & test yourself", 'Top 100 <span class="g">interview questions</span>', "For AI Product Management, Data Science & AI, and GenAI & Agents, with model answers and the lesson that teaches each topic.") + f"""<section style="padding-top:28px"><div class="wrap">{_iv_html}</div></section>""", "questions.html")
+GUIDE_TRACK = {"guides/sfmc.html": "sfmc", "guides/digital-marketing.html": "marketing", "guides/content-creation.html": "content", "guides/fde.html": "fde"}
+_cat = json.load(open(os.path.join(OUT, "data-science/catalog.json")))
+_tr = {t["id"]: t for t in _cat["tracks"]}
+for _gp, _tid in GUIDE_TRACK.items():
+    _t = _tr.get(_tid)
+    if not _t or not _t["lessons"]: continue
+    _L = _t["lessons"][0]
+    _src = "../data-science/" + _L["page"]; _pdf = "../data-science/" + _t["pdf"]
+    _body = uhero("Programs · Other programs", E(_t["name"]), E(_t["desc"])) + f"""
+<section style="padding-top:24px"><div class="wrap">
+  <div class="acts" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px"><a class="btn btn-primary" href="{_pdf}">Complete guide PDF</a><a class="btn btn-line" href="../contact.html">Ask about live training</a><a class="btn btn-line" href="../tests.html#other">Practice test</a><a class="btn btn-line" href="../questions.html#other">Interview questions</a></div>
+  <p class="meta" style="margin:0 0 12px">The complete guide is below. It opens right here: scroll inside it, or download the PDF.</p>
+  <iframe class="guide-frame" src="{_src}" title="{E(_t['name'])} complete guide" loading="lazy" style="width:100%;height:85vh;border:1px solid var(--line,#e2dcf3);border-radius:16px;background:#fff"></iframe>
+</div></section>"""
+    page(_gp, f"{_t['name']} complete guide · SkillNavora", _t["desc"], _body, _gp)
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
 
 # ================================================================ CONTACT
@@ -585,6 +623,43 @@ contact = uhero("Contact us", 'We\'re here to <span class="g">help</span>', "Que
     <p class="meta" id="msg" aria-live="polite" style="margin:0"></p>
   </form>
 </div></section>"""
+WHY_US = [
+    ("AI-first, not AI-added", "Every program is built around how teams work in 2026: Claude, ChatGPT, Copilot, agents, MCP and no-code automation are part of every module, not a bonus lecture at the end."),
+    ("Taught by a working product leader", "You learn from people who ship products at large companies today, so the frameworks, interview questions and case studies match what hiring managers actually ask."),
+    ("Free handbooks you can keep", "A 570-page PM Master Handbook, a 1,200+ page Data Science & AI handbook and a GenAI Launchpad handbook, with a PDF for every lesson, free for every registered learner."),
+    ("Learn by doing", "Real outputs from runnable code, datasets, Excel workbooks, Power BI and Tableau case studies, n8n and Figma projects and a capstone in every track, so you finish with proof of work."),
+    ("Practice that tells you why", "Practice tests with hints and worked solutions, 100 top interview questions for each career path, mock interviews with AI feedback and real product challenges."),
+    ("Portfolio and job support", "Resume and LinkedIn reviews, portfolio projects on GitHub and Tableau Public, a curated job board, referrals and interview preparation until you are job-ready."),
+    ("Small live cohorts", "Live classes with doubt-clearing, recordings in the LMS, assignments with feedback and a community of peers from product, data and engineering."),
+    ("Built for Indian careers", "Examples in rupees, Indian companies and datasets, salary and offer guidance for the Indian market, and classes timed for working professionals."),
+]
+CMP = [("Curriculum", "Updated for 2026: AI agents, MCP, Claude Code, n8n", "Often pre-GenAI syllabus"), ("Teaching", "Working product and data leaders", "Full-time trainers"),
+       ("Materials", "Free handbooks and PDFs for every lesson", "Slides only, locked after the course"), ("Practice", "Tests with hints, 100 questions per path, AI mock interviews", "Few graded exercises"),
+       ("Outcome", "Portfolio, GitHub, Tableau Public and job board", "Certificate only")]
+about = uhero("About Us", 'About <span class="g">SkillNavora</span>', "An all-in-one place to learn AI-first product management, data science and AI, and generative AI: live programs, free handbooks, practice tests and career support.") + f"""
+<section style="padding-top:32px"><div class="wrap about-hero-grid">
+  <div><div class="kicker">Our mission</div><h2 class="sec-h">Make every professional AI-first</h2>
+    <p class="sub">SkillNavora started with a simple observation: most courses teach yesterday's job. Product managers, analysts and engineers now work with AI assistants, agents and automation every day, and learners need practical, honest training for that world. We combine live classes with free, detailed handbooks so anyone can learn at their own pace and come back to the material for years.</p></div>
+  <div class="card" style="padding:22px"><h3 style="margin:0 0 10px">What you will find here</h3><ul class="checks"><li>Three flagship programs: AI-First PM, AI-First Data Engineer, GenAI Launchpad</li><li>Other programs: SFMC, digital marketing, content creation, Forward Deployed Engineer</li><li>Free handbooks, tool tutorials, practice tests and interview questions</li><li>Job board, referrals and portfolio support</li></ul></div>
+</div></section>
+<section id="team" class="tint"><div class="wrap"><div class="kicker">SkillNavora team</div><h2 class="sec-h">Meet our founder</h2>
+  <div class="card founder" style="padding:24px;margin-top:20px"><img src="assets/varun.jpg" alt="Varun Kumar" width="160" height="160" loading="lazy">
+    <div><h3 style="margin:0">Varun Kumar</h3><p class="meta" style="margin:4px 0 12px"><b>Founder &amp; CEO, SkillNavora</b> · Gurgaon, India</p>
+    <p style="margin:0 0 10px">Varun works in Product at American Express (Amex) and brings more than a decade of experience building products and leading cross-functional teams. He founded SkillNavora to give learners the practical, AI-first training he wishes he had had: real frameworks, real case studies and the tools modern product and data teams use every day.</p>
+    <p style="margin:0">He wrote the SkillNavora PM Master Handbook and designs the curriculum for every program, and he mentors learners on product thinking, interviews and career moves into product and AI roles.</p>
+    <div class="acts" style="margin-top:14px"><a class="btn btn-line btn-sm" href="https://www.linkedin.com/in/varun-pm01" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn btn-line btn-sm" href="mentor.html">Become a mentor</a><a class="btn btn-line btn-sm" href="careers.html">Join the team</a></div></div></div>
+</div></section>
+<section id="why-us"><div class="wrap"><div class="kicker">Why us</div><h2 class="sec-h">Why learners choose SkillNavora</h2>
+  <div class="why-grid" style="margin-top:22px">{''.join(f'<div class="why-card"><div class="n">{i:02d}</div><h3>{E(t)}</h3><p class="meta" style="margin:0">{E(d)}</p></div>' for i, (t, d) in enumerate(WHY_US, 1))}</div>
+  <h3 class="h3s" style="margin-top:36px">SkillNavora compared with a typical course</h3>
+  <div class="card table-wrap" style="padding:8px 16px;margin-top:12px"><table class="cmp"><thead><tr><th></th><th>SkillNavora</th><th>Typical course</th></tr></thead><tbody>{''.join(f'<tr><th>{E(a)}</th><td>{E(b)}</td><td class="meta">{E(c)}</td></tr>' for a, b, c in CMP)}</tbody></table></div>
+</div></section>
+<section class="tint"><div class="wrap"><div class="grid g3">
+  <a class="card tool" href="reviews.html"><h3>Reviews →</h3><p>Read what learners say about the programs and mentors.</p></a>
+  <a class="card tool" href="blogs.html"><h3>Blog →</h3><p>Guides on becoming a PM, AI tools, case studies and data careers.</p></a>
+  <a class="card tool" href="contact.html"><h3>Contact us →</h3><p>WhatsApp, call or email the team about programs, fees and batches.</p></a>
+</div></div></section>"""
+page("about.html", "About Us · SkillNavora", "About SkillNavora: our mission, founder and CEO Varun Kumar, and why learners choose our AI-first programs in product management, data science and generative AI.", about, "about.html")
 page("contact.html", "Contact us · SkillNavora", "Contact SkillNavora on WhatsApp, phone or email about programs, fees and schedules.", contact, "contact.html")
 
 # ================================================================ AUTH + LMS + ADMIN
@@ -846,6 +921,7 @@ jobs = f"""<div class="hero"><div class="wrap jobs-head"><div class="kicker">Job
       <form id="portal-f" class="portal-f"><input id="portal-q" aria-label="Role to search" placeholder="e.g. Product Manager"><select id="portal-loc" aria-label="Location"><option>India</option><option>Bengaluru</option><option>Mumbai</option><option>Delhi NCR</option><option>Hyderabad</option><option>Pune</option><option>Chennai</option><option>Remote</option></select></form></div>
     <div class="portal-grid" id="portal-list"></div>
   </div>
+  <div style="margin-top:28px">{restabs.portals_html()}</div>
 </div></section>
 {band("Want to be job-ready for these roles?", "Our job assistance program helps with your resume, portfolio, interview preparation and referrals.", '<a class="btn btn-primary" href="programs.html">Explore programs →</a><a class="btn btn-ghost" data-counsel href="#counselling">Talk to a counsellor</a>')}"""
 page("jobs.html", "Job board · PM and AI jobs · SkillNavora", "Curated product manager, AI and data engineering jobs in India, with quick LinkedIn searches for the latest openings.", jobs, "jobs.html", '<script src="{r}assets/jobs.js"></script>')
@@ -1090,7 +1166,7 @@ s = re.sub(r'(href|src)="(?!https?:|/|#|mailto:|tel:)([^"]+)"', r'\1="/\2"', s)
 open(f"{OUT}/404.html", "w").write(s)
 
 # ================================================================ cleanup + SEO
-for old in ["about.html", "blog.html", "case-studies.html", "mentoring.html", "assets/dashboard.js"]:
+for old in ["blog.html", "case-studies.html", "mentoring.html", "assets/dashboard.js"]:
     if os.path.exists(f"{OUT}/{old}"): os.remove(f"{OUT}/{old}")
 pass  # blog/ is generated by the BLOGS section
 open(f"{OUT}/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
