@@ -31,12 +31,14 @@ LEARN = {
 # Our own lessons: (label, path from the site root). DS lessons are looked up by id prefix in the catalog.
 PM = lambda n, t: (f"PM handbook · Module {n}: {t}", f"handbooks/pm/m{n:02d}.html")
 OURS = {
+    "Zapier": [("Complete Zapier tutorial", "zapier-tutorial.html"), PM(20, "Zapier, Make and n8n")], "Make": [("Complete Make tutorial", "make-tutorial.html"), PM(20, "Zapier, Make and n8n")],
+    "Replit": [("Complete Replit tutorial", "replit-tutorial.html"), PM(17, "Replit and app builders")], "Lovable": [("Complete Lovable tutorial", "lovable-tutorial.html"), PM(16, "Lovable")],
     "Claude": [PM(14, "Claude for daily work"), ("GenAI lesson: prompt engineering", "ds:genai-02")], "Claude Code": [PM(15, "Claude Code")],
-    "Lovable": [PM(16, "Lovable")], "Replit": [PM(17, "Replit and app builders")], "Bolt": [PM(17, "Replit and app builders")], "v0": [PM(17, "Replit and app builders")],
+    "Bolt": [PM(17, "Replit and app builders")], "v0": [PM(17, "Replit and app builders")],
     "Figma": [("Complete Figma tutorial", "ds:tools-01"), PM(18, "Figma and AI design tools")], "FigJam": [("Complete Figma tutorial (FigJam)", "ds:tools-01")],
     "Figma Make": [("Complete Figma tutorial (Figma Make)", "ds:tools-01"), PM(18, "Figma and AI design tools")],
     "Notion": [PM(19, "Notion and PRD tools")], "Confluence": [PM(19, "Notion and PRD tools")],
-    "n8n": [("Complete n8n tutorial", "ds:tools-02"), PM(20, "Zapier, Make and n8n")], "Zapier": [PM(20, "Zapier, Make and n8n")], "Make": [PM(20, "Zapier, Make and n8n")],
+    "n8n": [("Complete n8n tutorial", "ds:tools-02"), PM(20, "Zapier, Make and n8n")],
     "WhatsApp Business": [PM(21, "AI chatbots for business")], "Slack": [PM(21, "AI chatbots for business")],
     "ChatGPT": [("GenAI lesson: prompt engineering", "ds:genai-02"), PM(13, "AI tools landscape")], "Gemini": [("AI in Excel & Office", "ds:ai-analytics-03"), PM(13, "AI tools landscape")],
     "Microsoft Copilot": [("AI in Excel & Office", "ds:ai-analytics-03")], "Perplexity": [PM(13, "AI tools landscape")], "NotebookLM": [PM(13, "AI tools landscape")],

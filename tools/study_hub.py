@@ -3,7 +3,7 @@ AI Engineer, GenAI Launchpad. Every item is a link inside the same site, so it w
 (netlify.toml serves this page at the front door on Netlify)."""
 import glob, html, json, os, re, subprocess
 import academy_interactive as AI
-import course_aiengineer, learnsites
+import course_aiengineer, learnsites, tooltuts, skillsmap
 E = html.escape
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CAT = json.load(open(os.path.join(ROOT, "data-science/catalog.json")))
@@ -70,6 +70,34 @@ def practice(seg, extra=()):
 def block(tab_id, eyebrow, title, lede, acts, parts):
     return f'<section class="htab" id="{tab_id}" hidden><p class="eyebrow">{E(eyebrow)}</p><h2>{E(title)}</h2><p class="lede">{lede}</p><div class="acts">{acts}</div>{"".join(parts)}</section>'
 
+def tools_tab():
+    d = tooltuts.data(); sites = d["l"]
+    def ours(name):
+        out = []
+        for lab, path in tooltuts.OURS.get(name, []):
+            href = skillsmap.L(path[3:]) if path.startswith("ds:") else path
+            out.append(f'<a href="{E(href)}">{E(lab)}</a>')
+        return out
+    feat = "".join(f'<li><a href="{h}">{E(t)}</a><small>{E(w)}</small></li>' for h, t, w in [
+        ("zapier-tutorial.html", "Zapier: complete tutorial", "Zaps, filters, paths, webhooks, AI steps, templates, project + PDF"), ("make-tutorial.html", "Make: complete tutorial", "Scenarios, routers, iterators, HTTP/JSON, error handling, project + PDF"),
+        ("replit-tutorial.html", "Replit: complete tutorial", "Agent builds, database, secrets, deploy, GitHub, project + PDF"), ("lovable-tutorial.html", "Lovable: complete tutorial", "Prompts, Supabase, login, GitHub, domain, project + PDF"),
+        ("ai-academy-interactive.html#builder-tools", "AI Builder Tools (Claude, ChatGPT/Codex, Gemini, Lovable)", "What each tool does and how to build a website end to end"),
+        ("ai-academy-interactive.html#web-automation", "Web Automation: webhooks, triggers, Playwright MCP", "n8n, Zapier, Make, Pipedream, Apify, Playwright and more"),
+        ("data-science/index.html#tools", "n8n and Figma: complete tutorials", "In the Data Science & AI handbook (AI & No-Code Tools Lab)"), ("tools.html", "Tool tutorials page", "Every tool with its official site, free tutorial and our lesson")])
+    out = f'<h3>Our complete tutorials</h3><div class="gsec"><ul class="cl">{feat}</ul></div><h3>Every tool, with its tutorial</h3><p class="mu">{sum(len(g["tools"]) for c in d["c"] for g in c["g"])} tool entries across the three programs. <b>Free tutorial</b> opens the official learning page; <b>Official site</b> opens the product; <b>Our lessons</b> open the SkillNavora lesson (after details).</p>'
+    seen = set()
+    for c in d["c"]:
+        body = ""
+        for g in c["g"]:
+            rows = ""
+            for name in g["tools"]:
+                site, learn, mine = sites.get(name), tooltuts.LEARN.get(name), ours(name)
+                links = (f'<a href="{E(learn)}" target="_blank" rel="noopener">Free tutorial ↗</a>' if learn else "") + (f' <a href="{E(site)}" target="_blank" rel="noopener">Official site ↗</a>' if site else "")
+                rows += f'<li><b>{E(name)}</b><small>{links}</small>' + (f'<small class="gsec">Our lessons: ' + " · ".join(mine) + "</small>" if mine else "") + "</li>"
+            body += f'<h4 style="margin:14px 0 6px;font:700 15px var(--display)">{E(g["name"])}</h4><ul class="cl">{rows}</ul>'
+        out += f'<details class="hg"{" open" if not seen else ""}><summary>{E(c["name"])}</summary>{body}</details>'; seen.add(c["id"])
+    return out
+
 def G(x): return f'<div class="gsec">{x}</div>'
 
 def build():
@@ -92,7 +120,8 @@ def build():
     genai = block("genai", "GenAI Launchpad", "GenAI Launchpad", E(gl["short"]), btn("program/genai-launchpad.html", "Program page", True) + btn("handbooks/genai/SkillNavora_GenAI_Launchpad_Handbook.pdf", "Handbook PDF (482 pages)") + btn("ai-academy.html", "AI Skills Academy") + btn("ai-skills-map.html", "AI Skills Map"),
                   [curriculum(gl), G(tracks(["genai", "agents", "tools", "ai-analytics"], "GenAI and agents lessons")), G("<h3>AI courses and classes (click any class)</h3>" + "".join(course_block(k) for k in all_courses)),
                    practice("genai"), G(pdfs(["handbooks/genai/*.pdf", "handbook/AI_*.pdf", "handbook/Prompt_*.pdf", "handbook/Agent_*.pdf", "handbook/Browser_*.pdf", "handbook/Web_*.pdf", "brochures/*genai*.pdf"]))])
-    tabs = [("aipm", "AI Product Management"), ("aide", "AI for Data Engineers"), ("aieng", "AI Engineer"), ("genai", "GenAI Launchpad")]
+    tools = block("tools", "Tools", "Tools & tutorials", "Every tool used in the programs with its free tutorial, official site and our lessons, plus our complete tutorials for Zapier, Make, Replit, Lovable, n8n and Figma.", btn("tools.html", "Tool tutorials page", True) + btn("resources.html#learn", "147 learning sites") + btn("ai-academy-interactive.html#builder-tools", "AI Builder Tools"), [tools_tab()])
+    tabs = [("aipm", "AI Product Management"), ("aide", "AI for Data Engineers"), ("aieng", "AI Engineer"), ("genai", "GenAI Launchpad"), ("tools", "Tools & tutorials")]
     nav = "".join(f'<button type="button" role="tab" data-t="{k}" aria-selected="false">{E(n)}</button>' for k, n in tabs)
     css = """<style>.hub{padding-block:18px 50px}.hub .htabs{position:sticky;top:var(--a-hh,68px);z-index:30;background:var(--bg);display:flex;gap:8px;overflow-x:auto;padding-block:12px;border-bottom:1px solid var(--line);margin-bottom:20px}
 .hub .htabs button{flex:none;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 16px;font:700 14.5px var(--body)}.hub .htabs button[aria-selected=true]{background:#5b4ee8;border-color:#5b4ee8;color:#fff}
@@ -106,4 +135,4 @@ def build():
           "document.querySelectorAll('.hub .gsec a[href]').forEach(function(a){var h=a.getAttribute('href');if(!/^(https?:|#|mailto|tel)/.test(h))a.setAttribute('data-gate','1')});"
           "function show(){var h=(location.hash||'#aipm').slice(1),k=ids.indexOf(h)>-1?h:'aipm';document.querySelectorAll('.htab').forEach(function(s){s.hidden=s.id!==k});document.querySelectorAll('.htabs button').forEach(function(b){b.setAttribute('aria-selected',b.dataset.t===k?'true':'false')})}"
           "document.querySelectorAll('.htabs button').forEach(function(b){b.addEventListener('click',function(){location.hash=b.dataset.t;window.scrollTo(0,0)})});window.addEventListener('hashchange',show);show()})();</script>")
-    return css + f'<section class="hub"><div class="wrap"><div class="htabs" role="tablist" aria-label="Programs">{nav}</div><p class="note"><a href="study-library.html" style="font-weight:700;color:#5b4ee8">Study Library (all 11 sections on one page)</a> · Free access: enter your details once and every lesson, class, course and PDF in these tabs opens. Admins skip the form.</p>{aipm}{aide}{aieng}{genai}</div></section>' + js
+    return css + f'<section class="hub"><div class="wrap"><div class="htabs" role="tablist" aria-label="Programs">{nav}</div><p class="note"><a href="study-library.html" style="font-weight:700;color:#5b4ee8">Study Library (all 11 sections on one page)</a> · Free access: enter your details once and every lesson, class, course and PDF in these tabs opens. Admins skip the form.</p>{aipm}{aide}{aieng}{genai}{tools}</div></section>' + js
