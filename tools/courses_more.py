@@ -280,3 +280,6 @@ MEDIA = C("multimodal", "Multimodal_and_AI_Media.pdf", "multimodal-ai.html", "Mu
  "<h3>AI media brief</h3>" + TPL_CANVAS(["Purpose & audience", "Brand rules", "Tool & licence", "Consent needed?", "Review steps", "Labelling", "Accessibility (alt text, captions)"]))
 
 ALL = [STRATEGY, AIUX, PRICING, MLPM, GOV, PLATFORM, OPS, MEDIA]
+
+import course_sysdesign
+ALL.append(course_sysdesign.COURSE)
