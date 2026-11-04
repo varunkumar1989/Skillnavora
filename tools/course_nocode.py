@@ -102,3 +102,7 @@ Rules: a class can't be booked when full; confirmation message after booking.</p
  tpl("Lovable", ["Users and roles", "Pages", "Data tables", "Rules", "Integrations", "Domain + analytics", "10 test cases"]))
 
 ALL = [ZAPIER, MAKE, REPLIT, LOVABLE]
+
+import exp_d, exp_e, exp_f
+exp_d.zapier(ZAPIER); exp_d.make(MAKE); exp_e.replit(REPLIT); exp_e.lovable(LOVABLE)
+for _C in ALL: exp_f.apply(_C)

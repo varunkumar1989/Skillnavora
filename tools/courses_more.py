@@ -284,3 +284,12 @@ ALL = [STRATEGY, AIUX, PRICING, MLPM, GOV, PLATFORM, OPS, MEDIA]
 import course_sysdesign, course_productdesign
 ALL.append(course_sysdesign.COURSE)
 ALL.append(course_productdesign.COURSE)
+
+import exp_a
+exp_a.strategy(STRATEGY); exp_a.productops(OPS); exp_a.governance(GOV)
+import exp_b
+exp_b.mlproducts(MLPM); exp_b.pricing(PRICING); exp_b.platform(PLATFORM)
+import exp_c
+exp_c.aiux(AIUX); exp_c.multimodal(MEDIA)
+import exp_f
+for _C in ALL[:8]: exp_f.apply(_C)
