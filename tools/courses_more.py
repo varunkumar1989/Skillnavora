@@ -281,5 +281,6 @@ MEDIA = C("multimodal", "Multimodal_and_AI_Media.pdf", "multimodal-ai.html", "Mu
 
 ALL = [STRATEGY, AIUX, PRICING, MLPM, GOV, PLATFORM, OPS, MEDIA]
 
-import course_sysdesign
+import course_sysdesign, course_productdesign
 ALL.append(course_sysdesign.COURSE)
+ALL.append(course_productdesign.COURSE)

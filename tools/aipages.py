@@ -237,6 +237,7 @@ def write_index(out):
           "Pricing & Monetising AI Products | /ai-pricing.html | PM",
           "Machine Learning Products for PMs | /ml-products.html | PM, data",
           "System Design & Databases for PMs | /system-design-for-pms.html | PM, data, AI and ML",
+          "Product Design for PMs: Complete Guide | /product-design-for-pms.html | PM, design",
           "AI Governance & Responsible AI (EU AI Act, DPDP) | /ai-governance.html | PM, GenAI",
           "Platform & API Product Management | /platform-api-pm.html | PM",
           "Product Operations | /product-ops.html | PM",
