@@ -61,7 +61,7 @@
 
   /* ---- "Log in" becomes "My learning" when signed in ---- */
   const nl = $("nav-login");
-  // Signed in: show "My courses" and an avatar menu, like Airtribe.
+  // Signed in: show "My courses" and an avatar menu, in the style of a learning platform.
   try {
     const key = nl && Object.keys(localStorage).find(k => /^sb-.+-auth-token$/.test(k));
     const ses = key && JSON.parse(localStorage.getItem(key)), u = ses && (ses.user || (ses.currentSession || {}).user);

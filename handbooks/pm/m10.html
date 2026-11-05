@@ -53,7 +53,7 @@
 <div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
 </nav>
 <main class="main" id="content"><div class="article">
-<header class="page-head"><div class="kicker">Module 10</div><h1>LLMs, RAGs, and AI Foundations</h1><p>Understand how modern AI works, when to use it, how to ground and evaluate it, and how to manage cost, risk and governance as an AI PM.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 35, 37, 38, 39, 40, 45, 47, 50, 51; Picture lessons (LLM, vectors, RAG); Companion ch. 10–13, 16</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m10" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m10-ai-machine-learning-deep-learning-and-generative-ai">AI, machine learning, deep learning and generative AI</a></li><li><a href="#m10-large-language-models-tokens-and-tokenisation">Large language models, tokens and tokenisation</a></li><li><a href="#m10-embeddings-vector-databases-and-semantic-search">Embeddings, vector databases and semantic search</a></li><li><a href="#m10-prompt-engineering">Prompt engineering</a></li><li><a href="#m10-retrieval-augmented-generation-rag">Retrieval-Augmented Generation (RAG)</a></li><li><a href="#m10-fine-tuning-versus-rag-versus-prompting">Fine-tuning versus RAG versus prompting</a></li><li><a href="#m10-model-evaluation-and-llm-evaluation-methodologies">Model evaluation and LLM evaluation methodologies</a></li><li><a href="#m10-hallucinations-and-grounding">Hallucinations and grounding</a></li><li><a href="#m10-ai-safety-data-privacy-and-security">AI safety, data privacy and security</a></li><li><a href="#m10-cost-versus-latency">Cost versus latency</a></li><li><a href="#m10-ai-product-metrics">AI product metrics</a></li><li><a href="#m10-human-in-the-loop-hitl-systems">Human-in-the-loop (HITL) systems</a></li><li><a href="#m10-ai-product-discovery-use-case-prioritisation-and-model-selection">AI product discovery, use-case prioritisation and model selection</a></li><li><a href="#m10-ai-product-lifecycle-production-monitoring-and-governance">AI product lifecycle, production monitoring and governance</a></li><li><a href="#m10-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m10-interview-perspective">Interview perspective</a></li><li><a href="#m10-key-takeaways">Key takeaways</a></li><li><a href="#m10-check-your-understanding">Check your understanding</a></li><li><a href="#m10-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
+<header class="page-head"><div class="kicker">Module 10</div><h1>LLMs, RAGs, and AI Foundations</h1><p>Understand how modern AI works, when to use it, how to ground and evaluate it, and how to manage cost, risk and governance as an AI PM.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 35, 37, 38, 39, 40, 45, 47, 50, 51; Picture lessons (LLM, vectors, RAG); Companion ch. 10–13, 16; class deck: LLMs and RAG</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m10" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m10-ai-machine-learning-deep-learning-and-generative-ai">AI, machine learning, deep learning and generative AI</a></li><li><a href="#m10-large-language-models-tokens-and-tokenisation">Large language models, tokens and tokenisation</a></li><li><a href="#m10-embeddings-vector-databases-and-semantic-search">Embeddings, vector databases and semantic search</a></li><li><a href="#m10-prompt-engineering">Prompt engineering</a></li><li><a href="#m10-retrieval-augmented-generation-rag">Retrieval-Augmented Generation (RAG)</a></li><li><a href="#m10-fine-tuning-versus-rag-versus-prompting">Fine-tuning versus RAG versus prompting</a></li><li><a href="#m10-model-evaluation-and-llm-evaluation-methodologies">Model evaluation and LLM evaluation methodologies</a></li><li><a href="#m10-hallucinations-and-grounding">Hallucinations and grounding</a></li><li><a href="#m10-ai-safety-data-privacy-and-security">AI safety, data privacy and security</a></li><li><a href="#m10-cost-versus-latency">Cost versus latency</a></li><li><a href="#m10-ai-product-metrics">AI product metrics</a></li><li><a href="#m10-human-in-the-loop-hitl-systems">Human-in-the-loop (HITL) systems</a></li><li><a href="#m10-ai-product-discovery-use-case-prioritisation-and-model-selection">AI product discovery, use-case prioritisation and model selection</a></li><li><a href="#m10-ai-product-lifecycle-production-monitoring-and-governance">AI product lifecycle, production monitoring and governance</a></li><li><a href="#m10-why-pms-must-understand-llms-and-how-they-predict-the-next-word">Why PMs must understand LLMs, and how they predict the next word</a></li><li><a href="#m10-llm-vocabulary-tokens-and-embeddings-you-can-try-yourself">LLM vocabulary, tokens and embeddings you can try yourself</a></li><li><a href="#m10-prompt-engineering-for-pms-the-quality-ladder-prep-and-crispe">Prompt engineering for PMs: the quality ladder, PREP and CRISPE</a></li><li><a href="#m10-rag-for-pms-grounded-answers-and-a-mini-product-assistant">RAG for PMs: grounded answers and a mini product assistant</a></li><li><a href="#m10-designing-a-system-prompt-for-a-prd-writing-assistant">Designing a system prompt for a PRD-writing assistant</a></li><li><a href="#m10-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m10-interview-perspective">Interview perspective</a></li><li><a href="#m10-key-takeaways">Key takeaways</a></li><li><a href="#m10-check-your-understanding">Check your understanding</a></li><li><a href="#m10-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
 <p class="admonition-title">About AI examples and prices</p>
 <p>Model capabilities, context limits and prices change frequently and differ by vendor and plan. All prices here are <strong>hypothetical round numbers</strong> for arithmetic practice. Check current vendor documentation before making decisions.</p>
 </div>
@@ -366,7 +366,350 @@ Levers: shorter system prompts, fewer/better retrieved chunks, caching repeated 
 <figure class="viz" role="img" aria-label="Process: Problem &amp; baseline → Data &amp; eval set → Prototype → Pilot with HITL → Launch &amp; monitor → Improve or retire"><svg viewBox="0 0 720 258" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="124.66666666666667" y="28" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Problem &amp; baseline</tspan></text><text x="116.66666666666667" y="58" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Is AI needed? Non-AI baseline</tspan></text><line x1="226.3" y1="52.0" x2="250.3" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="22" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="26" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">2</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Data &amp; eval set</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Authorised data; test cases incl.</tspan><tspan x="360.0" dy="11">edge/adversarial</tspan></text><line x1="469.7" y1="52.0" x2="493.7" y2="52.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="6" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="22" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="26" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">3</tspan></text><text x="611.3333333333334" y="28" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Prototype</tspan></text><text x="603.3333333333334" y="58" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Prompt/RAG; iterate on eval</tspan></text><path d="M603.3,100 L603.3,112 L116.7,112 L116.7,130" class="edge" fill="none" marker-end="url(#ah)"/><rect x="10.0" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="26.0" cy="148" r="11" fill="var(--c1)"/><text x="26.0" y="152" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">4</tspan></text><text x="124.66666666666667" y="154" class="b small" text-anchor="middle"><tspan x="124.66666666666667" dy="0">Pilot with HITL</tspan></text><text x="116.66666666666667" y="184" class="mut tiny" text-anchor="middle"><tspan x="116.66666666666667" dy="0">Limited users; human review;</tspan><tspan x="116.66666666666667" dy="11">guardrails</tspan></text><line x1="226.3" y1="178.0" x2="250.3" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="253.3" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="269.3" cy="148" r="11" fill="var(--c1)"/><text x="269.33333333333337" y="152" class="on-fill b small" text-anchor="middle"><tspan x="269.33333333333337" dy="0">5</tspan></text><text x="368.0" y="154" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Launch &amp; monitor</tspan></text><text x="360.0" y="184" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Quality sampling, drift, cost,</tspan><tspan x="360.0" dy="11">incidents</tspan></text><line x1="469.7" y1="178.0" x2="493.7" y2="178.0" class="edge" marker-end="url(#ah)"/><rect x="496.7" y="132" width="213.3" height="92" rx="10" class="node"/><circle cx="512.7" cy="148" r="11" fill="var(--c1)"/><text x="512.6666666666667" y="152" class="on-fill b small" text-anchor="middle"><tspan x="512.6666666666667" dy="0">6</tspan></text><text x="611.3333333333334" y="154" class="b small" text-anchor="middle"><tspan x="611.3333333333334" dy="0">Improve or retire</tspan></text><text x="603.3333333333334" y="184" class="mut tiny" text-anchor="middle"><tspan x="603.3333333333334" dy="0">Re-run evals on every change</tspan></text></svg><figcaption><strong>AI product lifecycle.</strong> The evaluation set is the backbone of the lifecycle; every model, prompt, source or tool change re-runs it.</figcaption></figure>
 <p><strong>Production monitoring:</strong> sample and review answers weekly; track quality and safety metrics; watch for <strong>drift</strong> (new topics, changed policies, model version updates); alert on spikes in escalation or negative feedback; log prompts/responses with privacy controls; incident process for harmful outputs.</p>
 <p><strong>AI governance:</strong> documented intended use and limitations (model/system cards); risk assessment; human oversight; accountability (named owner); audit trails; bias and fairness testing; incident response; compliance with applicable law. Reference frameworks: the <strong>NIST AI Risk Management Framework</strong> (Govern, Map, Measure, Manage) and the <strong>EU AI Act</strong>, which takes a risk-based approach with obligations phased in over several years — seek qualified legal advice for specifics.</p>
-<h2 id="m10-exercises-with-model-answers"><span class="hnum">10.15</span> Exercises with model answers</h2>
+<h2 id="m10-why-pms-must-understand-llms-and-how-they-predict-the-next-word"><span class="hnum">10.15</span> Why PMs must understand LLMs, and how they predict the next word</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 10 · LLMs and RAG for PMs)</p>
+<p>The deck's message: software can now understand natural language, so products move from "you search" to "it recommends" to "it collaborates". PMs bridge human needs and machine capabilities, so they need a simple mental model of how an LLM works (data → training → inference), the AI product landscape and the parts of an AI system.</p>
+</div>
+<p><strong>What is hard for people is often easy for AI, and the reverse.</strong> Writing a poem about heartbreak is easy for a language model; counting chairs in a messy room from a camera is surprisingly hard. Knowing which tasks fit the technology is a core PM skill.</p>
+<h3 id="m10-the-simplest-accurate-picture"><span class="hnum">10.15.1</span> The simplest accurate picture</h3>
+<ul>
+<li>An LLM is a <strong>giant statistical prediction machine</strong>. Given the text so far, it predicts the most likely <strong>next token</strong>, adds it, and repeats.</li>
+<li>Example: "Where there's a will, there's a ..." The model assigns high probability to "way", lower to others. It outputs <strong>probability, not truth</strong>.</li>
+<li>It learns patterns of grammar, reasoning style, code, writing styles and many factual associations from huge text collections.</li>
+<li><strong>Temperature</strong> controls randomness: low gives focused, repeatable answers; high gives more varied, creative answers.</li>
+</ul>
+<h3 id="m10-neural-network-basics-without-the-maths"><span class="hnum">10.15.2</span> Neural network basics without the maths</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Idea</th>
+<th>Plain meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Neuron</strong></td>
+<td>A small unit that takes numbers in, weighs them and passes a number on</td>
+</tr>
+<tr>
+<td><strong>Weight</strong></td>
+<td>How strongly one input influences the result (learned)</td>
+</tr>
+<tr>
+<td><strong>Bias</strong></td>
+<td>A learned offset that shifts the result up or down</td>
+</tr>
+<tr>
+<td><strong>Parameters</strong></td>
+<td>All the weights and biases together; modern LLMs have billions or more</td>
+</tr>
+<tr>
+<td><strong>Training</strong></td>
+<td>Show the model text, compare its prediction with the real next word, nudge the parameters to reduce the error, repeat billions of times (like learning to balance by falling and adjusting)</td>
+</tr>
+<tr>
+<td><strong>Inference</strong></td>
+<td>Using the trained model to answer new prompts</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition example">
+<p class="admonition-title">A tiny numeric picture</p>
+<p>One neuron receives inputs 5 and 5 with weights 5 and 5, plus a bias of 10: 5×5 + 5×5 + 10 = 60. Change one weight and the output changes. An LLM does this across billions of numbers, which is why individual parameters cannot be read like rules.</p>
+</div>
+<h2 id="m10-llm-vocabulary-tokens-and-embeddings-you-can-try-yourself"><span class="hnum">10.16</span> LLM vocabulary, tokens and embeddings you can try yourself</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>PM-friendly meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Token</strong></td>
+<td>A chunk of text (a word or part of a word) that the model processes; cost and limits are counted in tokens</td>
+</tr>
+<tr>
+<td><strong>Parameter</strong></td>
+<td>A learned number inside the model; more parameters usually means more capability and more cost</td>
+</tr>
+<tr>
+<td><strong>Model</strong></td>
+<td>The trained "brain" that predicts the next token given context</td>
+</tr>
+<tr>
+<td><strong>Temperature</strong></td>
+<td>Randomness setting</td>
+</tr>
+<tr>
+<td><strong>Context window</strong></td>
+<td>How much text the model can consider at once (the prompt, history and documents together)</td>
+</tr>
+<tr>
+<td><strong>NLP</strong></td>
+<td>Natural language processing: computers working with human language</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m10-how-an-llm-reads-text"><span class="hnum">10.16.1</span> How an LLM "reads" text</h3>
+<ol>
+<li><strong>Tokenisation:</strong> "It is raining outside" is split into tokens and each gets an ID, for example [132, 234, 545, 678]. Try an online tokenizer to see how your text splits; non-English and code often use more tokens, which raises cost.</li>
+<li><strong>Embeddings:</strong> each token becomes a long list of numbers (a <strong>vector</strong>) that captures meaning. Words used in similar ways land close together: "king" near "emperor". Visual embedding explorers let you see clusters.</li>
+<li><strong>Layers of processing</strong> use these vectors to predict the next token.</li>
+</ol>
+<h3 id="m10-common-pitfalls-to-design-around"><span class="hnum">10.16.2</span> Common pitfalls to design around</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Pitfall</th>
+<th>What it means</th>
+<th>Product response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hallucination</strong></td>
+<td>Confident but wrong output</td>
+<td>Ground answers in sources (RAG), show citations, add review for risky tasks</td>
+</tr>
+<tr>
+<td><strong>Bias</strong></td>
+<td>The model reflects imbalances in its training data</td>
+<td>Test across groups, add guardrails, keep humans in the loop for sensitive decisions</td>
+</tr>
+<tr>
+<td><strong>Overfitting</strong></td>
+<td>A model memorises its training data and performs poorly on new data (mostly a risk in fine-tuned or custom models)</td>
+<td>Hold out test data, evaluate on realistic new examples</td>
+</tr>
+<tr>
+<td><strong>Stale knowledge</strong></td>
+<td>The model does not know recent events</td>
+<td>Retrieval, browsing or regular updates</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m10-prompt-engineering-for-pms-the-quality-ladder-prep-and-crispe"><span class="hnum">10.17</span> Prompt engineering for PMs: the quality ladder, PREP and CRISPE</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 10, Day 2)</p>
+<p>A prompt is a creative brief, not a question. It carries role, context and constraints, and its quality depends on clarity and specificity. The deck shows a four-rung quality ladder (vague, clear, contextual, strategic), the <strong>PREP</strong> framework (Purpose, Requirements, Examples, Parameters), a six-part framework (Context, Role, Instruction, Specification, Performance, Example), tone switching, and the habit of iterating and testing.</p>
+</div>
+<h3 id="m10-the-prompt-quality-ladder"><span class="hnum">10.17.1</span> The prompt quality ladder</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Rung</th>
+<th>Example</th>
+<th>Why it improves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vague</strong></td>
+<td>"Write about my product."</td>
+<td>No audience, goal or format</td>
+</tr>
+<tr>
+<td><strong>Clear</strong></td>
+<td>"Describe my scheduling tool for remote teams."</td>
+<td>Names the product and audience</td>
+</tr>
+<tr>
+<td><strong>Contextual</strong></td>
+<td>"Describe my scheduling tool for remote teams who struggle with handoffs between time zones."</td>
+<td>Adds the pain point</td>
+</tr>
+<tr>
+<td><strong>Strategic</strong></td>
+<td>"Write three benefit-led taglines for a scheduling tool for async remote teams, each under 8 words, for a landing-page hero."</td>
+<td>Adds goal, constraints and format</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m10-prep"><span class="hnum">10.17.2</span> PREP</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Letter</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P</strong>urpose</td>
+<td>What deliverable, for what use</td>
+<td>"Describe a new feature for our team app in a release note"</td>
+</tr>
+<tr>
+<td><strong>R</strong>equirements</td>
+<td>Must-include points, audience, tone</td>
+<td>"Focus on speed and teamwork; for busy managers"</td>
+</tr>
+<tr>
+<td><strong>E</strong>xamples</td>
+<td>Show what good looks like</td>
+<td>"Assign, track, and celebrate milestones, all in one view."</td>
+</tr>
+<tr>
+<td><strong>P</strong>arameters</td>
+<td>Length, format, style limits</td>
+<td>"Upbeat tone, three sentences maximum"</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m10-the-six-part-framework-crispe-style"><span class="hnum">10.17.3</span> The six-part framework (CRISPE-style)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What you give</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C</strong>ontext</td>
+<td>Who you are, the situation, goals, audience</td>
+<td>"I'm a career coach writing short posts for aspiring PMs"</td>
+</tr>
+<tr>
+<td><strong>R</strong>ole</td>
+<td>Who the AI should act as</td>
+<td>"Act as a senior content strategist"</td>
+</tr>
+<tr>
+<td><strong>I</strong>nstruction</td>
+<td>The task and why</td>
+<td>"Write one post from this idea, built for high retention"</td>
+</tr>
+<tr>
+<td><strong>S</strong>pecification</td>
+<td>Format, length, tone, must-haves</td>
+<td>"Hook under 8 words; short sentences; no emojis; a closing question"</td>
+</tr>
+<tr>
+<td><strong>P</strong>erformance</td>
+<td>Success criteria and what to avoid</td>
+<td>"Scannable and engaging; avoid corporate tone and long paragraphs"</td>
+</tr>
+<tr>
+<td><strong>E</strong>xample</td>
+<td>A sample of the style you want</td>
+<td>One short sample post</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m10-tone-is-a-powerful-parameter"><span class="hnum">10.17.4</span> Tone is a powerful parameter</h3>
+<p>The same description can be professional ("An assistant that drafts efficient, brand-correct emails in seconds"), playful ("Your cheeky inbox sidekick") or inspirational ("Communicate with clarity and purpose"). Generate three tones, test with real users or teammates, and keep a short <strong>voice guide</strong> for your brand.</p>
+<h3 id="m10-iterate-and-test"><span class="hnum">10.17.5</span> Iterate and test</h3>
+<ol>
+<li>Run the prompt on <strong>5 to 10 realistic inputs</strong>, not one.</li>
+<li>Note failures (missed constraint, wrong tone, made-up facts).</li>
+<li>Change <strong>one thing at a time</strong> and re-run.</li>
+<li>Save versions and results; keep your best prompt and test set together.</li>
+</ol>
+<h2 id="m10-rag-for-pms-grounded-answers-and-a-mini-product-assistant"><span class="hnum">10.18</span> RAG for PMs: grounded answers and a mini product assistant</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 10)</p>
+<p>RAG = retrieval plus generation: find relevant material first, then let the model answer using it. Benefits for PMs: consistent support answers from documentation, faster competitor and market research, instant internal knowledge retrieval. The deck's task: design a RAG flow that answers product questions from FAQs or documents and returns a clear answer in a chat tool or sheet.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Benefit of RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Support chatbot</td>
+<td>Answers stay consistent with current policy documents</td>
+</tr>
+<tr>
+<td>Product research</td>
+<td>Faster synthesis of competitor pages and reports</td>
+</tr>
+<tr>
+<td>Internal tools</td>
+<td>Instant answers from wikis and past decisions</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Simplified pipeline:</strong> documents → split into chunks → embed and index → user question → find the most relevant chunks → build a prompt with the question and chunks → model answers with citations → log and evaluate.</p>
+<div class="admonition hypo">
+<p class="admonition-title">Worked design · a mini product assistant (hypothetical)</p>
+<ul>
+<li><strong>Input:</strong> your FAQ, release notes and pricing page.</li>
+<li><strong>Retrieval:</strong> embed each section; for a question like "Does the Pro plan include export?" fetch the top 3 sections.</li>
+<li><strong>Prompt:</strong> "Answer only from the context. If the answer is not there, say you do not know and suggest contacting support. Cite section titles."</li>
+<li><strong>Output:</strong> a short answer plus source links, posted to a team chat channel.</li>
+<li><strong>Evaluate:</strong> 30 real questions; measure correct answers, "I don't know" correctness, citation accuracy and time saved.</li>
+<li><strong>Risks:</strong> outdated documents (re-index on change), private data (access controls), over-trusting answers (show sources).</li>
+</ul>
+</div>
+<h2 id="m10-designing-a-system-prompt-for-a-prd-writing-assistant"><span class="hnum">10.19</span> Designing a system prompt for a PRD-writing assistant</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 10 assignments)</p>
+<p>One assignment asks for a reusable <strong>system prompt</strong> that makes a model act as an expert PM and writer of PRDs, specifying role, PRD structure, tone and depth, formatting, guardrails and clarifying-question behaviour, then using it to produce a PRD for a product of your choice. Prompt engineering is framed as <strong>process design</strong>. The second brief gives a hard product problem (detecting and handling fast-mobilising content on a social platform without becoming a censor) to be worked through with that system prompt.</p>
+</div>
+<h3 id="m10-what-a-system-prompt-for-a-prd-writer-should-specify"><span class="hnum">10.19.1</span> What a system prompt for a PRD writer should specify</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Element</th>
+<th>What to write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Role</strong></td>
+<td>"You are a senior product manager with 10+ years in consumer and B2B products."</td>
+</tr>
+<tr>
+<td><strong>Structure</strong></td>
+<td>Problem statement; goals and non-goals; users and personas; user stories; scope and requirements; success metrics and guardrails; risks and dependencies; rollout plan; open questions</td>
+</tr>
+<tr>
+<td><strong>Tone and depth</strong></td>
+<td>Concise, plain language, business-facing; technical detail only when needed</td>
+</tr>
+<tr>
+<td><strong>Formatting</strong></td>
+<td>Headings, tables for metrics, numbered user stories, a one-paragraph summary at the top</td>
+</tr>
+<tr>
+<td><strong>Guardrails</strong></td>
+<td>Do not invent metrics or data; mark assumptions; flag missing information; include edge cases, privacy and abuse cases</td>
+</tr>
+<tr>
+<td><strong>Clarifying behaviour</strong></td>
+<td>Ask 3 to 5 scoping questions before drafting; if the user says "just draft", write with explicit assumptions listed</td>
+</tr>
+<tr>
+<td><strong>Output checks</strong></td>
+<td>Before finishing, check that every goal has a metric and every risk has a mitigation</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m10-a-starter-system-prompt-adapt-it"><span class="hnum">10.19.2</span> A starter system prompt (adapt it)</h3>
+<pre><code>You are a senior product manager who writes clear, testable PRDs.
+Before drafting, ask 3-5 short questions about users, problem, goals,
+constraints and timeline. If the user asks you to proceed, draft using
+clearly labelled assumptions.
+Structure: 1 Summary; 2 Problem and evidence; 3 Goals and non-goals;
+4 Users and personas; 5 User stories with acceptance criteria;
+6 Requirements (functional, non-functional); 7 Success metrics (primary,
+secondary, guardrail) in a table; 8 Risks, dependencies and open questions;
+9 Rollout plan and experiment design.
+Rules: never invent data or metrics; mark unknowns as &quot;Open question&quot;;
+cover edge cases, privacy, abuse and failure states; keep sentences short.
+</code></pre>
+<h3 id="m10-approach-to-a-hard-product-brief"><span class="hnum">10.19.3</span> Approach to a hard product brief</h3>
+<p>For a prompt like the "fast-mobilising content" problem: define the harm precisely, list stakeholders (creators, viewers, regulators, moderators), set <strong>signals</strong> (velocity of sharing, unverified source, coordinated accounts) and <strong>graduated responses</strong> (labels, slowing reshare, human review) with clear lines against censorship, define metrics and guardrails (reach of verified content, false-positive rate, appeal outcomes), plan experiments and transparency reporting. Use AI to brainstorm, but make sure the final reasoning, structure and judgement are yours.</p>
+<h2 id="m10-exercises-with-model-answers"><span class="hnum">10.20</span> Exercises with model answers</h2>
 <div class="admonition question">
 <p class="admonition-title">Exercise 1 · RAG or fine-tune?</p>
 <p>A bank wants an assistant that answers questions about fee schedules that change monthly and must cite the exact clause. Choose an approach and justify.</p>
@@ -391,7 +734,7 @@ Levers: shorter system prompts, fewer/better retrieved chunks, caching repeated 
 <summary>Model answer</summary>
 <p>Categories: (1) answerable with single clause, (2) answer requires combining two clauses, (3) not covered → must say so and route to HR, (4) restricted documents → must not reveal to unauthorised users, (5) prompt injection in a document. Pass criteria: ≥ 90% correct with correct citation on (1)–(2); 100% correct behaviour on (3)–(5) (any failure blocks launch). Re-run on every change; human review of disagreements.</p>
 </details>
-<h2 id="m10-interview-perspective"><span class="hnum">10.16</span> Interview perspective</h2>
+<h2 id="m10-interview-perspective"><span class="hnum">10.21</span> Interview perspective</h2>
 <details class="question">
 <summary>“How would you decide whether to use an LLM for a feature?” — structure</summary>
 <p>1) Define the user problem and success metric. 2) Establish a non-AI baseline (rules, search, templates). 3) Check fit: language-heavy, variable inputs, tolerance for imperfect output, available authorised data. 4) Risks: hallucination impact, privacy, safety, regulation. 5) Prototype quickly; build an eval set. 6) Decide with eval results, cost and latency vs the baseline. 7) Plan HITL, monitoring and rollback. <em>Mistake:</em> starting with “we should add AI”.</p>
@@ -400,7 +743,7 @@ Levers: shorter system prompts, fewer/better retrieved chunks, caching repeated 
 <summary>“Explain RAG to a non-technical executive.” — 60-second answer</summary>
 <p>“RAG is like giving the AI an open-book exam. When a customer asks a question, we first search our approved documents for the most relevant passages, then ask the model to answer <em>using only those passages</em> and show where the answer came from. That keeps answers current and checkable without retraining the model. It's not foolproof — if the search finds the wrong page or the page is outdated, the answer can still be wrong — so we test it on a set of real questions, require citations and route uncertain cases to people.”</p>
 </details>
-<h2 id="m10-key-takeaways"><span class="hnum">10.17</span> Key takeaways</h2>
+<h2 id="m10-key-takeaways"><span class="hnum">10.22</span> Key takeaways</h2>
 <ul>
 <li>LLMs <strong>predict tokens</strong>; fluency ≠ truth. Ground, cite, evaluate.</li>
 <li><strong>Embeddings</strong> enable semantic search; similarity ≠ correctness. Hybrid search often wins.</li>
@@ -409,9 +752,9 @@ Levers: shorter system prompts, fewer/better retrieved chunks, caching repeated 
 <li>Manage <strong>cost and latency</strong> in tokens; route, cache, trim context.</li>
 <li>Use <strong>HITL</strong>, permission-aware retrieval and governance; enforce access outside the model.</li>
 </ul>
-<h2 id="m10-check-your-understanding"><span class="hnum">10.18</span> Check your understanding</h2>
+<h2 id="m10-check-your-understanding"><span class="hnum">10.23</span> Check your understanding</h2>
 <div class="quiz" data-quiz="m10"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Which statement about RAG is correct?</p><ol><li class="">RAG retrains the model on your documents</li><li class="is-correct">RAG retrieves relevant content at answer time and adds it to the model&#x27;s context</li><li class="">RAG requires a vector database</li><li class="">Every chatbot uses RAG</li></ol><div class="why"><strong>Why:</strong> RAG is retrieval at question time; it doesn&#x27;t retrain the model, and retrieval can be keyword, semantic or hybrid.</div></div><div class="qitem" data-correct="1"><p class="q">Two embeddings have cosine similarity 0.98. This means…</p><ol><li class="">Both statements are true</li><li class="is-correct">They are very similar in the model&#x27;s representation</li><li class="">They contain the same words</li><li class="">One is a copy of the other</li></ol><div class="why"><strong>Why:</strong> High cosine similarity indicates closeness in embedding space, not truth or identical wording.</div></div><div class="qitem" data-correct="1"><p class="q">When is fine-tuning most appropriate?</p><ol><li class="">To add knowledge that changes daily</li><li class="is-correct">To get consistent behaviour/format on a stable task with many good examples</li><li class="">To provide citations</li><li class="">To prevent all hallucinations</li></ol><div class="why"><strong>Why:</strong> Fine-tuning shapes behaviour; it&#x27;s poor for fresh knowledge and doesn&#x27;t eliminate hallucinations.</div></div><div class="qitem" data-correct="1"><p class="q">Where should access control for documents be enforced in a RAG system?</p><ol><li class="">In the prompt instructions</li><li class="is-correct">In retrieval/filtering, outside the model</li><li class="">By trusting the model</li><li class="">Nowhere</li></ol><div class="why"><strong>Why:</strong> Never rely on the model to hide unauthorised content; filter before content reaches it.</div></div><div class="qitem" data-correct="1"><p class="q">An eval shows 92% overall pass, but one test leaked another customer&#x27;s data. You should…</p><ol><li class="">Ship — 92% is good</li><li class="is-correct">Treat it as a blocking severity-1 failure and fix before launch</li><li class="">Ignore the test</li><li class="">Lower the threshold</li></ol><div class="why"><strong>Why:</strong> Aggregate scores hide severity; privacy leaks block launch.</div></div><div class="qitem" data-correct="0"><p class="q">At $3/M input and $15/M output, 1,000 input + 200 output tokens cost…</p><ol><li class="is-correct">$0.006</li><li class="">$0.0018</li><li class="">$0.003</li><li class="">$0.18</li></ol><div class="why"><strong>Why:</strong> 1,000 × 3/1M = $0.003; 200 × 15/1M = $0.003; total $0.006.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
-<h2 id="m10-recommended-resources"><span class="hnum">10.19</span> Recommended resources</h2>
+<h2 id="m10-recommended-resources"><span class="hnum">10.24</span> Recommended resources</h2>
 <ul>
 <li><a href="https://developers.google.com/machine-learning/glossary">Google: Machine Learning Glossary</a> and <a href="https://developers.google.com/machine-learning/crash-course/embeddings">Embeddings crash course</a> (from your course references).</li>
 <li><a href="https://cloud.google.com/use-cases/retrieval-augmented-generation">Google Cloud: What is RAG?</a> (course reference).</li>

@@ -53,7 +53,7 @@
 <div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
 </nav>
 <main class="main" id="content"><div class="article">
-<header class="page-head"><div class="kicker">Module 11</div><h1>Vibe Coding for Product Managers</h1><p>Use AI coding tools to turn ideas into testable prototypes — safely — and know exactly where a prototype ends and production engineering begins.</p><div class="chips"><span class="chip">≈ 10 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 42, 43, 48, 49, 50; Companion ch. 20, 21, 22, 23, 24, 26, 28</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m11" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m11-what-vibe-coding-means">What vibe coding means</a></li><li><a href="#m11-pm-use-cases">PM use cases</a></li><li><a href="#m11-ai-coding-tools-categories">AI coding tools — categories</a></li><li><a href="#m11-prompt-to-prototype-workflow">Prompt-to-prototype workflow</a></li><li><a href="#m11-git-and-github-fundamentals">Git and GitHub fundamentals</a></li><li><a href="#m11-html-css-and-javascript-fundamentals">HTML, CSS and JavaScript fundamentals</a></li><li><a href="#m11-building-basic-web-applications-api-integrations-and-databases">Building basic web applications, API integrations and databases</a></li><li><a href="#m11-deployment-fundamentals">Deployment fundamentals</a></li><li><a href="#m11-debugging-and-testing-ai-generated-code">Debugging and testing AI-generated code</a></li><li><a href="#m11-security-risks-of-generated-code">Security risks of generated code</a></li><li><a href="#m11-prototyping-versus-production-development-and-when-engineering-review-is-necessary">Prototyping versus production development — and when engineering review is necessary</a></li><li><a href="#m11-building-and-validating-mvps-with-vibe-coding">Building and validating MVPs with vibe coding</a></li><li><a href="#m11-hands-on-project-from-idea-to-deployed-prototype">Hands-on project: from idea to deployed prototype</a></li><li><a href="#m11-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m11-interview-perspective">Interview perspective</a></li><li><a href="#m11-key-takeaways">Key takeaways</a></li><li><a href="#m11-check-your-understanding">Check your understanding</a></li><li><a href="#m11-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
+<header class="page-head"><div class="kicker">Module 11</div><h1>Vibe Coding for Product Managers</h1><p>Use AI coding tools to turn ideas into testable prototypes — safely — and know exactly where a prototype ends and production engineering begins.</p><div class="chips"><span class="chip">≈ 10 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 42, 43, 48, 49, 50; Companion ch. 20, 21, 22, 23, 24, 26, 28; class deck: Vibe Coding</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m11" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m11-what-vibe-coding-means">What vibe coding means</a></li><li><a href="#m11-pm-use-cases">PM use cases</a></li><li><a href="#m11-ai-coding-tools-categories">AI coding tools — categories</a></li><li><a href="#m11-prompt-to-prototype-workflow">Prompt-to-prototype workflow</a></li><li><a href="#m11-git-and-github-fundamentals">Git and GitHub fundamentals</a></li><li><a href="#m11-html-css-and-javascript-fundamentals">HTML, CSS and JavaScript fundamentals</a></li><li><a href="#m11-building-basic-web-applications-api-integrations-and-databases">Building basic web applications, API integrations and databases</a></li><li><a href="#m11-deployment-fundamentals">Deployment fundamentals</a></li><li><a href="#m11-debugging-and-testing-ai-generated-code">Debugging and testing AI-generated code</a></li><li><a href="#m11-security-risks-of-generated-code">Security risks of generated code</a></li><li><a href="#m11-prototyping-versus-production-development-and-when-engineering-review-is-necessary">Prototyping versus production development — and when engineering review is necessary</a></li><li><a href="#m11-building-and-validating-mvps-with-vibe-coding">Building and validating MVPs with vibe coding</a></li><li><a href="#m11-hands-on-project-from-idea-to-deployed-prototype">Hands-on project: from idea to deployed prototype</a></li><li><a href="#m11-why-pms-need-vibe-coding-and-how-it-differs-from-traditional-coding">Why PMs need vibe coding, and how it differs from traditional coding</a></li><li><a href="#m11-the-first-prompt-is-the-most-important-prompt">The first prompt is the most important prompt</a></li><li><a href="#m11-live-demo-ideas-limits-and-pm-use-cases">Live demo ideas, limits and PM use cases</a></li><li><a href="#m11-debugging-mindset-and-reliable-ai-built-apps">Debugging mindset and reliable AI-built apps</a></li><li><a href="#m11-give-your-app-a-memory-databases-apis-and-connectors">Give your app a memory: databases, APIs and connectors</a></li><li><a href="#m11-project-ideas-and-how-to-show-your-skills-in-interviews">Project ideas and how to show your skills in interviews</a></li><li><a href="#m11-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m11-interview-perspective">Interview perspective</a></li><li><a href="#m11-key-takeaways">Key takeaways</a></li><li><a href="#m11-check-your-understanding">Check your understanding</a></li><li><a href="#m11-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
 <p class="admonition-title">Tool details change fast</p>
 <p>Features, pricing, credits and plan limits of AI coding tools change frequently. This module describes <strong>categories and workflows</strong> and links to official docs. Verify current terms in your own account before relying on any capability.</p>
 </div>
@@ -415,7 +415,280 @@ Output: index.html, style.css, app.js. Then explain how to run it and list what 
 <p><strong>Step 8 — Decide.</strong> Readout: what you tested, results (e.g., “5 of 6 stated the correct total before paying; 1 missed the ‘est.’ label”), what you'll change, what remains unproven (real fee accuracy, real conversion), and the next test (A/B in the real product — Module 7).</p>
 <h3 id="m11-portfolio-presentation"><span class="hnum">11.13.1</span> Portfolio presentation</h3>
 <p>Include: the problem and hypothesis; a 60-second screen recording; the live prototype link; what is simulated; test method and <strong>real</strong> results (or “not measured”); what you learned; how a production version would differ (security, data, scale); and your role (be specific about what the AI generated vs what you decided and tested).</p>
-<h2 id="m11-exercises-with-model-answers"><span class="hnum">11.14</span> Exercises with model answers</h2>
+<h2 id="m11-why-pms-need-vibe-coding-and-how-it-differs-from-traditional-coding"><span class="hnum">11.14</span> Why PMs need vibe coding, and how it differs from traditional coding</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 10-11 · Vibe Coding for PMs)</p>
+<p>Traditional product building makes PMs wait weeks for design and engineering time, slows hypothesis testing and makes early visualisation hard. Vibe coding lets a PM build faster prototypes, communicate better with engineers and designers, test product logic before sprint planning and automate recurring PM tasks. The deck's workflow is <strong>Prompt → Test → Refine</strong>.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Traditional coding</th>
+<th>Vibe coding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Language</strong></td>
+<td>Programming syntax</td>
+<td>Natural language</td>
+</tr>
+<tr>
+<td><strong>Workflow</strong></td>
+<td>Write → compile → debug</td>
+<td>Describe → test → refine</td>
+</tr>
+<tr>
+<td><strong>Users</strong></td>
+<td>Engineers</td>
+<td>Builders and PMs</td>
+</tr>
+<tr>
+<td><strong>Goal</strong></td>
+<td>Precision and robustness</td>
+<td>Speed and exploration</td>
+</tr>
+<tr>
+<td><strong>Output quality</strong></td>
+<td>Reviewed, tested, maintainable</td>
+<td>Fast prototype that needs review before production</td>
+</tr>
+</tbody>
+</table></div>
+<p>Key attitude: <strong>aim for progress, not perfection.</strong> The process is iterative; you fail fast and learn fast.</p>
+<h2 id="m11-the-first-prompt-is-the-most-important-prompt"><span class="hnum">11.15</span> The first prompt is the most important prompt</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 10-11)</p>
+<p>The first prompt sets the direction, like the angle of a rocket launch: a small error early becomes a large one later. Treat it like a short PRD. The deck's recipe: a one-line overview, details of the core MVP functionality (including login, authentication and database at this stage), and style details with screenshots. Refine the prompt with a chat assistant first, and start over if the first result is not at least 60 to 70% of what you wanted.</p>
+</div>
+<h3 id="m11-a-recipe-for-the-first-prompt"><span class="hnum">11.15.1</span> A recipe for the first prompt</h3>
+<ol>
+<li><strong>One-line overview:</strong> what you are building and for whom.</li>
+<li><strong>Core MVP functionality:</strong> the main use case only; include login, user accounts and data storage if you need them.</li>
+<li><strong>Style:</strong> colours, tone, layout, and <strong>screenshots</strong> of apps you like.</li>
+<li><strong>Success criteria:</strong> "The app succeeds if the user can ___."</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Refine before you build</p>
+<p>Paste your first prompt into a chat assistant and ask: "Rewrite this prompt to be more concise and detailed." Then take the improved version to the builder tool.</p>
+</div>
+<h3 id="m11-a-basic-first-prompt-template"><span class="hnum">11.15.2</span> A basic first-prompt template</h3>
+<pre><code>I need a [type of application] with [list of features]. It will be used by
+[target audience] to solve [core problem]. It succeeds if the user can
+[achieve X].
+Start with the main page containing: [detailed page requirements].
+Use a modern, clean, responsive design. Show clear loading, success and
+error states, and confirmation messages. Use sample data for now.
+</code></pre>
+<h3 id="m11-working-rules-that-save-time-and-credits"><span class="hnum">11.15.3</span> Working rules that save time and credits</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Give at most about three things per prompt</strong></td>
+<td>AI makes more mistakes when asked to do many things at once</td>
+</tr>
+<tr>
+<td><strong>Start with an MVP and iterate by version</strong></td>
+<td>Easier to test and to understand what broke</td>
+</tr>
+<tr>
+<td><strong>Revert to the previous version when stuck</strong></td>
+<td>Faster than debugging a tangle</td>
+</tr>
+<tr>
+<td><strong>Start over if the first result is under 60 to 70% right</strong></td>
+<td>A better PRD and screenshots usually beat patching</td>
+</tr>
+<tr>
+<td><strong>Save each prompt and result</strong></td>
+<td>You learn what works and can reuse it</td>
+</tr>
+<tr>
+<td><strong>Do not begin with a huge PRD</strong></td>
+<td>Large, heavy prompts create bugs; build in slices</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m11-where-to-find-screenshots-and-inspiration"><span class="hnum">11.15.4</span> Where to find screenshots and inspiration</h3>
+<ul>
+<li>Products similar to what you want: assistants for chat apps, large social products for feeds and profiles, forums for discussion layouts, and the builder tool's own interface for tools.</li>
+<li>Design galleries and component libraries (Dribbble, Behance, community component sites) for layouts, styles and components.</li>
+<li>Official design guidelines from platform makers for menus, actions and components.</li>
+</ul>
+<h2 id="m11-live-demo-ideas-limits-and-pm-use-cases"><span class="hnum">11.16</span> Live demo ideas, limits and PM use cases</h2>
+<p>Good first builds (idea → prompt → working app in minutes): a calculator, a task tracker, a weather fetcher that calls an external API, a meeting-notes organiser, a feature-prioritisation scorer.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>PM use case</th>
+<th>What you can build</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Internal tool</strong></td>
+<td>Meeting-notes organiser, decision log</td>
+</tr>
+<tr>
+<td><strong>Dashboard</strong></td>
+<td>Metrics from a spreadsheet</td>
+</tr>
+<tr>
+<td><strong>Prototype</strong></td>
+<td>An onboarding flow to test with users</td>
+</tr>
+<tr>
+<td><strong>Automation</strong></td>
+<td>Slack alerts, email reports</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m11-the-limits-of-building-with-ai"><span class="hnum">11.16.1</span> The limits of building with AI</h3>
+<ul>
+<li>Limited control over backend logic and depth.</li>
+<li>Debugging complex systems is hard; you may not understand what the code does.</li>
+<li>Often missing version control, automated tests and security review.</li>
+<li><strong>Not production-grade by default:</strong> treat output as a prototype until engineers review security, scale and compliance.</li>
+</ul>
+<h2 id="m11-debugging-mindset-and-reliable-ai-built-apps"><span class="hnum">11.17</span> Debugging mindset and reliable AI-built apps</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 10-11, Day 2)</p>
+<p>AI mistakes are communication gaps. Do not rewrite everything: fix one issue at a time, ask the AI to explain its code, and iterate like a conversation. Best practices: save prompt versions, keep each prompt to one clear outcome, add acceptance criteria and test inputs after every major change.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Likely cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code error</td>
+<td>Missing context</td>
+<td>Provide the error message, steps and the step-by-step logic you expect</td>
+</tr>
+<tr>
+<td>Wrong output format</td>
+<td>Vague instruction</td>
+<td>Specify the exact format (columns, order, units)</td>
+</tr>
+<tr>
+<td>Unexpected behaviour</td>
+<td>Overloaded prompt</td>
+<td>Break into sub-tasks; do one at a time</td>
+</tr>
+<tr>
+<td>Slow or laggy app</td>
+<td>Too many dependencies or heavy loops</td>
+<td>Simplify the flow; ask the tool to optimise a specific part</td>
+</tr>
+<tr>
+<td>Fix breaks another thing</td>
+<td>No tests or versions</td>
+<td>Revert; add acceptance criteria and test each change</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Debug prompt template:</strong> "When I [action] on [screen], I expect [result] but I get [result]. The console shows [error]. Explain the likely cause first, then propose a fix. Do not change anything else."</p>
+<p><strong>Acceptance criteria examples:</strong> "The total count updates immediately after adding an item", "An empty title shows an error and does not save", "Data is still there after refreshing the page".</p>
+<h2 id="m11-give-your-app-a-memory-databases-apis-and-connectors"><span class="hnum">11.18</span> Give your app a memory: databases, APIs and connectors</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 10-11, Day 2)</p>
+<p>The frontend shows data; the backend stores it. A managed backend service gives an instant database and login without writing SQL: define data like a spreadsheet. Apps connect to other apps through APIs (weather, saving tasks, updating a spreadsheet). The hands-on mini task: create a table, link it to the app and add and read entries.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Plain meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frontend</strong></td>
+<td>What the user sees and clicks</td>
+<td>A task list</td>
+</tr>
+<tr>
+<td><strong>Backend</strong></td>
+<td>Code and data behind the scenes</td>
+<td>Saving the task</td>
+</tr>
+<tr>
+<td><strong>Database table</strong></td>
+<td>A spreadsheet-like store of records</td>
+<td>Tasks: title, status, owner, created at</td>
+</tr>
+<tr>
+<td><strong>Authentication</strong></td>
+<td>Who is this user?</td>
+<td>Email login</td>
+</tr>
+<tr>
+<td><strong>API connector</strong></td>
+<td>Your app calls another service</td>
+<td>Weather data, a spreadsheet, a chat tool</td>
+</tr>
+<tr>
+<td><strong>Secret / API key</strong></td>
+<td>A password for a service</td>
+<td>Keep on the server side, never in the front-end</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m11-mini-project-add-memory-to-a-notes-app"><span class="hnum">11.18.1</span> Mini project: add memory to a notes app</h3>
+<ol>
+<li>Ask the builder to create a notes app with sample data.</li>
+<li>Create a table (for example <strong>Notes</strong>: id, text, created_at, user).</li>
+<li>Connect the app to the table with the tool's data connection feature.</li>
+<li>Test: add a note, refresh, confirm it persists; add a second user and confirm they do not see each other's notes.</li>
+<li>Add one API connector (for example a weather lookup or a spreadsheet export) and test failure messages.</li>
+</ol>
+<p>You have just built a full-stack app without writing code. Next: security review, backups and a decision on whether it stays a prototype.</p>
+<h2 id="m11-project-ideas-and-how-to-show-your-skills-in-interviews"><span class="hnum">11.19</span> Project ideas and how to show your skills in interviews</h2>
+<p><strong>Project ideas:</strong> a feature-prioritisation dashboard; a team task notifier (chat tool plus database); a product-feedback summariser (spreadsheet plus an AI model); a release-notes generator; a meeting-actions tracker.</p>
+<p><strong>Deliverable:</strong> a working demo plus your <strong>prompt documentation</strong> (versions, what changed and why).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Interviewers look for</th>
+<th>How to show it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Problem framing</strong></td>
+<td>A one-paragraph problem statement and user; a clear first prompt</td>
+</tr>
+<tr>
+<td><strong>Quality of prompts</strong></td>
+<td>Structured prompts with acceptance criteria and examples</td>
+</tr>
+<tr>
+<td><strong>Debugging logic</strong></td>
+<td>A log of issues, causes and fixes; one rollback you made on purpose</td>
+</tr>
+<tr>
+<td><strong>Product thinking</strong></td>
+<td>Metrics, what you cut, what you would test next, and what engineers must harden</td>
+</tr>
+<tr>
+<td><strong>Honest limits</strong></td>
+<td>Security, scale and data privacy gaps you identified</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m11-exercises-with-model-answers"><span class="hnum">11.20</span> Exercises with model answers</h2>
 <div class="admonition question">
 <p class="admonition-title">Exercise 1 · Spot the problems</p>
 <p>An AI-generated app stores an API key in <code>app.js</code>, renders user comments with <code>innerHTML</code>, and saves data only to <code>localStorage</code>. You plan to share it with 50 customers. What must change?</p>
@@ -440,7 +713,7 @@ Output: index.html, style.css, app.js. Then explain how to run it and list what 
 <summary>Model answer</summary>
 <p>Engineering (data access method, read-only replica, performance), security/IT (credentials, access control, approved tools), data/privacy (PII exposure, retention), and the data owner (permission). Even read-only access to production data is a production concern; use an approved read-only replica or an extract with minimised fields.</p>
 </details>
-<h2 id="m11-interview-perspective"><span class="hnum">11.15</span> Interview perspective</h2>
+<h2 id="m11-interview-perspective"><span class="hnum">11.21</span> Interview perspective</h2>
 <details class="question">
 <summary>“How do you use AI coding tools as a PM?” — 60-second answer</summary>
 <p>“I use them to make ideas testable quickly — clickable prototypes with fictional data that I put in front of users within days. I write a short brief with the hypothesis, flows, states and accessibility needs, build in small steps, test each one, and keep everything in Git. I label what's simulated, never use real customer data, and I hand off to engineering for anything with real data, auth, payments or customers relying on it. The value is faster learning, not shipping AI-written code to production unreviewed.”</p>
@@ -449,7 +722,7 @@ Output: index.html, style.css, app.js. Then explain how to run it and list what 
 <summary>“Walk me through a prototype you built.” — structure</summary>
 <p>Problem and hypothesis → users → what you built (stack, scope, what's simulated) → how you tested it (sessions, metrics) → results (real numbers or “not measured”) → what you'd do next → what engineering would need to productionise it. Be explicit about your contribution versus the AI's.</p>
 </details>
-<h2 id="m11-key-takeaways"><span class="hnum">11.16</span> Key takeaways</h2>
+<h2 id="m11-key-takeaways"><span class="hnum">11.22</span> Key takeaways</h2>
 <ul>
 <li>Vibe coding accelerates <strong>learning</strong>; it doesn't remove the need for <strong>engineering judgment</strong>.</li>
 <li>Work in <strong>small, tested, committed steps</strong>; describe symptoms precisely when debugging.</li>
@@ -457,9 +730,9 @@ Output: index.html, style.css, app.js. Then explain how to run it and list what 
 <li><strong>Never put secrets in frontends</strong>, never use real customer data in unreviewed prototypes, and label simulations.</li>
 <li>Bring in <strong>engineering review</strong> before real data, auth, payments, integrations or public company use.</li>
 </ul>
-<h2 id="m11-check-your-understanding"><span class="hnum">11.17</span> Check your understanding</h2>
+<h2 id="m11-check-your-understanding"><span class="hnum">11.23</span> Check your understanding</h2>
 <div class="quiz" data-quiz="m11"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Where should a secret API key live in a web prototype?</p><ol><li class="">In app.js so it&#x27;s easy to find</li><li class="is-correct">In a server-side function or secret manager</li><li class="">In the README</li><li class="">In localStorage</li></ol><div class="why"><strong>Why:</strong> Anything in frontend code is visible to users; secrets must be server-side.</div></div><div class="qitem" data-correct="1"><p class="q">A form appears to save data, but after reload it&#x27;s gone. Most likely…</p><ol><li class="">The AI tool is broken</li><li class="is-correct">The UI isn&#x27;t connected to persistent storage</li><li class="">The browser is too old</li><li class="">It&#x27;s an accessibility issue</li></ol><div class="why"><strong>Why:</strong> A screen with a form isn&#x27;t necessarily wired to storage; verify the data flow.</div></div><div class="qitem" data-correct="1"><p class="q">Which practice makes AI-assisted coding mistakes cheapest to undo?</p><ol><li class="">One huge prompt for the whole app</li><li class="is-correct">Small steps with a commit after each working step</li><li class="">Never testing</li><li class="">Editing production directly</li></ol><div class="why"><strong>Why:</strong> Small committed increments let you revert precisely.</div></div><div class="qitem" data-correct="1"><p class="q">When is engineering review required?</p><ol><li class="">Never for prototypes</li><li class="is-correct">Before real user data, auth, payments, integrations or public company use</li><li class="">Only for mobile apps</li><li class="">Only if the AI says so</li></ol><div class="why"><strong>Why:</strong> These introduce security, privacy, reliability and legal obligations.</div></div><div class="qitem" data-correct="1"><p class="q">Rendering user-entered text with innerHTML risks…</p><ol><li class="">Slow performance only</li><li class="is-correct">Cross-site scripting (XSS)</li><li class="">Nothing</li><li class="">Rate limiting</li></ol><div class="why"><strong>Why:</strong> innerHTML can execute injected markup; use textContent or sanitisation.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
-<h2 id="m11-recommended-resources"><span class="hnum">11.18</span> Recommended resources</h2>
+<h2 id="m11-recommended-resources"><span class="hnum">11.24</span> Recommended resources</h2>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development">MDN: Learn web development</a> — HTML, CSS, JavaScript basics.</li>
 <li><a href="https://docs.github.com/en/get-started/using-github/hello-world">GitHub Docs: Hello World</a> and <a href="https://docs.github.com/en/pages/quickstart">GitHub Pages quickstart</a>.</li>

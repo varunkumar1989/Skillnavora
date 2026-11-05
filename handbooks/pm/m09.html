@@ -53,7 +53,7 @@
 <div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
 </nav>
 <main class="main" id="content"><div class="article">
-<header class="page-head"><div class="kicker">Module 9</div><h1>Tech 101 and System Design for PMs</h1><p>Understand how software works well enough to ask the right questions, make trade-offs with engineers, and explain systems in interviews.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 12, 29, 30, 33, 34; Companion ch. 7, 8, 9, 18, 24; Extra topics 12, 13</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m09" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m09-how-the-internet-works-the-60-second-version">How the internet works (the 60-second version)</a></li><li><a href="#m09-frontend-backend-and-clientserver-architecture">Frontend, backend and client–server architecture</a></li><li><a href="#m09-apis-rest-graphql-and-json">APIs, REST, GraphQL and JSON</a></li><li><a href="#m09-authentication-authorisation-and-oauth">Authentication, authorisation and OAuth</a></li><li><a href="#m09-databases-sql-vs-nosql-and-data-modelling">Databases, SQL vs NoSQL, and data modelling</a></li><li><a href="#m09-cloud-computing-aws-azure-and-gcp">Cloud computing: AWS, Azure and GCP</a></li><li><a href="#m09-monolith-vs-microservices">Monolith vs microservices</a></li><li><a href="#m09-caching-load-balancing-queues-event-driven-systems-webhooks-and-cdns">Caching, load balancing, queues, event-driven systems, webhooks and CDNs</a></li><li><a href="#m09-scalability-reliability-availability-latency-and-throughput">Scalability, reliability, availability, latency and throughput</a></li><li><a href="#m09-security-fundamentals">Security fundamentals</a></li><li><a href="#m09-privacy-and-compliance-basics">Privacy and compliance basics</a></li><li><a href="#m09-system-architecture-diagrams">System architecture diagrams</a></li><li><a href="#m09-technical-debt-and-engineering-estimation">Technical debt and engineering estimation</a></li><li><a href="#m09-agile-delivery-cicd-and-feature-flags">Agile delivery, CI/CD and feature flags</a></li><li><a href="#m09-observability">Observability</a></li><li><a href="#m09-technical-trade-offs-a-pm-should-recognise">Technical trade-offs a PM should recognise</a></li><li><a href="#m09-system-design-examples">System design examples</a></li><li><a href="#m09-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m09-interview-perspective">Interview perspective</a></li><li><a href="#m09-key-takeaways">Key takeaways</a></li><li><a href="#m09-check-your-understanding">Check your understanding</a></li><li><a href="#m09-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
+<header class="page-head"><div class="kicker">Module 9</div><h1>Tech 101 and System Design for PMs</h1><p>Understand how software works well enough to ask the right questions, make trade-offs with engineers, and explain systems in interviews.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 12, 29, 30, 33, 34; Companion ch. 7, 8, 9, 18, 24; Extra topics 12, 13; class deck: Tech 101 and System Design</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m09" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m09-how-the-internet-works-the-60-second-version">How the internet works (the 60-second version)</a></li><li><a href="#m09-frontend-backend-and-clientserver-architecture">Frontend, backend and client–server architecture</a></li><li><a href="#m09-apis-rest-graphql-and-json">APIs, REST, GraphQL and JSON</a></li><li><a href="#m09-authentication-authorisation-and-oauth">Authentication, authorisation and OAuth</a></li><li><a href="#m09-databases-sql-vs-nosql-and-data-modelling">Databases, SQL vs NoSQL, and data modelling</a></li><li><a href="#m09-cloud-computing-aws-azure-and-gcp">Cloud computing: AWS, Azure and GCP</a></li><li><a href="#m09-monolith-vs-microservices">Monolith vs microservices</a></li><li><a href="#m09-caching-load-balancing-queues-event-driven-systems-webhooks-and-cdns">Caching, load balancing, queues, event-driven systems, webhooks and CDNs</a></li><li><a href="#m09-scalability-reliability-availability-latency-and-throughput">Scalability, reliability, availability, latency and throughput</a></li><li><a href="#m09-security-fundamentals">Security fundamentals</a></li><li><a href="#m09-privacy-and-compliance-basics">Privacy and compliance basics</a></li><li><a href="#m09-system-architecture-diagrams">System architecture diagrams</a></li><li><a href="#m09-technical-debt-and-engineering-estimation">Technical debt and engineering estimation</a></li><li><a href="#m09-agile-delivery-cicd-and-feature-flags">Agile delivery, CI/CD and feature flags</a></li><li><a href="#m09-observability">Observability</a></li><li><a href="#m09-technical-trade-offs-a-pm-should-recognise">Technical trade-offs a PM should recognise</a></li><li><a href="#m09-system-design-examples">System design examples</a></li><li><a href="#m09-follow-one-tap-through-the-system-the-otp-login-walkthrough">Follow one tap through the system: the OTP login walkthrough</a></li><li><a href="#m09-requests-responses-and-status-codes-as-user-experience">Requests, responses and status codes as user experience</a></li><li><a href="#m09-data-memory-and-speed-databases-compute-and-mobile-constraints">Data, memory and speed: databases, compute and mobile constraints</a></li><li><a href="#m09-caching-cdns-async-work-and-observability-making-products-feel-fast-and-reliable">Caching, CDNs, async work and observability: making products feel fast and reliable</a></li><li><a href="#m09-functional-and-non-functional-requirements">Functional and non-functional requirements</a></li><li><a href="#m09-technical-trade-offs-build-vs-buy-and-architecture-choices">Technical trade-offs, build vs buy and architecture choices</a></li><li><a href="#m09-delivery-management-for-pms-sprint-planning-backlog-grooming-and-estimation">Delivery management for PMs: sprint planning, backlog grooming and estimation</a></li><li><a href="#m09-worked-system-cases-for-pms">Worked system cases for PMs</a></li><li><a href="#m09-practice-brief-design-a-personalised-learning-recommendation-system">Practice brief: design a personalised learning recommendation system</a></li><li><a href="#m09-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m09-interview-perspective">Interview perspective</a></li><li><a href="#m09-key-takeaways">Key takeaways</a></li><li><a href="#m09-check-your-understanding">Check your understanding</a></li><li><a href="#m09-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
 <p class="admonition-title">About the architectures</p>
 <p>Diagrams are <strong>simplified teaching architectures</strong>, not descriptions of how any named company actually builds its systems. Numbers are illustrative.</p>
 </div>
@@ -583,7 +583,554 @@ The mean hides that 1 in 20 users waits ≥ 400 ms. Set targets on p95/p99 for u
 <h3 id="m09-5-customer-onboarding-fintech-kyc"><span class="hnum">9.17.5</span> 5 · Customer onboarding (fintech KYC)</h3>
 <figure class="viz" role="img" aria-label="Process: Sign up → Identity → Checks → Decision → Activate"><svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><rect x="10.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="26.0" cy="22" r="11" fill="var(--c1)"/><text x="26.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="26.0" dy="0">1</tspan></text><text x="76.0" y="28" class="b small" text-anchor="middle"><tspan x="76.0" dy="0">Sign up</tspan></text><text x="68.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="68.0" dy="0">Phone/email</tspan><tspan x="68.0" dy="11">verification (OTP)</tspan></text><line x1="129.0" y1="56.0" x2="153.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="156.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="172.0" cy="22" r="11" fill="var(--c1)"/><text x="172.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="172.0" dy="0">2</tspan></text><text x="222.0" y="28" class="b small" text-anchor="middle"><tspan x="222.0" dy="0">Identity</tspan></text><text x="214.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="214.0" dy="0">ID document + selfie</tspan><tspan x="214.0" dy="11">/ liveness via KYC</tspan><tspan x="214.0" dy="11">vendor</tspan></text><line x1="275.0" y1="56.0" x2="299.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="302.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="318.0" cy="22" r="11" fill="var(--c1)"/><text x="318.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="318.0" dy="0">3</tspan></text><text x="368.0" y="28" class="b small" text-anchor="middle"><tspan x="368.0" dy="0">Checks</tspan></text><text x="360.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="360.0" dy="0">Sanctions/PEP</tspan><tspan x="360.0" dy="11">screening, fraud</tspan><tspan x="360.0" dy="11">signals, credit</tspan><tspan x="360.0" dy="11">bureau (if lending)</tspan></text><line x1="421.0" y1="56.0" x2="445.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="448.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="464.0" cy="22" r="11" fill="var(--c1)"/><text x="464.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="464.0" dy="0">4</tspan></text><text x="514.0" y="28" class="b small" text-anchor="middle"><tspan x="514.0" dy="0">Decision</tspan></text><text x="506.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="506.0" dy="0">Auto-approve, manual</tspan><tspan x="506.0" dy="11">review queue, or</tspan><tspan x="506.0" dy="11">decline with reason</tspan></text><line x1="567.0" y1="56.0" x2="591.0" y2="56.0" class="edge" marker-end="url(#ah)"/><rect x="594.0" y="6" width="116.0" height="100" rx="10" class="node"/><circle cx="610.0" cy="22" r="11" fill="var(--c1)"/><text x="610.0" y="26" class="on-fill b small" text-anchor="middle"><tspan x="610.0" dy="0">5</tspan></text><text x="660.0" y="28" class="b small" text-anchor="middle"><tspan x="660.0" dy="0">Activate</tspan></text><text x="652.0" y="58" class="mut tiny" text-anchor="middle"><tspan x="652.0" dy="0">Account/card ready;</tspan><tspan x="652.0" dy="11">first transaction</tspan></text></svg><figcaption><strong>Digital onboarding with KYC (simplified).</strong> Asynchronous steps (vendor checks, manual review) need clear status pages and notifications. Each step is a drop-off point and a compliance obligation.</figcaption></figure>
 <p><strong>Key risks:</strong> high drop-off at document upload; vendor latency/outages; false rejections (bias, poor image quality); fraud; data protection. <strong>PM decisions:</strong> progressive onboarding (collect only what is needed now), save-and-resume, camera guidance, manual-review SLAs, adverse-action explanations. <strong>Metrics:</strong> step completion, time to decision, auto-approval rate, manual review backlog, fraud rate, complaints.</p>
-<h2 id="m09-exercises-with-model-answers"><span class="hnum">9.18</span> Exercises with model answers</h2>
+<h2 id="m09-follow-one-tap-through-the-system-the-otp-login-walkthrough"><span class="hnum">9.18</span> Follow one tap through the system: the OTP login walkthrough</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 9 · Tech 101 and System Design)</p>
+<p>The deck uses an OTP login to show how one user action travels through frontend, API, backend, database and a third-party service, and how each layer can fail. It then repeats the idea for a referral flow and a payment flow.</p>
+</div>
+<p>A one-time-password (OTP) login looks simple. Here is what really happens, and the questions a PM should ask at each step.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What the user sees</th>
+<th>What the system does</th>
+<th>PM questions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Enter number</strong></td>
+<td>A phone field and a "Get OTP" button</td>
+<td><strong>Frontend</strong> checks the format (10 digits), disables the button, shows a loader</td>
+<td>What if the user mistypes? Is autofill supported? Which country codes?</td>
+</tr>
+<tr>
+<td><strong>2. Request sent</strong></td>
+<td>Loading spinner</td>
+<td><strong>API call</strong> sends the number to the server over HTTPS</td>
+<td>What if the network drops? Do we retry safely?</td>
+</tr>
+<tr>
+<td><strong>3. Backend logic</strong></td>
+<td>Nothing</td>
+<td>Validates the request, checks rate limits (to stop abuse), creates a random code with a short expiry</td>
+<td>How many OTPs per number per hour? How long is a code valid?</td>
+</tr>
+<tr>
+<td><strong>4. Database</strong></td>
+<td>Nothing</td>
+<td>Stores the code (hashed), attempts and status; finds or creates the user record</td>
+<td>What do we store, for how long, and who can see it (privacy)?</td>
+</tr>
+<tr>
+<td><strong>5. Third-party SMS service</strong></td>
+<td>An SMS arrives</td>
+<td>The backend calls an SMS provider, which routes through carriers</td>
+<td>What if delivery is slow? Is there a fallback (voice call, email, WhatsApp)?</td>
+</tr>
+<tr>
+<td><strong>6. Verify</strong></td>
+<td>User types the code</td>
+<td>API checks code, expiry and attempts; issues a session token</td>
+<td>What after 3 wrong tries? Can the screen auto-read the SMS?</td>
+</tr>
+<tr>
+<td><strong>7. Logged in</strong></td>
+<td>Home screen</td>
+<td>Frontend stores the token; later requests include it</td>
+<td>What if the token is stolen? How long does a session last?</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Common failure points:</strong> SMS delay (vendor or carrier), wrong-code attempts, expired codes, rate limits blocking real users, regional blocks (do-not-disturb rules), and long flows that lose users. A good PM designs for the failure paths, not only for the success path.</p>
+<h3 id="m09-why-one-flow-helps-you-understand-everything"><span class="hnum">9.18.1</span> Why one flow helps you understand everything</h3>
+<p>Every product action (place an order, send a message, pay a bill) follows the same chain: <strong>user action → frontend → API → backend logic → database → third-party services → response back to the screen</strong>. When something is slow or broken you can ask: <em>which layer?</em></p>
+<div class="admonition tip">
+<p class="admonition-title">A question to ask in standups</p>
+<p>"Is the problem on the screen, in the request, in our logic, in our data, or with a vendor?" This one question turns vague bugs into assignable work.</p>
+</div>
+<h2 id="m09-requests-responses-and-status-codes-as-user-experience"><span class="hnum">9.19</span> Requests, responses and status codes as user experience</h2>
+<p>Every API call is a <strong>request</strong> (what the app asks) and a <strong>response</strong> (what the server answers). The <strong>status code</strong> says how it went, and each family implies a different user experience.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Code family</th>
+<th>Examples</th>
+<th>Meaning</th>
+<th>What the user should see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2xx success</strong></td>
+<td>200 OK, 201 Created</td>
+<td>It worked</td>
+<td>Confirmation and the next step</td>
+</tr>
+<tr>
+<td><strong>3xx redirect</strong></td>
+<td>301, 302</td>
+<td>Look elsewhere</td>
+<td>Usually invisible</td>
+</tr>
+<tr>
+<td><strong>4xx client problem</strong></td>
+<td>400 bad input, 401 not logged in, 403 not allowed, 404 not found, 429 too many requests</td>
+<td>The request was wrong or limited</td>
+<td>A specific, helpful message: "Enter a valid 10-digit number", "Please log in again", "Too many tries, wait 30 seconds"</td>
+</tr>
+<tr>
+<td><strong>5xx server problem</strong></td>
+<td>500, 502, 503, 504</td>
+<td>Our side failed</td>
+<td>An apology, a safe retry and no lost data: "We could not place your order. You were not charged."</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition tip">
+<p class="admonition-title">Do not design only the happy path</p>
+<p>List every error code your flow can return and write the message, the retry rule and the support path for each. A generic "Something went wrong" is a design bug.</p>
+</div>
+<h3 id="m09-internet-vs-web-client-vs-server"><span class="hnum">9.19.1</span> Internet vs web, client vs server</h3>
+<ul>
+<li>The <strong>internet</strong> is the global network of connected computers. The <strong>web</strong> is one service that runs on it: pages and apps requested with HTTP.</li>
+<li>The <strong>client</strong> (browser or app) asks; the <strong>server</strong> answers. Many products also have <strong>servers talking to servers</strong> (your backend to a payment gateway).</li>
+<li>Slowness can come from the device, the network, the server, the database or a vendor. Ask for timing at each hop.</li>
+</ul>
+<h2 id="m09-data-memory-and-speed-databases-compute-and-mobile-constraints"><span class="hnum">9.20</span> Data, memory and speed: databases, compute and mobile constraints</h2>
+<h3 id="m09-databases-as-the-products-memory"><span class="hnum">9.20.1</span> Databases as the product's memory</h3>
+<p>A product's features are only as good as what it remembers: users, orders, preferences, history. Think of the database as the <strong>memory</strong> and the backend as the <strong>brain</strong>.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Store type</th>
+<th>Shape</th>
+<th>Good for</th>
+<th>Product examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SQL (relational)</strong></td>
+<td>Tables, rows, joins</td>
+<td>Orders, payments, accounts, reports: anything needing consistency</td>
+<td>Order history, wallet balance</td>
+</tr>
+<tr>
+<td><strong>Document</strong></td>
+<td>JSON-like documents</td>
+<td>Flexible, nested data</td>
+<td>Product catalogue, user profiles</td>
+</tr>
+<tr>
+<td><strong>Key-value</strong></td>
+<td>One key, one value, very fast</td>
+<td>Sessions, carts, counters, caches</td>
+<td>Logged-in session, rate-limit counters</td>
+</tr>
+<tr>
+<td><strong>Graph</strong></td>
+<td>Nodes and relationships</td>
+<td>Connections and recommendations</td>
+<td>"People you may know", fraud rings</td>
+</tr>
+<tr>
+<td><strong>Wide-column / time-series</strong></td>
+<td>Huge write volumes</td>
+<td>Events, sensor data, chats</td>
+<td>Order status events</td>
+</tr>
+<tr>
+<td><strong>Vector</strong></td>
+<td>Meaning as numbers</td>
+<td>AI search</td>
+<td>Semantic search for help articles</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>PM rule:</strong> choose by <strong>access pattern and correctness needs</strong>, not fashion. Many products use several stores.</p>
+<h3 id="m09-compute-memory-and-why-products-become-slow"><span class="hnum">9.20.2</span> Compute, memory and why products become slow</h3>
+<ul>
+<li><strong>Compute (CPU/GPU)</strong> does the work; <strong>memory (RAM)</strong> holds what it is working on right now; <strong>storage</strong> keeps data long-term.</li>
+<li>A feature gets slow when it needs more computing than provisioned, loads too much data into memory, or makes many small calls in sequence.</li>
+<li>Fixes: better queries and indexes, caching, doing work in the background, smaller payloads, scaling servers. Ask engineers which applies and what each costs.</li>
+</ul>
+<h3 id="m09-web-vs-mobile-same-logic-different-constraints"><span class="hnum">9.20.3</span> Web vs mobile: same logic, different constraints</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Web</th>
+<th>Mobile app</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Updates</strong></td>
+<td>Instant for all users</td>
+<td>Needs an app-store release; users update slowly</td>
+</tr>
+<tr>
+<td><strong>Network</strong></td>
+<td>Usually stable</td>
+<td>Weak, switching networks, offline moments</td>
+</tr>
+<tr>
+<td><strong>Device</strong></td>
+<td>Large screen, keyboard</td>
+<td>Small screen, touch, battery, camera, GPS, push notifications</td>
+</tr>
+<tr>
+<td><strong>Distribution</strong></td>
+<td>Link and search</td>
+<td>App stores and installs</td>
+</tr>
+<tr>
+<td><strong>Design implication</strong></td>
+<td>Responsive layouts</td>
+<td>Thumb reach, offline states, background limits</td>
+</tr>
+</tbody>
+</table></div>
+<p>Implication for requirements: specify behaviour <strong>per platform</strong> (what happens with no network, with an old app version, with a low-end device).</p>
+<h2 id="m09-caching-cdns-async-work-and-observability-making-products-feel-fast-and-reliable"><span class="hnum">9.21</span> Caching, CDNs, async work and observability: making products feel fast and reliable</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>What it does</th>
+<th>PM implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Caching</strong></td>
+<td>Keeps recent answers close for quick reuse</td>
+<td>Faster pages and lower cost, but data can be stale; decide how fresh each screen must be</td>
+</tr>
+<tr>
+<td><strong>CDN</strong></td>
+<td>Serves images, video and static files from servers near the user</td>
+<td>Faster loads for a country-wide audience; plan for cache refresh when assets change</td>
+</tr>
+<tr>
+<td><strong>Asynchronous processing</strong></td>
+<td>Slow work (sending email, generating invoices, video processing) happens in the background while the user continues</td>
+<td>Show "we are working on it" and notify when done; handle failure and retry</td>
+</tr>
+<tr>
+<td><strong>Polling vs webhooks</strong></td>
+<td><strong>Polling:</strong> keep asking "is it done?". <strong>Webhook:</strong> the other system tells you when it is</td>
+<td>Webhooks are faster and cheaper but need retry and security design; polling is simple but wasteful</td>
+</tr>
+<tr>
+<td><strong>Logging</strong></td>
+<td>Records what happened (events, errors)</td>
+<td>Needed to debug and audit; decide what is logged and for how long (privacy)</td>
+</tr>
+<tr>
+<td><strong>Monitoring and alerts</strong></td>
+<td>Watches metrics (errors, latency) and alerts people</td>
+<td>Define SLAs and what "healthy" means; ask for dashboards in your launch checklist</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example · why 'order placed' is asynchronous (hypothetical)</p>
+<p>After you tap Pay, the screen shows "Order received" within a second. In the background: payment is confirmed by the gateway, the restaurant is notified, a delivery partner is searched and a confirmation SMS is sent. If the gateway confirms late, the order stays "pending" and the app polls or waits for a webhook. A PM decides what to show in each state and when to give up and refund.</p>
+</div>
+<h2 id="m09-functional-and-non-functional-requirements"><span class="hnum">9.22</span> Functional and non-functional requirements</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 9)</p>
+<p>The deck separates <strong>functional requirements</strong> (what the system should do) from <strong>non-functional requirements</strong> (NFRs: how well it should do it), uses a messaging app as the example, and contrasts weak and strong requirements.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Functional requirement (FR)</th>
+<th>Non-functional requirement (NFR)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Question</strong></td>
+<td>What can the user do?</td>
+<td>How fast, safe, available, scalable?</td>
+</tr>
+<tr>
+<td><strong>Messaging example</strong></td>
+<td>Send text and photos; see delivery ticks; receive notifications</td>
+<td>Messages delivered within 2 seconds on 4G; end-to-end encryption; works at 100 million daily users; 99.95% availability</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m09-main-nfr-categories-use-as-a-checklist"><span class="hnum">9.22.1</span> Main NFR categories (use as a checklist)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Question to ask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance</strong></td>
+<td>How fast must key actions be? (page load, search, checkout)</td>
+</tr>
+<tr>
+<td><strong>Scalability</strong></td>
+<td>How much growth and spikes must we handle?</td>
+</tr>
+<tr>
+<td><strong>Availability and reliability</strong></td>
+<td>Allowed downtime? What if a component fails?</td>
+</tr>
+<tr>
+<td><strong>Security and privacy</strong></td>
+<td>Who can access what? Encryption, consent, retention?</td>
+</tr>
+<tr>
+<td><strong>Compliance</strong></td>
+<td>Which laws and rules apply? (data protection, payments, accessibility)</td>
+</tr>
+<tr>
+<td><strong>Monitoring and logging</strong></td>
+<td>What must be measured and kept for audits?</td>
+</tr>
+<tr>
+<td><strong>Extensibility</strong></td>
+<td>How easily can we add features, partners, languages?</td>
+</tr>
+<tr>
+<td><strong>Usability and accessibility</strong></td>
+<td>Which devices, languages and accessibility standards?</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m09-weak-vs-strong-requirements"><span class="hnum">9.22.2</span> Weak vs strong requirements</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Weak</th>
+<th>Strong</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"The app should be fast."</td>
+<td>"Search results appear within 2 seconds at the 95th percentile on a 4G connection."</td>
+</tr>
+<tr>
+<td>"Users can upload a photo."</td>
+<td>"Users can upload a JPEG or PNG up to 10 MB; a progress bar shows; failures show a retry; the image is scanned for malware."</td>
+</tr>
+<tr>
+<td>"The system should be secure."</td>
+<td>"Passwords are hashed; sessions expire after 30 days of inactivity; admin access needs two-step login; all access is logged."</td>
+</tr>
+</tbody>
+</table></div>
+<p>Strong requirements are <strong>specific, measurable, testable and tied to a user or business reason</strong>.</p>
+<h2 id="m09-technical-trade-offs-build-vs-buy-and-architecture-choices"><span class="hnum">9.23</span> Technical trade-offs, build vs buy and architecture choices</h2>
+<p>Every technical choice trades one good thing for another. A PM does not pick the technology but must understand the trade-off and the product impact.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Trade-off</th>
+<th>What is in conflict</th>
+<th>Questions to ask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Speed vs accuracy</strong></td>
+<td>Faster response vs a better answer</td>
+<td>Is a good-enough answer in 1 second better than a perfect one in 10?</td>
+</tr>
+<tr>
+<td><strong>Cost vs performance</strong></td>
+<td>Lower bills vs a faster experience</td>
+<td>What does each extra 100 ms cost and earn?</td>
+</tr>
+<tr>
+<td><strong>Build vs buy</strong></td>
+<td>Control and differentiation vs speed and maintenance</td>
+<td>Is this core to our advantage? Total cost over 3 years? Exit options?</td>
+</tr>
+<tr>
+<td><strong>Real-time vs delayed</strong></td>
+<td>Instant updates vs simplicity and cost</td>
+<td>Which screens truly need real-time?</td>
+</tr>
+<tr>
+<td><strong>Security vs convenience</strong></td>
+<td>More checks vs less friction</td>
+<td>Where is the risk high enough to justify friction?</td>
+</tr>
+<tr>
+<td><strong>MVP vs scale</strong></td>
+<td>Ship quickly vs build for growth</td>
+<td>What will break at 10x, and when will we need to fix it?</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m09-build-vs-buy-checklist"><span class="hnum">9.23.1</span> Build vs buy checklist</h3>
+<ul>
+<li><strong>Build</strong> when it is core to your differentiation, needs deep control, or vendors do not fit. Cost: team time, maintenance, security.</li>
+<li><strong>Buy</strong> when it is a commodity (payments, maps, SMS, identity, analytics) and speed matters. Cost: fees, lock-in, data sharing, vendor risk.</li>
+<li><strong>Check:</strong> uptime history, pricing at 10x volume, data export, privacy terms, support, and a fallback if the vendor fails.</li>
+</ul>
+<h3 id="m09-monolith-vs-microservices-a-delivery-example"><span class="hnum">9.23.2</span> Monolith vs microservices (a delivery example)</h3>
+<p>A food-delivery product starts as a <strong>monolith</strong>: ordering, restaurants, payments and delivery in one codebase, simple and quick to build. As teams and traffic grow it splits into <strong>microservices</strong> (orders, restaurants, payments, tracking, notifications) that scale and release independently. The cost is complexity: more network calls, harder debugging, data consistency problems and more operations work. Split when team size, release speed or scale requires it, not before.</p>
+<h2 id="m09-delivery-management-for-pms-sprint-planning-backlog-grooming-and-estimation"><span class="hnum">9.24</span> Delivery management for PMs: sprint planning, backlog grooming and estimation</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>Purpose</th>
+<th>PM contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Backlog grooming (refinement)</strong></td>
+<td>Make upcoming work ready: clear, small, estimated, with acceptance criteria and dependencies</td>
+<td>Write the problem and acceptance criteria; split large items; remove stale ones; flag dependencies</td>
+</tr>
+<tr>
+<td><strong>Sprint planning</strong></td>
+<td>Choose what the team commits to for the next 1 to 2 weeks</td>
+<td>Bring ordered priorities and the sprint goal; accept that capacity is limited; protect time for bugs and tech debt</td>
+</tr>
+<tr>
+<td><strong>Estimation</strong></td>
+<td>Understand effort and uncertainty</td>
+<td>Use ranges and confidence (story points or t-shirt sizes); ask what makes an item uncertain; do not treat an estimate as a promise</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Estimation tips:</strong> large items hide risk, so split them; consider testing, review, deployment, analytics and dependencies; build in a buffer; re-estimate when learning changes the picture.</p>
+<p><strong>Sprint planning inputs and outputs:</strong> inputs are the ordered backlog, team capacity, recent velocity and known dependencies; outputs are a sprint goal, a committed list and a plan for risks.</p>
+<h2 id="m09-worked-system-cases-for-pms"><span class="hnum">9.25</span> Worked system cases for PMs</h2>
+<h3 id="m09-case-1-a-referral-flow"><span class="hnum">9.25.1</span> Case 1: A referral flow</h3>
+<p>A user shares a code; a friend installs the app, signs up and completes a first action; both get a reward.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What happens</th>
+<th>PM decisions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frontend</strong></td>
+<td>Share sheet, deep link, code entry</td>
+<td>Where to put entry, how to explain the reward</td>
+</tr>
+<tr>
+<td><strong>API and backend</strong></td>
+<td>Validates the code, links friend to referrer, checks the reward rules</td>
+<td>Eligibility, limits per user, fraud checks (same device, same payment method)</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>Stores referral links and states (invited, installed, qualified, rewarded)</td>
+<td>Retention of data; audit trail</td>
+</tr>
+<tr>
+<td><strong>Third parties</strong></td>
+<td>Attribution service, messaging, payments for payout</td>
+<td>Vendor reliability; attribution gaps on some platforms</td>
+</tr>
+<tr>
+<td><strong>Metrics</strong></td>
+<td>Invites per user, invite-to-install, install-to-qualify, cost per referred user, fraud rate</td>
+<td>Guardrails: reward abuse, support tickets</td>
+</tr>
+</tbody>
+</table></div>
+<p>Edge cases: the friend already has an account; the code is shared publicly; the referrer deletes their account; the reward fails to credit.</p>
+<h3 id="m09-case-2-payment-succeeded-but-the-restaurant-never-received-the-order"><span class="hnum">9.25.2</span> Case 2: Payment succeeded but the restaurant never received the order</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What happened?</td>
+<td>Payment confirmed, but the order message to the restaurant failed or was not acknowledged</td>
+</tr>
+<tr>
+<td>What does the customer see?</td>
+<td>"We are confirming your order with the restaurant" with a timer, never a silent success</td>
+</tr>
+<tr>
+<td>What should the system do?</td>
+<td>Retry the message, alert the restaurant by another channel (call or alternate app), re-route or cancel and <strong>auto-refund</strong> after a set time</td>
+</tr>
+<tr>
+<td>What do we track?</td>
+<td>Rate of unacknowledged orders, time to detect, refund rate, support contacts</td>
+</tr>
+<tr>
+<td>What is the guardrail?</td>
+<td>No double charge; clear status; the customer is notified at each change</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m09-case-3-delivery-fails-mid-journey"><span class="hnum">9.25.3</span> Case 3: Delivery fails mid-journey</h3>
+<p>Design a <strong>fallback ladder</strong>: reassign to another delivery partner → offer a new ETA → offer a partial or full refund → compensate with a credit if the delay is large. Each step has a trigger (time threshold), a message, an owner (system, support, ops) and a metric (percentage resolved without a human). This keeps trust when the system fails.</p>
+<h2 id="m09-practice-brief-design-a-personalised-learning-recommendation-system"><span class="hnum">9.26</span> Practice brief: design a personalised learning recommendation system</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 9 assignment)</p>
+<p>The brief asks for a recommendation system for an online education platform to improve engagement, completion and satisfaction for three personas (learners, instructors, platform admins), covering requirements, system design, trade-offs and assumptions. Use the outline below as a structure; write your own answers.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What to deliver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Goals and personas</strong></td>
+<td>Business goals (engagement, completion, satisfaction targets), needs of learners, instructors and admins</td>
+</tr>
+<tr>
+<td><strong>2. Functional requirements and user stories</strong></td>
+<td>"As a learner, I see recommended next courses based on my goals and progress"</td>
+</tr>
+<tr>
+<td><strong>3. Non-functional requirements</strong></td>
+<td>Performance, scalability, availability, compliance, security and data retention, monitoring and logging, extensibility; 1 or 2 per category, each measurable</td>
+</tr>
+<tr>
+<td><strong>4. Core system design</strong></td>
+<td>Frontend (web, mobile), backend (recommendation service, user profile service, catalogue), data stores, events and analytics, third-party integrations; draw a block diagram</td>
+</tr>
+<tr>
+<td><strong>5. Trade-off analysis</strong></td>
+<td>For example personalisation vs privacy, or accuracy vs latency: what conflicts, how you prioritise, your decision and why</td>
+</tr>
+<tr>
+<td><strong>6. Assumptions and future work</strong></td>
+<td>Data availability, cold-start approach, instructor controls, fairness checks, A/B testing plan, next improvements</td>
+</tr>
+<tr>
+<td><strong>7. Deliverables</strong></td>
+<td>A detailed PDF covering steps 1 to 6 and a short video walkthrough of your reasoning and trade-offs</td>
+</tr>
+</tbody>
+</table></div>
+<p>Write it in your own words; copying AI-generated solutions weakens your interview story.</p>
+<h2 id="m09-exercises-with-model-answers"><span class="hnum">9.27</span> Exercises with model answers</h2>
 <div class="admonition question">
 <p class="admonition-title">Exercise 1 · Status codes</p>
 <p>Users report “Something went wrong” on checkout. Logs show many 429 and some 504 responses from the pricing API. Explain each and propose product actions.</p>
@@ -608,7 +1155,7 @@ The mean hides that 1 in 20 users waits ≥ 400 ms. Set targets on p95/p99 for u
 <summary>Model answer</summary>
 <p>“The customer app sends the cart to our API gateway, which routes it to the order service. The order service validates items and prices from the catalogue, asks the payment service to charge via the payment provider using an idempotency key, and saves the order. It publishes an OrderPlaced event; the restaurant tablet gets the order, and the dispatch service matches a courier using live locations and an ETA model. Status events update the customer through the notification service. Key risks are payment failures, restaurant non-acceptance and ETA errors; we track acceptance time, on-time rate and cancellations.”</p>
 </details>
-<h2 id="m09-interview-perspective"><span class="hnum">9.19</span> Interview perspective</h2>
+<h2 id="m09-interview-perspective"><span class="hnum">9.28</span> Interview perspective</h2>
 <details class="question">
 <summary>“Design a notification system” (technical PM) — what interviewers test and a structure</summary>
 <p><em>Tests:</em> requirements thinking, trade-offs, user empathy, scale awareness — not code. <em>Structure:</em> clarify use cases (transactional vs marketing), scale (users, messages/day), channels, latency needs → components (producers, queue, notification service with preferences/caps/templates, channel providers, receipts) → data (preferences, logs) → failure handling (retries, dedup, fallbacks) → abuse/spam controls and consent → metrics (delivery, opt-outs, complaints) → phased rollout. <em>Mistakes:</em> jumping into tech names without requirements; ignoring user fatigue and consent.</p>
@@ -617,7 +1164,7 @@ The mean hides that 1 in 20 users waits ≥ 400 ms. Set targets on p95/p99 for u
 <summary>“What happens when you type a URL and press enter?” — 60-second answer</summary>
 <p>“The browser resolves the domain via DNS to an IP address, opens a TCP connection and a TLS handshake for HTTPS, then sends an HTTP GET request. The request may be served by a CDN cache; otherwise it reaches a load balancer and an application server, which may query databases or other services and return HTML or JSON with a status code. The browser parses and renders the page, fetching CSS, JavaScript and images — often from a CDN. Each hop adds latency and is a potential failure point, which is why we use caching and monitor percentiles.”</p>
 </details>
-<h2 id="m09-key-takeaways"><span class="hnum">9.20</span> Key takeaways</h2>
+<h2 id="m09-key-takeaways"><span class="hnum">9.29</span> Key takeaways</h2>
 <ul>
 <li>Think in <strong>requests and responses</strong>; every network hop adds latency and failure modes.</li>
 <li>Know <strong>HTTP methods/codes</strong>, <strong>authN vs authZ</strong>, <strong>OAuth scopes</strong> and <strong>idempotency</strong>.</li>
@@ -627,9 +1174,9 @@ The mean hides that 1 in 20 users waits ≥ 400 ms. Set targets on p95/p99 for u
 <li>Security and privacy are product requirements: least privilege, no secrets in clients, no PII in analytics.</li>
 <li>In system-design interviews: <strong>requirements → components → data flow → failures → metrics.</strong></li>
 </ul>
-<h2 id="m09-check-your-understanding"><span class="hnum">9.21</span> Check your understanding</h2>
+<h2 id="m09-check-your-understanding"><span class="hnum">9.30</span> Check your understanding</h2>
 <div class="quiz" data-quiz="m09"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">A user is logged in but tries to view another user&#x27;s order and gets blocked. Which status code fits?</p><ol><li class="">401</li><li class="is-correct">403</li><li class="">404</li><li class="">500</li></ol><div class="why"><strong>Why:</strong> 403 Forbidden: authenticated but not authorised. (Some APIs return 404 to avoid revealing existence.)</div></div><div class="qitem" data-correct="1"><p class="q">Why use an idempotency key on payment requests?</p><ol><li class="">To encrypt card numbers</li><li class="is-correct">So retries don&#x27;t create duplicate charges</li><li class="">To speed up the request</li><li class="">To bypass rate limits</li></ol><div class="why"><strong>Why:</strong> Idempotency ensures repeating the same request has the same effect as doing it once.</div></div><div class="qitem" data-correct="1"><p class="q">Three services at 99.9% availability in series give roughly…</p><ol><li class="">99.9%</li><li class="is-correct">99.7%</li><li class="">99.99%</li><li class="">97%</li></ol><div class="why"><strong>Why:</strong> 0.999³ ≈ 0.997 = 99.7%.</div></div><div class="qitem" data-correct="1"><p class="q">Which metric best reflects the slow experiences some users have?</p><ol><li class="">Mean latency</li><li class="is-correct">p95 / p99 latency</li><li class="">Minimum latency</li><li class="">Number of servers</li></ol><div class="why"><strong>Why:</strong> Tail percentiles capture the worst experiences that averages hide.</div></div><div class="qitem" data-correct="1"><p class="q">OAuth 2.0 is primarily for…</p><ol><li class="">Encrypting databases</li><li class="is-correct">Delegated authorisation via scoped tokens</li><li class="">Load balancing</li><li class="">Sending emails</li></ol><div class="why"><strong>Why:</strong> OAuth lets an app access resources on a user&#x27;s behalf without their password; OIDC adds identity.</div></div><div class="qitem" data-correct="1"><p class="q">Feature flags are useful because they…</p><ol><li class="">Replace testing</li><li class="is-correct">Let you turn features on/off or roll out gradually without redeploying</li><li class="">Make code faster</li><li class="">Remove the need for monitoring</li></ol><div class="why"><strong>Why:</strong> Flags enable staged rollouts, experiments and kill switches.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
-<h2 id="m09-recommended-resources"><span class="hnum">9.22</span> Recommended resources</h2>
+<h2 id="m09-recommended-resources"><span class="hnum">9.31</span> Recommended resources</h2>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">MDN Web Docs: HTTP</a> — methods, status codes, caching.</li>
 <li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a>.</li>

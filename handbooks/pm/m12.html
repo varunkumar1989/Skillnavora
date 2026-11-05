@@ -53,7 +53,7 @@
 <div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
 </nav>
 <main class="main" id="content"><div class="article">
-<header class="page-head"><div class="kicker">Module 12</div><h1>Agentic AI and AI Systems</h1><p>Design, evaluate and govern AI agents that use tools and take actions — with the controls that make them safe enough to ship.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 46, 48, 49, 50, 51, 54 (unavailable), 55; Picture lessons (agents, API/MCP); Companion ch. 14, 15, 25, 27</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m12" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m12-what-an-ai-agent-is">What an AI agent is</a></li><li><a href="#m12-agents-versus-chatbots-versus-workflows">Agents versus chatbots versus workflows</a></li><li><a href="#m12-autonomous-versus-human-supervised-systems">Autonomous versus human-supervised systems</a></li><li><a href="#m12-agent-architecture">Agent architecture</a></li><li><a href="#m12-planning-and-reasoning-workflows">Planning and reasoning workflows</a></li><li><a href="#m12-tool-calling-and-function-calling">Tool calling and function calling</a></li><li><a href="#m12-memory-systems">Memory systems</a></li><li><a href="#m12-multi-agent-systems-and-orchestration">Multi-agent systems and orchestration</a></li><li><a href="#m12-workflow-automation">Workflow automation</a></li><li><a href="#m12-rag-enabled-agents">RAG-enabled agents</a></li><li><a href="#m12-evaluation-and-observability-for-agents">Evaluation and observability for agents</a></li><li><a href="#m12-human-approval-checkpoints-guardrails-and-permission-boundaries">Human approval checkpoints, guardrails and permission boundaries</a></li><li><a href="#m12-agent-security-and-prompt-injection">Agent security and prompt injection</a></li><li><a href="#m12-latency-and-operating-costs">Latency and operating costs</a></li><li><a href="#m12-failure-recovery">Failure recovery</a></li><li><a href="#m12-agentic-product-design">Agentic product design</a></li><li><a href="#m12-ai-automation-opportunities-in-finance">AI automation opportunities in finance</a></li><li><a href="#m12-ai-product-roadmaps-and-agentic-business-models">AI product roadmaps and agentic business models</a></li><li><a href="#m12-case-study-ai-powered-customer-support-assistant-for-a-card-issuer-hypothetical">Case study: AI-powered customer-support assistant for a card issuer (hypothetical)</a></li><li><a href="#m12-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m12-interview-perspective">Interview perspective</a></li><li><a href="#m12-key-takeaways">Key takeaways</a></li><li><a href="#m12-check-your-understanding">Check your understanding</a></li><li><a href="#m12-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
+<header class="page-head"><div class="kicker">Module 12</div><h1>Agentic AI and AI Systems</h1><p>Design, evaluate and govern AI agents that use tools and take actions — with the controls that make them safe enough to ship.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 46, 48, 49, 50, 51, 54 (unavailable), 55; Picture lessons (agents, API/MCP); Companion ch. 14, 15, 25, 27; class deck: AI Systems in Action</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m12" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m12-what-an-ai-agent-is">What an AI agent is</a></li><li><a href="#m12-agents-versus-chatbots-versus-workflows">Agents versus chatbots versus workflows</a></li><li><a href="#m12-autonomous-versus-human-supervised-systems">Autonomous versus human-supervised systems</a></li><li><a href="#m12-agent-architecture">Agent architecture</a></li><li><a href="#m12-planning-and-reasoning-workflows">Planning and reasoning workflows</a></li><li><a href="#m12-tool-calling-and-function-calling">Tool calling and function calling</a></li><li><a href="#m12-memory-systems">Memory systems</a></li><li><a href="#m12-multi-agent-systems-and-orchestration">Multi-agent systems and orchestration</a></li><li><a href="#m12-workflow-automation">Workflow automation</a></li><li><a href="#m12-rag-enabled-agents">RAG-enabled agents</a></li><li><a href="#m12-evaluation-and-observability-for-agents">Evaluation and observability for agents</a></li><li><a href="#m12-human-approval-checkpoints-guardrails-and-permission-boundaries">Human approval checkpoints, guardrails and permission boundaries</a></li><li><a href="#m12-agent-security-and-prompt-injection">Agent security and prompt injection</a></li><li><a href="#m12-latency-and-operating-costs">Latency and operating costs</a></li><li><a href="#m12-failure-recovery">Failure recovery</a></li><li><a href="#m12-agentic-product-design">Agentic product design</a></li><li><a href="#m12-ai-automation-opportunities-in-finance">AI automation opportunities in finance</a></li><li><a href="#m12-ai-product-roadmaps-and-agentic-business-models">AI product roadmaps and agentic business models</a></li><li><a href="#m12-case-study-ai-powered-customer-support-assistant-for-a-card-issuer-hypothetical">Case study: AI-powered customer-support assistant for a card issuer (hypothetical)</a></li><li><a href="#m12-from-vibe-coding-to-agentic-coding-and-full-stack-builds">From vibe coding to agentic coding and full-stack builds</a></li><li><a href="#m12-automation-vs-agents-layers-of-an-ai-system-and-workflow-tools">Automation vs agents, layers of an AI system and workflow tools</a></li><li><a href="#m12-ai-economics-token-costs-margins-and-monetisation-patterns">AI economics: token costs, margins and monetisation patterns</a></li><li><a href="#m12-evaluating-ai-systems-for-business-value">Evaluating AI systems for business value</a></li><li><a href="#m12-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m12-interview-perspective">Interview perspective</a></li><li><a href="#m12-key-takeaways">Key takeaways</a></li><li><a href="#m12-check-your-understanding">Check your understanding</a></li><li><a href="#m12-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
 <p class="admonition-title">About this module's examples</p>
 <p>The financial-services assistant is a <strong>hypothetical case</strong> built for teaching. It describes no real bank's product, data or results. Regulatory references are general; consult qualified compliance and legal advisers for real decisions.</p>
 </div>
@@ -472,7 +472,270 @@ Latency: 8 × (1.5 s model + 0.5 s tool) ≈ <strong>16 s</strong>. Users tolera
 <li>Measure <strong>customer outcomes and safety</strong>, not just containment.</li>
 </ol>
 <hr />
-<h2 id="m12-exercises-with-model-answers"><span class="hnum">12.20</span> Exercises with model answers</h2>
+<h2 id="m12-from-vibe-coding-to-agentic-coding-and-full-stack-builds"><span class="hnum">12.20</span> From vibe coding to agentic coding and full-stack builds</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 11-12 · AI Systems in Action)</p>
+<p>The sequence runs from vibe coding, to agentic coding (an AI agent plans, writes, runs and fixes code across files), to building a full-stack web app, then deploying it with free tools, and finally automating workflows and measuring the economics of AI systems. The live build is a small e-commerce store with customer and admin sides.</p>
+</div>
+<h3 id="m12-how-a-website-works-the-stack-in-one-view"><span class="hnum">12.20.1</span> How a website works (the stack in one view)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Job</th>
+<th>Typical choices</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frontend</strong></td>
+<td>Pages and interactions the user sees</td>
+<td>A component framework, routing, a state store, responsive design</td>
+</tr>
+<tr>
+<td><strong>Backend / API</strong></td>
+<td>Business logic, validation, security</td>
+<td>A server framework exposing REST endpoints</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>Persistent data</td>
+<td>A managed SQL database</td>
+</tr>
+<tr>
+<td><strong>Hosting</strong></td>
+<td>Where each part runs</td>
+<td>Static hosting for the frontend, a service host for the backend</td>
+</tr>
+<tr>
+<td><strong>Source control</strong></td>
+<td>Safe history and collaboration</td>
+<td>Git with a hosted repository</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m12-an-end-to-end-playbook-what-to-do-in-order"><span class="hnum">12.20.2</span> An end-to-end playbook (what to do, in order)</h3>
+<ol>
+<li><strong>Create accounts</strong> for source control, a managed database/backend service, a backend host, a frontend host and an AI-powered coding editor; install the editor and a Git client first.</li>
+<li><strong>Create a repository</strong> for the project.</li>
+<li><strong>Create the database project:</strong> name it, choose a region close to users, use a strong password made of letters, numbers and underscores.</li>
+<li><strong>Write one clear build prompt</strong> that lists the frontend stack, backend stack, customer features (home, product list, product detail, cart, checkout, order confirmation), admin features (login, dashboard, product management, orders) and quality requirements: folder structure, error handling, input validation, loading states, README, health endpoints, environment validation, API docs, default admin credentials for local testing only, migrations, seed data, one-command database initialisation and seeding. State that no manual SQL should be required.</li>
+<li><strong>Approve the agent's plan and changes</strong> after reading them; do not accept blindly.</li>
+<li><strong>Configure the backend environment</strong> variables (port, database connection using the pooled connection string, SSL on, keys). <strong>Never commit secrets</strong> to the repository.</li>
+<li><strong>Initialise the database</strong> with the migration command, then <strong>start the backend</strong> and <strong>start the frontend</strong>; open the local address.</li>
+<li><strong>Verify locally</strong> with a customer path and an admin path; change default credentials.</li>
+<li><strong>Commit and push</strong> to the repository.</li>
+<li><strong>Deploy the backend</strong> to a service host: set the root folder, build and start commands and environment variables; check the health URL and a sample API route in the browser.</li>
+<li><strong>Deploy the frontend</strong> to a static host: set base directory, build command and publish folder; set the API base URL as an environment variable; if page refreshes show "not found", add a single-page-app redirect rule (all routes to the main page).</li>
+<li><strong>Test in production</strong> end to end, then monitor logs and costs.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">A prototype is not a production system</p>
+<p>Free tiers sleep or limit usage, default admin credentials are unsafe, and generated code needs review for authentication, input validation, payment handling and privacy. Treat this build as a learning project or a pilot until engineers harden it.</p>
+</div>
+<h3 id="m12-design-essentials-to-give-the-agent"><span class="hnum">12.20.3</span> Design essentials to give the agent</h3>
+<p>Point to platform design guidelines and component libraries so the agent builds familiar patterns (menus, actions, forms), and attach screenshots of apps you admire. Consistency and standard components make the result feel professional.</p>
+<h2 id="m12-automation-vs-agents-layers-of-an-ai-system-and-workflow-tools"><span class="hnum">12.21</span> Automation vs agents, layers of an AI system and workflow tools</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Automation</th>
+<th>Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Behaviour</strong></td>
+<td>Fixed steps</td>
+<td>Decides what to do next</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>Send a chat alert whenever a survey score is below 7</td>
+<td>Read the feedback, classify the topic and route it to the right team, deciding the destination</td>
+</tr>
+<tr>
+<td><strong>Risk profile</strong></td>
+<td>Predictable, easy to test</td>
+<td>Flexible, needs guardrails and evaluation</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Layers of an AI system:</strong> interface (what users touch) → workflow (logic that sequences steps) → model or API (the AI) → data (forms, databases, documents) → infrastructure (cloud, accelerators) → monitoring (logs and dashboards). When something fails, locate the layer.</p>
+<h3 id="m12-workflow-automation-concepts-node-based-tools"><span class="hnum">12.21.1</span> Workflow automation concepts (node-based tools)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+<th>Analogy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trigger</strong></td>
+<td>The event that starts the workflow</td>
+<td>"An event happens"</td>
+</tr>
+<tr>
+<td><strong>Node / step</strong></td>
+<td>One action in the flow</td>
+<td>A task in a process</td>
+</tr>
+<tr>
+<td><strong>Workflow</strong></td>
+<td>The whole sequence</td>
+<td>A process blueprint</td>
+</tr>
+<tr>
+<td><strong>JSON</strong></td>
+<td>Structured data passed between nodes (key-value pairs)</td>
+<td>The note passed along</td>
+</tr>
+<tr>
+<td><strong>API</strong></td>
+<td>An application's interface</td>
+<td>A waiter taking your order to the kitchen</td>
+</tr>
+<tr>
+<td><strong>Webhook</strong></td>
+<td>A system pushes an event to you</td>
+<td>An announcement when your food is ready</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Starter flow:</strong> form response → sheet row → AI step (summarise and classify sentiment) → chat message to the product channel. <strong>Practice builds:</strong> competitor-analysis digest, feature-request tagger, lead or feature-request classifier that posts a notification and updates a backlog. Deliverable: a screenshot of the flow plus the prompt used.</p>
+<h2 id="m12-ai-economics-token-costs-margins-and-monetisation-patterns"><span class="hnum">12.22</span> AI economics: token costs, margins and monetisation patterns</h2>
+<p><strong>Cost of an AI feature</strong> = (input tokens × input price) + (output tokens × output price) + infrastructure (cloud, accelerators, storage) + people and tooling. Margins depend on usage volume, reuse (caching) and model choice.</p>
+<div class="admonition hypo">
+<p class="admonition-title">Worked example · a rough token budget (hypothetical prices)</p>
+<p>Suppose a model costs about 5 per million input tokens and 15 per million output tokens (currency units are illustrative). A support answer using 3,000 input tokens and 400 output tokens costs 3,000 × 5 / 1,000,000 + 400 × 15 / 1,000,000 = 0.015 + 0.006 = 0.021 units. At 1 million answers a month, that is about 21,000 units before infrastructure and review costs. Check real prices; they change often and differ by model.</p>
+</div>
+<h3 id="m12-monetisation-patterns-for-ai-features"><span class="hnum">12.22.1</span> Monetisation patterns for AI features</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>How it works</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Add-on</strong></td>
+<td>Paid extra on an existing plan</td>
+<td>An AI writing assistant inside a notes or documents product</td>
+</tr>
+<tr>
+<td><strong>Subscription</strong></td>
+<td>Monthly fee for an AI-first product</td>
+<td>A content-generation tool with templates</td>
+</tr>
+<tr>
+<td><strong>Per action / outcome</strong></td>
+<td>Charge per result</td>
+<td>A support bot priced per resolved conversation (reported at around one dollar per resolution by one vendor; check current prices)</td>
+</tr>
+<tr>
+<td><strong>Bundled / embedded</strong></td>
+<td>Included free to raise stickiness</td>
+<td>AI summaries inside a meeting or commerce platform</td>
+</tr>
+<tr>
+<td><strong>Usage-based API</strong></td>
+<td>Pay per token or call</td>
+<td>Developer platforms</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Copilot vs bundled:</strong> a commonly quoted rule of thumb is to <strong>charge separately if fewer than about 70% of users use the feature</strong> (it is a premium for power users) and to <strong>bundle it if more than about 70% use it</strong> (it drives retention). Treat it as a heuristic and test.</p>
+<h3 id="m12-cost-versus-value-matrix"><span class="hnum">12.22.2</span> Cost-versus-value matrix</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Low cost to serve</th>
+<th>High cost to serve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>High value</strong></td>
+<td><strong>Scale</strong>: invest and promote</td>
+<td><strong>Re-evaluate</strong>: optimise cost or price it</td>
+</tr>
+<tr>
+<td><strong>Low value</strong></td>
+<td><strong>Ignore</strong>: leave as is</td>
+<td><strong>Kill</strong>: remove or redesign</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m12-evaluating-ai-systems-for-business-value"><span class="hnum">12.23</span> Evaluating AI systems for business value</h2>
+<p><strong>Automation is not impact; evaluation turns demos into products.</strong> Evaluate to connect AI performance to business outcomes, detect drift, errors and waste, and justify ROI.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>How to test</th>
+<th>PM action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>Score 10 to 50 sample outputs against a reference</td>
+<td>Tune prompt, retrieval or data</td>
+</tr>
+<tr>
+<td><strong>Latency</strong></td>
+<td>Measure average and p95 response time</td>
+<td>Optimise steps, caching, model choice</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Read token and infrastructure logs</td>
+<td>Estimate cost per task and ROI</td>
+</tr>
+<tr>
+<td><strong>Bias and fairness</strong></td>
+<td>Compare results across segments</td>
+<td>Document risks, add guardrails</td>
+</tr>
+<tr>
+<td><strong>Hallucination</strong></td>
+<td>Fact-check a sample against sources</td>
+<td>Improve retrieval and instructions</td>
+</tr>
+<tr>
+<td><strong>Containment / resolution</strong></td>
+<td>Share of tasks solved without a human</td>
+<td>Improve coverage; keep escalation easy</td>
+</tr>
+<tr>
+<td><strong>User satisfaction</strong></td>
+<td>CSAT after interactions</td>
+<td>Fix weak journeys</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition example">
+<p class="admonition-title">Worked example · evaluating a support bot (hypothetical)</p>
+<p>Metrics: <strong>containment rate</strong> (tickets the bot resolved), <strong>CSAT</strong> on bot-resolved tickets, and <strong>cost per resolution</strong>. If the bot resolves 55% of tickets at CSAT 4.3 and costs 0.4 per resolution versus 3 per human ticket, savings are clear, but also track <strong>re-contact within 48 hours</strong> to avoid counting unresolved chats as wins.</p>
+</div>
+<div class="admonition source">
+<p class="admonition-title">Reported results are context, not proof</p>
+<p>Vendor case studies (faster code completion, faster content generation) show direction, but your results depend on your tasks and users. Measure in your own product.</p>
+</div>
+<h3 id="m12-collaborating-with-ai-and-ml-teams"><span class="hnum">12.23.1</span> Collaborating with AI and ML teams</h3>
+<ul>
+<li><strong>Define inputs and outputs early</strong> (what data goes in, what must come out, what counts as correct).</li>
+<li><strong>Share and version prompts</strong> with engineers.</li>
+<li><strong>Co-track logs and cost</strong> in one dashboard.</li>
+<li>Agree on an <strong>evaluation set</strong> and on what triggers a rollback.</li>
+</ul>
+<h2 id="m12-exercises-with-model-answers"><span class="hnum">12.24</span> Exercises with model answers</h2>
 <div class="admonition question">
 <p class="admonition-title">Exercise 1 · Agent or workflow?</p>
 <p>“When a customer uploads an invoice, extract fields, check against the PO, and post to the ERP if matched; otherwise send to finance.” Agent or workflow? Why?</p>
@@ -497,7 +760,7 @@ Latency: 8 × (1.5 s model + 0.5 s tool) ≈ <strong>16 s</strong>. Users tolera
 <summary>Model answer</summary>
 <p>It has all three legs: untrusted content, private data and external communication — an injected email could make it exfiltrate customer data. Redesign: remove autonomous sending (drafts only, human sends), or split into a reader agent with no data access and a separate drafting step with read access but no sending; restrict searchable fields; add injection tests.</p>
 </details>
-<h2 id="m12-interview-perspective"><span class="hnum">12.21</span> Interview perspective</h2>
+<h2 id="m12-interview-perspective"><span class="hnum">12.25</span> Interview perspective</h2>
 <details class="question">
 <summary>“Design an AI agent for customer support at a bank.” — structure</summary>
 <p>Clarify goals and constraints (regulation, channels, languages) → segment intents by risk → choose autonomy per intent (answer, route, act with approval) → architecture (RAG + read-only tools + approvals, permission-aware) → evaluation plan (offline set, severity, red-team, pilot A/B) → metrics (resolution, CSAT, routing accuracy, safety incidents, cost) → rollout and governance (kill switch, audits). <em>Mistakes:</em> full autonomy on day one; ignoring vulnerable-customer routing; trusting the model with access control.</p>
@@ -506,7 +769,7 @@ Latency: 8 × (1.5 s model + 0.5 s tool) ≈ <strong>16 s</strong>. Users tolera
 <summary>“How do you evaluate an agent?” — 60-second answer</summary>
 <p>“At three levels. Outcome — did it complete the task correctly, measured on a curated test set and in a controlled pilot. Trajectory — did it use the right tools in a sensible order without unsafe or wasted steps, which I check from traces. Components — retrieval quality, tool-argument accuracy, routing and refusals. I weight failures by severity, red-team for prompt injection, and re-run the suite on every model, prompt or tool change. In production I trace every run and sample reviews weekly.”</p>
 </details>
-<h2 id="m12-key-takeaways"><span class="hnum">12.22</span> Key takeaways</h2>
+<h2 id="m12-key-takeaways"><span class="hnum">12.26</span> Key takeaways</h2>
 <ul>
 <li>Prefer <strong>workflows</strong> to agents unless the path genuinely varies; add autonomy <strong>gradually</strong> with evidence.</li>
 <li>Agents = model + tools + memory + control loop + <strong>guardrails</strong>; enforce permissions in the backend.</li>
@@ -515,9 +778,9 @@ Latency: 8 × (1.5 s model + 0.5 s tool) ≈ <strong>16 s</strong>. Users tolera
 <li>Evaluate <strong>outcomes, trajectories and components</strong>; trace everything.</li>
 <li>Agent costs and latency are multiples of single calls — <strong>budget steps.</strong></li>
 </ul>
-<h2 id="m12-check-your-understanding"><span class="hnum">12.23</span> Check your understanding</h2>
+<h2 id="m12-check-your-understanding"><span class="hnum">12.27</span> Check your understanding</h2>
 <div class="quiz" data-quiz="m12"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">What most distinguishes an agent from a fixed workflow?</p><ol><li class="">It uses an LLM</li><li class="is-correct">It chooses its next steps at run time based on results</li><li class="">It has a chat interface</li><li class="">It never needs humans</li></ol><div class="why"><strong>Why:</strong> Workflows follow predefined paths; agents decide steps dynamically within limits.</div></div><div class="qitem" data-correct="2"><p class="q">10 steps at 95% reliability each give end-to-end success of about…</p><ol><li class="">95%</li><li class="">90%</li><li class="is-correct">60%</li><li class="">50%</li></ol><div class="why"><strong>Why:</strong> 0.95^10 ≈ 0.60 when each step must succeed independently.</div></div><div class="qitem" data-correct="0"><p class="q">Which combination creates the highest prompt-injection risk?</p><ol><li class="is-correct">Private data + untrusted content + ability to communicate externally</li><li class="">Read-only FAQ + no tools</li><li class="">Offline batch job</li><li class="">Human-only workflow</li></ol><div class="why"><strong>Why:</strong> Together they allow injected instructions to exfiltrate data.</div></div><div class="qitem" data-correct="1"><p class="q">Where should a customer&#x27;s permission to see an account be enforced?</p><ol><li class="">In the system prompt</li><li class="is-correct">In the backend tool/API authorisation</li><li class="">By the model&#x27;s judgement</li><li class="">In the UI only</li></ol><div class="why"><strong>Why:</strong> Authorisation must be enforced by systems, not by model instructions.</div></div><div class="qitem" data-correct="1"><p class="q">MCP is best described as…</p><ol><li class="">A security product that makes integrations safe</li><li class="is-correct">A standard protocol for connecting AI apps to tools and resources</li><li class="">A replacement for all APIs</li><li class="">A model</li></ol><div class="why"><strong>Why:</strong> MCP standardises connections; permissions and security still have to be designed.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
-<h2 id="m12-recommended-resources"><span class="hnum">12.24</span> Recommended resources</h2>
+<h2 id="m12-recommended-resources"><span class="hnum">12.28</span> Recommended resources</h2>
 <ul>
 <li><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic: Building effective agents</a> (from your course references).</li>
 <li><a href="https://modelcontextprotocol.io/introduction">Model Context Protocol: Introduction</a> (course reference).</li>

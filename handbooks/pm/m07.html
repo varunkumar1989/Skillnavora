@@ -53,7 +53,7 @@
 <div class="author side-author"><img src="assets/author.png" alt="Varun Kumar"><div><small>Created by</small><b>Varun Kumar</b></div></div>
 </nav>
 <main class="main" id="content"><div class="article">
-<header class="page-head"><div class="kicker">Module 7</div><h1>Product Analytics and Metrics</h1><p>Choose the right metrics, calculate them correctly, run experiments you can trust, and turn data into decisions.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 21, 25, 26, 27, 31, 34, 35; Companion ch. 5, 6, 9; Extra topics 3, 4, 6, 7</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m07" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m07-product-analytics-fundamentals">Product analytics fundamentals</a></li><li><a href="#m07-choosing-kpis">Choosing KPIs</a></li><li><a href="#m07-aarrr-pirate-metrics">AARRR (Pirate Metrics)</a></li><li><a href="#m07-funnel-analysis-and-drop-off">Funnel analysis and drop-off</a></li><li><a href="#m07-engagement-dau-wau-mau-and-stickiness">Engagement: DAU, WAU, MAU and stickiness</a></li><li><a href="#m07-retention-cohorts-and-churn">Retention, cohorts and churn</a></li><li><a href="#m07-monetisation-metrics-gmv-aov-arpu-arppu">Monetisation metrics: GMV, AOV, ARPU, ARPPU</a></li><li><a href="#m07-unit-economics-contribution-margin-cac-ltv-payback">Unit economics: contribution margin, CAC, LTV, payback</a></li><li><a href="#m07-experiment-design-and-ab-testing">Experiment design and A/B testing</a></li><li><a href="#m07-hypothesis-testing-p-values-and-confidence-intervals">Hypothesis testing, p-values and confidence intervals</a></li><li><a href="#m07-correlation-versus-causation">Correlation versus causation</a></li><li><a href="#m07-segmentation-in-analytics">Segmentation in analytics</a></li><li><a href="#m07-event-instrumentation-and-data-quality">Event instrumentation and data quality</a></li><li><a href="#m07-sql-for-product-managers">SQL for Product Managers</a></li><li><a href="#m07-excel-for-product-analytics">Excel for product analytics</a></li><li><a href="#m07-dashboards-and-tools-power-bi-mixpanel-amplitude-ga4">Dashboards and tools: Power BI, Mixpanel, Amplitude, GA4</a></li><li><a href="#m07-experiment-readout-template-worked-example">Experiment readout template (worked example)</a></li><li><a href="#m07-source-flagged-corrections">Source-flagged corrections</a></li><li><a href="#m07-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m07-interview-perspective">Interview perspective</a></li><li><a href="#m07-key-takeaways">Key takeaways</a></li><li><a href="#m07-check-your-understanding">Check your understanding</a></li><li><a href="#m07-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
+<header class="page-head"><div class="kicker">Module 7</div><h1>Product Analytics and Metrics</h1><p>Choose the right metrics, calculate them correctly, run experiments you can trust, and turn data into decisions.</p><div class="chips"><span class="chip">≈ 12 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Lectures 21, 25, 26, 27, 31, 34, 35; Companion ch. 5, 6, 9; Extra topics 3, 4, 6, 7; class deck: Analytics and Metrics</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m07" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m07-product-analytics-fundamentals">Product analytics fundamentals</a></li><li><a href="#m07-choosing-kpis">Choosing KPIs</a></li><li><a href="#m07-aarrr-pirate-metrics">AARRR (Pirate Metrics)</a></li><li><a href="#m07-funnel-analysis-and-drop-off">Funnel analysis and drop-off</a></li><li><a href="#m07-engagement-dau-wau-mau-and-stickiness">Engagement: DAU, WAU, MAU and stickiness</a></li><li><a href="#m07-retention-cohorts-and-churn">Retention, cohorts and churn</a></li><li><a href="#m07-monetisation-metrics-gmv-aov-arpu-arppu">Monetisation metrics: GMV, AOV, ARPU, ARPPU</a></li><li><a href="#m07-unit-economics-contribution-margin-cac-ltv-payback">Unit economics: contribution margin, CAC, LTV, payback</a></li><li><a href="#m07-experiment-design-and-ab-testing">Experiment design and A/B testing</a></li><li><a href="#m07-hypothesis-testing-p-values-and-confidence-intervals">Hypothesis testing, p-values and confidence intervals</a></li><li><a href="#m07-correlation-versus-causation">Correlation versus causation</a></li><li><a href="#m07-segmentation-in-analytics">Segmentation in analytics</a></li><li><a href="#m07-event-instrumentation-and-data-quality">Event instrumentation and data quality</a></li><li><a href="#m07-sql-for-product-managers">SQL for Product Managers</a></li><li><a href="#m07-excel-for-product-analytics">Excel for product analytics</a></li><li><a href="#m07-dashboards-and-tools-power-bi-mixpanel-amplitude-ga4">Dashboards and tools: Power BI, Mixpanel, Amplitude, GA4</a></li><li><a href="#m07-experiment-readout-template-worked-example">Experiment readout template (worked example)</a></li><li><a href="#m07-source-flagged-corrections">Source-flagged corrections</a></li><li><a href="#m07-metric-anatomy-and-the-mental-model-for-product-metrics">Metric anatomy and the mental model for product metrics</a></li><li><a href="#m07-the-ladder-of-metrics-input-and-output-leading-and-lagging-north-star">The ladder of metrics: input and output, leading and lagging, North Star</a></li><li><a href="#m07-aarrr-in-practice-retention-curves-and-heart">AARRR in practice, retention curves and HEART</a></li><li><a href="#m07-metrics-cheat-sheet-and-the-hierarchy-of-analytics">Metrics cheat sheet and the hierarchy of analytics</a></li><li><a href="#m07-okrs-objectives-and-key-results">OKRs: objectives and key results</a></li><li><a href="#m07-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m07-interview-perspective">Interview perspective</a></li><li><a href="#m07-key-takeaways">Key takeaways</a></li><li><a href="#m07-check-your-understanding">Check your understanding</a></li><li><a href="#m07-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition hypo">
 <p class="admonition-title">About the data in this module</p>
 <p>Every number is <strong>hypothetical or synthetic</strong>. Hand-worked examples use round numbers so you can follow the arithmetic. SQL examples run against the synthetic files in <code>datasets/</code> (<code>users.csv</code>, <code>events.csv</code>, <code>orders.csv</code>, …) and every output shown was produced by actually running the query. None of it is real company data, and no benchmark here should be quoted as an industry norm.</p>
 </div>
@@ -748,7 +748,397 @@ LIMIT 5;
 <li>A confidence interval is not a probability statement about a single experiment's true value (frequentist interpretation).</li>
 <li><strong>GMV ≠ revenue ≠ profit.</strong> Define each.</li>
 </ul>
-<h2 id="m07-exercises-with-model-answers"><span class="hnum">7.19</span> Exercises with model answers</h2>
+<h2 id="m07-metric-anatomy-and-the-mental-model-for-product-metrics"><span class="hnum">7.19</span> Metric anatomy and the mental model for product metrics</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 6 · Analytics and Metrics)</p>
+<p>A metric is a quantifiable measure of success or failure against a goal; the important few are KPIs. Every metric has four parts: <strong>definition, value, time grain and cohort</strong>. Good metrics link what users want to what the business wants. The deck's mental model: identify users and stakeholders → find each one's job to be done → pick metrics that show the job is done → pick metrics that show support for the business goal → add guardrail metrics.</p>
+</div>
+<h3 id="m07-the-four-parts-of-any-metric"><span class="hnum">7.19.1</span> The four parts of any metric</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Question</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Definition</strong></td>
+<td>What exactly is counted or measured?</td>
+<td>"Orders completed and not cancelled within 24 hours"</td>
+</tr>
+<tr>
+<td><strong>Value</strong></td>
+<td>What is the number?</td>
+<td>18,400</td>
+</tr>
+<tr>
+<td><strong>Time grain</strong></td>
+<td>Over what period?</td>
+<td>Per day, per week, 4 weeks after sign-up</td>
+</tr>
+<tr>
+<td><strong>Cohort</strong></td>
+<td>For which slice of users?</td>
+<td>New users in Pune who signed up in March</td>
+</tr>
+</tbody>
+</table></div>
+<p>A metric written without all four parts ("retention is 40%") cannot be compared or trusted. Always ask: <em>40% of whom, measured when, counting what?</em></p>
+<h3 id="m07-a-five-step-mental-model"><span class="hnum">7.19.2</span> A five-step mental model</h3>
+<ol>
+<li><strong>List users and stakeholders.</strong> A product often has several (creators, viewers, advertisers).</li>
+<li><strong>Write each group's job to be done</strong> in one sentence.</li>
+<li><strong>Choose a metric that shows the job is done</strong> for that group (user value metric).</li>
+<li><strong>Choose a metric that shows support for the business goal</strong> (revenue, growth, cost), tied to the company's mission or profit goal.</li>
+<li><strong>Add guardrail (counter) metrics</strong> that catch harm from over-optimising: for example watch time up but session-ending complaints up.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">Worked example · a short-video product (hypothetical numbers)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Stakeholder</th>
+<th>Job to be done</th>
+<th>User value metric</th>
+<th>Business metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creator</td>
+<td>Build a following</td>
+<td>Followers gained per month, reach per post</td>
+<td>Creators posting weekly</td>
+</tr>
+<tr>
+<td>Viewer</td>
+<td>Find fun, relatable videos</td>
+<td>Watch time per session, shares and saves</td>
+<td>Daily active viewers, ad impressions</td>
+</tr>
+<tr>
+<td>Advertiser</td>
+<td>Reach the right people</td>
+<td>Cost per qualified action</td>
+<td>Ad revenue</td>
+</tr>
+<tr>
+<td><strong>Guardrails:</strong> overall time spent outside the product, reports and blocks per 1,000 videos, complaint rate, creator churn.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked example · a maps and navigation product (hypothetical)</p>
+<p><em>Scope first:</em> focus on drivers and local businesses; tourists, government and developers are out of scope for this exercise.
+* <strong>Drivers:</strong> job = reach the destination by the fastest, safest route. Metric = share of trips completed on an optimal route (a scorecard of time, traffic, tolls and road quality). A simpler proxy: share of trips cancelled or rerouted.
+* <strong>Local businesses:</strong> job = be found and turn visits into sales. Metric = place visits and calls, directions requests, website clicks.
+* <strong>Company:</strong> advertising and subscription revenue from merchants.
+* <strong>Input → output chains:</strong> road disruptions reported correctly → share of optimal routes; businesses who claim their profile → profile interactions → place visits.</p>
+</div>
+<p>When a goal is vague ("lead a good life", "make users happy") no single metric works. Break the goal into parts and measure each.</p>
+<h2 id="m07-the-ladder-of-metrics-input-and-output-leading-and-lagging-north-star"><span class="hnum">7.20</span> The ladder of metrics: input and output, leading and lagging, North Star</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 6)</p>
+<p>Input metrics measure what you control; output metrics measure the results you get. Leading metrics predict the future; lagging metrics confirm the past. A North Star (or "one metric that matters") signals success. Good metric work lays these out as a ladder.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Input metric</strong></td>
+<td>Something the team can directly influence</td>
+<td>Invites sent, high-quality listings added, notifications delivered</td>
+</tr>
+<tr>
+<td><strong>Output metric</strong></td>
+<td>The result of the inputs</td>
+<td>Sign-ups from invites, bookings made</td>
+</tr>
+<tr>
+<td><strong>Leading metric</strong></td>
+<td>Early signal of later success</td>
+<td>Daily active users, views on listings, week-1 activation</td>
+</tr>
+<tr>
+<td><strong>Lagging metric</strong></td>
+<td>Final result, slow to move</td>
+<td>Revenue, annual retention, renewals</td>
+</tr>
+</tbody>
+</table></div>
+<p>A metric can be both: <em>input</em> to a higher metric and <em>output</em> of a lower one, and <em>leading</em> for revenue but <em>lagging</em> for activity. Draw the chain, do not memorise the labels.</p>
+<div class="admonition example">
+<p class="admonition-title">Worked example · a stays marketplace (hypothetical)</p>
+<ul>
+<li><strong>North Star:</strong> number of successful, completed stays.</li>
+<li><strong>Input metrics:</strong> high-quality listings added; host response time; photo quality score.</li>
+<li><strong>Output metrics:</strong> searches that lead to a booking; bookings made.</li>
+<li><strong>Leading:</strong> views per listing, wish-list adds. <strong>Lagging:</strong> commission revenue, repeat-booking rate.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked example · a music streaming product (hypothetical)</p>
+<p>A <strong>magic moment</strong> such as "follows 10 artists in the first week" predicts later habit. Chain: app installs → magic moment → playlist creation → monthly active users → total listening time (North Star) → subscription revenue and ad revenue. Recommendation quality sits underneath as an input that lifts listening time.</p>
+</div>
+<p><strong>Choosing a North Star:</strong> it should reflect value delivered to users, correlate with long-term revenue, be measurable weekly, and be something the team can influence. Pair it with 3 to 5 input metrics and 1 or 2 guardrails.</p>
+<h2 id="m07-aarrr-in-practice-retention-curves-and-heart"><span class="hnum">7.21</span> AARRR in practice, retention curves and HEART</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 6)</p>
+<p>AARRR asks five questions: are people interested (acquisition), using the product (activation), coming back (retention), bringing others (referral), and generating revenue. The deck adds the <strong>magic moment</strong> idea for activation, retention-curve shapes as a sign of product-market fit, and the <strong>HEART</strong> framework (Happiness, Engagement, Adoption, Retention, Task success).</p>
+</div>
+<h3 id="m07-worked-example-aarrr-and-heart-for-a-credit-card-payments-app-hypothetical"><span class="hnum">7.21.1</span> Worked example · AARRR and HEART for a credit-card payments app (hypothetical)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Question</th>
+<th>Example metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acquisition</td>
+<td>Are people interested?</td>
+<td>App installs, sign-ups from each channel</td>
+</tr>
+<tr>
+<td>Activation</td>
+<td>Did they reach the magic moment?</td>
+<td>Users who link a card and pay a first bill</td>
+</tr>
+<tr>
+<td>Retention</td>
+<td>Do they repeat the key action?</td>
+<td>Users paying 3 consecutive bills</td>
+</tr>
+<tr>
+<td>Referral</td>
+<td>Do they recommend it?</td>
+<td>Invites accepted, referral-code sign-ups, rewards shared</td>
+</tr>
+<tr>
+<td>Revenue</td>
+<td>Do they generate revenue?</td>
+<td>Users redeeming rewards at partner merchants, partner fees</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>HEART</th>
+<th>Example metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>H</strong>appiness</td>
+<td>App-store rating, CSAT after a payment</td>
+</tr>
+<tr>
+<td><strong>E</strong>ngagement</td>
+<td>Users who paid a bill and used at least one reward in the month</td>
+</tr>
+<tr>
+<td><strong>A</strong>doption</td>
+<td>New users completing the first bill payment</td>
+</tr>
+<tr>
+<td><strong>R</strong>etention</td>
+<td>Users with 3 consecutive on-time payments</td>
+</tr>
+<tr>
+<td><strong>T</strong>ask success</td>
+<td>Share of users who avoid a late fee</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="m07-the-magic-moment"><span class="hnum">7.21.2</span> The magic moment</h3>
+<p>Find the earliest action that predicts retention and design onboarding to push users toward it. Examples: a social product found that people who followed enough accounts early tended to stay; a file-sync product saw that users who uploaded one file tended to return. <strong>Test, do not copy:</strong> compare retention of users who did the action versus those who did not, and remember correlation is not causation, so confirm with an experiment.</p>
+<h3 id="m07-reading-retention-curves"><span class="hnum">7.21.3</span> Reading retention curves</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>What it suggests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nearly flat line near 100%</td>
+<td>Rare, very sticky product or a tiny, committed group</td>
+</tr>
+<tr>
+<td>Steep early drop, then a long flat tail</td>
+<td>A core group loves it; focus on getting more of the right users in and activating them faster</td>
+</tr>
+<tr>
+<td>Flat, dip, then recovery</td>
+<td>Seasonal or event-driven use; understand the trigger</td>
+</tr>
+<tr>
+<td>Steady decline to zero (50%, 25%, 10%...)</td>
+<td>No product-market fit yet; fix value before spending on growth</td>
+</tr>
+</tbody>
+</table></div>
+<p>A curve that <strong>flattens</strong> (even at 15 to 20%) is a sign of product-market fit for that group; a curve that never flattens is a warning.</p>
+<h2 id="m07-metrics-cheat-sheet-and-the-hierarchy-of-analytics"><span class="hnum">7.22</span> Metrics cheat sheet and the hierarchy of analytics</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 6)</p>
+<p>The deck groups metrics into business, product, feature and engineering sets, and shows a "hierarchy of analytics tools" and a product-analytics tool tutorial.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Business: revenue</strong></td>
+<td>Revenue, ARPU, LTV, ARR, GMV, AOV</td>
+</tr>
+<tr>
+<td><strong>Business: costs and profit</strong></td>
+<td>CAC, COGS, marketing cost, fixed and variable cost, gross margin, net margin, unit contribution</td>
+</tr>
+<tr>
+<td><strong>Product: acquisition</strong></td>
+<td>Installs, downloads, sign-ups, unique visitors, bounce rate</td>
+</tr>
+<tr>
+<td><strong>Product: activation</strong></td>
+<td>DAU, WAU, MAU, session count, conversion rate</td>
+</tr>
+<tr>
+<td><strong>Product: engagement</strong></td>
+<td>Engaged users, session length, feature usage</td>
+</tr>
+<tr>
+<td><strong>Product: retention</strong></td>
+<td>Day-1 / Day-7 / Week-4 retention, week-on-week, month-on-month, churn</td>
+</tr>
+<tr>
+<td><strong>Product: satisfaction</strong></td>
+<td>CSAT, NPS, store rating, support tickets, bugs</td>
+</tr>
+<tr>
+<td><strong>Feature</strong></td>
+<td>Adoption (first-time and repeat), usage funnel, heatmap, task completion, task success and failure rate, time and steps to complete, cognitive load</td>
+</tr>
+<tr>
+<td><strong>Engineering: speed</strong></td>
+<td>Page load time, time to interactive, cold and warm start, end-to-end action latency (actual and perceived)</td>
+</tr>
+<tr>
+<td><strong>Engineering: reliability</strong></td>
+<td>Action and API reliability, availability, MTTR (mean time to repair), MTBF (mean time between failures), downtime, API throttling rate</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition tip">
+<p class="admonition-title">Why PMs should know engineering metrics</p>
+<p>A slow or unreliable product loses users no matter how good the feature is. Put one latency and one reliability metric next to every funnel you own, and ask engineers for p95 and p99, not only the average.</p>
+</div>
+<h3 id="m07-hierarchy-of-analytics"><span class="hnum">7.22.1</span> Hierarchy of analytics</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Question</th>
+<th>Typical tools and methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Descriptive</strong></td>
+<td>What happened?</td>
+<td>Dashboards, funnels, cohort tables (Mixpanel, Amplitude, GA4, Power BI)</td>
+</tr>
+<tr>
+<td><strong>Diagnostic</strong></td>
+<td>Why did it happen?</td>
+<td>Segmentation, drill-downs, session replays, interviews</td>
+</tr>
+<tr>
+<td><strong>Predictive</strong></td>
+<td>What will happen?</td>
+<td>Forecasts, churn and propensity models</td>
+</tr>
+<tr>
+<td><strong>Prescriptive</strong></td>
+<td>What should we do?</td>
+<td>Experiments, recommendation and optimisation systems</td>
+</tr>
+</tbody>
+</table></div>
+<p>Start at the bottom and climb only when the lower level is trusted: a predictive model on messy events wastes time.</p>
+<h2 id="m07-okrs-objectives-and-key-results"><span class="hnum">7.23</span> OKRs: objectives and key results</h2>
+<div class="admonition source">
+<p class="admonition-title">From your class deck (Week 6)</p>
+<p>Objectives are inspiring, concrete, action-oriented goals. Key results are specific, time-bound, measurable and verifiable outcomes. OKRs cascade: a company or higher-team objective is broken into a team's objective, 3 to 5 key results, and initiatives that deliver them. The deck recommends the book <em>Measure What Matters</em>.</p>
+</div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Rule of thumb</th>
+<th>Poor example</th>
+<th>Good example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Objective</strong></td>
+<td>Qualitative, ambitious, memorable</td>
+<td>"Improve onboarding"</td>
+<td>"Make the first day delightful for every new customer"</td>
+</tr>
+<tr>
+<td><strong>Key result</strong></td>
+<td>Numeric, time-bound, outcome not activity</td>
+<td>"Launch new tutorial"</td>
+<td>"Raise day-7 activation from 38% to 48% by end of Q2"</td>
+</tr>
+<tr>
+<td><strong>Initiative</strong></td>
+<td>The work you do</td>
+<td></td>
+<td>Redesign onboarding checklist; add a sample dataset</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition example">
+<p class="admonition-title">Worked example · OKRs for a video-meeting product (hypothetical)</p>
+<p><strong>Objective:</strong> meetings feel as smooth as being in the room.
+* KR1: reduce meeting disconnections by 30% for all calls this year.
+* KR2: lift join-success rate from 96% to 98.5% on mobile.
+* KR3: keep audio-quality complaints under 2 per 1,000 meetings.
+<strong>Initiatives:</strong> better reconnect logic, network-quality indicators, adaptive bitrate tuning.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked example · cascading OKRs for a streaming company (hypothetical)</p>
+<p>Company vision: help creators earn a living from their work and help fans find music they love.
+* <strong>Creator-tools team objective:</strong> make releasing an album effortless. KR: cut the average time to release from 10 days to 7 days this year.
+* <strong>Recommendations team objective:</strong> make discovery delightful. KR: raise average session length by 20% this year.
+Each team's objective rolls up to the company vision, and each KR rolls up to the team's North Star.</p>
+</div>
+<p><strong>Common mistakes:</strong> too many OKRs (more than 3 objectives per team), key results that are tasks ("ship feature X"), sandbagged targets, no guardrail, and using OKRs for performance reviews so that people hide bad news. Aim for ambitious targets where 60 to 70% achievement is a good outcome, and review monthly.</p>
+<h2 id="m07-exercises-with-model-answers"><span class="hnum">7.24</span> Exercises with model answers</h2>
 <div class="admonition question">
 <p class="admonition-title">Exercise 1 · Funnel diagnosis</p>
 <p>A funnel shows: Visit 20,000 → Product page 12,000 → Cart 3,000 → Checkout 2,100 → Order 1,680. (a) Compute step conversions. (b) Which step is lowest? (c) Name three hypotheses and the data you would pull for each.</p>
@@ -781,7 +1171,7 @@ LIMIT 5;
 <summary>Model answer</summary>
 <p>NSM: <em>learners who complete ≥ 3 lessons per week</em> (value = actual learning). Guardrails: lesson quality rating / test scores; 30-day retention; complaints about notification spam. Gaming: making lessons trivially short or sending aggressive streak-guilt notifications to inflate lesson counts — hence the quality and wellbeing guardrails.</p>
 </details>
-<h2 id="m07-interview-perspective"><span class="hnum">7.20</span> Interview perspective</h2>
+<h2 id="m07-interview-perspective"><span class="hnum">7.25</span> Interview perspective</h2>
 <details class="question">
 <summary>“How would you measure the success of a new feature?” — structure</summary>
 <p>1) Goal and user: what outcome and for whom. 2) <strong>Primary metric</strong> (outcome), 3) <strong>input/leading metrics</strong> that explain it, 4) <strong>guardrails</strong>, 5) <strong>how you will measure causally</strong> (A/B or phased rollout), 6) <strong>timeframe</strong> and success threshold, 7) <strong>segments</strong> to check, 8) <strong>decision rule</strong> (ship, iterate, stop). Close with what you would do if the result is inconclusive.</p>
@@ -790,7 +1180,7 @@ LIMIT 5;
 <summary>“Our retention is dropping. How do you investigate?” — 60-second answer</summary>
 <p>“I'd first confirm the definition and whether it's real — check tracking and seasonality. Then I'd see <em>which</em> cohorts: new vs old users, by channel, platform, geography. If new cohorts are weaker, I'd look at acquisition quality and onboarding changes; if everyone is weaker after a date, at releases or competitor moves. I'd pair the quantitative cut with 5–8 interviews of recently churned users to learn why, form two or three hypotheses, and test the cheapest first. I'd also check guardrails so a fix doesn't hurt revenue or satisfaction.”</p>
 </details>
-<h2 id="m07-key-takeaways"><span class="hnum">7.21</span> Key takeaways</h2>
+<h2 id="m07-key-takeaways"><span class="hnum">7.26</span> Key takeaways</h2>
 <ul>
 <li>A metric is only as good as its <strong>definition</strong> (event, numerator, denominator, window, exclusions).</li>
 <li>Use <strong>leading + lagging</strong> metrics, an NSM with a <strong>metric tree</strong>, and <strong>guardrails</strong>.</li>
@@ -800,9 +1190,9 @@ LIMIT 5;
 <li><strong>Correlation is not causation</strong> — Simpson's paradox is the standard warning.</li>
 <li>Instrument from a <strong>tracking plan</strong>, validate data quality, and keep personal data out of analytics events.</li>
 </ul>
-<h2 id="m07-check-your-understanding"><span class="hnum">7.22</span> Check your understanding</h2>
+<h2 id="m07-check-your-understanding"><span class="hnum">7.27</span> Check your understanding</h2>
 <div class="quiz" data-quiz="m07"><h4>Check your understanding</h4><div class="qitem" data-correct="0"><p class="q">A funnel has 800 of 1,000 visitors completing a step. What are step conversion and drop-off?</p><ol><li class="is-correct">80% and 20%</li><li class="">20% and 80%</li><li class="">100% and 0%</li><li class="">Cannot tell without revenue</li></ol><div class="why"><strong>Why:</strong> Step conversion = 800 ÷ 1,000 = 80%; drop-off = 1 − 0.80 = 20%.</div></div><div class="qitem" data-correct="1"><p class="q">AOV is best defined as…</p><ol><li class="">Total revenue ÷ number of users</li><li class="is-correct">Total order value ÷ number of orders</li><li class="">Profit ÷ orders</li><li class="">GMV ÷ MAU</li></ol><div class="why"><strong>Why:</strong> AOV = total order value ÷ number of orders for the same period and definition. It says nothing by itself about profit.</div></div><div class="qitem" data-correct="1"><p class="q">A test gives p = 0.03. Which statement is correct?</p><ol><li class="">There is a 97% chance the variant is better.</li><li class="is-correct">If there were truly no difference, results this extreme would occur about 3% of the time.</li><li class="">The effect is large.</li><li class="">The result will replicate 97% of the time.</li></ol><div class="why"><strong>Why:</strong> A p-value is a probability about the data under the null hypothesis. It is not the probability the variant works and says nothing about effect size.</div></div><div class="qitem" data-correct="0"><p class="q">Which change makes the required sample size per arm increase the most?</p><ol><li class="is-correct">Halving the minimum detectable effect</li><li class="">Raising power from 80% to 85%</li><li class="">Doubling traffic</li><li class="">Using one more guardrail</li></ol><div class="why"><strong>Why:</strong> Sample size scales roughly with 1/(effect size)², so halving the MDE roughly quadruples the sample.</div></div><div class="qitem" data-correct="1"><p class="q">LTV (simple) = ₹120 ÷ 0.05 is ₹2,400. If churn rises to 8%, LTV becomes…</p><ol><li class="">₹960</li><li class="is-correct">₹1,500</li><li class="">₹2,400</li><li class="">₹3,840</li></ol><div class="why"><strong>Why:</strong> 120 ÷ 0.08 = ₹1,500. LTV is very sensitive to churn.</div></div><div class="qitem" data-correct="1"><p class="q">In Simpson&#x27;s paradox, the overall result is reversed relative to every segment because of…</p><ol><li class="">Rounding</li><li class="is-correct">Unequal segment mix between groups</li><li class="">Too many users</li><li class="">Using a two-sided test</li></ol><div class="why"><strong>Why:</strong> When the variant gets a different mix of high- and low-converting segments, the aggregate can mislead; proper randomisation and segmenting fix it.</div></div><div class="qitem" data-correct="2"><p class="q">Which should NOT be sent as an analytics event property?</p><ol><li class="">cart_value</li><li class="">platform</li><li class="is-correct">card_number</li><li class="">item_count</li></ol><div class="why"><strong>Why:</strong> Card details (and typically emails and phone numbers) must never go into analytics tools.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
-<h2 id="m07-recommended-resources"><span class="hnum">7.23</span> Recommended resources</h2>
+<h2 id="m07-recommended-resources"><span class="hnum">7.28</span> Recommended resources</h2>
 <ul>
 <li><a href="https://support.google.com/analytics">Google Analytics Help</a> — events, key events, privacy.</li>
 <li><a href="https://docs.mixpanel.com/">Mixpanel Docs</a> · <a href="https://amplitude.com/docs">Amplitude Docs</a> — product analytics concepts and setup.</li>
