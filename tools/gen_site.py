@@ -373,8 +373,8 @@ HB_LIBROWS = "".join(f'<a class="hb-row" href="handbook/{f}.pdf" target="_blank"
 CLASSROWS = '<a class="hb-row" href="classes/week-06-effective-communication.html" target="_blank" rel="noopener"><span class="hb-n">6</span><span>Week 6 · Effective Communication as a PM<em>67-slide class deck: frameworks, templates, case study, assignment and interview prep</em></span><small>Slides ↗</small></a><a class="hb-row" href="classes/week-06-effective-communication.pdf" target="_blank" rel="noopener"><span class="hb-n">6</span><span>Week 6 · Effective Communication as a PM<em>Same deck as a PDF to download</em></span><small>PDF ↗</small></a>'
 HB_PANEL = f'''    <div class="panel" id="p-handbook" hidden>
       <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Product Management Master Handbook</h2>
-        <p class="meta" style="margin:0 0 14px">23 modules, 570 pages: the 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep. Created by Varun Kumar.</p>
-        <div class="hb-acts"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (570 pages, 22 MB) ↗</a></div></div></div>
+        <p class="meta" style="margin:0 0 14px">23 modules, 620+ pages: the 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep. Created by Varun Kumar.</p>
+        <div class="hb-acts"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 23 MB) ↗</a></div></div></div>
       <h3 class="h3s hb-h">Product Core modules</h3><div class="hb-list">{_hb_mods(HB_CORE)}</div>
       <h3 class="h3s hb-h">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div>
       <h3 class="h3s hb-h">Libraries</h3><div class="hb-list">{HB_LIBROWS}</div>
@@ -403,7 +403,7 @@ page("programs.html", "Programs · SkillNavora", "Compare SkillNavora's AI-First
 INSTRUCTOR_S = """<section id="instructor"><div class="wrap"><div class="kicker">Your instructor</div><h2 class="sec-h">Learn from a practising product leader</h2>
   <div class="inst card"><img src="../assets/varun.jpg" alt="Varun Kumar" width="168" height="168" loading="lazy">
     <div><h3>Varun Kumar</h3><p class="meta" style="margin:2px 0 12px">Founder and lead instructor, SkillNavora · Product manager</p>
-    <p>Varun designed this program around the way product teams work today: real problems, honest feedback and the AI tools PMs use every day. He wrote the 570-page SkillNavora PM Master Handbook that every learner gets, and personally reviews capstone projects.</p>
+    <p>Varun designed this program around the way product teams work today: real problems, honest feedback and the AI tools PMs use every day. He wrote the 620-page SkillNavora PM Master Handbook that every learner gets, and personally reviews capstone projects.</p>
     <div class="inst-acts"><a class="btn btn-line btn-sm" href="https://www.linkedin.com/in/" data-li target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn btn-line btn-sm" href="../resources.html">Read the PM Handbook</a></div></div></div>
   <p class="meta" style="margin-top:14px">Guest mentors and speakers are announced for each cohort.</p></div></section>"""
 TOOLS_SUB = {"ai-pm": "Hands-on with the tools product teams use every day, from Jira and Figma to Claude and Claude Code.",
@@ -561,8 +561,8 @@ RES_PANEL = f'''    <div class="panel" id="p-resources" hidden>
       <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Resources &amp; AI tools</h2>
         <p class="meta" style="margin:0">Every AI and product tool with its official website, the complete PM Master Handbook, interview practice, the PM frameworks cheat sheet, a PRD template and hand-picked free courses.</p></div></div>
       <h3 class="h3s hb-h">AI and product tools</h3><div class="tgroups" id="res-tools"></div>
-      <h3 class="h3s hb-h">PM Master Handbook by Varun Kumar</h3><p class="meta" style="margin:-4px 0 12px">23 modules and 570 pages: 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep.</p>
-      <div class="hb-acts" style="margin-bottom:14px"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (570 pages, 22 MB) ↗</a></div>
+      <h3 class="h3s hb-h">PM Master Handbook by Varun Kumar</h3><p class="meta" style="margin:-4px 0 12px">23 modules and 620+ pages: 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep.</p>
+      <div class="hb-acts" style="margin-bottom:14px"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 23 MB) ↗</a></div>
       <h3 class="h3s hb-h" style="font-size:16px">Product Core modules</h3><div class="hb-list">{_hb_mods(HB_CORE)}</div>
       <h3 class="h3s hb-h" style="font-size:16px">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div>
       <h3 class="h3s hb-h" style="font-size:16px">Libraries</h3><div class="hb-list">{HB_LIBROWS}</div>
@@ -689,7 +689,7 @@ contact = uhero("Contact us", 'We\'re here to <span class="g">help</span>', "Que
 WHY_US = [
     ("AI-first, not AI-added", "Every program is built around how teams work in 2026: Claude, ChatGPT, Copilot, agents, MCP and no-code automation are part of every module, not a bonus lecture at the end."),
     ("Taught by a working product leader", "You learn from people who ship products at large companies today, so the frameworks, interview questions and case studies match what hiring managers actually ask."),
-    ("Free handbooks you can keep", "A 570-page PM Master Handbook, a 1,200+ page Data Science & AI handbook and a GenAI Launchpad handbook, with a PDF for every lesson, free for every registered learner."),
+    ("Free handbooks you can keep", "A 620-page PM Master Handbook, a 1,200+ page Data Science & AI handbook and a GenAI Launchpad handbook, with a PDF for every lesson, free for every registered learner."),
     ("Learn by doing", "Real outputs from runnable code, datasets, Excel workbooks, Power BI and Tableau case studies, n8n and Figma projects and a capstone in every track, so you finish with proof of work."),
     ("Practice that tells you why", "Practice tests with hints and worked solutions, 100 top interview questions for each career path, mock interviews with AI feedback and real product challenges."),
     ("Portfolio and job support", "Resume and LinkedIn reviews, portfolio projects on GitHub and Tableau Public, a curated job board, referrals and interview preparation until you are job-ready."),
@@ -1068,7 +1068,7 @@ POSTS = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 os.makedirs(os.path.join(OUT, "blog"), exist_ok=True)
 _pcards = "".join(f"""<a class="card post" href="blog/{p['slug']}.html"><span class="ftag">Product management</span><h3>{E(p['title'])}</h3><p>{E(p['desc'])}</p><div class="fmeta"><span>Varun Kumar</span><span>{p['mins']} min read</span></div><span class="go">Read article →</span></a>""" for p in POSTS)
 blogs = uhero("Blogs", 'Insights for <span class="g">AI-first careers</span>', "Practical guides on product management, AI tools and getting hired, by the SkillNavora team.") + f"""
-<section style="padding-top:36px"><div class="wrap"><div class="grid g3">{_pcards}</div></div></section>""" + band("Want to go deeper?", "Get the free 570-page PM Master Handbook, or join a live program.", '<a class="btn btn-primary" href="resources.html">Free resources →</a><a class="btn btn-ghost" href="programs.html">Explore programs</a>')
+<section style="padding-top:36px"><div class="wrap"><div class="grid g3">{_pcards}</div></div></section>""" + band("Want to go deeper?", "Get the free 620-page PM Master Handbook, or join a live program.", '<a class="btn btn-primary" href="resources.html">Free resources →</a><a class="btn btn-ghost" href="programs.html">Explore programs</a>')
 page("blogs.html", "Blogs · SkillNavora", "Guides on product management, AI tools and PM interviews from SkillNavora.", blogs, "blogs.html")
 for i, p in enumerate(POSTS):
     nxt = POSTS[(i + 1) % len(POSTS)]

@@ -71,6 +71,6 @@ function show(k){tabs.forEach(function(t){t.setAttribute('aria-selected',t.datas
 tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.seg)})});
 q.addEventListener('input',function(){var v=q.value.trim().toLowerCase();document.querySelectorAll('.iv details').forEach(function(d){d.classList.toggle('pt-hide',!!v&&d.dataset.s.indexOf(v)<0)})});
 var h=(location.hash||'').slice(1);if(document.querySelector('.iv[data-seg="'+h+'"]'))show(h)})();</script>"""
-    body = (CSS + '<p class="meta" style="margin:0 0 14px">The 100 most important interview questions for each career path, with model answers and a link to the lesson that teaches the topic. Click a question to see the answer.</p>'
+    body = (CSS + '<p class="meta" style="margin:0 0 14px">The 100 most important interview questions for each career path, plus the AI Product Sense bank of 86 questions on improvement, growth, launch, design, strategy, safety and metrics, each with a model answer. Click a question to see the answer.</p>'
             + tabs("iv", counts) + '<div class="pt-bar"><input id="iv-q" type="search" placeholder="Search questions, e.g. SQL, RAG, metrics…" aria-label="Search questions" style="flex:1 1 280px"></div>' + secs + js)
     return body, counts

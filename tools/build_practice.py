@@ -9,7 +9,7 @@ PM = "/home/user/product-management-handbook/content"
 CAT = json.load(open("/home/user/data-science-and-ai/course/catalog.json"))
 PAGE = {f'{t["id"]}-{L["num"]:02d}': ("data-science/" + L["page"], L["title"], t["name"]) for t in CAT["tracks"] for L in t["lessons"]}
 
-SEG = {"pm": "AI Product Management", "data": "Data Science & AI", "genai": "GenAI, Agents & AI Tools", "other": "Other programs"}
+SEG = {"pm": "AI Product Management", "aips": "AI Product Sense", "data": "Data Science & AI", "genai": "GenAI, Agents & AI Tools", "other": "Other programs"}
 TRACK_SEG = {"excel": "data", "sql": "data", "powerbi": "data", "tableau": "data", "python": "data", "ml": "data", "career": "data", "ai-analytics": "genai",
              "genai": "genai", "agents": "genai", "tools": "genai", "sfmc": "other", "marketing": "other", "content": "other", "fde": "other", "speaking": "other"}
 TRACK_NAME = {t["id"]: t["name"] for t in CAT["tracks"]}
@@ -63,6 +63,11 @@ for f in sorted(glob.glob(PM + "/interview/0[1-9]*.md")):
         ma = re.search(r"\*\*Model answer:\*\*\s*(.+?)(?:\n\s*\n|\Z)", m.group(2), re.S)
         if not ma: continue
         q = {"q": md_inline(head), "a": md_inline(" ".join(ma.group(1).split())), "topic": cat, "page": "handbooks/pm/interview.html"}
+        if cat == "AI product sense":
+            pid = re.match(r"([A-Z]+)\d+", m.group(1)).group(1)
+            SUBS = {"AIPI": "Product improvement", "AIPG": "Product growth", "AIPL": "Product launch", "AIPD": "Product design", "AIPS": "Product strategy", "AISE": "Safety and ethics", "AIMP": "Metrics and pricing"}
+            interview["aips"].append(dict(q, topic="AI product sense: " + SUBS.get(pid, "")))
+            continue
         interview["pm"].append(q)
         if re.search(r"\bAI\b|LLM|agent|model|GenAI|RAG", head): interview["genai"].append(dict(q, topic="AI product questions"))
 

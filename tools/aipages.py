@@ -102,7 +102,7 @@ def hub():
     cards = "".join(f'''<a class="ai-card" href="{p}"><span class="ic">{ico(i)}</span><span class="ai-badge">Free</span><h3>{E(n)}</h3><p>{E(d)}</p><ul>{"".join(f"<li>{E(x)}</li>" for x in L)}</ul><span class="go">{E(c)} →</span></a>'''
                     for p, i, n, d, L, c in FEATURES)
     more = '''<a class="ai-card" href="lab.html"><span class="ai-badge">Practice</span><h3>Practice Lab</h3><p>Run real SQL, Excel formulas and Python in your browser, spot the trap and see the fix.</p><span class="go">Open the lab →</span></a>
-<a class="ai-card" href="questions.html"><span class="ai-badge">Interview prep</span><h3>Top 100 interview questions</h3><p>Model answers for PM, Data & AI and GenAI, each linked to the lesson that teaches it.</p><span class="go">See questions →</span></a>
+<a class="ai-card" href="questions.html"><span class="ai-badge">Interview prep</span><h3>Top 100 interview questions</h3><p>Model answers for PM, Data & AI and GenAI, plus 86 AI product-sense questions with answers.</p><span class="go">See questions →</span></a>
 <a class="ai-card" href="handbooks/index.html"><span class="ai-badge">Handbooks</span><h3>Handbooks & PDFs</h3><p>PM Master Handbook, Data Science & AI handbook and GenAI Launchpad, free with your details.</p><span class="go">Open handbooks →</span></a>'''
     return CSS + f'''<section style="padding-top:36px"><div class="wrap">
 <h2 class="sec-h" style="font-size:28px">Your AI learning assistants</h2><p class="sub">Everything runs right here on SkillNavora. No other AI app or account needed.</p>
