@@ -25,9 +25,9 @@ CSS = """<style>
 .ai-card{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
 .ai-card:hover{transform:translateY(-2px);border-color:var(--brand)}.ai-card .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#6C4CF5,#22D3EE);color:#fff}
 .ai-card .ic svg{width:24px;height:24px}.ai-card h3{margin:6px 0 0;font-size:20px}.ai-card p{margin:0;color:var(--mu);font-size:15px}.ai-card ul{margin:4px 0 0;padding-left:18px;color:var(--mu);font-size:14px}.ai-card .go{margin-top:auto;font-weight:700;color:var(--brand)}
-.ai-badge{display:inline-block;font:700 11px var(--body);letter-spacing:.06em;text-transform:uppercase;background:rgba(108,76,245,.12);color:#6C4CF5;border-radius:99px;padding:4px 10px;width:max-content}
+.ai-badge{display:inline-block;font:700 11px var(--body);letter-spacing:.06em;text-transform:uppercase;background:rgba(108,76,245,.12);color:var(--brand,#6C4CF5);border-radius:99px;padding:4px 10px;width:max-content}
 .ai-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:s}.ai-steps div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px}.ai-steps b{display:block;margin-bottom:4px}
-.ai-steps div::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;margin-bottom:8px}
+.ai-steps div::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--brand);color:var(--on-brand,#fff);font-weight:800;margin-bottom:8px}
 .ai-wrap{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:22px;align-items:start}
 .ai-side{position:sticky;top:84px;display:flex;flex-direction:column;gap:12px}
 .ai-side .card{padding:18px}.ai-side h3{font-size:15px;margin:0 0 8px}
@@ -35,7 +35,7 @@ CSS = """<style>
 .ai-chips button:hover,.ai-chips button[aria-pressed=true]{border-color:var(--brand);background:rgba(108,76,245,.1)}
 .ai-chat{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);min-height:70vh}
 .ai-log{flex:1;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:14px;max-height:68vh}
-.ai-m{max-width:88%;padding:12px 16px;border-radius:16px;line-height:1.6;overflow-wrap:anywhere}.ai-m.u{align-self:flex-end;background:var(--brand);color:#fff;border-bottom-right-radius:4px;white-space:pre-wrap}
+.ai-m{max-width:88%;padding:12px 16px;border-radius:16px;line-height:1.6;overflow-wrap:anywhere}.ai-m.u{align-self:flex-end;background:var(--brand);color:var(--on-brand,#fff);border-bottom-right-radius:4px;white-space:pre-wrap}
 .ai-m.a{align-self:flex-start;background:var(--surface-2);border:1px solid var(--line);border-bottom-left-radius:4px}
 .ai-form{display:flex;gap:10px;padding:14px;border-top:1px solid var(--line);align-items:flex-end}.ai-form textarea{flex:1;min-height:52px;max-height:200px;resize:vertical;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font:inherit;background:var(--bg);color:var(--ink)}
 .ai-out h1,.ai-out h2,.ai-out h3{line-height:1.3;margin:14px 0 6px}.ai-out h1{font-size:24px}.ai-out h2{font-size:19px}.ai-out h3{font-size:16.5px}.ai-out p{margin:6px 0}.ai-out ul,.ai-out ol{margin:6px 0;padding-left:22px}

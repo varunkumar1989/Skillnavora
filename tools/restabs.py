@@ -262,7 +262,7 @@ def build(pm_html, cfg, scope=None):
     tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("other", "Other programs"), ("learn", "Learning sites"), ("more", "Other resources & links")]
     pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
     bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
-    feat = lambda kick, h, p, btns: (f'<div class="card" style="margin:0 0 22px;border:2px solid #6C4CF5;background:linear-gradient(135deg,rgba(108,76,245,.07),rgba(34,211,238,.07))">'
+    feat = lambda kick, h, p, btns: (f'<div class="card" style="margin:0 0 22px;border:2px solid var(--brand,#6C4CF5);background:linear-gradient(135deg,rgba(108,76,245,.07),rgba(34,211,238,.07))">'
         f'<div class="kicker">{kick}</div><h3 style="margin:6px 0 6px;font-size:21px">{h}</h3><p style="margin:0 0 12px;color:var(--mu)">{p}</p><div style="display:flex;flex-wrap:wrap;gap:8px">'
         + "".join(f'<a class="btn {"btn-primary" if i == 0 else "btn-line"} btn-sm" href="{u}">{t}</a>' for i, (t, u) in enumerate(btns)) + '</div></div>')
     prd_box = feat("PRD documents", "PRD library: template, framing guide and 120 PRD ideas", "Learn how top PMs frame a PRD, download the free template, and turn any of 120 ideas across 15 industries into a full PRD with AI.",

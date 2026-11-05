@@ -108,7 +108,7 @@
   setInterval(() => document.querySelectorAll("[data-deadline]").forEach(el => { el.textContent = left(el.dataset.deadline) || "closed"; }), 1000);
 
   /* ---- Course cover art ---- */
-  const PAL = [["#1a1040", "#5b3df5", "#a78bfa"], ["#0f1530", "#3b4fd8", "#67e8f9"], ["#0a1f2e", "#0e7490", "#34d399"]];
+  const PAL = [["#0f1f1c", "#5b3df5", "#a78bfa"], ["#0f1f1c", "#3b4fd8", "#67e8f9"], ["#0f1f1c", "#0e7490", "#34d399"]];
   // Course icons: rocket (product), chart (data engineering), sparkles (GenAI)
   const ART = {
     "ai-pm": p => `<g transform="rotate(40)"><path d="M-7 18Q0 44 7 18Z" fill="#a78bfa"/><path d="M-3.5 18Q0 33 3.5 18Z" fill="#67e8f9"/><path d="M-12 6L-24 20L-12 17Z" fill="${p[2]}"/><path d="M12 6L24 20L12 17Z" fill="${p[2]}"/><path d="M0-36C13-24 15-6 12 18H-12C-15-6-13-24 0-36Z" fill="#fff"/><path d="M0-36C6-30 9-24 10-18H-10C-9-24-6-30 0-36Z" fill="#a78bfa"/><circle cy="-4" r="6.5" fill="${p[0]}" stroke="#22d3ee" stroke-width="2.5"/></g>`,
@@ -277,9 +277,9 @@
     ["pm-toolkit.html", "🧰", "AI PM Toolkit", "Discovery, sizing, A/B tests…"], ["speaking-coach.html", "🎤", "Speaking Coach", "English & interviews"],
     ["practice.html", "🎯", "AI mock interview", "Get scored"], ["ai.html", "✨", "All of AI Studio", "Every free AI tool"]];
   const css = document.createElement("style");
-  css.textContent = `#askai-tab{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:9990;writing-mode:vertical-rl;rotate:180deg;border:0;border-radius:0 12px 12px 0;padding:14px 9px;background:linear-gradient(180deg,#22D3EE,#6C4CF5);color:#fff;font:700 13.5px/1 var(--body,system-ui);letter-spacing:.04em;cursor:pointer;box-shadow:0 8px 24px rgba(60,40,160,.35)}
-#askai-tab:hover{padding-left:12px}#askai{position:fixed;left:0;top:0;bottom:0;width:min(340px,88vw);z-index:9995;background:var(--surface,#fff);color:var(--ink,#0d1630);border-right:1px solid var(--line,#e1e6f0);box-shadow:16px 0 50px rgba(10,15,40,.25);transform:translateX(-105%);transition:transform .22s ease;display:flex;flex-direction:column;padding:18px;gap:12px;overflow:auto}
-#askai.open{transform:none}#askai-bg{position:fixed;inset:0;z-index:9994;background:rgba(5,10,30,.35);display:none}#askai-bg.open{display:block}
+  css.textContent = `#askai-tab{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:9990;writing-mode:vertical-rl;rotate:180deg;border:0;border-radius:0 12px 12px 0;padding:14px 9px;background:linear-gradient(180deg,#54e0c4,#2fbfa6);color:#04211c;font:700 13.5px/1 var(--body,system-ui);letter-spacing:.04em;cursor:pointer;box-shadow:0 8px 24px rgba(10,60,50,.35)}
+#askai-tab:hover{padding-left:12px}#askai{position:fixed;left:0;top:0;bottom:0;width:min(340px,88vw);z-index:9995;background:var(--surface,#fff);color:var(--ink,#0d1630);border-right:1px solid var(--line,#e1e6f0);box-shadow:16px 0 50px rgba(13,27,24,.25);transform:translateX(-105%);transition:transform .22s ease;display:flex;flex-direction:column;padding:18px;gap:12px;overflow:auto}
+#askai.open{transform:none}#askai-bg{position:fixed;inset:0;z-index:9994;background:rgba(7,16,15,.35);display:none}#askai-bg.open{display:block}
 #askai h2{font-size:19px;margin:0}#askai .x{position:absolute;right:12px;top:10px;border:0;background:none;font-size:24px;cursor:pointer;color:inherit}
 #askai form{display:flex;flex-direction:column;gap:8px}#askai textarea{min-height:70px;border:1px solid var(--line,#e1e6f0);border-radius:12px;padding:10px 12px;font:inherit;background:var(--bg,#f5f7fc);color:inherit;resize:vertical}
 #askai a.t{display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit;border:1px solid var(--line,#e1e6f0);border-radius:12px;padding:9px 12px}#askai a.t:hover{border-color:var(--brand,#6C4CF5)}#askai a.t span{font-size:20px}#askai a.t small{display:block;color:var(--mu,#55607a);font-size:12.5px}

@@ -16,7 +16,7 @@ def card(C, tab, num=None, R=""):
             f'<a class="btn btn-line btn-sm" href="{R}{ARTIFACT}#{tab}">Interactive</a></div></article>')
 
 CSS = """<style>.ac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}.ac-card{display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px}
-.ac-card h3{margin:0;font-size:18px}.ac-card p{margin:0;color:var(--mu);font-size:14.5px}.ac-n{font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;color:#6C4CF5}.ac-meta{font-size:12.5px;color:var(--mu)}
+.ac-card h3{margin:0;font-size:18px}.ac-card p{margin:0;color:var(--mu);font-size:14.5px}.ac-n{font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--brand,#6C4CF5)}.ac-meta{font-size:12.5px;color:var(--mu)}
 .ac-acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}.ac-h{font-size:22px;margin:22px 0 10px}</style>"""
 
 def grid(R=""):
@@ -33,7 +33,7 @@ def grid(R=""):
 
 def hub():
     return f"""<section style="padding-top:28px"><div class="wrap">
-<div class="card" style="border:2px solid #6C4CF5;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between"><div style="max-width:720px"><b>One place for every AI skill course.</b> Each course has lessons on the website, a free PDF and an interactive version. Part of the <a href="program/ai-product-management.html">AI Product Management</a> and <a href="program/genai-launchpad.html">GenAI Launchpad</a> programs.</div>
+<div class="card" style="border:2px solid var(--brand,#6C4CF5);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between"><div style="max-width:720px"><b>One place for every AI skill course.</b> Each course has lessons on the website, a free PDF and an interactive version. Part of the <a href="program/ai-product-management.html">AI Product Management</a> and <a href="program/genai-launchpad.html">GenAI Launchpad</a> programs.</div>
 <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-primary" href="study-hub.html">Study Hub (4 tabs)</a><a class="btn btn-line" href="study-library.html">Study Library (everything)</a><a class="btn btn-line" href="ai-skills-map.html">AI Skills Map</a><a class="btn btn-line" href="{ARTIFACT}">Interactive academy</a></div></div>
 {grid()}</div></section>"""
 

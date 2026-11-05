@@ -1,9 +1,9 @@
 
 /* Layout: sticky tab bar; course = class index rail + reading column. Brand tokens from skillnavora.in */
-:root{--bg:#f5f6fb;--surface:#ffffff;--surface2:#eef0f8;--ink:#121633;--mu:#5a6283;--line:#e0e3ef;--brand:#3d34c9;--brand2:#0e9fb8;--ok:#15803d;--mid:#b45309;--adv:#be185d;--code:#10142e;--codeink:#e6eaff;
+:root{--bg:#f5f6fb;--surface:#ffffff;--surface2:#eef0f8;--ink:#0f1f1c;--mu:#5a6283;--line:#e0e3ef;--brand:#3d34c9;--brand2:#0e9fb8;--ok:#15803d;--mid:#b45309;--adv:#be185d;--code:#0f1f1c;--codeink:#e6eaff;
 --display:"Plus Jakarta Sans",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0e1f;--surface:#141936;--surface2:#1b2147;--ink:#e9ecfb;--mu:#a2a9c8;--line:#273058;--brand:#9d94ff;--brand2:#4fd6ea;--ok:#4ade80;--mid:#fbbf24;--adv:#f472b6;--code:#070a18;--codeink:#e6eaff;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0b0e1f;--surface:#141936;--surface2:#1b2147;--ink:#e9ecfb;--mu:#a2a9c8;--line:#273058;--brand:#9d94ff;--brand2:#4fd6ea;--ok:#4ade80;--mid:#fbbf24;--adv:#f472b6;--code:#070a18;--codeink:#e6eaff;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1b18;--surface:#0f1f1c;--surface2:#153029;--ink:#e9ecfb;--mu:#a2a9c8;--line:#273058;--brand:#9d94ff;--brand2:#4fd6ea;--ok:#4ade80;--mid:#fbbf24;--adv:#f472b6;--code:#07100f;--codeink:#e6eaff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1b18;--surface:#0f1f1c;--surface2:#153029;--ink:#e9ecfb;--mu:#a2a9c8;--line:#273058;--brand:#9d94ff;--brand2:#4fd6ea;--ok:#4ade80;--mid:#fbbf24;--adv:#f472b6;--code:#07100f;--codeink:#e6eaff;color-scheme:dark}
 body{background:var(--bg);color:var(--ink);font:15.5px/1.6 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
 .wrap{max-width:1180px;margin:0 auto}

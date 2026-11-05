@@ -83,7 +83,7 @@ def site_style():
         if sel.startswith("@media"):
             nested = "".join(f"{_scope(s2)}{{{b2}}}" for s2, b2 in _split_rules(inner)); keep.append(f"{sel}{{{nested}}}")
         else: keep.append(f"{_scope(sel)}{{{inner}}}")
-    tokens = (".acad{--surface2:var(--surface-2,#eef2fa);--brand:#5b4ee8;--brand2:#0e9fb8;--ok:#16a34a;--mid:#d97706;--adv:#db2777;--code:#10142e;--codeink:#e6eaff;"
+    tokens = (".acad{--surface2:var(--surface-2,#eef2fa);--brand:#5b4ee8;--brand2:#0e9fb8;--ok:#16a34a;--mid:#d97706;--adv:#db2777;--code:#0f1f1c;--codeink:#e6eaff;"
               "--display:'Plus Jakarta Sans',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:ui-monospace,Consolas,monospace;font:15.5px/1.6 var(--body);color:var(--ink);padding-block:10px 40px}"
               "")
     over = (".acad nav.a-tabs{top:var(--a-hh,68px);background:var(--bg,#f5f7fc);z-index:30}.acad .toc{top:calc(var(--a-hh,68px) + 70px)}"

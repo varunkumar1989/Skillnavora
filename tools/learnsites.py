@@ -223,10 +223,10 @@ LEARN = [
 ]
 
 CSS = """<style>.ls-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}.ls-chips button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:8px 14px;font:600 14px var(--body);cursor:pointer}
-.ls-chips button[aria-pressed=true]{background:var(--brand);color:#fff;border-color:var(--brand)}.ls-prog{margin:0 0 30px}.ls-prog>h3{font-size:22px;margin:0 0 4px}.ls-prog>p{margin:0 0 12px;color:var(--mu)}
+.ls-chips button[aria-pressed=true]{background:var(--brand);color:var(--on-brand,#fff);border-color:var(--brand)}.ls-prog{margin:0 0 30px}.ls-prog>h3{font-size:22px;margin:0 0 4px}.ls-prog>p{margin:0 0 12px;color:var(--mu)}
 .ls-g{font:700 13px var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin:16px 0 8px}.ls-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
 .ls-i{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}.ls-i:hover{border-color:var(--brand)}
-.ls-i b{color:var(--ink)}.ls-i small{color:var(--mu);font-size:13px}.ls-i em{font:700 10.5px var(--body);font-style:normal;text-transform:uppercase;letter-spacing:.05em;color:#6C4CF5}.ls-i .go{font:600 12.5px var(--body);color:var(--brand);margin-top:2px}</style>"""
+.ls-i b{color:var(--ink)}.ls-i small{color:var(--mu);font-size:13px}.ls-i em{font:700 10.5px var(--body);font-style:normal;text-transform:uppercase;letter-spacing:.05em;color:var(--brand,#6C4CF5)}.ls-i .go{font:600 12.5px var(--body);color:var(--brand);margin-top:2px}</style>"""
 
 def count():
     return sum(len(items) for _, _, _, groups in LEARN for _, items in groups)

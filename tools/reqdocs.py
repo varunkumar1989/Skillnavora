@@ -17,10 +17,10 @@ CSS = """<style>
 .rq-tbl td:first-child{font-weight:700;white-space:nowrap}.rq-tbl td.ex{color:var(--mu);font-style:italic}
 .rq-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;padding:0;list-style:none}.rq-list li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
 .rq-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px}.rq-tools input{flex:1;min-width:220px;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font:inherit;background:var(--surface);color:var(--ink)}
-.rq-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}.rq-chips button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:7px 12px;font:600 13.5px var(--body);cursor:pointer}.rq-chips button[aria-pressed=true]{background:var(--brand);color:#fff;border-color:var(--brand)}
+.rq-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}.rq-chips button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:7px 12px;font:600 13.5px var(--body);cursor:pointer}.rq-chips button[aria-pressed=true]{background:var(--brand);color:var(--on-brand,#fff);border-color:var(--brand)}
 .rq-ideas{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
 .rq-idea{display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}.rq-idea .n{font:700 12px var(--body);color:var(--mu)}
-.rq-idea h3{font-size:16.5px;margin:0}.rq-idea p{margin:0;font-size:14.5px;color:var(--mu)}.rq-idea .m{font-size:13.5px}.rq-idea .m b{color:var(--ink)}.rq-idea .tag{font:700 11px var(--body);text-transform:uppercase;letter-spacing:.05em;color:#6C4CF5}
+.rq-idea h3{font-size:16.5px;margin:0}.rq-idea p{margin:0;font-size:14.5px;color:var(--mu)}.rq-idea .m{font-size:13.5px}.rq-idea .m b{color:var(--ink)}.rq-idea .tag{font:700 11px var(--body);text-transform:uppercase;letter-spacing:.05em;color:var(--brand,#6C4CF5)}
 .rq-idea .acts{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;padding-top:6px}
 .rq-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.rq-links a{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
 .rq-links a:hover{border-color:var(--brand)}.rq-links b{display:block;color:var(--brand)}.rq-links small{color:var(--mu)}

@@ -6,16 +6,16 @@ E = html.escape
 LEVEL = {"basic": ("Basic", "#16a34a"), "intermediate": ("Intermediate", "#d97706"), "advanced": ("Advanced", "#db2777")}
 
 PDF_CSS = """@page{size:A4}*{box-sizing:border-box}body{font:10.6pt/1.55 'Segoe UI',Inter,Arial,sans-serif;color:#17142E;margin:0}
-h1,h2,h3{font-family:'Segoe UI',Inter,Arial,sans-serif;color:#2E3192;line-height:1.25}h2{font-size:20pt;margin:0 0 4px}h3{font-size:12.5pt;margin:16px 0 6px;color:#3b2bb5}
+h1,h2,h3{font-family:'Segoe UI',Inter,Arial,sans-serif;color:#0b5d52;line-height:1.25}h2{font-size:20pt;margin:0 0 4px}h3{font-size:12.5pt;margin:16px 0 6px;color:#0f8f7c}
 p{margin:6px 0}ul,ol{margin:6px 0;padding-left:20px}li{margin:2px 0}table{width:100%;border-collapse:collapse;margin:8px 0;font-size:9.6pt;page-break-inside:avoid}
-th,td{border:1px solid #d8d3ee;padding:5px 7px;text-align:left;vertical-align:top}th{background:#efedfb;color:#2E3192}
+th,td{border:1px solid #cfe5df;padding:5px 7px;text-align:left;vertical-align:top}th{background:#e6f6f2;color:#0b5d52}
 pre{background:#0d1630;color:#e8edfb;border-radius:8px;padding:9px 11px;font:8.9pt/1.45 Consolas,'Courier New',monospace;white-space:pre-wrap;page-break-inside:avoid}
-.box{background:#f4f1ff;border-left:4px solid #6C4CF5;padding:8px 12px;border-radius:6px;margin:8px 0}.flow{background:#ecfeff;border:1px solid #a5f3fc;border-radius:8px;padding:8px 12px;font-weight:600;color:#155e75}
-.cover{height:255mm;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#2E3192,#6C4CF5 55%,#22D3EE);color:#fff;padding:24mm;border-radius:10px;page-break-after:always}
-.cover h1{color:#fff;font-size:34pt;margin:10px 0}.cover p{font-size:13pt;color:#e6e3ff}.cover .k{letter-spacing:.14em;text-transform:uppercase;font-weight:700;font-size:10pt}
+.box{background:#eefaf7;border-left:4px solid #0f8f7c;padding:8px 12px;border-radius:6px;margin:8px 0}.flow{background:#eefaf7;border:1px solid #bfe9df;border-radius:8px;padding:8px 12px;font-weight:600;color:#0b5d52}
+.cover{height:255mm;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(520px 320px at 98% -4%,rgba(185,86,137,.55),transparent 62%),radial-gradient(420px 260px at 0% 106%,rgba(128,63,98,.42),transparent 62%),#07100f;color:#fff;padding:24mm;border-radius:10px;page-break-after:always}
+.cover h1{color:#fff;font-size:34pt;margin:10px 0}.cover p{font-size:13pt;color:#9fb6b1}.cover .k{letter-spacing:.14em;text-transform:uppercase;font-weight:700;font-size:10pt;color:#54e0c4}
 .class{page-break-before:always}.lvl{display:inline-block;font-weight:700;font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px;color:#fff;margin-bottom:6px}
 .goal{color:#55607a;font-size:11pt;margin:0 0 10px}.take{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 12px;margin-top:10px;page-break-inside:avoid}.ex{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:8px 12px;margin-top:8px;page-break-inside:avoid}
-.toc td{border:0;border-bottom:1px solid #eee;padding:6px}.small{font-size:9pt;color:#55607a}.foot{font-size:8.5pt;color:#888;margin-top:14px}"""
+.toc td{border:0;border-bottom:1px solid #e3efec;padding:6px}.small{font-size:9pt;color:#55607a}.foot{font-size:8.5pt;color:#888;margin-top:14px}"""
 
 
 def _classes(C):
@@ -33,12 +33,12 @@ def pdf_html(C):
     glo = "".join(f"<tr><td><b>{E(a)}</b></td><td>{E(b)}</td></tr>" for a, b in C["glossary"])
     links = "".join(f'<li>{E(n)}: <a href="{E(u)}">{E(u)}</a></li>' for n, u in C["links"])
     return f"""<!doctype html><html><head><meta charset="utf-8"><title>{E(C['title'])} · SkillNavora</title><style>{PDF_CSS}</style></head><body>
-<div class="cover"><div class="k">{E(C['kicker'])}</div><h1>{E(C['title'])}</h1><p>{E(C['intro'])}</p><p class="small" style="color:#d9e8ff">Edition 2026 · skillnavora.in</p></div>
+<div class="cover"><div class="k">{E(C['kicker'])}</div><h1>{E(C['title'])}</h1><p>{E(C['intro'])}</p><p class="small" style="color:#9fb6b1">Edition 2026 · skillnavora.in</p></div>
 <h2>How to use this guide</h2><p>Each class has goals, concepts with Indian examples, key takeaways and a practice exercise, from basic to advanced. Finish with the final project to build something you can show in interviews.</p>
 <table class="toc"><tr><th></th><th>Class</th><th>Level</th></tr>{toc}<tr><td></td><td><b>Toolkit:</b> templates, {E(C['cheat_title']).lower()}, glossary, {len(C['qa'])} interview questions, further reading</td><td></td></tr></table>
 {_classes(C)}
-<section class="class"><span class="lvl" style="background:#2E3192">Toolkit</span><h2>Templates</h2>{C['templates_html']}</section>
-<section class="class"><span class="lvl" style="background:#2E3192">Toolkit</span><h2>{E(C['cheat_title'])}</h2><table><tr><th>Term / tool</th><th>Meaning / use</th></tr>{cheat}</table><h2 style="margin-top:18px">Glossary</h2><table>{glo}</table></section>
+<section class="class"><span class="lvl" style="background:#0b5d52">Toolkit</span><h2>Templates</h2>{C['templates_html']}</section>
+<section class="class"><span class="lvl" style="background:#0b5d52">Toolkit</span><h2>{E(C['cheat_title'])}</h2><table><tr><th>Term / tool</th><th>Meaning / use</th></tr>{cheat}</table><h2 style="margin-top:18px">Glossary</h2><table>{glo}</table></section>
 <section class="class"><span class="lvl" style="background:#2E3192">Interview prep</span><h2>{len(C['qa'])} interview questions with answers</h2>{qa}</section>
 <section class="class"><span class="lvl" style="background:#2E3192">Learn more</span><h2>Further reading and tools</h2><ul>{links}</ul>
 <p class="foot">© SkillNavora · skillnavora.in · Part of the AI Product Management and GenAI Launchpad programs. Practise with the free AI Tutor, AI PM Toolkit and Practice Lab on skillnavora.in.</p></section></body></html>"""
@@ -79,7 +79,7 @@ footerTemplate:{json.dumps('<div style="font-size:8px;color:#888;width:100%;padd
     return dst
 
 # ---------------------------------------------------------------- illustrations (inline SVG, work in PDF, web and artifact)
-_PAL = ["#6C4CF5", "#0E9FB8", "#16A34A", "#D97706", "#DB2777", "#2E3192"]
+_PAL = ["#0F8F7C", "#0E9FB8", "#16A34A", "#D97706", "#B95689", "#0B5D52"]
 def _wrap(text, n):
     words, lines, cur = str(text).split(), [], ""
     for w in words:

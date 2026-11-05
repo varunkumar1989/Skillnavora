@@ -62,7 +62,7 @@
         '<label style="display:block;font-weight:600;margin:6px 0 3px">Email</label><input name="email" type="email" maxlength="120" style="width:100%;padding:8px;border:1px solid #d9d3ee;border-radius:8px">' +
         '<label style="display:block;font-weight:600;margin:6px 0 3px">GitHub username</label><input name="gh" maxlength="40" style="width:100%;padding:8px;border:1px solid #d9d3ee;border-radius:8px">' +
         '<label style="display:block;font-weight:600;margin:6px 0 3px">Why do you need access?</label><input name="why" maxlength="200" style="width:100%;padding:8px;border:1px solid #d9d3ee;border-radius:8px">' +
-        '<p data-msg style="color:#B42318;min-height:18px;margin:8px 0 0"></p><div style="display:flex;gap:8px;margin-top:8px"><button type="submit" style="flex:1;padding:10px;border:0;border-radius:9px;background:#6C4CF5;color:#fff;font-weight:700;cursor:pointer">Send request</button><button type="button" data-close style="padding:10px 14px;border:1px solid #d9d3ee;border-radius:9px;background:#fff;cursor:pointer">Cancel</button></div></form>';
+        '<p data-msg style="color:#B42318;min-height:18px;margin:8px 0 0"></p><div style="display:flex;gap:8px;margin-top:8px"><button type="submit" style="flex:1;padding:10px;border:0;border-radius:9px;background:var(--brand,#6C4CF5);color:var(--on-brand,#fff);font-weight:700;cursor:pointer">Send request</button><button type="button" data-close style="padding:10px 14px;border:1px solid #d9d3ee;border-radius:9px;background:#fff;cursor:pointer">Cancel</button></div></form>';
       document.body.appendChild(ghBox);
       const f = ghBox.querySelector("form"), m = ghBox.querySelector("[data-msg]");
       ghBox.querySelector("[data-close]").addEventListener("click", () => ghBox.hidden = true);
@@ -164,7 +164,7 @@
     if (has() || el.classList.contains("sn-locked")) return;
     const label = el.getAttribute("data-gate-lock") || "this page";
     if (!document.getElementById("sn-lock-css")) { const st = document.createElement("style"); st.id = "sn-lock-css";
-      st.textContent = ".sn-locked{filter:blur(7px);pointer-events:none;user-select:none;max-height:75vh;overflow:hidden}.sn-lockbar{position:sticky;top:90px;z-index:60;max-width:560px;margin:24px auto -140px;background:var(--surface,#fff);color:var(--ink,#17142E);border:2px solid #6C4CF5;border-radius:16px;padding:18px 20px;text-align:center;box-shadow:0 18px 50px rgba(30,20,80,.25)}.sn-lockbar p{margin:6px 0 12px;color:var(--mu,#55607a)}"; document.head.appendChild(st); }
+      st.textContent = ".sn-locked{filter:blur(7px);pointer-events:none;user-select:none;max-height:75vh;overflow:hidden}.sn-lockbar{position:sticky;top:90px;z-index:60;max-width:560px;margin:24px auto -140px;background:var(--surface,#fff);color:var(--ink,#17142E);border:2px solid var(--brand,#6C4CF5);border-radius:16px;padding:18px 20px;text-align:center;box-shadow:0 18px 50px rgba(30,20,80,.25)}.sn-lockbar p{margin:6px 0 12px;color:var(--mu,#55607a)}"; document.head.appendChild(st); }
     el.classList.add("sn-locked");
     const bar = document.createElement("div"); bar.className = "sn-lockbar"; bar.setAttribute("data-nogate", "");
     bar.innerHTML = "<b style=\"font-size:18px\">Free access: enter your details to read the classes</b><p>Tell us a little about you once. Then every class, tab and PDF opens.</p><button type=\"button\" class=\"btn btn-primary\">Unlock free access</button>";

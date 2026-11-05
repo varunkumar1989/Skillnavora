@@ -321,13 +321,13 @@ LINKS = [("Anthropic: create strong empirical evaluations", "https://docs.claude
 LEVEL = {"basic": ("Basic", "#16a34a"), "intermediate": ("Intermediate", "#d97706"), "advanced": ("Advanced", "#db2777")}
 
 PDF_CSS = """@page{size:A4}*{box-sizing:border-box}body{font:10.6pt/1.55 'Segoe UI',Inter,Arial,sans-serif;color:#17142E;margin:0}
-h1,h2,h3{font-family:'Segoe UI',Inter,Arial,sans-serif;color:#2E3192;line-height:1.25}h2{font-size:20pt;margin:0 0 4px}h3{font-size:12.5pt;margin:16px 0 6px;color:#3b2bb5}
+h1,h2,h3{font-family:'Segoe UI',Inter,Arial,sans-serif;color:#0b5d52;line-height:1.25}h2{font-size:20pt;margin:0 0 4px}h3{font-size:12.5pt;margin:16px 0 6px;color:#0f8f7c}
 p{margin:6px 0}ul,ol{margin:6px 0;padding-left:20px}li{margin:2px 0}table{width:100%;border-collapse:collapse;margin:8px 0;font-size:9.6pt;page-break-inside:avoid}
-th,td{border:1px solid #d8d3ee;padding:5px 7px;text-align:left;vertical-align:top}th{background:#efedfb;color:#2E3192}
+th,td{border:1px solid #cfe5df;padding:5px 7px;text-align:left;vertical-align:top}th{background:#e6f6f2;color:#0b5d52}
 pre{background:#0d1630;color:#e8edfb;border-radius:8px;padding:9px 11px;font:8.9pt/1.45 Consolas,'Courier New',monospace;white-space:pre-wrap;page-break-inside:avoid}
-.box{background:#f4f1ff;border-left:4px solid #6C4CF5;padding:8px 12px;border-radius:6px;margin:8px 0}.flow{background:#ecfeff;border:1px solid #a5f3fc;border-radius:8px;padding:8px 12px;font-weight:600;color:#155e75}
-.cover{height:255mm;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#2E3192,#6C4CF5 55%,#22D3EE);color:#fff;padding:24mm;border-radius:10px;page-break-after:always}
-.cover h1{color:#fff;font-size:34pt;margin:10px 0}.cover p{font-size:13pt;color:#e6e3ff}.cover .k{letter-spacing:.14em;text-transform:uppercase;font-weight:700;font-size:10pt}
+.box{background:#eefaf7;border-left:4px solid #0f8f7c;padding:8px 12px;border-radius:6px;margin:8px 0}.flow{background:#ecfeff;border:1px solid #a5f3fc;border-radius:8px;padding:8px 12px;font-weight:600;color:#155e75}
+.cover{height:255mm;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(520px 320px at 98% -4%,rgba(185,86,137,.55),transparent 62%),radial-gradient(420px 260px at 0% 106%,rgba(128,63,98,.42),transparent 62%),#07100f;color:#fff;padding:24mm;border-radius:10px;page-break-after:always}
+.cover h1{color:#fff;font-size:34pt;margin:10px 0}.cover p{font-size:13pt;color:#9fb6b1}.cover .k{letter-spacing:.14em;text-transform:uppercase;font-weight:700;font-size:10pt;color:#54e0c4}
 .class{page-break-before:always}.lvl{display:inline-block;font-weight:700;font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px;color:#fff;margin-bottom:6px}
 .goal{color:#55607a;font-size:11pt;margin:0 0 10px}.take{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 12px;margin-top:10px;page-break-inside:avoid}.ex{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:8px 12px;margin-top:8px;page-break-inside:avoid}
 .toc td{border:0;border-bottom:1px solid #eee;padding:6px}.small{font-size:9pt;color:#55607a}.foot{font-size:8.5pt;color:#888;margin-top:14px}"""
@@ -345,7 +345,7 @@ def appendix_html():
     qa = "".join(f"<p><b>Q{i}. {E(q)}</b><br>{E(a)}</p>" for i, (q, a) in enumerate(QA, 1))
     glo = "".join(f"<tr><td><b>{E(a)}</b></td><td>{E(b)}</td></tr>" for a, b in GLOSSARY)
     links = "".join(f'<li>{E(n)}: <a href="{E(u)}">{E(u)}</a></li>' for n, u in LINKS)
-    return f"""<section class="class"><span class="lvl" style="background:#2E3192">Toolkit</span><h2>Templates</h2>
+    return f"""<section class="class"><span class="lvl" style="background:#0b5d52">Toolkit</span><h2>Templates</h2>
 <h3>A. One-page eval plan</h3><table><tr><th>Section</th><th>Fill in</th></tr><tr><td>Feature &amp; user job</td><td></td></tr><tr><td>Quality criteria (with severity)</td><td></td></tr><tr><td>Dataset (sources, size, slices, held-out)</td><td></td></tr>
 <tr><td>Graders (code / LLM judge / human) + calibration</td><td></td></tr><tr><td>Launch bars</td><td></td></tr><tr><td>Online metrics &amp; guardrails</td><td></td></tr><tr><td>Monitoring (sampling, alerts, owner)</td><td></td></tr><tr><td>Red-team &amp; responsible-AI review</td><td></td></tr></table>
 <h3>B. Rubric template</h3><table><tr><th>#</th><th>Criterion</th><th>Pass definition</th><th>Fail examples</th><th>Severity</th><th>Grader</th></tr><tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr></table>
@@ -359,10 +359,10 @@ Examples of FAIL: {{1-2 short examples}}
 First reason step by step. Then output only JSON:
 {{"pass": true | false, "reason": "&lt;one sentence&gt;"}}</pre>
 <h3>D. Dataset row format</h3><pre>id | input | context | expected | tags (intent, language, difficulty, risk) | severity | source | version</pre></section>
-<section class="class"><span class="lvl" style="background:#2E3192">Toolkit</span><h2>Metrics cheat sheet</h2><table><tr><th>Metric</th><th>Formula / meaning</th></tr>{cheat}</table>
+<section class="class"><span class="lvl" style="background:#0b5d52">Toolkit</span><h2>Metrics cheat sheet</h2><table><tr><th>Metric</th><th>Formula / meaning</th></tr>{cheat}</table>
 <h2 style="margin-top:18px">Glossary</h2><table>{glo}</table></section>
-<section class="class"><span class="lvl" style="background:#2E3192">Interview prep</span><h2>15 AI-evals interview questions with answers</h2>{qa}</section>
-<section class="class"><span class="lvl" style="background:#2E3192">Learn more</span><h2>Further reading and tools</h2><ul>{links}</ul>
+<section class="class"><span class="lvl" style="background:#0b5d52">Interview prep</span><h2>15 AI-evals interview questions with answers</h2>{qa}</section>
+<section class="class"><span class="lvl" style="background:#0b5d52">Learn more</span><h2>Further reading and tools</h2><ul>{links}</ul>
 <p class="foot">© SkillNavora · skillnavora.in · Part of the AI Product Management program. Practise with the free AI PM Toolkit, AI PRD Writer and Practice Lab on skillnavora.in.</p></section>"""
 
 def pdf_html():
@@ -378,7 +378,7 @@ def web_page():
                     for i, (lv, t, g, _, tk, _) in enumerate(CLASSES, 1))
     qa = "".join(f"<details class='card' style='padding:14px 18px'><summary style='cursor:pointer;font-weight:700'>{E(q)}</summary><p style='margin:8px 0 0;color:var(--mu)'>{E(a)}</p></details>" for q, a in QA[:8])
     return '<style>.cls-link{transition:transform .15s,border-color .15s}.cls-link:hover{transform:translateY(-2px);border-color:var(--brand)}</style>' + f"""<section style="padding-top:28px"><div class="wrap">
-<div class="card" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;border:2px solid #6C4CF5;margin-bottom:26px"><div style="max-width:640px"><div class="kicker">Free PDF · {len(CLASSES)} classes · basic to advanced</div><h2 style="margin:6px 0">AI Evals for Product Managers</h2><p style="margin:0;color:var(--mu)">How to measure, improve and safely launch AI features: success criteria, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety and red-teaming, A/B tests and monitoring, tools, templates and 15 interview questions.</p></div>
+<div class="card" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;border:2px solid var(--brand,#6C4CF5);margin-bottom:26px"><div style="max-width:640px"><div class="kicker">Free PDF · {len(CLASSES)} classes · basic to advanced</div><h2 style="margin:6px 0">AI Evals for Product Managers</h2><p style="margin:0;color:var(--mu)">How to measure, improve and safely launch AI features: success criteria, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety and red-teaming, A/B tests and monitoring, tools, templates and 15 interview questions.</p></div>
 <div style="display:flex;flex-direction:column;gap:8px"><a class="btn btn-primary" href="handbook/AI_Evals_for_Product_Managers.pdf">Download the PDF</a><a class="btn btn-line" href="ai-tutor.html?q={E('Explain AI evals for product managers with an example')}">Ask the AI Tutor</a><a class="btn btn-line" href="pm-toolkit.html#experiment">Design an experiment with AI</a></div></div>
 <h2 class="sec-h" style="font-size:26px">What an eval is, in one line</h2><p class="sub" style="max-width:820px">An eval is a repeatable test that measures how well an AI feature does its job on a fixed set of examples, with a clear way to score each answer. It's the quality bar, the launch gate and the product spec for AI, and in AI teams the PM owns it.</p>
 <h2 class="sec-h" style="font-size:24px;margin-top:26px">The 10 classes</h2><div class="grid g2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">{cards}</div>

@@ -6,20 +6,20 @@ SEGS = [k for k in D["segments"]]
 
 CSS = """<style>
 .pt-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}.pt-tabs button{border:1px solid var(--line,#e2dcf3);background:var(--card,#fff);color:inherit;border-radius:999px;padding:9px 16px;font:600 14px var(--display,inherit);cursor:pointer}
-.pt-tabs button[aria-selected=true]{background:linear-gradient(135deg,#7C3AED,#22D3EE);border-color:transparent;color:#fff}
+.pt-tabs button[aria-selected=true]{background:linear-gradient(135deg,var(--brand,#7C3AED),var(--brand-ink,#22D3EE));border-color:transparent;color:var(--on-brand,#fff)}
 .pt-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px}.pt-bar select,.pt-bar input{padding:9px 12px;border:1px solid var(--line,#e2dcf3);border-radius:10px;font:inherit;background:var(--card,#fff);color:inherit;max-width:100%}
 .pt-score{margin-left:auto;font:700 14px var(--display,inherit);padding:8px 14px;border-radius:999px;background:rgba(124,58,237,.1)}
 .pt-q{border:1px solid var(--line,#e2dcf3);border-radius:16px;padding:18px;margin-bottom:14px;background:var(--card,#fff)}
 .pt-q h3{font-size:16.5px;margin:0 0 4px}.pt-q .src{font-size:12.5px;color:var(--muted,#6b6880);margin-bottom:12px}
 .pt-o{display:grid;gap:8px}.pt-o button{text-align:left;border:1px solid var(--line,#e2dcf3);background:transparent;color:inherit;border-radius:10px;padding:10px 12px;font:inherit;cursor:pointer}
-.pt-o button:hover{border-color:#7C3AED}.pt-o button.ok{background:rgba(22,163,74,.12);border-color:#16a34a}.pt-o button.no{background:rgba(220,38,38,.1);border-color:#dc2626;text-decoration:line-through}
+.pt-o button:hover{border-color:var(--brand,#7C3AED)}.pt-o button.ok{background:rgba(22,163,74,.12);border-color:#16a34a}.pt-o button.no{background:rgba(220,38,38,.1);border-color:#dc2626;text-decoration:line-through}
 .pt-fb{margin-top:10px;font-size:14px;padding:10px 12px;border-radius:10px}.pt-fb.hint{background:rgba(234,179,8,.14)}.pt-fb.good{background:rgba(22,163,74,.12)}
 .pt-x code,.pt-q code{background:rgba(124,58,237,.08);padding:1px 5px;border-radius:5px}
 .pt-ex pre{background:#14112a;color:#e9e6ff;padding:12px;border-radius:10px;overflow:auto;font-size:14px}
 .pt-ex .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.pt-ex input{flex:1 1 220px;padding:9px 12px;border:1px solid var(--line,#e2dcf3);border-radius:10px;font:14px ui-monospace,Consolas,monospace;background:var(--card,#fff);color:inherit}
-.pt-ex button,.pt-q .sa{border:0;border-radius:10px;padding:9px 14px;font:600 14px var(--display,inherit);cursor:pointer;background:#7C3AED;color:#fff}.pt-q .sa{background:transparent;color:#7C3AED;padding:6px 0;margin-top:8px}
+.pt-ex button,.pt-q .sa{border:0;border-radius:10px;padding:9px 14px;font:600 14px var(--display,inherit);cursor:pointer;background:var(--brand,#7C3AED);color:var(--on-brand,#fff)}.pt-q .sa{background:transparent;color:var(--brand,#7C3AED);padding:6px 0;margin-top:8px}
 .iv details{border:1px solid var(--line,#e2dcf3);border-radius:14px;margin-bottom:10px;background:var(--card,#fff)}.iv summary{cursor:pointer;padding:14px 16px;font-weight:600;list-style:none;display:flex;gap:12px}
-.iv summary::-webkit-details-marker{display:none}.iv summary .n{font:700 13px var(--display,inherit);color:#7C3AED;min-width:2.4em}.iv .ans{padding:0 16px 14px 52px;color:var(--muted,#55526a)}
+.iv summary::-webkit-details-marker{display:none}.iv summary .n{font:700 13px var(--display,inherit);color:var(--brand,#7C3AED);min-width:2.4em}.iv .ans{padding:0 16px 14px 52px;color:var(--muted,#55526a)}
 .iv .ans a{font-size:13px}.pt-hide{display:none!important}
 @media (max-width:640px){.iv .ans{padding-left:16px}}
 </style>"""
