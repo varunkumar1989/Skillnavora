@@ -226,6 +226,8 @@ Tools playbook: first steps and common errors for n8n, Make, Zapier, Replit, Cla
 HR Portal demo: fake-data intake form, webhook payload and dashboard | /handbooks/genai/hr-portal-demo.html | GenAI, automation
 Full combined GenAI handbook (all guides in one PDF) | /handbooks/genai/SkillNavora_Combined_GenAI_Handbook_Full.pdf | GenAI
 All GenAI guides, searchable | /handbooks/genai/guides-index.html | GenAI
+Zapier complete guide: triggers, filters, paths, safe messages, test plan | /handbooks/genai/SkillNavora_Zapier_Full_Guide.pdf | automation
+Codex complete guide: safe first session, reviewing diffs, routine | /handbooks/genai/SkillNavora_Codex_Full_Guide.pdf | GenAI, coding
 Tool tutorials: Figma, n8n, Make, Zapier, Replit, Claude Code | /tools.html | tools
 Handbooks and PDFs hub | /handbooks/index.html | handbooks
 Resources & AI tools (links, newsletters, job portals) | /resources.html | resources
