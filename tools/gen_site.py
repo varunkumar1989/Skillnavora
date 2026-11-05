@@ -638,8 +638,58 @@ page("prd-writer.html", "AI PRD Writer · SkillNavora", "Free AI PRD writer: tur
      uhero("AI Studio · AI PRD Writer", 'Idea to <span class="g">PRD</span> in a minute', "Describe your product idea. Get a complete PRD with users, stories, requirements, success metrics and launch plan, then refine it by asking.") + aipages.prd(), "prd-writer.html", _AIJS)
 page("pm-toolkit.html", "AI PM Toolkit · SkillNavora", "Free AI PM toolkit: customer problem discovery, opportunity sizing and prioritization, A/B test design, API integration planning, launch planning, metrics, user research, competitive analysis, user stories, roadmaps and stakeholder updates.",
      uhero("AI Studio · AI PM Toolkit", 'Find your next <span class="g">PM superpower</span>', "Pick a capability, add your context, review the result. 13 product-management capabilities that turn your situation into a ready-to-use deliverable.") + aipages.pm_toolkit(), "pm-toolkit.html", _AIJS)
+HASH_JS = """<script>(function(){var m=location.hash.slice(1);if(!m)return;var b=document.querySelector('#sc-modes [data-mode="'+m+'"]');if(b){b.click();b.scrollIntoView({block:'nearest'})}})();</script>"""
 page("speaking-coach.html", "AI Speaking Coach · SkillNavora", "Free AI speaking coach: practise English, public speaking and interview answers out loud and get scores for fluency, grammar, structure and pace.",
-     uhero("AI Studio · AI Speaking Coach", 'Speak with <span class="g">confidence</span>', "Answer out loud. Get instant scores for fluency, grammar, structure and pace, the exact words to fix, a better version to listen to, and your next drill.") + aipages.speaking(), "speaking-coach.html", _AIJS)
+     uhero("AI Studio · AI Speaking Coach", 'Speak with <span class="g">confidence</span>', "Answer out loud. Get instant scores for fluency, grammar, structure and pace, the exact words to fix, a better version to listen to, and your next drill.") + aipages.speaking(), "speaking-coach.html", _AIJS + HASH_JS)
+
+def _ps_card(href, icon_path, title, text, tag):
+    return (f'<a class="ps-card" href="{href}"><span class="ps-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{icon_path}</svg></span>'
+            f'<span class="ps-txt"><b>{title}</b><small>{text}</small><em>{tag}</em></span><span class="ps-go" aria-hidden="true">→</span></a>')
+_PS_TOPICS = [
+    ("speaking-coach.html", '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/>', "Speak with AI", "Talk out loud. Get scores for fluency, grammar, structure and pace.", "Start here"),
+    ("speaking-coach.html#engint", '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>', "Interview Questions", "Common English interview questions, with model answers and feedback.", "Practice"),
+    ("speaking-coach.html#present", '<path d="M3 3h18v12H3zM8 21h8M12 15v6"/>', "Prepare for a Topic", "Build a short talk on any topic in five steps, then practise it.", "Plan and speak"),
+    ("speaking-coach.html#free", '<path d="M4 4h16v12H8l-4 4z"/>', "Free Speech", "Speak on any topic you choose for one minute. No script needed.", "Open practice"),
+    ("speaking-coach.html#shadow", '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>', "Shadowing", "Repeat a sentence right after a model speaker, to copy rhythm and sounds.", "Listen and repeat"),
+    ("speaking-coach.html#english", '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>', "Everyday English", "Daily conversation: ordering food, making calls, meeting people.", "Everyday practice"),
+    ("guides/public-speaking.html", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>', "Public speaking guide", "Confidence, structure, storytelling and how to handle nerves.", "Read"),
+    ("data-science/lessons/speaking-01-public-speaking-complete-guide-confidence-structure-storytel.html", '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>', "Speaking lesson (course)", "The full lesson from the Data Science and AI course.", "Lesson"),
+]
+_ps_cards = "".join(_ps_card(*t) for t in _PS_TOPICS)
+_ps_steps = [
+    ("Pick the topic", "Choose one idea you know well, in one sentence."),
+    ("Set the goal", "Say what the listener should do or feel after one minute."),
+    ("Outline three points", "One opening line, three short points, one closing line."),
+    ("Speak it out loud", "Talk for one minute. Record it if you can."),
+    ("Check and repeat", "Notice one thing to fix. Speak again and time yourself."),
+]
+_ps_steps_html = "".join(f'<li><b>{t}</b><span>{d}</span></li>' for t, d in _ps_steps)
+PS_CSS = """<style>
+.ps-wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.ps-grid{display:grid;gap:14px;grid-template-columns:1fr;margin:8px 0 6px}
+@media(min-width:640px){.ps-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.ps-grid{grid-template-columns:1fr 1fr 1fr}}
+.ps-card{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:16px;background:var(--surface,#0d1b18);border:1px solid var(--line,#1d3a36);color:inherit;text-decoration:none;transition:transform .15s,border-color .15s;min-width:0}
+.ps-card:hover,.ps-card:focus-visible{transform:translateY(-2px);border-color:var(--brand,#54e0c4);outline:none}
+.ps-ico{flex:0 0 46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--brand,#54e0c4);color:var(--on-brand,#04211c)}
+.ps-ico svg{width:24px;height:24px}
+.ps-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ps-txt b{font-size:17px;line-height:1.3}
+.ps-txt small{color:var(--muted,#9fb6b1);font-size:14.5px;line-height:1.5}
+.ps-txt em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--brand,#54e0c4);margin-top:4px}
+.ps-go{margin-left:auto;font-size:20px;color:var(--brand,#54e0c4)}
+.ps-steps{list-style:none;padding:0;margin:0;display:grid;gap:10px;counter-reset:s}
+.ps-steps li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:14px 16px;border-radius:14px;background:var(--surface,#0d1b18);border:1px solid var(--line,#1d3a36);counter-increment:s}
+.ps-steps li::before{content:counter(s);grid-row:span 2;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--brand,#54e0c4);color:var(--on-brand,#04211c);font-weight:800}
+.ps-steps span{color:var(--muted,#9fb6b1);font-size:15px}
+</style>"""
+PS_BODY = uhero("Public speaking · English", 'Speak English with <span class="g">confidence</span>', "Every English and speaking topic is in this one place. Pick a topic below. Each one opens the right practice tool, with no account needed to start.") + f"""
+<section><div class="ps-wrap"><div class="ps-grid">{_ps_cards}</div></div></section>
+<section><div class="ps-wrap"><h2 class="sec-h" style="font-size:26px">Prepare for a topic in five steps</h2><p class="sub">Use this whenever you need to speak on something you did not expect.</p><ol class="ps-steps">{_ps_steps_html}</ol></div></section>
+<section><div class="ps-wrap"><div class="card" style="padding:18px"><b>New to speaking English?</b> Start with <a href="speaking-coach.html">Speak with AI</a>, then do one short Shadowing round a day. Practise Free Speech once a week and check your score each time.</div></div></section>
+"""
+page("public-speaking.html", "Public Speaking · English practice · SkillNavora", "Public speaking and English in one place: Speak with AI, interview questions, preparing a topic, free speech, shadowing and everyday English.", PS_CSS + PS_BODY, "public-speaking.html")
+
 import reqdocs
 reqdocs.write_templates(OUT)
 _prdl, _prdn = reqdocs.prd_library()

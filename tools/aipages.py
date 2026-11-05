@@ -12,7 +12,7 @@ AI_NAV = [  # (path, name, small, svg path)
     ("pm-toolkit.html", "AI PM Toolkit", "13 PM capabilities: discovery, sizing, A/B tests…", '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>'),
     ("prd-library.html", "PRD library: 120 ideas", "Template, examples, write any idea with AI", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M8 7h8M8 11h6"/>'),
     ("brd-frd.html", "BRD & FRD for business analysts", "Templates, 25 project ideas, learn from the best", '<path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/>'),
-    ("speaking-coach.html", "AI Speaking Coach", "English, public speaking, interviews", '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/>'),
+    ("public-speaking.html", "Public Speaking", "English, interviews, free speech, shadowing", '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/>'),
     ("practice.html", "AI mock interview", "Answer a question, get a score", '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'),
     ("web-automation.html", "Web Automation & Playwright MCP", "Webhooks, triggers, browser automation", '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>'),
     ("ai-builder-tools.html", "AI Builder Tools how-to", "Claude, ChatGPT/Codex, Gemini, Lovable", '<path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7z"/>'),
