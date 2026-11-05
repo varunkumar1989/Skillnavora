@@ -1,0 +1,182 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HR Portal demo · fake data · SkillNavora</title>
+<style>
+:root{--bg:#f4faf8;--card:#fff;--ink:#0f2a25;--mu:#4b6b65;--brand:#0b6e60;--on:#fff;--line:#c9e6df;--ok:#14803c;--warn:#b45309;--bad:#b42318;--code:#0d1b18}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#07100f;--card:#0d1b18;--ink:#ebf6f3;--mu:#9fb6b1;--brand:#54e0c4;--on:#04211c;--line:#1d3a36;--ok:#6ee7a8;--warn:#fbbf24;--bad:#fca5a5;--code:#050c0b}}
+:root[data-theme="dark"]{--bg:#07100f;--card:#0d1b18;--ink:#ebf6f3;--mu:#9fb6b1;--brand:#54e0c4;--on:#04211c;--line:#1d3a36;--ok:#6ee7a8;--warn:#fbbf24;--bad:#fca5a5;--code:#050c0b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;padding:16px}
+main{max-width:1000px;margin:0 auto}
+h1{font-size:26px;margin:6px 0 4px;letter-spacing:-.02em}
+h2{font-size:17px;margin:0 0 10px;color:var(--brand)}
+.note{background:var(--card);border:1px dashed var(--brand);border-radius:12px;padding:10px 14px;color:var(--mu);font-size:14.5px}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:860px){.grid{grid-template-columns:1.1fr .9fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:16px}
+label{display:block;font-weight:600;font-size:14.5px;margin:10px 0 4px}
+input,select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+input:focus,select:focus,button:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.err{color:var(--bad);font-size:13.5px;min-height:18px;margin:2px 0 0}
+button{font:inherit;font-weight:700;padding:11px 16px;border-radius:10px;border:0;background:var(--brand);color:var(--on);cursor:pointer;margin-top:12px}
+button.ghost{background:transparent;color:var(--brand);border:1px solid var(--brand)}
+button:disabled{opacity:.55;cursor:not-allowed}
+.row{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:600px){.row{grid-template-columns:1fr 1fr}}
+pre{background:var(--code);color:#e6f6f2;padding:12px;border-radius:10px;overflow:auto;font-size:13px;max-height:300px;margin:8px 0 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12.5px;font-weight:700;border:1px solid currentColor}
+.s-ok{color:var(--ok)}.s-wait{color:var(--warn)}.s-bad{color:var(--bad)}.s-mu{color:var(--mu)}
+.status{font-weight:600;margin:10px 0;min-height:24px}
+.empty{color:var(--mu);padding:14px 0}
+.dup{background:#fff7ec;color:#7a3e00;border:1px solid #f0b060;border-radius:10px;padding:10px;margin-top:10px;display:none}
+:root[data-theme="dark"] .dup{background:#2a1d05;color:#fbd38d;border-color:#8a5a14}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .dup{background:#2a1d05;color:#fbd38d;border-color:#8a5a14}}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.tabs button{margin-top:0;background:var(--card);color:var(--ink);border:1px solid var(--line);font-weight:700}
+.tabs button[aria-selected="true"]{background:var(--brand);color:var(--on);border-color:var(--brand)}
+.sr{position:absolute;left:-9999px}
+</style></head><body><main>
+<h1>HR Portal demo: New Hire Intake</h1>
+<div class="note"><b>Safe demonstration with fake data only.</b> Nothing is sent anywhere. No email, no credential and no external system is contacted. The "webhook" below only shows the JSON payload that a real form would send.</div>
+
+<div class="tabs" role="tablist" aria-label="Portal screens">
+<button id="t-form" role="tab" aria-selected="true" aria-controls="p-form">Intake form</button>
+<button id="t-dash" role="tab" aria-selected="false" aria-controls="p-dash">Dashboard</button>
+</div>
+
+<section id="p-form" role="tabpanel" aria-labelledby="t-form">
+<div class="grid">
+<div class="card">
+<h2>Candidate and assignment</h2>
+<form id="hire" novalidate>
+<div class="row">
+<div><label for="name">Candidate name</label><input id="name" autocomplete="off" placeholder="e.g. Test Candidate"><p class="err" id="e-name"></p></div>
+<div><label for="cemail">Candidate personal email (test)</label><input id="cemail" type="email" placeholder="candidate.test@example.com"><p class="err" id="e-cemail"></p></div>
+</div>
+<div class="row">
+<div><label for="dept">Department</label><select id="dept"><option value="">Select department</option><option>Product</option><option>Design</option><option>Engineering</option></select><p class="err" id="e-dept"></p></div>
+<div><label for="role">Role</label><select id="role"><option value="">Select role</option><option>PM</option><option>Designer</option><option>Developer</option></select><p class="err" id="e-role"></p></div>
+</div>
+<label for="mgr">Manager (fake)</label>
+<select id="mgr"><option value="">Select manager</option><option value="Test Manager|manager.test@example.com">Test Manager</option><option value="Demo Lead|demo.lead@example.com">Demo Lead</option></select>
+<p class="err" id="e-mgr"></p>
+<label for="start">Start date (must be in the future)</label>
+<input id="start" type="date"><p class="err" id="e-start"></p>
+<div class="dup" id="dup" role="alert">Duplicate warning: a hire with this ID already exists in the test list. Confirm only if this is a new hire, or change the candidate.</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button type="submit" id="confirm">Confirm hire</button>
+<button type="button" class="ghost" id="fill">Fill with fake example</button>
+<button type="button" class="ghost" id="reset">Clear</button>
+</div>
+<p class="status" id="status" aria-live="polite"></p>
+</form>
+</div>
+<div class="card">
+<h2>Generated payload (what the webhook would receive)</h2>
+<div id="payload-empty" class="empty">Submit the form to see the JSON.</div>
+<pre id="payload" hidden></pre>
+<h2 style="margin-top:14px">Simulate a step</h2>
+<p class="note" style="margin:0 0 8px">Choose how the next run behaves. This is simulated, not real.</p>
+<select id="mode" aria-label="Simulated outcome">
+<option value="ok">Everything succeeds</option>
+<option value="approval">Access needs manual approval</option>
+<option value="fail">Access tool fails (retry)</option>
+<option value="timeout">Timeout (retry, then needs attention)</option>
+</select>
+</div>
+</div>
+</section>
+
+<section id="p-dash" role="tabpanel" aria-labelledby="t-dash" hidden>
+<div class="card">
+<h2>Onboarding status (fake records)</h2>
+<div id="dash-empty" class="empty">No hires yet. Submit one from the intake form.</div>
+<div style="overflow:auto"><table id="dash" hidden>
+<thead><tr><th>hire_id</th><th>Candidate</th><th>Role</th><th>Coordinator</th><th>Access</th><th>Scheduling</th><th>Overall</th></tr></thead>
+<tbody></tbody></table></div>
+</div>
+<div class="card">
+<h2>Access registry lookup (example)</h2>
+<p class="note" style="margin:0 0 8px">Looks up the selected role. "auto" grants after the Access step; "approval_required" waits for a person.</p>
+<table><thead><tr><th>App</th><th>Level</th><th>Grant mode</th></tr></thead><tbody id="reg"></tbody></table>
+<h2 style="margin-top:14px">Access items for the selected hire</h2>
+<table><thead><tr><th>App</th><th>Status</th></tr></thead><tbody id="items"><tr><td colspan="2" class="empty">Select a hire below.</td></tr></tbody></table>
+<label for="pick" style="margin-top:12px">Selected hire</label>
+<select id="pick"><option value="">Choose a hire</option></select>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button type="button" id="approve" class="ghost">Approve pending access (human)</button>
+<button type="button" id="retry" class="ghost">Retry failed step</button>
+</div>
+<p class="status" id="dstatus" aria-live="polite"></p>
+</div>
+</section>
+</main>
+<script>
+(function(){
+var REG={PM:[["Identity","create","approval_required"],["Slack","edit","auto"],["Jira","view","auto"],["Onboarding Doc","view","approval_required"]],
+Designer:[["Identity","create","approval_required"],["Slack","edit","approval_required"],["Figma","edit","approval_required"],["Onboarding Doc","edit","approval_required"]],
+Developer:[["Identity","create","auto"],["Slack","edit","auto"],["Jira","admin","auto"],["Onboarding Doc","view","auto"]]};
+var hires=[], seq=0, $=function(id){return document.getElementById(id)};
+function tab(sel){["p-form","p-dash"].forEach(function(p){$(p).hidden=p!==sel});
+  $("t-form").setAttribute("aria-selected",sel==="p-form");$("t-dash").setAttribute("aria-selected",sel==="p-dash");renderDash()}
+$("t-form").onclick=function(){tab("p-form")};$("t-dash").onclick=function(){tab("p-dash")};
+["t-form","t-dash"].forEach(function(id){$(id).addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var o=$(id==="t-form"?"t-dash":"t-form");o.focus();o.click()}})});
+function nextId(){seq+=1;return "H-2026-"+String(1000+seq*7).padStart(4,"0")}
+function today(){var d=new Date();return d.toISOString().slice(0,10)}
+function setErr(id,msg){$(id).textContent=msg||"";var el=$(id.replace("e-",""));if(el){el.setAttribute("aria-invalid",msg?"true":"false")}}
+function validate(){var ok=true;
+ var n=$("name").value.trim(),e=$("cemail").value.trim(),d=$("dept").value,r=$("role").value,m=$("mgr").value,s=$("start").value;
+ setErr("e-name",n.length<2?"Enter the candidate name (at least 2 letters).":"");if(n.length<2)ok=false;
+ setErr("e-cemail",/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)?"":"Enter a valid test email, e.g. name@example.com.");if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e))ok=false;
+ setErr("e-dept",d?"":"Choose a department.");if(!d)ok=false;
+ setErr("e-role",r?"":"Choose a role.");if(!r)ok=false;
+ setErr("e-mgr",m?"":"Choose a manager.");if(!m)ok=false;
+ var future=s&&s>today();setErr("e-start",future?"":"Pick a date after today.");if(!future)ok=false;
+ return ok}
+function dupCheck(name,email){return hires.some(function(h){return h.candidate_email===email||h.candidate_name.toLowerCase()===name.toLowerCase()})}
+$("name").addEventListener("input",function(){$("dup").style.display="none"});
+$("cemail").addEventListener("input",function(){$("dup").style.display="none"});
+$("fill").onclick=function(){$("name").value="Test Candidate";$("cemail").value="candidate.test@example.com";$("dept").value="Product";$("role").value="PM";$("mgr").value="Test Manager|manager.test@example.com";var t=new Date();t.setDate(t.getDate()+30);$("start").value=t.toISOString().slice(0,10);$("status").textContent="Filled with fake example data."};
+$("reset").onclick=function(){$("hire").reset();$("payload").hidden=true;$("payload-empty").hidden=false;$("status").textContent="";$("dup").style.display="none";["e-name","e-cemail","e-dept","e-role","e-mgr","e-start"].forEach(function(i){$(i).textContent=""})};
+$("hire").addEventListener("submit",function(e){e.preventDefault();
+ var st=$("status");st.className="status";
+ if(!validate()){st.textContent="Fix the highlighted fields, then submit again.";st.classList.add("s-bad");return}
+ var name=$("name").value.trim(),email=$("cemail").value.trim();
+ if(dupCheck(name,email)){$("dup").style.display="block";st.textContent="Not submitted: duplicate candidate in the test list.";st.classList.add("s-bad");return}
+ var btn=$("confirm");btn.disabled=true;st.textContent="Sending to the demo webhook…";st.classList.add("s-wait");
+ setTimeout(function(){
+  var mg=$("mgr").value.split("|");var h={hire_id:nextId(),candidate_name:name,candidate_email:email,department:$("dept").value,role:$("role").value,manager:{name:mg[0],email:mg[1]},start_date:$("start").value,run_id:null,mode:$("mode").value,coordinator:"done",access:"pending",scheduling:"pending",overall:"in_progress",items:[]};
+  h.run_id="RUN-"+h.hire_id+"-001";
+  REG[h.role].forEach(function(r){h.items.push({app:r[0],level:r[1],grant:r[2],status:"requested"})});
+  if(h.mode==="fail"){h.access="needs_attention";h.overall="needs_attention";h.items.forEach(function(i){i.status="requested (failed, retry)"});}
+  else if(h.mode==="timeout"){h.access="needs_attention";h.overall="needs_attention";h.items.forEach(function(i){i.status="not_requested (timeout)"});}
+  else{h.items.forEach(function(i){i.status=i.grant==="auto"?"granted (simulated)":"awaiting_approval"});h.access=h.items.some(function(i){return i.status==="awaiting_approval"})?"in_progress":"complete";h.scheduling="proposed";h.overall=h.access==="complete"?"complete":"in_progress"}
+  hires.push(h);
+  var payload={hire_id:h.hire_id,candidate_name:h.candidate_name,candidate_email:h.candidate_email,department:h.department,role:h.role,manager:h.manager,start_date:h.start_date,run_id:h.run_id,executionMode:"demo"};
+  $("payload").textContent=JSON.stringify(payload,null,2);$("payload").hidden=false;$("payload-empty").hidden=true;
+  btn.disabled=false;st.classList.remove("s-wait");st.classList.add(h.overall==="needs_attention"?"s-bad":"s-ok");
+  st.textContent=h.overall==="needs_attention"?"Recorded as needs attention. Check the dashboard and retry.":"Success: "+h.hire_id+" recorded. Open the Dashboard tab.";
+  renderPick();renderDash();
+ },700)});
+function renderPick(){var p=$("pick");p.innerHTML='<option value="">Choose a hire</option>';hires.forEach(function(h){var o=document.createElement("option");o.value=h.hire_id;o.textContent=h.hire_id+" · "+h.candidate_name;p.appendChild(o)});if(hires.length)p.value=hires[hires.length-1].hire_id;showItems()}
+function pill(t){var c=t==="complete"||t==="granted (simulated)"?"s-ok":(t==="needs_attention"||/fail|timeout/.test(t)?"s-bad":"s-wait");return '<span class="pill '+c+'">'+t+'</span>'}
+function renderDash(){var t=$("dash"),b=t.querySelector("tbody"),em=$("dash-empty");b.innerHTML="";
+ em.hidden=hires.length>0;t.hidden=!hires.length;
+ hires.forEach(function(h){var tr=document.createElement("tr");tr.innerHTML="<td>"+h.hire_id+"</td><td>"+h.candidate_name+"</td><td>"+h.role+"</td><td>"+pill(h.coordinator==="done"?"complete":h.coordinator)+"</td><td>"+pill(h.access)+"</td><td>"+pill(h.scheduling)+"</td><td>"+pill(h.overall)+"</td>";b.appendChild(tr)});
+ var rows=$("reg");rows.innerHTML="";var role=hires.length?hires[hires.length-1].role:"PM";
+ REG[role].forEach(function(r){rows.innerHTML+="<tr><td>"+r[0]+"</td><td>"+r[1]+"</td><td>"+r[2]+"</td></tr>"});
+ renderPick()}
+function showItems(){var id=$("pick").value,h=hires.find(function(x){return x.hire_id===id}),tb=$("items");
+ if(!h){tb.innerHTML='<tr><td colspan="2" class="empty">Select a hire below.</td></tr>';return}
+ tb.innerHTML="";h.items.forEach(function(i){tb.innerHTML+="<tr><td>"+i.app+"</td><td>"+pill(i.status)+"</td></tr>"})}
+$("pick").addEventListener("change",showItems);
+$("approve").onclick=function(){var h=hires.find(function(x){return x.hire_id===$("pick").value});if(!h){$("dstatus").textContent="Choose a hire first.";return}
+ var n=0;h.items.forEach(function(i){if(i.status==="awaiting_approval"){i.status="granted after approval (simulated)";n++}});
+ h.access="complete";h.overall="complete";$("dstatus").textContent=n?"Approved "+n+" item(s) by a person (simulated).":"Nothing waiting for approval.";renderDash()};
+$("retry").onclick=function(){var h=hires.find(function(x){return x.hire_id===$("pick").value});if(!h){$("dstatus").textContent="Choose a hire first.";return}
+ if(h.access!=="needs_attention"){$("dstatus").textContent="Nothing to retry for this hire.";return}
+ $("dstatus").textContent="Retrying (max 3 attempts, simulated)…";setTimeout(function(){h.mode="ok";h.access="complete";h.overall="complete";h.items.forEach(function(i){i.status=i.grant==="auto"?"granted (simulated)":"awaiting_approval"});$("dstatus").textContent="Retry succeeded (simulated).";renderDash()},900)};
+renderDash();
+})();
+</script></body></html>
