@@ -78,11 +78,23 @@ def t_ds():
     return tab("ds", "AI for Data Engineers · Data Science & AI", "Data Science & AI handbook", f"{sum(len(t['lessons']) for t in CAT['tracks'])} lessons in {len(CAT['tracks'])} tracks: Excel, SQL, Power BI, Tableau, Python, statistics and ML, GenAI, agents, tools, careers and the other programs. Every lesson has real data, quizzes, exercises, interview questions and a PDF.",
                link_btn("data-science/index.html", "Open the handbook", True) + link_btn("lab.html", "Practice Lab"), out)
 
+def genai_actions():
+    groups = [
+        ("Learn", [("handbooks/genai/SkillNavora_Tokens_Guide_Full.pdf", "Tokens, context and cost (full)"), ("handbooks/genai/SkillNavora_RAG_Guide_Full.pdf", "RAG (full)"), ("handbooks/genai/SkillNavora_Skills_Guide_Full.pdf", "Skills, subagents and agents (full)")]),
+        ("Build", [("handbooks/genai/SkillNavora_n8n_Guide_Full.pdf", "n8n onboarding (full)"), ("handbooks/genai/SkillNavora_Make_Guide_Full.pdf", "Make.com (full)"), ("handbooks/genai/SkillNavora_Replit_Guide_Full.pdf", "Replit (full)"), ("handbooks/genai/hr-portal-demo.html", "HR Portal demo (fake data)")]),
+        ("Reference", [("handbooks/genai/SkillNavora_Combined_GenAI_Handbook_Full.pdf", "Full combined handbook (87 pages)"), ("handbooks/genai/SkillNavora_Lesson_Review_Index.pdf", "Lesson review and capstones"), ("handbooks/genai/guides-index.html", "Search every guide"), ("handbooks/index.html#genai", "GenAI handbook hub"), ("handbooks/genai/SkillNavora_GenAI_Launchpad_Handbook.pdf", "Handbook PDF"), ("program/genai-launchpad.html", "Program page")]),
+    ]
+    out = ""
+    for title, items in groups:
+        btns = "".join(link_btn(h, l, title == "Learn" and i == 0) for i, (h, l) in enumerate(items))
+        out += f'<div class="acts" style="margin:6px 0"><span class="mu" style="min-width:90px;display:inline-block;font-weight:700">{title}</span>{btns}</div>'
+    return out
+
 def t_genai():
     cur = next(p for p in PROGRAMS if p["id"] == "genai-launchpad")["curriculum"]
     mods = "".join(f"<li class='item'><b>{E(m['title'])}</b><br><span class='mu'>{E(' · '.join(m['topics']))}</span></li>" for m in cur)
     cs = "".join(f"<li class='item'>{a(C['page'], E(C['title']))} <span class='mu'>{E(C['oneline'][:150])}…</span></li>" for k, C, _ in AI.ALL)
-    return tab("genai", "GenAI Launchpad", "GenAI Launchpad", "Practical GenAI for every professional: the 482-page handbook, curriculum, and every AI skills course.", link_btn("handbooks/index.html#genai", "GenAI handbook", True) + link_btn("handbooks/genai/SkillNavora_GenAI_Launchpad_Handbook.pdf", "Handbook PDF") + link_btn("handbooks/genai/SkillNavora_Tokens_Context_Cost_Guide.pdf", "Tokens, context & cost guide (9 pages)") + link_btn("handbooks/genai/guides-index.html", "All GenAI guides (search)") + link_btn("program/genai-launchpad.html", "Program page"),
+    return tab("genai", "GenAI Launchpad", "GenAI Launchpad", "Practical GenAI for every professional: the 482-page handbook, curriculum, and every AI skills course.", genai_actions(),
                f'<h3 class="sh">Curriculum</h3><ol class="items">{mods}</ol><h3 class="sh">Courses that sit with it</h3><ul class="items">{cs}</ul>')
 
 def t_academy():
