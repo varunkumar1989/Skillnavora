@@ -212,6 +212,20 @@ AI PM Toolkit: problem discovery, opportunity sizing, A/B test design, API plann
 AI PRD / BRD / FRD Writer | /prd-writer.html | product management, business analysis
 PRD library: template, framing guide, 120 PRD ideas, best guides and apps | /prd-library.html | product management
 BRD & FRD guide for business analysts: templates, BA techniques, 25 project ideas | /brd-frd.html | business analysis
+Start here: plain-language first steps for every learner | /start-here.html | all programs
+Public Speaking hub: Speak with AI, interview questions, preparing a topic, free speech, shadowing, everyday English | /public-speaking.html | English, speaking
+GenAI guide: tokens, context and cost, plain English (4 pages) | /handbooks/genai/SkillNavora_Tokens_Plain_English.pdf | GenAI
+GenAI guide: RAG, plain English (4 pages) | /handbooks/genai/SkillNavora_RAG_Plain_English.pdf | GenAI
+GenAI guide: tokens, context and cost (full, 16 pages) | /handbooks/genai/SkillNavora_Tokens_Guide_Full.pdf | GenAI
+GenAI guide: RAG (full, 15 pages): chunking, embeddings, top-K, augmentation, evaluation | /handbooks/genai/SkillNavora_RAG_Guide_Full.pdf | GenAI
+GenAI guide: skills, subagents and agents (full, 15 pages): SKILL.md, decision flow, Support Ops build | /handbooks/genai/SkillNavora_Skills_Guide_Full.pdf | GenAI
+GenAI guide: n8n multi-agent onboarding (full, 15 pages): webhooks, Coordinator, sheets, labs, troubleshooting | /handbooks/genai/SkillNavora_n8n_Guide_Full.pdf | GenAI, automation
+GenAI guide: Make.com (full, 16 pages): scenarios, routers, error directives, Resume Analysis labs | /handbooks/genai/SkillNavora_Make_Guide_Full.pdf | GenAI, automation
+GenAI guide: Replit (full, 15 pages): build an AI app, secrets, deployment, ten recipes | /handbooks/genai/SkillNavora_Replit_Guide_Full.pdf | GenAI, app building
+Tools playbook: first steps and common errors for n8n, Make, Zapier, Replit, Claude and Codex | /handbooks/genai/SkillNavora_Tools_Playbook.pdf | GenAI, automation
+HR Portal demo: fake-data intake form, webhook payload and dashboard | /handbooks/genai/hr-portal-demo.html | GenAI, automation
+Full combined GenAI handbook (all guides in one PDF) | /handbooks/genai/SkillNavora_Combined_GenAI_Handbook_Full.pdf | GenAI
+All GenAI guides, searchable | /handbooks/genai/guides-index.html | GenAI
 Tool tutorials: Figma, n8n, Make, Zapier, Replit, Claude Code | /tools.html | tools
 Handbooks and PDFs hub | /handbooks/index.html | handbooks
 Resources & AI tools (links, newsletters, job portals) | /resources.html | resources
