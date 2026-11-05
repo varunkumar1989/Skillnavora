@@ -17,7 +17,7 @@ input{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:10px;bord
 .card a{display:inline-block;margin:4px 6px 0 0;padding:7px 12px;border-radius:999px;border:1px solid var(--brand);color:var(--brand);text-decoration:none;font-weight:700;font-size:13.5px}
 .tags{font-size:12.5px;color:var(--mu)}
 .back{display:inline-block;margin-bottom:10px;color:var(--brand)}
-</style></head><body><main>
+</style></head><body data-root="../../"><main>
 <a class="back" href="../index.html">← Handbooks</a>
 <h1>GenAI guides: find any topic</h1>
 <p class="lead">Each guide is self-contained and works without the class video. Search for a term, then open the guide. Written by Varun Kumar.</p>
@@ -44,4 +44,4 @@ input{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:10px;bord
 <script>
 (function(){var q=document.getElementById('q');var cards=[].slice.call(document.querySelectorAll('#list .card'));
 q.addEventListener('input',function(){var t=q.value.trim().toLowerCase();cards.forEach(function(c){var k=(c.getAttribute('data-k')+' '+c.textContent).toLowerCase();c.style.display=!t||t.split(/\s+/).every(function(w){return k.indexOf(w)>-1})?'':'none'})});})();
-</script></body></html>
+</script><script src="../../assets/site.js"></script><script src="../../assets/gate.js"></script></body></html>
