@@ -5,7 +5,7 @@ import lab_data as L
 E = html.escape
 CSS = """<style>
 .lb-segs{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 14px}.lb-seg{border:1px solid var(--line,#e2dcf3);background:var(--card,#fff);color:inherit;border-radius:14px;padding:12px 18px;font:700 15px var(--display,inherit);cursor:pointer;text-align:left}
-.lb-seg small{display:block;font:500 12.5px var(--body,inherit);opacity:.7}.lb-seg[aria-selected=true]{background:linear-gradient(135deg,#6C4CF5,#22D3EE);color:#fff;border-color:transparent}
+.lb-seg small{display:block;font:500 12.5px var(--body,inherit);opacity:.7}.lb-seg[aria-selected=true]{background:var(--brand,#0f8f7c);color:var(--on-brand,#fff);border-color:transparent}
 .lb-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}.lb-chip{border:1px solid var(--line,#e2dcf3);background:var(--card,#fff);color:inherit;border-radius:999px;padding:8px 14px;font:600 14px var(--body,inherit);cursor:pointer}
 .lb-chip small{opacity:.6}.lb-chip[aria-pressed=true]{background:var(--brand-ink,#2E3192);color:var(--on-brand,#fff);border-color:var(--brand-ink,#2E3192)}.lb-bar select{margin-left:auto;padding:8px 12px;border:1px solid var(--line,#e2dcf3);border-radius:10px;font:inherit;background:var(--card,#fff);color:inherit}
 .lb-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:22px;align-items:start}
