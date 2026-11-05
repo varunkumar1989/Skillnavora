@@ -82,7 +82,7 @@ def t_genai():
     cur = next(p for p in PROGRAMS if p["id"] == "genai-launchpad")["curriculum"]
     mods = "".join(f"<li class='item'><b>{E(m['title'])}</b><br><span class='mu'>{E(' · '.join(m['topics']))}</span></li>" for m in cur)
     cs = "".join(f"<li class='item'>{a(C['page'], E(C['title']))} <span class='mu'>{E(C['oneline'][:150])}…</span></li>" for k, C, _ in AI.ALL)
-    return tab("genai", "GenAI Launchpad", "GenAI Launchpad", "Practical GenAI for every professional: the 482-page handbook, curriculum, and every AI skills course.", link_btn("handbooks/index.html#genai", "GenAI handbook", True) + link_btn("handbooks/genai/SkillNavora_GenAI_Launchpad_Handbook.pdf", "Handbook PDF") + link_btn("program/genai-launchpad.html", "Program page"),
+    return tab("genai", "GenAI Launchpad", "GenAI Launchpad", "Practical GenAI for every professional: the 482-page handbook, curriculum, and every AI skills course.", link_btn("handbooks/index.html#genai", "GenAI handbook", True) + link_btn("handbooks/genai/SkillNavora_GenAI_Launchpad_Handbook.pdf", "Handbook PDF") + link_btn("handbooks/genai/SkillNavora_Tokens_Context_Cost_Guide.pdf", "Tokens, context & cost guide (9 pages)") + link_btn("program/genai-launchpad.html", "Program page"),
                f'<h3 class="sh">Curriculum</h3><ol class="items">{mods}</ol><h3 class="sh">Courses that sit with it</h3><ul class="items">{cs}</ul>')
 
 def t_academy():
