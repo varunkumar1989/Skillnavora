@@ -268,6 +268,8 @@ def write_index(out):
           "HR Portal demo: fake-data intake form, webhook payload and dashboard | /handbooks/genai/hr-portal-demo.html | GenAI, automation",
           "Full combined GenAI handbook (all guides in one PDF) | /handbooks/genai/SkillNavora_Combined_GenAI_Handbook_Full.pdf | GenAI",
           "All GenAI guides, searchable | /handbooks/genai/guides-index.html | GenAI",
+          "NLP, neural networks and LPUs, full (16 pages): TF-IDF by hand, metrics, training step, support-ticket project | /handbooks/genai/SkillNavora_NLP_Neural_LPU_Expanded.pdf | GenAI, data",
+          "Lesson review, full (15 pages): lessons 1 and 2, capstone rubric, presenting a case, 30-day plan | /handbooks/genai/SkillNavora_Lesson_Review_Full.pdf | PM, case study",
           "Zapier complete guide, expanded (15 pages): step types, AI steps, recipes, labs, feedback pipeline project | /handbooks/genai/SkillNavora_Zapier_Guide_Expanded.pdf | automation",
           "Codex complete guide, expanded (15 pages): working patterns, prompt library, Git, security, projects | /handbooks/genai/SkillNavora_Codex_Guide_Expanded.pdf | GenAI, coding",
           "Lesson review and case studies, expanded: Fireflies and ixigo in full with journey maps, PRD outlines, wireframes, events and experiments | /handbooks/genai/SkillNavora_Lesson_Review_Expanded.pdf | PM, case study",
