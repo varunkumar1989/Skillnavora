@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GenAI guides index · SkillNavora</title>
+<style>
+:root{--bg:#f4faf8;--card:#fff;--ink:#0f2a25;--mu:#4b6b65;--brand:#0f8f7c;--line:#d6ece7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#07100f;--card:#0d1b18;--ink:#ebf6f3;--mu:#9fb6b1;--brand:#54e0c4;--line:#1d3a36}}
+:root[data-theme="dark"]{--bg:#07100f;--card:#0d1b18;--ink:#ebf6f3;--mu:#9fb6b1;--brand:#54e0c4;--line:#1d3a36}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;padding:20px}
+main{max-width:920px;margin:0 auto}
+h1{font-size:28px;letter-spacing:-.02em;margin:8px 0}
+p.lead{color:var(--mu)}
+input{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:16px;margin:12px 0 18px}
+.grid{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h2{font-size:17px;margin:0 0 6px;color:var(--brand)}
+.card p{margin:4px 0 10px;color:var(--mu);font-size:14.5px}
+.card a{display:inline-block;margin:4px 6px 0 0;padding:7px 12px;border-radius:999px;border:1px solid var(--brand);color:var(--brand);text-decoration:none;font-weight:700;font-size:13.5px}
+.tags{font-size:12.5px;color:var(--mu)}
+.back{display:inline-block;margin-bottom:10px;color:var(--brand)}
+</style></head><body><main>
+<a class="back" href="../index.html">← Handbooks</a>
+<h1>GenAI guides: find any topic</h1>
+<p class="lead">Each guide is self-contained and works without the class video. Search for a term, then open the guide. Written by Varun Kumar.</p>
+<input id="q" type="search" placeholder="Search: token, RAG, chunk, skill, agent, webhook, router, Replit…" aria-label="Search guides">
+<div class="grid" id="list">
+<div class="card" data-k="tokens token context window cost temperature top-p top-k max tokens attention sampling haiku sonnet pricing cache"><h2>1. Tokens, context and cost</h2><p>What a token is, input vs output, counting, cost per call, monthly scenarios, the 25-call example, context window, attention, sampling, fewer tokens.</p><div class="tags">9 pages · Tokens, Cost</div><a href="SkillNavora_Tokens_Context_Cost_Guide.pdf">Open PDF</a></div>
+<div class="card" data-k="rag retrieval fine-tuning fine tuning in-context few-shot chunk overlap embedding vector store top-k augmentation hallucination cutoff rlhf"><h2>2. RAG complete guide</h2><p>Three problems, fine-tuning vs in-context vs RAG, indexing, chunking with overlap, embeddings, vector stores, retrieval, augmentation, generation, Q11–Q15 answers.</p><div class="tags">8 pages · RAG</div><a href="SkillNavora_RAG_Complete_Guide.pdf">Open PDF</a></div>
+<div class="card" data-k="skill skills SKILL.md subagent agent tool decision project instructions support ops industries retail banking healthcare education logistics public sector"><h2>3. Skills, subagents and agents</h2><p>Definitions, the decision flow, how to create a skill, subagent and agent, six industry examples, and the Support Ops build.</p><div class="tags">9 pages · Skills, Agents</div><a href="SkillNavora_Skills_Subagents_Agents_Guide.pdf">Open PDF</a></div>
+<div class="card" data-k="n8n webhook hosting vps hostinger coordinator access agent scheduling workbook registry google sheets hire_id idempotency duplicate hr portal lovable dashboard"><h2>4. n8n multi-agent onboarding</h2><p>Hosting, webhook test vs production, the data contract, the four-tab workbook with CSV templates, the Coordinator, Access Agent, duplicates and error paths, the HR Portal.</p><div class="tags">6 pages · Automation</div><a href="SkillNavora_n8n_Onboarding_Guide.pdf">Open PDF</a></div>
+<div class="card" data-k="make make.com scenario router filter maia resume analysis agent mcp toolbox operations credits slack google forms"><h2>5. Make.com complete guide</h2><p>Scenarios, triggers and bundles, routers and filters, the Resume Analysis Agent, Maia, MCP Toolboxes, failures and cost.</p><div class="tags">5 pages · Automation</div><a href="SkillNavora_Make_Complete_Guide.pdf">Open PDF</a></div>
+<div class="card" data-k="replit repl secrets deploy deployment agent api key plans pricing"><h2>6. Replit complete guide</h2><p>Setup, secrets, your first AI call, the Agent, deploying and testing. Plans and prices: check the live pricing page (not verified in this guide).</p><div class="tags">4 pages · App builders</div><a href="SkillNavora_Replit_Complete_Guide.pdf">Open PDF</a><a href="https://replit.com/pricing">Live pricing</a></div>
+</div>
+<p class="lead" style="margin-top:18px">Suggested order: 1 tokens → 2 RAG → 3 skills and agents → 4 n8n → 5 Make → 6 Replit.</p>
+</main>
+<script>
+(function(){var q=document.getElementById('q');var cards=[].slice.call(document.querySelectorAll('#list .card'));
+q.addEventListener('input',function(){var t=q.value.trim().toLowerCase();cards.forEach(function(c){var k=(c.getAttribute('data-k')+' '+c.textContent).toLowerCase();c.style.display=!t||t.split(/\s+/).every(function(w){return k.indexOf(w)>-1})?'':'none'})});})();
+</script></body></html>
