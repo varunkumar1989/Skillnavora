@@ -40,7 +40,13 @@ JOB_PORTALS = [
     ("https://www.google.com/search?q=product+manager+jobs+india&ibp=htl;jobs", "Google Jobs search", "Search all boards at once"),
 ]
 def job_portal_items():
-    return "".join(f'<a href="{h}" target="_blank" rel="noopener"><span class="dd-ico">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>')}</span><span><b>{E(n)} ↗</b><small>{E(sm)}</small></span></a>' for h, n, sm in JOB_PORTALS)
+    RARR = '<svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>'
+    """One collapsible group under Job board: the job portals open in a new tab."""
+    icon = '<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>'
+    links = "".join(f'<a href="{h}" target="_blank" rel="noopener"><span class="dd-ico">{SVG(icon)}</span><span><b>{E(n)} ↗</b><small>{E(sm)}</small></span></a>' for h, n, sm in JOB_PORTALS)
+    return (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(icon)}</span>'
+            f'<span><b>Job portals ({len(JOB_PORTALS)})</b><small>Search and alerts on 16 job sites</small></span>{RARR}</button>'
+            f'<div class="dd-subm">{links}</div></div>')
 
 OTHER_MAIN = [x for x in OTHER_PROGRAMS if x[0] in OTHER_MAIN_KEYS]
 ABOUT = [("about.html", "About SkillNavora", "Our story, mission and team", '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'),
