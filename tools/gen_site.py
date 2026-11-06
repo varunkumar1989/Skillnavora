@@ -15,11 +15,13 @@ PROGRAMS = [("ai-pm", "program/ai-product-management.html", "AI-First Product Ma
              '<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>'),
             ("genai-launchpad", "program/genai-launchpad.html", "GenAI Launchpad", "Practical GenAI for every professional",
              '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>')]
+OTHER_MAIN_KEYS = ("guides/sfmc.html", "guides/digital-marketing.html", "guides/fde.html", "guides/public-speaking.html")
 OTHER_PROGRAMS = [("guides/sfmc.html", "SFMC training", "Salesforce Marketing Cloud: Email Studio to Journey Builder", '<path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 13 3.5 3.5 0 0 0 6 19z"/>'),
            ("guides/digital-marketing.html", "Digital marketing", "SEO, ads, social, email and analytics, end to end", '<path d="M3 11l18-8-8 18-2-8z"/>'),
            ("guides/content-creation.html", "Content creation", "Strategy, writing, video, design and AI for creators", '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>'),
            ("guides/fde.html", "Forward Deployed Engineer", "The FDE role: customers, AI deployment and integrations", '<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>'),
            ("guides/public-speaking.html", "Public speaking", "Speak with confidence: talks, meetings, interviews and video", '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/>')]
+OTHER_MAIN = [x for x in OTHER_PROGRAMS if x[0] in OTHER_MAIN_KEYS]
 ABOUT = [("about.html", "About SkillNavora", "Our story, mission and team", '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'),
          ("about.html#team", "SkillNavora team", "Meet our founder and mentors", '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'),
          ("about.html#why-us", "Why us", "What makes SkillNavora different", '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/>'),
@@ -132,7 +134,9 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
                + sub("Practice & interview prep", "Tests, top 100 questions, quizzes and mock interviews", U["tests.html"][3],
                      [("lab.html", "Practice Lab: run code", "SQL, Excel, Python, Power BI, PM and GenAI challenges", U["tests.html"][3]), U["tests.html"], Q("pm", "Top 100 questions: PM", "AI product management interview questions"), Q("data", "Top 100 questions: Data", "Data science, SQL, Excel, Power BI, ML"),
                       Q("genai", "Top 100 questions: GenAI", "GenAI, agents, MCP and AI tools"), U["quiz.html"], U["challenges.html"], U["practice.html"]])
-               + item(*U["events.html"]))
+               + item(*U["events.html"])
+               + sub("Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks", U["tools.html"][3],
+                     [("resources.html#learn", "Learning sites by program", "Free learning sites for every program", U["tools.html"][3]), ("ai-builder-tools.html", "AI Builders Tool", "Claude, ChatGPT/Codex, Gemini and Lovable how-tos", U["tools.html"][3]), ("tools.html", "Tools tutorials", "Every tool in our programs, with a free tutorial", U["tools.html"][3]), ("handbooks/index.html", "SkillNavora handbooks", "Handbooks and PDFs for every program", U["tools.html"][3]), ("resources.html#other", "Other resources", "Newsletters, job portals and more", U["tools.html"][3]), ("public-speaking.html", "Public speaking", "English, interviews, free speech and shadowing", U["events.html"][3])]))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
 <html lang="en">
@@ -158,7 +162,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
 {TOPBAR_HTML if not app and not path.startswith("program/") else ""}<header class="top"><div class="wrap">
   <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img src="{r}assets/logo-s.svg" alt="" width="36" height="36"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></a>
   <nav class="nav" id="nav" aria-label="Main">
-    <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC, digital marketing, FDE, public speaking, content", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_PROGRAMS + [("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
+    <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC training, digital marketing, FDE and public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_MAIN + [("other-programs.html", "All other programs", "Content creation and every other program, with reading", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>'), ("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
     <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
     <div class="dd{on([p for p, *_ in aipages.AI_MENU if p != 'practice.html'])}"><button type="button" aria-expanded="false">AI Studio <span class="nav-new">Free</span> {CHEV}</button><div class="dd-menu">{"".join(item(*x) for x in aipages.AI_MENU)}</div></div>
     <div class="dd{on(['jobs.html', 'refer.html', 'hire.html'])}"><button type="button" aria-expanded="false">Jobs &amp; careers {CHEV}</button><div class="dd-menu">
@@ -688,6 +692,14 @@ PS_BODY = uhero("Public speaking · English", 'Speak English with <span class="g
 <section><div class="ps-wrap"><div class="card" style="padding:18px"><b>New to speaking English?</b> Start with <a href="speaking-coach.html">Speak with AI</a>, then do one short Shadowing round a day. Practise Free Speech once a week and check your score each time.</div></div></section>
 """
 page("public-speaking.html", "Public Speaking · English practice · SkillNavora", "Public speaking and English in one place: Speak with AI, interview questions, preparing a topic, free speech, shadowing and everyday English.", PS_CSS + PS_BODY, "public-speaking.html")
+def _op_card(p, n, sm, ic):
+    return _ps_card(p, ic, n, sm, "Reading and details")
+_OP_TABS = [
+    ("main", "Main programs", '<div class="wrap"><div class="ps-grid" style="padding-top:20px">' + "".join(_op_card(*x) for x in OTHER_MAIN) + '</div></div>'),
+    ("all", "All other programs", '<div class="wrap"><div class="ps-grid" style="padding-top:20px">' + "".join(_op_card(*x) for x in OTHER_PROGRAMS) + '</div></div>'),
+]
+page("other-programs.html", "Other programs · SkillNavora", "SFMC training, digital marketing, forward deployed engineering, public speaking, content creation and every other SkillNavora program, with reading material.",
+     PS_CSS + uhero("Programs · Other", 'Other <span class="g">programs</span>', "SFMC training, digital marketing, forward deployed engineering and public speaking first. Every other program is under All other programs.") + aipages.tabgroup("other-tabs", _OP_TABS, "Other programs sections"), "programs.html")
 
 import reqdocs
 reqdocs.write_templates(OUT)

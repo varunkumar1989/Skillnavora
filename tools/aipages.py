@@ -392,9 +392,11 @@ def pm_toolkit():
 def hub():
     """AI Studio: 'All tools' keeps the existing page unchanged; Requirements and Practice are tabs inside it."""
     req = '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in ["prd-writer.html", "prd-library.html", "brd-frd.html", "pm-toolkit.html"]) + '</div></div>'
-    prac = '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in ["ai-tutor.html", "practice.html", "speaking-coach.html", "public-speaking.html"]) + '</div></div>'
+    prac = '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in ["ai-tutor.html", "practice.html", "speaking-coach.html"]) + '</div></div>'
+    speak = '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in ["public-speaking.html", "speaking-coach.html"]) + '</div></div>'
     return tabgroup("studio-tabs", [
         ("all", "All tools", _hub_body()),
         ("requirements", "Requirements", req),
         ("practice", "Practice", prac),
+        ("speaking", "Public Speaking", speak),
     ], "AI Studio sections")
