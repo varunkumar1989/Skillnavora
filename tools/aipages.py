@@ -95,10 +95,53 @@ FEATURES = [
      ["4 program tabs", "Every class one click away", "Netlify front page"], "Open the hub")
 ]
 
+AI_MENU = [x for x in AI_NAV if x[0] in ("ai.html", "ai-academy.html", "study-library.html")]
+
+def link_card(path):
+    """A card that links to an existing page, using the same name and text as the AI Studio cards."""
+    if path == "public-speaking.html":
+        nav = next(x for x in AI_NAV if x[0] == path)
+        return f'<a class="ai-card" href="{path}"><span class="ic">{ico(AI_NAV.index(nav))}</span><h3>{E(nav[1])}</h3><p>{E(nav[2])}</p><span class="go">Open the hub →</span></a>'
+    for i, (p, idx, n, d, L, c) in enumerate(FEATURES):
+        if p == path:
+            return f'<a class="ai-card" href="{p}"><span class="ic">{ico(idx)}</span><h3>{E(n)}</h3><p>{E(d)}</p><span class="go">{E(c)} →</span></a>'
+    raise KeyError(path)
+
+TABS_CSS = """<style>
+.tabbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.tabbar button{font:inherit;font-weight:700;font-size:14.5px;padding:9px 14px;border-radius:999px;border:1px solid var(--line,#1d3a36);background:var(--card,#0d1b18);color:var(--ink,#ebf6f3);cursor:pointer}
+.tabbar button[aria-selected="true"]{background:var(--brand,#54e0c4);color:var(--on-brand,#04211c);border-color:transparent}
+.tabbar button:focus-visible{outline:3px solid var(--brand,#54e0c4);outline-offset:2px}
+.tabgroup-wrap .ai-cards{margin-top:4px}
+</style>"""
+
+def tabgroup(gid, tabs, label):
+    """In-page tabs. tabs = [(key, text, html)]. The first tab is shown by default; #gid-key opens a tab."""
+    btns = "".join(f'<button type="button" role="tab" data-tab="{k}" aria-selected="{str(j == 0).lower()}" aria-controls="{gid}-{k}">{E(t)}</button>' for j, (k, t, _) in enumerate(tabs))
+    panels = "".join(f'<div role="tabpanel" id="{gid}-{k}" data-panel="{k}"{"" if j == 0 else " hidden"}>{h}</div>' for j, (k, _, h) in enumerate(tabs))
+    js = ("<script>(function(){var g=document.getElementById('" + gid + "');if(!g)return;"
+          "var w=g.parentNode,bs=g.querySelectorAll('[data-tab]'),ps=w.querySelectorAll('[data-panel]');"
+          "function show(k){bs.forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.tab===k))});ps.forEach(function(p){p.hidden=p.dataset.panel!==k});}"
+          "bs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.tab);try{history.replaceState(null,'','#" + gid + "-'+b.dataset.tab)}catch(e){}})});"
+          "var m=location.hash.slice(1),pre='" + gid + "-';if(m.indexOf(pre)===0&&g.querySelector('[data-tab=\"'+m.slice(pre.length)+'\"]'))show(m.slice(pre.length));})();</script>")
+    return (TABS_CSS + f'<div class="wrap tabgroup-wrap" style="padding-top:28px"><div class="tabbar" id="{gid}" role="tablist" aria-label="{E(label)}">{btns}</div>{panels}</div>' + js)
+
+def academy_tabs(body):
+    """Academy page: the existing course list stays in its own tab; the other tools open as tabs here."""
+    cards = lambda paths: '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in paths) + '</div></div>'
+    return tabgroup("academy-tabs", [
+        ("courses", "All courses", body),
+        ("automation", "Web Automation & Playwright MCP", cards(["web-automation.html"])),
+        ("engineer", "AI Engineer path", cards(["ai-engineer.html"])),
+        ("builder", "AI Builder Tools", cards(["ai-builder-tools.html"])),
+        ("map", "AI Skills Map", cards(["ai-skills-map.html"])),
+        ("library", "Study Library", cards(["study-library.html"])),
+    ], "AI Skills Academy sections")
+
 def ico(i):
     return f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{AI_NAV[i][3]}</svg>'
 
-def hub():
+def _hub_body():
     cards = "".join(f'''<a class="ai-card" href="{p}"><span class="ic">{ico(i)}</span><span class="ai-badge">Free</span><h3>{E(n)}</h3><p>{E(d)}</p><ul>{"".join(f"<li>{E(x)}</li>" for x in L)}</ul><span class="go">{E(c)} →</span></a>'''
                     for p, i, n, d, L, c in FEATURES)
     more = '''<a class="ai-card" href="lab.html"><span class="ai-badge">Practice</span><h3>Practice Lab</h3><p>Run real SQL, Excel formulas and Python in your browser, spot the trap and see the fix.</p><span class="go">Open the lab →</span></a>
@@ -345,3 +388,13 @@ def pm_toolkit():
 <div class="ai-doc ai-out" id="pt-out"><div class="ai-empty"><b>Your result will appear here</b>Add your context (or use the example) and press Run.</div></div>
 <form class="ai-form" id="pt-rev" hidden style="border:1px solid var(--line);border-radius:16px;margin-top:12px;background:var(--surface)"><textarea id="pt-rin" maxlength="2000" placeholder="Refine it, e.g. 'Use ₹ and Indian market data' or 'Add a risks section'"></textarea><button class="btn btn-primary btn-sm" type="submit">Refine</button></form></div></div></div>
 <script type="application/json" id="pt-data">{json.dumps(data)}</script></div></section>'''
+
+def hub():
+    """AI Studio: 'All tools' keeps the existing page unchanged; Requirements and Practice are tabs inside it."""
+    req = '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in ["prd-writer.html", "prd-library.html", "brd-frd.html", "pm-toolkit.html"]) + '</div></div>'
+    prac = '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in ["ai-tutor.html", "practice.html", "speaking-coach.html", "public-speaking.html"]) + '</div></div>'
+    return tabgroup("studio-tabs", [
+        ("all", "All tools", _hub_body()),
+        ("requirements", "Requirements", req),
+        ("practice", "Practice", prac),
+    ], "AI Studio sections")
