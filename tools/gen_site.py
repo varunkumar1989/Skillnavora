@@ -21,6 +21,27 @@ OTHER_PROGRAMS = [("guides/sfmc.html", "SFMC training", "Salesforce Marketing Cl
            ("guides/content-creation.html", "Content creation", "Strategy, writing, video, design and AI for creators", '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>'),
            ("guides/fde.html", "Forward Deployed Engineer", "The FDE role: customers, AI deployment and integrations", '<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>'),
            ("guides/public-speaking.html", "Public speaking", "Speak with confidence: talks, meetings, interviews and video", '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/>')]
+JOB_PORTALS = [
+    ("https://www.linkedin.com/jobs/", "LinkedIn Jobs", "Roles, alerts and recruiters"),
+    ("https://www.naukri.com", "Naukri", "India's largest job portal"),
+    ("https://in.indeed.com", "Indeed India", "Job search and company reviews"),
+    ("https://wellfound.com", "Wellfound", "Start-up jobs"),
+    ("https://www.instahyre.com", "Instahyre", "Curated tech and product roles"),
+    ("https://cutshort.io", "Cutshort", "Tech and data roles with skills matching"),
+    ("https://www.hirist.tech", "Hirist", "IT jobs in India"),
+    ("https://internshala.com", "Internshala", "Internships and fresher jobs"),
+    ("https://www.linkedin.com/jobs/", "LinkedIn job alerts", "Save a search and get daily emails"),
+    ("https://www.naukri.com/", "Naukri job alerts", "Create alerts by role, city and salary"),
+    ("https://www.foundit.in/", "foundit (Monster India)", "Jobs and alerts across India"),
+    ("https://www.glassdoor.co.in/", "Glassdoor", "Jobs, salaries and company reviews"),
+    ("https://www.workatastartup.com/", "Y Combinator: Work at a Startup", "Jobs at YC start-ups worldwide"),
+    ("https://remotive.com/", "Remotive", "Remote tech jobs"),
+    ("https://weworkremotely.com/", "We Work Remotely", "Remote jobs board"),
+    ("https://www.google.com/search?q=product+manager+jobs+india&ibp=htl;jobs", "Google Jobs search", "Search all boards at once"),
+]
+def job_portal_items():
+    return "".join(f'<a href="{h}" target="_blank" rel="noopener"><span class="dd-ico">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>')}</span><span><b>{E(n)} ↗</b><small>{E(sm)}</small></span></a>' for h, n, sm in JOB_PORTALS)
+
 OTHER_MAIN = [x for x in OTHER_PROGRAMS if x[0] in OTHER_MAIN_KEYS]
 ABOUT = [("about.html", "About SkillNavora", "Our story, mission and team", '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'),
          ("about.html#team", "SkillNavora team", "Meet our founder and mentors", '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'),
@@ -129,14 +150,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     about_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>' for p, n, sm, ic in ABOUT)
     U = {p: (p, n, sm, ic) for p, n, sm, ic in UPSKILL if p}
     Q = lambda h, n, sm: ("questions.html#" + h, n, sm, U["questions.html"][3])
-    up_menu = (sub("Resources & AI tools", "Handbooks, PDFs, tools and links by course", U["resources.html"][3],
-                   [U[k] for k in ("resources.html#pm", "resources.html#data", "resources.html#genai")] + [("resources.html#other", "Resources for Other programs", "SFMC, digital marketing, content, FDE, public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>')] + [("resources.html#learn", "Learning sites by program", "140+ tutorials: SQL, PM, GenAI, no-code, coding", '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>')] + [("ai-builder-tools.html", "AI builder tools: how-to", "Claude, ChatGPT/Codex, Gemini, Lovable: build sites & connect tools", '<path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7z"/>')] + [U[k] for k in ("tools.html", "handbooks/index.html", "resources.html#more")])
-               + sub("Practice & interview prep", "Tests, top 100 questions, quizzes and mock interviews", U["tests.html"][3],
-                     [("lab.html", "Practice Lab: run code", "SQL, Excel, Python, Power BI, PM and GenAI challenges", U["tests.html"][3]), U["tests.html"], Q("pm", "Top 100 questions: PM", "AI product management interview questions"), Q("data", "Top 100 questions: Data", "Data science, SQL, Excel, Power BI, ML"),
-                      Q("genai", "Top 100 questions: GenAI", "GenAI, agents, MCP and AI tools"), U["quiz.html"], U["challenges.html"], U["practice.html"]])
-               + item(*U["events.html"])
-               + sub("Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks", U["tools.html"][3],
-                     [("resources.html#learn", "Learning sites by program", "Free learning sites for every program", U["tools.html"][3]), ("ai-builder-tools.html", "AI Builders Tool", "Claude, ChatGPT/Codex, Gemini and Lovable how-tos", U["tools.html"][3]), ("tools.html", "Tools tutorials", "Every tool in our programs, with a free tutorial", U["tools.html"][3]), ("handbooks/index.html", "SkillNavora handbooks", "Handbooks and PDFs for every program", U["tools.html"][3]), ("resources.html#other", "Other resources", "Newsletters, job portals and more", U["tools.html"][3]), ("public-speaking.html", "Public speaking", "English, interviews, free speech and shadowing", U["events.html"][3])]))
+    up_menu = (item(*U["resources.html"]) + item("questions.html", "Practice & interview prep", U["questions.html"][2], U["questions.html"][3]) + item(*U["events.html"])
+               + item("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", U["tools.html"][3]))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
 <html lang="en">
@@ -166,8 +181,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
     <div class="dd{on([p for p, *_ in aipages.AI_MENU if p != 'practice.html'])}"><button type="button" aria-expanded="false">AI Studio <span class="nav-new">Free</span> {CHEV}</button><div class="dd-menu">{"".join(item(*x) for x in aipages.AI_MENU)}</div></div>
     <div class="dd{on(['jobs.html', 'refer.html', 'hire.html'])}"><button type="button" aria-expanded="false">Jobs &amp; careers {CHEV}</button><div class="dd-menu">
-      <a href="{r}jobs.html#portals-box"><span class="dd-ico">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>')}</span><span><b>Job portals</b><small>LinkedIn, Naukri, Wellfound and more</small></span></a>
       <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>Product, AI and data engineering openings</small></span></a>
+      {job_portal_items()}
       <a href="{r}refer.html"{cur('refer.html')}><span class="dd-ico">{SVG('<path d="M20 12v10H4V12"/><path d="M2 7h20v5H2zM12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>')}</span><span><b>Refer &amp; earn</b><small>Refer learners or candidates, earn rewards</small></span></a>
       <a href="{r}hire.html"{cur('hire.html')}><span class="dd-ico">{SVG('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>')}</span><span><b>Hire from us</b><small>Is your company hiring? Get in touch</small></span></a><a href="{r}careers.html"{cur('careers.html')}><span class="dd-ico">{SVG('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>')}</span><span><b>Join our team</b><small>Open roles at SkillNavora</small></span></a><a href="{r}mentor.html"{cur('mentor.html')}><span class="dd-ico">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><span><b>Become a mentor</b><small>Guide learners, run sessions and mock interviews</small></span></a></div></div>
     <a href="#" data-community hidden>Community</a>
@@ -426,6 +441,43 @@ PROG_HB = {
                     "LLMs, prompting, APIs, embeddings, RAG, tool use, agents, MCP, evaluation, fine-tuning, GenAI for data work and a capstone app, plus the AI Tools Lab, in one 482-page PDF and interactive lessons.",
                     [("Open the GenAI Launchpad handbook", "../handbooks/index.html#genai"), ("Interactive handbook ↗", ART + "#genai"), ("GenAI lessons", "../data-science/index.html#t-genai"), ("Resources for GenAI", "../resources.html#genai")]),
 }
+
+_UP_COMMON = [
+    ("resources.html#learn", "Learning sites by program", "140+ free tutorials: SQL, PM, GenAI, no-code and coding"),
+    ("ai-builder-tools.html", "AI builder tools: how-to", "Claude, ChatGPT/Codex, Gemini and Lovable: build sites and connect tools"),
+    ("tools.html", "Tool tutorials", "Every tool in our programs: a free tutorial, the official site and our lesson"),
+    ("handbooks/index.html", "SkillNavora handbooks", "Handbooks and PDFs for every program, free with your details"),
+    ("resources.html#other", "Other resources and links", "Communities, YouTube, certifications and datasets"),
+    ("lab.html", "Practice Lab: run code", "SQL, Excel, Python, Power BI, PM and GenAI challenges in your browser"),
+    ("tests.html", "Practice tests", "Tests with hints and solutions"),
+    ("quiz.html", "Quiz zone", "Quick quizzes with explanations"),
+    ("challenges.html", "Challenges", "Solve real product and AI problems"),
+    ("practice.html", "Practice with AI", "Mock interview questions with AI feedback"),
+    ("events.html", "Events", "Free live sessions, workshops and masterclasses"),
+]
+_UP_PROG = {
+    "ai-pm": ("What we teach", "Product discovery, metrics, prioritisation, AI product strategy, PRDs and launch. Every topic is taught with a real product case.",
+              ("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice"),
+              ("questions.html#pm", "PM interview questions", "Product sense, metrics, prioritisation and AI product sense, with answers")),
+    "ai-de": ("What we teach", "SQL, Python, data pipelines, cloud data platforms and AI data work, taught on realistic datasets.",
+              ("resources.html#data", "Resources for Data Engineers", "Data Science and AI handbook, DSA, practice and tools"),
+              ("questions.html#data", "Data and AI interview questions", "SQL, Excel, Python, Power BI and ML, with answers")),
+    "genai-launchpad": ("What we teach", "Prompting, LLMs, RAG, agents and MCP, plus the no-code and AI tools professionals use every day.",
+              ("resources.html#genai", "Resources for GenAI", "GenAI handbook, AI tools and free courses"),
+              ("questions.html#genai", "GenAI interview questions", "LLMs, RAG, agents, MCP and AI tools, with answers")),
+}
+def UP_SECTION(cid):
+    what, teach, prog_res, qs = _UP_PROG.get(cid, _UP_PROG["ai-pm"])
+    R = lambda h: '../' + h  # program pages live in program/
+    free = "".join(f'<li><a href="{R(h)}"><b>{E(n)}</b><small>{E(sm)}</small></a></li>' for h, n, sm in [prog_res] + _UP_COMMON)
+    qlist = f'<li><a href="{R(qs[0])}"><b>{E(qs[1])}</b><small>{E(qs[2])}</small></a></li>'
+    return (f'<section id="upskill" class="tint"><div class="wrap"><div class="kicker">Upskill for free</div>'
+            f'<h2 class="sec-h">Start learning before you enrol</h2>'
+            f'<p class="sub">Free resources for this program, with the AI tools every course uses.</p>'
+            f'<h3 style="margin-top:22px">{E(what)}</h3><p>{E(teach)}</p>'
+            f'<h3 style="margin-top:22px">Free for everyone</h3><ul class="checks two">{free}</ul>'
+            f'<h3 style="margin-top:22px">Interview questions for this program</h3><ul class="checks two">{qlist}</ul>'
+            f'</div></section>')
 for cid, path, name, short, _ in PROGRAMS:
     import json as _j
     _ld = _j.dumps({"@context": "https://schema.org", "@type": "Course", "name": name, "description": short,
@@ -447,6 +499,7 @@ for cid, path, name, short, _ in PROGRAMS:
 {AUD()}
 <section id="outcomes" class="tint"><div class="wrap"><div class="kicker">Outcomes</div><h2 class="sec-h">What you'll be able to do</h2><ul class="checks two" id="p-outcomes" style="margin-top:24px"></ul></div></section>
 {PROG_HB.get(cid, '')}
+{UP_SECTION(cid)}
 {sec("Curriculum", "What you'll learn", "Each module mixes live classes, real-world case studies, hands-on assignments and feedback. Recordings and materials stay in your LMS.", '<div class="mods" id="p-curriculum"></div>', sid="curriculum")}
 {academy.program_section(cid) if cid in ("ai-pm", "genai-launchpad") else ""}
 {TOOLS_S("Tools you'll use", "tint", TOOLS_SUB.get(cid, TOOLS_SUB["ai-pm"])).replace('<section', '<section id="tools"', 1)}

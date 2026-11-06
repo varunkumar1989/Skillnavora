@@ -109,20 +109,20 @@ def link_card(path):
 
 TABS_CSS = """<style>
 .tabbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
-.tabbar button{font:inherit;font-weight:700;font-size:14.5px;padding:9px 14px;border-radius:999px;border:1px solid var(--line,#1d3a36);background:var(--card,#0d1b18);color:var(--ink,#ebf6f3);cursor:pointer}
-.tabbar button[aria-selected="true"]{background:var(--brand,#54e0c4);color:var(--on-brand,#04211c);border-color:transparent}
-.tabbar button:focus-visible{outline:3px solid var(--brand,#54e0c4);outline-offset:2px}
+.tabbar a{display:inline-block;text-decoration:none;font:inherit;font-weight:700;font-size:14.5px;padding:9px 14px;border-radius:999px;border:1px solid var(--line,#1d3a36);background:var(--card,#0d1b18);color:var(--ink,#ebf6f3);cursor:pointer}
+.tabbar a[aria-selected="true"]{background:var(--brand,#54e0c4);color:var(--on-brand,#04211c);border-color:transparent}
+.tabbar a:focus-visible{outline:3px solid var(--brand,#54e0c4);outline-offset:2px}
 .tabgroup-wrap .ai-cards{margin-top:4px}
 </style>"""
 
 def tabgroup(gid, tabs, label):
     """In-page tabs. tabs = [(key, text, html)]. The first tab is shown by default; #gid-key opens a tab."""
-    btns = "".join(f'<button type="button" role="tab" data-tab="{k}" aria-selected="{str(j == 0).lower()}" aria-controls="{gid}-{k}">{E(t)}</button>' for j, (k, t, _) in enumerate(tabs))
+    btns = "".join(f'<a href="#{gid}-{k}" role="tab" data-tab="{k}" aria-selected="{str(j == 0).lower()}" aria-controls="{gid}-{k}">{E(t)}</a>' for j, (k, t, _) in enumerate(tabs))
     panels = "".join(f'<div role="tabpanel" id="{gid}-{k}" data-panel="{k}"{"" if j == 0 else " hidden"}>{h}</div>' for j, (k, _, h) in enumerate(tabs))
     js = ("<script>(function(){var g=document.getElementById('" + gid + "');if(!g)return;"
           "var w=g.parentNode,bs=g.querySelectorAll('[data-tab]'),ps=w.querySelectorAll('[data-panel]');"
           "function show(k){bs.forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.tab===k))});ps.forEach(function(p){p.hidden=p.dataset.panel!==k});}"
-          "bs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.tab);try{history.replaceState(null,'','#" + gid + "-'+b.dataset.tab)}catch(e){}})});"
+          "bs.forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();show(b.dataset.tab);try{history.replaceState(null,'','#" + gid + "-'+b.dataset.tab)}catch(e){}})});"
           "var m=location.hash.slice(1),pre='" + gid + "-';if(m.indexOf(pre)===0&&g.querySelector('[data-tab=\"'+m.slice(pre.length)+'\"]'))show(m.slice(pre.length));})();</script>")
     return (TABS_CSS + f'<div class="wrap tabgroup-wrap" style="padding-top:28px"><div class="tabbar" id="{gid}" role="tablist" aria-label="{E(label)}">{btns}</div>{panels}</div>' + js)
 
