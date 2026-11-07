@@ -192,6 +192,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
       <a href="{r}mentor.html"{cur('mentor.html')}><span class="dd-ico">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><span><b>Become a mentor</b><small>Guide learners, run sessions and mock interviews</small></span></a>
       <a href="{r}careers.html"{cur('careers.html')}><span class="dd-ico">{SVG('<path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>')}</span><span><b>Career with SkillNavora</b><small>Open roles and how to join our team</small></span></a>
       <a href="{r}hire.html"{cur('hire.html')}><span class="dd-ico">{SVG('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>')}</span><span><b>Hire from SkillNavora</b><small>Is your company hiring? Get in touch</small></span></a>
+    </div></div>
     <a href="#" data-community hidden>Community</a>
     <div class="dd{on(['about.html', 'reviews.html', 'blogs.html', 'contact.html'] + (['blogs.html'] if path.startswith('blog/') else []))}"><button type="button" aria-expanded="false">About Us {CHEV}</button><div class="dd-menu">{about_menu}</div></div>
   </nav>

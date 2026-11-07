@@ -1587,3 +1587,6 @@ small,.muted{line-height:1.5}
 .sn-hit b{font-size:16px}.sn-hit span{color:var(--mu);font-size:14px}
 /* On phones the separate call button is hidden: WhatsApp and the Ask AI tab cover contact */
 @media (max-width:760px){.callfab{display:none!important}}
+
+/* Phones: the sparkle AI chat button is hidden; the Ask AI tab covers AI help */
+@media (max-width:760px){.chat-fab{display:none!important}}
