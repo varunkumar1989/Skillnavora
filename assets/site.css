@@ -1577,3 +1577,13 @@ small,.muted{line-height:1.5}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) :is(.a-tabs a,.pt-tabs button,.htabs button,.fchips button,.rq-chips button,.ai-chips button,.chips a,.chips button,.tl,.hb-row,.rq-nav a,.li-links a,.lb-chip,.lb-seg button,.tabs a,.tabs button,.tab,.chip){
  background:#0d1b18!important;color:#f4fbf9!important;font-weight:700!important;border:1px solid #1d3a36!important}
 :root:not([data-theme="light"]) :is(.a-tabs a,.pt-tabs button,.htabs button,.fchips button,.rq-chips button,.ai-chips button,.chips a,.chips button,.tl,.lb-chip,.lb-seg button,.tabs a,.tabs button,.tab,.chip):is(.on,.active,.is-on,[aria-selected="true"],[aria-current="page"],[aria-current="true"]){background:#54e0c4!important;color:#04211c!important;border-color:#54e0c4!important}}
+
+/* Site search page and header search icon */
+.search-btn{text-decoration:none;color:inherit}
+.sn-search{padding:48px 0 64px}
+.sn-results{display:grid;gap:10px;margin-top:14px}
+.sn-hit{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);text-decoration:none}
+.sn-hit:hover{border-color:var(--brand)}
+.sn-hit b{font-size:16px}.sn-hit span{color:var(--mu);font-size:14px}
+/* On phones the separate call button is hidden: WhatsApp and the Ask AI tab cover contact */
+@media (max-width:760px){.callfab{display:none!important}}

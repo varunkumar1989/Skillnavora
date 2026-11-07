@@ -283,7 +283,7 @@
 #askai h2{font-size:19px;margin:0}#askai .x{position:absolute;right:12px;top:10px;border:0;background:none;font-size:24px;cursor:pointer;color:inherit}
 #askai form{display:flex;flex-direction:column;gap:8px}#askai textarea{min-height:70px;border:1px solid var(--line,#e1e6f0);border-radius:12px;padding:10px 12px;font:inherit;background:var(--bg,#f5f7fc);color:inherit;resize:vertical}
 #askai a.t{display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit;border:1px solid var(--line,#e1e6f0);border-radius:12px;padding:9px 12px}#askai a.t:hover{border-color:var(--brand,#6C4CF5)}#askai a.t span{font-size:20px}#askai a.t small{display:block;color:var(--mu,#55607a);font-size:12.5px}
-@media (max-width:640px){#askai-tab{padding:14px 10px;font-size:15px}}@media print{#askai-tab,#askai{display:none}}`;
+@media (max-width:760px){#askai-tab{top:auto;bottom:16px;left:12px;transform:none;rotate:none;writing-mode:horizontal-tb;border-radius:99px;padding:10px 16px;font-size:14px;box-shadow:0 8px 20px rgba(10,60,50,.3)}#askai-tab:hover{padding-left:16px}body.has-sticky #askai-tab{bottom:92px}}@media print{#askai-tab,#askai{display:none}}`;
   document.head.appendChild(css);
   const tab = document.createElement("button"); tab.id = "askai-tab"; tab.type = "button"; tab.textContent = "✨ Ask AI"; tab.setAttribute("aria-controls", "askai"); tab.setAttribute("aria-expanded", "false");
   const bg = document.createElement("div"); bg.id = "askai-bg";

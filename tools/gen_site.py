@@ -76,6 +76,7 @@ WA = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path 
 
 G = '<svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.2-2.1 3.5-5.1 3.5-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1c.9-2.8 3.6-4.9 6.7-4.9z"/></svg>'
 urls = []
+SEARCH_IDX = []  # public pages for the site search (assets/search-index.json)
 import hashlib
 VER = {f: hashlib.md5(open(os.path.join(OUT, "assets", f), "rb").read()).hexdigest()[:8] for f in os.listdir(os.path.join(OUT, "assets")) if f.endswith((".css", ".js", ".svg"))}
 
@@ -195,6 +196,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     <div class="dd{on(['about.html', 'reviews.html', 'blogs.html', 'contact.html'] + (['blogs.html'] if path.startswith('blog/') else []))}"><button type="button" aria-expanded="false">About Us {CHEV}</button><div class="dd-menu">{about_menu}</div></div>
   </nav>
   <div class="tools">
+    <a class="icon-btn search-btn" href="{r}search.html" aria-label="Search the site" title="Search">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>')}</a>
     <button class="icon-btn theme" type="button" aria-label="Switch light or dark mode">{SVG('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>').replace('<svg', '<svg class="sun"')}{SVG('<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>').replace('<svg', '<svg class="moon"')}</button>
     <div class="dd login-dd"><button type="button" class="btn-login" id="nav-login" aria-expanded="false"><span>Log in</span> {CHEV}</button><div class="dd-menu">
       <a href="{r}login.html" id="nav-student"><span class="dd-ico">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><span><b>Student login</b><small>Your LMS, courses, handbook and resources</small></span></a>
@@ -237,6 +239,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     open(full, "w").write(doc)
     if not noindex and path != "404.html":
         urls.append(canon)
+        if not app:
+            SEARCH_IDX.append({"u": "/" + ("" if path == "index.html" else path), "t": re.sub(r"\s*[·|]\s*SkillNavora$", "", title), "d": desc})
 
 
 def sec(kicker, h, sub="", inner="", cls="", center=False, sid=""):
@@ -1347,6 +1351,17 @@ page("404.html", "Page not found · SkillNavora", "Page not found.", nf)
 s = open(f"{OUT}/404.html").read()
 s = re.sub(r'(href|src)="(?!https?:|/|#|mailto:|tel:)([^"]+)"', r'\1="/\2"', s)
 open(f"{OUT}/404.html", "w").write(s)
+
+# ================================================================ site search
+SEARCH_BODY = f"""<section class="sn-search"><div class="wrap">
+  <div class="kicker">Search</div><h1 class="sec-h" style="margin:6px 0 16px">Find a program, tool or page</h1>
+  <div class="search">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>')}<input id="sn-q" type="search" placeholder="Try: RAG, Claude Code, Make, interview, PRD" aria-label="Search SkillNavora"></div>
+  <p class="meta" id="sn-count" aria-live="polite" style="margin:12px 0 6px"></p>
+  <div class="sn-results" id="sn-results"></div>
+</div></section>"""
+page("search.html", "Search · SkillNavora", "Search programs, free courses, tools, interview questions and pages on SkillNavora.", SEARCH_BODY, None, '<script src="{r}assets/search.js"></script>', noindex=True)
+with open(f"{OUT}/assets/search-index.json", "w") as f:
+    json.dump(SEARCH_IDX, f, ensure_ascii=False, separators=(",", ":"))
 
 # ================================================================ cleanup + SEO
 for old in ["blog.html", "case-studies.html", "mentoring.html", "assets/dashboard.js"]:
