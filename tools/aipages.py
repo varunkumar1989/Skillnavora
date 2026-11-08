@@ -71,7 +71,7 @@ FEATURES = [
      ["7-skill learning order", "Every capability mapped to lessons", "Job-description skills by role"], "Open the map"),
     ("ai-tutor.html", 3, "AI Tutor", "Your 24×7 study buddy. Ask anything about product management, Excel, SQL, Python, Power BI, Tableau, ML, GenAI, agents, careers or English.",
      ["Explains with examples and code", "Links you to the right SkillNavora lesson", "Hindi / Hinglish supported"], "Ask a question"),
-    ("prd-writer.html", 4, "AI PRD / BRD / FRD Writer", "Describe a product idea or business project and get a complete PRD, BRD or FRD in a minute, framed the way top companies write them.",
+    ("prd-writer.html", 4, "AI PRD / BRD / FRD Writer", "Describe a product idea or business project and get a complete PRD, BRD or FRD in a minute, framed the way strong product teams write them.",
      ["PRD for product managers", "BRD and FRD for business analysts", "Revise by asking; download Word, Markdown or PDF"], "Write a document"),
     ("pm-toolkit.html", 5, "AI PM Toolkit", "Pick a PM capability, add your context, review the result: problem discovery, opportunity sizing, A/B test design, API planning, launch plans, metrics and more.",
      ["13 capabilities in one place", "Ready-to-use deliverables", "Refine by asking; download Word"], "Open the toolkit"),

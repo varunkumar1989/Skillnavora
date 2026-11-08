@@ -276,7 +276,7 @@ TOOLS_S = lambda h="Every tool a modern PM needs", cls="", sub="Hands-on with th
 JA_S = lambda cls="": sec("Get job-ready", "Job assistance program and intensive interview preparation", "Capstone, mock tests and interview preparation, so you finish the program ready to apply.", '''<div class="ja">
   <div class="card dark"><h3>Job assistance program</h3><ul class="checks" id="ja-program" style="margin-top:14px"></ul></div>
   <div class="card"><h3>Intensive interview preparation</h3><ul class="checks" id="ja-interview" style="margin-top:14px"></ul></div></div>''', cls=cls)
-MENTORS_S = '<section id="mentors" hidden><div class="wrap center"><div class="kicker">Mentors</div><h2 class="sec-h">Learn from leaders at top companies</h2><p class="sub">Mentors and guest speakers who build products every day.</p><div class="mentors" id="mentors-list" style="text-align:left"></div></div></section>'
+MENTORS_S = '<section id="mentors" hidden><div class="wrap center"><div class="kicker">Mentors</div><h2 class="sec-h">Learn from practising product leaders</h2><p class="sub">Mentors and guest speakers who build products every day.</p><div class="mentors" id="mentors-list" style="text-align:left"></div></div></section>'
 REVIEWS_S = '<section id="home-reviews" class="tint" hidden><div class="wrap"><div class="center"><div class="kicker">Testimonials and reviews</div><h2 class="sec-h">Careers that changed, <span class="g">in their own words.</span></h2></div><div class="reviews" id="home-reviews-list" style="margin-top:30px"></div><p class="center"><a class="btn btn-line btn-sm" href="{R}reviews.html">All reviews →</a></p></div></section>'
 
 BIG_LOGO = '<div class="biglogo"><img src="{r}assets/logo-s.svg" alt="SkillNavora logo" width="240" height="240"><div class="brand"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></div></div>'
@@ -301,9 +301,10 @@ OFFERS_S = """<section id="offers" class="offers-s"><div class="wrap"><div class
     <div class="dgrid2" id="offer-list"></div><p class="meta" id="offer-note" style="margin:14px 0 0"></p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><a class="btn btn-primary btn-sm" data-counsel href="#counselling">Check my eligibility →</a><a class="btn btn-line btn-sm" data-wa="Hi SkillNavora, I'd like to know about the scholarship (up to 100%)." href="#">Ask on WhatsApp</a></div></div>
 </div></div></section>"""
-COMPANIES = ["Google", "Microsoft", "Amazon", "Flipkart", "Swiggy", "Zomato", "Razorpay", "PhonePe", "Paytm", "CRED", "Meesho", "Zepto", "Atlassian", "Adobe", "Salesforce", "Uber", "Ola", "Myntra", "Nykaa", "Freshworks", "Zoho", "PayPal", "Walmart", "Intuit"]
+SKILLS_MARQUEE = ["Product strategy", "Product discovery", "Prioritisation", "Product analytics", "SQL", "Experimentation", "Generative AI", "Prompt engineering", "PRD writing", "Stakeholder management", "Roadmapping", "Data storytelling", "Customer research", "Metrics and OKRs", "AI tools", "Go-to-market"]
+COMPANIES = SKILLS_MARQUEE
 def _row(names): return "".join(f'<span>{E(n)}</span>' for n in names)
-MARQUEE_S = f"""<section class="logos-s" aria-label="Companies"><div class="wrap"><h2 class="sec-h center" style="font-size:clamp(22px,2.6vw,30px)">Build the skills <span class="g">top companies</span> hire for</h2>
+MARQUEE_S = f"""<section class="logos-s" aria-label="Skills"><div class="wrap"><h2 class="sec-h center" style="font-size:clamp(22px,2.6vw,30px)">Build the skills <span class="g">product teams</span> look for</h2>
   <div class="marquee"><div class="track">{_row(COMPANIES[:12])}{_row(COMPANIES[:12])}</div></div>
   <div class="marquee rev"><div class="track">{_row(COMPANIES[12:])}{_row(COMPANIES[12:])}</div></div>
   <p class="meta center" style="margin:14px 0 0;font-size:12.5px">Companies hiring for product, data and AI roles. SkillNavora isn't affiliated with these companies.</p></div></section>"""
@@ -312,7 +313,7 @@ PS_ITEMS = [('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8
             ('<circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5"/>', "Practise real-world interview questions", "Practise from our bank of real interview questions on product sense, metrics, strategy, RCA and guesstimates."),
             ('<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 13l2 2 4-4"/>', "Referrals to hiring companies", "When you're job-ready, we refer you to open roles through our network of product leaders and hiring managers.")]
 PLACE_S = f"""<section class="place-s" id="placement"><div class="wrap">
-  <h2 class="sec-h" style="max-width:20ch">1 Year Placement Support to Get Your Dream Job</h2>
+  <h2 class="sec-h" style="max-width:20ch">1 Year Placement Support to Prepare and Apply for Roles</h2>
   <p class="sub" style="margin-bottom:34px">Clear the cut-off marks in your capstone project to get access to 1 year of placement support.</p>
   <div class="pgrid">{"".join(f'<div class="pitem"><span class="pico">{SVG(ic)}</span><h3>{E(t)}</h3><p>{E(d)}</p></div>' for ic, t, d in PS_ITEMS)}</div>
   <p class="meta" style="margin:26px 0 0;font-size:12.5px">Placement support helps you prepare and apply. It is not a job guarantee.</p>
@@ -1093,7 +1094,7 @@ apply = f"""<div class="apply-wrap"><div class="wrap">
 page("apply.html", "Apply for the next cohort · SkillNavora", "Apply for SkillNavora's AI-First Product Management, AI-First Data Engineer or GenAI Launchpad cohort.", apply, "apply.html")
 
 jobs = f"""<div class="hero"><div class="wrap jobs-head"><div class="kicker">Job board</div><h1>Open <span class="g">roles</span></h1>
-  <p class="lead" style="margin-bottom:0">A curated feed of product, AI and data engineering openings at top companies, sourced from LinkedIn and company career pages.</p>
+  <p class="lead" style="margin-bottom:0">A curated feed of product, AI and data engineering openings from employer career pages and public job boards.</p>
   <div class="jobs-search">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>')}<input id="job-q" type="search" placeholder="Search by role, company or location…" aria-label="Search jobs"></div>
   <a class="alert-pill" id="job-alerts" href="#" target="_blank" rel="noopener">🔔 Get regular updates about new openings →</a>
 </div></div>

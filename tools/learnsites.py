@@ -15,7 +15,7 @@ LEARN = [
    ("SkillNavora AI mock interview", "Answer a PM question and get a score", "practice.html", "Free"),
   ]),
   ("Learn product management", [
-   ("Product School: free resources", "Templates, e-books and talks from PMs at top companies", "https://productschool.com/resources", "Free"),
+   ("Product School: free resources", "Templates, e-books and talks from practising PMs", "https://productschool.com/resources", "Free"),
    ("Lenny's Newsletter", "The most-read PM newsletter: growth, PRDs, careers", "https://www.lennysnewsletter.com/", "Freemium"),
    ("SVPG articles (Marty Cagan)", "Product discovery and empowered teams", "https://www.svpg.com/articles/", "Free"),
    ("Mind the Product", "Articles and talks on every PM topic", "https://www.mindtheproduct.com/", "Freemium"),
