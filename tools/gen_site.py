@@ -1366,6 +1366,24 @@ page("search.html", "Search · SkillNavora", "Search programs, free courses, too
 with open(f"{OUT}/assets/search-index.json", "w") as f:
     json.dump(SEARCH_IDX, f, ensure_ascii=False, separators=(",", ":"))
 
+# ================================================================ handbook and PDF access
+ACCESS_BODY = """<section class="sn-search"><div class="wrap" style="max-width:640px">
+  <div class="kicker">Handbooks and PDFs</div><h1 class="sec-h" style="margin:6px 0 14px">Get access to the handbooks and PDFs</h1>
+  <p>The course content is open to everyone: the lessons, what each course teaches, and the topics you will learn. The handbook PDFs, workbooks and practice files need the owner's approval.</p>
+  <ol style="margin:12px 0 18px 20px;line-height:1.7"><li>Sign in with your email.</li><li>Request access with your name, phone and reason.</li><li>You get the files by email, or access within 24 hours once approved.</li></ol>
+  <p class="meta" id="acc-who" style="margin:0 0 12px"></p>
+  <p><a class="btn btn-primary" id="acc-signin" href="login.html" hidden>Sign in to request access</a></p>
+  <button class="btn btn-line" id="acc-check" type="button" hidden style="margin-bottom:14px">Check my access</button>
+  <form id="acc-req" hidden style="display:grid;gap:10px;max-width:420px">
+    <label>Full name<input name="name" maxlength="80" required></label>
+    <label>Phone number<input name="phone" maxlength="20" inputmode="tel" required></label>
+    <label>Why do you need the files?<input name="reason" maxlength="300" required></label>
+    <button class="btn btn-primary" type="submit">Request access</button>
+  </form>
+  <p class="notice" id="acc-msg" aria-live="polite" style="margin-top:14px"></p>
+</div></section>"""
+page("access.html", "Handbook and PDF access · SkillNavora", "Request access to the handbook PDFs, workbooks and practice files. Course content is open to everyone.", ACCESS_BODY, None, '<script src="{r}assets/access.js"></script>', noindex=True)
+
 # ================================================================ cleanup + SEO
 for old in ["blog.html", "case-studies.html", "mentoring.html", "assets/dashboard.js"]:
     if os.path.exists(f"{OUT}/{old}"): os.remove(f"{OUT}/{old}")

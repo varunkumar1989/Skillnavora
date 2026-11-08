@@ -196,7 +196,15 @@
 
   /* ---------- Applications and counselling requests ---------- */
   const APP = { new: ["New", "wait"], contacted: ["Contacted", ""], enrolled: ["Enrolled", "good"], closed: ["Closed", ""] };
+  /* PDF access approvals (table pdf_access, see supabase/pdf_access.sql) */
+  let access = new Set(), accessLoaded = false, accessOk = true;
+  async function loadAccess() {
+    const { data, error } = await client.from("pdf_access").select("email");
+    accessLoaded = true; accessOk = !error;
+    access = new Set(error ? [] : (data || []).map(r => String(r.email).toLowerCase()));
+  }
   function applications() {
+    if (!accessLoaded) return loadAccess().then(applications);
     const k = $("app-kind").value, st = $("app-status").value;
     const rows = apps.filter(a => (k === "all" || a.kind === k) && (st === "all" || a.status === st));
     const tel = p => String(p || "").replace(/[^0-9+]/g, "");
@@ -207,10 +215,26 @@
         <a class="btn btn-primary btn-sm" href="tel:${esc(tel(a.phone))}">Call ${esc(a.phone)}</a>
         <a class="btn btn-line btn-sm" href="https://wa.me/${esc(tel(a.phone).replace(/^\+/, "").replace(/^(\d{10})$/, "91$1"))}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         ${a.email ? `<a class="btn btn-line btn-sm" href="mailto:${esc(a.email)}">Email</a>` : ""}
+        ${a.kind === "resource" && a.email ? (access.has(String(a.email).toLowerCase())
+          ? `<button class="btn btn-ghost btn-sm" type="button" data-revoke="${esc(a.email)}">Approved · remove access</button>`
+          : `<button class="btn btn-primary btn-sm" type="button" data-grant="${esc(a.email)}" data-name="${esc(a.first_name || "")}">Approve PDF access</button>`) : ""}
         ${a.linkedin ? `<a class="btn btn-line btn-sm" href="${safeUrl(/^https?:/i.test(a.linkedin) ? a.linkedin : "https://" + a.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>` : ""}
         <select data-appstatus="${a.id}" style="width:auto;margin-left:auto" aria-label="Status">${Object.entries(APP).map(([v, [t]]) => `<option value="${v}"${a.status === v ? " selected" : ""}>${t}</option>`).join("")}</select></div></div>`).join("") : '<p class="empty">No applications here yet.</p>';
   }
   ["app-kind", "app-status"].forEach(id => $(id).addEventListener("change", applications));
+  $("app-list").addEventListener("click", async e => {
+    const b = e.target.closest("[data-grant],[data-revoke]"); if (!b) return;
+    if (!accessOk) return notice(msg, "error", "Approvals are not set up yet. Run supabase/pdf_access.sql in Supabase, then reload.");
+    const grant = b.hasAttribute("data-grant"), email = String(b.dataset.grant || b.dataset.revoke).toLowerCase();
+    b.disabled = true;
+    const res = grant
+      ? await client.from("pdf_access").upsert({ email, name: b.dataset.name || null }, { onConflict: "email" })
+      : await client.from("pdf_access").delete().eq("email", email);
+    if (res.error) { b.disabled = false; return notice(msg, "error", errText(res.error)); }
+    if (grant) access.add(email); else access.delete(email);
+    applications();
+    notice(msg, "ok", grant ? "Approved: " + email + ". They get the PDFs and handbooks on their next visit." : "Access removed for " + email + ".");
+  });
   $("app-list").addEventListener("change", async e => { const id = e.target.dataset.appstatus; if (!id) return;
     const { error } = await client.from("applications").update({ status: e.target.value }).eq("id", id);
     if (error) return notice(msg, "error", errText(error));
