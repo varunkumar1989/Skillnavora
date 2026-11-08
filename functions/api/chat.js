@@ -9125,15 +9125,15 @@ async function runWalkGrep(pattern, root, signal) {
   } catch (e) {
     throw new ToolError(`grep: invalid regex: ${e instanceof Error ? e.message : String(e)}`);
   }
-  const hits = [];
+  const hits2 = [];
   let budget = GREP_OUTPUT_LIMIT;
   const push = (line) => {
     budget -= line.length + 1;
     if (budget < 0) {
-      hits.push(`[output truncated at ${GREP_OUTPUT_LIMIT} bytes]`);
+      hits2.push(`[output truncated at ${GREP_OUTPUT_LIMIT} bytes]`);
       return false;
     }
-    hits.push(line);
+    hits2.push(line);
     return true;
   };
   const stat2 = await fs4.stat(root).catch(() => null);
@@ -9144,9 +9144,9 @@ async function runWalkGrep(pattern, root, signal) {
   }
   if (signal?.aborted)
     throw new ToolError("grep: aborted");
-  if (hits.length === 0)
+  if (hits2.length === 0)
     return "no matches";
-  return hits.join("\n");
+  return hits2.join("\n");
 }
 async function grepFile(file, re, push) {
   const stream2 = fssync.createReadStream(file, { encoding: "utf8" });
@@ -20958,8 +20958,27 @@ function validMessages(m) {
   if (!Array.isArray(m) || m.length === 0 || m.length > MAX_TURNS) return false;
   return m.every((x, i) => x && typeof x.content === "string" && x.content.trim() && x.content.length <= (x.role === "user" ? MAX_CHARS : 4e3) && x.role === (i % 2 === 0 ? "user" : "assistant")) && m[m.length - 1].role === "user";
 }
+function sameSite(request) {
+  const o = request.headers.get("origin");
+  if (!o) return true;
+  try {
+    const h = new URL(o).host, self = new URL(request.url).host;
+    return h === self || /(^|\.)skillnavora\.in$/.test(h) || /^(localhost|127\.0\.0\.1)(:\d+)?$/.test(h);
+  } catch {
+    return false;
+  }
+}
+var hits = /* @__PURE__ */ new Map();
+function allowed(ip, limit2) {
+  const day = (/* @__PURE__ */ new Date()).toISOString().slice(0, 10), k = day + "|" + ip, n = (hits.get(k) || 0) + 1;
+  if (hits.size > 5e4) hits.clear();
+  hits.set(k, n);
+  return n <= limit2;
+}
 async function onRequestPost({ request, env }) {
   if (!env.ANTHROPIC_API_KEY) return json({ error: "not_configured" }, 503);
+  if (!sameSite(request)) return json({ error: "forbidden" }, 403);
+  if (!allowed(request.headers.get("cf-connecting-ip") || "anon", Number(env.CHAT_DAILY_LIMIT) || 100)) return json({ error: "limit" }, 429);
   let body;
   try {
     body = await request.json();

@@ -44,8 +44,26 @@ function validMessages(m) {
     x.role === (i % 2 === 0 ? "user" : "assistant")) && m[m.length - 1].role === "user";
 }
 
+// Only the SkillNavora site (and local testing) may call this endpoint from a browser.
+function sameSite(request) {
+  const o = request.headers.get("origin");
+  if (!o) return true;
+  try { const h = new URL(o).host, self = new URL(request.url).host; return h === self || /(^|\.)skillnavora\.in$/.test(h) || /^(localhost|127\.0\.0\.1)(:\d+)?$/.test(h); } catch { return false; }
+}
+
+// Per-visitor daily limit (per Cloudflare isolate). The Anthropic spend limit is the hard cap.
+const hits = new Map();
+function allowed(ip, limit) {
+  const day = new Date().toISOString().slice(0, 10), k = day + "|" + ip, n = (hits.get(k) || 0) + 1;
+  if (hits.size > 50000) hits.clear();
+  hits.set(k, n);
+  return n <= limit;
+}
+
 export async function onRequestPost({ request, env }) {
   if (!env.ANTHROPIC_API_KEY) return json({ error: "not_configured" }, 503);
+  if (!sameSite(request)) return json({ error: "forbidden" }, 403);
+  if (!allowed(request.headers.get("cf-connecting-ip") || "anon", Number(env.CHAT_DAILY_LIMIT) || 100)) return json({ error: "limit" }, 429);
 
   let body;
   try { body = await request.json(); } catch { return json({ error: "bad_request" }, 400); }

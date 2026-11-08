@@ -16,6 +16,11 @@ const NOTIFY_FALLBACK = "varunebix@gmail.com";
 const FIELDS = { kind: 20, course_id: 40, first_name: 80, last_name: 80, email: 200, phone: 20, linkedin: 300, experience: 40, role: 80, message: 2000, preferred_time: 80, source: 200 };
 const BASE_KINDS = ["application", "counselling"];
 const LABEL = { application: "Application", counselling: "Counselling call", mentor: "Mentor application", career: "Careers application", contact: "Contact form", resource: "Resource access", referral: "Referral", hire: "Hiring enquiry" };
+// Simple per-visitor daily limit (per Cloudflare isolate) against form flooding.
+const hits = new Map();
+const allowed = (ip, limit = 30) => { const k = new Date().toISOString().slice(0, 10) + "|" + ip, n = (hits.get(k) || 0) + 1; if (hits.size > 50000) hits.clear(); hits.set(k, n); return n <= limit; };
+// Removes line breaks and tabs so user input cannot inject extra email headers.
+const oneLine = v => String(v).replace(/[\r\n\t]+/g, " ").trim();
 const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 
 // The Data Science handbook site (GitHub Pages / Netlify) also asks for details before opening files
@@ -28,6 +33,7 @@ export async function onRequestPost(ctx) {
   return new Response(res.body, { status: res.status, headers: h });
 }
 async function handle({ request, env }) {
+  if (!allowed(request.headers.get("cf-connecting-ip") || "anon")) return json({ ok: false, error: "limit" }, 429);
   let body;
   try { body = await request.json(); } catch { return json({ ok: false, error: "bad_json" }, 400); }
   const row = {};
@@ -37,6 +43,7 @@ async function handle({ request, env }) {
   }
   if (!row.first_name || !row.phone || !/^[0-9+ ()-]{7,20}$/.test(row.phone)) return json({ ok: false, error: "invalid" }, 400);
   if (row.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(row.email)) delete row.email;
+  if (row.message && (row.message.match(/https?:\/\//g) || []).length > 3) return json({ ok: false, error: "invalid" }, 400);
   if (row.course_id && !/^[a-z0-9-]{1,40}$/.test(row.course_id)) delete row.course_id;
   row.kind = LABEL[row.kind] ? row.kind : "application";
 
@@ -64,7 +71,7 @@ async function handle({ request, env }) {
     row.message && "Message: " + row.message,
     row.source && "Source: " + row.source
   ].filter(Boolean);
-  const text = lines.join("\n"), subject = lines[0] + ": " + row.first_name;
+  const text = lines.join("\n"), subject = oneLine(lines[0] + ": " + row.first_name).slice(0, 200);
   const jobs = [];
   if (env.RESEND_API_KEY && env.NOTIFY_EMAIL) jobs.push(fetch("https://api.resend.com/emails", { method: "POST",
     headers: { authorization: "Bearer " + env.RESEND_API_KEY, "content-type": "application/json" },
