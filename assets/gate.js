@@ -10,9 +10,9 @@
   try { if (/[?&]sn=1\b/.test(location.search)) set(KEY, get(KEY) || JSON.stringify({ t: Date.now(), via: "link" })); } catch {}
   // Signed-in admins (flag set by the admin panel, cleared on sign-out) skip the form and are not counted as visitors.
   const isAdmin = () => { try { const a = JSON.parse(get("sn_admin") || "null"); return !!a && Date.now() - a.t < 30 * 864e5; } catch { return false; } };
-  // Free access period: everyone can open handbooks and PDFs without the details form until this time (midnight, end of 10 Nov 2026 India time).
+  // Free access period: everyone can open handbooks and PDFs without the details form until this time (1 am, 9 Nov 2026 India time).
   // To end it early, set FREE_UNTIL to 0. After this date the details form returns automatically.
-  const FREE_UNTIL = Date.parse("2026-11-11T00:00:00+05:30");
+  const FREE_UNTIL = Date.parse("2026-11-09T01:00:00+05:30");
   const has = () => isAdmin() || Date.now() < FREE_UNTIL || !!get(KEY);
   if (isAdmin()) document.addEventListener("DOMContentLoaded", () => { const b = document.createElement("div"); b.textContent = "Admin view · details form off"; b.setAttribute("style", "position:fixed;left:12px;bottom:12px;z-index:9998;background:#17614F;color:#fff;font:600 12px/1 system-ui,sans-serif;padding:7px 11px;border-radius:999px;opacity:.9;pointer-events:none"); document.body.appendChild(b); });
   const SKIP = /^(mailto:|tel:|javascript:|#)/i;
