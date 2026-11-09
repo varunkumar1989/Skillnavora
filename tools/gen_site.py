@@ -391,6 +391,7 @@ page("index.html", "SkillNavora · AI-first programs in product, data engineerin
 
 HB_CORE = [("01","Fundamentals","Fundamentals of Product Management"),("02","Strategy","Product Strategy and Strategic Thinking"),("03","Discovery","Problem Discovery and Market Research"),("04","Prioritization","Problem Framing and Prioritization"),("05","UX-Design","UX and Design Collaboration"),("06","Communication","Effective Communication and Stakeholder Management"),("07","Analytics","Product Analytics and Metrics"),("08","Growth","Product Launch, Growth, and Monetization"),("09","Tech-System-Design","Tech 101 and System Design for PMs"),("10","LLM-RAG","LLMs, RAGs, and AI Foundations"),("11","Vibe-Coding","Vibe Coding for Product Managers"),("12","Agentic-AI","Agentic AI and AI Systems")]
 HB_AI = [("13","AI-Tools-Landscape","AI Tools Landscape and Your Starter Stack"),("14","Claude-Daily-Work","Claude for Daily PM Work"),("15","Claude-Code","Claude Code: Basic to Advanced"),("16","Lovable","Lovable: Basic to Advanced"),("17","Replit-and-App-Builders","Replit and Other AI App Builders"),("18","Figma","Figma and AI Design Tools"),("19","Notion-and-PRD-Tools","Notion, PRD Tools and AI Documentation"),("20","Automation","Automation with Zapier, Make and n8n"),("21","Business-Chatbots","AI Chatbots for Business"),("22","Voice-Agents","Voice Agents for Businesses"),("23","Learning-Paths","Learning Paths, Courses and Communities")]
+HB_BIZ = [("24","Business-AI-Stack-Map","The business AI stack: tools and where to learn them"),("25","Nextjs-Dashboards","Next.js: customer-facing dashboards"),("26","Zoho-CRM","Zoho CRM: managing customers and leads"),("27","WhatsApp-Business","WhatsApp Business Platform: customer messaging"),("28","Deployment-Vercel-AWS","Deployment with Vercel and AWS"),("29","Jira","Jira: tracking product and development work"),("30","Digital-Marketing-Meta-Social-PPC","Meta Business Suite, social media marketing and Google Ads"),("31","One-Page-Site-Lead-Generation","A one-page website that generates leads")]
 HB_LIB = [("Framework-Library","Framework Library","29 frameworks with worked examples and templates"),("Case-Study-Library","Case Study Library","12 product case studies"),("Practical-Projects","Practical Projects and Portfolio","5 end-to-end portfolio projects"),("Interview-Handbook","Interview Handbook","100+ PM interview questions with model answers"),("AI-Tools-Lab","AI Tools Lab","Every AI tools class with step-by-step labs")]
 HB_ART = "https://claude.ai/artifact/51eByvQUgCYBHLAYmyGzVJ"
 HB_EXTRA = {"06": [("classes/week-06-effective-communication.html", "Class slides"), ("classes/week-06-effective-communication.pdf", "Slides PDF")],
@@ -407,7 +408,7 @@ HB_PANEL = f'''    <div class="panel" id="p-handbook" hidden>
         <p class="meta" style="margin:0 0 14px">23 modules, 620+ pages: the 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep. Created by Varun Kumar.</p>
         <div class="hb-acts"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 23 MB) ↗</a></div></div></div>
       <h3 class="h3s hb-h">Product Core modules</h3><div class="hb-list">{_hb_mods(HB_CORE)}</div>
-      <h3 class="h3s hb-h">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div>
+      <h3 class="h3s hb-h">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div><h3 class="h3s hb-h">Business AI Stack (chapters 24 to 31)</h3><div class="hb-list">{_hb_mods(HB_BIZ)}</div><p class="meta"><a href="handbook/Business-AI-Stack-Handbook.pdf" target="_blank" rel="noopener">Complete Business AI Stack handbook (PDF) ↗</a></p>
       <h3 class="h3s hb-h">Libraries</h3><div class="hb-list">{HB_LIBROWS}</div>
       <p class="meta" style="margin-top:18px">The handbook is also on the Resources &amp; AI tools page, free for every visitor.</p>
     </div>
@@ -454,6 +455,12 @@ PROG_HB = {
                     "LLMs, prompting, APIs, embeddings, RAG, tool use, agents, MCP, evaluation, fine-tuning, GenAI for data work and a capstone app, plus the AI Tools Lab, in one 482-page PDF and interactive lessons.",
                     [("Open the GenAI Launchpad handbook", "../handbooks/index.html#genai"), ("Interactive handbook ↗", ART + "#genai"), ("GenAI lessons", "../data-science/index.html#t-genai"), ("Resources for GenAI", "../resources.html#genai")]),
 }
+BIZ_LINKS = [("Open the Business AI Stack handbook (all chapters)", "../handbook/Business-AI-Stack-Handbook.pdf")] + [(f"Chapter {n}: {t}", f"../handbook/Module-{n}-{f}.pdf") for n, f, t in HB_BIZ]
+BIZ_SEC = ('<section id="handbooks"><div class="wrap"><div class="kicker">Business AI stack</div><h2 class="sec-h">Tools every AI team uses in business: chapters 24 to 31</h2>'
+          '<p class="meta" style="max-width:70ch">Automation, AI models, database, backend, dashboards, CRM, WhatsApp, deployment, Jira, digital marketing and one-page lead generation, each with steps and a checklist.</p>'
+          '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">' + "".join(f'<a class="btn {"btn-primary" if i == 0 else "btn-line"} btn-sm" href="{h}" target="_blank" rel="noopener" style="max-width:100%;white-space:normal;text-align:left;line-height:1.3">{E(t)}</a>' for i, (t, h) in enumerate(BIZ_LINKS)) + '</div></div></section>')
+PROG_HB.setdefault("ai-pm", "")
+for _k in list(PROG_HB): PROG_HB[_k] = PROG_HB[_k] + BIZ_SEC
 
 _UP_COMMON = [
     ("resources.html#learn", "Learning sites by program", "140+ free tutorials: SQL, PM, GenAI, no-code and coding"),
@@ -633,7 +640,7 @@ RES_PANEL = f'''    <div class="panel" id="p-resources" hidden>
       <h3 class="h3s hb-h">PM Master Handbook by Varun Kumar</h3><p class="meta" style="margin:-4px 0 12px">23 modules and 620+ pages: 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep.</p>
       <div class="hb-acts" style="margin-bottom:14px"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 23 MB) ↗</a></div>
       <h3 class="h3s hb-h" style="font-size:16px">Product Core modules</h3><div class="hb-list">{_hb_mods(HB_CORE)}</div>
-      <h3 class="h3s hb-h" style="font-size:16px">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div>
+      <h3 class="h3s hb-h" style="font-size:16px">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div><h3 class="h3s hb-h" style="font-size:16px">Business AI Stack (chapters 24 to 31)</h3><div class="hb-list">{_hb_mods(HB_BIZ)}</div>
       <h3 class="h3s hb-h" style="font-size:16px">Libraries</h3><div class="hb-list">{HB_LIBROWS}</div>
       <h3 class="h3s hb-h">PM interview practice (free, on the original sites)</h3><p class="meta" style="margin:-4px 0 12px">Hand-picked public question banks and guides from other PM communities. Each link opens the original page in a new tab.</p>
       <div class="grid g4">{''.join(f'<a class="card tool" href="{u}" target="_blank" rel="noopener"><span class="ftag">{E(src)}</span><h3 style="margin-top:8px">{E(t)} ↗</h3><p>{E(d)}</p></a>' for src, t, d, u in INTERVIEW_LINKS)}</div>
@@ -691,6 +698,11 @@ for _gp, _tid in GUIDE_TRACK.items():
   <p class="meta" style="margin:0 0 12px">The complete guide is below. It opens right here: scroll inside it, or download the PDF.</p>
   <iframe class="guide-frame" src="{_src}" title="{E(_t['name'])} complete guide" loading="lazy" style="width:100%;height:85vh;border:1px solid var(--line,#e2dcf3);border-radius:16px;background:#fff"></iframe>
 </div></section>"""
+    if _gp == "guides/digital-marketing.html":
+        _dm = ('<section style="padding-top:24px"><div class="wrap"><div class="kicker">New chapters</div><h2 class="sec-h">Meta, social media, Google Ads and lead generation</h2>'
+               '<p class="meta" style="max-width:70ch">Chapter 30 explains Meta Business Suite, organic social media and Google Ads (PPC) step by step. Chapter 31 shows how to build a one-page website for any firm and turn its enquiries into customers. Both are in the Business AI Stack handbook.</p>'
+               '<div class="acts" style="display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 18px"><a class="btn btn-primary" href="../handbook/Module-30-Digital-Marketing-Meta-Social-PPC.pdf" target="_blank" rel="noopener">Chapter 30: Meta, social and Google Ads ↗</a><a class="btn btn-line" href="../handbook/Module-31-One-Page-Site-Lead-Generation.pdf" target="_blank" rel="noopener">Chapter 31: One-page site and leads ↗</a><a class="btn btn-line" href="../handbook/Business-AI-Stack-Handbook.pdf" target="_blank" rel="noopener">Full Business AI Stack handbook ↗</a></div></div></section>')
+        _body = _body.replace('<section style="padding-top:24px"', _dm + '<section style="padding-top:24px"', 1)
     page(_gp, f"{_t['name']} complete guide · SkillNavora", _t["desc"], _body, _gp)
 import labpage
 _lb_html, _lb_n = labpage.build()
