@@ -169,11 +169,13 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     _RES_ITEMS = [("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", _RI),
                   ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", _RI),
                   ("resources.html#genai", "Resources for Gen AI", "GenAI handbook, AI tools, builders and automation", _RI),
-                  ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", _RI)]
+                  ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", _RI),
+                  ("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", _RI)]
     _RES_SUB = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(_RI)}</span>'
                 f'<span><b>Resources &amp; AI tools</b><small>Handbooks, PDFs, AI tools and useful links in five tabs</small></span>{RARR}</button>'
                 f'<div class="dd-subm">' + "".join(item(*x) for x in _RES_ITEMS) + _OTHER_NESTED + '</div></div>')
-    up_menu = (_RES_SUB + item("questions.html", "Practice & interview prep", U["questions.html"][2], U["questions.html"][3]) + item(*U["events.html"])
+    _SL = [x for x in aipages.AI_NAV if x[0] == "study-library.html"][0]
+    up_menu = (_RES_SUB + item("questions.html", "Practice & interview prep", U["questions.html"][2], U["questions.html"][3]) + item(*U["events.html"]) + item(*_SL)
                + item("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department", '<path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>'))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
@@ -201,7 +203,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
   <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img src="{r}assets/logo-s.svg" alt="" width="36" height="36"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></a>
   <nav class="nav" id="nav" aria-label="Main">
     <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC training, digital marketing, FDE and public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_MAIN + [("other-programs.html", "All other programs", "Content creation and every other program, with reading", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>'), ("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
-    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
+    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html'])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
     <div class="dd{on([p for p, *_ in aipages.AI_MENU if p != 'practice.html'])}"><button type="button" aria-expanded="false">AI Studio <span class="nav-new">Free</span> {CHEV}</button><div class="dd-menu">{"".join(item(*x) for x in aipages.AI_MENU)}</div></div>
     <div class="dd{on(['jobs.html', 'careers.html', 'mentor.html', 'hire.html'])}"><button type="button" aria-expanded="false">Jobs &amp; careers {CHEV}</button><div class="dd-menu">
       <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>All job portals, alerts and openings</small></span></a>

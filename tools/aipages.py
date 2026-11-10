@@ -95,7 +95,7 @@ FEATURES = [
      ["4 program tabs", "Every class one click away", "Netlify front page"], "Open the hub")
 ]
 
-AI_MENU = [x for x in AI_NAV if x[0] in ("ai.html", "ai-academy.html", "study-library.html")]
+AI_MENU = [x for x in AI_NAV if x[0] in ("ai.html", "ai-academy.html")]  # Study Library now sits under Upskill for free
 
 def link_card(path):
     """A card that links to an existing page, using the same name and text as the AI Studio cards."""
