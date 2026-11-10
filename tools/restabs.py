@@ -345,10 +345,31 @@ def other_tab(part="all"):
     return "".join(out)
 
 
+DATA_TOOLS = [
+    ("Power BI Desktop", "Build dashboards and reports. Free download for Windows.", "https://powerbi.microsoft.com/desktop/", "Download"),
+    ("Python", "Programming language for data analysis. Install the latest 3.x release.", "https://www.python.org/downloads/", "Download"),
+    ("Anaconda (Python + Jupyter)", "Installs Python, Jupyter Notebook and the data libraries in one step.", "https://www.anaconda.com/download", "Download"),
+    ("Jupyter Notebook", "Interactive notebooks for Python, charts and analysis.", "https://jupyter.org/install", "Install guide"),
+    ("Tableau Public", "Free dashboards and visual analytics.", "https://www.tableau.com/products/public/download", "Download"),
+    ("DBeaver (SQL client)", "Free universal database tool for writing and running SQL.", "https://dbeaver.io/download/", "Download"),
+    ("PostgreSQL", "Free relational database to practise SQL on your own computer.", "https://www.postgresql.org/download/", "Download"),
+    ("pgAdmin", "Graphical admin and query tool for PostgreSQL.", "https://www.pgadmin.org/download/", "Download"),
+    ("VS Code", "Code editor for Python, SQL and notebooks.", "https://code.visualstudio.com/download", "Download"),
+    ("Git", "Version control for your data projects and portfolio.", "https://git-scm.com/downloads", "Download"),
+    ("Google Colab (no install)", "Run Python notebooks in your browser, free.", "https://colab.research.google.com/", "Open"),
+]
+
+
+def data_tools():
+    """Tools for data work with download or install links. Official download pages only."""
+    return (h("Tools for data work: download or open", "Install these once and you can follow every lesson. Each link goes to the official download page.")
+            + grid([(n, d, u, t) for n, d, u, t in DATA_TOOLS]))
+
+
 def build(pm_html, cfg, scope=None):
     """Four resource tabs. scope=None: the Resources page (hash links #pm, #data, #genai, #more).
     scope="lms": the same tabs inside the LMS Resources panel, with their own ids and attributes so the LMS tab code ignores them."""
-    tabs = [("pm", "Resources for PM"), ("ai", "AI and product tools"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("dm", "Digital marketing"), ("other", "Other program and Link")]
+    tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("ai", "AI and product tools"), ("dm", "Digital marketing"), ("other", "Other programs")]
     pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
     bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
     feat = lambda kick, h, p, btns: (f'<div class="card" style="margin:0 0 22px;border:2px solid var(--brand,#6C4CF5);background:linear-gradient(135deg,rgba(108,76,245,.07),rgba(34,211,238,.07))">'
@@ -358,18 +379,23 @@ def build(pm_html, cfg, scope=None):
                    [("Open the PRD library", "prd-library.html"), ("✨ AI PRD Writer", "prd-writer.html"), ("PRD template (Word)", "handbook/templates/SkillNavora_PRD_Template.doc"), ("AI Evals for PMs (PDF)", "ai-evals.html")])
     ba_box = feat("Business analyst", "BRD &amp; FRD: templates, techniques and 25 project ideas", "BRD vs FRD vs PRD, section-by-section templates, a traced sample, BA techniques and real projects from banking to GenAI.",
                   [("Open the BRD &amp; FRD guide", "brd-frd.html"), ("✨ Write a BRD with AI", "prd-writer.html?doc=brd"), ("✨ Write an FRD with AI", "prd-writer.html?doc=frd")])
-    panels = {"pm": quick("pm") + prd_box + pm_html, "data": quick("data") + ba_box + ds_tab(cfg), "ai": ai_tab(), "genai": quick("genai") + genai_tab(cfg), "dm": other_tab("dm"), "other": quick("other") + other_tab("rest") + '<div id="learn" style="scroll-margin-top:90px"></div>' + learnsites.tab(pre) + '<div id="more" style="scroll-margin-top:90px"></div>' + quick("more") + more_tab()}
+    panels = {"pm": quick("pm") + prd_box + pm_html, "data": quick("data") + ds_tab(cfg) + data_tools() + ba_box, "ai": ai_tab(), "genai": quick("genai") + genai_tab(cfg), "dm": other_tab("dm"), "other": quick("other") + other_tab("rest") + '<div id="learn" style="scroll-margin-top:90px"></div>' + learnsites.tab(pre) + '<div id="more" style="scroll-margin-top:90px"></div>' + quick("more") + more_tab()}
     if scope:
         panels = {k: v.replace('href="#learn-', 'href="resources.html#learn-') for k, v in panels.items()}
     body = "".join(f'<div class="{cls}" id="{pre}p-{k}" role="tabpanel" aria-labelledby="{pre}t-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(tabs))
+    if not scope:
+        bar = '<div id="res-back" hidden style="margin:0 0 12px"><button type="button" class="btn btn-line btn-sm" id="res-back-btn">← Back to the previous tab</button></div>' + bar
     if scope:
         js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#lr-res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.rpanel'));
 function show(k){tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.rtab===k?'true':'false')});panels.forEach(function(p){p.hidden=p.id!=='lr-p-'+k})}
 tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.rtab)})});
 var c=new URL(location).searchParams.get('res');show(c&&document.getElementById('lr-p-'+c)?c:'pm')})();</script>"""
         return bar + body + js
-    js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.panel[role=tabpanel]'));
-function show(k){if(!document.getElementById('p-'+k))k='pm';tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.tab===k?'true':'false')});panels.forEach(function(p){p.hidden=p.id!=='p-'+k})}
-tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.tab);try{history.replaceState(null,'','#'+t.dataset.tab)}catch(e){}})});
-function fromHash(){var h=(location.hash||'#pm').slice(1),el=document.getElementById(h);if(document.getElementById('p-'+h))return show(h);var p=el&&el.closest('.panel[role=tabpanel]');show(p?p.id.slice(2):'pm');if(el)el.scrollIntoView()}window.addEventListener('hashchange',fromHash);fromHash()})();</script>"""
+    js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.panel[role=tabpanel]')),back=document.getElementById('res-back'),bb=document.getElementById('res-back-btn'),cur=null,stack=[];
+function render(){if(back)back.hidden=stack.length===0}
+function show(k,push){if(!document.getElementById('p-'+k))k='pm';if(push&&cur&&cur!==k)stack.push(cur);cur=k;tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.tab===k?'true':'false')});panels.forEach(function(p){p.hidden=p.id!=='p-'+k});render()}
+tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.tab,true);try{history.replaceState(null,'','#'+t.dataset.tab)}catch(e){}})});
+if(bb)bb.addEventListener('click',function(){var prev=stack.pop();if(prev){show(prev,false);try{history.replaceState(null,'','#'+prev)}catch(e){}}});
+function fromHash(push){var h=(location.hash||'#pm').slice(1),el=document.getElementById(h);if(document.getElementById('p-'+h)){show(h,push);return}var p=el&&el.closest('.panel[role=tabpanel]');show(p?p.id.slice(2):'pm',push);if(el)el.scrollIntoView()}
+window.addEventListener('hashchange',function(){fromHash(true)});fromHash(false)})();</script>"""
     return bar + body + js

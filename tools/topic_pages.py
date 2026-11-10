@@ -73,6 +73,7 @@ def _inner(tag):
 def build(page, uhero, out):
     res_path = os.path.join(out, "resources.html")
     soup = BeautifulSoup(open(res_path, encoding="utf-8").read(), "html.parser")
+    styles = "".join(str(st) for st in soup.find_all("style"))
     built = {}
     for slug, title, short, group, c_ids, t_ids, kicker in TOPICS:
         content_parts, tool_parts = [], []
@@ -95,7 +96,7 @@ def build(page, uhero, out):
         built[slug] = {
             "title": title, "short": short, "group": group, "kicker": kicker,
             "content": _rewrite("".join(content_parts)),
-            "tools": _rewrite("".join(tool_parts)),
+            "tools": styles + _rewrite("".join(tool_parts)),
         }
 
     order = [t[0] for t in TOPICS]
@@ -111,15 +112,19 @@ def build(page, uhero, out):
                 '<button role="tab" data-pt="other" aria-selected="false">Other Programmes</button>'
                 '<button role="tab" data-pt="tools" aria-selected="false">Learning Tools &amp; Links</button></div>')
         body = (uhero(f"Learning platform · {E(group)}", E(title), f"Everything for {E(short)} in one place: the programme content, related programmes, and tools and learning links.")
-                + '<section style="padding-top:24px"><div class="wrap">' + tabs
+                + '<section style="padding-top:24px"><div class="wrap"><a class="btn btn-line btn-sm" href="learning-platform.html" style="margin:0 0 14px;display:inline-block">← All programmes</a>'
+                + '<div id="pt-back" hidden style="margin:0 0 12px"><button type="button" class="btn btn-line btn-sm" id="pt-back-btn">← Back to the previous tab</button></div>' + tabs
                 + f'<div class="ppanel" id="pp-content" role="tabpanel">{d["content"]}</div>'
                 + f'<div class="ppanel" id="pp-other" role="tabpanel" hidden><h2 class="sec-h">Other programmes</h2><p class="meta" style="margin:0 0 14px">Related programmes you can study next. Each one opens on its own page.</p>{other_cards}<p><a class="btn btn-line btn-sm" href="learning-platform.html">All programmes</a> <a class="btn btn-line btn-sm" href="tools-and-resources.html">Tools &amp; learning resources</a></p></div>'
                 + f'<div class="ppanel" id="pp-tools" role="tabpanel" hidden><h2 class="sec-h">Learning tools &amp; links</h2><p class="meta" style="margin:0 0 14px">Tools, websites, documentation, tutorials and external learning resources for {E(short)}. Each link opens the provider\'s own site.</p>{d["tools"]}</div>'
                 + '</div></section>'
                 + """<script>(function(){var b=document.getElementById('pt-bar');if(!b)return;var tabs=[].slice.call(b.querySelectorAll('[role=tab]'));
-function show(k){if(['content','other','tools'].indexOf(k)<0)k='content';tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.pt===k?'true':'false')});['content','other','tools'].forEach(function(p){document.getElementById('pp-'+p).hidden=p!==k});}
-tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.pt);try{history.replaceState(null,'','#'+t.dataset.pt)}catch(e){}})});
-function fromHash(){show((location.hash||'#content').slice(1))}window.addEventListener('hashchange',fromHash);fromHash()})();</script>""")
+var back=document.getElementById('pt-back'),bb=document.getElementById('pt-back-btn'),cur=null,stack=[];
+function render(){if(back)back.hidden=stack.length===0}
+function show(k,push){if(['content','other','tools'].indexOf(k)<0)k='content';if(push&&cur&&cur!==k)stack.push(cur);cur=k;tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.pt===k?'true':'false')});['content','other','tools'].forEach(function(p){document.getElementById('pp-'+p).hidden=p!==k});render()}
+tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.pt,true);try{history.replaceState(null,'','#'+t.dataset.pt)}catch(e){}})});
+if(bb)bb.addEventListener('click',function(){var prev=stack.pop();if(prev){show(prev,false);try{history.replaceState(null,'','#'+prev)}catch(e){}}});
+function fromHash(push){show((location.hash||'#content').slice(1),push)}window.addEventListener('hashchange',function(){fromHash(true)});fromHash(false)})();</script>""")
         page(f"{slug}.html", f"{title} · SkillNavora",
              f"{short}: programme content, other programmes, and learning tools and links, on one page.", body, slug + ".html")
 
