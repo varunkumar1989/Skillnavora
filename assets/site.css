@@ -1634,3 +1634,12 @@ small,.muted{line-height:1.5}
 .hb-multi>span:nth-child(2){align-self:center}
 .hb-multi .hb-links{align-self:center;justify-content:flex-start}
 .hb-row em{overflow-wrap:anywhere}
+
+/* New SkillNavora logo: one lockup image (badge + wordmark). The dark-theme wordmark is shown on dark backgrounds. */
+img.lg{display:block;width:auto!important;height:36px!important;max-width:none}
+@media (max-width:760px){img.lg{height:30px!important}}
+.biglogo img.lg{height:72px!important}
+img.lg-dark{display:none}
+:root[data-theme="dark"] img.lg-light{display:none}
+:root[data-theme="dark"] img.lg-dark{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) img.lg-light{display:none}:root:not([data-theme="light"]) img.lg-dark{display:block}}

@@ -16,8 +16,7 @@ E = lambda t: H.escape(str(t), quote=True)
 OUT = os.path.join(os.path.dirname(__file__), "pdf")
 os.makedirs(OUT, exist_ok=True)
 TAGLINE = "From Non-Coder to Enterprise AI Builder: Learn, Build, Deploy, Get Hired and Launch Your AI Business."
-LOGO = open("/home/user/skillnavora/assets/skillnavora-logo.svg", encoding="utf-8").read()
-LOGO_URI = "data:image/svg+xml;base64," + base64.b64encode(LOGO.encode()).decode()
+LOGO_URI = "data:image/png;base64," + base64.b64encode(open("/home/user/skillnavora/assets/skillnavora-lockup.png", "rb").read()).decode()
 
 NOTES = {**NOTES_A, **NOTES_B}
 SEC = {s[0]: s for m in MODS_A + MODS_B for s in m[2]}

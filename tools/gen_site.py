@@ -4,6 +4,10 @@ import re
 import os, re, html, shutil, json
 
 OUT = "/home/user/skillnavora"
+# New SkillNavora logo (lockup = badge + wordmark). Light and dark wordmark variants; CSS shows the right one per theme.
+LOGO_LOCKUP_R = '<img class="lg lg-light" src="{r}assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="{r}assets/skillnavora-lockup-dark.png" alt="" height="36">'
+LOGO_LOCKUP = LOGO_LOCKUP_R.replace("{r}", "")
+
 DOMAIN = "https://www.skillnavora.in"
 E = html.escape
 SB = ('<script src="{r}assets/vendor/supabase-2.117.3.js"></script>'
@@ -135,7 +139,7 @@ MODALS_HTML = f'''<div class="modal" id="m-counsel" role="dialog" aria-modal="tr
 <a class="refab" href="{{r}}refer.html" aria-label="Refer and earn" title="Refer &amp; earn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2zM12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span>Refer &amp; earn</span></a>
 <button class="chat-fab" id="chat-fab" type="button" hidden aria-label="Ask SkillNavora AI"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg><span>Ask AI</span></button>
 <div class="chat" id="chat" role="dialog" aria-label="SkillNavora AI assistant">
-  <div class="chat-h"><img src="{{r}}assets/logo-s.svg" alt="" width="32" height="32"><span><b>SkillNavora assistant</b><small>Answers about programs, fees and careers</small></span><button type="button" id="chat-x" aria-label="Close chat">×</button></div>
+  <div class="chat-h"><img src="{{r}}assets/logo-badge.png" alt="" width="32" height="32"><span><b>SkillNavora assistant</b><small>Answers about programs, fees and careers</small></span><button type="button" id="chat-x" aria-label="Close chat">×</button></div>
   <div class="chat-b" id="chat-b" aria-live="polite"></div>
   <form class="chat-f" id="chat-f"><textarea id="chat-in" rows="1" maxlength="1500" placeholder="Ask a question…" aria-label="Your question"></textarea><button type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></form>
   <div class="chat-n">AI answers can be wrong. Confirm fees and dates with a counsellor.</div>
@@ -197,14 +201,14 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{DOMAIN}/assets/og.png">
 <meta name="theme-color" content="#07100f">
 <script>try{{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
-<link rel="icon" href="{r}assets/logo-s.svg" type="image/svg+xml"><link rel="icon" href="{r}assets/favicon-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="{r}assets/apple-touch-icon.png">
+<link rel="icon" href="{r}assets/logo-badge.png" type="image/png"><link rel="icon" href="{r}assets/favicon-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="{r}assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="{r}assets/site.css">
 </head>
 <body data-root="{r}"{attrs}{' data-app' if app else ''}>
 {TOPBAR_HTML if not app and not path.startswith("program/") else ""}<header class="top"><div class="wrap">
-  <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img src="{r}assets/logo-s.svg" alt="" width="36" height="36"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></a>
+  <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="{r}assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="{r}assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
   <nav class="nav" id="nav" aria-label="Main">
     <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC training, digital marketing, FDE and public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_MAIN + [("other-programs.html", "All other programs", "Content creation and every other program, with reading", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>'), ("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
     <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html'])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
@@ -231,7 +235,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     foot = f"""
 <footer><div class="wrap">
   <div class="cols">
-    <div><a class="brand" href="{r}index.html"><img src="{r}assets/logo-s.svg" alt="" width="32" height="32"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></a>
+    <div><a class="brand" href="{r}index.html"><img class="lg lg-light" src="{r}assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="{r}assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
       <p>AI-first programs in product management, data engineering and generative AI, with live classes, an LMS and career support.</p>
       <div class="follow"><h4>Follow us</h4><div id="social" class="soc"></div></div></div>
     <div><h4>Programs</h4><ul>{''.join(f'<li><a href="{r}{p}" data-course-name="{cid}">{E(n)}</a></li>' for cid, p, n, *_ in PROGRAMS)}<li><a href="{r}programs.html">All programs and FAQs</a></li></ul></div>
@@ -301,7 +305,7 @@ JA_S = lambda cls="": sec("Get job-ready", "Job assistance program and intensive
 MENTORS_S = '<section id="mentors" hidden><div class="wrap center"><div class="kicker">Mentors</div><h2 class="sec-h">Learn from practising product leaders</h2><p class="sub">Mentors and guest speakers who build products every day.</p><div class="mentors" id="mentors-list" style="text-align:left"></div></div></section>'
 REVIEWS_S = '<section id="home-reviews" class="tint" hidden><div class="wrap"><div class="center"><div class="kicker">Testimonials and reviews</div><h2 class="sec-h">Careers that changed, <span class="g">in their own words.</span></h2></div><div class="reviews" id="home-reviews-list" style="margin-top:30px"></div><p class="center"><a class="btn btn-line btn-sm" href="{R}reviews.html">All reviews →</a></p></div></section>'
 
-BIG_LOGO = '<div class="biglogo"><img src="{r}assets/logo-s.svg" alt="SkillNavora logo" width="240" height="240"><div class="brand"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></div></div>'
+BIG_LOGO = '<div class="biglogo">' + LOGO_LOCKUP_R.replace('height="36"', 'height="72"') + '</div>'
 COMPASS_SIDE = '''  <div class="hero-art side" aria-hidden="true">''' + BIG_LOGO.replace("{r}", "") + '''</div>
 '''
 FREE_TRACKS = [("AI for Product Managers", "LLMs, RAG, vibe coding and agentic AI, explained for PMs.", "3 modules", "AI Product"),
@@ -937,13 +941,13 @@ page("contact.html", "Contact us · SkillNavora", "Contact SkillNavora on WhatsA
 # ================================================================ AUTH + LMS + ADMIN
 login = f"""<div class="auth-page"><div class="auth-split">
   <div class="auth-side">
-    <a class="logo" href="index.html" aria-label="SkillNavora home"><img src="assets/logo-s.svg" alt="" width="36" height="36"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></a>
+    <a class="logo" href="index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
     <div><h2>Welcome back ✨</h2><p>Live, AI-first programs to accelerate your career in product, data engineering and GenAI.</p>
     <ul class="checks"><li>25+ real-world case studies</li><li>Recordings, pre-reads and assignments in one place</li><li>Monthly 1:1 with a CEO or Head of Product</li></ul></div>
     <a class="side-link" href="programs.html">Explore programs →</a>
   </div>
   <div class="auth-card">
-    <a class="logo mob" href="index.html" aria-label="SkillNavora home"><img src="assets/logo-s.svg" alt="" width="36" height="36"><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></a>
+    <a class="logo mob" href="index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
     <h1 id="auth-title">Log in to your account</h1>
     <p class="meta" id="auth-sub" style="margin:0">Enter your email and we'll send you a sign-in link.</p>
     <p id="auth-msg" class="notice" hidden role="status" style="margin-top:16px;text-align:left"></p>
@@ -1011,7 +1015,7 @@ login = login.replace('''      <form id="s-email" class="form"><form id="f-email
 ''')
 page("login.html", "Log in · SkillNavora", "Log in to your SkillNavora learning dashboard.", login, "login.html", SB + '<script src="{r}assets/login.js"></script>', noindex=True, footer=False, wa=False, app=True)
 
-reset = """<div class="auth-page"><div class="auth-card"><div class="logo"><img src="assets/logo-s.svg" alt=""><span><i class="c">S</i>kill<em><i class="c">N</i>avora</em></span></div><h1>Set a new password</h1>
+reset = """<div class="auth-page"><div class="auth-card"><div class="logo"><img class="lg lg-light" src="assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="assets/skillnavora-lockup-dark.png" alt="" height="36"></div><h1>Set a new password</h1>
   <p id="auth-msg" class="notice" hidden role="status" style="margin-top:16px;text-align:left"></p>
   <form id="f-reset" class="form"><label>New password <span class="meta">(at least 8 characters)</span><input name="password" type="password" required minlength="8" autocomplete="new-password"></label>
   <label>Confirm new password<input name="confirm" type="password" required minlength="8" autocomplete="new-password"></label><button type="submit">Save new password</button></form></div></div>"""
