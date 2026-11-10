@@ -175,7 +175,9 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
                 f'<span><b>Resources &amp; AI tools</b><small>Handbooks, PDFs, AI tools and useful links in five tabs</small></span>{RARR}</button>'
                 f'<div class="dd-subm">' + "".join(item(*x) for x in _RES_ITEMS) + _OTHER_NESTED + '</div></div>')
     _SL = [x for x in aipages.AI_NAV if x[0] == "study-library.html"][0]
-    up_menu = (_RES_SUB + item("questions.html", "Practice & interview prep", U["questions.html"][2], U["questions.html"][3]) + item(*U["events.html"]) + item(*_SL)
+    up_menu = (_RES_SUB + item("learning-platform.html", "Learning platform", "One page per programme: content, related programmes, tools and links", '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>')
+               + item("tools-and-resources.html", "Tools & learning resources", "Every tool, website and learning link in one place", '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.6-.6-2.1z"/>')
+               + item("questions.html", "Practice & interview prep", U["questions.html"][2], U["questions.html"][3]) + item(*U["events.html"]) + item(*_SL)
                + item("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department", '<path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>'))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
@@ -873,6 +875,8 @@ page("study-hub.html", "Study Hub: AI PM, Data Engineer, AI Engineer, GenAI Laun
 page("ai-skills-map.html", "AI Skills Map: every AI skill and where to learn it · SkillNavora", "The complete AI skills catalogue for professionals: prompting, context, skills, second brain, research, evals, automation, orchestration, media, engineering and PM skills, mapped to free SkillNavora lessons, plus what job descriptions ask for.",
      uhero("AI Studio · AI Skills Map", 'Every <span class="g">AI skill</span>, one map', "What to learn first, the full catalogue of AI skills, and exactly where to learn each one on SkillNavora, plus the skills employers ask for in AI-era job descriptions.") + skillsmap.page(), "ai-skills-map.html")
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
+import topic_pages
+topic_pages.build(page, uhero, OUT)
 
 # ================================================================ CONTACT
 contact = uhero("Contact us", 'We\'re here to <span class="g">help</span>', "Questions about programs, fees or schedules? WhatsApp is the fastest way to reach us, or send a message below.") + """
