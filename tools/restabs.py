@@ -235,13 +235,13 @@ def course_card():
     """The Complete Digital Marketing Course (SkillNavora). Chapters are added here as they are written."""
     link = "read.html?doc=handbook/Skillnavora-Digital-Marketing-Course-Chapter-1.pdf&page=1"
     return ('<h3 class="h3s hb-h" style="margin-top:22px">The Complete Digital Marketing Course</h3>'
-            '<p class="meta" style="margin:-4px 0 12px">By Varun, for SkillNavora. The full course in 19 chapters, written in simple English. Chapter 1 is ready now; the next chapters will be added here.</p>'
-            '<div class="grid g3"><div class="card"><div class="kicker">Chapter 1</div><h3 class="h3s">Introduction</h3>'
+            '<p class="meta" style="margin:-4px 0 12px">By Varun, for SkillNavora. The full course in 19 chapters, written in simple English. Chapters 1 and 2 are ready now; the next chapters will be added here.</p>'
+            '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))"><div class="card" style="min-width:0"><div class="kicker">Chapter 1</div><h3 class="h3s">Introduction</h3>'
             '<p class="meta">How to use the course, four learner paths, free tools, study habits, FAQ and the 30,000-foot view of digital marketing, with pictures you can click.</p>'
             '<div class="hb-acts" style="margin-top:10px">' + btn("Open Chapter 1 (PDF)", link, True, gate=False, new=False)
             + btn("Interactive pictures ↗", "https://claude.ai/artifact/LJrGBHbd5ohTQebDsXyo6p", gate=False) + '</div></div>'
-            '<div class="card"><div class="kicker">Chapter 2</div><h3 class="h3s">Coming next</h3><p class="meta">Market research. Added when the next chapter is ready.</p></div>'
-            '<div class="card"><div class="kicker">Chapters 3 to 19</div><h3 class="h3s">In progress</h3><p class="meta">Website, email, copywriting, SEO, YouTube, social media, ads, analytics, app marketing, old content and the conclusion.</p></div></div>')
+            '<div class="card" style="min-width:0"><div class="kicker">Chapter 2</div><h3 class="h3s">Market Research</h3>''<p class="meta">Write a survey, share it, filter the answers, and turn problems into ideas. Includes the 4 survey questions and a practice workshop.</p>''<div class="hb-acts" style="margin-top:10px">' + btn("Open Chapter 2 (PDF)", "read.html?doc=handbook/Skillnavora-Chapter-2-Market-Research.pdf&page=1", True, gate=False, new=False)+ btn("Practice workshop ↗", "https://claude.ai/artifact/XQhCWixR7eip5riUcSN3nd", gate=False) + '</div></div>'
+            '<div class="card" style="min-width:0"><div class="kicker">Chapter 3 to 19</div><h3 class="h3s">In progress</h3><p class="meta">Website, email, copywriting, SEO, YouTube, social media, ads, analytics, app marketing, old content and the conclusion.</p></div></div>')
 
 
 def other_tab():
