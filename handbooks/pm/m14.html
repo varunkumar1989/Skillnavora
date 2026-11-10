@@ -9,7 +9,7 @@
   <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
   <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
   <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
-  <a class="iconbtn" href="../../handbook/Module-14-Claude-Daily-Work.pdf">⬇ PDF</a>
+  <a class="iconbtn" href="../../read.html?doc=handbook/Module-14-Claude-Daily-Work.pdf">⬇ PDF</a>
   <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
 </header>
 <div class="shell">
@@ -55,7 +55,7 @@
 <main class="main" id="content"><div class="article">
 <header class="page-head"><div class="kicker">Module 14</div><h1>Claude for Daily PM Work: Basic to Advanced</h1><p>Use Claude every day for writing, research, analysis and prototypes, then connect it to Gmail, Calendar, Drive, Slack, GitHub and your own tools.</p><div class="chips"><span class="chip">≈ 8 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Claude docs and Help Center (docs.claude.com, support.claude.com), Anthropic Academy, connectors getting-started guide; checked 23 Oct 2026</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m14" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m14-what-claude-is-and-where-you-can-use-it">What Claude is and where you can use it</a></li><li><a href="#m14-level-1-your-first-hour-with-claude">Level 1 · Your first hour with Claude</a></li><li><a href="#m14-level-2-features-working-pms-use-every-week">Level 2 · Features working PMs use every week</a></li><li><a href="#m14-level-3-connect-claude-to-your-apps">Level 3 · Connect Claude to your apps</a></li><li><a href="#m14-a-daily-routine-for-pms">A daily routine for PMs</a></li><li><a href="#m14-labs">Labs</a></li><li><a href="#m14-prompt-library-for-pms">Prompt library for PMs</a></li><li><a href="#m14-common-mistakes">Common mistakes</a></li><li><a href="#m14-where-to-find-official-help-and-sources">Where to find official help and sources</a></li><li><a href="#m14-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m14-key-takeaways">Key takeaways</a></li><li><a href="#m14-check-your-understanding">Check your understanding</a></li><li><a href="#m14-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
 <p class="admonition-title">Feature names move around</p>
-<p>Claude ships new features often, and menus get renamed. If a button in a lab has moved, search the <a href="https://support.claude.com">Claude Help Center</a> for the feature name. Screens below are <strong>illustrative wireframes</strong>, not screenshots.</p>
+<p>Claude ships new features often, and menus get renamed. If a button in a lab has moved, search the <a href="https://support.claude.com" target="_blank" rel="noopener">Claude Help Center</a> for the feature name. Screens below are <strong>illustrative wireframes</strong>, not screenshots.</p>
 </div>
 <h2 id="m14-what-claude-is-and-where-you-can-use-it"><span class="hnum">14.1</span> What Claude is and where you can use it</h2>
 <p><strong>Claude</strong> is Anthropic's AI assistant. You talk to it in plain language, give it files, and it writes, analyses, researches, codes and builds small apps. The same account works in several places:</p>
@@ -92,7 +92,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Chat and Claude Code draw from the <strong>same usage pool</strong> on Pro and Max, so a long coding session leaves less chat time that day. Check <a href="https://claude.com/pricing">claude.com/pricing</a> for current limits.</p>
+<p>Chat and Claude Code draw from the <strong>same usage pool</strong> on Pro and Max, so a long coding session leaves less chat time that day. Check <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a> for current limits.</p>
 <h2 id="m14-level-1-your-first-hour-with-claude"><span class="hnum">14.2</span> Level 1 · Your first hour with Claude</h2>
 <div class="admonition level1">
 <p class="admonition-title">Level 1 · Beginner</p>
@@ -194,7 +194,7 @@
 <h3 id="m14-the-api-and-claude-console"><span class="hnum">14.4.4</span> The API and Claude Console</h3>
 <p>To put Claude <strong>inside your own app, bot or automation</strong>, you use the <strong>Claude API</strong>:</p>
 <ol>
-<li>Sign in at <a href="https://console.anthropic.com">console.anthropic.com</a> (separate billing from your claude.ai plan).</li>
+<li>Sign in at <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a> (separate billing from your claude.ai plan).</li>
 <li>Add a payment method and <strong>set a monthly spend limit</strong>.</li>
 <li>Create an <strong>API key</strong> and store it in a secret store (never in a chat or frontend code).</li>
 <li>Test prompts in the <strong>Workbench</strong>, then use the key in n8n, Make, Zapier, Lovable or code.</li>
@@ -301,11 +301,11 @@
 </ul>
 <h2 id="m14-where-to-find-official-help-and-sources"><span class="hnum">14.9</span> Where to find official help and sources</h2>
 <ul>
-<li><strong>Docs</strong>: <a href="https://docs.claude.com">docs.claude.com</a> (API, prompting, tools, MCP, Claude Code).</li>
-<li><strong>Help Center</strong>: <a href="https://support.claude.com">support.claude.com</a> (features, plans, connectors, troubleshooting).</li>
-<li><strong>Claude Academy</strong> (free; formerly Anthropic Academy at anthropic.com/learn, which reportedly now redirects there): courses including <em>Claude 101</em>, <em>AI Fluency</em>, <em>Building with the Claude API</em>, <em>Introduction to MCP</em> and <em>Claude Code in Action</em> at <a href="https://academy.claude.com">academy.claude.com</a>.</li>
+<li><strong>Docs</strong>: <a href="https://docs.claude.com" target="_blank" rel="noopener">docs.claude.com</a> (API, prompting, tools, MCP, Claude Code).</li>
+<li><strong>Help Center</strong>: <a href="https://support.claude.com" target="_blank" rel="noopener">support.claude.com</a> (features, plans, connectors, troubleshooting).</li>
+<li><strong>Claude Academy</strong> (free; formerly Anthropic Academy at anthropic.com/learn, which reportedly now redirects there): courses including <em>Claude 101</em>, <em>AI Fluency</em>, <em>Building with the Claude API</em>, <em>Introduction to MCP</em> and <em>Claude Code in Action</em> at <a href="https://academy.claude.com" target="_blank" rel="noopener">academy.claude.com</a>.</li>
 <li><strong>Prompt engineering guide</strong>: in the docs, under "Prompt engineering".</li>
-<li><strong>Cookbook</strong>: <a href="https://github.com/anthropics/anthropic-cookbook">github.com/anthropics/anthropic-cookbook</a> for API examples.</li>
+<li><strong>Cookbook</strong>: <a href="https://github.com/anthropics/anthropic-cookbook" target="_blank" rel="noopener">github.com/anthropics/anthropic-cookbook</a> for API examples.</li>
 <li><strong>Anthropic on YouTube</strong>: official talks and feature walkthroughs.</li>
 </ul>
 <h2 id="m14-exercises-with-model-answers"><span class="hnum">14.10</span> Exercises with model answers</h2>
@@ -336,10 +336,10 @@
 <div class="quiz" data-quiz="m14"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">You keep pasting the same personas and strategy into every chat. What should you use?</p><ol><li class="">A longer prompt</li><li class="is-correct">A Project with instructions and knowledge files</li><li class="">The API</li><li class="">A new account</li></ol><div class="why"><strong>Why:</strong> Projects give every chat inside them the same instructions and files.</div></div><div class="qitem" data-correct="1"><p class="q">With the Gmail connector, what does Claude do with a reply you ask for?</p><ol><li class="">Sends it immediately</li><li class="is-correct">Creates a draft for you to review and send</li><li class="">Posts it to Slack</li><li class="">Nothing; Gmail is read-only</li></ol><div class="why"><strong>Why:</strong> Claude can search, read and draft in Gmail, but it does not send on your behalf.</div></div><div class="qitem" data-correct="1"><p class="q">How do you give Claude a tool from your own n8n workflow?</p><ol><li class="">Paste the n8n password into a chat</li><li class="is-correct">Add the workflow&#x27;s MCP server URL as a custom connector</li><li class="">Upload the workflow as a PDF</li><li class="">It is not possible</li></ol><div class="why"><strong>Why:</strong> Remote MCP servers are added as custom connectors in Settings → Connectors.</div></div><div class="qitem" data-correct="1"><p class="q">Where should your Claude API key live when you use it in an automation?</p><ol><li class="">In the chat</li><li class="is-correct">In the automation tool&#x27;s credential store</li><li class="">In a public GitHub repository</li><li class="">In the artifact code</li></ol><div class="why"><strong>Why:</strong> Keys belong in secret or credential stores, never in chats or shared code.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
 <h2 id="m14-recommended-resources"><span class="hnum">14.13</span> Recommended resources</h2>
 <ul>
-<li><a href="https://support.claude.com">Claude Help Center</a> · <a href="https://docs.claude.com">Claude docs</a> · <a href="https://academy.claude.com">Claude Academy</a></li>
-<li><a href="https://claude.com/docs/connectors/getting-started">Connectors: getting started</a></li>
-<li><a href="https://console.anthropic.com">Claude Console</a> for API keys and spend limits</li>
-<li><a href="https://github.com/anthropics/anthropic-cookbook">Anthropic cookbook on GitHub</a></li>
+<li><a href="https://support.claude.com" target="_blank" rel="noopener">Claude Help Center</a> · <a href="https://docs.claude.com" target="_blank" rel="noopener">Claude docs</a> · <a href="https://academy.claude.com" target="_blank" rel="noopener">Claude Academy</a></li>
+<li><a href="https://claude.com/docs/connectors/getting-started" target="_blank" rel="noopener">Connectors: getting started</a></li>
+<li><a href="https://console.anthropic.com" target="_blank" rel="noopener">Claude Console</a> for API keys and spend limits</li>
+<li><a href="https://github.com/anthropics/anthropic-cookbook" target="_blank" rel="noopener">Anthropic cookbook on GitHub</a></li>
 </ul><div class="modnav"><a href="m13.html"><small>← Previous</small>Module 13: AI Tools Landscape and Your Starter Stack</a><a href="m15.html"><small>Next →</small>Module 15: Claude Code: Basic to Advanced</a></div>
 </div></main>
 </div>

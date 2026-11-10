@@ -9,7 +9,7 @@
   <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
   <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
   <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
-  <a class="iconbtn" href="../../handbook/Module-15-Claude-Code.pdf">⬇ PDF</a>
+  <a class="iconbtn" href="../../read.html?doc=handbook/Module-15-Claude-Code.pdf">⬇ PDF</a>
   <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
 </header>
 <div class="shell">
@@ -55,7 +55,7 @@
 <main class="main" id="content"><div class="article">
 <header class="page-head"><div class="kicker">Module 15</div><h1>Claude Code: Basic to Advanced</h1><p>Use Claude&#x27;s coding agent to read, edit and build real projects, create and push GitHub repositories, deploy prototypes, and extend it with MCP, skills, subagents and hooks.</p><div class="chips"><span class="chip">≈ 10 h study</span><span class="chip">Drafted</span><span class="chip">Sources: Claude Code docs (docs.claude.com), DeepLearning.AI &#x27;Claude Code: A Highly Agentic Coding Assistant&#x27;, Anthropic Academy &#x27;Claude Code in Action&#x27;, Module 11; checked 23 Oct 2026</span></div></header><p class="noprint"><button class="iconbtn donebtn" id="doneBtn" data-mod="m15" aria-pressed="false" type="button">Mark module complete</button> <button class="iconbtn" id="expandAll" type="button">Expand all</button></p><details class="pagetoc" open><summary>On this page</summary><ol><li><a href="#m15-what-claude-code-is">What Claude Code is</a></li><li><a href="#m15-level-1-install-and-your-first-session">Level 1 · Install and your first session</a></li><li><a href="#m15-creating-a-repository-and-pushing-to-github">Creating a repository and pushing to GitHub</a></li><li><a href="#m15-level-2-working-like-a-professional">Level 2 · Working like a professional</a></li><li><a href="#m15-level-3-extending-claude-code">Level 3 · Extending Claude Code</a></li><li><a href="#m15-costs">Costs</a></li><li><a href="#m15-labs">Labs</a></li><li><a href="#m15-pm-use-cases">PM use cases</a></li><li><a href="#m15-common-mistakes">Common mistakes</a></li><li><a href="#m15-exercises-with-model-answers">Exercises with model answers</a></li><li><a href="#m15-key-takeaways">Key takeaways</a></li><li><a href="#m15-check-your-understanding">Check your understanding</a></li><li><a href="#m15-recommended-resources">Recommended resources</a></li></ol></details><div class="admonition warning">
 <p class="admonition-title">Commands and menus evolve</p>
-<p>Claude Code updates often. If a command here behaves differently, run <code>/help</code> inside Claude Code or check the <a href="https://docs.claude.com/en/docs/claude-code/overview">Claude Code docs</a>. Terminal screens below are <strong>illustrative</strong>.</p>
+<p>Claude Code updates often. If a command here behaves differently, run <code>/help</code> inside Claude Code or check the <a href="https://docs.claude.com/en/docs/claude-code/overview" target="_blank" rel="noopener">Claude Code docs</a>. Terminal screens below are <strong>illustrative</strong>.</p>
 </div>
 <h2 id="m15-what-claude-code-is"><span class="hnum">15.1</span> What Claude Code is</h2>
 <p><strong>Claude Code</strong> is an <strong>agentic coding tool</strong>. You describe what you want in plain language; it reads the files in a project, plans, edits code, runs commands (tests, builds, git), shows you what it changed, and asks permission before risky steps. Module 11 introduced it for vibe coding. This class goes from first install to advanced automation.</p>
@@ -274,7 +274,7 @@
 <li>Shift+Tab to <strong>plan mode</strong>: "Read docs/prd.md and plan a clickable prototype that covers every requirement."</li>
 <li>Approve the plan, leave plan mode, and let Claude build.</li>
 <li>"Check the page at 375 px width; fix horizontal scroll; label it as a prototype."</li>
-<li>Deploy: drag the folder onto <a href="https://app.netlify.com/drop">app.netlify.com/drop</a>, or ask Claude to use the Netlify CLI. Share the link.</li>
+<li>Deploy: drag the folder onto <a href="https://app.netlify.com/drop" target="_blank" rel="noopener">app.netlify.com/drop</a>, or ask Claude to use the Netlify CLI. Share the link.</li>
 </ol>
 </div>
 <div class="admonition example">
@@ -304,7 +304,7 @@
 <div class="admonition example">
 <p class="admonition-title">Lab 7 · Claude Code on the web (15 minutes)</p>
 <ol>
-<li>Open <a href="https://claude.ai/code">claude.ai/code</a> and connect GitHub when asked.</li>
+<li>Open <a href="https://claude.ai/code" target="_blank" rel="noopener">claude.ai/code</a> and connect GitHub when asked.</li>
 <li>Choose your <code>first-project</code> repository.</li>
 <li>Task: "Add a FAQ section with three questions and open a pull request."</li>
 <li>Review the pull request on GitHub and merge it yourself.</li>
@@ -382,11 +382,11 @@
 <div class="quiz" data-quiz="m15"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">Which key cycles into plan mode?</p><ol><li class="">Ctrl+C</li><li class="is-correct">Shift+Tab</li><li class="">Esc</li><li class="">F5</li></ol><div class="why"><strong>Why:</strong> Shift+Tab cycles normal, auto-accept edits and plan mode.</div></div><div class="qitem" data-correct="1"><p class="q">What does CLAUDE.md do?</p><ol><li class="">Stores your API key</li><li class="is-correct">Gives Claude project instructions at the start of every session</li><li class="">Deploys the site</li><li class="">Lists your GitHub followers</li></ol><div class="why"><strong>Why:</strong> Claude reads CLAUDE.md to learn the project&#x27;s purpose, stack, rules and commands.</div></div><div class="qitem" data-correct="1"><p class="q">You want an automatic check that blocks edits to .env every time. Use…</p><ol><li class="">A line in the prompt</li><li class="is-correct">A hook</li><li class="">Plan mode</li><li class="">The /model command</li></ol><div class="why"><strong>Why:</strong> Hooks run your script at fixed points, so the rule is enforced every time.</div></div><div class="qitem" data-correct="1"><p class="q">How do you let Claude read a spec in Notion?</p><ol><li class="">Copy the Notion password into the chat</li><li class="is-correct">Add Notion&#x27;s MCP server with claude mcp add</li><li class="">Export Notion as a ZIP</li><li class="">It&#x27;s not possible</li></ol><div class="why"><strong>Why:</strong> MCP servers give Claude Code tools for other apps; Notion offers a remote MCP server.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
 <h2 id="m15-recommended-resources"><span class="hnum">15.13</span> Recommended resources</h2>
 <ul>
-<li><a href="https://docs.claude.com/en/docs/claude-code/overview">Claude Code docs</a> · <a href="https://www.anthropic.com/engineering/claude-code-best-practices">Claude Code best practices</a></li>
-<li><a href="https://academy.claude.com">Claude Academy: Claude Code in Action</a> (free; formerly Anthropic Academy)</li>
-<li><a href="https://www.deeplearning.ai/short-courses/claude-code-a-highly-agentic-coding-assistant/">DeepLearning.AI: Claude Code: A Highly Agentic Coding Assistant</a> (free, about 2 hours)</li>
-<li><a href="https://www.coursera.org/learn/claude-code">Coursera: Claude Code: Software Engineering with Generative AI Agents (Vanderbilt)</a></li>
-<li><a href="https://cli.github.com/">GitHub CLI</a> · <a href="https://app.netlify.com/drop">Netlify Drop</a> · <a href="https://github.com/microsoft/playwright-mcp">Playwright MCP</a></li>
+<li><a href="https://docs.claude.com/en/docs/claude-code/overview" target="_blank" rel="noopener">Claude Code docs</a> · <a href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener">Claude Code best practices</a></li>
+<li><a href="https://academy.claude.com" target="_blank" rel="noopener">Claude Academy: Claude Code in Action</a> (free; formerly Anthropic Academy)</li>
+<li><a href="https://www.deeplearning.ai/short-courses/claude-code-a-highly-agentic-coding-assistant/" target="_blank" rel="noopener">DeepLearning.AI: Claude Code: A Highly Agentic Coding Assistant</a> (free, about 2 hours)</li>
+<li><a href="https://www.coursera.org/learn/claude-code" target="_blank" rel="noopener">Coursera: Claude Code: Software Engineering with Generative AI Agents (Vanderbilt)</a></li>
+<li><a href="https://cli.github.com/" target="_blank" rel="noopener">GitHub CLI</a> · <a href="https://app.netlify.com/drop" target="_blank" rel="noopener">Netlify Drop</a> · <a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener">Playwright MCP</a></li>
 </ul><div class="modnav"><a href="m14.html"><small>← Previous</small>Module 14: Claude for Daily PM Work: Basic to Advanced</a><a href="m16.html"><small>Next →</small>Module 16: Lovable: Basic to Advanced</a></div>
 </div></main>
 </div>

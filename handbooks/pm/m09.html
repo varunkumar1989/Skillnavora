@@ -9,7 +9,7 @@
   <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
   <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
   <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
-  <a class="iconbtn" href="../../handbook/Module-09-Tech-System-Design.pdf">⬇ PDF</a>
+  <a class="iconbtn" href="../../read.html?doc=handbook/Module-09-Tech-System-Design.pdf">⬇ PDF</a>
   <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
 </header>
 <div class="shell">
@@ -1178,12 +1178,12 @@ The mean hides that 1 in 20 users waits ≥ 400 ms. Set targets on p95/p99 for u
 <div class="quiz" data-quiz="m09"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">A user is logged in but tries to view another user&#x27;s order and gets blocked. Which status code fits?</p><ol><li class="">401</li><li class="is-correct">403</li><li class="">404</li><li class="">500</li></ol><div class="why"><strong>Why:</strong> 403 Forbidden: authenticated but not authorised. (Some APIs return 404 to avoid revealing existence.)</div></div><div class="qitem" data-correct="1"><p class="q">Why use an idempotency key on payment requests?</p><ol><li class="">To encrypt card numbers</li><li class="is-correct">So retries don&#x27;t create duplicate charges</li><li class="">To speed up the request</li><li class="">To bypass rate limits</li></ol><div class="why"><strong>Why:</strong> Idempotency ensures repeating the same request has the same effect as doing it once.</div></div><div class="qitem" data-correct="1"><p class="q">Three services at 99.9% availability in series give roughly…</p><ol><li class="">99.9%</li><li class="is-correct">99.7%</li><li class="">99.99%</li><li class="">97%</li></ol><div class="why"><strong>Why:</strong> 0.999³ ≈ 0.997 = 99.7%.</div></div><div class="qitem" data-correct="1"><p class="q">Which metric best reflects the slow experiences some users have?</p><ol><li class="">Mean latency</li><li class="is-correct">p95 / p99 latency</li><li class="">Minimum latency</li><li class="">Number of servers</li></ol><div class="why"><strong>Why:</strong> Tail percentiles capture the worst experiences that averages hide.</div></div><div class="qitem" data-correct="1"><p class="q">OAuth 2.0 is primarily for…</p><ol><li class="">Encrypting databases</li><li class="is-correct">Delegated authorisation via scoped tokens</li><li class="">Load balancing</li><li class="">Sending emails</li></ol><div class="why"><strong>Why:</strong> OAuth lets an app access resources on a user&#x27;s behalf without their password; OIDC adds identity.</div></div><div class="qitem" data-correct="1"><p class="q">Feature flags are useful because they…</p><ol><li class="">Replace testing</li><li class="is-correct">Let you turn features on/off or roll out gradually without redeploying</li><li class="">Make code faster</li><li class="">Remove the need for monitoring</li></ol><div class="why"><strong>Why:</strong> Flags enable staged rollouts, experiments and kill switches.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
 <h2 id="m09-recommended-resources"><span class="hnum">9.31</span> Recommended resources</h2>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">MDN Web Docs: HTTP</a> — methods, status codes, caching.</li>
-<li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a>.</li>
-<li><a href="https://oauth.net/2/">OAuth 2.0 (oauth.net)</a> and <a href="https://openid.net/developers/how-connect-works/">OpenID Connect</a>.</li>
-<li><a href="https://sre.google/sre-book/service-level-objectives/">Google SRE Book: Service Level Objectives</a>.</li>
-<li><a href="https://docs.github.com/en/get-started/using-github/hello-world">GitHub Docs: Hello World</a> (from your course notes).</li>
-<li><a href="https://github.com/donnemartin/system-design-primer">System Design Primer (GitHub)</a>.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP" target="_blank" rel="noopener">MDN Web Docs: HTTP</a> — methods, status codes, caching.</li>
+<li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">OWASP Top 10</a>.</li>
+<li><a href="https://oauth.net/2/" target="_blank" rel="noopener">OAuth 2.0 (oauth.net)</a> and <a href="https://openid.net/developers/how-connect-works/" target="_blank" rel="noopener">OpenID Connect</a>.</li>
+<li><a href="https://sre.google/sre-book/service-level-objectives/" target="_blank" rel="noopener">Google SRE Book: Service Level Objectives</a>.</li>
+<li><a href="https://docs.github.com/en/get-started/using-github/hello-world" target="_blank" rel="noopener">GitHub Docs: Hello World</a> (from your course notes).</li>
+<li><a href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">System Design Primer (GitHub)</a>.</li>
 </ul><div class="modnav"><a href="m08.html"><small>← Previous</small>Module 8: Product Launch, Growth, and Monetization</a><a href="m10.html"><small>Next →</small>Module 10: LLMs, RAGs, and AI Foundations</a></div>
 </div></main>
 </div>

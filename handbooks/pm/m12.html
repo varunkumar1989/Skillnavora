@@ -9,7 +9,7 @@
   <button class="iconbtn menu-toggle" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
   <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span><span class="t">PM Master Handbook</span></a>
   <div class="searchbox"><input id="q" type="search" placeholder="Search topics, frameworks, terms…  ( / )" aria-label="Search the handbook" autocomplete="off"><div class="results" id="results" role="listbox"></div></div>
-  <a class="iconbtn" href="../../handbook/Module-12-Agentic-AI.pdf">⬇ PDF</a>
+  <a class="iconbtn" href="../../read.html?doc=handbook/Module-12-Agentic-AI.pdf">⬇ PDF</a>
   <button class="iconbtn" id="themeBtn" type="button" aria-pressed="false">☾ Dark</button>
 </header>
 <div class="shell">
@@ -782,12 +782,12 @@ Latency: 8 × (1.5 s model + 0.5 s tool) ≈ <strong>16 s</strong>. Users tolera
 <div class="quiz" data-quiz="m12"><h4>Check your understanding</h4><div class="qitem" data-correct="1"><p class="q">What most distinguishes an agent from a fixed workflow?</p><ol><li class="">It uses an LLM</li><li class="is-correct">It chooses its next steps at run time based on results</li><li class="">It has a chat interface</li><li class="">It never needs humans</li></ol><div class="why"><strong>Why:</strong> Workflows follow predefined paths; agents decide steps dynamically within limits.</div></div><div class="qitem" data-correct="2"><p class="q">10 steps at 95% reliability each give end-to-end success of about…</p><ol><li class="">95%</li><li class="">90%</li><li class="is-correct">60%</li><li class="">50%</li></ol><div class="why"><strong>Why:</strong> 0.95^10 ≈ 0.60 when each step must succeed independently.</div></div><div class="qitem" data-correct="0"><p class="q">Which combination creates the highest prompt-injection risk?</p><ol><li class="is-correct">Private data + untrusted content + ability to communicate externally</li><li class="">Read-only FAQ + no tools</li><li class="">Offline batch job</li><li class="">Human-only workflow</li></ol><div class="why"><strong>Why:</strong> Together they allow injected instructions to exfiltrate data.</div></div><div class="qitem" data-correct="1"><p class="q">Where should a customer&#x27;s permission to see an account be enforced?</p><ol><li class="">In the system prompt</li><li class="is-correct">In the backend tool/API authorisation</li><li class="">By the model&#x27;s judgement</li><li class="">In the UI only</li></ol><div class="why"><strong>Why:</strong> Authorisation must be enforced by systems, not by model instructions.</div></div><div class="qitem" data-correct="1"><p class="q">MCP is best described as…</p><ol><li class="">A security product that makes integrations safe</li><li class="is-correct">A standard protocol for connecting AI apps to tools and resources</li><li class="">A replacement for all APIs</li><li class="">A model</li></ol><div class="why"><strong>Why:</strong> MCP standardises connections; permissions and security still have to be designed.</div></div><div class="quizscore" aria-live="polite"></div><button class="iconbtn quizreset noprint" type="button">Reset quiz</button></div>
 <h2 id="m12-recommended-resources"><span class="hnum">12.28</span> Recommended resources</h2>
 <ul>
-<li><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic: Building effective agents</a> (from your course references).</li>
-<li><a href="https://modelcontextprotocol.io/introduction">Model Context Protocol: Introduction</a> (course reference).</li>
-<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP Top 10 for LLM Applications</a>.</li>
-<li><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Simon Willison: The lethal trifecta for AI agents</a>.</li>
-<li><a href="https://docs.n8n.io/build-your-first-workflow/">n8n: Build your first workflow</a> (course reference).</li>
-<li><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework</a>.</li>
+<li><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Anthropic: Building effective agents</a> (from your course references).</li>
+<li><a href="https://modelcontextprotocol.io/introduction" target="_blank" rel="noopener">Model Context Protocol: Introduction</a> (course reference).</li>
+<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener">OWASP Top 10 for LLM Applications</a>.</li>
+<li><a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/" target="_blank" rel="noopener">Simon Willison: The lethal trifecta for AI agents</a>.</li>
+<li><a href="https://docs.n8n.io/build-your-first-workflow/" target="_blank" rel="noopener">n8n: Build your first workflow</a> (course reference).</li>
+<li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework</a>.</li>
 </ul><div class="modnav"><a href="m11.html"><small>← Previous</small>Module 11: Vibe Coding for Product Managers</a><a href="m13.html"><small>Next →</small>Module 13: AI Tools Landscape and Your Starter Stack</a></div>
 </div></main>
 </div>

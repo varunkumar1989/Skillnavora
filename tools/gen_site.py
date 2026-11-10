@@ -1409,3 +1409,17 @@ print("\n".join(urls))
 
 import gate_inject
 print("PM handbook pages with gate:", gate_inject.inject())
+# In-site reader page, and the post-processing that opens documents in the site and external links in a new tab
+READER_BODY = """<section class="rd-top"><div class="wrap rd-bar">
+  <a class="btn btn-line btn-sm" id="rd-back" href="resources.html">← Back</a>
+  <div class="rd-title" id="rd-title">Loading…</div>
+  <div class="rd-nav"><a class="btn btn-line btn-sm" id="rd-prev" href="#" hidden>← Previous</a><span class="meta" id="rd-pos"></span><a class="btn btn-line btn-sm" id="rd-next" href="#" hidden>Next →</a></div>
+  <a class="btn btn-line btn-sm" id="rd-open" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+</div></section>
+<section class="rd-body"><div class="wrap"><div id="rd-wrap" data-gate-lock="this document">
+  <iframe id="rd-frame" title="Document" style="width:100%;height:80vh;min-height:480px;border:1px solid var(--line,#e2dcf3);border-radius:14px;background:#fff"></iframe>
+</div><p class="meta" style="margin-top:10px">Use ← and → on the keyboard, or the buttons above, to move between documents in the same group.</p></div></section>"""
+page("read.html", "Read · SkillNavora", "Read the handbook, guide or class document inside SkillNavora.", READER_BODY, None, '<script src="{r}assets/reader.js"></script>', noindex=True)
+import newtab, reader
+print("external links set to new tab in", newtab.run(), "static pages")
+print("reader:", reader.run())
