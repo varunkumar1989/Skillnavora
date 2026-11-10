@@ -417,10 +417,30 @@ HB_EXTRA["04"][0] = ("handbook/Module-04-Prioritization-Detailed.pdf", "Detailed
 HB_EXTRA["05"][0] = ("handbook/Module-05-UX-Design-Detailed.pdf", "Detailed PDF")
 HB_EXTRA["06"][0] = ("handbook/Module-06-Communication-Detailed.pdf", "Detailed PDF")
 HB_EXTRA["07"][0] = ("handbook/Module-07-Analytics-Detailed.pdf", "Detailed PDF")
+_DETAIL = {"01": "handbook/Module-01-Fundamentals-Detailed.pdf", "02": "handbook/Module-02-Strategy-Detailed.pdf",
+           "03": "handbook/Module-03-Discovery-Detailed.pdf", "04": "handbook/Module-04-Prioritization-Detailed.pdf",
+           "05": "handbook/Module-05-UX-Design-Detailed.pdf", "06": "handbook/Module-06-Communication-Detailed.pdf",
+           "07": "handbook/Module-07-Analytics-Detailed.pdf", "08": "handbook/Module-08-Growth-Detailed.pdf",
+           "09": "handbook/Module-09-Tech-System-Design-Detailed.pdf", "10": "handbook/Module-10-LLM-RAG-Detailed.pdf",
+           "11": "handbook/Module-11-Vibe-Coding-Detailed.pdf", "12": "handbook/Module-12-Agentic-AI-Detailed.pdf"}
+_CLASS = {"01": "handbook/classes/Class-Slides-Module-01.pdf", "02": "handbook/classes/Class-Slides-Module-02.pdf",
+          "03": "handbook/classes/Class-Slides-Module-03.pdf", "04": "handbook/classes/Class-Slides-Module-04.pdf",
+          "05": "handbook/classes/Class-Slides-Module-05.pdf", "06": "classes/week-06-effective-communication.pdf",
+          "07": "classes/week-07-analytics-and-metrics.pdf", "08": "handbook/classes/Class-Slides-Module-08.pdf",
+          "09": "handbook/classes/Class-Slides-Module-09.pdf", "10": "handbook/classes/Class-Slides-Module-10.pdf",
+          "11": "handbook/classes/Class-Slides-Module-11.pdf", "12": "handbook/classes/Class-Slides-Module-12.pdf"}
+_LAB = {"01": "product-thinking", "02": "strategy", "03": "discovery", "04": "prioritisation", "05": "ux-evaluation",
+        "06": "communication", "07": "analytics", "08": "growth", "09": "tech-system-design", "10": "llm-rag",
+        "11": "vibe-coding", "12": "agentic-ai"}
 def _hb_row(n, f, t):
-    if n not in HB_EXTRA: return f'<a class="hb-row" href="handbook/Module-{n}-{f}.pdf" target="_blank" rel="noopener"><span class="hb-n">{int(n)}</span><span>{t}</span><small>PDF ↗</small></a>'
-    links = [(f"handbook/Module-{n}-{f}.pdf", "PDF")] + HB_EXTRA[n]
-    return f'<div class="hb-row hb-multi"><span class="hb-n">{int(n)}</span><span>{t}<em>{"Handbook chapter, detailed PDF, slide PDF and handbook" if n in ("01","02","03","04","05","06","07") else "Handbook chapter, detailed PDF and interactive lab"}</em></span><span class="hb-links">' + "".join(f'<a href="{u}" target="_blank" rel="noopener">{l} ↗</a>' for u, l in links) + '</span></div>'
+    """Four tabs per module, all opened in this browser tab: PDF, Detailed PDF, Handbook, Class Slides."""
+    if n not in _DETAIL:  # other handbooks (AI tools, business stack) keep their single link
+        return f'<a class="hb-row" href="handbook/Module-{n}-{f}.pdf" target="_blank" rel="noopener"><span class="hb-n">{int(n)}</span><span>{t}</span><small>PDF ↗</small></a>'
+    rd_ = lambda path: f"read.html?doc={path}&page=1"
+    links = [(rd_(f"handbook/Module-{n}-{f}.pdf"), "PDF"), (rd_(_DETAIL[n]), "Detailed PDF"),
+             (f"handbook/lab/lab-m{int(n)}-{_LAB[n]}.html", "Handbook"), (rd_(_CLASS[n]), "Class Slides")]
+    return (f'<div class="hb-row hb-multi"><span class="hb-n">{int(n)}</span><span>{t}<em>Handbook chapter, detailed PDF, handbook and class slides</em></span>'
+            f'<span class="hb-links">' + "".join(f'<a href="{u}">{l}</a>' for u, l in links) + '</span></div>')
 def _hb_mods(rows): return "".join(_hb_row(n, f, t) for n, f, t in rows)
 HB_LIBROWS = "".join(f'<a class="hb-row" href="handbook/{f}.pdf" target="_blank" rel="noopener"><span class="hb-n">★</span><span>{t}<em>{d}</em></span><small>PDF ↗</small></a>' for f, t, d in HB_LIB)
 CLASSROWS = '<a class="hb-row" href="classes/week-06-effective-communication.html" target="_blank" rel="noopener"><span class="hb-n">6</span><span>Week 6 · Effective Communication as a PM<em>67-slide class deck: frameworks, templates, case study, assignment and interview prep</em></span><small>Slides ↗</small></a><a class="hb-row" href="classes/week-06-effective-communication.pdf" target="_blank" rel="noopener"><span class="hb-n">6</span><span>Week 6 · Effective Communication as a PM<em>Same deck as a PDF to download</em></span><small>PDF ↗</small></a>'
