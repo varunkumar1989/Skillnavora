@@ -259,8 +259,12 @@ def course_card():
     _f4 = "handbook/Skillnavora-Chapter-4-Email-Marketing.pdf"
     L4 = [("4.1 Why email is your owned channel", _P4["4.1"]), ("4.2 Create the email account", _P4["4.2"]), ("4.3 Why not just use Gmail?", _P4["4.3"]), ("4.4 Opt-in forms and pop-ups", _P4["4.4"]), ("4.5 Subject lines that get opened", _P4["4.5"]), ("4.6 Create and send a campaign", _P4["4.6"]), ("4.7 Measure the results", _P4["4.7"]), ("4.8 Assignment and resources", _P4["4.8"])]
     ch.append(("4", "Email Marketing and List Building", "Ready", lessons(L4, _f4), btn("Open Chapter 4 (PDF)", rd(_f4, 1), True, gate=False, new=False) + btn("Email workshop ↗", "https://claude.ai/artifact/EKRRKMWKMo4fLpVP8Wjqq5", gate=False)))
-    rest = ["Copywriting", "Search engine optimisation", "YouTube marketing", "Facebook marketing", "Twitter (X) marketing", "Quora marketing", "Google Ads", "Google Analytics", "Instagram marketing", "Pinterest marketing", "LinkedIn marketing", "Facebook ads", "App marketing", "Old content", "Conclusion"]
-    for i, t in enumerate(rest, 5):
+    _P5 = _j.load(open(_o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "ch5_pages.json")))
+    _f5 = "handbook/Skillnavora-Chapter-5-Copywriting.pdf"
+    L5 = [("5.1 Write faster with AI", _P5["5.1"]), ("5.2 What is copywriting?", _P5["5.2"]), ("5.3 The AIDA formula", _P5["5.3"]), ("5.4 Eleven headline rules", _P5["5.4"]), ("5.5 Features into benefits", _P5["5.5"]), ("5.6 Five CTA rules", _P5["5.6"]), ("5.7 Write like your customers talk", _P5["5.7"]), ("5.8 Assignment: 25 headlines", _P5["5.8"])]
+    ch.append(("5", "Conversion Copywriting", "Ready", lessons(L5, _f5), btn("Open Chapter 5 (PDF)", rd(_f5, 1), True, gate=False, new=False) + btn("Copywriting workshop ↗", "https://claude.ai/artifact/VZpxqPbTXuyBqNfMotBTfi", gate=False)))
+    rest = ["Search engine optimisation", "YouTube marketing", "Facebook marketing", "Twitter (X) marketing", "Quora marketing", "Google Ads", "Google Analytics", "Instagram marketing", "Pinterest marketing", "LinkedIn marketing", "Facebook ads", "App marketing", "Old content", "Conclusion"]
+    for i, t in enumerate(rest, 6):
         ch.append((str(i), t, "Coming soon", "", ""))
     cards = "".join(
         f'<div class="card" style="min-width:0"><div class="kicker">Chapter {n} · {E(st)}</div><h3 class="h3s">{E(t)}</h3>'
@@ -268,7 +272,7 @@ def course_card():
         + '</div>'
         for n, t, st, lst, acts in ch)
     return ('<h3 class="h3s hb-h" style="margin-top:22px">The Complete Digital Marketing Course</h3>'
-            '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By Varun, for SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 to 4 are ready now. Each lesson link opens the right page of its PDF.</p>'
+            '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By Varun, for SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 to 5 are ready now. Each lesson link opens the right page of its PDF.</p>'
             '<div class="hb-acts" style="margin:0 0 12px">' + btn("Animated step guides ↗", "https://claude.ai/artifact/W63rDWnPaz4fLC2qREEbpF", True, gate=False) + '</div>'
             '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))">' + cards + '</div>')
 
