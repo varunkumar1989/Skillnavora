@@ -157,8 +157,23 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     about_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>' for p, n, sm, ic in ABOUT)
     U = {p: (p, n, sm, ic) for p, n, sm, ic in UPSKILL if p}
     Q = lambda h, n, sm: ("questions.html#" + h, n, sm, U["questions.html"][3])
-    up_menu = (item(*U["resources.html"]) + item("questions.html", "Practice & interview prep", U["questions.html"][2], U["questions.html"][3]) + item(*U["events.html"])
-               + item("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", U["tools.html"][3])
+    _RI = U["resources.html"][3]
+    _OTH = [("resources.html#op-ai-engineer", "AI Engineer", "Full AI engineer path, classes and interview prep", U["tools.html"][3]),
+            ("resources.html#other", "Other program and Link", "Learning sites, AI builder tools, tutorials and links", U["tools.html"][3]),
+            ("resources.html#op-sfmc", "SFMC", "Salesforce Marketing Cloud training", U["tools.html"][3]),
+            ("resources.html#op-fde", "FDE", "Forward deployed engineering", U["tools.html"][3]),
+            ("resources.html#op-speaking", "Public Speaking", "Speaking skills for PMs and leaders", U["tools.html"][3])]
+    _OTHER_NESTED = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(U["tools.html"][3])}</span>'
+                     f'<span><b>Other programs</b><small>AI Engineer, SFMC, FDE, Public Speaking and more</small></span>{RARR}</button>'
+                     f'<div class="dd-subm">' + "".join(item(*x) for x in _OTH) + '</div></div>')
+    _RES_ITEMS = [("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", _RI),
+                  ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", _RI),
+                  ("resources.html#genai", "Resources for Gen AI", "GenAI handbook, AI tools, builders and automation", _RI),
+                  ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", _RI)]
+    _RES_SUB = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(_RI)}</span>'
+                f'<span><b>Resources &amp; AI tools</b><small>Handbooks, PDFs, AI tools and useful links in five tabs</small></span>{RARR}</button>'
+                f'<div class="dd-subm">' + "".join(item(*x) for x in _RES_ITEMS) + _OTHER_NESTED + '</div></div>')
+    up_menu = (_RES_SUB + item("questions.html", "Practice & interview prep", U["questions.html"][2], U["questions.html"][3]) + item(*U["events.html"])
                + item("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department", '<path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>'))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
