@@ -286,6 +286,28 @@ def course_card():
             '<div class="hb-acts" style="margin:0 0 12px">' + btn("Chapter 7: YouTube Marketing (PDF)", rd("handbook/Skillnavora-Chapter-7-YouTube-Marketing.pdf", 1), True, gate=False, new=False) + btn("YouTube planner ↗", "https://claude.ai/artifact/WYKuirtew4pDecTFwfkDKS", gate=False) + btn("Animated step guides ↗", "https://claude.ai/artifact/W63rDWnPaz4fLC2qREEbpF", True, gate=False) + '</div>'
             '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))">' + cards + '</div>')
 
+AI_TOOLS = [
+    ("Product and delivery", [("Jira", "atlassian.com", "https://www.atlassian.com/software/jira"), ("Confluence", "atlassian.com", "https://www.atlassian.com/software/confluence"), ("Asana", "asana.com", "https://asana.com"), ("Notion", "notion.com", "https://www.notion.com"), ("Linear", "linear.app", "https://linear.app"), ("Trello", "trello.com", "https://trello.com"), ("ClickUp", "clickup.com", "https://clickup.com"), ("Productboard", "productboard.com", "https://www.productboard.com"), ("Aha!", "aha.io", "https://www.aha.io")]),
+    ("Design and collaboration", [("Figma", "figma.com", "https://www.figma.com"), ("FigJam", "figma.com", "https://www.figma.com/figjam/"), ("Miro", "miro.com", "https://miro.com"), ("Balsamiq", "balsamiq.com", "https://balsamiq.com"), ("Whimsical", "whimsical.com", "https://whimsical.com"), ("Slack", "slack.com", "https://slack.com"), ("Loom", "loom.com", "https://www.loom.com")]),
+    ("Analytics and data", [("Mixpanel", "mixpanel.com", "https://mixpanel.com"), ("Amplitude", "amplitude.com", "https://amplitude.com"), ("Google Analytics 4", "marketingplatform.google.com", "https://marketingplatform.google.com/about/analytics/"), ("SQL", "w3schools.com", "https://www.w3schools.com/sql/"), ("Excel / Google Sheets", "workspace.google.com", "https://workspace.google.com/products/sheets/"), ("Looker Studio", "lookerstudio.google.com", "https://lookerstudio.google.com"), ("Hotjar", "hotjar.com", "https://www.hotjar.com"), ("Microsoft Clarity", "clarity.microsoft.com", "https://clarity.microsoft.com")]),
+    ("Research and testing", [("Typeform", "typeform.com", "https://www.typeform.com"), ("Google Forms", "google.com", "https://www.google.com/forms/about/"), ("Maze", "maze.co", "https://maze.co"), ("Dovetail", "dovetail.com", "https://dovetail.com"), ("Postman", "postman.com", "https://www.postman.com")]),
+    ("AI assistants", [("Claude", "claude.ai", "https://claude.ai"), ("ChatGPT", "chatgpt.com", "https://chatgpt.com"), ("Gemini", "gemini.google.com", "https://gemini.google.com"), ("Perplexity", "perplexity.ai", "https://www.perplexity.ai"), ("NotebookLM", "notebooklm.google", "https://notebooklm.google.com"), ("Microsoft Copilot", "copilot.microsoft.com", "https://copilot.microsoft.com")]),
+    ("Build with AI", [("Claude Code", "anthropic.com", "https://www.anthropic.com/claude-code"), ("Cursor", "cursor.com", "https://cursor.com"), ("GitHub", "github.com", "https://github.com"), ("Lovable", "lovable.dev", "https://lovable.dev"), ("Bolt", "bolt.new", "https://bolt.new"), ("v0", "v0.dev", "https://v0.dev"), ("Replit", "replit.com", "https://replit.com"), ("Figma Make", "figma.com", "https://www.figma.com/make/")]),
+    ("Automation", [("n8n", "n8n.io", "https://n8n.io"), ("Zapier", "zapier.com", "https://zapier.com"), ("Make", "make.com", "https://www.make.com")]),
+]
+
+
+def ai_tab():
+    """AI and product tools: seven groups of tool links, in this order."""
+    boxes = "".join(
+        f'<section class="ai-box"><h3 class="h3s">{E(title)}</h3><div class="ai-chips">'
+        + "".join(f'<a class="tchip" href="{E(url)}" target="_blank" rel="noopener"><b>{E(name)} ↗</b><small>{E(dom)}</small></a>' for name, dom, url in items)
+        + "</div></section>"
+        for title, items in AI_TOOLS)
+    return (h("AI and product tools", "Tools for product, design, data, research, AI and automation. Each name opens the tool's own website in a new tab.")
+            + f'<div class="ai-grid">{boxes}</div>')
+
+
 def other_tab(part="all"):
     """part="dm": only the Digital marketing section. part="rest": everything except Digital marketing. part="all": both (unused by the tabs)."""
     cat = catalog(); tr = {t["id"]: t for t in cat["tracks"]}
@@ -321,7 +343,7 @@ def other_tab(part="all"):
 def build(pm_html, cfg, scope=None):
     """Four resource tabs. scope=None: the Resources page (hash links #pm, #data, #genai, #more).
     scope="lms": the same tabs inside the LMS Resources panel, with their own ids and attributes so the LMS tab code ignores them."""
-    tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("dm", "Digital marketing"), ("other", "Other program and Link")]
+    tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("ai", "AI and product tools"), ("genai", "Resources for GenAI"), ("dm", "Digital marketing"), ("other", "Other program and Link")]
     pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
     bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
     feat = lambda kick, h, p, btns: (f'<div class="card" style="margin:0 0 22px;border:2px solid var(--brand,#6C4CF5);background:linear-gradient(135deg,rgba(108,76,245,.07),rgba(34,211,238,.07))">'
@@ -331,7 +353,7 @@ def build(pm_html, cfg, scope=None):
                    [("Open the PRD library", "prd-library.html"), ("✨ AI PRD Writer", "prd-writer.html"), ("PRD template (Word)", "handbook/templates/SkillNavora_PRD_Template.doc"), ("AI Evals for PMs (PDF)", "ai-evals.html")])
     ba_box = feat("Business analyst", "BRD &amp; FRD: templates, techniques and 25 project ideas", "BRD vs FRD vs PRD, section-by-section templates, a traced sample, BA techniques and real projects from banking to GenAI.",
                   [("Open the BRD &amp; FRD guide", "brd-frd.html"), ("✨ Write a BRD with AI", "prd-writer.html?doc=brd"), ("✨ Write an FRD with AI", "prd-writer.html?doc=frd")])
-    panels = {"pm": quick("pm") + prd_box + pm_html, "data": quick("data") + ba_box + ds_tab(cfg), "genai": quick("genai") + genai_tab(cfg), "dm": other_tab("dm"), "other": quick("other") + other_tab("rest") + '<div id="learn" style="scroll-margin-top:90px"></div>' + learnsites.tab(pre) + '<div id="more" style="scroll-margin-top:90px"></div>' + quick("more") + more_tab()}
+    panels = {"pm": quick("pm") + prd_box + pm_html, "data": quick("data") + ba_box + ds_tab(cfg), "ai": ai_tab(), "genai": quick("genai") + genai_tab(cfg), "dm": other_tab("dm"), "other": quick("other") + other_tab("rest") + '<div id="learn" style="scroll-margin-top:90px"></div>' + learnsites.tab(pre) + '<div id="more" style="scroll-margin-top:90px"></div>' + quick("more") + more_tab()}
     if scope:
         panels = {k: v.replace('href="#learn-', 'href="resources.html#learn-') for k, v in panels.items()}
     body = "".join(f'<div class="{cls}" id="{pre}p-{k}" role="tabpanel" aria-labelledby="{pre}t-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(tabs))

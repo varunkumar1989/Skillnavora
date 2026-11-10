@@ -1612,3 +1612,13 @@ small,.muted{line-height:1.5}
 
 /* Long button labels wrap inside button rows on phones (AI Engineer class buttons, course cards) */
 .hb-acts .btn{white-space:normal;max-width:100%;text-align:left}
+
+/* AI and product tools tab */
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px;margin-top:6px}
+.ai-box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.ai-box h3{margin:0 0 10px}
+.ai-chips{display:flex;flex-wrap:wrap;gap:8px}
+a.tchip{display:flex;flex-direction:column;gap:2px;min-width:0;max-width:100%;text-decoration:none;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:7px 11px;font-size:14px}
+a.tchip:hover,a.tchip:focus-visible{border-color:var(--brand);outline:none}
+a.tchip b{font-weight:700;overflow-wrap:anywhere}
+a.tchip small{font-size:12px;color:var(--mu);overflow-wrap:anywhere}
