@@ -208,6 +208,25 @@ OTHER = [  # (track id, guide page, free official courses)
 ]
 
 
+FDE_ART = "https://claude.ai/artifact/YcVe9ENf1hZJfk1yTZcxMA"
+FDE_STAGES = [(1, "Programming", "Programming foundations"), (2, "Applied", "Applied AI"), (3, "Agent", "Agent development"), (4, "Application", "Application development"),
+              (5, "Production", "Production deployment"), (6, "Enterprise", "Enterprise projects"), (7, "Professional", "Career and business readiness")]
+
+
+def fde_box():
+    """FDE handbook block: the interactive handbook (Claude artifact) and the 23 PDFs in handbook/fde/."""
+    rd = lambda f: f"read.html?doc=handbook/fde/{f}"
+    art = f'<a class="btn btn-primary btn-sm" href="{FDE_ART}" target="_blank" rel="noopener" data-nogate>Open the interactive FDE handbook ↗</a>'
+    top = art + btn("Complete handbook PDF (239 pages)", rd("FDE-Complete-Handbook.pdf"), new=False) + btn("Programme guide PDF", rd("FDE-00-Programme-Guide.pdf"), new=False)
+    stages = "".join(btn(f"Stage {n}: {t}", rd(f"FDE-Stage-{n}-{w}.pdf"), new=False) for n, w, t in FDE_STAGES)
+    mods = "".join(btn(f"Module {n}", rd(f"FDE-Module-{n:02d}.pdf"), new=False) for n in range(1, 15))
+    return ('<div class="card" style="margin:14px 0 6px;border:2px solid var(--brand,#6C4CF5)"><div class="kicker">FDE handbook</div>'
+            '<h3 style="margin:6px 0 4px;font-size:19px">From Non-Coder to Enterprise AI Builder: Learn, Build, Deploy, Get Hired and Launch Your AI Business.</h3>'
+            '<p class="meta" style="margin:0 0 10px">Four career tracks, a seven-stage roadmap, 14 modules with every topic explained, three industry projects, a 48-tool directory and interview, demo, agency and sales preparation.</p>'
+            f'<div class="hb-acts" style="margin:0 0 10px">{top}</div><p class="meta" style="margin:6px 0 6px"><b>Stage handbooks</b></p><div class="hb-acts" style="margin:0 0 10px">{stages}</div>'
+            f'<p class="meta" style="margin:6px 0 6px"><b>Module handbooks</b></p><div class="hb-acts">{mods}</div></div>')
+
+
 def course_card():
     """The Complete Digital Marketing Course: one course block under Digital Marketing.
     Chapters 1 and 2 are ready and link to their PDF pages (lessons open on their own page).
@@ -322,7 +341,7 @@ def other_tab(part="all"):
         out.append(f'<section class="op-sec" id="op-{tid}">' + h(t["name"], t["desc"]) + '<div class="hb-acts" style="margin:0 0 12px">'
                    + btn("Open the complete guide", page, True, gate=False, new=False) + btn("Guide PDF ↗", DS_SITE + "pdf/" + L["track"] + "/" + L["pdf"])
                    + btn("Read as a lesson ↗", DS_SITE + "lessons/" + L["file"], gate=False) + "</div>" + grid(links)
-                   + (course_card() if tid == "marketing" else "") + "</section>")
+                   + (course_card() if tid == "marketing" else "") + (fde_box() if tid == "fde" else "") + "</section>")
     return "".join(out)
 
 

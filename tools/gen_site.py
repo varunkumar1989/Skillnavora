@@ -162,15 +162,15 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
             ("resources.html#op-ai-engineer", "AI Engineer", "Full AI engineer path, classes and interview prep", U["tools.html"][3]),
             ("resources.html#other", "Other program and Link", "Learning sites, AI builder tools, tutorials and links", U["tools.html"][3]),
             ("resources.html#op-sfmc", "SFMC", "Salesforce Marketing Cloud training", U["tools.html"][3]),
-            ("resources.html#op-fde", "FDE", "Forward deployed engineering", U["tools.html"][3]),
-            ("resources.html#op-speaking", "Public Speaking", "Speaking skills for PMs and leaders", U["tools.html"][3])]
+            ("resources.html#op-speaking", "Public Speaking", "Speaking skills for PMs and leaders", U["tools.html"][3]),
+            ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", U["tools.html"][3]),
+            ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", U["tools.html"][3])]
     _OTHER_NESTED = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(U["tools.html"][3])}</span>'
-                     f'<span><b>Other programs</b><small>AI Engineer, SFMC, FDE, Public Speaking and more</small></span>{RARR}</button>'
+                     f'<span><b>Other programs</b><small>Data engineers, digital marketing, AI Engineer, SFMC, Public Speaking and more</small></span>{RARR}</button>'
                      f'<div class="dd-subm">' + "".join(item(*x) for x in _OTH) + '</div></div>')
     _RES_ITEMS = [("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", _RI),
-                  ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", _RI),
                   ("resources.html#genai", "Resources for Gen AI", "GenAI handbook, AI tools, builders and automation", _RI),
-                  ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", _RI)]
+                  ("resources.html#op-fde", "Resources for FDE", "Forward deployed engineer: role, skills, deployment and interview prep", _RI)]
     _RES_SUB = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(_RI)}</span>'
                 f'<span><b>Resources &amp; AI tools</b><small>Handbooks, PDFs, AI tools and useful links in five tabs</small></span>{RARR}</button>'
                 f'<div class="dd-subm">' + "".join(item(*x) for x in _RES_ITEMS) + _OTHER_NESTED + '</div></div>')
@@ -762,6 +762,11 @@ for _gp, _tid in GUIDE_TRACK.items():
                '<p class="meta" style="max-width:70ch">Chapter 30 explains Meta Business Suite, organic social media and Google Ads (PPC) step by step. Chapter 31 shows how to build a one-page website for any firm and turn its enquiries into customers. Both are in the Business AI Stack handbook.</p>'
                '<div class="acts" style="display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 18px"><a class="btn btn-primary" href="../handbook/Module-30-Digital-Marketing-Meta-Social-PPC.pdf" target="_blank" rel="noopener">Chapter 30: Meta, social and Google Ads ↗</a><a class="btn btn-line" href="../handbook/Module-31-One-Page-Site-Lead-Generation.pdf" target="_blank" rel="noopener">Chapter 31: One-page site and leads ↗</a><a class="btn btn-line" href="../handbook/Business-AI-Stack-Handbook.pdf" target="_blank" rel="noopener">Full Business AI Stack handbook ↗</a></div></div></section>')
         _body = _body.replace('<section style="padding-top:24px"', _dm + '<section style="padding-top:24px"', 1)
+    if _gp == "guides/fde.html":
+        # Programme tagline under the heading, then the FDE handbook block (interactive artifact + 23 PDFs) above the guide.
+        _body = _body.replace("</h1>", '</h1><p class="lead" style="font-weight:700;margin-bottom:6px">From Non-Coder to Enterprise AI Builder: Learn, Build, Deploy, Get Hired and Launch Your AI Business.</p>', 1)
+        _fde = '<section style="padding-top:24px"><div class="wrap">' + restabs.fde_box().replace('href="read.html', 'href="../read.html') + '</div></section>'
+        _body = _body.replace('<section style="padding-top:24px"', _fde + '<section style="padding-top:24px"', 1)
     page(_gp, f"{_t['name']} complete guide · SkillNavora", _t["desc"], _body, _gp)
 import labpage
 _lb_html, _lb_n = labpage.build()
