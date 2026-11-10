@@ -262,3 +262,6 @@ svg .wf-input{fill:var(--surface);stroke:var(--muted)} svg .wf-warn{fill:var(--w
 .hero-author{margin:6px 0 10px}.hero-author img{border-color:#fff}
 .side-author{margin:18px 9px 6px;padding-top:12px;border-top:1px solid var(--line)}.side-author img{width:40px;height:40px}
 .cover-author{margin-top:22pt}.cover-author img{width:96px;height:96px;border:3px solid #fff}.cover-author b{font-size:16pt;color:#fff}.cover-author small{color:#9fb6b1}
+
+/* Tables: keep the first column wide enough that short labels (ID, Module, Target) do not break mid-word */
+table th:first-child,table td:first-child{min-width:6.5em}
