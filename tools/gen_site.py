@@ -659,7 +659,7 @@ import sys as _sys
 _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import restabs
 _pm = RES_PANEL
-_pm = _pm[_pm.index('<h3 class="h3s hb-h">AI and product tools</h3>'):_pm.rindex('</div>')]
+_pm = _pm[_pm.index('<h3 class="h3s hb-h">PM Master Handbook by Varun Kumar</h3>'):_pm.rindex('</div>')]
 _pm = _pm.replace('<div class="tgroups" id="res-tools"></div>', '<div class="tgroups" data-res-tools="ai-pm"></div>')
 _pm = _pm.replace('PM Master Handbook by Varun Kumar</h3>', 'PM Master Handbook by Varun Kumar</h3>')
 _hero = ('<div class="hb-hero"><div><div class="kicker">AI-First Product Management</div><h2 class="h2s" style="margin:4px 0 6px">Resources for Product Managers</h2>'
