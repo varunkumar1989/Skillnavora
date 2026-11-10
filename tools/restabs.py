@@ -272,14 +272,19 @@ def course_card():
             '<div class="hb-acts" style="margin:0 0 12px">' + btn("Animated step guides ↗", "https://claude.ai/artifact/W63rDWnPaz4fLC2qREEbpF", True, gate=False) + '</div>'
             '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))">' + cards + '</div>')
 
-def other_tab():
+def other_tab(part="all"):
+    """part="dm": only the Digital marketing section. part="rest": everything except Digital marketing. part="all": both (unused by the tabs)."""
     cat = catalog(); tr = {t["id"]: t for t in cat["tracks"]}
-    out = [hero("Other programs · free complete guides", "SFMC, Digital Marketing, Content Creation, FDE and Public Speaking",
+    if part == "dm":
+        out = []
+    else:
+        out = [hero("Other programs · free complete guides", "SFMC, Digital Marketing, Content Creation, FDE and Public Speaking",
                 "Each program has a complete basic-to-advanced guide with worked examples, quizzes and interview questions, a PDF, practice tests and the best free official courses.",
                 btn("Practice test", "tests.html#other", True, gate=False, new=False) + btn("Interview questions", "questions.html#other", gate=False, new=False))]
     import course_aiengineer as _ae
     _C = _ae.COURSE
-    out.append('<section class="op-sec" id="op-ai-engineer">' + h("AI Engineer: the complete path", "Everything an AI engineer goes through: foundations, ML, LLM engineering, RAG, agents and MCP, fine-tuning, evals, LLMOps and deployment, data, security, system design, a 12-month roadmap, 10 projects and interview prep.")
+    if part != "dm":
+      out.append('<section class="op-sec" id="op-ai-engineer">' + h("AI Engineer: the complete path", "Everything an AI engineer goes through: foundations, ML, LLM engineering, RAG, agents and MCP, fine-tuning, evals, LLMOps and deployment, data, security, system design, a 12-month roadmap, 10 projects and interview prep.")
                + '<div class="hb-acts" style="margin:0 0 12px">' + btn("Open the AI Engineer course", "ai-engineer.html", True, gate=False, new=False) + btn("PDF ↗", "handbook/" + _C["pdf"], new=False)
                + btn("Interactive (all tabs)", "ai-academy-interactive.html#ai-engineer", gate=False, new=False) + btn("Interview questions", "questions.html#genai", gate=False, new=False) + "</div>"
                + '<p class="meta" style="margin:8px 0 6px"><b>Click a class to read it:</b></p><div class="hb-acts" style="margin:0 0 14px">' + "".join(btn(f"{i}. {c[1]}", f"ai-academy-interactive.html#ai-engineer-c{i}", gate=False, new=False) for i, c in enumerate(_C["classes"], 1)) + "</div>"
@@ -290,6 +295,7 @@ def other_tab():
     for tid, page, links in OTHER:
         t = tr.get(tid)
         if not t: continue
+        if (part == "dm") != (tid == "marketing"): continue
         L = t["lessons"][0]
         out.append(f'<section class="op-sec" id="op-{tid}">' + h(t["name"], t["desc"]) + '<div class="hb-acts" style="margin:0 0 12px">'
                    + btn("Open the complete guide", page, True, gate=False, new=False) + btn("Guide PDF ↗", DS_SITE + "pdf/" + L["track"] + "/" + L["pdf"])
@@ -301,7 +307,7 @@ def other_tab():
 def build(pm_html, cfg, scope=None):
     """Four resource tabs. scope=None: the Resources page (hash links #pm, #data, #genai, #more).
     scope="lms": the same tabs inside the LMS Resources panel, with their own ids and attributes so the LMS tab code ignores them."""
-    tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("other", "Other programs"), ("learn", "Learning sites"), ("more", "Other resources & links")]
+    tabs = [("pm", "Resources for PM"), ("data", "Resources for Data Engineers"), ("genai", "Resources for GenAI"), ("dm", "Digital marketing"), ("other", "Other program and Link")]
     pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
     bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
     feat = lambda kick, h, p, btns: (f'<div class="card" style="margin:0 0 22px;border:2px solid var(--brand,#6C4CF5);background:linear-gradient(135deg,rgba(108,76,245,.07),rgba(34,211,238,.07))">'
@@ -311,7 +317,7 @@ def build(pm_html, cfg, scope=None):
                    [("Open the PRD library", "prd-library.html"), ("✨ AI PRD Writer", "prd-writer.html"), ("PRD template (Word)", "handbook/templates/SkillNavora_PRD_Template.doc"), ("AI Evals for PMs (PDF)", "ai-evals.html")])
     ba_box = feat("Business analyst", "BRD &amp; FRD: templates, techniques and 25 project ideas", "BRD vs FRD vs PRD, section-by-section templates, a traced sample, BA techniques and real projects from banking to GenAI.",
                   [("Open the BRD &amp; FRD guide", "brd-frd.html"), ("✨ Write a BRD with AI", "prd-writer.html?doc=brd"), ("✨ Write an FRD with AI", "prd-writer.html?doc=frd")])
-    panels = {"pm": quick("pm") + prd_box + pm_html, "data": quick("data") + ba_box + ds_tab(cfg), "genai": quick("genai") + genai_tab(cfg), "other": quick("other") + other_tab(), "learn": learnsites.tab(pre), "more": quick("more") + more_tab()}
+    panels = {"pm": quick("pm") + prd_box + pm_html, "data": quick("data") + ba_box + ds_tab(cfg), "genai": quick("genai") + genai_tab(cfg), "dm": other_tab("dm"), "other": quick("other") + other_tab("rest") + '<div id="learn" style="scroll-margin-top:90px"></div>' + learnsites.tab(pre) + '<div id="more" style="scroll-margin-top:90px"></div>' + quick("more") + more_tab()}
     if scope:
         panels = {k: v.replace('href="#learn-', 'href="resources.html#learn-') for k, v in panels.items()}
     body = "".join(f'<div class="{cls}" id="{pre}p-{k}" role="tabpanel" aria-labelledby="{pre}t-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(tabs))
