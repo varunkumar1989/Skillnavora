@@ -438,7 +438,7 @@ def _hb_row(n, f, t):
         return f'<a class="hb-row" href="handbook/Module-{n}-{f}.pdf" target="_blank" rel="noopener"><span class="hb-n">{int(n)}</span><span>{t}</span><small>PDF ↗</small></a>'
     rd_ = lambda path: f"read.html?doc={path}&page=1"
     links = [(rd_(f"handbook/Module-{n}-{f}.pdf"), "PDF"), (rd_(_DETAIL[n]), "Detailed PDF"),
-             (f"handbook/lab/lab-m{int(n)}-{_LAB[n]}.html", "Handbook"), (rd_(_CLASS[n]), "Class Slides")]
+             (f"labs/lab-m{int(n)}-{_LAB[n]}.html", "Handbook"), (rd_(_CLASS[n]), "Class Slides")]
     return (f'<div class="hb-row hb-multi"><span class="hb-n">{int(n)}</span><span>{t}<em>Handbook chapter, detailed PDF, handbook and class slides</em></span>'
             f'<span class="hb-links">' + "".join(f'<a href="{u}">{l}</a>' for u, l in links) + '</span></div>')
 def _hb_mods(rows): return "".join(_hb_row(n, f, t) for n, f, t in rows)
