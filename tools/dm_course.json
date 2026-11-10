@@ -1,0 +1,24 @@
+{
+ "ch1": {
+  "pages": {
+   "1-paths": 2,
+   "1-tools": 4,
+   "1-workbook": 6,
+   "1-faq": 8,
+   "1-funnel": 9,
+   "1-map": 11
+  },
+  "file": "handbook/Skillnavora-Digital-Marketing-Course-Chapter-1.pdf"
+ },
+ "ch2": {
+  "pages": {
+   "2-1": 3,
+   "2-2": 4,
+   "2-3": 5,
+   "2-4": 7,
+   "2-5": 8,
+   "2-6": 9
+  },
+  "file": "handbook/Skillnavora-Chapter-2-Market-Research.pdf"
+ }
+}

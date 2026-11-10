@@ -232,17 +232,35 @@ OTHER = [  # (track id, guide page, free official courses)
 
 
 def course_card():
-    """The Complete Digital Marketing Course (SkillNavora). Chapters are added here as they are written."""
-    link = "read.html?doc=handbook/Skillnavora-Digital-Marketing-Course-Chapter-1.pdf&page=1"
+    """The Complete Digital Marketing Course: one course block under Digital Marketing.
+    Chapters 1 and 2 are ready and link to their PDF pages (lessons open on their own page).
+    Chapters 3 to 19 are shown as coming soon until their PDF is ready. Data: tools/dm_course.json."""
+    import json as _j
+    D = _j.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "dm_course.json")))
+    def rd(file, page): return f"read.html?doc={file}&page={page}"
+    c1, c2 = D["ch1"], D["ch2"]
+    P1 = c1["pages"]; P2 = c2["pages"]
+    L1 = [("How to use the course: 4 paths", P1["1-paths"]), ("4 free tools to make content", P1["1-tools"]), ("Study habits and workbook", P1["1-workbook"]),
+          ("Questions people ask first", P1["1-faq"]), ("30,000-foot view of digital marketing", P1["1-funnel"])]
+    L2 = [("2.1 Why market research works", P2["2-1"]), ("2.2 Set up a Google Forms survey", P2["2-2"]), ("2.3 Share your survey", P2["2-3"]),
+          ("2.4 Read the answers in Google Sheets", P2["2-4"]), ("2.5 Get feedback without a survey", P2["2-5"]), ("2.6 Assignment and checklist", P2["2-6"])]
+    def lessons(items, file):
+        return '<ul class="mf-ll" style="margin:6px 0 0;padding-left:18px">' + "".join(f'<li><a href="{E(rd(file, pg))}">{E(t)}</a> <span class="meta">· page {pg}</span></li>' for t, pg in items) + "</ul>"
+    ch = [
+      ("1", "Introduction", "Ready", lessons(L1, c1["file"]), btn("Open Chapter 1 (PDF)", rd(c1["file"], 1), True, gate=False, new=False) + btn("Interactive pictures ↗", "https://claude.ai/artifact/LJrGBHbd5ohTQebDsXyo6p", gate=False)),
+      ("2", "Market Research", "Ready", lessons(L2, c2["file"]), btn("Open Chapter 2 (PDF)", rd(c2["file"], 1), True, gate=False, new=False) + btn("Practice workshop ↗", "https://claude.ai/artifact/XQhCWixR7eip5riUcSN3nd", gate=False)),
+    ]
+    rest = ["Make a website", "Email marketing", "Copywriting", "Search engine optimisation", "YouTube marketing", "Facebook marketing", "Twitter (X) marketing", "Quora marketing", "Google Ads", "Google Analytics", "Instagram marketing", "Pinterest marketing", "LinkedIn marketing", "Facebook ads", "App marketing", "Old content", "Conclusion"]
+    for i, t in enumerate(rest, 3):
+        ch.append((str(i), t, "Coming soon", "", ""))
+    cards = "".join(
+        f'<div class="card" style="min-width:0"><div class="kicker">Chapter {n} · {E(st)}</div><h3 class="h3s">{E(t)}</h3>'
+        + (f'{lst}<div class="hb-acts" style="margin-top:10px">{acts}</div>' if lst else '<p class="meta">Being written. It will appear here with its PDF and lessons.</p>')
+        + '</div>'
+        for n, t, st, lst, acts in ch)
     return ('<h3 class="h3s hb-h" style="margin-top:22px">The Complete Digital Marketing Course</h3>'
-            '<p class="meta" style="margin:-4px 0 12px">By Varun, for SkillNavora. The full course in 19 chapters, written in simple English. Chapters 1 and 2 are ready now; the next chapters will be added here.</p>'
-            '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))"><div class="card" style="min-width:0"><div class="kicker">Chapter 1</div><h3 class="h3s">Introduction</h3>'
-            '<p class="meta">How to use the course, four learner paths, free tools, study habits, FAQ and the 30,000-foot view of digital marketing, with pictures you can click.</p>'
-            '<div class="hb-acts" style="margin-top:10px">' + btn("Open Chapter 1 (PDF)", link, True, gate=False, new=False)
-            + btn("Interactive pictures ↗", "https://claude.ai/artifact/LJrGBHbd5ohTQebDsXyo6p", gate=False) + '</div></div>'
-            '<div class="card" style="min-width:0"><div class="kicker">Chapter 2</div><h3 class="h3s">Market Research</h3>''<p class="meta">Write a survey, share it, filter the answers, and turn problems into ideas. Includes the 4 survey questions and a practice workshop.</p>''<div class="hb-acts" style="margin-top:10px">' + btn("Open Chapter 2 (PDF)", "read.html?doc=handbook/Skillnavora-Chapter-2-Market-Research.pdf&page=1", True, gate=False, new=False)+ btn("Practice workshop ↗", "https://claude.ai/artifact/XQhCWixR7eip5riUcSN3nd", gate=False) + '</div></div>'
-            '<div class="card" style="min-width:0"><div class="kicker">Chapter 3 to 19</div><h3 class="h3s">In progress</h3><p class="meta">Website, email, copywriting, SEO, YouTube, social media, ads, analytics, app marketing, old content and the conclusion.</p></div></div>')
-
+            '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By Varun, for SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 and 2 are ready now. Each lesson link opens the right page of its PDF.</p>'
+            '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))">' + cards + '</div>')
 
 def other_tab():
     cat = catalog(); tr = {t["id"]: t for t in cat["tracks"]}
