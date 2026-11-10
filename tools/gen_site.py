@@ -158,7 +158,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     U = {p: (p, n, sm, ic) for p, n, sm, ic in UPSKILL if p}
     Q = lambda h, n, sm: ("questions.html#" + h, n, sm, U["questions.html"][3])
     _RI = U["resources.html"][3]
-    _OTH = [("resources.html#op-ai-engineer", "AI Engineer", "Full AI engineer path, classes and interview prep", U["tools.html"][3]),
+    _OTH = [("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", U["tools.html"][3]),
+            ("resources.html#op-ai-engineer", "AI Engineer", "Full AI engineer path, classes and interview prep", U["tools.html"][3]),
             ("resources.html#other", "Other program and Link", "Learning sites, AI builder tools, tutorials and links", U["tools.html"][3]),
             ("resources.html#op-sfmc", "SFMC", "Salesforce Marketing Cloud training", U["tools.html"][3]),
             ("resources.html#op-fde", "FDE", "Forward deployed engineering", U["tools.html"][3]),
@@ -169,8 +170,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     _RES_ITEMS = [("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", _RI),
                   ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", _RI),
                   ("resources.html#genai", "Resources for Gen AI", "GenAI handbook, AI tools, builders and automation", _RI),
-                  ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", _RI),
-                  ("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", _RI)]
+                  ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", _RI)]
     _RES_SUB = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(_RI)}</span>'
                 f'<span><b>Resources &amp; AI tools</b><small>Handbooks, PDFs, AI tools and useful links in five tabs</small></span>{RARR}</button>'
                 f'<div class="dd-subm">' + "".join(item(*x) for x in _RES_ITEMS) + _OTHER_NESTED + '</div></div>')
