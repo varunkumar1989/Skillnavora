@@ -268,8 +268,13 @@ def course_card():
     _T6 = [("6.1", "What SEO is"), ("6.2", "The four strategic questions"), ("6.3", "Five metrics to measure SEO"), ("6.4", "Homepage SEO"), ("6.5", "Google Search Console setup"), ("6.6", "Website speed"), ("6.7", "Mobile SEO"), ("6.8", "Keyword funnel"), ("6.9", "Brainstorming keywords"), ("6.10", "Filtering keywords"), ("6.11", "Competitor analysis"), ("6.12", "Titles, URLs and descriptions"), ("6.13", "Image optimisation"), ("6.14", "Content and headings"), ("6.15", "Internal and external links"), ("6.16", "Backlinks that matter"), ("6.17", "Outreach and reclaiming links"), ("6.18", "Content that earns links"), ("6.19", "Publishing on high-authority platforms"), ("6.20", "The Poster Boy Formula"), ("6.21", "Student questions, part 1"), ("6.22", "Student questions, part 2"), ("6.23", "Local SEO and Business Profile"), ("6.24", "Final assignment and quiz")]
     L6 = [(n + " " + tt, _P6[n]) for n, tt in _T6]
     ch.append(("6", "Search Engine Optimization (SEO)", "Ready", lessons(L6, _f6), btn("Open Chapter 6 (PDF)", rd(_f6, 1), True, gate=False, new=False) + btn("SEO workshop ↗", "https://claude.ai/artifact/HWRB6AY5q3oQVU6dCYD1gq", gate=False)))
-    rest = ["YouTube marketing", "Facebook marketing", "Twitter (X) marketing", "Quora marketing", "Google Ads", "Google Analytics", "Instagram marketing", "Pinterest marketing", "LinkedIn marketing", "Facebook ads", "App marketing", "Old content", "Conclusion"]
-    for i, t in enumerate(rest, 7):
+    _P7 = _j.load(open(_o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "ch7_pages.json")))
+    _f7 = "handbook/Skillnavora-Chapter-7-YouTube-Marketing.pdf"
+    _T7 = [("7.1", "YouTube marketing overview"), ("7.2", "Create a channel (personal or brand)"), ("7.3", "Best free YouTube tools"), ("7.4", "Grow subscribers honestly"), ("7.5", "Three channel strategies"), ("7.6", "Video gear"), ("7.7", "Record and edit your first video"), ("7.8", "Ideas from competitor analysis"), ("7.9", "Ideas from keyword research"), ("7.10", "YouTube SEO"), ("7.11", "Custom thumbnails"), ("7.12", "Banner and profile picture"), ("7.13", "Cards and end screens"), ("7.14", "Comments and community"), ("7.15", "Monetisation and sponsorships"), ("7.16", "Analytics: retention and CTR"), ("7.17", "Capstone assignment")]
+    L7 = [(n + " " + tt, _P7[n]) for n, tt in _T7]
+    ch.append(("7", "YouTube Marketing", "Ready", lessons(L7, _f7), btn("Open Chapter 7 (PDF)", rd(_f7, 1), True, gate=False, new=False) + btn("YouTube planner ↗", "https://claude.ai/artifact/WYKuirtew4pDecTFwfkDKS", gate=False)))
+    rest = ["Facebook marketing", "Twitter (X) marketing", "Quora marketing", "Google Ads", "Google Analytics", "Instagram marketing", "Pinterest marketing", "LinkedIn marketing", "Facebook ads", "App marketing", "Old content", "Conclusion"]
+    for i, t in enumerate(rest, 8):
         ch.append((str(i), t, "Coming soon", "", ""))
     cards = "".join(
         f'<div class="card" style="min-width:0"><div class="kicker">Chapter {n} · {E(st)}</div><h3 class="h3s">{E(t)}</h3>'
