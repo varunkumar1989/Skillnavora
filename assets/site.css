@@ -145,7 +145,7 @@ section.tight{padding:56px 0}
 .meta{font-size:14px;color:var(--mu)}
 .note{font-size:14px;color:var(--mu);margin-top:20px}
 
-/* ---------- Course cards (Airtribe style) ---------- */
+/* ---------- Course cards (SkillNavora style) ---------- */
 .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 @media (max-width:1020px){.courses{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.courses{grid-template-columns:1fr}}
@@ -606,7 +606,7 @@ body.has-sticky .chat-fab{bottom:156px}
 @keyframes sn-spin{to{transform:rotate(360deg)}}
 @keyframes sn-sway{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(12deg)}}
 @media (prefers-reduced-motion:reduce){.hero-art .spin,.hero-art .needle{animation:none}}
-/* Login (Airtribe-style split card) */
+/* Login (SkillNavora-style split card) */
 .auth-split{width:100%;max-width:940px;display:grid;grid-template-columns:1fr 1.05fr;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(7,16,15,.25);border:1px solid var(--line)}
 .auth-split .auth-card{max-width:none;border:0;border-radius:0;box-shadow:none;padding:40px 36px}
 .auth-side{position:relative;color:#eef2ff;padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;background:radial-gradient(500px 300px at 0% 0%,rgba(255,122,26,.35),transparent 60%),radial-gradient(500px 300px at 100% 100%,rgba(31,94,255,.55),transparent 60%),linear-gradient(160deg,#0d1b18,#153029)}
@@ -1135,7 +1135,7 @@ section .sec-h::after{content:"";display:block;width:72px;height:4px;border-radi
 @media (prefers-reduced-motion:reduce){.biglogo img{animation:none}}
 
 /* =====================================================================
-   v15: premium redesign. Airtribe / Newton School palette (violet + near-black),
+   v15: premium redesign. SkillNavora / Newton School palette (violet + near-black),
    Plus Jakarta Sans headings with Inter body, no tricolour.
    ===================================================================== */
 :root{
@@ -1199,7 +1199,7 @@ section.tint{background:var(--surface-2)}
 .cmp th.us{color:var(--c-us-th)}
 /* course covers: violet family */
 
-/* hero banner, bands, LMS, login side: Airtribe violet */
+/* hero banner, bands, LMS, login side: SkillNavora violet */
 .band,.lms-head,.auth-side,.eb,.fee .l,.ja .card.dark{background:radial-gradient(700px 320px at 100% 0%,rgba(124,92,255,.45),transparent 60%),radial-gradient(500px 260px at 0% 100%,rgba(34,211,238,.12),transparent 60%),linear-gradient(135deg,#0d1b18,#153029)!important}
 .eb .kicker{color:#c9bdff}.eb .btn-line{border-color:rgba(255,255,255,.3)}
 .cdbig span{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
@@ -1229,7 +1229,7 @@ section.tint{background:var(--surface-2)}
 .ava{width:32px;height:32px;border-radius:9px;object-fit:cover;display:grid;place-items:center;background:var(--grad);color:var(--on-brand,#fff);font:700 14px var(--display)}
 .who-m{padding:10px 14px 12px;border-bottom:1px solid var(--line);margin-bottom:6px}.who-m b{display:block;font:700 14.5px var(--display)}.who-m small{color:var(--mu);font-size:12.5px}
 @media (max-width:760px){.my-courses{display:none}}
-/* LMS tabs like Airtribe: plain text with a violet underline */
+/* LMS tabs like SkillNavora: plain text with a violet underline */
 .tabs{border-bottom:1px solid var(--line);gap:6px;background:none!important;padding:0!important;border-radius:0!important}
 .tabs button{background:none!important;border:0!important;border-radius:0!important;padding:12px 10px!important;font:500 15.5px var(--body)!important;color:var(--mu)!important;box-shadow:none!important;border-bottom:3px solid transparent!important;margin-bottom:-1px}
 .tabs button[aria-selected="true"]{color:var(--brand-ink)!important;font-weight:600!important;border-bottom-color:var(--brand)!important}
@@ -1253,7 +1253,7 @@ section.tint{background:var(--surface-2)}
 .pico svg{width:28px;height:28px}
 .place-s .meta{color:#7d8197}
 @media (max-width:760px){.pgrid{grid-template-columns:1fr}}
-/* reviews like Airtribe */
+/* reviews like SkillNavora */
 .reviews{columns:3 320px;column-gap:22px}
 .rv2{break-inside:avoid;margin:0 0 22px;background:#0f1f1c;color:#f1eefc;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
 .rv2-h{display:flex;align-items:center;gap:12px;padding:22px 24px 0}
