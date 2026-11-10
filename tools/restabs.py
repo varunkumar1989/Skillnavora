@@ -263,8 +263,13 @@ def course_card():
     _f5 = "handbook/Skillnavora-Chapter-5-Copywriting.pdf"
     L5 = [("5.1 Write faster with AI", _P5["5.1"]), ("5.2 What is copywriting?", _P5["5.2"]), ("5.3 The AIDA formula", _P5["5.3"]), ("5.4 Eleven headline rules", _P5["5.4"]), ("5.5 Features into benefits", _P5["5.5"]), ("5.6 Five CTA rules", _P5["5.6"]), ("5.7 Write like your customers talk", _P5["5.7"]), ("5.8 Assignment: 25 headlines", _P5["5.8"])]
     ch.append(("5", "Conversion Copywriting", "Ready", lessons(L5, _f5), btn("Open Chapter 5 (PDF)", rd(_f5, 1), True, gate=False, new=False) + btn("Copywriting workshop ↗", "https://claude.ai/artifact/VZpxqPbTXuyBqNfMotBTfi", gate=False)))
-    rest = ["Search engine optimisation", "YouTube marketing", "Facebook marketing", "Twitter (X) marketing", "Quora marketing", "Google Ads", "Google Analytics", "Instagram marketing", "Pinterest marketing", "LinkedIn marketing", "Facebook ads", "App marketing", "Old content", "Conclusion"]
-    for i, t in enumerate(rest, 6):
+    _P6 = _j.load(open(_o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "ch6_pages.json")))
+    _f6 = "handbook/Skillnavora-Chapter-6-SEO.pdf"
+    _T6 = [("6.1", "What SEO is"), ("6.2", "The four strategic questions"), ("6.3", "Five metrics to measure SEO"), ("6.4", "Homepage SEO"), ("6.5", "Google Search Console setup"), ("6.6", "Website speed"), ("6.7", "Mobile SEO"), ("6.8", "Keyword funnel"), ("6.9", "Brainstorming keywords"), ("6.10", "Filtering keywords"), ("6.11", "Competitor analysis"), ("6.12", "Titles, URLs and descriptions"), ("6.13", "Image optimisation"), ("6.14", "Content and headings"), ("6.15", "Internal and external links"), ("6.16", "Backlinks that matter"), ("6.17", "Outreach and reclaiming links"), ("6.18", "Content that earns links"), ("6.19", "Publishing on high-authority platforms"), ("6.20", "The Poster Boy Formula"), ("6.21", "Student questions, part 1"), ("6.22", "Student questions, part 2"), ("6.23", "Local SEO and Business Profile"), ("6.24", "Final assignment and quiz")]
+    L6 = [(n + " " + tt, _P6[n]) for n, tt in _T6]
+    ch.append(("6", "Search Engine Optimization (SEO)", "Ready", lessons(L6, _f6), btn("Open Chapter 6 (PDF)", rd(_f6, 1), True, gate=False, new=False) + btn("SEO workshop ↗", "https://claude.ai/artifact/HWRB6AY5q3oQVU6dCYD1gq", gate=False)))
+    rest = ["YouTube marketing", "Facebook marketing", "Twitter (X) marketing", "Quora marketing", "Google Ads", "Google Analytics", "Instagram marketing", "Pinterest marketing", "LinkedIn marketing", "Facebook ads", "App marketing", "Old content", "Conclusion"]
+    for i, t in enumerate(rest, 7):
         ch.append((str(i), t, "Coming soon", "", ""))
     cards = "".join(
         f'<div class="card" style="min-width:0"><div class="kicker">Chapter {n} · {E(st)}</div><h3 class="h3s">{E(t)}</h3>'
@@ -272,7 +277,7 @@ def course_card():
         + '</div>'
         for n, t, st, lst, acts in ch)
     return ('<h3 class="h3s hb-h" style="margin-top:22px">The Complete Digital Marketing Course</h3>'
-            '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By Varun, for SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 to 5 are ready now. Each lesson link opens the right page of its PDF.</p>'
+            '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By Varun, for SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 to 6 are ready now. Each lesson link opens the right page of its PDF.</p>'
             '<div class="hb-acts" style="margin:0 0 12px">' + btn("Animated step guides ↗", "https://claude.ai/artifact/W63rDWnPaz4fLC2qREEbpF", True, gate=False) + '</div>'
             '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))">' + cards + '</div>')
 
