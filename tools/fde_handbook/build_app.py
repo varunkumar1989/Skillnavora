@@ -89,7 +89,8 @@ tr:last-child td{border-bottom:0}
 .filter button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .res a{color:var(--accent);overflow-wrap:anywhere}
 .small{font-size:13px}
-.viewer{width:100%;height:78vh;min-height:360px;border:1px solid var(--line);border-radius:12px;background:#fff;margin:6px 0 14px;display:block}
+.viewer-pages{width:100%;max-height:82vh;overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px;margin:6px 0 14px}
+.vctl{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .viewer-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:0 0 4px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -109,7 +110,48 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const ul = a => "<ul>" + a.map(x => `<li>${esc(x)}</li>`).join("") + "</ul>";
 const ol = a => "<ol>" + a.map(x => `<li>${esc(x)}</li>`).join("") + "</ol>";
 const links = r => '<ul class="res">' + r.map(([n,u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a></li>`).join("") + "</ul>";
-const pdfBtns = (f, label) => `<div class="btns"><button type="button" class="btn primary" data-view="${esc(f)}">View ${esc(label)} PDF here</button><a class="btn" href="pdf/${esc(f)}" target="_blank" rel="noopener">Open in new tab</a><a class="btn" href="${SITE}${esc(f)}" target="_blank" rel="noopener">Read on skillnavora.in</a></div>`;
+const pdfBtns = (f, label) => `<div class="btns"><button type="button" class="btn primary" data-view="${esc(f)}">View ${esc(label)} PDF here</button><a class="btn" href="${SITE}${esc(f)}" target="_blank" rel="noopener">Read on skillnavora.in</a></div>`;
+const PDFJS_BASE = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/";
+let pdfLib = null;
+function loadPdfLib() {
+  if (pdfLib) return Promise.resolve(pdfLib);
+  return new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = PDFJS_BASE + "pdf.min.js";
+    s.onload = () => { window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_BASE + "pdf.worker.min.js"; pdfLib = window.pdfjsLib; resolve(pdfLib); };
+    s.onerror = () => reject(new Error("the PDF viewer library did not load"));
+    document.head.appendChild(s);
+  });
+}
+async function openViewer(f, box) {
+  const stat = box.querySelector(".vstat"), host = box.querySelector(".vcanvas");
+  let doc = null, n = 1;
+  const draw = async () => {
+    stat.textContent = "Page " + n + " of " + doc.numPages;
+    const page = await doc.getPage(n);
+    const base = page.getViewport({scale: 1});
+    const width = Math.max(260, host.clientWidth - 16);
+    const vp = page.getViewport({scale: width / base.width});
+    const dpr = window.devicePixelRatio || 1;
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.floor(vp.width * dpr); canvas.height = Math.floor(vp.height * dpr);
+    canvas.style.width = vp.width + "px"; canvas.style.height = vp.height + "px"; canvas.style.display = "block"; canvas.style.margin = "0 auto";
+    await page.render({canvasContext: canvas.getContext("2d"), viewport: vp, transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null}).promise;
+    host.innerHTML = ""; host.appendChild(canvas);
+  };
+  box.querySelector(".vprev").onclick = () => { if (doc && n > 1) { n--; draw(); } };
+  box.querySelector(".vnext").onclick = () => { if (doc && n < doc.numPages) { n++; draw(); } };
+  try {
+    const lib = await loadPdfLib();
+    const res = await fetch("pdf/" + f);
+    if (!res.ok) throw new Error("the file could not be fetched (" + res.status + ")");
+    doc = await lib.getDocument({data: new Uint8Array(await res.arrayBuffer())}).promise;
+    await draw();
+  } catch (err) {
+    host.innerHTML = "";
+    stat.textContent = "This PDF could not be shown here: " + err.message + ". Use “Read on skillnavora.in” next to the button to read it on the site.";
+  }
+}
 const card = (href, lbl, title, text, more="Open details →") => `<a class="card" href="#${href}"><span class="lbl">${esc(lbl)}</span><b>${esc(title)}</b>${text ? `<p>${esc(text)}</p>` : ""}<span class="more">${esc(more)}</span></a>`;
 
 function topicBlock(t, open) {
@@ -198,7 +240,7 @@ const V = {
   },
   pdfs() {
     return `<h2>PDF library</h2><p class="muted">23 PDFs. "Open" opens the file in a new tab; "Read on skillnavora.in" opens it in the site's reader.</p>
-    <div class="tablewrap"><table><tr><th>Handbook</th><th>Open</th></tr>${D.pdfs.map(([f,l]) => `<tr><td>${esc(l)}</td><td><button type="button" class="btn primary" data-view="${esc(f)}">View here</button> <a class="btn" href="pdf/${esc(f)}" target="_blank" rel="noopener">New tab</a> <a class="btn" href="${SITE}${esc(f)}" target="_blank" rel="noopener">Read on site</a></td></tr>`).join("")}</table></div>`;
+    <div class="tablewrap"><table><tr><th>Handbook</th><th>Open</th></tr>${D.pdfs.map(([f,l]) => `<tr><td>${esc(l)}</td><td><button type="button" class="btn primary" data-view="${esc(f)}">View here</button> <a class="btn" href="${SITE}${esc(f)}" target="_blank" rel="noopener">Read on site</a></td></tr>`).join("")}</table></div>`;
   },
 };
 
@@ -224,8 +266,9 @@ document.addEventListener("click", e => {
     let box = document.getElementById("viewer");
     if (box) box.remove();
     box = document.createElement("div"); box.id = "viewer";
-    box.innerHTML = `<div class="viewer-bar"><span>${esc(f)}</span><a href="pdf/${esc(f)}" target="_blank" rel="noopener">Open in new tab ↗</a></div><iframe class="viewer" title="${esc(f)}" src="pdf/${esc(f)}"></iframe>`;
+    box.innerHTML = `<div class="viewer-bar"><span>${esc(f)}</span><span class="vctl"><button type="button" class="btn vprev">‹ Prev</button> <span class="vstat">Loading…</span> <button type="button" class="btn vnext">Next ›</button></span></div><div class="vcanvas viewer-pages"></div>`;
     host.insertAdjacentElement("afterend", box);
+    openViewer(f, box);
     box.scrollIntoView({behavior: "smooth", block: "start"});
     return;
   }
