@@ -89,6 +89,8 @@ tr:last-child td{border-bottom:0}
 .filter button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .res a{color:var(--accent);overflow-wrap:anywhere}
 .small{font-size:13px}
+.viewer{width:100%;height:78vh;min-height:360px;border:1px solid var(--line);border-radius:12px;background:#fff;margin:6px 0 14px;display:block}
+.viewer-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:0 0 4px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 <header class="hero"><div class="wrap">
@@ -107,7 +109,7 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const ul = a => "<ul>" + a.map(x => `<li>${esc(x)}</li>`).join("") + "</ul>";
 const ol = a => "<ol>" + a.map(x => `<li>${esc(x)}</li>`).join("") + "</ol>";
 const links = r => '<ul class="res">' + r.map(([n,u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a></li>`).join("") + "</ul>";
-const pdfBtns = (f, label) => `<div class="btns"><a class="btn primary" href="pdf/${esc(f)}" target="_blank" rel="noopener">Open ${esc(label)} PDF</a><a class="btn" href="${SITE}${esc(f)}" target="_blank" rel="noopener">Read on skillnavora.in</a></div>`;
+const pdfBtns = (f, label) => `<div class="btns"><button type="button" class="btn primary" data-view="${esc(f)}">View ${esc(label)} PDF here</button><a class="btn" href="pdf/${esc(f)}" target="_blank" rel="noopener">Open in new tab</a><a class="btn" href="${SITE}${esc(f)}" target="_blank" rel="noopener">Read on skillnavora.in</a></div>`;
 const card = (href, lbl, title, text, more="Open details →") => `<a class="card" href="#${href}"><span class="lbl">${esc(lbl)}</span><b>${esc(title)}</b>${text ? `<p>${esc(text)}</p>` : ""}<span class="more">${esc(more)}</span></a>`;
 
 function topicBlock(t, open) {
@@ -196,7 +198,7 @@ const V = {
   },
   pdfs() {
     return `<h2>PDF library</h2><p class="muted">23 PDFs. "Open" opens the file in a new tab; "Read on skillnavora.in" opens it in the site's reader.</p>
-    <div class="tablewrap"><table><tr><th>Handbook</th><th>Open</th></tr>${D.pdfs.map(([f,l]) => `<tr><td>${esc(l)}</td><td><a class="btn primary" href="pdf/${esc(f)}" target="_blank" rel="noopener">Open PDF</a> <a class="btn" href="${SITE}${esc(f)}" target="_blank" rel="noopener">Read on site</a></td></tr>`).join("")}</table></div>`;
+    <div class="tablewrap"><table><tr><th>Handbook</th><th>Open</th></tr>${D.pdfs.map(([f,l]) => `<tr><td>${esc(l)}</td><td><button type="button" class="btn primary" data-view="${esc(f)}">View here</button> <a class="btn" href="pdf/${esc(f)}" target="_blank" rel="noopener">New tab</a> <a class="btn" href="${SITE}${esc(f)}" target="_blank" rel="noopener">Read on site</a></td></tr>`).join("")}</table></div>`;
   },
 };
 
@@ -216,6 +218,17 @@ function route() {
   window.scrollTo(0, 0);
 }
 document.addEventListener("click", e => {
+  const v = e.target.closest("[data-view]");
+  if (v) {
+    const f = v.dataset.view, host = v.closest(".btns") || v.parentElement;
+    let box = document.getElementById("viewer");
+    if (box) box.remove();
+    box = document.createElement("div"); box.id = "viewer";
+    box.innerHTML = `<div class="viewer-bar"><span>${esc(f)}</span><a href="pdf/${esc(f)}" target="_blank" rel="noopener">Open in new tab ↗</a></div><iframe class="viewer" title="${esc(f)}" src="pdf/${esc(f)}"></iframe>`;
+    host.insertAdjacentElement("afterend", box);
+    box.scrollIntoView({behavior: "smooth", block: "start"});
+    return;
+  }
   const b = e.target.closest(".filter button"); if (!b) return;
   toolCat = b.dataset.cat; document.getElementById("view").innerHTML = V.tools(toolCat);
 });
