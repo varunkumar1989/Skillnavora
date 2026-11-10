@@ -11,6 +11,7 @@ SKIP_DIRS = ("node_modules", "/print/", "/.git/")
 
 def group_of(p):
     name = p.split("/")[-1]
+    if p.startswith("handbook/sfmc/"): return "sfmc"  # SFMC academy handbooks
     if p.startswith("handbook/gap/"): return "gap"  # course gap check: audit and three supplements
     if p.startswith("handbook/fde/"): return "fde"  # FDE handbook: programme guide, 7 stage and 14 module handbooks, complete handbook
     if p.startswith("handbook/mf/"):  # Master Freelancing chapters and lessons: Previous/Next stays inside one department
@@ -27,7 +28,7 @@ def group_of(p):
 
 def build_groups():
     paths = []
-    for pat in ["handbook/*.pdf", "handbook/fde/*.pdf", "handbook/gap/*.pdf", "handbook/mf/*/*.pdf", "handbook/mf/*/*/*.pdf", "classes/*.pdf", "brochures/*.pdf", "data-science/pdf/*.pdf", "data-science/pdf/*/*.pdf", "data-science/pdf/*/*/*.pdf"]:
+    for pat in ["handbook/*.pdf", "handbook/fde/*.pdf", "handbook/gap/*.pdf", "handbook/sfmc/*.pdf", "handbook/mf/*/*.pdf", "handbook/mf/*/*/*.pdf", "classes/*.pdf", "brochures/*.pdf", "data-science/pdf/*.pdf", "data-science/pdf/*/*.pdf", "data-science/pdf/*/*/*.pdf"]:
         for f in glob.glob(os.path.join(ROOT, pat)):
             if os.path.isfile(f): paths.append(os.path.relpath(f, ROOT).replace(os.sep, "/"))
     groups, of = {}, {}

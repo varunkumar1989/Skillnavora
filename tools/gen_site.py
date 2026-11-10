@@ -163,13 +163,15 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     Q = lambda h, n, sm: ("questions.html#" + h, n, sm, U["questions.html"][3])
     _RI = U["resources.html"][3]
     _TOOLS_IC = '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.6-.6-2.1z"/>'
-    _OTH = [("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", U["tools.html"][3]),
+    _OTH = [  # courses first
             ("resources.html#op-ai-engineer", "AI Engineer", "Full AI engineer path, classes and interview prep", U["tools.html"][3]),
-            ("resources.html#other", "Other program and Link", "Learning sites, AI builder tools, tutorials and links", U["tools.html"][3]),
-            ("resources.html#op-sfmc", "SFMC", "Salesforce Marketing Cloud training", U["tools.html"][3]),
+            ("sfmc-academy.html", "SFMC", "Salesforce Marketing Cloud: complete guide, 28 modules, handbooks and labs", U["tools.html"][3]),
             ("resources.html#op-speaking", "Public Speaking", "Speaking skills for PMs and leaders", U["tools.html"][3]),
             ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", U["tools.html"][3]),
             ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", U["tools.html"][3]),
+            # resources and tools after the courses
+            ("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", U["tools.html"][3]),
+            ("resources.html#other", "Other program and Link", "Learning sites, AI builder tools, tutorials and links", U["tools.html"][3]),
             ("course-gap-check.html", "Course gap check", "What the course is missing, with supplements and a PDF for each", U["tools.html"][3]),
             ("tools-and-resources.html", "Tools & learning resources", "Every tool, website and learning link in one place", _TOOLS_IC),
             ("study-library.html", "Study Library", "All study material in one page", U["tools.html"][3]),
@@ -887,6 +889,9 @@ topic_pages.build(page, uhero, OUT)
 _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "gap"))
 import gap_page
 gap_page.build(page, uhero, OUT)
+_sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "sfmc"))
+import sfmc_page
+sfmc_page.build(page, uhero, OUT)
 
 # ================================================================ CONTACT
 contact = uhero("Contact us", 'We\'re here to <span class="g">help</span>', "Questions about programs, fees or schedules? WhatsApp is the fastest way to reach us, or send a message below.") + """
