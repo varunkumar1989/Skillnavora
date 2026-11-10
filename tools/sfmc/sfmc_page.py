@@ -98,6 +98,11 @@ boxes.forEach(function(b){b.checked=!!st[b.dataset.track];b.addEventListener('cl
 })();</script>"""
     hero = uhero("SFMC Academy · Salesforce Marketing Cloud", 'Salesforce Marketing Cloud <span class="g">complete guide</span>',
                  "Twenty-eight modules from CRM basics to architecture and certification. Open a module, then a topic. Each topic gives the explanation, steps, examples, exercises and official links.")
-    main = f'{styles}<section style="padding-top:24px"><div class="wrap">{bar}{body}</div></section>{js}'
+    top = ('<div class="card" style="margin:0 0 16px;border:2px solid var(--brand,#6C4CF5)"><div class="kicker">Interactive academy</div>'
+           '<h3 style="margin:6px 0 4px">Open the SFMC Academy with every module, topic and all 37 PDFs</h3>'
+           '<p class="meta" style="margin:0 0 10px">The interactive version has all 28 modules with every topic explained, detailed lessons with code, labs, projects, interviews, the roadmap and a PDF library that opens each handbook inside the page.</p>'
+           '<div class="hb-acts"><a class="btn btn-primary btn-sm" href="https://claude.ai/artifact/BW5nVs6WRq1mS1dxbhioXQ" target="_blank" rel="noopener" data-nogate>Open the interactive SFMC Academy ↗</a>'
+           '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/sfmc/SFMC-Complete-Handbook.pdf">Complete handbook PDF (205 pages)</a></div></div>')
+    main = f'{styles}<section style="padding-top:24px"><div class="wrap">{top}{bar}{body}</div></section>{js}'
     page("sfmc-academy.html", "SFMC Academy: Salesforce Marketing Cloud complete guide · SkillNavora",
          "A complete Salesforce Marketing Cloud learning guide: 28 modules, SQL, AMPscript, journeys, automations, APIs, interviews and certification planning.", hero + main, "sfmc-academy.html")
