@@ -11,6 +11,8 @@ SKIP_DIRS = ("node_modules", "/print/", "/.git/")
 
 def group_of(p):
     name = p.split("/")[-1]
+    if p.startswith("handbook/mf/"):  # Master Freelancing chapters and lessons: Previous/Next stays inside one department
+        return "mf-" + "-".join(p.split("/")[2:-1])
     if p.startswith("handbook/"):
         if name.startswith("Guide-"): return "guides"
         if re.match(r"Module-(2[4-9]|3[01])-", name): return "chapters"
@@ -23,7 +25,7 @@ def group_of(p):
 
 def build_groups():
     paths = []
-    for pat in ["handbook/*.pdf", "classes/*.pdf", "brochures/*.pdf", "data-science/pdf/*.pdf", "data-science/pdf/*/*.pdf", "data-science/pdf/*/*/*.pdf"]:
+    for pat in ["handbook/*.pdf", "handbook/mf/*/*.pdf", "handbook/mf/*/*/*.pdf", "classes/*.pdf", "brochures/*.pdf", "data-science/pdf/*.pdf", "data-science/pdf/*/*.pdf", "data-science/pdf/*/*/*.pdf"]:
         for f in glob.glob(os.path.join(ROOT, pat)):
             if os.path.isfile(f): paths.append(os.path.relpath(f, ROOT).replace(os.sep, "/"))
     groups, of = {}, {}

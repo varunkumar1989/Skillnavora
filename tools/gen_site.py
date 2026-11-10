@@ -1226,6 +1226,7 @@ MF_DEPTS = [("1","Development and IT","10 professions: full-stack, WordPress, we
 _TD = os.path.dirname(os.path.abspath(__file__))
 MF_TOC = _json_mf = json.load(open(os.path.join(_TD, "mf_toc.json"), encoding="utf-8"))
 MF_LES = json.load(open(os.path.join(_TD, "mf_lessons.json"), encoding="utf-8"))
+MF_CH = json.load(open(os.path.join(_TD, "mf_chapters.json"), encoding="utf-8"))
 MF_LG = "handbook/Master-Freelancing-Lesson-Guide.pdf"
 MF_BIZ = "handbook/Master-Freelancing-Business-and-Agency.pdf"
 _LGP = {x["id"]: x["page"] for x in MF_TOC.get(MF_LG, [])}
@@ -1249,27 +1250,28 @@ def mf_dept_page(n, t, d, h):
             + f'<a class="btn btn-ghost" href="{R}master-freelancing.html">All departments</a></div>')
     jump = ('<nav class="mf-jump" aria-label="On this page"><a href="#chapters">Chapters</a><a href="#professions">Professions</a>'
             + ('<a href="#lessons">Lessons</a>' if roles else "") + '</nav>')
-    ch = "".join(f'<li id="{E(x["id"])}"><a class="mf-ct" href="{mf_pdf(h, x["page"], R)}">{E(x["title"])}</a> <span class="mf-pg">page {x["page"]}</span>'
+    chp = lambda x: (R + MF_CH["chapters"].get(h, {}).get(x["id"], "")) if MF_CH["chapters"].get(h, {}).get(x["id"]) else mf_pdf(h, x["page"], R)
+    ch = "".join(f'<li id="{E(x["id"])}"><a class="mf-ct" href="{chp(x)}">{E(x["title"])}</a> <span class="mf-pg"><a href="{mf_pdf(h, x["page"], R)}">in the full textbook, page {x["page"]}</a></span>'
                  + (f'<p class="meta">{E(x["lead"])}</p>' if x["lead"] else "") + '</li>' for x in toc)
     pc = ""
     for i, x in enumerate(profs, 1):
         r = mf_role_for(n, x["title"])
         rl = "".join(f'<li><a href="#{E(l["id"])}">Lesson {E(l["lid"])}: {E(l["title"])}</a></li>' for l in (r["lessons"] if r else []))
-        pc += (f'<div class="card mf-prof" id="p-{E(x["id"])}"><div class="kicker">Profession {i}</div><h3 class="h3s"><a href="{mf_pdf(h, x["page"], R)}">{E(x["title"])}</a></h3>'
+        pc += (f'<div class="card mf-prof" id="p-{E(x["id"])}"><div class="kicker">Profession {i}</div><h3 class="h3s"><a href="{chp(x)}">{E(x["title"])}</a></h3>'
                + (f'<p class="meta">{E(x["lead"])}</p>' if x["lead"] else "")
-               + f'<p class="mf-links"><a href="{mf_pdf(h, x["page"], R)}">Read the chapter (PDF, page {x["page"]})</a></p>'
+               + f'<p class="mf-links"><a href="{chp(x)}">Read this chapter (PDF)</a> · <a href="{mf_pdf(h, x["page"], R)}">in the full textbook, page {x["page"]}</a></p>'
                + (f'<p class="meta" style="margin:8px 0 4px"><b>Lessons on this role</b></p><ul class="mf-ll">{rl}</ul>' if rl else "") + '</div>')
     ls = ""
     for r in roles:
         items = ""
         for l in r["lessons"]:
-            pg = _LGP.get(l["id"])
+            pg = _LGP.get(l["id"]); lpdf = MF_CH["lessons"].get(l["id"]); lhref = (R + lpdf) if lpdf else (mf_pdf(MF_LG, pg, R) if pg else "")
             learn = "".join(f'<li><b>{E(a)}.</b> {E(b)}</li>' for a, b in l["learn"])
             more = " · ".join(f'<a href="{E(u)}" target="_blank" rel="noopener">{E(nm)} ↗</a>' for nm, u in l["tools"])
             items += (f'<div class="card mf-lesson" id="{E(l["id"])}"><div class="kicker">Lesson {E(l["lid"])}</div><h4 class="h3s">'
-                      + (f'<a href="{mf_pdf(MF_LG, pg, R)}">{E(l["title"])}</a>' if pg else E(l["title"])) + '</h4>'
+                      + (f'<a href="{lhref}">{E(l["title"])}</a>' if lhref else E(l["title"])) + '</h4>'
                       + f'<ul class="mf-learn">{learn}</ul>'
-                      + (f'<p class="mf-links"><a href="{mf_pdf(MF_LG, pg, R)}">Read the full lesson and practice task (PDF, page {pg})</a></p>' if pg else "")
+                      + (f'<p class="mf-links"><a href="{lhref}">Read this lesson with its practice task (PDF)</a>' + (f' · <a href="{mf_pdf(MF_LG, pg, R)}">in the full lesson guide, page {pg}</a>' if pg else "") + '</p>' if lhref else "")
                       + (f'<p class="meta mf-more"><b>Read more (official sites):</b> {more}</p>' if more else "") + '</div>')
         ls += f'<h3 class="mf-role">{r["num"]}. {E(r["name"])}</h3><div class="grid g2">{items}</div>'
     body = (uhero(f"Master Freelancing · Department {n}", E(t), E(f"{len(toc)} chapters in the textbook, {len(profs)} professions and {sum(len(r['lessons']) for r in roles)} numbered lessons. Click any chapter, profession or lesson to open it at the right page."))
