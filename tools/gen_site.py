@@ -1219,9 +1219,83 @@ MF_DEPTS = [("1","Development and IT","10 professions: full-stack, WordPress, we
 ("5","Data Analytics and Data Science","15 professions: data analyst, data scientist, data engineer, Power BI, SQL developer, BI developer, analytics engineer, financial analyst, Python analyst, data quality and more","Available now: textbook (PDF)","handbook/Master-Freelancing-Data-Analytics.pdf"),
 ("6","Admin and Business Support","10 professions: virtual assistant, data entry, bookkeeper and QuickBooks, Excel expert, PowerPoint expert, cold caller and appointment setter, customer service, CRM administrator, e-commerce VA, project coordinator","Available now: textbook (PDF)","handbook/Master-Freelancing-Admin-Business-Support.pdf"),
 ("7","Writing and Content","15 professions: resume, copy, creative, ghostwriting, technical, scripts, grants, editing, proofreading, SEO, UX, newsletter, LinkedIn, case study and AI content editing","Available now: textbook (PDF)","handbook/Master-Freelancing-Writing-and-Content.pdf")]
-MF_CARDS = "".join(f'<div class="card"><div class="kicker">Department {n}</div><h3 class="h3s">{E(t)}</h3><p class="meta">{E(d)}</p><p><b>{E(st)}</b></p>' + (f'<a class="btn btn-primary btn-sm" href="{h}" target="_blank" rel="noopener">Open the textbook (PDF)</a>' if h else '') + '</div>' for n,t,d,st,h in MF_DEPTS)
-MF_CARDS += '<div class="card"><div class="kicker">Lesson guide</div><h3 class="h3s">Master Freelancing Lesson Guide</h3><p class="meta">80 numbered lessons across all seven departments, each with what you learn, official tools, a practice task with an answer and check questions, plus the prompt and tool handbook: the 6-element AI video prompt formula, production-ready prompts, the WordPress, n8n and AI workflow and a tool directory</p><p><b>Available now: lesson guide (PDF)</b></p><a class="btn btn-primary btn-sm" href="handbook/Master-Freelancing-Lesson-Guide.pdf" target="_blank" rel="noopener">Open the lesson guide (PDF)</a></div>'
-MF_CARDS += '<div class="card"><div class="kicker">Companion book</div><h3 class="h3s">Freelance Business and Agency Development</h3><p class="meta">Marketplaces, profile and portfolio, proposal and outreach templates, pricing and quotes (with a tested calculator), contracts, invoicing and tax basics, client communication, agency growth, 30/60/90/180-day roadmaps, 100+ prompt starters, rubrics and glossary</p><p><b>Available now: textbook (PDF)</b></p><a class="btn btn-primary btn-sm" href="handbook/Master-Freelancing-Business-and-Agency.pdf" target="_blank" rel="noopener">Open the textbook (PDF)</a></div>'
+# Master Freelancing: cards link to one page per department. Each department page lists every chapter
+# (opening the PDF at that chapter's page in the in-site reader), the professions, and the numbered lessons
+# with official "read more" links. Page numbers come from tools/mf_toc.json (python3 tools/mf_toc.py)
+# and the lessons from tools/mf_lessons.json (written by the lesson guide build).
+_TD = os.path.dirname(os.path.abspath(__file__))
+MF_TOC = _json_mf = json.load(open(os.path.join(_TD, "mf_toc.json"), encoding="utf-8"))
+MF_LES = json.load(open(os.path.join(_TD, "mf_lessons.json"), encoding="utf-8"))
+MF_LG = "handbook/Master-Freelancing-Lesson-Guide.pdf"
+MF_BIZ = "handbook/Master-Freelancing-Business-and-Agency.pdf"
+_LGP = {x["id"]: x["page"] for x in MF_TOC.get(MF_LG, [])}
+mf_slug = lambda t: re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+mf_pdf = lambda h, pg, root="": f'{root}{h}#page={pg}'
+_STOP = {"and", "the", "for", "including", "expert", "specialist", "developer", "developers", "designer", "designers", "of", "with", "focus"}
+def _words(t): return {w for w in re.findall(r"[a-z0-9.]+", t.lower()) if w not in _STOP and len(w) > 1}
+def mf_role_for(n, prof_title):
+    best, score = None, 0
+    for r in MF_LES.get(str(n), []):
+        sc = len(_words(prof_title) & _words(r["name"]))
+        if sc > score: best, score = r, sc
+    return best
+def mf_dept_page(n, t, d, h):
+    toc = MF_TOC.get(h, []); R = "{R}"
+    mods = [x for x in toc if not x["profession"]]; profs = [x for x in toc if x["profession"]]
+    roles = MF_LES.get(str(n), [])
+    lg = _LGP.get(f"dept{n}")
+    acts = (f'<div class="acts" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px"><a class="btn btn-primary" href="{mf_pdf(h, 1, R)}">Open the full textbook (PDF)</a>'
+            + (f'<a class="btn btn-line" href="{mf_pdf(MF_LG, lg, R)}">Lessons for this department (PDF)</a>' if lg else "")
+            + f'<a class="btn btn-ghost" href="{R}master-freelancing.html">All departments</a></div>')
+    jump = ('<nav class="mf-jump" aria-label="On this page"><a href="#chapters">Chapters</a><a href="#professions">Professions</a>'
+            + ('<a href="#lessons">Lessons</a>' if roles else "") + '</nav>')
+    ch = "".join(f'<li id="{E(x["id"])}"><a class="mf-ct" href="{mf_pdf(h, x["page"], R)}">{E(x["title"])}</a> <span class="mf-pg">page {x["page"]}</span>'
+                 + (f'<p class="meta">{E(x["lead"])}</p>' if x["lead"] else "") + '</li>' for x in toc)
+    pc = ""
+    for i, x in enumerate(profs, 1):
+        r = mf_role_for(n, x["title"])
+        rl = "".join(f'<li><a href="#{E(l["id"])}">Lesson {E(l["lid"])}: {E(l["title"])}</a></li>' for l in (r["lessons"] if r else []))
+        pc += (f'<div class="card mf-prof" id="p-{E(x["id"])}"><div class="kicker">Profession {i}</div><h3 class="h3s"><a href="{mf_pdf(h, x["page"], R)}">{E(x["title"])}</a></h3>'
+               + (f'<p class="meta">{E(x["lead"])}</p>' if x["lead"] else "")
+               + f'<p class="mf-links"><a href="{mf_pdf(h, x["page"], R)}">Read the chapter (PDF, page {x["page"]})</a></p>'
+               + (f'<p class="meta" style="margin:8px 0 4px"><b>Lessons on this role</b></p><ul class="mf-ll">{rl}</ul>' if rl else "") + '</div>')
+    ls = ""
+    for r in roles:
+        items = ""
+        for l in r["lessons"]:
+            pg = _LGP.get(l["id"])
+            learn = "".join(f'<li><b>{E(a)}.</b> {E(b)}</li>' for a, b in l["learn"])
+            more = " · ".join(f'<a href="{E(u)}" target="_blank" rel="noopener">{E(nm)} ↗</a>' for nm, u in l["tools"])
+            items += (f'<div class="card mf-lesson" id="{E(l["id"])}"><div class="kicker">Lesson {E(l["lid"])}</div><h4 class="h3s">'
+                      + (f'<a href="{mf_pdf(MF_LG, pg, R)}">{E(l["title"])}</a>' if pg else E(l["title"])) + '</h4>'
+                      + f'<ul class="mf-learn">{learn}</ul>'
+                      + (f'<p class="mf-links"><a href="{mf_pdf(MF_LG, pg, R)}">Read the full lesson and practice task (PDF, page {pg})</a></p>' if pg else "")
+                      + (f'<p class="meta mf-more"><b>Read more (official sites):</b> {more}</p>' if more else "") + '</div>')
+        ls += f'<h3 class="mf-role">{r["num"]}. {E(r["name"])}</h3><div class="grid g2">{items}</div>'
+    body = (uhero(f"Master Freelancing · Department {n}", E(t), E(f"{len(toc)} chapters in the textbook, {len(profs)} professions and {sum(len(r['lessons']) for r in roles)} numbered lessons. Click any chapter, profession or lesson to open it at the right page."))
+            + f'<section style="padding-top:20px"><div class="wrap">{acts}{jump}'
+            + f'<h2 class="sec-h" id="chapters" style="margin-top:28px">Chapters in the textbook</h2><ol class="mf-ch">{ch}</ol>'
+            + f'<h2 class="sec-h" id="professions">Professions</h2><div class="grid g3">{pc}</div>'
+            + (f'<h2 class="sec-h" id="lessons">Lessons, topic by topic</h2><p class="meta" style="max-width:74ch">Each lesson opens in the lesson guide at its page. Official links open in a new tab; check prices and plans there, as they change.</p>{ls}' if ls else "")
+            + '<p class="meta" style="margin-top:28px;max-width:74ch">Textbooks are learning material, not legal, tax or financial advice, and they do not promise jobs or income.</p></div></section>')
+    path = f"freelancing/{mf_slug(t)}.html"
+    page(path, f"{t} · Master Freelancing · SkillNavora", f"Department {n} of Master Freelancing: {t}. Chapters, professions and lessons, each linked to the textbook page.", body, "master-freelancing.html")
+    return path
+def mf_card(kicker, t, desc, st, h, chips, primary, primary_label, extra=""):
+    chip_html = f'<p class="mf-chips">{chips}</p>' if chips else ""
+    return (f'<div class="card mf-card"><div class="kicker">{E(kicker)}</div><h3 class="h3s"><a href="{primary}">{E(t)}</a></h3><p class="meta">{E(desc)}</p>{chip_html}<p><b>{E(st)}</b></p>'
+            f'<p class="acts" style="display:flex;flex-wrap:wrap;gap:8px;margin:0"><a class="btn btn-primary btn-sm" href="{primary}">{primary_label}</a>{extra}</p></div>')
+MF_CARDS = ""
+for n, t, d, st, h in MF_DEPTS:
+    dp = mf_dept_page(n, t, d, h)
+    profs = [x for x in MF_TOC.get(h, []) if x["profession"]]
+    chips = "".join(f'<a href="{dp}#p-{E(x["id"])}">{E(re.sub(r" [(].*", "", x["title"]))}</a>' for x in profs)
+    MF_CARDS += mf_card(f"Department {n}", t, f"{len(profs)} professions. Click a profession to see its chapter and lessons.", st, h, chips, dp, "Chapters and lessons",
+                        f'<a class="btn btn-line btn-sm" href="{mf_pdf(h, 1)}">Open the textbook (PDF)</a>')
+_lgc = "".join(f'<a href="{mf_pdf(MF_LG, x["page"])}">{E(x["title"])}</a>' for x in MF_TOC.get(MF_LG, []) if re.match(r"(dept\d|ph-)", x["id"]))
+MF_CARDS += mf_card("Lesson guide", "Master Freelancing Lesson Guide", "80 numbered lessons across all seven departments, each with tools, a practice task with an answer and check questions, plus the prompt and tool handbook.", "Available now: lesson guide (PDF)", MF_LG, _lgc, mf_pdf(MF_LG, 1), "Open the lesson guide (PDF)")
+_bzc = "".join(f'<a href="{mf_pdf(MF_BIZ, x["page"])}">{E(x["title"])}</a>' for x in MF_TOC.get(MF_BIZ, []) if not x["id"].endswith("-start"))
+MF_CARDS += mf_card("Companion book", "Freelance Business and Agency Development", "Marketplaces, proposals, pricing (with a tested calculator), contracts, payments, clients, agency growth, roadmaps, 100+ prompt starters, rubrics and glossary.", "Available now: textbook (PDF)", MF_BIZ, _bzc, mf_pdf(MF_BIZ, 1), "Open the textbook (PDF)")
 MF_BODY = uhero("Upskill for free", "Master <span class=\"g\">Freelancing</span>", "Learn a skill, build a portfolio, find clients and earn. Department by department, from absolute zero to freelance-ready.") + f"""
 <section style="padding-top:24px"><div class="wrap"><p class="meta" style="max-width:74ch">Master Freelancing is SkillNavora's freelance and digital skills academy. Each department teaches its professions from the basics, with worked examples, assignments and answer keys, portfolio projects and the freelancing side: packages, proposals, pricing and delivery.</p>
 <p class="meta" style="max-width:74ch"><b>Status:</b> all seven departments are published as textbooks, plus a lesson-by-lesson guide with a prompt and tool handbook and a companion book on the freelance business: marketplaces, proposals, pricing, contracts, payments, agency growth, a prompt library of more than 100 starters, rubrics and a glossary. Official links, fees and prices in the textbooks were not checked live in the draft; confirm them on the official sites before relying on them. The textbooks are learning material, not legal, tax or financial advice, and do not promise jobs or income.</p>
@@ -1453,3 +1527,5 @@ page("read.html", "Read · SkillNavora", "Read the handbook, guide or class docu
 import newtab, reader
 print("external links set to new tab in", newtab.run(), "static pages")
 print("reader:", reader.run())
+import cardlinks
+print("card titles linked (pages, cards):", cardlinks.run())

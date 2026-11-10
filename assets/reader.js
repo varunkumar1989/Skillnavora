@@ -3,7 +3,10 @@
 (function () {
   const $ = id => document.getElementById(id);
   const root = document.body.dataset.root || "";
-  const doc = new URLSearchParams(location.search).get("doc") || "";
+  const qs = new URLSearchParams(location.search);
+  const doc = qs.get("doc") || "";
+  // Optional starting page (read.html?doc=...&page=12): opens the PDF at that chapter.
+  const pg = /^[1-9]\d{0,3}$/.test(qs.get("page") || "") ? qs.get("page") : "";
   const frame = $("rd-frame"), title = $("rd-title"), prev = $("rd-prev"), next = $("rd-next"), back = $("rd-back"), open = $("rd-open"), pos = $("rd-pos");
   const safe = /^(handbook|classes|brochures|data-science\/pdf)\/[^?#]+\.pdf$/i.test(doc) && !doc.includes("..");
   const go = p => { location.href = root + "read.html?doc=" + encodeURIComponent(p); };
@@ -19,7 +22,8 @@
     const list = G.groups[G.of[doc]] || [], i = list.indexOf(doc);
     title.textContent = decodeURIComponent(doc.split("/").pop()).replace(/\.pdf$/i, "").replace(/[-_]+/g, " ");
     document.title = title.textContent + " · SkillNavora";
-    frame.src = root + doc; open.href = root + doc;
+    frame.src = root + doc + (pg ? "#page=" + pg : ""); open.href = root + doc + (pg ? "#page=" + pg : "");
+    if (pg) title.textContent += " · page " + pg;
     if (i > 0) { prev.hidden = false; prev.onclick = e => { e.preventDefault(); go(list[i - 1]); }; } else prev.hidden = true;
     if (i >= 0 && i < list.length - 1) { next.hidden = false; next.onclick = e => { e.preventDefault(); go(list[i + 1]); }; } else next.hidden = true;
     pos.textContent = i >= 0 ? (i + 1) + " of " + list.length : "";

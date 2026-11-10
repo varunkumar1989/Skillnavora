@@ -1,0 +1,1686 @@
+{
+ "handbook/Master-Freelancing-AI-and-Automation.pdf": [
+  {
+   "id": "ai-start",
+   "title": "How to use this textbook",
+   "page": 3,
+   "profession": false,
+   "lead": "This textbook teaches AI and Automation from absolute zero to freelance-ready. It follows the same structure as the Development and IT textbook, and links to it where skills overlap."
+  },
+  {
+   "id": "ch-ai-A",
+   "title": "AI fundamentals in plain language",
+   "page": 4,
+   "profession": false,
+   "lead": "The ideas behind every AI tool you will use, explained first in everyday words."
+  },
+  {
+   "id": "ch-ai-B",
+   "title": "AI tools and platforms: what each one is for",
+   "page": 6,
+   "profession": false,
+   "lead": "Twenty-five tools across assistants, APIs, automation, agent frameworks, coding and cloud."
+  },
+  {
+   "id": "ch-ai-video",
+   "title": "AI video creator and editor",
+   "page": 8,
+   "profession": true,
+   "lead": "An AI video creator uses generative tools to make short videos from text, images or a script, and an AI video editor combines those clips with voiceovers, subtitles, music and branding into a finished video for a client."
+  },
+  {
+   "id": "ch-ai-integration",
+   "title": "AI integration developer",
+   "page": 12,
+   "profession": true,
+   "lead": "An AI integration developer connects AI models to the software a business already uses: the website, the CRM, the help desk, the spreadsheet. The work is about data flow, reliability, cost and safety, not about training "
+  },
+  {
+   "id": "ch-chatbot",
+   "title": "Chatbot developer",
+   "page": 15,
+   "profession": true,
+   "lead": "A chatbot developer designs and builds conversations for websites, WhatsApp and messaging apps. Simple bots follow scripted intents; advanced bots use an AI model and the business's own documents, with a clear handover t"
+  },
+  {
+   "id": "ch-ml",
+   "title": "Machine learning engineer",
+   "page": 18,
+   "profession": true,
+   "lead": "A machine learning engineer builds systems that learn patterns from data and make predictions: lead scores, demand forecasts, fraud flags. The work covers data preparation, model training and testing, deployment and moni"
+  },
+  {
+   "id": "ch-aidev",
+   "title": "AI developer",
+   "page": 21,
+   "profession": true,
+   "lead": "An AI developer builds applications that use AI models at their core: assistants, document tools, generators and agents. The developer writes the application code, the model calls, the data handling and the user interfac"
+  },
+  {
+   "id": "ch-autom",
+   "title": "Automation expert",
+   "page": 24,
+   "profession": true,
+   "lead": "An automation expert designs and runs workflows that move data and trigger actions between business tools, using platforms such as n8n, Make, Zapier or custom scripts. They look at a process end to end and remove the man"
+  },
+  {
+   "id": "ch-n8n",
+   "title": "n8n expert",
+   "page": 27,
+   "profession": true,
+   "lead": "An n8n expert builds advanced workflows in n8n: nodes, expressions, error handling, sub-workflows, AI nodes and self-hosting. n8n is popular with developers and operations teams because workflows can include custom code "
+  },
+  {
+   "id": "ch-vibe",
+   "title": "Vibe coder",
+   "page": 30,
+   "profession": true,
+   "lead": "A vibe coder builds working software by describing what they want in plain language to an AI coding tool, then reviewing, testing and steering the result. The skill is in the specification, the review and the judgement, "
+  },
+  {
+   "id": "ch-cloud",
+   "title": "Cloud expert",
+   "page": 33,
+   "profession": true,
+   "lead": "A cloud expert sets up and runs computing, storage, databases and AI services on cloud platforms such as AWS, Microsoft Azure and Google Cloud. The work covers accounts and access, hosting, networks, cost control, securi"
+  },
+  {
+   "id": "ch-aic",
+   "title": "AI consultant",
+   "page": 36,
+   "profession": true,
+   "lead": "An AI consultant helps a business decide where AI will help, how much it will return and how to implement it safely. The consultant audits processes, proposes solutions, calculates the return, and supports implementation"
+  },
+  {
+   "id": "ch-modC",
+   "title": "AI video creation and editing: process, tools and quality",
+   "page": 39,
+   "profession": false,
+   "lead": "Short video is how most businesses now explain products. This module covers the full production path."
+  },
+  {
+   "id": "ch-modD",
+   "title": "AI integration and chatbot projects",
+   "page": 40,
+   "profession": false,
+   "lead": "Three complete chatbot-family projects, from the simplest to a document assistant. Each has a test log."
+  },
+  {
+   "id": "ch-modE",
+   "title": "n8n and workflow automation: eight mandatory projects",
+   "page": 42,
+   "profession": false,
+   "lead": "Each project follows the same pattern: trigger, save, process, approve, send, log, test. The full Gmail example is in the n8n complete guide."
+  },
+  {
+   "id": "ch-modF",
+   "title": "Vibe coding: prompts, review, debugging and launch",
+   "page": 43,
+   "profession": false,
+   "lead": "Vibe coding means building software by describing it in plain language, then reviewing and testing the result. The tools are listed in the AI tools directory (Lovable, Bolt, Replit, Cursor,"
+  },
+  {
+   "id": "ch-modG",
+   "title": "Machine learning and AI engineering: a learning roadmap",
+   "page": 44,
+   "profession": false,
+   "lead": "A staged path from Python to deployment. Each stage ends with a small project."
+  },
+  {
+   "id": "ch-modH",
+   "title": "AI consulting: audits, ROI, proposals and case studies",
+   "page": 45,
+   "profession": false,
+   "lead": "How consultants find the first AI opportunity, price it and deliver it. Case studies cover real estate, education, healthcare, retail and e-commerce."
+  },
+  {
+   "id": "ch-emerging",
+   "title": "Emerging AI roles: pathways built from the core chapters",
+   "page": 47,
+   "profession": false,
+   "lead": "These roles are built from the chapters above, not taught as separate subjects. Demand for each should be re-checked before you promote it."
+  }
+ ],
+ "handbook/Master-Freelancing-Admin-Business-Support.pdf": [
+  {
+   "id": "ad-start",
+   "title": "How to use this textbook",
+   "page": 3,
+   "profession": false,
+   "lead": "Admin and business support keeps a business running: the calendar, the records, the customers, the paperwork. These roles are in steady demand for remote work."
+  },
+  {
+   "id": "ad-A",
+   "title": "Tools and confidentiality for remote support",
+   "page": 4,
+   "profession": false,
+   "lead": "The tools behind every admin role."
+  },
+  {
+   "id": "ad-B",
+   "title": "Data entry, validation and quality control",
+   "page": 5,
+   "profession": false,
+   "lead": "Accurate records, checked before they are saved."
+  },
+  {
+   "id": "ad-C",
+   "title": "Bookkeeping, reconciliation and QuickBooks",
+   "page": 6,
+   "profession": false,
+   "lead": "Records, reconciliation and the boundaries of the work."
+  },
+  {
+   "id": "ad-D",
+   "title": "Excel and PowerPoint for business support",
+   "page": 8,
+   "profession": false,
+   "lead": "Short guides; the full skills are taught in the Data and Design textbooks."
+  },
+  {
+   "id": "ad-E",
+   "title": "Cold calling and appointment setting, with compliance",
+   "page": 9,
+   "profession": false,
+   "lead": "Respectful outreach, booking and the rules you must follow."
+  },
+  {
+   "id": "ad-F",
+   "title": "Customer service and AI-assisted support",
+   "page": 10,
+   "profession": false,
+   "lead": "Replies, escalation and measuring satisfaction."
+  },
+  {
+   "id": "ad-G",
+   "title": "Remote work, payments, records and taxes",
+   "page": 11,
+   "profession": false,
+   "lead": "Practical steps; confirm every rule with the official source."
+  },
+  {
+   "id": "ad-va",
+   "title": "Virtual assistant (including personal and executive assistants)",
+   "page": 12,
+   "profession": true,
+   "lead": "A virtual assistant (VA) supports a client remotely with email, calendar, research, documents, scheduling and admin tasks. Personal and executive assistants do similar work with more responsibility for the person they su"
+  },
+  {
+   "id": "ad-de",
+   "title": "Data entry specialist",
+   "page": 15,
+   "profession": true,
+   "lead": "A data entry specialist enters, checks and cleans information from documents or forms into systems and spreadsheets."
+  },
+  {
+   "id": "ad-book",
+   "title": "Bookkeeper (including QuickBooks consultant)",
+   "page": 18,
+   "profession": true,
+   "lead": "A bookkeeper records a business's financial transactions accurately. A QuickBooks consultant sets up and maintains the QuickBooks accounting software for clients. This is record-keeping, not regulated accounting or tax a"
+  },
+  {
+   "id": "ad-xl",
+   "title": "Excel expert",
+   "page": 21,
+   "profession": true,
+   "lead": "An Excel expert builds and maintains spreadsheets for business: models, trackers and reports. The full skills are taught in the Data Analytics textbook; this chapter covers the admin use."
+  },
+  {
+   "id": "ad-ppt",
+   "title": "PowerPoint expert",
+   "page": 23,
+   "profession": true,
+   "lead": "A PowerPoint expert builds clear, branded decks for clients: pitches, reports and training. The full design skills are taught in the Design textbook."
+  },
+  {
+   "id": "ad-cold",
+   "title": "Cold caller and appointment setter",
+   "page": 25,
+   "profession": true,
+   "lead": "A cold caller or appointment setter contacts prospects by phone to start conversations and book meetings for a client. The work is lawful only when it follows consent and calling rules, so compliance is part of every tas"
+  },
+  {
+   "id": "ad-cs",
+   "title": "Customer service representative",
+   "page": 28,
+   "profession": true,
+   "lead": "A customer service representative answers questions, solves problems and keeps customers informed by email, chat or phone. Good service turns a complaint into a repeat customer."
+  },
+  {
+   "id": "ad-crm",
+   "title": "CRM administrator",
+   "page": 31,
+   "profession": true,
+   "lead": "A CRM administrator sets up and maintains the customer relationship management system: the fields, pipeline stages, users, automations and data quality. The system is only as good as its records."
+  },
+  {
+   "id": "ad-ecom",
+   "title": "E-commerce virtual assistant",
+   "page": 34,
+   "profession": true,
+   "lead": "An e-commerce virtual assistant supports an online store: product listings, order processing, customer messages, stock updates and marketplace admin. The work is repetitive, so checklists and clean data matter most."
+  },
+  {
+   "id": "ad-proj",
+   "title": "Project coordinator",
+   "page": 37,
+   "profession": true,
+   "lead": "A project coordinator keeps a project on track: the schedule, tasks, risks, meetings and status reports. The coordinator does not own the decisions; they make sure the right people make them on time."
+  }
+ ],
+ "handbook/Master-Freelancing-Business-and-Agency.pdf": [
+  {
+   "id": "fb-start",
+   "title": "How to use this textbook",
+   "page": 3,
+   "profession": false,
+   "lead": "This book turns skills from the seven departments into a freelance business: finding clients, pricing, contracts, payments, and growing towards an agency."
+  },
+  {
+   "id": "fb-ready",
+   "title": "Are you ready? Choosing a niche and an offer",
+   "page": 4,
+   "profession": false,
+   "lead": "Narrow offers are easier to sell than broad ones."
+  },
+  {
+   "id": "fb-mkt",
+   "title": "Marketplaces compared",
+   "page": 5,
+   "profession": false,
+   "lead": "Where freelancers find clients, and how to choose."
+  },
+  {
+   "id": "fb-prop",
+   "title": "Profile, portfolio, proposals and outreach",
+   "page": 6,
+   "profession": false,
+   "lead": "How to be found and how to reply."
+  },
+  {
+   "id": "fb-price",
+   "title": "Pricing and quotes",
+   "page": 8,
+   "profession": false,
+   "lead": "Price from your costs and the client's result, not from guesses."
+  },
+  {
+   "id": "fb-contract",
+   "title": "Contracts, scope and change requests",
+   "page": 10,
+   "profession": false,
+   "lead": "Write down what was agreed."
+  },
+  {
+   "id": "fb-pay",
+   "title": "Invoicing, payments and tax basics",
+   "page": 11,
+   "profession": false,
+   "lead": "Money rules vary; always verify officially."
+  },
+  {
+   "id": "fb-client",
+   "title": "Working with clients",
+   "page": 12,
+   "profession": false,
+   "lead": "Clear habits prevent most disputes."
+  },
+  {
+   "id": "fb-agency",
+   "title": "Agency development",
+   "page": 13,
+   "profession": false,
+   "lead": "Scaling with process and quality control."
+  },
+  {
+   "id": "fb-jobs",
+   "title": "Jobs, part-time work and internships",
+   "page": 14,
+   "profession": false,
+   "lead": "A job and freelancing can run together."
+  },
+  {
+   "id": "fb-road",
+   "title": "30, 60, 90 and 180-day roadmap",
+   "page": 15,
+   "profession": false,
+   "lead": "A simple plan with evidence at each step."
+  },
+  {
+   "id": "fb-prompts",
+   "title": "Prompt library (104 starters)",
+   "page": 16,
+   "profession": false,
+   "lead": "Starter prompts across all seven departments plus the freelance business."
+  },
+  {
+   "id": "fb-rubric",
+   "title": "Assessment rubrics and certificate wording",
+   "page": 20,
+   "profession": false,
+   "lead": "Honest evidence of learning."
+  },
+  {
+   "id": "fb-gloss",
+   "title": "Glossary of freelance business terms",
+   "page": 21,
+   "profession": false,
+   "lead": "Short plain definitions."
+  }
+ ],
+ "handbook/Master-Freelancing-Data-Analytics.pdf": [
+  {
+   "id": "dt-start",
+   "title": "How to use this textbook",
+   "page": 3,
+   "profession": false,
+   "lead": "Data work turns records into decisions. This textbook builds the freelance and commercial layer on top of the existing SkillNavora data courses, so you do not repeat what they already teach."
+  },
+  {
+   "id": "dt-A",
+   "title": "Data fundamentals",
+   "page": 4,
+   "profession": false,
+   "lead": "The basics every data role depends on."
+  },
+  {
+   "id": "dt-B",
+   "title": "Excel for analysis and reporting",
+   "page": 5,
+   "profession": false,
+   "lead": "Formulas, pivots and repeatable cleaning."
+  },
+  {
+   "id": "dt-C",
+   "title": "SQL: from SELECT to window functions",
+   "page": 6,
+   "profession": false,
+   "lead": "Each query is tested against a sample database."
+  },
+  {
+   "id": "dt-D",
+   "title": "Power BI: model, measures, security and publishing",
+   "page": 8,
+   "profession": false,
+   "lead": "Dashboards clients can use, built on a clean data model."
+  },
+  {
+   "id": "dt-E",
+   "title": "Python and statistics for analysis",
+   "page": 9,
+   "profession": false,
+   "lead": "Pandas summaries (tested) and the statistics you must explain."
+  },
+  {
+   "id": "dt-F",
+   "title": "Advanced analytics: pipelines, warehouses and forecasting",
+   "page": 10,
+   "profession": false,
+   "lead": "The commercial side of data engineering and forecasting."
+  },
+  {
+   "id": "dt-G",
+   "title": "Freelance projects with sample data and solutions",
+   "page": 11,
+   "profession": false,
+   "lead": "Seven client-style projects. The first is worked in full above; the others follow the same steps with the sample database."
+  },
+  {
+   "id": "dt-analyst",
+   "title": "Data analyst",
+   "page": 12,
+   "profession": true,
+   "lead": "A data analyst answers business questions with data: pulls the records, cleans them, analyses patterns and communicates findings to decision makers."
+  },
+  {
+   "id": "dt-ds",
+   "title": "Data scientist",
+   "page": 15,
+   "profession": true,
+   "lead": "A data scientist builds models that predict or classify, from data preparation and experiments through to a tested model that the business can act on."
+  },
+  {
+   "id": "dt-de",
+   "title": "Data engineer",
+   "page": 18,
+   "profession": true,
+   "lead": "A data engineer builds the pipelines that collect, clean, store and serve data so analysts and models can rely on it."
+  },
+  {
+   "id": "dt-viz",
+   "title": "Data visualisation specialist",
+   "page": 21,
+   "profession": true,
+   "lead": "A visualisation specialist designs charts and dashboards that show patterns accurately and quickly."
+  },
+  {
+   "id": "dt-ba",
+   "title": "Business analyst",
+   "page": 24,
+   "profession": true,
+   "lead": "A business analyst defines what a business needs from a system or change: requirements, processes, data needs and acceptance tests."
+  },
+  {
+   "id": "dt-mining",
+   "title": "Data mining specialist",
+   "page": 27,
+   "profession": true,
+   "lead": "A data mining specialist finds hidden patterns in large datasets: groups of customers, unusual transactions and associations between products."
+  },
+  {
+   "id": "dt-pbi",
+   "title": "Microsoft Power BI specialist",
+   "page": 30,
+   "profession": true,
+   "lead": "A Power BI specialist builds data models, measures, dashboards and secure sharing for organisations using Microsoft Power BI."
+  },
+  {
+   "id": "dt-quant",
+   "title": "Quantitative researcher",
+   "page": 33,
+   "profession": true,
+   "lead": "A quantitative researcher designs studies with numbers: surveys, experiments and statistical models that test whether a business idea or policy has a measurable effect."
+  },
+  {
+   "id": "dt-sqldev",
+   "title": "SQL developer",
+   "page": 36,
+   "profession": true,
+   "lead": "A SQL developer writes, tunes and maintains the queries and database objects that applications and reports depend on."
+  },
+  {
+   "id": "dt-bidev",
+   "title": "BI developer",
+   "page": 39,
+   "profession": true,
+   "lead": "A BI developer builds the reporting layer for a business: data connections, models, dashboards and scheduled reports, usually with a BI tool such as Power BI or Tableau."
+  },
+  {
+   "id": "dt-ae",
+   "title": "Analytics engineer",
+   "page": 42,
+   "profession": true,
+   "lead": "An analytics engineer models data for analysis: transforms raw tables into clean, tested models that analysts and dashboards use, often with SQL and a transformation tool."
+  },
+  {
+   "id": "dt-fin",
+   "title": "Financial analyst",
+   "page": 45,
+   "profession": true,
+   "lead": "A financial analyst analyses money: budgets, forecasts, variance against plan, profitability and the cash position, and explains them to managers."
+  },
+  {
+   "id": "dt-pyda",
+   "title": "Python data analyst",
+   "page": 48,
+   "profession": true,
+   "lead": "A Python data analyst uses Python and pandas to clean, analyse and visualise data, and to automate reports that would take hours by hand."
+  },
+  {
+   "id": "dt-dq",
+   "title": "Data quality specialist",
+   "page": 51,
+   "profession": true,
+   "lead": "A data quality specialist defines and checks the rules that data must meet, measures how well it meets them, and works with owners to fix the causes."
+  },
+  {
+   "id": "dt-rep",
+   "title": "Reporting analyst",
+   "page": 54,
+   "profession": true,
+   "lead": "A reporting analyst produces the regular reports a business depends on: weekly and monthly packs, KPI updates and exception reports, delivered on time and checked."
+  }
+ ],
+ "handbook/Master-Freelancing-Design-and-Creative.pdf": [
+  {
+   "id": "de-start",
+   "title": "How to use this textbook",
+   "page": 3,
+   "profession": false,
+   "lead": "Design is a skill of seeing and deciding. This textbook teaches the principles, the professional tools and the client process, then the fifteen design professions."
+  },
+  {
+   "id": "de-A",
+   "title": "Design foundations",
+   "page": 4,
+   "profession": false,
+   "lead": "The principles behind every good design, explained first in simple words."
+  },
+  {
+   "id": "de-B",
+   "title": "Professional design tools",
+   "page": 5,
+   "profession": false,
+   "lead": "Twelve tools used across the design professions, with their best use."
+  },
+  {
+   "id": "de-C",
+   "title": "Logo process, creative projects and design freelancing",
+   "page": 6,
+   "profession": false,
+   "lead": "How designers work with clients from brief to delivery."
+  },
+  {
+   "id": "de-logo",
+   "title": "Logo designer",
+   "page": 8,
+   "profession": true,
+   "lead": "A logo designer creates the mark and wordmark that identify a business, following a brief, research and a clear concept."
+  },
+  {
+   "id": "de-graphic",
+   "title": "Graphic designer",
+   "page": 11,
+   "profession": true,
+   "lead": "A graphic designer creates visual communication: posters, social posts, brochures, packaging and ads, using type, image and colour to carry a message."
+  },
+  {
+   "id": "de-web",
+   "title": "Web designer",
+   "page": 14,
+   "profession": true,
+   "lead": "A web designer plans the look, layout and content of a website so visitors can find information and act. Web design overlaps with web development: the designer decides how the site should look and work; the developer bui"
+  },
+  {
+   "id": "de-video",
+   "title": "Video editor",
+   "page": 17,
+   "profession": true,
+   "lead": "A video editor shapes raw footage into a finished piece: cutting, pacing, sound, titles and colour, for ads, films, courses or social media."
+  },
+  {
+   "id": "de-photo",
+   "title": "Photo editor",
+   "page": 20,
+   "profession": true,
+   "lead": "A photo editor improves and prepares photographs: exposure, colour, retouching, background cleaning and resizing for print or web."
+  },
+  {
+   "id": "de-ps",
+   "title": "Photoshop expert",
+   "page": 23,
+   "profession": true,
+   "lead": "A Photoshop expert uses Adobe Photoshop at a high level: complex compositing, retouching, mockups, automation with actions and templates, and print preparation."
+  },
+  {
+   "id": "de-ux",
+   "title": "UX designer",
+   "page": 26,
+   "profession": true,
+   "lead": "A UX designer shapes how a product works for its users: research, journeys, flows, usability and testing. UX is about the whole experience, not the look alone."
+  },
+  {
+   "id": "de-pres",
+   "title": "Presentation designer",
+   "page": 29,
+   "profession": true,
+   "lead": "A presentation designer turns content into slides that persuade and explain: decks for pitches, sales, training and board reports."
+  },
+  {
+   "id": "de-brand",
+   "title": "Branding designer",
+   "page": 32,
+   "profession": true,
+   "lead": "A branding designer builds the whole identity of a business: name, logo, colour, type, voice and the rules that keep every touchpoint consistent."
+  },
+  {
+   "id": "de-3d",
+   "title": "3D modeller",
+   "page": 35,
+   "profession": true,
+   "lead": "A 3D modeller creates three-dimensional objects and scenes for product visualisation, animation, games, architecture and advertising."
+  },
+  {
+   "id": "de-ui",
+   "title": "UI designer",
+   "page": 38,
+   "profession": true,
+   "lead": "A UI designer designs the screens and components of a digital product: buttons, forms, navigation, layouts and states, in a system the team can reuse."
+  },
+  {
+   "id": "de-product",
+   "title": "Product designer",
+   "page": 41,
+   "profession": true,
+   "lead": "A product designer owns the design of a product from problem to launch, working with product managers and engineers on research, interaction design and the interface."
+  },
+  {
+   "id": "de-motion",
+   "title": "Motion graphics designer",
+   "page": 44,
+   "profession": true,
+   "lead": "A motion graphics designer adds movement to graphics and text: titles, explainers, animated logos, social ads and interface motion."
+  },
+  {
+   "id": "de-anim",
+   "title": "Animation specialist",
+   "page": 47,
+   "profession": true,
+   "lead": "An animation specialist creates characters and scenes that move: 2D or 3D animation for films, ads, games, education and product explainers."
+  },
+  {
+   "id": "de-aicreative",
+   "title": "AI creative specialist",
+   "page": 50,
+   "profession": true,
+   "lead": "An AI creative specialist uses generative tools in creative work: concept generation, image and video drafts, voice, and the review and rights checks that make the output usable for a client."
+  }
+ ],
+ "handbook/Master-Freelancing-Development-and-IT.pdf": [
+  {
+   "id": "ch-start",
+   "title": "How to use this textbook",
+   "page": 3,
+   "profession": false,
+   "lead": "This textbook teaches Development and IT from absolute zero to freelance-ready. Each profession has its own pathway, and every pathway uses the same foundations in Part 1."
+  },
+  {
+   "id": "ch-A",
+   "title": "Computer and internet fundamentals",
+   "page": 4,
+   "profession": false,
+   "lead": "Before you build anything for the web, you need a clear picture of what happens when someone opens a page."
+  },
+  {
+   "id": "ch-B",
+   "title": "Programming foundations: HTML, CSS, JavaScript, git and APIs",
+   "page": 6,
+   "profession": false,
+   "lead": "Every web profession starts with these languages and tools. You do not need to master them before you begin; you need to build and fix a small page."
+  },
+  {
+   "id": "ch-fs",
+   "title": "Full-stack developer",
+   "page": 10,
+   "profession": true,
+   "lead": "A full-stack developer builds both sides of a web application: the screens people see (front end) and the server, database and logic behind them (back end)."
+  },
+  {
+   "id": "ch-wp",
+   "title": "WordPress developer",
+   "page": 13,
+   "profession": true,
+   "lead": "A WordPress developer builds and customises websites on WordPress, the open-source content management system that powers a large share of the web. The work ranges from setting up a site with a theme to writing custom plu"
+  },
+  {
+   "id": "ch-web",
+   "title": "Web developer",
+   "page": 16,
+   "profession": true,
+   "lead": "A web developer builds websites: the pages, layout and interactivity that visitors use. A web developer usually works with HTML, CSS, JavaScript and sometimes a content system or framework."
+  },
+  {
+   "id": "ch-shop",
+   "title": "Shopify developer",
+   "page": 19,
+   "profession": true,
+   "lead": "A Shopify developer builds and customises online shops on Shopify, a hosted e-commerce platform. The work covers themes (built with Liquid), apps, product data, checkout settings and integrations with payments, shipping "
+  },
+  {
+   "id": "ch-mob",
+   "title": "Mobile app developer",
+   "page": 22,
+   "profession": true,
+   "lead": "A mobile app developer builds applications for phones and tablets. Most work uses one code base for both Android and iPhone through a cross-platform tool such as React Native (with Expo) or Flutter, or native tools (Kotl"
+  },
+  {
+   "id": "ch-wf",
+   "title": "Webflow developer",
+   "page": 26,
+   "profession": true,
+   "lead": "A Webflow developer builds websites in Webflow, a visual no-code and low-code platform that writes clean HTML, CSS and JavaScript from the layout the developer draws. Webflow also has a content management system (CMS) fo"
+  },
+  {
+   "id": "ch-fe",
+   "title": "Front-end developer",
+   "page": 29,
+   "profession": true,
+   "lead": "A front-end developer builds the part of a website or app that users see and use: layout, interaction, accessibility and performance. The work happens in HTML, CSS and JavaScript, often with a framework such as React."
+  },
+  {
+   "id": "ch-ec",
+   "title": "E-commerce developer",
+   "page": 32,
+   "profession": true,
+   "lead": "An e-commerce developer builds the parts of an online shop that handle money and stock: product data, carts, discounts, shipping rules, payments, orders and integrations with warehouses and accounting."
+  },
+  {
+   "id": "ch-react",
+   "title": "React.js developer",
+   "page": 36,
+   "profession": true,
+   "lead": "A React developer builds user interfaces from components: small, reusable pieces that keep their own state and render what the data says. React is the most widely used library for interactive web interfaces, and it is al"
+  },
+  {
+   "id": "ch-bubble",
+   "title": "Bubble.io developer",
+   "page": 39,
+   "profession": true,
+   "lead": "A Bubble developer builds web applications visually, with no traditional code. Bubble provides a database, page designer, workflows (logic) and privacy rules, so a single builder can deliver a working product."
+  },
+  {
+   "id": "ch-advanced",
+   "title": "Advanced development: back end, security, performance, testing and deployment",
+   "page": 42,
+   "profession": false,
+   "lead": "The advanced topics that turn a demo into a product a business can depend on."
+  },
+  {
+   "id": "ch-freelance-dev",
+   "title": "Freelancing for developers: packages, discovery, proposals, pricing and delivery",
+   "page": 44,
+   "profession": false,
+   "lead": "How to sell development work once you can build it."
+  },
+  {
+   "id": "ch-resources",
+   "title": "Resource directory (Development and IT)",
+   "page": 46,
+   "profession": false,
+   "lead": "Official documentation, training portals and marketplaces, with the cost status of each."
+  }
+ ],
+ "handbook/Master-Freelancing-Lesson-Guide.pdf": [
+  {
+   "id": "ls-start",
+   "title": "How to use this lesson guide",
+   "page": 3,
+   "profession": false,
+   "lead": "This guide follows the lesson numbering for the seven departments and links each lesson to a practice task. Use it with the skill textbooks, which give the professions, portfolio projects and"
+  },
+  {
+   "id": "dept1",
+   "title": "Development and IT",
+   "page": 6,
+   "profession": false,
+   "lead": "Lessons for Department 1. Each role has numbered lessons with what you learn, official tools, a practice task with an answer, and short questions. The matching skill textbook is the Master"
+  },
+  {
+   "id": "dept2",
+   "title": "AI and Automation",
+   "page": 30,
+   "profession": false,
+   "lead": "Lessons for Department 2. Each role has numbered lessons with what you learn, official tools, a practice task with an answer, and short questions. The matching skill textbook is the Master"
+  },
+  {
+   "id": "dept3",
+   "title": "Design and Creative",
+   "page": 47,
+   "profession": false,
+   "lead": "Lessons for Department 3. Each role has numbered lessons with what you learn, official tools, a practice task with an answer, and short questions. The matching skill textbook is the Master"
+  },
+  {
+   "id": "dept4",
+   "title": "Marketing",
+   "page": 59,
+   "profession": false,
+   "lead": "Lessons for Department 4. Each role has numbered lessons with what you learn, official tools, a practice task with an answer, and short questions. The matching skill textbook is the Master"
+  },
+  {
+   "id": "dept5",
+   "title": "Data Analytics and Data Science",
+   "page": 69,
+   "profession": false,
+   "lead": "Lessons for Department 5. Each role has numbered lessons with what you learn, official tools, a practice task with an answer, and short questions. The matching skill textbook is the Master"
+  },
+  {
+   "id": "dept6",
+   "title": "Admin and Business Support",
+   "page": 73,
+   "profession": false,
+   "lead": "Lessons for Department 6. Each role has numbered lessons with what you learn, official tools, a practice task with an answer, and short questions. The matching skill textbook is the Master"
+  },
+  {
+   "id": "dept7",
+   "title": "Writing and Content",
+   "page": 78,
+   "profession": false,
+   "lead": "Lessons for Department 7. Each role has numbered lessons with what you learn, official tools, a practice task with an answer, and short questions. The matching skill textbook is the Master"
+  },
+  {
+   "id": "ph-1",
+   "title": "Master AI video prompting system",
+   "page": 82,
+   "profession": false,
+   "lead": "The prompt structure and production-ready examples for AI video."
+  },
+  {
+   "id": "d1l1-1",
+   "title": "Foundations of full-stack architecture",
+   "page": 6,
+   "profession": false,
+   "lead": "What you learn Client-server model. A client (browser or app) sends a request; a server processes it and sends a response. The server holds data and rules; the client shows them."
+  },
+  {
+   "id": "d1l1-2",
+   "title": "Frontend engineering (React and Next.js)",
+   "page": 7,
+   "profession": false,
+   "lead": "What you learn DOM manipulation. The DOM is the live tree of page elements. Plain JavaScript changes it directly; React describes the page from state and updates the DOM for you."
+  },
+  {
+   "id": "d1l1-3",
+   "title": "Backend engineering and databases",
+   "page": 8,
+   "profession": false,
+   "lead": "What you learn Node.js and Express. Node runs JavaScript on the server. Express adds routes and middleware: functions that run in order on each request (logging, auth, validation) before the route handler."
+  },
+  {
+   "id": "d1l1-4",
+   "title": "AI-assisted rapid development (vibe coding)",
+   "page": 9,
+   "profession": false,
+   "lead": "What you learn What it is. Describing the app in words and letting an AI tool generate code. You still review, test and own the result."
+  },
+  {
+   "id": "d1l1-5",
+   "title": "Deployment and DevOps",
+   "page": 10,
+   "profession": false,
+   "lead": "What you learn CI/CD pipelines. Continuous integration runs tests on every change; continuous delivery deploys passing builds. GitHub Actions is a common way to define them."
+  },
+  {
+   "id": "d1l2-1",
+   "title": "WordPress core and custom theme development",
+   "page": 11,
+   "profession": false,
+   "lead": "What you learn PHP fundamentals. Variables, arrays, functions and conditionals; WordPress runs on PHP."
+  },
+  {
+   "id": "d1l2-2",
+   "title": "Page builders and dynamic content",
+   "page": 12,
+   "profession": false,
+   "lead": "What you learn Elementor Pro and Bricks. Visual builders for layouts. Bricks tends to be lighter; Elementor has a larger ecosystem. Both need care to keep pages fast."
+  },
+  {
+   "id": "d1l2-3",
+   "title": "Automation integration (WordPress and n8n)",
+   "page": 13,
+   "profession": false,
+   "lead": "What you learn REST API. WordPress exposes content at /wp-json/. Create an application password to call it"
+  },
+  {
+   "id": "d1l2-4",
+   "title": "Speed optimisation and hardening",
+   "page": 14,
+   "profession": false,
+   "lead": "What you learn Redis caching. An object cache keeps repeated database results in memory."
+  },
+  {
+   "id": "d1l3-1",
+   "title": "HTML5 semantic structure and WCAG accessibility",
+   "page": 15,
+   "profession": false,
+   "lead": "What you learn Semantic elements. header, nav, main, section, article, footer give meaning to assistive tools and"
+  },
+  {
+   "id": "d1l3-2",
+   "title": "Advanced CSS3",
+   "page": 16,
+   "profession": false,
+   "lead": "What you learn Flexbox. One-dimensional layout: rows or columns with alignment and spacing."
+  },
+  {
+   "id": "d1l3-3",
+   "title": "Modern JavaScript (ES6+)",
+   "page": 17,
+   "profession": false,
+   "lead": "What you learn Async/await. Writes promise code in a readable order. Always handle errors with try/catch."
+  },
+  {
+   "id": "d1l4-1",
+   "title": "Liquid templating engine",
+   "page": 18,
+   "profession": false,
+   "lead": "What you learn Tags. Control flow such as {% if %} and {% for %}."
+  },
+  {
+   "id": "d1l4-2",
+   "title": "Custom sections and Shopify CLI workflows",
+   "page": 19,
+   "profession": false,
+   "lead": "What you learn Sections. Reusable theme blocks with their own markup, settings and blocks."
+  },
+  {
+   "id": "d1l4-3",
+   "title": "Storefront API and headless commerce",
+   "page": 19,
+   "profession": false,
+   "lead": "What you learn Storefront API. Read products and manage carts from your own front end using GraphQL."
+  },
+  {
+   "id": "d1l5-1",
+   "title": "Cross-platform engineering with React Native and Flutter",
+   "page": 20,
+   "profession": false,
+   "lead": "What you learn React Native. JavaScript and React; renders native components."
+  },
+  {
+   "id": "d1l5-2",
+   "title": "Native device APIs",
+   "page": 21,
+   "profession": false,
+   "lead": "What you learn Camera and GPS. Ask permission in context and handle refusal gracefully."
+  },
+  {
+   "id": "d1l5-3",
+   "title": "App store optimisation and deployment",
+   "page": 22,
+   "profession": false,
+   "lead": "What you learn ASO. Title, subtitle, keywords, screenshots and ratings influence discovery. Be accurate."
+  },
+  {
+   "id": "d1l6-1",
+   "title": "Webflow box model, responsive layouts and Client-First naming",
+   "page": 23,
+   "profession": false,
+   "lead": "What you learn Box model. Content, padding, border, margin. Webflow shows them in the style panel."
+  },
+  {
+   "id": "d1l6-2",
+   "title": "Webflow CMS, dynamic filtering and custom code",
+   "page": 23,
+   "profession": false,
+   "lead": "What you learn CMS collections. Fields, items and collection pages that share one template."
+  },
+  {
+   "id": "d1l7-1",
+   "title": "React hooks",
+   "page": 24,
+   "profession": false,
+   "lead": "What you learn useState. Local state; update with the setter, never by changing the value directly."
+  },
+  {
+   "id": "d1l7-2",
+   "title": "SSR vs SSG in Next.js",
+   "page": 25,
+   "profession": false,
+   "lead": "What you learn SSG. Pages are built once at build time. Fast and cheap; content can be refreshed on a schedule."
+  },
+  {
+   "id": "d1l8-1",
+   "title": "Cart logic, checkout, PCI-DSS and multi-currency",
+   "page": 26,
+   "profession": false,
+   "lead": "What you learn Cart logic. Total = items, discounts, shipping and tax in a fixed order. Store money as integers (paise"
+  },
+  {
+   "id": "d1l8-2",
+   "title": "Payment gateway integration",
+   "page": 27,
+   "profession": false,
+   "lead": "What you learn Stripe, Razorpay and PayPal. Each provides checkout pages, SDKs and webhooks. Razorpay is widely used in India; Stripe and PayPal serve many countries. Check availability and fees for your"
+  },
+  {
+   "id": "d1l9-1",
+   "title": "Next.js App Router, server actions, edge functions and middleware",
+   "page": 27,
+   "profession": false,
+   "lead": "What you learn App Router. Folders define routes; layouts nest; server components run on the server by default."
+  },
+  {
+   "id": "d1l10-1",
+   "title": "Visual database modelling, privacy rules, API Connector and plugins",
+   "page": 28,
+   "profession": false,
+   "lead": ""
+  },
+  {
+   "id": "d2l1-1",
+   "title": "Image-to-video and text-to-video platforms",
+   "page": 30,
+   "profession": false,
+   "lead": "What you learn Text-to-video vs image-to-video. Text-to-video builds a clip from a prompt. Image-to-video animates a picture you chose, which gives more control over how the first frame looks."
+  },
+  {
+   "id": "d2l1-2",
+   "title": "Prompt engineering for consistent scenes and characters",
+   "page": 31,
+   "profession": false,
+   "lead": "What you learn The consistency formula. [Subject description] + [Style and lighting] + [Camera lens specs] + [Seed number or reference image]. Reuse the same subject words in every shot."
+  },
+  {
+   "id": "d2l1-3",
+   "title": "Video production case studies and prompts",
+   "page": 32,
+   "profession": false,
+   "lead": "What you learn How to use these. Treat each prompt as a starting point. Change the subject, then adjust the camera and light. Remove the --ar flag outside Midjourney and set the ratio in the tool."
+  },
+  {
+   "id": "d2l1-4",
+   "title": "Credit optimisation and efficiency",
+   "page": 33,
+   "profession": false,
+   "lead": "What you learn Two-stage method. Create the base image in an image tool (Midjourney or Leonardo.ai), approve it, then animate only the approved image in Runway or Kling. Images cost less than video, so you iterate"
+  },
+  {
+   "id": "d2l1-5",
+   "title": "Post-production and audio sync",
+   "page": 33,
+   "profession": false,
+   "lead": "What you learn Voice-over. ElevenLabs creates voices from text. Use voices you are licensed to use and never clone a person's voice without their written consent."
+  },
+  {
+   "id": "d2l2-1",
+   "title": "OpenAI API and Anthropic SDK integration in Node.js and Python",
+   "page": 34,
+   "profession": false,
+   "lead": "What you learn The call. Send messages (a system message and the user's message) to the model API and read the"
+  },
+  {
+   "id": "d2l2-2",
+   "title": "Vector databases: Pinecone, ChromaDB and Weaviate",
+   "page": 35,
+   "profession": false,
+   "lead": "What you learn Embeddings. An embedding turns text into a list of numbers so similar meanings are near each other."
+  },
+  {
+   "id": "d2l2-3",
+   "title": "Retrieval-augmented generation (RAG) and document indexing",
+   "page": 36,
+   "profession": false,
+   "lead": "What you learn The pipeline. Split documents into chunks, embed and index them, retrieve the best chunks for a question, give them to the model with the question, and ask it to answer only from them and cite the source."
+  },
+  {
+   "id": "d2l3-1",
+   "title": "RAG-powered bots in Voiceflow, Botpress and Flowise",
+   "page": 38,
+   "profession": false,
+   "lead": "What you learn Voiceflow. Visual conversation design with a knowledge base."
+  },
+  {
+   "id": "d2l3-2",
+   "title": "WhatsApp Business API integration via Twilio and Wati",
+   "page": 38,
+   "profession": false,
+   "lead": "What you learn Consent. Message only people who opted in, and follow WhatsApp's business and commerce"
+  },
+  {
+   "id": "d2l4-1",
+   "title": "Data preprocessing and model training (Pandas, NumPy, Scikit-Learn, PyTorch)",
+   "page": 39,
+   "profession": false,
+   "lead": ""
+  },
+  {
+   "id": "d2l5-1",
+   "title": "Multi-step scenarios, JSON parsing, array aggregators and webhooks",
+   "page": 41,
+   "profession": false,
+   "lead": ""
+  },
+  {
+   "id": "d2l6-1",
+   "title": "Self-hosting n8n with Docker on DigitalOcean or AWS",
+   "page": 42,
+   "profession": false,
+   "lead": "What you learn Why self-host. More control and no per-run limits on the open-source edition, in exchange for"
+  },
+  {
+   "id": "d2l6-2",
+   "title": "Custom JavaScript nodes, error workflows and API polling",
+   "page": 42,
+   "profession": false,
+   "lead": "What you learn Code node. Run JavaScript on items to reshape data."
+  },
+  {
+   "id": "d2l7-1",
+   "title": "AI-first coding workflows with Cursor, Replit Agent and Claude",
+   "page": 43,
+   "profession": false,
+   "lead": "What you learn Workflow. Describe the feature, let the assistant plan, build in small steps, run and read the output,"
+  },
+  {
+   "id": "d2l8-1",
+   "title": "System prompt optimisation, context window management and artifacts",
+   "page": 44,
+   "profession": false,
+   "lead": ""
+  },
+  {
+   "id": "d2l9-1",
+   "title": "Corporate AI audits, ROI models and technology stack mapping",
+   "page": 45,
+   "profession": false,
+   "lead": "What you learn Audit. List the processes, who does them, hours spent, data involved and risks. Rank by value and ease."
+  },
+  {
+   "id": "d3l1-1",
+   "title": "Industry-specific logo systems",
+   "page": 47,
+   "profession": false,
+   "lead": "What you learn E-commerce logos. Clean typography, a simple vector icon and high readability at small sizes such as a browser tab, an app icon and a packaging label."
+  },
+  {
+   "id": "d3l1-2",
+   "title": "Tooling and workflow",
+   "page": 48,
+   "profession": false,
+   "lead": "What you learn Vector tools. Adobe Illustrator and the free Inkscape draw shapes that scale without loss."
+  },
+  {
+   "id": "d3l1-3",
+   "title": "Asset sourcing and typography",
+   "page": 48,
+   "profession": false,
+   "lead": "What you learn Inspiration, not copying. Behance, Dribbble and Brand New show current work and case studies. Learn principles; do not reproduce another designer's work."
+  },
+  {
+   "id": "d3l2-1",
+   "title": "Principles of layout",
+   "page": 49,
+   "profession": false,
+   "lead": "What you learn Visual hierarchy. Size, weight, colour and position tell the eye where to look first."
+  },
+  {
+   "id": "d3l2-2",
+   "title": "Social media, ads and print collateral",
+   "page": 50,
+   "profession": false,
+   "lead": "What you learn Canva, Figma and Photoshop. Canva is fast for templates, Figma for shared components, Photoshop for photo work."
+  },
+  {
+   "id": "d3l3-1",
+   "title": "Design systems in Figma",
+   "page": 51,
+   "profession": false,
+   "lead": "What you learn Components. Reusable elements with variants (primary, secondary, disabled)."
+  },
+  {
+   "id": "d3l4-1",
+   "title": "Timeline editing, J/L cuts, sound design and colour grading",
+   "page": 52,
+   "profession": false,
+   "lead": "What you learn Timeline. Cut to the beat of the story; remove every frame that does not help."
+  },
+  {
+   "id": "d3l5-1",
+   "title": "Non-destructive editing, frequency separation and compositing",
+   "page": 53,
+   "profession": false,
+   "lead": "What you learn Non-destructive. Use layers, adjustment layers, masks and smart objects so edits can be changed."
+  },
+  {
+   "id": "d3l6-1",
+   "title": "User research, wireframing, information architecture and usability testing",
+   "page": 54,
+   "profession": false,
+   "lead": "What you learn Research. Interview real users to learn goals and problems."
+  },
+  {
+   "id": "d3l7-1",
+   "title": "Slide master, data visualisation and pitch decks",
+   "page": 55,
+   "profession": false,
+   "lead": "What you learn Slide master. Set fonts, colours and layouts once so every slide matches."
+  },
+  {
+   "id": "d3l8-1",
+   "title": "Full brand identity systems",
+   "page": 56,
+   "profession": false,
+   "lead": "What you learn Style guide. Logo rules, colours, type, imagery, spacing and examples of right and wrong use."
+  },
+  {
+   "id": "d3l9-1",
+   "title": "Polygon modelling, PBR texturing, lighting and rendering in Blender",
+   "page": 57,
+   "profession": false,
+   "lead": "What you learn Polygon modelling. Build shapes from vertices, edges and faces; keep clean quads."
+  },
+  {
+   "id": "d4l1-1",
+   "title": "Daily workflow and operations routine",
+   "page": 59,
+   "profession": false,
+   "lead": "What you learn Content calendar. Plan topics, formats, dates and owners; leave room for news."
+  },
+  {
+   "id": "d4l1-2",
+   "title": "Account onboarding and audit procedures",
+   "page": 60,
+   "profession": false,
+   "lead": "What you learn Onboarding. Collect logins safely (use platform roles, not shared passwords), brand assets, goals, audience and approvals."
+  },
+  {
+   "id": "d4l2-1",
+   "title": "Keyword research, ad groups and match types",
+   "page": 60,
+   "profession": false,
+   "lead": "What you learn Intent. Searches show intent: informational, commercial or transactional. Spend on commercial and"
+  },
+  {
+   "id": "d4l2-2",
+   "title": "Conversion tracking, Performance Max and bidding",
+   "page": 61,
+   "profession": false,
+   "lead": "What you learn Google Tag Manager. Fire a conversion tag when a form is submitted; test with preview mode."
+  },
+  {
+   "id": "d4l3-1",
+   "title": "On-page optimisation",
+   "page": 62,
+   "profession": false,
+   "lead": "What you learn Headers and titles. One clear H1; titles and descriptions that match the content."
+  },
+  {
+   "id": "d4l3-2",
+   "title": "Technical audits, link building and Search Console",
+   "page": 63,
+   "profession": false,
+   "lead": "What you learn Screaming Frog. Crawls a site to find broken links, redirect chains, missing titles and duplicates."
+  },
+  {
+   "id": "d4l4-1",
+   "title": "Campaign set-up for real estate, tech agencies and e-commerce",
+   "page": 63,
+   "profession": false,
+   "lead": "What you learn Objectives. Leads for real estate and agencies; sales for e-commerce."
+  },
+  {
+   "id": "d4l4-2",
+   "title": "Budget optimisation and ROAS: audiences and the Conversions API",
+   "page": 64,
+   "profession": false,
+   "lead": "What you learn Custom audiences. People who already engaged with you, using consented data."
+  },
+  {
+   "id": "d4l5-1",
+   "title": "Deliverability: SPF, DKIM and DMARC",
+   "page": 65,
+   "profession": false,
+   "lead": "What you learn SPF. A DNS record that lists the servers allowed to send for your domain."
+  },
+  {
+   "id": "d4l5-2",
+   "title": "Outreach infrastructure at scale, safely",
+   "page": 66,
+   "profession": false,
+   "lead": "What you learn Tools. Instantly.ai and Smartlead manage multiple mailboxes, warm-up, sequences and reply tracking."
+  },
+  {
+   "id": "d4l6-1",
+   "title": "CRM integration, lead scoring and nurture funnels",
+   "page": 67,
+   "profession": false,
+   "lead": "What you learn CRM integration. Connect forms, ads and the CRM (HubSpot or GoHighLevel) so each lead has a source."
+  },
+  {
+   "id": "d4l7-1",
+   "title": "B2B prospecting, outreach scripts and PPC landing pages",
+   "page": 68,
+   "profession": false,
+   "lead": "What you learn Sourcing. Apollo.io and LinkedIn Sales Navigator help find businesses and roles; follow each platform's terms and privacy law, and do not scrape what the terms forbid."
+  },
+  {
+   "id": "d5l1-1",
+   "title": "AI-powered analytics with Microsoft Copilot",
+   "page": 69,
+   "profession": false,
+   "lead": "What you learn Copilot in Excel. Ask questions in natural language to summarise data, suggest charts and spot"
+  },
+  {
+   "id": "d5l2-1",
+   "title": "EDA with Python, feature engineering and predictive models",
+   "page": 70,
+   "profession": false,
+   "lead": "What you learn EDA. Look at shape, types, missing values, distributions and relationships using Pandas, Matplotlib and Seaborn."
+  },
+  {
+   "id": "d5l3-1",
+   "title": "ETL pipelines, data warehousing and indexing",
+   "page": 71,
+   "profession": false,
+   "lead": "What you learn ETL. Extract the raw data, transform it (clean, dedupe, type), load it into a table. The tested code below does all three."
+  },
+  {
+   "id": "d5l4-1",
+   "title": "Data modelling, star schemas, DAX and publishing",
+   "page": 72,
+   "profession": false,
+   "lead": "What you learn Star schema. A central fact table (sales) linked to dimension tables (date, product, customer)."
+  },
+  {
+   "id": "d6l1-1",
+   "title": "Executive support fundamentals",
+   "page": 73,
+   "profession": false,
+   "lead": "What you learn Inbox zero. Process email to empty using four actions: do, delegate, defer, delete."
+  },
+  {
+   "id": "d6l1-2",
+   "title": "Remote SOP creation in Notion",
+   "page": 74,
+   "profession": false,
+   "lead": "What you learn SOP structure. Purpose, owner, tools, numbered steps, checks and what to do when it fails."
+  },
+  {
+   "id": "d6l2-1",
+   "title": "Advanced data cleansing, verification and OCR",
+   "page": 74,
+   "profession": false,
+   "lead": "What you learn Cleansing. Trim spaces, fix case, standardise dates and phone numbers, remove duplicates."
+  },
+  {
+   "id": "d6l3-1",
+   "title": "Double-entry accounting, chart of accounts, reconciliation and ageing",
+   "page": 76,
+   "profession": false,
+   "lead": ""
+  },
+  {
+   "id": "d6l4-1",
+   "title": "Scripting, gatekeepers, objections and calendar booking",
+   "page": 77,
+   "profession": false,
+   "lead": "What you learn Compliance first. Check Do Not Disturb and calling-hour rules where you call; log and honour opt- outs."
+  },
+  {
+   "id": "d7l1-1",
+   "title": "Industry-specific ATS optimisation",
+   "page": 78,
+   "profession": false,
+   "lead": "What you learn Fintech and tech resumes. Metric-driven bullets, a technical skills block and the exact keywords"
+  },
+  {
+   "id": "d7l2-1",
+   "title": "Direct response copy, headlines and funnel scripts (PAS and AIDA)",
+   "page": 79,
+   "profession": false,
+   "lead": "What you learn PAS. Problem, Agitate, Solution: name the problem, show what it costs, offer the fix."
+  },
+  {
+   "id": "d7l3-1",
+   "title": "Developer documentation, API references and knowledge base guides in Markdown",
+   "page": 80,
+   "profession": false,
+   "lead": ""
+  },
+  {
+   "id": "d7l4-1",
+   "title": "VSL scripts, YouTube outlines and e-book ghostwriting",
+   "page": 81,
+   "profession": false,
+   "lead": "What you learn Video sales letter. Hook, problem, story, solution, proof, offer, guarantee (only a true one) and call to action."
+  }
+ ],
+ "handbook/Master-Freelancing-Marketing.pdf": [
+  {
+   "id": "ma-start",
+   "title": "How to use this textbook",
+   "page": 3,
+   "profession": false,
+   "lead": "Marketing helps people discover a product, decide to buy it, and come back. This textbook teaches the professions as jobs with measurable results."
+  },
+  {
+   "id": "ma-A",
+   "title": "Marketing fundamentals and the numbers that matter",
+   "page": 4,
+   "profession": false,
+   "lead": "The concepts and metrics every marketing role uses, with a tested calculator."
+  },
+  {
+   "id": "ma-B",
+   "title": "Marketing tools: what each one is for",
+   "page": 6,
+   "profession": false,
+   "lead": "Sixteen tools across social, ads, SEO, email and CRM. Confirm free and paid plans on each official page."
+  },
+  {
+   "id": "ma-proj1",
+   "title": "Project: a 30-day social media plan for a fictional business",
+   "page": 7,
+   "profession": false,
+   "lead": "A complete plan for a fictional tutoring centre, with a calendar, captions, graphics and reporting."
+  },
+  {
+   "id": "mk-social",
+   "title": "Social media manager",
+   "page": 8,
+   "profession": true,
+   "lead": "A social media manager plans, creates, publishes and reports on a brand's social channels, including social media marketing for small businesses."
+  },
+  {
+   "id": "mk-gads",
+   "title": "Google Ads specialist (including SEM)",
+   "page": 11,
+   "profession": true,
+   "lead": "A Google Ads specialist builds and manages paid search, display, YouTube and shopping campaigns. Search engine marketing (SEM) is the paid search part of this work and is taught here."
+  },
+  {
+   "id": "mk-seo",
+   "title": "SEO specialist",
+   "page": 14,
+   "profession": true,
+   "lead": "An SEO specialist improves how a website appears in search results: technical health, content that matches what people search for, and authority from other sites."
+  },
+  {
+   "id": "mk-meta",
+   "title": "Facebook and Meta Ads specialist",
+   "page": 17,
+   "profession": true,
+   "lead": "A Meta Ads specialist builds and manages paid campaigns on Facebook, Instagram and Messenger using Meta Ads Manager, with audiences, creative tests and conversion tracking."
+  },
+  {
+   "id": "mk-email",
+   "title": "Email marketer",
+   "page": 20,
+   "profession": true,
+   "lead": "An email marketer builds lists, writes campaigns and automated sequences, segments audiences and measures results, with consent at every step."
+  },
+  {
+   "id": "mk-auto",
+   "title": "Marketing automation and CRM specialist",
+   "page": 23,
+   "profession": true,
+   "lead": "A marketing automation and CRM specialist designs how leads move through the business: scoring, routing, follow-up and reporting in a CRM, with automation tools connecting them."
+  },
+  {
+   "id": "mk-strat",
+   "title": "Marketing strategist",
+   "page": 26,
+   "profession": true,
+   "lead": "A marketing strategist decides where a business should spend effort: the audience, the message, the channels, the budget and the measures of success."
+  },
+  {
+   "id": "mk-lead",
+   "title": "Lead generation specialist",
+   "page": 29,
+   "profession": true,
+   "lead": "A lead generation specialist designs offers, pages and campaigns that turn strangers into named prospects, with consent, and passes them to sales with a score."
+  },
+  {
+   "id": "mk-perf",
+   "title": "Performance marketer",
+   "page": 32,
+   "profession": true,
+   "lead": "A performance marketer manages paid campaigns against measured results: cost per acquisition, return on ad spend and payback, shifting budget to what works."
+  },
+  {
+   "id": "mk-cro",
+   "title": "CRO specialist",
+   "page": 35,
+   "profession": true,
+   "lead": "A conversion rate optimisation (CRO) specialist improves the share of visitors who take the desired action, by testing pages, forms and offers."
+  },
+  {
+   "id": "mk-aff",
+   "title": "Affiliate marketer (including Shopify affiliate programmes)",
+   "page": 38,
+   "profession": true,
+   "lead": "An affiliate marketer earns a commission by promoting other businesses' products or services through a tracked link. On e-commerce platforms such as Shopify, merchants run affiliate programmes that pay partners for sales"
+  },
+  {
+   "id": "mk-infl",
+   "title": "Influencer marketer",
+   "page": 41,
+   "profession": true,
+   "lead": "An influencer marketer plans and manages partnerships with creators who reach a specific audience, with clear briefs, disclosure and measurable results."
+  },
+  {
+   "id": "mk-growth",
+   "title": "Growth marketer",
+   "page": 44,
+   "profession": true,
+   "lead": "A growth marketer runs experiments across the whole customer journey, from acquisition to retention, to find repeatable ways to grow revenue."
+  },
+  {
+   "id": "mk-localseo",
+   "title": "Local SEO consultant",
+   "page": 47,
+   "profession": true,
+   "lead": "A local SEO consultant helps local businesses appear in map results and nearby searches: business profiles, reviews, local content and consistent business details."
+  },
+  {
+   "id": "mk-analyst",
+   "title": "Marketing analyst",
+   "page": 50,
+   "profession": true,
+   "lead": "A marketing analyst measures what marketing does: tracks channels, builds dashboards, runs attribution analysis and explains the results to decision makers."
+  }
+ ],
+ "handbook/Master-Freelancing-Writing-and-Content.pdf": [
+  {
+   "id": "wr-start",
+   "title": "How to use this textbook",
+   "page": 3,
+   "profession": false,
+   "lead": "Writing and content roles sell clear thinking on a page. This book gives fifteen writing professions a shared method: brief, draft, edit, check, deliver."
+  },
+  {
+   "id": "wr-A",
+   "title": "Tools, checks and professional rules",
+   "page": 4,
+   "profession": false,
+   "lead": "Tools and rules shared by every writing role."
+  },
+  {
+   "id": "wr-B",
+   "title": "Working with AI: help, limits and the editor's checklist",
+   "page": 6,
+   "profession": false,
+   "lead": "Use AI as a tool; keep the responsibility."
+  },
+  {
+   "id": "wr-C",
+   "title": "Before and after: how editing changes writing",
+   "page": 7,
+   "profession": false,
+   "lead": "Short examples you can reuse as portfolio explanations."
+  },
+  {
+   "id": "wr-D",
+   "title": "A complete resume sample and how it was edited",
+   "page": 8,
+   "profession": false,
+   "lead": "Every number must come from the client."
+  },
+  {
+   "id": "wr-resume",
+   "title": "Resume writer",
+   "page": 9,
+   "profession": true,
+   "lead": "A resume writer turns a person's work history into a clear, honest document that helps them get interviews."
+  },
+  {
+   "id": "wr-copy",
+   "title": "Copywriter",
+   "page": 12,
+   "profession": true,
+   "lead": "A copywriter writes words that help people decide: ads, landing pages, emails and product pages."
+  },
+  {
+   "id": "wr-creative",
+   "title": "Creative writer",
+   "page": 15,
+   "profession": true,
+   "lead": "A creative writer produces stories, characters and imaginative text for books, brands and games."
+  },
+  {
+   "id": "wr-ghost",
+   "title": "Ghostwriter",
+   "page": 17,
+   "profession": true,
+   "lead": "A ghostwriter writes in another person's voice, and the client is credited as the author. Agree ownership and credit in writing first."
+  },
+  {
+   "id": "wr-tech",
+   "title": "Technical writer",
+   "page": 19,
+   "profession": true,
+   "lead": "A technical writer explains products so users can complete tasks: guides, API documents and help articles."
+  },
+  {
+   "id": "wr-script",
+   "title": "Scriptwriter",
+   "page": 21,
+   "profession": true,
+   "lead": "A scriptwriter writes the words and structure for video, audio and presentations."
+  },
+  {
+   "id": "wr-grant",
+   "title": "Grant writer",
+   "page": 23,
+   "profession": true,
+   "lead": "A grant writer prepares funding applications for non-profits, researchers and community groups."
+  },
+  {
+   "id": "wr-edit",
+   "title": "Editor",
+   "page": 25,
+   "profession": true,
+   "lead": "An editor improves structure, clarity and consistency in a manuscript or document."
+  },
+  {
+   "id": "wr-proof",
+   "title": "Proofreader",
+   "page": 27,
+   "profession": true,
+   "lead": "A proofreader finds spelling, grammar, punctuation and layout errors in the final copy."
+  },
+  {
+   "id": "wr-seo",
+   "title": "SEO writer",
+   "page": 29,
+   "profession": true,
+   "lead": "An SEO writer creates content that answers what people search for and is easy to read."
+  },
+  {
+   "id": "wr-ux",
+   "title": "UX writer",
+   "page": 31,
+   "profession": true,
+   "lead": "A UX writer writes the words inside products: buttons, messages and onboarding."
+  },
+  {
+   "id": "wr-news",
+   "title": "Newsletter writer",
+   "page": 33,
+   "profession": true,
+   "lead": "A newsletter writer builds a regular email that readers want to open."
+  },
+  {
+   "id": "wr-li",
+   "title": "LinkedIn content writer",
+   "page": 35,
+   "profession": true,
+   "lead": "A LinkedIn writer helps professionals share useful posts on LinkedIn."
+  },
+  {
+   "id": "wr-case",
+   "title": "Case study writer",
+   "page": 37,
+   "profession": true,
+   "lead": "A case study writer turns a customer's success into a clear story with facts."
+  },
+  {
+   "id": "wr-aied",
+   "title": "AI content editor",
+   "page": 39,
+   "profession": true,
+   "lead": "An AI content editor reviews, corrects and improves AI-drafted text so it is accurate, specific and on brand."
+  }
+ ]
+}

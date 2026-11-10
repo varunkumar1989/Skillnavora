@@ -39,13 +39,14 @@ def rewrite_links(G):
         s = open(f, encoding="utf-8", errors="replace").read()
         here = os.path.dirname(f)
         def fix(m):
-            tag = m.group(0); h = re.search(r'href="([^"#?]+\.pdf)"', tag)
+            tag = m.group(0); h = re.search(r'href="([^"#?]+\.pdf)(?:#page=(\d{1,4}))?"', tag)
             if not h or re.match(r"^(https?:|mailto:|tel:)", h.group(1)): return tag
             if h.group(1).startswith("/"): rel = h.group(1).lstrip("/")
             else: rel = os.path.relpath(os.path.normpath(os.path.join(here, h.group(1))), ROOT).replace(os.sep, "/")
             if rel not in of: return tag
             to_read = os.path.relpath(os.path.join(ROOT, "read.html"), here).replace(os.sep, "/")
-            new = tag.replace(h.group(0), f'href="{to_read}?doc={quote(rel)}"')
+            page = f"&amp;page={h.group(2)}" if h.group(2) else ""
+            new = tag.replace(h.group(0), f'href="{to_read}?doc={quote(rel)}{page}"')
             return re.sub(r'\s+target="_blank"', "", new)
         new_s = re.sub(r"<a\s[^>]*>", fix, s)
         if new_s != s:

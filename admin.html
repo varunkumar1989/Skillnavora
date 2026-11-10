@@ -16,7 +16,7 @@
 <link rel="icon" href="assets/logo-s.svg?v=2912e394" type="image/svg+xml"><link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=2aba16c0">
+<link rel="stylesheet" href="assets/site.css?v=87894edc">
 </head>
 <body data-root="" data-app>
 <header class="top"><div class="wrap">
@@ -48,7 +48,7 @@
   <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-ghost btn-sm" id="refresh" type="button">Refresh</button><a class="btn btn-ghost btn-sm" href="lms.html">My LMS</a><button class="btn btn-ghost btn-sm" data-signout type="button">Log out</button></div></div></div>
 <section style="padding-top:26px"><div class="wrap">
   <p id="app-msg" class="notice" hidden role="status" style="margin-bottom:18px"></p>
-  <div id="denied" class="card" hidden><h3 class="h3s">You don't have admin access yet</h3><p>You're signed in as <b id="denied-email"></b>, which is a student account.</p>
+  <div id="denied" class="card" hidden><h3 class="h3s"><a href="lms.html">You don't have admin access yet</a></h3><p>You're signed in as <b id="denied-email"></b>, which is a student account.</p>
     <p class="meta" style="margin:0 0 8px">To make this account an admin, open your Supabase project → <b>SQL Editor</b> → <b>New query</b>, paste this, click <b>Run</b>, then click <b>Refresh</b> above:</p>
     <pre class="tpl" id="denied-sql" style="white-space:pre-wrap"></pre>
     <button class="btn btn-line btn-sm" type="button" onclick="navigator.clipboard.writeText(document.getElementById('denied-sql').innerText).then(()=>this.textContent='Copied ✓')">Copy SQL</button>

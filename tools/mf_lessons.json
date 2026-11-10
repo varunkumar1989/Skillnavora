@@ -1,0 +1,2902 @@
+{
+ "1": [
+  {
+   "num": 1,
+   "name": "Full-Stack Developer",
+   "lessons": [
+    {
+     "id": "d1l1-1",
+     "lid": "1.1",
+     "title": "Foundations of full-stack architecture",
+     "learn": [
+      [
+       "Client-server model",
+       "A client (browser or app) sends a request; a server processes it and sends a response."
+      ],
+      [
+       "HTTP protocol",
+       "Requests have a method (GET, POST, PUT, PATCH, DELETE), a path, headers and sometimes a body."
+      ],
+      [
+       "RESTful APIs",
+       "Resources have URLs (for example /users/1) and the HTTP method says the action."
+      ],
+      [
+       "GraphQL",
+       "One endpoint where the client asks for exactly the fields it needs."
+      ]
+     ],
+     "tools": [
+      [
+       "MDN Web Docs: HTTP",
+       "https://developer.mozilla.org/docs/Web/HTTP"
+      ],
+      [
+       "Postman documentation",
+       "https://learning.postman.com/docs/"
+      ]
+     ],
+     "practice": "Prove you can read and make an HTTP exchange."
+    },
+    {
+     "id": "d1l1-2",
+     "lid": "1.2",
+     "title": "Frontend engineering (React and Next.js)",
+     "learn": [
+      [
+       "DOM manipulation",
+       "The DOM is the live tree of page elements."
+      ],
+      [
+       "Component lifecycle",
+       "A component mounts, updates when its state or props change, and unmounts."
+      ],
+      [
+       "State management",
+       "Keep state as local as possible."
+      ]
+     ],
+     "tools": [
+      [
+       "React documentation",
+       "https://react.dev"
+      ],
+      [
+       "Next.js documentation",
+       "https://nextjs.org/docs"
+      ],
+      [
+       "Zustand",
+       "https://github.com/pmndrs/zustand"
+      ],
+      [
+       "Redux Toolkit",
+       "https://redux-toolkit.js.org"
+      ]
+     ],
+     "practice": "Build a counter and a shared cart count."
+    },
+    {
+     "id": "d1l1-3",
+     "lid": "1.3",
+     "title": "Backend engineering and databases",
+     "learn": [
+      [
+       "Node.js and Express",
+       "Node runs JavaScript on the server."
+      ],
+      [
+       "ORMs: Prisma and Drizzle",
+       "An ORM maps database tables to code."
+      ],
+      [
+       "PostgreSQL",
+       "A relational database: tables, keys, joins, constraints and transactions."
+      ],
+      [
+       "MongoDB",
+       "A document database that stores JSON-like documents."
+      ]
+     ],
+     "tools": [
+      [
+       "Node.js",
+       "https://nodejs.org/docs/latest/api/"
+      ],
+      [
+       "Express",
+       "https://expressjs.com"
+      ],
+      [
+       "Prisma",
+       "https://www.prisma.io/docs"
+      ],
+      [
+       "Drizzle ORM",
+       "https://orm.drizzle.team"
+      ],
+      [
+       "PostgreSQL",
+       "https://www.postgresql.org/docs/"
+      ],
+      [
+       "MongoDB",
+       "https://www.mongodb.com/docs/"
+      ]
+     ],
+     "practice": "Create a small tasks API."
+    },
+    {
+     "id": "d1l1-4",
+     "lid": "1.4",
+     "title": "AI-assisted rapid development (vibe coding)",
+     "learn": [
+      [
+       "What it is",
+       "Describing the app in words and letting an AI tool generate code."
+      ],
+      [
+       "Tools",
+       "Lovable and Bolt generate whole web apps from prompts."
+      ],
+      [
+       "Lovable to Supabase workflow",
+       "1."
+      ],
+      [
+       "Safety",
+       "Never paste secrets into prompts."
+      ]
+     ],
+     "tools": [
+      [
+       "Lovable",
+       "https://lovable.dev"
+      ],
+      [
+       "Bolt",
+       "https://bolt.new"
+      ],
+      [
+       "Cursor",
+       "https://cursor.com"
+      ],
+      [
+       "Supabase documentation",
+       "https://supabase.com/docs"
+      ]
+     ],
+     "practice": "Build a feedback form with saved responses."
+    },
+    {
+     "id": "d1l1-5",
+     "lid": "1.5",
+     "title": "Deployment and DevOps",
+     "learn": [
+      [
+       "CI/CD pipelines",
+       "Continuous integration runs tests on every change; continuous delivery deploys passing builds."
+      ],
+      [
+       "Vercel and Render",
+       "Vercel suits frontends and Next.js; Render runs servers, databases and background workers."
+      ],
+      [
+       "Docker",
+       "A container packages the app with its dependencies so it runs the same everywhere."
+      ],
+      [
+       "AWS S3 asset hosting",
+       "S3 stores files such as images."
+      ]
+     ],
+     "tools": [
+      [
+       "GitHub Actions",
+       "https://docs.github.com/actions"
+      ],
+      [
+       "Vercel",
+       "https://vercel.com/docs"
+      ],
+      [
+       "Render",
+       "https://render.com/docs"
+      ],
+      [
+       "Docker",
+       "https://docs.docker.com"
+      ],
+      [
+       "Amazon S3",
+       "https://docs.aws.amazon.com/s3/"
+      ]
+     ],
+     "practice": "Ship the tasks API."
+    }
+   ]
+  },
+  {
+   "num": 2,
+   "name": "WordPress Developer",
+   "lessons": [
+    {
+     "id": "d1l2-1",
+     "lid": "2.1",
+     "title": "WordPress core and custom theme development",
+     "learn": [
+      [
+       "PHP fundamentals",
+       "Variables, arrays, functions and conditionals; WordPress runs on PHP."
+      ],
+      [
+       "Template hierarchy",
+       "WordPress picks the template file by page type: single.php for a post, page.php for a page, archive.php for lists, falling back to index.php."
+      ],
+      [
+       "Hooks",
+       "Actions run your code at set points (add_action)."
+      ],
+      [
+       "wp-config security",
+       "Keep wp-config.php outside public access where possible, use unique salts, disable file editing (DISALLOW_FILE_EDIT) and never commit credentials."
+      ]
+     ],
+     "tools": [
+      [
+       "WordPress developer resources",
+       "https://developer.wordpress.org"
+      ],
+      [
+       "Theme handbook",
+       "https://developer.wordpress.org/themes/"
+      ]
+     ],
+     "practice": "Create a child theme with one filter."
+    },
+    {
+     "id": "d1l2-2",
+     "lid": "2.2",
+     "title": "Page builders and dynamic content",
+     "learn": [
+      [
+       "Elementor Pro and Bricks",
+       "Visual builders for layouts."
+      ],
+      [
+       "Advanced Custom Fields",
+       "Adds structured fields (price, date, image) to posts and pages."
+      ],
+      [
+       "Custom Post Types",
+       "Create content types such as Properties or Courses beyond Posts and Pages."
+      ]
+     ],
+     "tools": [
+      [
+       "Elementor",
+       "https://elementor.com"
+      ],
+      [
+       "Bricks Builder",
+       "https://bricksbuilder.io"
+      ],
+      [
+       "ACF",
+       "https://www.advancedcustomfields.com"
+      ]
+     ],
+     "practice": "Build a Courses listing."
+    },
+    {
+     "id": "d1l2-3",
+     "lid": "2.3",
+     "title": "Automation integration (WordPress and n8n)",
+     "learn": [
+      [
+       "REST API",
+       "WordPress exposes content at /wp-json/."
+      ],
+      [
+       "Webhook workflow",
+       "1."
+      ],
+      [
+       "Reliability",
+       "Verify webhook signatures, return 200 quickly and make the flow safe to run twice."
+      ]
+     ],
+     "tools": [
+      [
+       "WordPress REST API",
+       "https://developer.wordpress.org/rest-api/"
+      ],
+      [
+       "n8n documentation",
+       "https://docs.n8n.io"
+      ],
+      [
+       "Twilio WhatsApp",
+       "https://www.twilio.com/docs/whatsapp"
+      ]
+     ],
+     "practice": "Build the order alert flow."
+    },
+    {
+     "id": "d1l2-4",
+     "lid": "2.4",
+     "title": "Speed optimisation and hardening",
+     "learn": [
+      [
+       "Redis caching",
+       "An object cache keeps repeated database results in memory."
+      ],
+      [
+       "WP Rocket",
+       "A caching plugin: page cache, file minification and lazy loading."
+      ],
+      [
+       "Cloudflare CDN",
+       "Serves static files from nearby locations and adds protection."
+      ],
+      [
+       "Security",
+       "Keep core, themes and plugins updated; limit login attempts; use two-factor sign-in; take backups and test restoring them."
+      ]
+     ],
+     "tools": [
+      [
+       "WP Rocket",
+       "https://wp-rocket.me"
+      ],
+      [
+       "Cloudflare",
+       "https://developers.cloudflare.com"
+      ],
+      [
+       "Redis",
+       "https://redis.io/docs/"
+      ]
+     ],
+     "practice": "Speed up a test site."
+    }
+   ]
+  },
+  {
+   "num": 3,
+   "name": "Web Developer (vanilla JS and modern web standards)",
+   "lessons": [
+    {
+     "id": "d1l3-1",
+     "lid": "3.1",
+     "title": "HTML5 semantic structure and WCAG accessibility",
+     "learn": [
+      [
+       "Semantic elements",
+       "header, nav, main, section, article, footer give meaning to assistive tools and search engines."
+      ],
+      [
+       "WCAG basics",
+       "Perceivable, operable, understandable, robust."
+      ],
+      [
+       "Testing",
+       "Tab through the page, use a screen reader, and run an automated checker; automated tools catch only part of the issues."
+      ]
+     ],
+     "tools": [
+      [
+       "MDN accessibility",
+       "https://developer.mozilla.org/docs/Web/Accessibility"
+      ],
+      [
+       "WCAG overview",
+       "https://www.w3.org/WAI/standards-guidelines/wcag/"
+      ]
+     ],
+     "practice": "Fix an inaccessible form."
+    },
+    {
+     "id": "d1l3-2",
+     "lid": "3.2",
+     "title": "Advanced CSS3",
+     "learn": [
+      [
+       "Flexbox",
+       "One-dimensional layout: rows or columns with alignment and spacing."
+      ],
+      [
+       "Grid",
+       "Two-dimensional layout with rows and columns defined together."
+      ],
+      [
+       "CSS variables",
+       "Custom properties such as --brand store design values once."
+      ],
+      [
+       "Animations",
+       "Use transitions and keyframes on transform and opacity for smooth results; respect prefers-reduced-motion."
+      ],
+      [
+       "Tailwind CSS",
+       "Utility classes written in the markup."
+      ]
+     ],
+     "tools": [
+      [
+       "MDN CSS",
+       "https://developer.mozilla.org/docs/Web/CSS"
+      ],
+      [
+       "Tailwind CSS",
+       "https://tailwindcss.com/docs"
+      ]
+     ],
+     "practice": "Build a responsive card grid."
+    },
+    {
+     "id": "d1l3-3",
+     "lid": "3.3",
+     "title": "Modern JavaScript (ES6+)",
+     "learn": [
+      [
+       "Async/await",
+       "Writes promise code in a readable order."
+      ],
+      [
+       "Fetch API",
+       "fetch returns a promise; check response.ok because HTTP errors do not reject."
+      ],
+      [
+       "Event loop",
+       "Synchronous code runs first, then microtasks (promises), then timers and other tasks."
+      ],
+      [
+       "Modules",
+       "import and export split code into files with clear dependencies."
+      ]
+     ],
+     "tools": [
+      [
+       "MDN JavaScript",
+       "https://developer.mozilla.org/docs/Web/JavaScript"
+      ]
+     ],
+     "practice": "Predict the order, then run it."
+    }
+   ]
+  },
+  {
+   "num": 4,
+   "name": "Shopify Developer",
+   "lessons": [
+    {
+     "id": "d1l4-1",
+     "lid": "4.1",
+     "title": "Liquid templating engine",
+     "learn": [
+      [
+       "Tags",
+       "Control flow such as {% if %} and {% for %}."
+      ],
+      [
+       "Objects",
+       "Data such as product, collection and cart, printed with {{ }}."
+      ],
+      [
+       "Filters",
+       "Change values: {{ product.price | money }}."
+      ],
+      [
+       "Schema settings",
+       "A JSON block in a section that gives merchants editable settings in the theme editor."
+      ]
+     ],
+     "tools": [
+      [
+       "Liquid reference",
+       "https://shopify.dev/docs/api/liquid"
+      ],
+      [
+       "Shopify theme docs",
+       "https://shopify.dev/docs/storefronts/themes"
+      ]
+     ],
+     "practice": "Show sale prices."
+    },
+    {
+     "id": "d1l4-2",
+     "lid": "4.2",
+     "title": "Custom sections and Shopify CLI workflows",
+     "learn": [
+      [
+       "Sections",
+       "Reusable theme blocks with their own markup, settings and blocks."
+      ],
+      [
+       "Shopify CLI",
+       "Run the theme locally, push to a development theme and pull changes."
+      ],
+      [
+       "Version control",
+       "Keep the theme in Git so every change has a history."
+      ]
+     ],
+     "tools": [
+      [
+       "Shopify CLI",
+       "https://shopify.dev/docs/api/shopify-cli"
+      ]
+     ],
+     "practice": "Create a promo banner section."
+    },
+    {
+     "id": "d1l4-3",
+     "lid": "4.3",
+     "title": "Storefront API and headless commerce",
+     "learn": [
+      [
+       "Storefront API",
+       "Read products and manage carts from your own front end using GraphQL."
+      ],
+      [
+       "Headless",
+       "The front end is separate from Shopify's theme."
+      ],
+      [
+       "Hydrogen and Next.js",
+       "Hydrogen is Shopify's React framework for storefronts; Next.js also works with the Storefront API."
+      ]
+     ],
+     "tools": [
+      [
+       "Storefront API",
+       "https://shopify.dev/docs/api/storefront"
+      ],
+      [
+       "Hydrogen",
+       "https://shopify.dev/docs/storefronts/headless/hydrogen"
+      ]
+     ],
+     "practice": "Fetch products into Next.js."
+    }
+   ]
+  },
+  {
+   "num": 5,
+   "name": "Mobile Application Developer",
+   "lessons": [
+    {
+     "id": "d1l5-1",
+     "lid": "5.1",
+     "title": "Cross-platform engineering with React Native and Flutter",
+     "learn": [
+      [
+       "React Native",
+       "JavaScript and React; renders native components."
+      ],
+      [
+       "Flutter",
+       "Dart; draws its own interface with a consistent look across platforms."
+      ],
+      [
+       "Choosing",
+       "Pick React Native if the team already knows React; pick Flutter for highly custom visuals and one rendering engine."
+      ]
+     ],
+     "tools": [
+      [
+       "React Native",
+       "https://reactnative.dev"
+      ],
+      [
+       "Flutter",
+       "https://docs.flutter.dev"
+      ]
+     ],
+     "practice": "Build a two-screen app."
+    },
+    {
+     "id": "d1l5-2",
+     "lid": "5.2",
+     "title": "Native device APIs",
+     "learn": [
+      [
+       "Camera and GPS",
+       "Ask permission in context and handle refusal gracefully."
+      ],
+      [
+       "Push notifications",
+       "Register a device token and send through a push service; ask for consent and keep messages useful."
+      ],
+      [
+       "Offline storage",
+       "Store data locally and sync when online; decide how conflicts are resolved."
+      ]
+     ],
+     "tools": [
+      [
+       "Expo documentation",
+       "https://docs.expo.dev"
+      ]
+     ],
+     "practice": "Add offline notes."
+    },
+    {
+     "id": "d1l5-3",
+     "lid": "5.3",
+     "title": "App store optimisation and deployment",
+     "learn": [
+      [
+       "ASO",
+       "Title, subtitle, keywords, screenshots and ratings influence discovery."
+      ],
+      [
+       "Google Play Console",
+       "Create the app, upload a signed bundle, complete the content and data-safety forms, test, then release."
+      ],
+      [
+       "Apple App Store",
+       "Use an Apple Developer account, upload through App Store Connect, add privacy details and pass review."
+      ]
+     ],
+     "tools": [
+      [
+       "Google Play Console help",
+       "https://support.google.com/googleplay/android-developer"
+      ],
+      [
+       "App Store Connect",
+       "https://developer.apple.com/app-store-connect/"
+      ]
+     ],
+     "practice": "Prepare store listings."
+    }
+   ]
+  },
+  {
+   "num": 6,
+   "name": "Webflow Developer",
+   "lessons": [
+    {
+     "id": "d1l6-1",
+     "lid": "6.1",
+     "title": "Webflow box model, responsive layouts and Client-First naming",
+     "learn": [
+      [
+       "Box model",
+       "Content, padding, border, margin."
+      ],
+      [
+       "Responsive layouts",
+       "Design for desktop then adjust breakpoints; test on real phones."
+      ],
+      [
+       "Client-First",
+       "A naming system with consistent class names (for example section_ and u- utilities) so any teammate can edit the project."
+      ]
+     ],
+     "tools": [
+      [
+       "Webflow University",
+       "https://university.webflow.com"
+      ],
+      [
+       "Client-First",
+       "https://finsweet.com/client-first"
+      ]
+     ],
+     "practice": "Build a landing section."
+    },
+    {
+     "id": "d1l6-2",
+     "lid": "6.2",
+     "title": "Webflow CMS, dynamic filtering and custom code",
+     "learn": [
+      [
+       "CMS collections",
+       "Fields, items and collection pages that share one template."
+      ],
+      [
+       "Dynamic filtering",
+       "Filter lists by category or reference fields."
+      ],
+      [
+       "Custom code",
+       "Add scripts in project settings or embeds, test them, and avoid loading unneeded libraries."
+      ]
+     ],
+     "tools": [
+      [
+       "Webflow CMS",
+       "https://university.webflow.com/lesson/intro-to-the-cms"
+      ]
+     ],
+     "practice": "Create a blog with categories."
+    }
+   ]
+  },
+  {
+   "num": 7,
+   "name": "Frontend Developer (React.js focus)",
+   "lessons": [
+    {
+     "id": "d1l7-1",
+     "lid": "7.1",
+     "title": "React hooks",
+     "learn": [
+      [
+       "useState",
+       "Local state; update with the setter, never by changing the value directly."
+      ],
+      [
+       "useEffect",
+       "Side effects after render; list dependencies carefully and clean up."
+      ],
+      [
+       "useContext",
+       "Share values such as theme or user without passing props down every level."
+      ],
+      [
+       "useMemo and useCallback",
+       "Cache a computed value or a function between renders."
+      ]
+     ],
+     "tools": [
+      [
+       "React hooks reference",
+       "https://react.dev/reference/react/hooks"
+      ]
+     ],
+     "practice": "Fix a stale-data bug."
+    },
+    {
+     "id": "d1l7-2",
+     "lid": "7.2",
+     "title": "SSR vs SSG in Next.js",
+     "learn": [
+      [
+       "SSG",
+       "Pages are built once at build time."
+      ],
+      [
+       "SSR",
+       "Pages are built on each request."
+      ],
+      [
+       "Choosing",
+       "Marketing pages and docs suit SSG; dashboards and account pages suit SSR."
+      ]
+     ],
+     "tools": [
+      [
+       "Next.js rendering",
+       "https://nextjs.org/docs/app/building-your-application/rendering"
+      ]
+     ],
+     "practice": "Pick a strategy for five pages."
+    }
+   ]
+  },
+  {
+   "num": 8,
+   "name": "E-Commerce Developer",
+   "lessons": [
+    {
+     "id": "d1l8-1",
+     "lid": "8.1",
+     "title": "Cart logic, checkout, PCI-DSS and multi-currency",
+     "learn": [
+      [
+       "Cart logic",
+       "Total = items, discounts, shipping and tax in a fixed order."
+      ],
+      [
+       "Checkout",
+       "Validate stock and address, then create an order before payment is confirmed; confirm only after the payment provider says it succeeded."
+      ],
+      [
+       "PCI-DSS",
+       "The standard for protecting card data."
+      ],
+      [
+       "Multi-currency",
+       "Show prices in the buyer's currency with a rate you can explain, round consistently and charge in the currency shown."
+      ]
+     ],
+     "tools": [
+      [
+       "PCI Security Standards Council",
+       "https://www.pcisecuritystandards.org"
+      ]
+     ],
+     "practice": "Compute a cart total."
+    },
+    {
+     "id": "d1l8-2",
+     "lid": "8.2",
+     "title": "Payment gateway integration",
+     "learn": [
+      [
+       "Stripe, Razorpay and PayPal",
+       "Each provides checkout pages, SDKs and webhooks."
+      ],
+      [
+       "Flow",
+       "Create an order on your server, open the provider's checkout, receive a webhook, verify its signature, then mark the order paid."
+      ],
+      [
+       "Test mode",
+       "Use the provider's test keys and test cards; never test with real cards."
+      ]
+     ],
+     "tools": [
+      [
+       "Stripe docs",
+       "https://docs.stripe.com"
+      ],
+      [
+       "Razorpay docs",
+       "https://razorpay.com/docs/"
+      ],
+      [
+       "PayPal developer",
+       "https://developer.paypal.com"
+      ]
+     ],
+     "practice": "Add test-mode checkout."
+    }
+   ]
+  },
+  {
+   "num": 9,
+   "name": "React.js and Next.js Advanced Developer",
+   "lessons": [
+    {
+     "id": "d1l9-1",
+     "lid": "9.1",
+     "title": "Next.js App Router, server actions, edge functions and middleware",
+     "learn": [
+      [
+       "App Router",
+       "Folders define routes; layouts nest; server components run on the server by default."
+      ],
+      [
+       "Server actions",
+       "Functions that run on the server and are called from forms or components."
+      ],
+      [
+       "Edge functions and middleware",
+       "Run close to the user before a request completes: redirects, auth checks, headers."
+      ],
+      [
+       "Security",
+       "Treat every server action as a public endpoint."
+      ]
+     ],
+     "tools": [
+      [
+       "Next.js App Router",
+       "https://nextjs.org/docs/app"
+      ]
+     ],
+     "practice": "Protect a route."
+    }
+   ]
+  },
+  {
+   "num": 10,
+   "name": "Bubble.io Developer",
+   "lessons": [
+    {
+     "id": "d1l10-1",
+     "lid": "10.1",
+     "title": "Visual database modelling, privacy rules, API Connector and plugins",
+     "learn": [
+      [
+       "Data types",
+       "Model things (User, Order) with fields and relationships."
+      ],
+      [
+       "Privacy rules",
+       "Control who can find and see each type."
+      ],
+      [
+       "API Connector",
+       "Call outside APIs with set headers and parameters; keep keys private."
+      ],
+      [
+       "Plugins",
+       "Use trusted plugins and consider writing your own for repeated needs."
+      ]
+     ],
+     "tools": [
+      [
+       "Bubble manual",
+       "https://manual.bubble.io"
+      ]
+     ],
+     "practice": "Lock down a data type."
+    }
+   ]
+  }
+ ],
+ "2": [
+  {
+   "num": 1,
+   "name": "AI Video Creator and Editor",
+   "lessons": [
+    {
+     "id": "d2l1-1",
+     "lid": "1.1",
+     "title": "Image-to-video and text-to-video platforms",
+     "learn": [
+      [
+       "Text-to-video vs image-to-video",
+       "Text-to-video builds a clip from a prompt."
+      ],
+      [
+       "Runway ML",
+       "A full creative suite with video generation, editing tools and camera controls."
+      ],
+      [
+       "Kling AI",
+       "A video generator known for strong motion and realism; it uses a credit system."
+      ],
+      [
+       "Pika Labs",
+       "Short clips and effects; quick for stylised results."
+      ],
+      [
+       "HeyGen",
+       "Talking avatars and translated video with lip-sync; useful for explainers and training."
+      ],
+      [
+       "Before you start",
+       "Plans, credits and features change often."
+      ]
+     ],
+     "tools": [
+      [
+       "Runway",
+       "https://runwayml.com"
+      ],
+      [
+       "Kling AI",
+       "https://klingai.com"
+      ],
+      [
+       "Pika",
+       "https://pika.art"
+      ],
+      [
+       "HeyGen",
+       "https://www.heygen.com"
+      ]
+     ],
+     "practice": "Compare four tools on one idea."
+    },
+    {
+     "id": "d2l1-2",
+     "lid": "1.2",
+     "title": "Prompt engineering for consistent scenes and characters",
+     "learn": [
+      [
+       "The consistency formula",
+       "[Subject description] + [Style and lighting] + [Camera lens specs] + [Seed number or reference image]."
+      ],
+      [
+       "Reference images",
+       "Most tools let you upload a reference of the character."
+      ],
+      [
+       "Seeds",
+       "Some tools expose a seed number; reusing it with similar prompts gives similar results."
+      ],
+      [
+       "Keep a character sheet",
+       "Write one fixed paragraph describing the character and paste it into every prompt."
+      ],
+      [
+       "Aspect ratio",
+       "The flag --ar 16:9 is Midjourney syntax."
+      ]
+     ],
+     "tools": [
+      [
+       "Runway learn",
+       "https://help.runwayml.com"
+      ],
+      [
+       "Midjourney docs",
+       "https://docs.midjourney.com"
+      ]
+     ],
+     "practice": "Write a character sheet and three shots."
+    },
+    {
+     "id": "d2l1-3",
+     "lid": "1.3",
+     "title": "Video production case studies and prompts",
+     "learn": [
+      [
+       "How to use these",
+       "Treat each prompt as a starting point."
+      ],
+      [
+       "Respect",
+       "The mythological prompt depicts a religious figure."
+      ],
+      [
+       "Case study A: cartoon animation",
+       "3D Pixar-style animation of a brave young explorer holding a glowing map inside an ancient temple, soft cinematic lighting, 8k resolution, highly detailed character desig"
+      ],
+      [
+       "Case study B: epic mythological scene (Ramayan theme)",
+       "Cinematic shot of Lord Rama standing on an ocean cliff holding a glowing bow, dramatic stormy sky, golden armour detailing, photorealistic render, wide-angle lens, Unreal"
+      ],
+      [
+       "Case study C: dynamic action scene",
+       "Action camera tracking shot of a martial arts duel on a rainy neon-lit roof at night, slow-motion impact shot, wet reflections, cinematic motion blur, 80mm lens, anamorph"
+      ],
+      [
+       "Case study D: multi-character narrative",
+       "Wide cinematic shot in a grand stone throne room: a regal King in velvet robes sitting beside a graceful Queen, while a shadowed figure in a dark hooded cloak approaches "
+      ]
+     ],
+     "tools": [
+      [
+       "Runway",
+       "https://runwayml.com"
+      ],
+      [
+       "Kling AI",
+       "https://klingai.com"
+      ]
+     ],
+     "practice": "Produce one of the four scenes."
+    },
+    {
+     "id": "d2l1-4",
+     "lid": "1.4",
+     "title": "Credit optimisation and efficiency",
+     "learn": [
+      [
+       "Two-stage method",
+       "Create the base image in an image tool (Midjourney or Leonardo.ai), approve it, then animate only the approved image in Runway or Kling."
+      ],
+      [
+       "Short test clips",
+       "Generate 3 to 5 second tests before a longer clip."
+      ],
+      [
+       "Reuse",
+       "Animate several shots from one approved set of images."
+      ],
+      [
+       "Track",
+       "Keep a sheet of credits spent per scene."
+      ]
+     ],
+     "tools": [
+      [
+       "Leonardo.ai",
+       "https://leonardo.ai"
+      ],
+      [
+       "Midjourney",
+       "https://www.midjourney.com"
+      ]
+     ],
+     "practice": "Plan a 30-second ad on a credit budget."
+    },
+    {
+     "id": "d2l1-5",
+     "lid": "1.5",
+     "title": "Post-production and audio sync",
+     "learn": [
+      [
+       "Voice-over",
+       "ElevenLabs creates voices from text."
+      ],
+      [
+       "Lip-sync",
+       "Match mouth movement to the audio in the video tool's lip-sync feature or in HeyGen."
+      ],
+      [
+       "Subtitles",
+       "CapCut can auto-generate subtitles; always proofread them."
+      ],
+      [
+       "Score and mix",
+       "Descript edits audio like text and helps arrange music; keep voice louder than music."
+      ]
+     ],
+     "tools": [
+      [
+       "ElevenLabs",
+       "https://elevenlabs.io"
+      ],
+      [
+       "CapCut",
+       "https://www.capcut.com"
+      ],
+      [
+       "Descript",
+       "https://www.descript.com"
+      ]
+     ],
+     "practice": "Finish a 30-second clip."
+    }
+   ]
+  },
+  {
+   "num": 2,
+   "name": "AI Integration Developer",
+   "lessons": [
+    {
+     "id": "d2l2-1",
+     "lid": "2.1",
+     "title": "OpenAI API and Anthropic SDK integration in Node.js and Python",
+     "learn": [
+      [
+       "The call",
+       "Send messages (a system message and the user's message) to the model API and read the reply."
+      ],
+      [
+       "API keys",
+       "Keep keys in environment variables on the server, never in front-end code or the repository."
+      ],
+      [
+       "Handling errors",
+       "Expect rate limits and timeouts; retry with a short wait and give the user a clear message."
+      ],
+      [
+       "Costs",
+       "You pay for input and output tokens; set limits and log usage."
+      ],
+      [
+       "Model names",
+       "Names change; read the provider's current model list rather than copying an old name."
+      ]
+     ],
+     "tools": [
+      [
+       "Anthropic documentation",
+       "https://docs.anthropic.com"
+      ],
+      [
+       "OpenAI documentation",
+       "https://platform.openai.com/docs"
+      ]
+     ],
+     "practice": "Build a one-route summariser."
+    },
+    {
+     "id": "d2l2-2",
+     "lid": "2.2",
+     "title": "Vector databases: Pinecone, ChromaDB and Weaviate",
+     "learn": [
+      [
+       "Embeddings",
+       "An embedding turns text into a list of numbers so similar meanings are near each other."
+      ],
+      [
+       "Similarity search",
+       "Find the stored items closest to the question's embedding, often by cosine similarity (the code below shows the idea with tiny vectors)."
+      ],
+      [
+       "Choosing",
+       "ChromaDB is simple to run locally."
+      ]
+     ],
+     "tools": [
+      [
+       "Pinecone",
+       "https://docs.pinecone.io"
+      ],
+      [
+       "Chroma",
+       "https://docs.trychroma.com"
+      ],
+      [
+       "Weaviate",
+       "https://weaviate.io/developers/weaviate"
+      ]
+     ],
+     "practice": "Run a similarity search."
+    },
+    {
+     "id": "d2l2-3",
+     "lid": "2.3",
+     "title": "Retrieval-augmented generation (RAG) and document indexing",
+     "learn": [
+      [
+       "The pipeline",
+       "Split documents into chunks, embed and index them, retrieve the best chunks for a question, give them to the model with the question, and ask it to answer only from them "
+      ],
+      [
+       "Chunking",
+       "Chunks of a few hundred words with a little overlap keep ideas together."
+      ],
+      [
+       "Failure modes",
+       "Wrong chunk retrieved, answer not in the documents, or the model ignoring the context."
+      ],
+      [
+       "Privacy",
+       "Index only documents you may use and respect who can see what."
+      ]
+     ],
+     "tools": [
+      [
+       "Anthropic RAG guidance",
+       "https://docs.anthropic.com"
+      ],
+      [
+       "LlamaIndex",
+       "https://docs.llamaindex.ai"
+      ]
+     ],
+     "practice": "Test a mini RAG."
+    }
+   ]
+  },
+  {
+   "num": 3,
+   "name": "Chatbot Developer",
+   "lessons": [
+    {
+     "id": "d2l3-1",
+     "lid": "3.1",
+     "title": "RAG-powered bots in Voiceflow, Botpress and Flowise",
+     "learn": [
+      [
+       "Voiceflow",
+       "Visual conversation design with a knowledge base."
+      ],
+      [
+       "Botpress",
+       "A builder with knowledge bases, flows and channel connections."
+      ],
+      [
+       "Flowise",
+       "An open-source drag-and-drop builder for language-model flows, which can be self-hosted."
+      ],
+      [
+       "Design rules",
+       "Greet, state what the bot can do, answer from the knowledge base, offer a human, log unanswered questions and review them weekly."
+      ]
+     ],
+     "tools": [
+      [
+       "Voiceflow",
+       "https://docs.voiceflow.com"
+      ],
+      [
+       "Botpress",
+       "https://botpress.com/docs"
+      ],
+      [
+       "Flowise",
+       "https://docs.flowiseai.com"
+      ]
+     ],
+     "practice": "Build a support bot for ten FAQs."
+    },
+    {
+     "id": "d2l3-2",
+     "lid": "3.2",
+     "title": "WhatsApp Business API integration via Twilio and Wati",
+     "learn": [
+      [
+       "Consent",
+       "Message only people who opted in, and follow WhatsApp's business and commerce policies."
+      ],
+      [
+       "Templates",
+       "Business-started conversations use pre-approved templates; replies within the service window can be free-form."
+      ],
+      [
+       "Setup",
+       "Get a business account and phone number through the provider, set a webhook for incoming messages, and send replies through the API."
+      ],
+      [
+       "Providers",
+       "Twilio gives developer APIs; Wati is a no-code platform."
+      ]
+     ],
+     "tools": [
+      [
+       "Twilio WhatsApp",
+       "https://www.twilio.com/docs/whatsapp"
+      ],
+      [
+       "Wati",
+       "https://www.wati.io"
+      ],
+      [
+       "WhatsApp Business Platform",
+       "https://developers.facebook.com/docs/whatsapp"
+      ]
+     ],
+     "practice": "Plan a WhatsApp order-status bot."
+    }
+   ]
+  },
+  {
+   "num": 4,
+   "name": "Machine Learning and AI Engineer",
+   "lessons": [
+    {
+     "id": "d2l4-1",
+     "lid": "4.1",
+     "title": "Data preprocessing and model training (Pandas, NumPy, Scikit-Learn, PyTorch)",
+     "learn": [
+      [
+       "Preprocessing",
+       "Clean missing values, fix types, encode categories and scale numbers where the model needs it."
+      ],
+      [
+       "Train and test split",
+       "Train on one part of the data and measure on rows the model has not seen."
+      ],
+      [
+       "Scikit-Learn",
+       "Classical models with a common fit and predict pattern."
+      ],
+      [
+       "PyTorch",
+       "Flexible framework for neural networks; use it when classical models are not enough."
+      ],
+      [
+       "Honest evaluation",
+       "One accuracy number on a tiny sample proves little."
+      ]
+     ],
+     "tools": [
+      [
+       "Pandas",
+       "https://pandas.pydata.org/docs/"
+      ],
+      [
+       "NumPy",
+       "https://numpy.org/doc/"
+      ],
+      [
+       "Scikit-learn",
+       "https://scikit-learn.org/stable/"
+      ],
+      [
+       "PyTorch",
+       "https://pytorch.org/docs/"
+      ]
+     ],
+     "practice": "Train a purchase predictor."
+    }
+   ]
+  },
+  {
+   "num": 5,
+   "name": "Automation Expert (Make and Zapier)",
+   "lessons": [
+    {
+     "id": "d2l5-1",
+     "lid": "5.1",
+     "title": "Multi-step scenarios, JSON parsing, array aggregators and webhooks",
+     "learn": [
+      [
+       "Routing",
+       "Use routers or paths so different conditions follow different steps, with a fallback path."
+      ],
+      [
+       "JSON parsing",
+       "Convert incoming text into fields you can map; check the structure first."
+      ],
+      [
+       "Array aggregator",
+       "Collects many items into one bundle or total, for example orders per city (shown in code below)."
+      ],
+      [
+       "Webhook listeners",
+       "A URL that starts the scenario when another app sends data."
+      ]
+     ],
+     "tools": [
+      [
+       "Make help",
+       "https://help.make.com"
+      ],
+      [
+       "Zapier help",
+       "https://help.zapier.com"
+      ]
+     ],
+     "practice": "Total orders by city."
+    }
+   ]
+  },
+  {
+   "num": 6,
+   "name": "n8n Expert",
+   "lessons": [
+    {
+     "id": "d2l6-1",
+     "lid": "6.1",
+     "title": "Self-hosting n8n with Docker on DigitalOcean or AWS",
+     "learn": [
+      [
+       "Why self-host",
+       "More control and no per-run limits on the open-source edition, in exchange for maintaining the server."
+      ],
+      [
+       "Steps",
+       "Create a small server, install Docker, run the n8n image with a persistent volume, put it behind HTTPS with a reverse proxy, set a strong encryption key and sign-in, and "
+      ],
+      [
+       "Security",
+       "Do not expose the editor without authentication; keep the server updated."
+      ]
+     ],
+     "tools": [
+      [
+       "n8n self-hosting",
+       "https://docs.n8n.io/hosting/"
+      ],
+      [
+       "DigitalOcean docs",
+       "https://docs.digitalocean.com"
+      ],
+      [
+       "AWS docs",
+       "https://docs.aws.amazon.com"
+      ]
+     ],
+     "practice": "Write a deployment checklist."
+    },
+    {
+     "id": "d2l6-2",
+     "lid": "6.2",
+     "title": "Custom JavaScript nodes, error workflows and API polling",
+     "learn": [
+      [
+       "Code node",
+       "Run JavaScript on items to reshape data."
+      ],
+      [
+       "Error workflows",
+       "A separate workflow that runs when another fails and alerts you with the workflow name and the error."
+      ],
+      [
+       "Polling",
+       "Call an API on a schedule; remember the last item processed to avoid duplicates, and respect rate limits."
+      ]
+     ],
+     "tools": [
+      [
+       "n8n Code node",
+       "https://docs.n8n.io/code/"
+      ]
+     ],
+     "practice": "Add an error alert."
+    }
+   ]
+  },
+  {
+   "num": 7,
+   "name": "Vibe Coder",
+   "lessons": [
+    {
+     "id": "d2l7-1",
+     "lid": "7.1",
+     "title": "AI-first coding workflows with Cursor, Replit Agent and Claude",
+     "learn": [
+      [
+       "Workflow",
+       "Describe the feature, let the assistant plan, build in small steps, run and read the output, then review the diff before accepting."
+      ],
+      [
+       "Prompt structure",
+       "Role, task, constraints, files involved and how to test."
+      ],
+      [
+       "Tools",
+       "Cursor edits your local project; Replit Agent builds and hosts in the browser; Claude can write and review code in chat or in an editor."
+      ],
+      [
+       "Model names",
+       "Model versions change quickly."
+      ],
+      [
+       "Review",
+       "Read generated code, run tests, and watch for secrets and insecure defaults."
+      ]
+     ],
+     "tools": [
+      [
+       "Cursor",
+       "https://cursor.com"
+      ],
+      [
+       "Replit",
+       "https://docs.replit.com"
+      ],
+      [
+       "Anthropic docs",
+       "https://docs.anthropic.com"
+      ]
+     ],
+     "practice": "Add a feature in small steps."
+    }
+   ]
+  },
+  {
+   "num": 8,
+   "name": "Claude and LLM Specialist",
+   "lessons": [
+    {
+     "id": "d2l8-1",
+     "lid": "8.1",
+     "title": "System prompt optimisation, context window management and artifacts",
+     "learn": [
+      [
+       "System prompts",
+       "State the role, the audience, rules, format and what to do when unsure."
+      ],
+      [
+       "Context window",
+       "A model can read only so much text at once."
+      ],
+      [
+       "Artifacts",
+       "In Claude, artifacts are separate documents, pages or small apps produced beside the chat, which you can edit and share."
+      ],
+      [
+       "Evaluation",
+       "Write 20 test questions and compare prompt versions on them."
+      ]
+     ],
+     "tools": [
+      [
+       "Anthropic prompt engineering",
+       "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+      ],
+      [
+       "Claude",
+       "https://claude.ai"
+      ]
+     ],
+     "practice": "Trim a long chat."
+    }
+   ]
+  },
+  {
+   "num": 9,
+   "name": "AI Consultant",
+   "lessons": [
+    {
+     "id": "d2l9-1",
+     "lid": "9.1",
+     "title": "Corporate AI audits, ROI models and technology stack mapping",
+     "learn": [
+      [
+       "Audit",
+       "List the processes, who does them, hours spent, data involved and risks."
+      ],
+      [
+       "ROI",
+       "Annual saving = hours saved x hourly cost x weeks."
+      ],
+      [
+       "Stack mapping",
+       "Draw the tools, data and owners."
+      ],
+      [
+       "Honesty",
+       "Label estimates as estimates and list assumptions."
+      ]
+     ],
+     "tools": [
+      [
+       "NIST AI Risk Management Framework",
+       "https://www.nist.gov/itl/ai-risk-management-framework"
+      ]
+     ],
+     "practice": "Calculate payback for one automation."
+    }
+   ]
+  }
+ ],
+ "3": [
+  {
+   "num": 1,
+   "name": "Logo Designer",
+   "lessons": [
+    {
+     "id": "d3l1-1",
+     "lid": "1.1",
+     "title": "Industry-specific logo systems",
+     "learn": [
+      [
+       "E-commerce logos",
+       "Clean typography, a simple vector icon and high readability at small sizes such as a browser tab, an app icon and a packaging label."
+      ],
+      [
+       "Fintech logos",
+       "Geometric symmetry, calm trust-building colours (deep blues and greens are common) and abstract marks suggesting growth, safety or flow."
+      ],
+      [
+       "System, not one file",
+       "Deliver a primary logo, a compact mark, one-colour and reversed versions, clear space and minimum size."
+      ],
+      [
+       "Originality",
+       "Check that the idea is not a copy of an existing mark; search before you deliver."
+      ]
+     ],
+     "tools": [
+      [
+       "Brand New",
+       "https://www.underconsideration.com/brandnew/"
+      ]
+     ],
+     "practice": "Design two marks for one fintech."
+    },
+    {
+     "id": "d3l1-2",
+     "lid": "1.2",
+     "title": "Tooling and workflow",
+     "learn": [
+      [
+       "Vector tools",
+       "Adobe Illustrator and the free Inkscape draw shapes that scale without loss."
+      ],
+      [
+       "Font pairing",
+       "Pick one display and one text font from Google Fonts or Adobe Fonts; check the licence for commercial use."
+      ],
+      [
+       "Animation",
+       "After Effects can animate a logo reveal; keep it under five seconds."
+      ]
+     ],
+     "tools": [
+      [
+       "Inkscape",
+       "https://inkscape.org"
+      ],
+      [
+       "Google Fonts",
+       "https://fonts.google.com"
+      ],
+      [
+       "Adobe Fonts",
+       "https://fonts.adobe.com"
+      ]
+     ],
+     "practice": "Build a logo in vectors."
+    },
+    {
+     "id": "d3l1-3",
+     "lid": "1.3",
+     "title": "Asset sourcing and typography",
+     "learn": [
+      [
+       "Inspiration, not copying",
+       "Behance, Dribbble and Brand New show current work and case studies."
+      ],
+      [
+       "Fontsource",
+       "Open-source fonts packaged for web projects; check each font's licence."
+      ],
+      [
+       "Mood boards",
+       "Collect references, then write what you will take from them (spacing, colour, mood)."
+      ]
+     ],
+     "tools": [
+      [
+       "Behance",
+       "https://www.behance.net"
+      ],
+      [
+       "Dribbble",
+       "https://dribbble.com"
+      ],
+      [
+       "Fontsource",
+       "https://fontsource.org"
+      ]
+     ],
+     "practice": "Create a mood board."
+    }
+   ]
+  },
+  {
+   "num": 2,
+   "name": "Graphic Designer",
+   "lessons": [
+    {
+     "id": "d3l2-1",
+     "lid": "2.1",
+     "title": "Principles of layout",
+     "learn": [
+      [
+       "Visual hierarchy",
+       "Size, weight, colour and position tell the eye where to look first."
+      ],
+      [
+       "Negative space",
+       "Empty space gives focus and calm."
+      ],
+      [
+       "Colour theory",
+       "Use a limited palette with one accent."
+      ],
+      [
+       "Contrast",
+       "Text must be readable."
+      ]
+     ],
+     "tools": [
+      [
+       "Adobe colour",
+       "https://color.adobe.com"
+      ]
+     ],
+     "practice": "Check a palette."
+    },
+    {
+     "id": "d3l2-2",
+     "lid": "2.2",
+     "title": "Social media, ads and print collateral",
+     "learn": [
+      [
+       "Canva, Figma and Photoshop",
+       "Canva is fast for templates, Figma for shared components, Photoshop for photo work."
+      ],
+      [
+       "Sizes",
+       "Use each platform's current recommended sizes and safe areas."
+      ],
+      [
+       "Print",
+       "300 dpi, bleed and CMYK; ask the printer for specs."
+      ]
+     ],
+     "tools": [
+      [
+       "Canva",
+       "https://www.canva.com"
+      ],
+      [
+       "Figma",
+       "https://www.figma.com"
+      ],
+      [
+       "Photoshop",
+       "https://www.adobe.com/products/photoshop.html"
+      ]
+     ],
+     "practice": "Make a campaign set."
+    }
+   ]
+  },
+  {
+   "num": 3,
+   "name": "Web Designer (UI focus)",
+   "lessons": [
+    {
+     "id": "d3l3-1",
+     "lid": "3.1",
+     "title": "Design systems in Figma",
+     "learn": [
+      [
+       "Components",
+       "Reusable elements with variants (primary, secondary, disabled)."
+      ],
+      [
+       "Auto layout",
+       "Frames that resize with their content; check Figma's current documentation for its features."
+      ],
+      [
+       "Variables and design tokens",
+       "Named values for colour, spacing and type, with modes such as light and dark."
+      ],
+      [
+       "Handoff",
+       "Name layers clearly and document states."
+      ]
+     ],
+     "tools": [
+      [
+       "Figma help",
+       "https://help.figma.com"
+      ]
+     ],
+     "practice": "Build a button component."
+    }
+   ]
+  },
+  {
+   "num": 4,
+   "name": "Video Editor",
+   "lessons": [
+    {
+     "id": "d3l4-1",
+     "lid": "4.1",
+     "title": "Timeline editing, J/L cuts, sound design and colour grading",
+     "learn": [
+      [
+       "Timeline",
+       "Cut to the beat of the story; remove every frame that does not help."
+      ],
+      [
+       "J and L cuts",
+       "The audio from the next shot starts before the picture (J) or the audio of the last shot continues over the next picture (L); they smooth transitions."
+      ],
+      [
+       "Sound design",
+       "Dialogue first, then effects, then music; clean noise."
+      ],
+      [
+       "Colour grading with LUTs",
+       "A LUT applies a colour look."
+      ]
+     ],
+     "tools": [
+      [
+       "DaVinci Resolve",
+       "https://www.blackmagicdesign.com/products/davinciresolve"
+      ],
+      [
+       "Premiere Pro",
+       "https://helpx.adobe.com/premiere-pro/"
+      ]
+     ],
+     "practice": "Edit a 60-second interview."
+    }
+   ]
+  },
+  {
+   "num": 5,
+   "name": "Photo Editor and Photoshop Expert",
+   "lessons": [
+    {
+     "id": "d3l5-1",
+     "lid": "5.1",
+     "title": "Non-destructive editing, frequency separation and compositing",
+     "learn": [
+      [
+       "Non-destructive",
+       "Use layers, adjustment layers, masks and smart objects so edits can be changed."
+      ],
+      [
+       "Frequency separation",
+       "Splits colour and tone from fine texture so skin can be smoothed while keeping natural texture."
+      ],
+      [
+       "Compositing",
+       "Match light direction, colour and perspective."
+      ],
+      [
+       "Colour correction",
+       "Set a neutral white point first."
+      ]
+     ],
+     "tools": [
+      [
+       "Photoshop tutorials",
+       "https://helpx.adobe.com/photoshop/tutorials.html"
+      ]
+     ],
+     "practice": "Retouch a portrait."
+    }
+   ]
+  },
+  {
+   "num": 6,
+   "name": "UX Designer",
+   "lessons": [
+    {
+     "id": "d3l6-1",
+     "lid": "6.1",
+     "title": "User research, wireframing, information architecture and usability testing",
+     "learn": [
+      [
+       "Research",
+       "Interview real users to learn goals and problems."
+      ],
+      [
+       "Wireframes",
+       "Low-fidelity layouts that test structure before visual design."
+      ],
+      [
+       "Information architecture",
+       "How content is grouped and labelled; test with card sorting."
+      ],
+      [
+       "Usability testing",
+       "Watch five people try tasks and note where they struggle; Maze and Figma prototypes support remote tests."
+      ]
+     ],
+     "tools": [
+      [
+       "Maze",
+       "https://maze.co"
+      ],
+      [
+       "Nielsen Norman Group",
+       "https://www.nngroup.com/articles/"
+      ]
+     ],
+     "practice": "Test a prototype."
+    }
+   ]
+  },
+  {
+   "num": 7,
+   "name": "Presentation Designer",
+   "lessons": [
+    {
+     "id": "d3l7-1",
+     "lid": "7.1",
+     "title": "Slide master, data visualisation and pitch decks",
+     "learn": [
+      [
+       "Slide master",
+       "Set fonts, colours and layouts once so every slide matches."
+      ],
+      [
+       "Chart clean-up",
+       "Remove clutter, label directly, use one highlight colour and a title that states the finding."
+      ],
+      [
+       "Pitch deck",
+       "Problem, solution, market, product, traction, model, team, ask; one message per slide."
+      ]
+     ],
+     "tools": [
+      [
+       "PowerPoint help",
+       "https://support.microsoft.com/powerpoint"
+      ],
+      [
+       "Google Slides help",
+       "https://support.google.com/docs"
+      ]
+     ],
+     "practice": "Rebuild a cluttered chart slide."
+    }
+   ]
+  },
+  {
+   "num": 8,
+   "name": "Branding Designer",
+   "lessons": [
+    {
+     "id": "d3l8-1",
+     "lid": "8.1",
+     "title": "Full brand identity systems",
+     "learn": [
+      [
+       "Style guide",
+       "Logo rules, colours, type, imagery, spacing and examples of right and wrong use."
+      ],
+      [
+       "Usage guidelines",
+       "Clear space, minimum size and misuse examples."
+      ],
+      [
+       "Packaging mockups",
+       "Show the identity on real formats; label mockups as concepts."
+      ],
+      [
+       "Brand voice",
+       "Three traits with do and don't phrases."
+      ]
+     ],
+     "tools": [
+      [
+       "Brand guidelines examples",
+       "https://brandguides.brandpacks.com"
+      ]
+     ],
+     "practice": "Write a four-page style guide."
+    }
+   ]
+  },
+  {
+   "num": 9,
+   "name": "3D Modeler",
+   "lessons": [
+    {
+     "id": "d3l9-1",
+     "lid": "9.1",
+     "title": "Polygon modelling, PBR texturing, lighting and rendering in Blender",
+     "learn": [
+      [
+       "Polygon modelling",
+       "Build shapes from vertices, edges and faces; keep clean quads."
+      ],
+      [
+       "PBR materials",
+       "Base colour, roughness, metallic and normal maps describe how a surface reacts to light."
+      ],
+      [
+       "Studio lighting",
+       "Key, fill and rim lights."
+      ],
+      [
+       "Rendering",
+       "Choose Cycles for realism or Eevee for speed; denoise and set samples to balance time and quality."
+      ]
+     ],
+     "tools": [
+      [
+       "Blender manual",
+       "https://docs.blender.org/manual/"
+      ]
+     ],
+     "practice": "Model and render a mug."
+    }
+   ]
+  }
+ ],
+ "4": [
+  {
+   "num": 1,
+   "name": "Social Media Manager",
+   "lessons": [
+    {
+     "id": "d4l1-1",
+     "lid": "1.1",
+     "title": "Daily workflow and operations routine",
+     "learn": [
+      [
+       "Content calendar",
+       "Plan topics, formats, dates and owners; leave room for news."
+      ],
+      [
+       "Community engagement",
+       "Reply within a set time and escalate complaints."
+      ],
+      [
+       "Analytics",
+       "Track reach, engagement and clicks in Metricool or Buffer; review weekly and monthly."
+      ]
+     ],
+     "tools": [
+      [
+       "Metricool",
+       "https://metricool.com"
+      ],
+      [
+       "Buffer",
+       "https://buffer.com"
+      ]
+     ],
+     "practice": "Plan one week."
+    },
+    {
+     "id": "d4l1-2",
+     "lid": "1.2",
+     "title": "Account onboarding and audit procedures",
+     "learn": [
+      [
+       "Onboarding",
+       "Collect logins safely (use platform roles, not shared passwords), brand assets, goals, audience and approvals."
+      ],
+      [
+       "Audit",
+       "Review profile, posting frequency, top posts, audience and competitors."
+      ],
+      [
+       "Report",
+       "Findings, three quick wins and a 30-day plan."
+      ]
+     ],
+     "tools": [
+      [
+       "Meta Business Help",
+       "https://www.facebook.com/business/help"
+      ]
+     ],
+     "practice": "Audit one account."
+    }
+   ]
+  },
+  {
+   "num": 2,
+   "name": "Google Ads Expert",
+   "lessons": [
+    {
+     "id": "d4l2-1",
+     "lid": "2.1",
+     "title": "Keyword research, ad groups and match types",
+     "learn": [
+      [
+       "Intent",
+       "Searches show intent: informational, commercial or transactional."
+      ],
+      [
+       "Ad groups",
+       "One theme per group so ads match searches."
+      ],
+      [
+       "Match types",
+       "Exact matches the same meaning, phrase matches searches that include the meaning in order, broad matches a wider set of related searches."
+      ]
+     ],
+     "tools": [
+      [
+       "Google Ads Help",
+       "https://support.google.com/google-ads"
+      ]
+     ],
+     "practice": "Build three ad groups."
+    },
+    {
+     "id": "d4l2-2",
+     "lid": "2.2",
+     "title": "Conversion tracking, Performance Max and bidding",
+     "learn": [
+      [
+       "Google Tag Manager",
+       "Fire a conversion tag when a form is submitted; test with preview mode."
+      ],
+      [
+       "Performance Max",
+       "An automated campaign type across Google channels; it needs good assets, accurate conversions and patience."
+      ],
+      [
+       "Bidding",
+       "Target CPA aims for a cost per conversion; Target ROAS aims for return on ad spend."
+      ]
+     ],
+     "tools": [
+      [
+       "Tag Manager",
+       "https://support.google.com/tagmanager"
+      ],
+      [
+       "Performance Max",
+       "https://support.google.com/google-ads/answer/10724817"
+      ]
+     ],
+     "practice": "Set up a conversion."
+    }
+   ]
+  },
+  {
+   "num": 3,
+   "name": "SEO Expert",
+   "lessons": [
+    {
+     "id": "d4l3-1",
+     "lid": "3.1",
+     "title": "On-page optimisation",
+     "learn": [
+      [
+       "Headers and titles",
+       "One clear H1; titles and descriptions that match the content."
+      ],
+      [
+       "Schema markup",
+       "Structured data (JSON-LD) that describes the page, such as Product or FAQ, so search engines can understand it."
+      ],
+      [
+       "Content",
+       "Answer the question the searcher asked."
+      ]
+     ],
+     "tools": [
+      [
+       "Search Central",
+       "https://developers.google.com/search/docs"
+      ]
+     ],
+     "practice": "Optimise one page."
+    },
+    {
+     "id": "d4l3-2",
+     "lid": "3.2",
+     "title": "Technical audits, link building and Search Console",
+     "learn": [
+      [
+       "Screaming Frog",
+       "Crawls a site to find broken links, redirect chains, missing titles and duplicates."
+      ],
+      [
+       "Link building",
+       "Earn links with useful content and real relationships; do not buy links."
+      ],
+      [
+       "Search Console",
+       "Shows indexing problems, queries and pages; submit sitemaps."
+      ]
+     ],
+     "tools": [
+      [
+       "Screaming Frog",
+       "https://www.screamingfrog.co.uk/seo-spider/"
+      ],
+      [
+       "Search Console",
+       "https://search.google.com/search-console"
+      ]
+     ],
+     "practice": "Audit a small site."
+    }
+   ]
+  },
+  {
+   "num": 4,
+   "name": "Facebook and Meta Ads Specialist",
+   "lessons": [
+    {
+     "id": "d4l4-1",
+     "lid": "4.1",
+     "title": "Campaign set-up for real estate, tech agencies and e-commerce",
+     "learn": [
+      [
+       "Objectives",
+       "Leads for real estate and agencies; sales for e-commerce."
+      ],
+      [
+       "Special categories",
+       "Housing, credit, employment and some other categories have special ad rules limiting targeting."
+      ],
+      [
+       "Creative and offer",
+       "One clear offer per ad and a matching landing page."
+      ]
+     ],
+     "tools": [
+      [
+       "Meta ads policies",
+       "https://transparency.meta.com/policies/ad-standards"
+      ]
+     ],
+     "practice": "Plan three campaigns."
+    },
+    {
+     "id": "d4l4-2",
+     "lid": "4.2",
+     "title": "Budget optimisation and ROAS: audiences and the Conversions API",
+     "learn": [
+      [
+       "Custom audiences",
+       "People who already engaged with you, using consented data."
+      ],
+      [
+       "Lookalike audiences",
+       "New people similar to a source audience."
+      ],
+      [
+       "Conversions API (CAPI)",
+       "Sends events from your server to Meta, which helps measurement when browser tracking is blocked; set it up with consent and avoid duplicate events using event IDs."
+      ],
+      [
+       "ROAS",
+       "Revenue divided by ad spend."
+      ]
+     ],
+     "tools": [
+      [
+       "Conversions API",
+       "https://developers.facebook.com/docs/marketing-api/conversions-api/"
+      ]
+     ],
+     "practice": "Calculate ROAS."
+    }
+   ]
+  },
+  {
+   "num": 5,
+   "name": "Email Marketer",
+   "lessons": [
+    {
+     "id": "d4l5-1",
+     "lid": "5.1",
+     "title": "Deliverability: SPF, DKIM and DMARC",
+     "learn": [
+      [
+       "SPF",
+       "A DNS record that lists the servers allowed to send for your domain."
+      ],
+      [
+       "DKIM",
+       "A signature added to each email, checked against a public key in DNS."
+      ],
+      [
+       "DMARC",
+       "A policy that says what to do when SPF or DKIM fails and where to send reports."
+      ],
+      [
+       "Honest sending",
+       "These records prove who you are; they do not make unwanted email acceptable."
+      ]
+     ],
+     "tools": [
+      [
+       "Google sender guidelines",
+       "https://support.google.com/a/answer/81126"
+      ],
+      [
+       "DMARC overview",
+       "https://dmarc.org"
+      ]
+     ],
+     "practice": "Check a DMARC record."
+    },
+    {
+     "id": "d4l5-2",
+     "lid": "5.2",
+     "title": "Outreach infrastructure at scale, safely",
+     "learn": [
+      [
+       "Tools",
+       "Instantly.ai and Smartlead manage multiple mailboxes, warm-up, sequences and reply tracking."
+      ],
+      [
+       "Rules before volume",
+       "Contact only relevant recipients, follow the anti-spam and privacy laws of your and their country, identify yourself honestly, include an opt-out and honour it at once."
+      ],
+      [
+       "Safe practice",
+       "Use a separate sending domain, authenticate it, start with small volumes, watch bounces and complaints, and stop if they rise."
+      ],
+      [
+       "Job applications",
+       "Mass-emailing employers rarely works."
+      ],
+      [
+       "Do not",
+       "Buy lists, fake sender names or rotate domains to dodge blocks."
+      ]
+     ],
+     "tools": [
+      [
+       "Instantly",
+       "https://instantly.ai"
+      ],
+      [
+       "Smartlead",
+       "https://www.smartlead.ai"
+      ]
+     ],
+     "practice": "Design a 50-contact pilot."
+    }
+   ]
+  },
+  {
+   "num": 6,
+   "name": "Marketing Automation Consultant",
+   "lessons": [
+    {
+     "id": "d4l6-1",
+     "lid": "6.1",
+     "title": "CRM integration, lead scoring and nurture funnels",
+     "learn": [
+      [
+       "CRM integration",
+       "Connect forms, ads and the CRM (HubSpot or GoHighLevel) so each lead has a source."
+      ],
+      [
+       "Lead scoring",
+       "Add points for fit (role, size) and behaviour (pricing page visits); pass leads to sales at a set score."
+      ],
+      [
+       "Nurture",
+       "Send helpful emails matched to the stage."
+      ]
+     ],
+     "tools": [
+      [
+       "HubSpot Academy",
+       "https://academy.hubspot.com"
+      ],
+      [
+       "GoHighLevel help",
+       "https://help.gohighlevel.com"
+      ]
+     ],
+     "practice": "Design a scoring model."
+    }
+   ]
+  },
+  {
+   "num": 7,
+   "name": "Lead Generation Specialist",
+   "lessons": [
+    {
+     "id": "d4l7-1",
+     "lid": "7.1",
+     "title": "B2B prospecting, outreach scripts and PPC landing pages",
+     "learn": [
+      [
+       "Sourcing",
+       "Apollo.io and LinkedIn Sales Navigator help find businesses and roles; follow each platform's terms and privacy law, and do not scrape what the terms forbid."
+      ],
+      [
+       "Outreach scripts",
+       "Short, relevant, with one clear question."
+      ],
+      [
+       "PPC landing pages",
+       "One offer, a matching headline, proof, a short form and fast loading."
+      ]
+     ],
+     "tools": [
+      [
+       "Apollo",
+       "https://www.apollo.io"
+      ],
+      [
+       "Sales Navigator",
+       "https://business.linkedin.com/sales-solutions"
+      ]
+     ],
+     "practice": "Build a 100-prospect list and one landing page."
+    }
+   ]
+  }
+ ],
+ "5": [
+  {
+   "num": 1,
+   "name": "Data Analytics and AI Tools",
+   "lessons": [
+    {
+     "id": "d5l1-1",
+     "lid": "1.1",
+     "title": "AI-powered analytics with Microsoft Copilot",
+     "learn": [
+      [
+       "Copilot in Excel",
+       "Ask questions in natural language to summarise data, suggest charts and spot trends; availability depends on your Microsoft plan."
+      ],
+      [
+       "Prompt used",
+       "'Summarize quarterly growth trends and highlight the top 5 outlier product categories by margin percentage.'"
+      ],
+      [
+       "Verify",
+       "Check any AI result against the data; the code below shows how to find outliers yourself with the IQR rule."
+      ]
+     ],
+     "tools": [
+      [
+       "Copilot in Excel",
+       "https://support.microsoft.com/copilot"
+      ]
+     ],
+     "practice": "Find margin outliers two ways."
+    }
+   ]
+  },
+  {
+   "num": 2,
+   "name": "Data Scientist",
+   "lessons": [
+    {
+     "id": "d5l2-1",
+     "lid": "2.1",
+     "title": "EDA with Python, feature engineering and predictive models",
+     "learn": [
+      [
+       "EDA",
+       "Look at shape, types, missing values, distributions and relationships using Pandas, Matplotlib and Seaborn."
+      ],
+      [
+       "Feature engineering",
+       "Create useful inputs such as margin percentage or days since last purchase."
+      ],
+      [
+       "Predictive models",
+       "Train on a split and measure on unseen data; see the machine learning lesson in Department 2."
+      ]
+     ],
+     "tools": [
+      [
+       "Seaborn",
+       "https://seaborn.pydata.org"
+      ],
+      [
+       "Matplotlib",
+       "https://matplotlib.org"
+      ]
+     ],
+     "practice": "Create a feature."
+    }
+   ]
+  },
+  {
+   "num": 3,
+   "name": "Data Engineer",
+   "lessons": [
+    {
+     "id": "d5l3-1",
+     "lid": "3.1",
+     "title": "ETL pipelines, data warehousing and indexing",
+     "learn": [
+      [
+       "ETL",
+       "Extract the raw data, transform it (clean, dedupe, type), load it into a table."
+      ],
+      [
+       "Warehouses",
+       "BigQuery and Snowflake store large data for analysis; they separate storage from compute and charge differently, so check current pricing."
+      ],
+      [
+       "Indexing",
+       "An index speeds lookups on a column but slows writes slightly."
+      ]
+     ],
+     "tools": [
+      [
+       "BigQuery",
+       "https://cloud.google.com/bigquery/docs"
+      ],
+      [
+       "Snowflake",
+       "https://docs.snowflake.com"
+      ]
+     ],
+     "practice": "Run a tiny ETL."
+    }
+   ]
+  },
+  {
+   "num": 4,
+   "name": "Power BI Specialist",
+   "lessons": [
+    {
+     "id": "d5l4-1",
+     "lid": "4.1",
+     "title": "Data modelling, star schemas, DAX and publishing",
+     "learn": [
+      [
+       "Star schema",
+       "A central fact table (sales) linked to dimension tables (date, product, customer)."
+      ],
+      [
+       "DAX",
+       "CALCULATE changes the filter context of a measure."
+      ],
+      [
+       "Publishing",
+       "Publish to the Power BI Service, set refresh and share by workspace with correct access."
+      ]
+     ],
+     "tools": [
+      [
+       "Power BI documentation",
+       "https://learn.microsoft.com/power-bi/"
+      ]
+     ],
+     "practice": "Write a year-on-year measure."
+    }
+   ]
+  }
+ ],
+ "6": [
+  {
+   "num": 1,
+   "name": "Virtual Assistant",
+   "lessons": [
+    {
+     "id": "d6l1-1",
+     "lid": "1.1",
+     "title": "Executive support fundamentals",
+     "learn": [
+      [
+       "Inbox zero",
+       "Process email to empty using four actions: do, delegate, defer, delete."
+      ],
+      [
+       "Calendar across time zones",
+       "Store events in the right zone, confirm in the guest's local time and add buffers."
+      ],
+      [
+       "Travel planning",
+       "Build an itinerary with times, confirmation numbers, transfers and a backup; keep documents in one folder."
+      ]
+     ],
+     "tools": [
+      [
+       "Google Calendar help",
+       "https://support.google.com/calendar"
+      ]
+     ],
+     "practice": "Schedule a three-zone meeting."
+    },
+    {
+     "id": "d6l1-2",
+     "lid": "1.2",
+     "title": "Remote SOP creation in Notion",
+     "learn": [
+      [
+       "SOP structure",
+       "Purpose, owner, tools, numbered steps, checks and what to do when it fails."
+      ],
+      [
+       "Notion",
+       "Create a template database so every SOP has the same fields."
+      ],
+      [
+       "Test",
+       "Ask someone to follow it without help."
+      ]
+     ],
+     "tools": [
+      [
+       "Notion help",
+       "https://www.notion.so/help"
+      ]
+     ],
+     "practice": "Write one SOP."
+    }
+   ]
+  },
+  {
+   "num": 2,
+   "name": "Data Entry Specialist",
+   "lessons": [
+    {
+     "id": "d6l2-1",
+     "lid": "2.1",
+     "title": "Advanced data cleansing, verification and OCR",
+     "learn": [
+      [
+       "Cleansing",
+       "Trim spaces, fix case, standardise dates and phone numbers, remove duplicates."
+      ],
+      [
+       "Verification controls",
+       "Validate fields, double-check key values and sample your own work."
+      ],
+      [
+       "OCR",
+       "Convert scanned PDFs to text, then proofread; OCR makes errors on poor scans."
+      ]
+     ],
+     "tools": [
+      [
+       "OpenRefine",
+       "https://openrefine.org"
+      ]
+     ],
+     "practice": "Validate records."
+    }
+   ]
+  },
+  {
+   "num": 3,
+   "name": "Bookkeeper and QuickBooks Consultant",
+   "lessons": [
+    {
+     "id": "d6l3-1",
+     "lid": "3.1",
+     "title": "Double-entry accounting, chart of accounts, reconciliation and ageing",
+     "learn": [
+      [
+       "Double entry",
+       "Every transaction has equal debits and credits."
+      ],
+      [
+       "Chart of accounts",
+       "A list of categories for assets, liabilities, income and expenses."
+      ],
+      [
+       "Bank reconciliation",
+       "Match bank lines with the ledger and investigate unmatched items; the code is tested in the Admin textbook."
+      ],
+      [
+       "Ageing reports",
+       "Accounts receivable and payable ageing show what is overdue by 30, 60 and 90 days in QuickBooks Online."
+      ],
+      [
+       "Boundary",
+       "Bookkeeping records transactions; tax advice belongs to a qualified professional."
+      ]
+     ],
+     "tools": [
+      [
+       "QuickBooks",
+       "https://quickbooks.intuit.com"
+      ]
+     ],
+     "practice": "Reconcile a month."
+    }
+   ]
+  },
+  {
+   "num": 4,
+   "name": "Cold Caller and Appointment Setter",
+   "lessons": [
+    {
+     "id": "d6l4-1",
+     "lid": "4.1",
+     "title": "Scripting, gatekeepers, objections and calendar booking",
+     "learn": [
+      [
+       "Compliance first",
+       "Check Do Not Disturb and calling-hour rules where you call; log and honour opt-outs."
+      ],
+      [
+       "Scripting",
+       "Open with who you are and why, ask permission, ask one question, offer a time."
+      ],
+      [
+       "Gatekeepers",
+       "Be polite and honest; ask for help finding the right person."
+      ],
+      [
+       "Objections",
+       "Acknowledge, ask, answer briefly, offer a next step."
+      ],
+      [
+       "Booking",
+       "Offer two times and send a calendar invite."
+      ]
+     ],
+     "tools": [
+      [
+       "Calendly",
+       "https://calendly.com"
+      ]
+     ],
+     "practice": "Write and role-play a script."
+    }
+   ]
+  }
+ ],
+ "7": [
+  {
+   "num": 1,
+   "name": "Resume Writer",
+   "lessons": [
+    {
+     "id": "d7l1-1",
+     "lid": "1.1",
+     "title": "Industry-specific ATS optimisation",
+     "learn": [
+      [
+       "Fintech and tech resumes",
+       "Metric-driven bullets, a technical skills block and the exact keywords from the job posting, used honestly where they apply."
+      ],
+      [
+       "Keyword mapping",
+       "List the posting's skills and tools and check each appears where it is true."
+      ],
+      [
+       "Creative and content resumes",
+       "Use a clean structure that applicant systems read (plain headings, no text in images) and show visual style in a linked portfolio."
+      ],
+      [
+       "Honesty",
+       "Use only facts and numbers the client confirms."
+      ]
+     ],
+     "tools": [
+      [
+       "Jobscan guides",
+       "https://www.jobscan.co/blog/"
+      ]
+     ],
+     "practice": "Check bullets."
+    }
+   ]
+  },
+  {
+   "num": 2,
+   "name": "Copywriter",
+   "lessons": [
+    {
+     "id": "d7l2-1",
+     "lid": "2.1",
+     "title": "Direct response copy, headlines and funnel scripts (PAS and AIDA)",
+     "learn": [
+      [
+       "PAS",
+       "Problem, Agitate, Solution: name the problem, show what it costs, offer the fix."
+      ],
+      [
+       "AIDA",
+       "Attention, Interest, Desire, Action."
+      ],
+      [
+       "Headlines",
+       "Specific beats clever: name the customer and the result."
+      ],
+      [
+       "Claims",
+       "Every claim must be true and provable."
+      ]
+     ],
+     "tools": [
+      [
+       "Hemingway Editor",
+       "https://hemingwayapp.com"
+      ]
+     ],
+     "practice": "Write a PAS landing page."
+    }
+   ]
+  },
+  {
+   "num": 3,
+   "name": "Technical Writer",
+   "lessons": [
+    {
+     "id": "d7l3-1",
+     "lid": "3.1",
+     "title": "Developer documentation, API references and knowledge base guides in Markdown",
+     "learn": [
+      [
+       "API reference",
+       "For each endpoint: method, URL, parameters, example request, example response and errors."
+      ],
+      [
+       "Knowledge base guides",
+       "One task per article with numbered steps and expected results."
+      ],
+      [
+       "Markdown",
+       "Plain text with simple marks, easy to version in Git."
+      ],
+      [
+       "Test",
+       "Run every example yourself."
+      ]
+     ],
+     "tools": [
+      [
+       "Markdown guide",
+       "https://www.markdownguide.org"
+      ]
+     ],
+     "practice": "Document one endpoint."
+    }
+   ]
+  },
+  {
+   "num": 4,
+   "name": "Scriptwriter and Ghostwriter",
+   "lessons": [
+    {
+     "id": "d7l4-1",
+     "lid": "4.1",
+     "title": "VSL scripts, YouTube outlines and e-book ghostwriting",
+     "learn": [
+      [
+       "Video sales letter",
+       "Hook, problem, story, solution, proof, offer, guarantee (only a true one) and call to action."
+      ],
+      [
+       "YouTube educational outline",
+       "Hook in 15 seconds, promise, three sections, recap and next step."
+      ],
+      [
+       "E-book ghostwriting",
+       "Interview the client, outline chapters, write in their voice, revise with them and agree credit and ownership in writing."
+      ],
+      [
+       "Timing",
+       "About 130 spoken words per minute at an easy pace."
+      ]
+     ],
+     "tools": [
+      [
+       "Otter",
+       "https://otter.ai"
+      ]
+     ],
+     "practice": "Outline a six-minute video."
+    }
+   ]
+  }
+ ]
+}

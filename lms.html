@@ -16,7 +16,7 @@
 <link rel="icon" href="assets/logo-s.svg?v=2912e394" type="image/svg+xml"><link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=2aba16c0">
+<link rel="stylesheet" href="assets/site.css?v=87894edc">
 </head>
 <body data-root="" data-app>
 <header class="top"><div class="wrap">
@@ -63,8 +63,8 @@
         <div><h2 class="h2s">Upcoming events</h2><div class="list" id="ov-events"></div></div>
       </div><div class="col">
         <div class="card"><h3 class="h3s">Announcements</h3><div class="list" id="ov-news"></div></div>
-        <div class="card hirecard"><span class="hc-ico">🤝</span><div><h3 class="h3s" style="margin:0 0 4px">Is your company hiring?</h3><p class="meta" style="margin:0 0 10px">Let us know and we'll send across the best profiles!</p><a class="btn btn-line btn-sm" href="hire.html">Get in touch →</a></div></div>
-        <div class="card hirecard"><span class="hc-ico">🎁</span><div><h3 class="h3s" style="margin:0 0 4px">Refer &amp; earn</h3><p class="meta" style="margin:0 0 10px">Refer a friend or a candidate and earn a reward.</p><a class="btn btn-line btn-sm" href="refer.html">Refer now →</a></div></div>
+        <div class="card hirecard"><span class="hc-ico">🤝</span><div><h3 class="h3s" style="margin:0 0 4px"><a href="hire.html">Is your company hiring?</a></h3><p class="meta" style="margin:0 0 10px">Let us know and we'll send across the best profiles!</p><a class="btn btn-line btn-sm" href="hire.html">Get in touch →</a></div></div>
+        <div class="card hirecard"><span class="hc-ico">🎁</span><div><h3 class="h3s" style="margin:0 0 4px"><a href="refer.html">Refer &amp; earn</a></h3><p class="meta" style="margin:0 0 10px">Refer a friend or a candidate and earn a reward.</p><a class="btn btn-line btn-sm" href="refer.html">Refer now →</a></div></div>
         <div class="card"><h3 class="h3s">Need help?</h3>
           <form id="f-help" class="form"><label>Topic<select name="topic"><option>Book a 1:1 session</option><option>Resume or portfolio review</option><option>Mock interview</option><option>Help with an assignment</option><option>Something else</option></select></label>
           <label>Message<textarea name="message" required maxlength="4000" placeholder="What do you need, and when suits you?"></textarea></label><button class="btn btn-primary btn-sm" type="submit">Send request</button><p id="rq-msg" class="notice" hidden role="status"></p></form>
@@ -136,7 +136,7 @@ var c=new URL(location).searchParams.get('res');show(c&&document.getElementById(
     <div class="panel" id="p-events" hidden><h2 class="h2s">Upcoming</h2><div class="events" id="ev-up"></div><h2 class="h2s" style="margin-top:40px">Completed</h2><div class="events" id="ev-done"></div></div>
 
     <div class="panel" id="p-submissions" hidden><div class="dgrid">
-      <div class="card"><h3 class="h3s">Submit your work</h3>
+      <div class="card"><h3 class="h3s"><a href="challenges.html">Submit your work</a></h3>
         <form id="f-submit" class="form"><label>For<select name="target"></select></label>
           <label>Title<input name="title" required maxlength="200" placeholder="e.g. UPI onboarding teardown"></label>
           <label>Link to your work<input name="link" type="url" required placeholder="https://… (Google Drive, Figma, GitHub, Notion)"></label>
