@@ -231,6 +231,19 @@ OTHER = [  # (track id, guide page, free official courses)
 ]
 
 
+def course_card():
+    """The Complete Digital Marketing Course (SkillNavora). Chapters are added here as they are written."""
+    link = "read.html?doc=handbook/Skillnavora-Digital-Marketing-Course-Chapter-1.pdf&page=1"
+    return ('<h3 class="h3s hb-h" style="margin-top:22px">The Complete Digital Marketing Course</h3>'
+            '<p class="meta" style="margin:-4px 0 12px">By Varun, for SkillNavora. The full course in 19 chapters, written in simple English. Chapter 1 is ready now; the next chapters will be added here.</p>'
+            '<div class="grid g3"><div class="card"><div class="kicker">Chapter 1</div><h3 class="h3s">Introduction</h3>'
+            '<p class="meta">How to use the course, four learner paths, free tools, study habits, FAQ and the 30,000-foot view of digital marketing, with pictures you can click.</p>'
+            '<div class="hb-acts" style="margin-top:10px">' + btn("Open Chapter 1 (PDF)", link, True, gate=False, new=False)
+            + btn("Interactive pictures ↗", "https://claude.ai/artifact/LJrGBHbd5ohTQebDsXyo6p", gate=False) + '</div></div>'
+            '<div class="card"><div class="kicker">Chapter 2</div><h3 class="h3s">Coming next</h3><p class="meta">Market research. Added when the next chapter is ready.</p></div>'
+            '<div class="card"><div class="kicker">Chapters 3 to 19</div><h3 class="h3s">In progress</h3><p class="meta">Website, email, copywriting, SEO, YouTube, social media, ads, analytics, app marketing, old content and the conclusion.</p></div></div>')
+
+
 def other_tab():
     cat = catalog(); tr = {t["id"]: t for t in cat["tracks"]}
     out = [hero("Other programs · free complete guides", "SFMC, Digital Marketing, Content Creation, FDE and Public Speaking",
@@ -252,7 +265,8 @@ def other_tab():
         L = t["lessons"][0]
         out.append(f'<section class="op-sec" id="op-{tid}">' + h(t["name"], t["desc"]) + '<div class="hb-acts" style="margin:0 0 12px">'
                    + btn("Open the complete guide", page, True, gate=False, new=False) + btn("Guide PDF ↗", DS_SITE + "pdf/" + L["track"] + "/" + L["pdf"])
-                   + btn("Read as a lesson ↗", DS_SITE + "lessons/" + L["file"], gate=False) + "</div>" + grid(links) + "</section>")
+                   + btn("Read as a lesson ↗", DS_SITE + "lessons/" + L["file"], gate=False) + "</div>" + grid(links)
+                   + (course_card() if tid == "marketing" else "") + "</section>")
     return "".join(out)
 
 
