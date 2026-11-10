@@ -1621,3 +1621,16 @@ small,.muted{line-height:1.5}
 .ai-groups .chips{gap:10px}
 .ai-groups .tl{min-width:0;max-width:100%}
 .ai-groups .tl b{overflow-wrap:anywhere}
+
+/* Module rows with several links: title on one full-width line, description, then the links below */
+.hb-multi{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:8px 12px}
+.hb-multi>.hb-n{grid-row:1 / span 2;margin-top:2px}
+.hb-multi>span:nth-child(2){grid-column:2;grid-row:1;min-width:0;overflow-wrap:anywhere}
+.hb-multi .hb-links{grid-column:2;grid-row:2;display:flex;flex-wrap:wrap;gap:6px;width:auto;padding-left:0;min-width:0}
+/* Module list: each card sizes to its own content; number badge centred on the title line */
+.hb-list{align-items:start}
+.hb-multi{align-items:center}
+.hb-multi>.hb-n{align-self:center}
+.hb-multi>span:nth-child(2){align-self:center}
+.hb-multi .hb-links{align-self:center;justify-content:flex-start}
+.hb-row em{overflow-wrap:anywhere}
