@@ -282,8 +282,8 @@ def course_card():
         + '</div>'
         for n, t, st, lst, acts in ch)
     return ('<h3 class="h3s hb-h" style="margin-top:22px">The Complete Digital Marketing Course</h3>'
-            '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By Varun, for SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 to 6 are ready now. Each lesson link opens the right page of its PDF.</p>'
-            '<div class="hb-acts" style="margin:0 0 12px">' + btn("Animated step guides ↗", "https://claude.ai/artifact/W63rDWnPaz4fLC2qREEbpF", True, gate=False) + '</div>'
+            '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By Varun, for SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 to 7 are ready now. Each lesson link opens the right page of its PDF.</p>'
+            '<div class="hb-acts" style="margin:0 0 12px">' + btn("Chapter 7: YouTube Marketing (PDF)", rd("handbook/Skillnavora-Chapter-7-YouTube-Marketing.pdf", 1), True, gate=False, new=False) + btn("YouTube planner ↗", "https://claude.ai/artifact/WYKuirtew4pDecTFwfkDKS", gate=False) + btn("Animated step guides ↗", "https://claude.ai/artifact/W63rDWnPaz4fLC2qREEbpF", True, gate=False) + '</div>'
             '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))">' + cards + '</div>')
 
 def other_tab(part="all"):
