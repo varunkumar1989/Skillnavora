@@ -158,7 +158,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     U = {p: (p, n, sm, ic) for p, n, sm, ic in UPSKILL if p}
     Q = lambda h, n, sm: ("questions.html#" + h, n, sm, U["questions.html"][3])
     up_menu = (item(*U["resources.html"]) + item("questions.html", "Practice & interview prep", U["questions.html"][2], U["questions.html"][3]) + item(*U["events.html"])
-               + item("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", U["tools.html"][3]))
+               + item("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", U["tools.html"][3])
+               + item("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department", '<path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>'))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
 <html lang="en">
@@ -1128,7 +1129,18 @@ jobs = f"""<div class="hero"><div class="wrap jobs-head"><div class="kicker">Job
   <div style="margin-top:28px">{restabs.portals_html()}</div>
 </div></section>
 {band("Want to be job-ready for these roles?", "Our job assistance program helps with your resume, portfolio, interview preparation and referrals.", '<a class="btn btn-primary" href="programs.html">Explore programs →</a><a class="btn btn-ghost" data-counsel href="#counselling">Talk to a counsellor</a>')}"""
-page("jobs.html", "Job board · PM and AI jobs · SkillNavora", "Curated product manager, AI and data engineering jobs in India, with quick LinkedIn searches for the latest openings.", jobs, "jobs.html", '<script src="{r}assets/jobs.js"></script>')
+FREELANCE_JOBS_SEC = """<section id="freelance" style="padding-top:8px"><div class="wrap"><div class="kicker">Freelancing and part-time work</div><h2 class="sec-h">Earn while you learn: freelance and part-time options</h2>
+<p class="meta" style="max-width:72ch">These are ways to earn alongside your studies or work. Income is never guaranteed. Every option depends on your skills, effort and the terms you agree in writing. Read the terms before you start.</p>
+<div class="grid g3" style="margin-top:18px">
+<div class="card"><h3 class="h3s">Channel partner (real estate)</h3><p class="meta">Introduce buyers or tenants to a developer or brokerage and earn a commission under a written agreement. Check the project's registration with the state RERA authority and any licence rules. Never pay a fee to become a partner.</p></div>
+<div class="card"><h3 class="h3s">SaaS partner and referral programmes</h3><p class="meta">Many software companies in India and abroad pay referral or partner commissions, and some hire freelance implementation or support specialists. Ask for the programme terms in writing, including how commissions are calculated and paid.</p></div>
+<div class="card"><h3 class="h3s">Freelance marketplaces</h3><p class="meta">Offer a skill as a service or bid on projects. Build a portfolio first. Platform fees apply; check each platform's current fee page before you price a project.</p>
+<p class="acts" style="display:flex;flex-wrap:wrap;gap:8px"><a class="btn btn-line btn-sm" href="https://www.upwork.com" target="_blank" rel="noopener">Upwork</a><a class="btn btn-line btn-sm" href="https://www.fiverr.com" target="_blank" rel="noopener">Fiverr</a><a class="btn btn-line btn-sm" href="https://www.freelancer.com" target="_blank" rel="noopener">Freelancer.com</a></p></div>
+<div class="card"><h3 class="h3s">Remote part-time and contract roles</h3><p class="meta">Remote boards list part-time and contract openings. Check whether the job is genuinely remote, the pay basis and the employer's details.</p>
+<p class="acts" style="display:flex;flex-wrap:wrap;gap:8px"><a class="btn btn-line btn-sm" href="https://weworkremotely.com" target="_blank" rel="noopener">We Work Remotely</a><a class="btn btn-line btn-sm" href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener">LinkedIn Jobs</a></p></div>
+<div class="card"><h3 class="h3s">Before you accept any work</h3><ul class="meta" style="padding-left:18px"><li>Never pay to apply, to be trained for a job, or to be "verified".</li><li>Never share bank details, card numbers or one-time passwords.</li><li>Get the scope, price and payment terms in writing.</li><li>Keep invoices and records; ask a qualified tax adviser about GST and income tax for your situation.</li></ul></div>
+</div></div></section>"""
+page("jobs.html", "Job board · PM and AI jobs · SkillNavora", "Curated product manager, AI and data engineering jobs in India, with quick LinkedIn searches for the latest openings.", jobs + FREELANCE_JOBS_SEC, "jobs.html", '<script src="{r}assets/jobs.js"></script>')
 
 # ================================================================ EVENTS, REVIEWS, BUSINESS
 ev = uhero("Events", 'Live <span class="g">events</span> and workshops', "Free masterclasses, build-along workshops and demo days. Register to get the joining link.") + """
@@ -1200,6 +1212,22 @@ careers = uhero("Careers", 'Build the future of <span class="g">learning with us
   </div>
   {C_FORM}
 </div></section>"""
+MF_DEPTS = [("1","Development and IT","10 professions: full-stack, WordPress, web, Shopify, mobile app, Webflow, front-end, e-commerce, React.js, Bubble.io","Available now: textbook (PDF)","handbook/Master-Freelancing-Development-and-IT.pdf"),
+("2","AI and Automation","20 professions: AI video, AI integration, chatbots, n8n, automation, AI agents, RAG, vibe coding and more","In preparation",""),
+("3","Design and Creative","15 professions: logo, graphic, UX/UI, video, motion graphics, branding and more","In preparation",""),
+("4","Marketing","18 professions: social media, Google Ads, SEO, Meta Ads, email, lead generation and more","In preparation",""),
+("5","Data Analytics and Data Science","15 professions: analyst, SQL, Power BI, Python, data engineering and more","In preparation",""),
+("6","Admin and Business Support","14 professions: virtual assistant, data entry, bookkeeping, customer support and more","In preparation",""),
+("7","Writing and Content","15 professions: resume, copy, ghostwriting, technical, scripts, grant writing, proofreading and more","In preparation","")]
+MF_CARDS = "".join(f'<div class="card"><div class="kicker">Department {n}</div><h3 class="h3s">{E(t)}</h3><p class="meta">{E(d)}</p><p><b>{E(st)}</b></p>' + (f'<a class="btn btn-primary btn-sm" href="{h}" target="_blank" rel="noopener">Open the textbook (PDF)</a>' if h else '') + '</div>' for n,t,d,st,h in MF_DEPTS)
+MF_BODY = uhero("Upskill for free", "Master <span class=\"g\">Freelancing</span>", "Learn a skill, build a portfolio, find clients and earn. Department by department, from absolute zero to freelance-ready.") + f"""
+<section style="padding-top:24px"><div class="wrap"><p class="meta" style="max-width:74ch">Master Freelancing is SkillNavora's freelance and digital skills academy. Each department teaches its professions from the basics, with worked examples, assignments and answer keys, portfolio projects and the freelancing side: packages, proposals, pricing and delivery.</p>
+<p class="meta" style="max-width:74ch"><b>Status:</b> the first department, Development and IT, is published as a textbook. The other six are in preparation and will appear here as they are completed. Official links and prices in the textbook were not checked live in the draft, and are confirmed before publication.</p>
+<div class="grid g3" style="margin-top:18px">{MF_CARDS}</div></div></section>
+<section style="padding-top:8px"><div class="wrap"><div class="kicker">How to start</div><h2 class="sec-h">Six steps from zero to your first client</h2>
+<ol class="meta" style="max-width:74ch;line-height:1.7"><li>Pick one profession and learn its foundations.</li><li>Build three small samples, each with a short description of the problem it solves.</li><li>Create a simple portfolio page that shows the samples.</li><li>Set a clear starting price and a written scope for each service.</li><li>Pitch on marketplaces and LinkedIn with a specific offer, not a general profile.</li><li>Ask every client for a review or testimonial with their permission.</li></ol>
+<p class="meta" style="max-width:74ch">Freelancing and part-time options are listed on the <a href="jobs.html#freelance">Job board</a>. Learning roadmaps are learning plans, not guaranteed jobs or incomes.</p></div></section>"""
+page("master-freelancing.html", "Master Freelancing · SkillNavora", "Learn a skill, build a portfolio, find clients and earn: the SkillNavora Master Freelancing academy, department by department.", MF_BODY, "master-freelancing.html")
 page("careers.html", "Careers · SkillNavora", "Join SkillNavora: roles in teaching, curriculum, admissions, marketing, engineering and operations.", careers, "careers.html")
 
 
