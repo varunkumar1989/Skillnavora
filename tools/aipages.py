@@ -136,6 +136,7 @@ def academy_tabs(body):
         ("builder", "AI Builder Tools", cards(["ai-builder-tools.html"])),
         ("map", "AI Skills Map", cards(["ai-skills-map.html"])),
         ("library", "Study Library", cards(["study-library.html"])),
+        ("grokbot", "Grokbot Course", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + __import__("grokbot_page").tab_card(icon_svg=ico(10)) + "</div></div>"),
     ], "AI Skills Academy sections")
 
 def ico(i):
