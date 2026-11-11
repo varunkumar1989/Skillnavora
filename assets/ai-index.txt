@@ -11,6 +11,10 @@ Date, Time & Number Functions and Named Ranges | /data-science/lessons/excel-09-
 Charts and Advanced Charts | /data-science/lessons/excel-10-charts-and-advanced-charts.html | Advanced Excel
 Interactive Dashboard: Superstore Case Study | /data-science/lessons/excel-11-interactive-dashboard-superstore-case-study.html | Advanced Excel
 Power Query, Power Pivot, Analysis ToolPak & What-If Analysis | /data-science/lessons/excel-12-power-query-power-pivot-analysis-toolpak-and-what-if-analysi.html | Advanced Excel
+Flash Fill, Text to Columns and Standardising Messy Data | /data-science/lessons/excel-13-flash-fill-text-to-columns-and-standardising-messy-data.html | Advanced Excel
+Excel Macros and VBA: Recording and Writing Automation | /data-science/lessons/excel-14-excel-macros-and-vba-recording-and-writing-automation.html | Advanced Excel
+Office Scripts, Power Automate and AI-Assisted Excel Formulas | /data-science/lessons/excel-15-office-scripts-power-automate-and-ai-assisted-excel-formulas.html | Advanced Excel
+Excel Business Projects: Complaints, Finance, Productivity and Segmentation | /data-science/lessons/excel-16-excel-business-projects-complaints-finance-productivity-and.html | Advanced Excel
 ## SQL for Data Analysis: Relational databases, ER diagrams and keys, DDL/DML, filtering, aggregation, joins, set operators, subqueries, window functions, CTEs, views, procedures and performance.
 Databases, RDBMS & SQL Basics | /data-science/lessons/sql-01-databases-rdbms-and-sql-basics.html | SQL for Data Analysis
 ER Diagrams, Relationships, Keys & Normalisation | /data-science/lessons/sql-02-er-diagrams-relationships-keys-and-normalisation.html | SQL for Data Analysis
@@ -27,6 +31,11 @@ Window Functions II: Running Totals, LEAD, LAG & Frames | /data-science/lessons/
 CTEs, Views, Temporary Tables, Stored Procedures & Functions | /data-science/lessons/sql-13-ctes-views-temporary-tables-stored-procedures-and-functions.html | SQL for Data Analysis
 Transactions, Indexes, Performance & Security | /data-science/lessons/sql-14-transactions-indexes-performance-and-security.html | SQL for Data Analysis
 End-to-End SQL Case Study & Interview Practice | /data-science/lessons/sql-15-end-to-end-sql-case-study-and-interview-practice.html | SQL for Data Analysis
+Recursive CTEs, Hierarchies and Number Series | /data-science/lessons/sql-16-recursive-ctes-hierarchies-and-number-series.html | SQL for Data Analysis
+Percentiles, Medians and Distribution Queries | /data-science/lessons/sql-17-percentiles-medians-and-distribution-queries.html | SQL for Data Analysis
+Business SQL: Cohorts, Funnels, Churn, Lifetime Value and Retention | /data-science/lessons/sql-18-business-sql-cohorts-funnels-churn-lifetime-value-and-retent.html | SQL for Data Analysis
+Incremental Loading and Data-Quality SQL | /data-science/lessons/sql-19-incremental-loading-and-data-quality-sql.html | SQL for Data Analysis
+SQL Across Platforms: SQL Server, BigQuery, Snowflake and Databricks SQL | /data-science/lessons/sql-20-sql-across-platforms-sql-server-bigquery-snowflake-and-datab.html | SQL for Data Analysis
 ## Power BI: ETL with Power Query, star-schema modelling, DAX measures and time intelligence, interactive reports, case studies, publishing, security and Copilot.
 Getting Started with Power BI & Your First HR Report | /data-science/lessons/powerbi-01-getting-started-with-power-bi-and-your-first-hr-report.html | Power BI
 Power Query, Star Schema & Data Modelling (Adventure Cycles) | /data-science/lessons/powerbi-02-power-query-star-schema-and-data-modelling-adventure-cycles.html | Power BI
@@ -34,6 +43,8 @@ DAX Fundamentals: Measures, Filter Context & CALCULATE | /data-science/lessons/p
 DAX Time Intelligence, Ranking, Parameters & Dynamic Measures | /data-science/lessons/powerbi-04-dax-time-intelligence-ranking-parameters-and-dynamic-measure.html | Power BI
 Visuals, Filters, Drill-through, Tooltips, Buttons & Report Design | /data-science/lessons/powerbi-05-visuals-filters-drill-through-tooltips-buttons-and-report-de.html | Power BI
 Power BI Service, Connectivity Modes, Security & Capstone | /data-science/lessons/powerbi-06-power-bi-service-connectivity-modes-security-and-capstone.html | Power BI
+Microsoft Fabric: Lakehouse, Warehouse, Dataflows and Semantic Models | /data-science/lessons/powerbi-07-microsoft-fabric-lakehouse-warehouse-dataflows-and-semantic.html | Power BI
+Databricks: Notebooks, Delta Lake, Spark Jobs and Unity Catalog | /data-science/lessons/powerbi-08-databricks-notebooks-delta-lake-spark-jobs-and-unity-catalog.html | Power BI
 ## Tableau: Tableau Public and Desktop: connecting data, dimensions and measures, every core chart, calculated fields, table calculations and LOD expressions, filters, parameters and sets, data modelling, dashboards, stories and publishing.
 Getting Started with Tableau: Interface, Data Connections and Your First Views | /data-science/lessons/tableau-01-getting-started-with-tableau-interface-data-connections-and.html | Tableau
 Charts in Tableau: From Bar and Line to Maps, Dual Axis, Histograms and Pareto | /data-science/lessons/tableau-02-charts-in-tableau-from-bar-and-line-to-maps-dual-axis-histog.html | Tableau
