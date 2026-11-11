@@ -26,6 +26,7 @@ ORDER = [
     ("Module 10: Production and security", "11-Production-and-Security/module-10-production-security-optimisation.md"),
     ("Capstone projects", "12-Capstone-Projects/capstone-projects.md"),
     ("Walkthrough: build a D2C agent team with Grok Bot", "15-Video-Walkthrough-D2C-Agent-Team/video-walkthrough-d2c-agent-team.md"),
+    ("Grok features and the xAI ecosystem", "16-Grok-Features-and-the-xAI-Ecosystem/grok-features-and-ecosystem.md"),
     ("Exercises and final assessment", "13-Exercises-and-Assessments/final-assessment.md"),
     ("Glossary", "14-Glossary-and-References/glossary.md"),
     ("Pricing tables, references and verification checklist", "14-Glossary-and-References/references.md"),

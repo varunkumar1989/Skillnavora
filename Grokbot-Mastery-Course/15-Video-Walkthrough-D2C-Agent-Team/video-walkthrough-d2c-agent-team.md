@@ -206,6 +206,60 @@
 
 ---
 
+
+## Chapter 15.11 Key terms from the transcript, with definitions and examples
+
+Every term the transcript uses for a key idea, with a short definition and an example. Tags show where the claim comes from.
+
+| Term | Definition | Example |
+|---|---|---|
+| **Evals (evaluations)** | A repeatable test that measures how well an AI does a job, using fixed cases and clear scoring. The transcript calls them 'tests that people run to test the intelligence' [Transcript]. | Keep 50 real customer questions with the right answers. Each time you change a prompt, run all 50 and count how many are right. |
+| **Context** | Everything the model can see for one request: instructions, files, chat, memory and tool results, all counted in tokens [Transcript]. | A support bot's context holds its rules, the refund policy, this customer's order and the last three messages. |
+| **Context window** | The maximum tokens a model can use at once [Transcript]. | A 500,000-token window holds about 375,000 words [Transcript]. See Chapter 16.8. |
+| **Token** | A piece of text a model reads or writes, about three-quarters of an English word [Transcript]. | 'Elon Musk founded xAI in 2023' is split into several tokens before the model reads it. |
+| **Context capacity, retrieval accuracy, reasoning quality** | The transcript's three ways to judge a model: how much it can hold, how reliably it finds the right information, and how well it uses that information [Transcript]. | Two models with the same window can differ: one finds the right clause in a 300-page contract, the other misses it. |
+| **Compaction, truncation, summarisation, retrieval** | Four ways to keep a long session working when the window fills. Each is a summary of what was there [Transcript]. | After 200 messages, the bot replaces the old chat with a 10-line summary of decisions. |
+| **System instructions / custom instructions** | Standing rules sent with every request, written by the builder or by you in a project [Transcript]. | 'Always answer in simple English, never promise a delivery date.' |
+| **Memory** | Facts or preferences a bot or assistant keeps between sessions and reuses [Transcript]. | After you correct a bot twice ('no links in drafts'), it keeps that rule for future drafts. |
+| **Uploaded documents** | Files added to the context; they count towards the window [Transcript]. | A 20-page brand bible uploaded to a chat uses a large share of the window. |
+| **LLM (large language model)** | The model that reads text and predicts the next token; the 'intelligence' part of a product [Transcript]. | Grok 4.7 is a model; Grok Bot is the product that uses it. |
+| **Reasoning level** | A setting that controls how much a model thinks before it answers [Transcript]. | Use a higher level for a multi-step margin calculation; a lower one for rewriting a caption. |
+| **Chatbot** | A tool you ask and it answers in the conversation; you copy the output elsewhere [Transcript]. | You paste a question, get a draft, and copy it into your email yourself. |
+| **Agent / persistent agent** | A bot that takes an outcome, plans steps, uses tools and keeps running on schedules or events [Transcript]. | A competitor-watch bot searches every evening and writes a report. |
+| **Done-for-you vs do-it-yourself** | Chat is do-it-yourself: you direct every step. An agent is done-for-you: you set the outcome and check the result [Transcript]. | You ask a chatbot for a report, then compile it. You ask an agent for the report and it compiles it and files it. |
+| **Routine** | A job a bot runs on its own, on a schedule or when an event happens; it can be paused [Transcript]. | Every morning at 9, the research bot checks competitors' posts and writes a summary. |
+| **Skill** | A repeatable process a bot follows, with its trigger, inputs, steps, checks, hand-back and approval points [Transcript]. | A 'website with ElevenLabs agent' skill that always adds the support agent to new sites. |
+| **Plugin (connected app)** | An app a bot can read or act in, such as Gmail, Notion or Google Drive [Transcript]. | After connecting Gmail, the bot can write drafts there; it cannot send unless you allow it. |
+| **Template (bot template)** | A saved copy of a bot's memory, skills and instructions that others can use [Transcript]. | A 'Diwali campaign' template that you share with a client so they can reuse the setup. |
+| **Marketplace** | A place to browse and import community or official bot templates [Transcript]. | Importing a 'personal assistant' template, then changing its memories for your own use. |
+| **Group chat** | A shared chat where a chief bot and specialist bots take requests and report [Transcript]. | You post 'please prepare the Diwali brochure' once; the chief assigns it to the creative bot. |
+| **Live voice chat** | Speaking with a bot in real time instead of typing [Transcript]. | You talk through a brief; the bot replies by voice and ends the call when finished. |
+| **Virtual computer** | A cloud computer each bot can use, with a browser, terminal and file storage [Transcript]. | The research bot opens a competitor's website in the browser and saves a screenshot to the shared folder. |
+| **Shared workspace / shared folder** | Files every bot in a project can see, so context is shared [Transcript]. | The brand bible saved once is used by the website, creative and support bots. |
+| **Brand bible** | A short, verified reference for a brand: story, approved phrases, prices, products, claims and visual rules [Transcript]. | A 14-page document listing the approved tagline and the current price for each product. |
+| **Verified vs unverified fact** | Verified facts come from the brand's own source. Unverified facts are derived or assumed and need the client's confirmation [Transcript]. | 'Free delivery above ₹499' copied from the site is verified; 'best in Pune' from a guess is unverified. |
+| **Webhook** | An automatic message one system sends to a web address when something happens [Transcript]. | A website form sends each submission to a routine, which drafts a brochure. |
+| **Credentials (webhook URL and key)** | The address and secret key that let one system send data to another. They must be pasted by a person, never shared in chat [Transcript]. | You copy the webhook key into Lovable's settings yourself; you never paste it into a bot chat. |
+| **Guardrail** | A limit that stops an AI from doing something it should not: a rule, a filter or a check [Transcript]. | The support agent is told never to give medical advice and to refer health questions to a doctor. |
+| **Escalation** | Passing a conversation to a person when the AI should not or cannot answer [Transcript]. | A bulk-order request is passed to the sales team with the customer's details. |
+| **Knowledge base** | The documents an agent searches to answer questions [Transcript]. | A list of FAQs, prices and delivery rules, indexed for the support agent. |
+| **Data fiduciary** | The party responsible for personal data entrusted to it, even when vendors' tools process it [Transcript]. | If a client's customer data leaks through your agent, you are accountable to the client. |
+| **Human in the loop** | A person checks and approves the important steps before they happen [Transcript]. | The bot drafts emails; you read each one and press send. |
+| **SHAPE framework** | The transcript's five-part framework: SOP-driven work, human in the loop, arbitrage, product is no longer the moat, and be employable [Transcript]. | A checklist for a new AI service: write the process first, keep a person approving, find the price gap you can fill, compete on service, and build skills. |
+| **Arbitrage** | Profiting from a gap between what something costs and what people will pay [General; the transcript uses it inside SHAPE]. | Doing a repeatable service for clients who lack the time, using tools that cost less than your fee. |
+| **First draft vs last draft** | The transcript's rule: AI output is a first draft; the human makes the last draft [Transcript]. | The AI writes a proposal; you check the numbers, rewrite the opening and approve it. |
+| **Team plan** | A plan that lets a team share bots, skills and assign work to each other [Transcript, Check]. | Three team members share the same brand-bible skill. |
+| **Force multiplier** | A tool that lets one person do much more work, while judgement stays with the person [Transcript]. | One person manages six specialist bots and reviews their output each day. |
+| **Apollo (prospect data)** | A sales database that finds contacts and email status [Transcript; a third-party tool]. | A list of 20 decision-makers, each with a verified email before you write to them. |
+| **Personalisation hook** | One specific, true detail about the recipient used to open a message [Transcript]. | 'Congratulations on your October launch' instead of 'Hello'. |
+| **Gmail draft** | An email saved, not sent, for a person to review [Transcript]. | The bot writes 35 drafts with attachments; you send only the ones you approve. |
+| **Whisper Flow (dictation)** | A voice-to-text tool the transcript uses to speak a long job description instead of typing it [Transcript; a third-party tool]. | You dictate a bot's job description in one minute, then check the text before saving it. |
+| **Higgsfield (media tool)** | A tool for creating images and video, named in the transcript [Transcript, Check]. | Product images for the brand's website. |
+| **ElevenLabs** | A platform for voice and conversational agents, named in the transcript [Transcript, Check]. | A WhatsApp support agent that answers FAQs and escalates the rest. |
+| **Lovable** | A tool that builds websites and apps from prompts, named in the transcript [Transcript, Check]. | A brand website built from a prompt and then published on the client's domain. |
+
+---
+
 ## Chapter 15.10 What the transcript claims that we have not verified
 
 | Claim in the transcript | Our status |

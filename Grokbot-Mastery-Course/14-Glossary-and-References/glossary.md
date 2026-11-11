@@ -68,3 +68,26 @@
 | Verified vs unverified fact | Verified: taken from the brand's official source. Unverified: derived or assumed, and must be confirmed with the client. |
 | Escalation | Handing a conversation from an AI agent to a human when it cannot or should not answer. |
 | Data fiduciary | The party responsible for keeping personal data safe and lawful, even when a vendor's tools handle it. |
+| Eval | A repeatable test of how well an AI does a job, with fixed cases and clear scoring (Chapter 15.11). |
+| Memory (AI) | Facts or preferences a bot keeps and reuses across sessions. |
+| Compaction | Shortening a long session so it fits the context window: truncation, summarisation or retrieval. |
+| Truncation | Removing the oldest messages from the active context. |
+| Summarisation (context) | Replacing old discussion with a shorter summary, which can lose detail. |
+| Retrieval (context) | Fetching only the earlier parts of a session or document that are relevant now. |
+| Chatbot | A tool you ask questions in a conversation; you copy outputs into other tools. |
+| Guardrail | A rule, filter or check that stops an AI from doing something it should not. |
+| Knowledge base | The indexed documents an agent searches to answer questions. |
+| SHAPE framework | The transcript's framework: SOP-driven, human in the loop, arbitrage, product is no longer the moat, be employable. |
+| Arbitrage | Profiting from the gap between what a service costs you and what clients pay for it. |
+| Apollo | A sales database for finding contacts and email status (third-party tool). |
+| Higgsfield | A media tool for images and video, named in the transcript (check the tool's own page). |
+| ElevenLabs | A platform for voice and conversational agents, including WhatsApp support agents (third-party). |
+| Lovable | A tool that builds websites and apps from prompts (third-party). |
+| Grok Imagine | xAI's image creation tool in the Grok ecosystem. |
+| Grok Build | xAI's tool for building websites and code from a prompt. |
+| Grok Voice | Grok's voice mode for speaking with the model and with bots. |
+| xAI | The company that owns Grok and its ecosystem (Grok models, Imagine, Build, Bot, Voice, API). |
+| X search | Searching X (formerly Twitter) posts from inside Grok, as described in the transcript; check plan terms. |
+| Virtual computer | A cloud computer each bot can use, with a browser, terminal and file storage. |
+| Live voice chat | Speaking to a bot in real time instead of typing. |
+| Human in the loop | A person checks and approves important steps before they happen. |

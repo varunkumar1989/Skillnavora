@@ -64,7 +64,7 @@
 Prices and product facts are labelled <b>[Third-party]</b>, <b>[General]</b>, <b>[Estimate]</b> or <b>[Unverified]</b>.
 Confirm every price on xAI's pricing page before you budget. The token calculator and the offline code tests are checked;
 the live API calls are not yet tested.</div><p>Code, calculator and tests: the <code>Grokbot-Mastery-Course/</code> folder in the SkillNavora repository
-(<code>tools/token_cost_calculator.py</code>, <code>code/test_offline.py</code> and the chatbot, RAG, agent and monitoring examples).</p><h2 class="sec-h">Contents</h2><ol class="gm-toc"><li><a href="#course-overview-what-grokbot-means">Course overview: what Grokbot means</a></li><li><a href="#module-1-introduction-and-ai-fundamentals">Module 1: Introduction and AI fundamentals</a></li><li><a href="#module-2-platform-architecture">Module 2: Platform architecture</a></li><li><a href="#module-3-tokens-and-token-economics">Module 3: Tokens and token economics</a></li><li><a href="#module-4-pricing-and-subscriptions">Module 4: Pricing and subscriptions</a></li><li><a href="#module-5-prompt-engineering">Module 5: Prompt engineering</a></li><li><a href="#module-6-api-integration">Module 6: API integration</a></li><li><a href="#module-7-chatbots-and-automation">Module 7: Chatbots and automation</a></li><li><a href="#module-8-agents-and-advanced-workflows">Module 8: Agents and advanced workflows</a></li><li><a href="#module-9-business-applications">Module 9: Business applications</a></li><li><a href="#module-10-production-and-security">Module 10: Production and security</a></li><li><a href="#capstone-projects">Capstone projects</a></li><li><a href="#walkthrough-build-a-d2c-agent-team-with-grok-bot">Walkthrough: build a D2C agent team with Grok Bot</a></li><li><a href="#exercises-and-final-assessment">Exercises and final assessment</a></li><li><a href="#glossary">Glossary</a></li><li><a href="#pricing-tables-references-and-verification-checklist">Pricing tables, references and verification checklist</a></li></ol></div></section><section><div class="wrap"><section id="course-overview-what-grokbot-means" class="gm-doc"><h1>Course overview: what Grokbot means</h1><h1>Course Overview: What Exactly Is "Grokbot"?</h1>
+(<code>tools/token_cost_calculator.py</code>, <code>code/test_offline.py</code> and the chatbot, RAG, agent and monitoring examples).</p><h2 class="sec-h">Contents</h2><ol class="gm-toc"><li><a href="#course-overview-what-grokbot-means">Course overview: what Grokbot means</a></li><li><a href="#module-1-introduction-and-ai-fundamentals">Module 1: Introduction and AI fundamentals</a></li><li><a href="#module-2-platform-architecture">Module 2: Platform architecture</a></li><li><a href="#module-3-tokens-and-token-economics">Module 3: Tokens and token economics</a></li><li><a href="#module-4-pricing-and-subscriptions">Module 4: Pricing and subscriptions</a></li><li><a href="#module-5-prompt-engineering">Module 5: Prompt engineering</a></li><li><a href="#module-6-api-integration">Module 6: API integration</a></li><li><a href="#module-7-chatbots-and-automation">Module 7: Chatbots and automation</a></li><li><a href="#module-8-agents-and-advanced-workflows">Module 8: Agents and advanced workflows</a></li><li><a href="#module-9-business-applications">Module 9: Business applications</a></li><li><a href="#module-10-production-and-security">Module 10: Production and security</a></li><li><a href="#capstone-projects">Capstone projects</a></li><li><a href="#walkthrough-build-a-d2c-agent-team-with-grok-bot">Walkthrough: build a D2C agent team with Grok Bot</a></li><li><a href="#grok-features-and-the-xai-ecosystem">Grok features and the xAI ecosystem</a></li><li><a href="#exercises-and-final-assessment">Exercises and final assessment</a></li><li><a href="#glossary">Glossary</a></li><li><a href="#pricing-tables-references-and-verification-checklist">Pricing tables, references and verification checklist</a></li></ol></div></section><section><div class="wrap"><section id="course-overview-what-grokbot-means" class="gm-doc"><h1>Course overview: what Grokbot means</h1><h1>Course Overview: What Exactly Is "Grokbot"?</h1>
 <p>Before learning a platform, be certain which platform you are learning. The name "Grokbot" is used for at least three different things, and they are not interchangeable.</p>
 <h2>0.1 The three meanings of "Grokbot"</h2>
 <div class="gm-tw"><table>
@@ -3166,6 +3166,240 @@ User ─► question + last 2 turns ─► Index.search ─► top 3 chunks
 - [ ] No link, key or token pasted into a message.
 - [ ] A person has read, edited and approved the draft.</p>
 <hr />
+<h2>Chapter 15.11 Key terms from the transcript, with definitions and examples</h2>
+<p>Every term the transcript uses for a key idea, with a short definition and an example. Tags show where the claim comes from.</p>
+<div class="gm-tw"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Evals (evaluations)</strong></td>
+<td>A repeatable test that measures how well an AI does a job, using fixed cases and clear scoring. The transcript calls them 'tests that people run to test the intelligence' [Transcript].</td>
+<td>Keep 50 real customer questions with the right answers. Each time you change a prompt, run all 50 and count how many are right.</td>
+</tr>
+<tr>
+<td><strong>Context</strong></td>
+<td>Everything the model can see for one request: instructions, files, chat, memory and tool results, all counted in tokens [Transcript].</td>
+<td>A support bot's context holds its rules, the refund policy, this customer's order and the last three messages.</td>
+</tr>
+<tr>
+<td><strong>Context window</strong></td>
+<td>The maximum tokens a model can use at once [Transcript].</td>
+<td>A 500,000-token window holds about 375,000 words [Transcript]. See Chapter 16.8.</td>
+</tr>
+<tr>
+<td><strong>Token</strong></td>
+<td>A piece of text a model reads or writes, about three-quarters of an English word [Transcript].</td>
+<td>'Elon Musk founded xAI in 2023' is split into several tokens before the model reads it.</td>
+</tr>
+<tr>
+<td><strong>Context capacity, retrieval accuracy, reasoning quality</strong></td>
+<td>The transcript's three ways to judge a model: how much it can hold, how reliably it finds the right information, and how well it uses that information [Transcript].</td>
+<td>Two models with the same window can differ: one finds the right clause in a 300-page contract, the other misses it.</td>
+</tr>
+<tr>
+<td><strong>Compaction, truncation, summarisation, retrieval</strong></td>
+<td>Four ways to keep a long session working when the window fills. Each is a summary of what was there [Transcript].</td>
+<td>After 200 messages, the bot replaces the old chat with a 10-line summary of decisions.</td>
+</tr>
+<tr>
+<td><strong>System instructions / custom instructions</strong></td>
+<td>Standing rules sent with every request, written by the builder or by you in a project [Transcript].</td>
+<td>'Always answer in simple English, never promise a delivery date.'</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Facts or preferences a bot or assistant keeps between sessions and reuses [Transcript].</td>
+<td>After you correct a bot twice ('no links in drafts'), it keeps that rule for future drafts.</td>
+</tr>
+<tr>
+<td><strong>Uploaded documents</strong></td>
+<td>Files added to the context; they count towards the window [Transcript].</td>
+<td>A 20-page brand bible uploaded to a chat uses a large share of the window.</td>
+</tr>
+<tr>
+<td><strong>LLM (large language model)</strong></td>
+<td>The model that reads text and predicts the next token; the 'intelligence' part of a product [Transcript].</td>
+<td>Grok 4.7 is a model; Grok Bot is the product that uses it.</td>
+</tr>
+<tr>
+<td><strong>Reasoning level</strong></td>
+<td>A setting that controls how much a model thinks before it answers [Transcript].</td>
+<td>Use a higher level for a multi-step margin calculation; a lower one for rewriting a caption.</td>
+</tr>
+<tr>
+<td><strong>Chatbot</strong></td>
+<td>A tool you ask and it answers in the conversation; you copy the output elsewhere [Transcript].</td>
+<td>You paste a question, get a draft, and copy it into your email yourself.</td>
+</tr>
+<tr>
+<td><strong>Agent / persistent agent</strong></td>
+<td>A bot that takes an outcome, plans steps, uses tools and keeps running on schedules or events [Transcript].</td>
+<td>A competitor-watch bot searches every evening and writes a report.</td>
+</tr>
+<tr>
+<td><strong>Done-for-you vs do-it-yourself</strong></td>
+<td>Chat is do-it-yourself: you direct every step. An agent is done-for-you: you set the outcome and check the result [Transcript].</td>
+<td>You ask a chatbot for a report, then compile it. You ask an agent for the report and it compiles it and files it.</td>
+</tr>
+<tr>
+<td><strong>Routine</strong></td>
+<td>A job a bot runs on its own, on a schedule or when an event happens; it can be paused [Transcript].</td>
+<td>Every morning at 9, the research bot checks competitors' posts and writes a summary.</td>
+</tr>
+<tr>
+<td><strong>Skill</strong></td>
+<td>A repeatable process a bot follows, with its trigger, inputs, steps, checks, hand-back and approval points [Transcript].</td>
+<td>A 'website with ElevenLabs agent' skill that always adds the support agent to new sites.</td>
+</tr>
+<tr>
+<td><strong>Plugin (connected app)</strong></td>
+<td>An app a bot can read or act in, such as Gmail, Notion or Google Drive [Transcript].</td>
+<td>After connecting Gmail, the bot can write drafts there; it cannot send unless you allow it.</td>
+</tr>
+<tr>
+<td><strong>Template (bot template)</strong></td>
+<td>A saved copy of a bot's memory, skills and instructions that others can use [Transcript].</td>
+<td>A 'Diwali campaign' template that you share with a client so they can reuse the setup.</td>
+</tr>
+<tr>
+<td><strong>Marketplace</strong></td>
+<td>A place to browse and import community or official bot templates [Transcript].</td>
+<td>Importing a 'personal assistant' template, then changing its memories for your own use.</td>
+</tr>
+<tr>
+<td><strong>Group chat</strong></td>
+<td>A shared chat where a chief bot and specialist bots take requests and report [Transcript].</td>
+<td>You post 'please prepare the Diwali brochure' once; the chief assigns it to the creative bot.</td>
+</tr>
+<tr>
+<td><strong>Live voice chat</strong></td>
+<td>Speaking with a bot in real time instead of typing [Transcript].</td>
+<td>You talk through a brief; the bot replies by voice and ends the call when finished.</td>
+</tr>
+<tr>
+<td><strong>Virtual computer</strong></td>
+<td>A cloud computer each bot can use, with a browser, terminal and file storage [Transcript].</td>
+<td>The research bot opens a competitor's website in the browser and saves a screenshot to the shared folder.</td>
+</tr>
+<tr>
+<td><strong>Shared workspace / shared folder</strong></td>
+<td>Files every bot in a project can see, so context is shared [Transcript].</td>
+<td>The brand bible saved once is used by the website, creative and support bots.</td>
+</tr>
+<tr>
+<td><strong>Brand bible</strong></td>
+<td>A short, verified reference for a brand: story, approved phrases, prices, products, claims and visual rules [Transcript].</td>
+<td>A 14-page document listing the approved tagline and the current price for each product.</td>
+</tr>
+<tr>
+<td><strong>Verified vs unverified fact</strong></td>
+<td>Verified facts come from the brand's own source. Unverified facts are derived or assumed and need the client's confirmation [Transcript].</td>
+<td>'Free delivery above ₹499' copied from the site is verified; 'best in Pune' from a guess is unverified.</td>
+</tr>
+<tr>
+<td><strong>Webhook</strong></td>
+<td>An automatic message one system sends to a web address when something happens [Transcript].</td>
+<td>A website form sends each submission to a routine, which drafts a brochure.</td>
+</tr>
+<tr>
+<td><strong>Credentials (webhook URL and key)</strong></td>
+<td>The address and secret key that let one system send data to another. They must be pasted by a person, never shared in chat [Transcript].</td>
+<td>You copy the webhook key into Lovable's settings yourself; you never paste it into a bot chat.</td>
+</tr>
+<tr>
+<td><strong>Guardrail</strong></td>
+<td>A limit that stops an AI from doing something it should not: a rule, a filter or a check [Transcript].</td>
+<td>The support agent is told never to give medical advice and to refer health questions to a doctor.</td>
+</tr>
+<tr>
+<td><strong>Escalation</strong></td>
+<td>Passing a conversation to a person when the AI should not or cannot answer [Transcript].</td>
+<td>A bulk-order request is passed to the sales team with the customer's details.</td>
+</tr>
+<tr>
+<td><strong>Knowledge base</strong></td>
+<td>The documents an agent searches to answer questions [Transcript].</td>
+<td>A list of FAQs, prices and delivery rules, indexed for the support agent.</td>
+</tr>
+<tr>
+<td><strong>Data fiduciary</strong></td>
+<td>The party responsible for personal data entrusted to it, even when vendors' tools process it [Transcript].</td>
+<td>If a client's customer data leaks through your agent, you are accountable to the client.</td>
+</tr>
+<tr>
+<td><strong>Human in the loop</strong></td>
+<td>A person checks and approves the important steps before they happen [Transcript].</td>
+<td>The bot drafts emails; you read each one and press send.</td>
+</tr>
+<tr>
+<td><strong>SHAPE framework</strong></td>
+<td>The transcript's five-part framework: SOP-driven work, human in the loop, arbitrage, product is no longer the moat, and be employable [Transcript].</td>
+<td>A checklist for a new AI service: write the process first, keep a person approving, find the price gap you can fill, compete on service, and build skills.</td>
+</tr>
+<tr>
+<td><strong>Arbitrage</strong></td>
+<td>Profiting from a gap between what something costs and what people will pay [General; the transcript uses it inside SHAPE].</td>
+<td>Doing a repeatable service for clients who lack the time, using tools that cost less than your fee.</td>
+</tr>
+<tr>
+<td><strong>First draft vs last draft</strong></td>
+<td>The transcript's rule: AI output is a first draft; the human makes the last draft [Transcript].</td>
+<td>The AI writes a proposal; you check the numbers, rewrite the opening and approve it.</td>
+</tr>
+<tr>
+<td><strong>Team plan</strong></td>
+<td>A plan that lets a team share bots, skills and assign work to each other [Transcript, Check].</td>
+<td>Three team members share the same brand-bible skill.</td>
+</tr>
+<tr>
+<td><strong>Force multiplier</strong></td>
+<td>A tool that lets one person do much more work, while judgement stays with the person [Transcript].</td>
+<td>One person manages six specialist bots and reviews their output each day.</td>
+</tr>
+<tr>
+<td><strong>Apollo (prospect data)</strong></td>
+<td>A sales database that finds contacts and email status [Transcript; a third-party tool].</td>
+<td>A list of 20 decision-makers, each with a verified email before you write to them.</td>
+</tr>
+<tr>
+<td><strong>Personalisation hook</strong></td>
+<td>One specific, true detail about the recipient used to open a message [Transcript].</td>
+<td>'Congratulations on your October launch' instead of 'Hello'.</td>
+</tr>
+<tr>
+<td><strong>Gmail draft</strong></td>
+<td>An email saved, not sent, for a person to review [Transcript].</td>
+<td>The bot writes 35 drafts with attachments; you send only the ones you approve.</td>
+</tr>
+<tr>
+<td><strong>Whisper Flow (dictation)</strong></td>
+<td>A voice-to-text tool the transcript uses to speak a long job description instead of typing it [Transcript; a third-party tool].</td>
+<td>You dictate a bot's job description in one minute, then check the text before saving it.</td>
+</tr>
+<tr>
+<td><strong>Higgsfield (media tool)</strong></td>
+<td>A tool for creating images and video, named in the transcript [Transcript, Check].</td>
+<td>Product images for the brand's website.</td>
+</tr>
+<tr>
+<td><strong>ElevenLabs</strong></td>
+<td>A platform for voice and conversational agents, named in the transcript [Transcript, Check].</td>
+<td>A WhatsApp support agent that answers FAQs and escalates the rest.</td>
+</tr>
+<tr>
+<td><strong>Lovable</strong></td>
+<td>A tool that builds websites and apps from prompts, named in the transcript [Transcript, Check].</td>
+<td>A brand website built from a prompt and then published on the client's domain.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
 <h2>Chapter 15.10 What the transcript claims that we have not verified</h2>
 <div class="gm-tw"><table>
 <thead>
@@ -3205,7 +3439,194 @@ User ─► question + last 2 turns ─► Index.search ─► top 3 chunks
 </tr>
 </tbody>
 </table></div>
-<p><strong>The transcript's own warning, which we repeat:</strong> the tools will change; the way of working (clear job, checked output, human approval) does not.</p></section><section id="exercises-and-final-assessment" class="gm-doc"><h1>Exercises and final assessment</h1><h1>Exercises and Final Assessment</h1>
+<p><strong>The transcript's own warning, which we repeat:</strong> the tools will change; the way of working (clear job, checked output, human approval) does not.</p></section><section id="grok-features-and-the-xai-ecosystem" class="gm-doc"><h1>Grok features and the xAI ecosystem</h1><h1>Grok Features and the xAI Ecosystem</h1>
+<p><strong>Level:</strong> Beginner to intermediate · <strong>Time:</strong> about 2 hours · <strong>Sources:</strong> the walkthrough transcript supplied for this course, plus the third-party coverage noted in Module 4. Every product detail carries a status tag. Plans, prices, model names and feature availability change often.</p>
+<p><strong>Status tags:</strong> <strong>[Transcript]</strong> = stated in the transcript, not checked · <strong>[Third-party]</strong> = from a non-xAI source · <strong>[Check]</strong> = confirm on the official page before you rely on it · <strong>[General]</strong> = stable concept.</p>
+<hr />
+<h2>Chapter 16.0 The map: what xAI offers</h2>
+<p>The transcript describes xAI as the company behind an ecosystem of products <strong>[Transcript]</strong>:</p>
+<div class="gm-tw"><table>
+<thead>
+<tr>
+<th>Product</th>
+<th>What it is (plain words)</th>
+<th>Closest equivalent named in the transcript</th>
+<th>Chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Grok models</strong> (chat)</td>
+<td>Large language models you talk or reason with</td>
+<td>ChatGPT, Gemini, Claude chat</td>
+<td>16.1</td>
+</tr>
+<tr>
+<td><strong>Grok Imagine</strong></td>
+<td>Image creation</td>
+<td>GPT Images, Nano Banana</td>
+<td>16.2</td>
+</tr>
+<tr>
+<td><strong>Grok Build</strong></td>
+<td>Building websites and code from a prompt</td>
+<td>Claude Artifacts, GPT Sites</td>
+<td>16.3</td>
+</tr>
+<tr>
+<td><strong>Grok Bot</strong></td>
+<td>Always-on agents that work for you</td>
+<td>ChatGPT Dots, Gemini Gems</td>
+<td>16.4</td>
+</tr>
+<tr>
+<td><strong>Grok Voice</strong></td>
+<td>Speaking with Grok</td>
+<td>Voice modes in other assistants</td>
+<td>16.5</td>
+</tr>
+<tr>
+<td><strong>xAI API</strong></td>
+<td>Access to Grok for developers and products</td>
+<td>OpenAI or Anthropic APIs</td>
+<td>16.6</td>
+</tr>
+<tr>
+<td><strong>X search</strong></td>
+<td>Searching X (formerly Twitter) posts from inside Grok</td>
+<td>Web search tools</td>
+<td>16.7</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Plain-English summary:</strong> the models are the brain; Imagine, Build and Voice are tools that use it; Grok Bot is the agent that runs jobs on a schedule; the API lets your own software use the same brain.</p>
+<hr />
+<h2>Chapter 16.1 Grok models and chat</h2>
+<p><strong>What it is [Transcript]:</strong> Grok is a family of large language models. The transcript names <strong>Grok 4.7</strong> as the most important general model available to everyone at the time of recording (October 2026), with cheaper and faster models also available.</p>
+<p><strong>Key facts from the transcript [Transcript, Check]:</strong>
+- The <strong>context window</strong> is <strong>500,000 tokens</strong>, which the transcript converts to about 375,000 words (see 16.8).
+- Grok 4.7 offers <strong>four reasoning levels</strong>. In a bot you must choose the level <strong>[Transcript, Check]</strong>.
+- Compared with other models named in the transcript, a bigger window is not automatically a better answer.</p>
+<p><strong>How it works:</strong> you type, Grok reads the whole conversation (within the context window), and replies. Each reply uses tokens for input and output, and costs are based on those tokens <strong>[General]</strong>.</p>
+<p><strong>How to use it well:</strong>
+1. Put the goal, the audience, the facts you want used, and the format you want in one message (see Module 5).
+2. Pick a reasoning level. Use a higher level for multi-step analysis and a lower one for quick rewrites <strong>[Check]</strong>.
+3. Start a new chat when the topic changes, so old context does not crowd the new question.
+4. Treat the answer as a first draft. The transcript's rule: AI output is the baseline, not the finish line <strong>[Transcript]</strong>.</p>
+<p><strong>Example:</strong> "You are reviewing a pricing page for a D2C sweets brand. Using only the price list I paste below, list any price that does not match the offer text. Output a table: item, price in list, price in offer, match yes/no." Paste the price list. Check every row yourself before using it.</p>
+<hr />
+<h2>Chapter 16.2 Grok Imagine (images)</h2>
+<p><strong>What it is [Transcript]:</strong> Grok Imagine creates images. The transcript compares it with GPT Images and Nano Banana in other ecosystems.</p>
+<p><strong>How it works [General]:</strong> you describe a picture in words, and a text-to-image model generates it. You can usually refine by asking for changes ("make the box blue, keep the lettering").</p>
+<p><strong>How to use it for a brand:</strong>
+1. Give the brand's visual rules first: colours, fonts, product shapes. Paste them as text.
+2. Write one prompt per asset: subject, setting, lighting, format (square for Instagram, 16:9 for a banner), and what must not appear.
+3. Check every output for wrong text, extra fingers, invented logos and product shapes that do not match the real product.
+4. Never publish an image that shows a real product with a shape or claim the product does not have.</p>
+<p><strong>Example:</strong> "Square 1080×1080 image. A box of assorted Indian sweets on a brass tray, warm Diwali lamps behind, soft light. The box is cream with a green ribbon. No text, no logo, no people." The transcript's creative bot used this kind of brief with an image tool to make brand images <strong>[Transcript]</strong>.</p>
+<p><strong>Check [Check]:</strong> which image tool your plan includes, usage limits, and the licence for commercial use.</p>
+<hr />
+<h2>Chapter 16.3 Grok Build (websites and code)</h2>
+<p><strong>What it is [Transcript]:</strong> Grok Build is for building websites and code. The transcript compares it with Claude Artifacts and GPT Sites <strong>[Transcript]</strong>.</p>
+<p><strong>How it works [General]:</strong> you describe the app or page, the tool generates code and a preview, and you iterate by describing changes. Some builders also host the result.</p>
+<p><strong>How to use it:</strong>
+1. Describe the page: sections in order, the call to action, the products or services, and the contact method.
+2. Give it real facts and mark them clearly: prices and certifications should come from the client, not from memory.
+3. Test forms, links and mobile layout before you publish.
+4. Keep any keys, passwords or webhook URLs out of the prompt. Paste them into the builder's secure settings yourself (see Chapter 15.6).</p>
+<p><strong>Example:</strong> "Build a one-page site for a sweets brand: hero with the tagline 'Guilt-free traditional sweets' (client-approved), a product grid with the 6 products and prices in the attached list, a corporate gifting section, an inquiry form that sends details to our webhook, and a footer with the address and phone."</p>
+<p><strong>Check [Check]:</strong> whether the current plan includes Build, hosting limits, and who owns the code.</p>
+<hr />
+<h2>Chapter 16.4 Grok Bot (agents)</h2>
+<p><strong>What it is [Transcript]:</strong> Grok Bot is the agentic platform. You create bots that run jobs for you; bots can use connected apps, run on schedules, and coordinate with other bots. The full method is in Chapter 15 and Modules 7–8.</p>
+<p><strong>Key facts from the transcript [Transcript, Check]:</strong>
+- Grok Bot is included in the <strong>Premium plan and above</strong>; the transcript says the minimum is <strong>$30 a month</strong>.
+- A bot has details, library and a virtual computer. Under details you find <strong>routines</strong>.
+- Bots can have their own email address, created once.</p>
+<p><strong>How to use it:</strong> follow Chapter 15.2 (one bot, one job), 15.3 (plugins, skills, routines) and 15.4 (memory, shared files).</p>
+<p><strong>Check [Check]:</strong> current plans, the feature list in each plan, and whether team plans are available in your country.</p>
+<hr />
+<h2>Chapter 16.5 Grok Voice and live voice chat</h2>
+<p><strong>What it is [Transcript]:</strong> Grok Voice is the voice mode of Grok. In Grok Bot, a <strong>live voice chat</strong> button lets you speak to a bot; the transcript shows the bot answering by voice and ending the call itself <strong>[Transcript]</strong>.</p>
+<p><strong>How it works [General]:</strong> your speech is turned into text, the model replies, and the reply is turned back into speech. Voice is faster for planning, but harder to check later, so write down the decisions.</p>
+<p><strong>How to use it:</strong>
+1. Use voice for briefing and quick decisions.
+2. After each call, ask the bot to write a summary and a list of actions, and save it to the shared folder.
+3. Confirm any decision that involves money, a client or a published message in writing.</p>
+<p><strong>Example:</strong> speak: "Chief, add a check that every price on the website matches the price list before any ad goes out." Then ask in text: "Summarise that instruction as a rule and add it to your memory."</p>
+<p><strong>Check [Check]:</strong> which voice features are in your plan, and whether recordings are stored.</p>
+<hr />
+<h2>Chapter 16.6 The xAI API (for developers)</h2>
+<p><strong>What it is [Transcript]:</strong> the xAI API lets developers and solution builders use Grok inside their own software or voice agents <strong>[Transcript]</strong>.</p>
+<p><strong>How it works [General]:</strong> your code sends a request (a message, optional tools, settings such as reasoning level) to an endpoint, and gets a reply in JSON. You pay for tokens, and some server-side tools are charged per call.</p>
+<p><strong>Third-party reference [Third-party]:</strong> one non-xAI source reports <strong>$5 per 1,000 calls</strong> for server-side tools such as Web Search and X Search, on top of tokens. Verify on xAI's pricing page before quoting it.</p>
+<p><strong>Minimal example (pseudo-code, check the current SDK and endpoint names):</strong></p>
+<pre><code>response = client.chat(model=&quot;&lt;model name from xAI's model page&gt;&quot;,
+                       reasoning=&quot;medium&quot;,
+                       messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Summarise these 3 reviews in 50 words.&quot;}])
+print(response.text)
+</code></pre>
+<p><strong>Safety rules for API keys:</strong> never put a key in code you share, in a chat, or in a screenshot. Store it as an environment variable or a secret. Rotate it if it leaks. Module 10 covers this in depth.</p>
+<p><strong>Check [Check]:</strong> the current endpoint, SDK, model names and pricing; the transcript's model names are not verified here.</p>
+<hr />
+<h2>Chapter 16.7 X search and live posts</h2>
+<p><strong>What it is [Transcript]:</strong> Grok can search X (formerly Twitter) posts. The transcript says bots can search X and summarise competitors' posts, included in the plan <strong>[Transcript, Check]</strong>.</p>
+<p><strong>How it works [General]:</strong> the model calls a search tool, reads the returned posts, and summarises them with their links. Results are only as good as the search and the posts found.</p>
+<p><strong>How to use it:</strong>
+1. Ask a specific question with a time window: "Posts from the last 30 days by these three brands about pricing or offers."
+2. Ask for the post links and the date of each post.
+3. Check each claim by opening the post. Posts can be deleted, edited, or taken out of context.
+4. Never copy a rumour or a competitor's private information into client work.</p>
+<p><strong>Example:</strong> "Search X for posts by @brandA in the last 30 days about Diwali offers. List each post: date, offer, link. Mark any you could not verify."</p>
+<hr />
+<h2>Chapter 16.8 Context windows, tokens and compaction, with examples</h2>
+<p><strong>Definition:</strong> a <strong>context window</strong> is the maximum number of tokens a model can consider in one request. It holds your instructions, your files, the chat history, memory and the answer. <strong>Token:</strong> a piece of text the model reads and writes, roughly three-quarters of an English word <strong>[General]</strong>.</p>
+<p><strong>Example:</strong> a 500,000-token window is about 375,000 English words (transcript's conversion, rule of thumb). A 40-page PDF is roughly 15,000–20,000 words, so a few PDFs fit easily. The window still gets used up by system instructions, memory and the whole chat, so long projects fill it faster than you expect.</p>
+<p><strong>When the window fills, the transcript names four techniques [Transcript]:</strong>
+- <strong>Truncation:</strong> remove the oldest messages from the active context. Example: the first brief disappears, so the bot forgets a rule you gave on day one.
+- <strong>Summarisation:</strong> replace old discussion with a shorter summary. Example: 40 messages become a 10-line note of decisions.
+- <strong>Retrieval:</strong> fetch only the relevant earlier parts. Example: the bot searches the shared folder for "invoice terms" instead of rereading everything.
+- <strong>Context compaction:</strong> a general name for the above. Example: a new working session starts with a summary of key facts.</p>
+<p><strong>The transcript's warning:</strong> every one of these is a summary, so it can be wrong or incomplete. Keep important rules in memory or in a written document, and check outputs <strong>[Transcript]</strong>.</p>
+<p><strong>The transcript's point about bigger windows:</strong> a model that reads 1 million tokens is not automatically more intelligent. Intelligence depends on how well it uses what it reads <strong>[Transcript]</strong>.</p>
+<hr />
+<h2>Chapter 16.9 Plans and pricing (what the transcript says)</h2>
+<div class="gm-tw"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>What the transcript says</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plans</td>
+<td>Free, Plus, Premium, Super</td>
+<td>[Transcript, Check]</td>
+</tr>
+<tr>
+<td>Grok Bot access</td>
+<td>Premium and above; minimum $30 a month</td>
+<td>[Transcript, Check]</td>
+</tr>
+<tr>
+<td>Token prices and per-call tool fees</td>
+<td>See Module 4</td>
+<td>[Third-party]</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Check [Check]:</strong> all prices and plan contents on xAI's own pricing page before you advise a client.</p>
+<hr />
+<h2>Chapter 16.10 Checklist: before you rely on any Grok feature</h2>
+<ul>
+<li>[ ] I have checked the plan that includes the feature.</li>
+<li>[ ] I have checked the official page for model names, limits and prices.</li>
+<li>[ ] Output is reviewed by a person before it is published or sent.</li>
+<li>[ ] No key, password or private data is pasted into a prompt.</li>
+<li>[ ] Facts about a brand come from that brand, and are marked verified or unverified.</li>
+</ul></section><section id="exercises-and-final-assessment" class="gm-doc"><h1>Exercises and final assessment</h1><h1>Exercises and Final Assessment</h1>
 <p>Module exercises (three levels each) are at the end of every module. This file adds a consolidated assignment list and the final assessment.</p>
 <h2>Assignments</h2>
 <div class="gm-tw"><table>
@@ -3583,6 +4004,98 @@ Design an AI assistant for a hospital's appointment desk. Include: Grok Bot vs A
 <tr>
 <td>Data fiduciary</td>
 <td>The party responsible for keeping personal data safe and lawful, even when a vendor's tools handle it.</td>
+</tr>
+<tr>
+<td>Eval</td>
+<td>A repeatable test of how well an AI does a job, with fixed cases and clear scoring (Chapter 15.11).</td>
+</tr>
+<tr>
+<td>Memory (AI)</td>
+<td>Facts or preferences a bot keeps and reuses across sessions.</td>
+</tr>
+<tr>
+<td>Compaction</td>
+<td>Shortening a long session so it fits the context window: truncation, summarisation or retrieval.</td>
+</tr>
+<tr>
+<td>Truncation</td>
+<td>Removing the oldest messages from the active context.</td>
+</tr>
+<tr>
+<td>Summarisation (context)</td>
+<td>Replacing old discussion with a shorter summary, which can lose detail.</td>
+</tr>
+<tr>
+<td>Retrieval (context)</td>
+<td>Fetching only the earlier parts of a session or document that are relevant now.</td>
+</tr>
+<tr>
+<td>Chatbot</td>
+<td>A tool you ask questions in a conversation; you copy outputs into other tools.</td>
+</tr>
+<tr>
+<td>Guardrail</td>
+<td>A rule, filter or check that stops an AI from doing something it should not.</td>
+</tr>
+<tr>
+<td>Knowledge base</td>
+<td>The indexed documents an agent searches to answer questions.</td>
+</tr>
+<tr>
+<td>SHAPE framework</td>
+<td>The transcript's framework: SOP-driven, human in the loop, arbitrage, product is no longer the moat, be employable.</td>
+</tr>
+<tr>
+<td>Arbitrage</td>
+<td>Profiting from the gap between what a service costs you and what clients pay for it.</td>
+</tr>
+<tr>
+<td>Apollo</td>
+<td>A sales database for finding contacts and email status (third-party tool).</td>
+</tr>
+<tr>
+<td>Higgsfield</td>
+<td>A media tool for images and video, named in the transcript (check the tool's own page).</td>
+</tr>
+<tr>
+<td>ElevenLabs</td>
+<td>A platform for voice and conversational agents, including WhatsApp support agents (third-party).</td>
+</tr>
+<tr>
+<td>Lovable</td>
+<td>A tool that builds websites and apps from prompts (third-party).</td>
+</tr>
+<tr>
+<td>Grok Imagine</td>
+<td>xAI's image creation tool in the Grok ecosystem.</td>
+</tr>
+<tr>
+<td>Grok Build</td>
+<td>xAI's tool for building websites and code from a prompt.</td>
+</tr>
+<tr>
+<td>Grok Voice</td>
+<td>Grok's voice mode for speaking with the model and with bots.</td>
+</tr>
+<tr>
+<td>xAI</td>
+<td>The company that owns Grok and its ecosystem (Grok models, Imagine, Build, Bot, Voice, API).</td>
+</tr>
+<tr>
+<td>X search</td>
+<td>Searching X (formerly Twitter) posts from inside Grok, as described in the transcript; check plan terms.</td>
+</tr>
+<tr>
+<td>Virtual computer</td>
+<td>A cloud computer each bot can use, with a browser, terminal and file storage.</td>
+</tr>
+<tr>
+<td>Live voice chat</td>
+<td>Speaking to a bot in real time instead of typing.</td>
+</tr>
+<tr>
+<td>Human in the loop</td>
+<td>A person checks and approves important steps before they happen.</td>
 </tr>
 </tbody>
 </table></div></section><section id="pricing-tables-references-and-verification-checklist" class="gm-doc"><h1>Pricing tables, references and verification checklist</h1><h1>Pricing Tables, References and Verification Checklist</h1>
