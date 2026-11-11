@@ -163,22 +163,23 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     Q = lambda h, n, sm: ("questions.html#" + h, n, sm, U["questions.html"][3])
     _RI = U["resources.html"][3]
     _TOOLS_IC = '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.6-.6-2.1z"/>'
-    _OTH = [  # courses first
-            ("resources.html#op-ai-engineer", "AI Engineer", "Full AI engineer path, classes and interview prep", U["tools.html"][3]),
+    # Other programs: five courses, then one nested dropdown with the resource items (6 entries in total)
+    _OTH = [("resources.html#op-ai-engineer", "AI Engineer", "Full AI engineer path, classes and interview prep", U["tools.html"][3]),
             ("sfmc-academy.html", "SFMC", "Salesforce Marketing Cloud: complete guide, 28 modules, handbooks and labs", U["tools.html"][3]),
             ("resources.html#op-speaking", "Public Speaking", "Speaking skills for PMs and leaders", U["tools.html"][3]),
             ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", U["tools.html"][3]),
-            ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", U["tools.html"][3]),
-            # resources and tools after the courses
-            ("resources.html#other", "Other programs & resources", "Learning sites, AI builder tools, tutorials, handbooks and links", U["tools.html"][3]),
-            ("resources.html#other", "Other program and Link", "Learning sites, AI builder tools, tutorials and links", U["tools.html"][3]),
-            ("course-gap-check.html", "Course gap check", "What the course is missing, with supplements and a PDF for each", U["tools.html"][3]),
-            ("tools-and-resources.html", "Tools & learning resources", "Every tool, website and learning link in one place", _TOOLS_IC),
-            ("study-library.html", "Study Library", "All study material in one page", U["tools.html"][3]),
-            ("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department", '<path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>')]
+            ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", U["tools.html"][3])]
+    _OTH_RES = [("resources.html#other", "Other program and Link", "Learning sites, AI builder tools, tutorials and links", U["tools.html"][3]),
+                ("course-gap-check.html", "Course gap check", "What the course is missing, with supplements and a PDF for each", U["tools.html"][3]),
+                ("tools-and-resources.html", "Tool and learning resources", "Every tool, website and learning link in one place", _TOOLS_IC),
+                ("study-library.html", "Study Library", "All study material in one page", U["tools.html"][3]),
+                ("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department", '<path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>')]
+    _OTH_RES_NESTED = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(U["tools.html"][3])}</span>'
+                       f'<span><b>Other programs &amp; resources</b><small>Other program and link, course gap check, tools, study library and Master Freelancing</small></span>{RARR}</button>'
+                       f'<div class="dd-subm">' + "".join(item(*x) for x in _OTH_RES) + '</div></div>')
     _OTHER_NESTED = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(U["tools.html"][3])}</span>'
-                     f'<span><b>Other programs</b><small>Data engineers, digital marketing, AI Engineer, SFMC, Public Speaking, tools and more</small></span>{RARR}</button>'
-                     f'<div class="dd-subm">' + "".join(item(*x) for x in _OTH) + '</div></div>')
+                     f'<span><b>Other programs</b><small>AI Engineer, SFMC, Public Speaking, Data Engineers, Digital marketing and resources</small></span>{RARR}</button>'
+                     f'<div class="dd-subm">' + "".join(item(*x) for x in _OTH) + _OTH_RES_NESTED + '</div></div>')
     _RES_ITEMS = [("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", _RI),
                   ("resources.html#genai", "Resources for Gen AI", "GenAI handbook, AI tools, builders and automation", _RI),
                   ("resources.html#op-fde", "Resources for FDE", "Forward deployed engineer: role, skills, deployment and interview prep", _RI)]
@@ -731,7 +732,10 @@ _pm = _pm.replace('<div class="tgroups" id="res-tools"></div>', '<div class="tgr
 _pm = _pm.replace('PM Master Handbook by Varun Kumar</h3>', 'PM Master Handbook by Varun Kumar</h3>')
 _hero = ('<div class="hb-hero"><div><div class="kicker">AI-First Product Management</div><h2 class="h2s" style="margin:4px 0 6px">Resources for Product Managers</h2>'
          '<p class="meta" style="margin:0">The PM Master Handbook, AI and product tools with their official websites, interview practice, a frameworks cheat sheet, a PRD template and free courses.</p>'
-         '<div class="hb-acts" style="margin-top:12px"><a class="btn btn-primary btn-sm" href="https://claude.ai/artifact/XmhTL4Yv72bgmSFFuR2hzz" target="_blank" rel="noopener" data-nogate>Open the PM handbook library: all 68 PDFs ↗</a></div></div></div>')
+         '<div class="hb-acts" style="margin-top:12px"><a class="btn btn-primary btn-sm" href="https://claude.ai/artifact/XmhTL4Yv72bgmSFFuR2hzz" target="_blank" rel="noopener" data-nogate>Open the PM handbook library: all 68 PDFs ↗</a>'
+         '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/pm-extras/PM-Glossary-Handbook.pdf">PM Glossary Handbook</a>'
+         '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/pm-extras/Tokens-Pricing-and-Tokenization-Handbook.pdf">Tokens, Pricing and Tokenization</a>'
+         '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/pm-extras/Vibe-Coding-Non-Coder-Addendum.pdf">Vibe Coding addendum</a></div></div></div>')
 res = uhero("Upskill for free · Resources & AI tools", 'Resources <span class="g">&amp; AI tools</span>', "Handbooks, PDFs, tools, practice sites and useful links for product managers, data engineers and GenAI learners. Register once with your details to open any handbook, PDF or file.") + f"""
 <section style="padding-top:36px"><div class="wrap">
 {restabs.build(_hero + _pm, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT))}
