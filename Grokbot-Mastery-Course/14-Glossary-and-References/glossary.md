@@ -58,3 +58,13 @@
 | Vector database | A database that finds the nearest embeddings quickly |
 | Webhook | A URL that another system calls when an event happens |
 | Workflow | Fixed sequence of steps defined in advance |
+| Brand bible | A short, verified reference for a brand: story, approved phrases, prices, products and claims. Every bot checks its output against it. |
+| Chief of staff bot | A manager bot that takes an outcome, hires specialist bots, coordinates them and checks their work. |
+| Group chat (bots) | A shared chat where a chief and its specialist bots receive requests and report progress. |
+| Plugin (Grok Bot) | A connected app, such as Gmail or Notion, that a bot can read from or act in. Grok Bot calls connections plugins. |
+| Routine | A job a bot runs on its own, on a schedule or when an event happens. It can be paused and resumed. |
+| Skill (Grok Bot) | A repeatable process with its trigger, inputs, steps, checks, hand-back and approval points. |
+| Bot template | A copy of a bot's memory, skills and instructions, published with a shareable link. |
+| Verified vs unverified fact | Verified: taken from the brand's official source. Unverified: derived or assumed, and must be confirmed with the client. |
+| Escalation | Handing a conversation from an AI agent to a human when it cannot or should not answer. |
+| Data fiduciary | The party responsible for keeping personal data safe and lawful, even when a vendor's tools handle it. |

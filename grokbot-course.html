@@ -64,7 +64,7 @@
 Prices and product facts are labelled <b>[Third-party]</b>, <b>[General]</b>, <b>[Estimate]</b> or <b>[Unverified]</b>.
 Confirm every price on xAI's pricing page before you budget. The token calculator and the offline code tests are checked;
 the live API calls are not yet tested.</div><p>Code, calculator and tests: the <code>Grokbot-Mastery-Course/</code> folder in the SkillNavora repository
-(<code>tools/token_cost_calculator.py</code>, <code>code/test_offline.py</code> and the chatbot, RAG, agent and monitoring examples).</p><h2 class="sec-h">Contents</h2><ol class="gm-toc"><li><a href="#course-overview-what-grokbot-means">Course overview: what Grokbot means</a></li><li><a href="#module-1-introduction-and-ai-fundamentals">Module 1: Introduction and AI fundamentals</a></li><li><a href="#module-2-platform-architecture">Module 2: Platform architecture</a></li><li><a href="#module-3-tokens-and-token-economics">Module 3: Tokens and token economics</a></li><li><a href="#module-4-pricing-and-subscriptions">Module 4: Pricing and subscriptions</a></li><li><a href="#module-5-prompt-engineering">Module 5: Prompt engineering</a></li><li><a href="#module-6-api-integration">Module 6: API integration</a></li><li><a href="#module-7-chatbots-and-automation">Module 7: Chatbots and automation</a></li><li><a href="#module-8-agents-and-advanced-workflows">Module 8: Agents and advanced workflows</a></li><li><a href="#module-9-business-applications">Module 9: Business applications</a></li><li><a href="#module-10-production-and-security">Module 10: Production and security</a></li><li><a href="#capstone-projects">Capstone projects</a></li><li><a href="#exercises-and-final-assessment">Exercises and final assessment</a></li><li><a href="#glossary">Glossary</a></li><li><a href="#pricing-tables-references-and-verification-checklist">Pricing tables, references and verification checklist</a></li></ol></div></section><section><div class="wrap"><section id="course-overview-what-grokbot-means" class="gm-doc"><h1>Course overview: what Grokbot means</h1><h1>Course Overview: What Exactly Is "Grokbot"?</h1>
+(<code>tools/token_cost_calculator.py</code>, <code>code/test_offline.py</code> and the chatbot, RAG, agent and monitoring examples).</p><h2 class="sec-h">Contents</h2><ol class="gm-toc"><li><a href="#course-overview-what-grokbot-means">Course overview: what Grokbot means</a></li><li><a href="#module-1-introduction-and-ai-fundamentals">Module 1: Introduction and AI fundamentals</a></li><li><a href="#module-2-platform-architecture">Module 2: Platform architecture</a></li><li><a href="#module-3-tokens-and-token-economics">Module 3: Tokens and token economics</a></li><li><a href="#module-4-pricing-and-subscriptions">Module 4: Pricing and subscriptions</a></li><li><a href="#module-5-prompt-engineering">Module 5: Prompt engineering</a></li><li><a href="#module-6-api-integration">Module 6: API integration</a></li><li><a href="#module-7-chatbots-and-automation">Module 7: Chatbots and automation</a></li><li><a href="#module-8-agents-and-advanced-workflows">Module 8: Agents and advanced workflows</a></li><li><a href="#module-9-business-applications">Module 9: Business applications</a></li><li><a href="#module-10-production-and-security">Module 10: Production and security</a></li><li><a href="#capstone-projects">Capstone projects</a></li><li><a href="#walkthrough-build-a-d2c-agent-team-with-grok-bot">Walkthrough: build a D2C agent team with Grok Bot</a></li><li><a href="#exercises-and-final-assessment">Exercises and final assessment</a></li><li><a href="#glossary">Glossary</a></li><li><a href="#pricing-tables-references-and-verification-checklist">Pricing tables, references and verification checklist</a></li></ol></div></section><section><div class="wrap"><section id="course-overview-what-grokbot-means" class="gm-doc"><h1>Course overview: what Grokbot means</h1><h1>Course Overview: What Exactly Is "Grokbot"?</h1>
 <p>Before learning a platform, be certain which platform you are learning. The name "Grokbot" is used for at least three different things, and they are not interchangeable.</p>
 <h2>0.1 The three meanings of "Grokbot"</h2>
 <div class="gm-tw"><table>
@@ -2927,7 +2927,285 @@ User ─► question + last 2 turns ─► Index.search ─► top 3 chunks
 <li>Cost sheet with the <strong>date and source</strong> of the prices used.</li>
 <li>Security notes and known limitations.</li>
 <li>A 5-minute demo video or written walkthrough.</li>
-</ul></section><section id="exercises-and-final-assessment" class="gm-doc"><h1>Exercises and final assessment</h1><h1>Exercises and Final Assessment</h1>
+</ul></section><section id="walkthrough-build-a-d2c-agent-team-with-grok-bot" class="gm-doc"><h1>Walkthrough: build a D2C agent team with Grok Bot</h1><h1>Walkthrough: Build a D2C Agent Team with Grok Bot</h1>
+<p><strong>Level:</strong> Intermediate · <strong>Time:</strong> about 3 hours (plus the homework) · <strong>Source:</strong> the transcript of the walkthrough video "Master xAI's Grok 4.7 by Elon Musk in 1 Hour" (The Cutting Edge School), as supplied. This chapter restates the transcript's workflow, adds the checks it skips, and tags every claim.</p>
+<p><strong>Status tags:</strong> <strong>[Transcript]</strong> = claim made in the transcript, not checked by us · <strong>[Third-party]</strong> = product behaviour from the provider, which changes · <strong>[General]</strong> = stable concept · <strong>[Check]</strong> = verify on the provider's page before relying on it.</p>
+<hr />
+<h2>Chapter 15.0 What the transcript covers, in order</h2>
+<div class="gm-tw"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it teaches</th>
+<th>Where it is in this course</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. The Grok ecosystem</td>
+<td>xAI, Grok models, Grok Imagine, Grok Build, Grok Bot, Grok Voice, the API</td>
+<td>Module 2</td>
+</tr>
+<tr>
+<td>2. Context windows</td>
+<td>Tokens, why a 500,000-token window matters, compaction</td>
+<td>Module 3</td>
+</tr>
+<tr>
+<td>3. Chat vs bot</td>
+<td>Do-it-yourself chat vs done-for-you agents</td>
+<td>Chapter 15.1</td>
+</tr>
+<tr>
+<td>4. Building a team</td>
+<td>Chief of staff, specialist bots, one bot one job</td>
+<td>Chapter 15.2</td>
+</tr>
+<tr>
+<td>5. Tools, skills, routines</td>
+<td>Connected apps, skills, routines, templates</td>
+<td>Chapter 15.3</td>
+</tr>
+<tr>
+<td>6. Memory and workspace</td>
+<td>Shared files, group chat, memory, the brand bible</td>
+<td>Chapter 15.4</td>
+</tr>
+<tr>
+<td>7. Customer support</td>
+<td>WhatsApp support agent, knowledge base, escalation</td>
+<td>Chapter 15.5</td>
+</tr>
+<tr>
+<td>8. Inbound automation</td>
+<td>Website form → webhook → personalised brochure and invoice</td>
+<td>Chapter 15.6</td>
+</tr>
+<tr>
+<td>9. Outbound and influencers</td>
+<td>Prospect lists, decks, personalised drafts</td>
+<td>Chapter 15.7</td>
+</tr>
+<tr>
+<td>10. Packaging for clients</td>
+<td>Publishing a bot as a template, selling outputs or agents</td>
+<td>Chapter 15.8</td>
+</tr>
+<tr>
+<td>11. Homework and judgement</td>
+<td>What to check before anything goes out</td>
+<td>Chapter 15.9</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The rule that runs through the whole transcript:</strong> the bots do the work; a person checks it and presses send. Every chapter below repeats that rule.</p>
+<hr />
+<h2>Chapter 15.1 Chat versus a bot</h2>
+<div class="gm-tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Chatbot</th>
+<th>Grok Bot (agent)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How you work</td>
+<td>You ask, read, copy, paste into other tools</td>
+<td>You describe a job and its outcome; the bot plans the steps</td>
+</tr>
+<tr>
+<td>What it returns</td>
+<td>Text to copy</td>
+<td>Files, drafts, links and updates in your connected tools</td>
+</tr>
+<tr>
+<td>When it runs</td>
+<td>While the chat is open</td>
+<td>On a schedule (routines) or when an event happens</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>The chat history</td>
+<td>Its own memory, instructions and a shared workspace</td>
+</tr>
+<tr>
+<td>Analogy in the transcript</td>
+<td>Phoning a smart person</td>
+<td>Hiring an intern with a manager</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>[Transcript]</strong> "These are always-on AI agents that work on a done-for-you model."</p>
+<p><strong>Check:</strong> a bot works only inside the plan, tools and permissions you give it. Start with read-only access to every tool.</p>
+<hr />
+<h2>Chapter 15.2 Build the team: chief of staff, then specialists</h2>
+<p><strong>The method in the transcript:</strong>
+1. Create a <strong>chief of staff</strong> bot. Its job: take the outcome you want, hire the right specialist bots, coordinate them, and check their outputs.
+2. Ask the chief to create a <strong>group chat</strong> for the project so you can give work in one place.
+3. Let the chief hire specialists: research, designer, creative (images and ads), website builder, customer support, outreach and proposals.</p>
+<p><strong>One bot, one job.</strong> A single bot that holds ads, complaints and invoices gets slow, messy and hard to hand over. Separate bots keep their context small and easy to fix.</p>
+<p><strong>The "and" rule (from the transcript):</strong> if a job description contains "and", it is probably two jobs. "Create images <strong>and</strong> research competitors" becomes two bots.</p>
+<p><strong>Writing a good job description.</strong> Use this template for every bot:
+- <strong>Goal:</strong> the outcome in one sentence.
+- <strong>Inputs:</strong> what it can read (named tools, folders, files).
+- <strong>Schedule:</strong> when it runs (for example "every evening at 17:00").
+- <strong>Output:</strong> the file or draft it produces and where it goes.
+- <strong>Approval:</strong> what it must ask you before doing.</p>
+<p><strong>Worked example from the transcript (the Healthy Mithai D2C brand and its Diwali offer):</strong>
+- Research bot: "Find out everything about the brand's competitors, and run a search every evening to tell me if any competitor made a move."
+- The research bot returned a competitor report and a markdown file <strong>[Transcript]</strong>.</p>
+<p><strong>Check:</strong> bots can be wrong about who they are. The transcript's chief first added an old, unrelated bot to the group. Review the member list of every group chat.</p>
+<hr />
+<h2>Chapter 15.3 Tools, plugins, skills and routines</h2>
+<h3>Connected apps (plugins)</h3>
+<ul>
+<li>In the app's <strong>Connect apps</strong> page you connect tools such as Gmail, Slack, Notion, Google Drive, Shopify, Canva, Google Slides, Lovable and ElevenLabs <strong>[Third-party]</strong>. The transcript calls these connections <em>plugins</em>.</li>
+<li>Each plugin has three parts: <strong>accounts</strong> (what is connected), <strong>tools</strong> (actions the bot can take, such as creating or deleting an agent) and <strong>skills</strong> (built-in playbooks).</li>
+<li><strong>Principle:</strong> a bot is only as capable as the tools it can use. Connect only what the bot needs.</li>
+<li>The transcript says Supabase can be connected <strong>[Transcript]</strong>. Confirm the current list on the Connect apps page.</li>
+</ul>
+<h3>Built-in X search</h3>
+<ul>
+<li>The transcript says X search is included in the plan, so a bot can search posts and summarise competitors' campaigns <strong>[Transcript, Check]</strong>. Whether it is included, and its limits, depend on your plan; check the current plan page.</li>
+</ul>
+<h3>Skills</h3>
+<ul>
+<li>A <strong>skill</strong> is a repeatable process: when to use it, its inputs, its steps, how to check the work, what to hand back, and what needs approval <strong>[Transcript]</strong>. Write a skill once and reuse it for the next client.</li>
+<li>To make a standing rule, ask the chief to create a skill, then open it and read every step. Example from the transcript: "When I create a new website and an ElevenLabs agent exists, link the agent to the website."</li>
+<li><strong>Publishing a skill to a team</strong> lets everyone in the team's workspace use it <strong>[Transcript, Check]</strong>.</li>
+</ul>
+<h3>Routines</h3>
+<ul>
+<li>A <strong>routine</strong> is a job a bot runs on its own: on a schedule, or when an event happens. You can pause a routine with its toggle and resume it later; it keeps the same timing <strong>[Transcript]</strong>.</li>
+<li>Routines are how bots keep working when you are away.</li>
+</ul>
+<hr />
+<h2>Chapter 15.4 Shared workspace, group chat, memory and the brand bible</h2>
+<h3>Virtual computer and shared files</h3>
+<ul>
+<li>Each bot can use a virtual computer with a browser, a terminal and file storage <strong>[Transcript]</strong>.</li>
+<li>Files saved in a project folder are visible to every bot in that project, so bots share context without you repeating it.</li>
+<li><strong>Check:</strong> every file in the shared folder is visible to every bot. Keep client data in the client's own folder.</li>
+</ul>
+<h3>Group chat</h3>
+<ul>
+<li>The group chat is where the chief takes requests and reports progress. You can type or use voice chat <strong>[Transcript]</strong>.</li>
+<li>Voice and text give you the same work; to talk to one specialist, open its own tab.</li>
+</ul>
+<h3>Memory and feedback</h3>
+<ul>
+<li>When you correct a bot ("don't put links in drafts", "use only verified prices"), it stores the correction and follows it next time <strong>[Transcript, Check]</strong>.</li>
+<li>Ask the bot to add the rule to its memory, then test that it follows it on the next task.</li>
+</ul>
+<h3>The brand bible</h3>
+<ul>
+<li>The transcript's chief built a brand bible of about 14–25 pages: brand story, founders, verified phrases and taglines, tone, product catalogue with prices and date, diet tags, ingredients, collections, offers, claims, and visual do's and don'ts <strong>[Transcript]</strong>.</li>
+<li><strong>Verified</strong> facts come from the brand's official website and can be used as they are. <strong>Unverified</strong> facts are derived or assumed and must be confirmed with the client before use.</li>
+<li>Add a one-page executive summary at the front, so a reader can get the gist quickly <strong>[Transcript suggestion]</strong>.</li>
+<li>Mark the bible as the single source of truth and tell every bot to check its outputs against it.</li>
+</ul>
+<p><strong>Check:</strong> a brand bible is only as good as its sources. Confirm prices, delivery times and certifications with the client before publishing anything.</p>
+<hr />
+<p><strong>Media tools (named in the transcript):</strong> images and short videos are created with <strong>Higgsfield</strong> (the transcript spells it "Higgs Field") <strong>[Transcript, Check]</strong>. The transcript states that all media assets must come from this tool, and that websites are built on Lovable and support runs on ElevenLabs.</p>
+<h2>Chapter 15.5 Customer support on WhatsApp (ElevenLabs)</h2>
+<p><strong>What the transcript builds:</strong> a conversational agent on ElevenLabs, connected to a WhatsApp Business number, that answers simple questions in real time and escalates the rest to a person <strong>[Transcript]</strong>.</p>
+<p><strong>Build steps:</strong>
+1. Create the agent on ElevenLabs. Write its role, tone and the escalation rules (what it must never answer, such as medical advice).
+2. Add a <strong>knowledge base</strong>: FAQs, product list, prices, delivery policy, ingredients, and the brand's approved health statements. Index it.
+3. Connect your own WhatsApp number through the WhatsApp Business setup. The transcript does this manually <strong>[Transcript]</strong>; some steps cannot be done by a bot.
+4. Test with real questions before going live.
+5. Add custom guardrails in the agent's guardrails tab if you need them.</p>
+<p><strong>The health-claim example from the transcript:</strong> asked "can a diabetic person eat this?", the agent answered from the brand's stated facts and advised checking with a doctor <strong>[Transcript]</strong>. Keep health answers strictly to approved wording.</p>
+<p><strong>Security and responsibility (from the transcript):</strong> if a client's data leaks, you become responsible as the data fiduciary. Check every output before it goes to a customer, and handle personal data under the rules that apply to you (in India, the Digital Personal Data Protection Act, 2023) <strong>[General]</strong>.</p>
+<p><strong>Check:</strong> test escalation. Ask at least ten questions the agent must hand to a human (refunds, complaints, allergies, bulk orders) and confirm each one escalates.</p>
+<hr />
+<h2>Chapter 15.6 Inbound automation: website form to webhook to brochure</h2>
+<p><strong>The chain:</strong>
+1. A visitor fills an inquiry form on the website (built in Lovable in the transcript).
+2. The form's submit action sends a <strong>webhook</strong> (an HTTP request) to a URL.
+3. A Grok Bot routine receives the details, drafts a personalised brochure and, if requirements are given, an invoice, and saves them as drafts in Gmail <strong>[Transcript]</strong>.
+4. A person reviews the draft and presses send.</p>
+<p><strong>The credentials step (important):</strong> the transcript says the bot cannot copy the webhook URL or key from its own chat or computer, so you must copy them yourself and paste them into the website builder <strong>[Transcript]</strong>. Treat this as a security rule, not a quirk:
+- Never paste webhook keys, passwords or tokens into a chat with a bot.
+- Store them only in the builder's secure settings.
+- Rotate the key if it was shared by mistake.</p>
+<p><strong>Invoice check:</strong> the transcript computes "25 boxes × ₹700" and adds an early-bird discount <strong>[Transcript]</strong>. Check the arithmetic, the tax and any discount rule yourself before sending.</p>
+<p><strong>Check:</strong> submit a test form, confirm the routine fires, check the draft, and confirm nothing is sent automatically.</p>
+<hr />
+<h2>Chapter 15.7 Outbound and influencers</h2>
+<p><strong>Prospect lists (Apollo):</strong> the outreach bot found 20+ prospects with company, segment, decision-maker title, email, email status, LinkedIn, phone, fit note and a personalisation hook <strong>[Transcript]</strong>.
+- <strong>Only use verified emails.</strong> Skip unverified ones. The transcript's bot found emails for 18 of 53 companies and drafted 35 emails, rather than guessing the rest <strong>[Transcript]</strong>. Keep that rule.
+- Check each person's role and company before writing to them.</p>
+<p><strong>Influencer ranking:</strong> rank influencers by audience fit, engagement and whether they have posted for similar brands. Give each a contact, a short rationale and an outreach deck <strong>[Transcript]</strong>.</p>
+<p><strong>Drafts, not sends:</strong> the bots write Gmail drafts with attachments. You read, edit and send <strong>[Transcript]</strong>.</p>
+<p><strong>Personalisation that works (from the transcript):</strong> name one recent launch or campaign for each recipient, and remove long links from the body. The transcript's first drafts included long links and the rewrite removed them <strong>[Transcript]</strong>.</p>
+<p><strong>Bot email addresses:</strong> the transcript shows a bot with its own email address, in the form ces@mail.grokbot.com, used to subscribe to newsletters and receive replies <strong>[Transcript, Check]</strong>. The transcript says the address is claimed once and cannot be deleted or renamed, so check the spelling (the speaker corrected "gogbots" to "grokbot") before you confirm.</p>
+<p><strong>Competitor monitoring:</strong> have the research bot subscribe to competitors' newsletters, review their latest X posts, and report campaigns and what to learn from them <strong>[Transcript]</strong>. Confirm each subscription in your own inbox.</p>
+<hr />
+<h2>Chapter 15.8 Packaging: sell outputs, sell agents, or both</h2>
+<p><strong>Two ways to sell (from the transcript):</strong>
+1. <strong>Sell outputs</strong> plus your judgement: brand bible, creatives, decks, outreach drafts, website, support agent set-up.
+2. <strong>Sell agents as a service</strong>: a roster of bots the client keeps and reuses for future campaigns. Charge for setup and for the roster.</p>
+<p><strong>How to publish a bot as a template (from the transcript):</strong> open the bot, choose <strong>create a copy</strong>, ask it to create a public template. The template holds the bot's memories, skills and instructions. Publish it to get a shareable link <strong>[Transcript, Check]</strong>.</p>
+<p><strong>Before you share a template:</strong> remove client names, keys, emails, private files and any memory that holds client data. A template is a deliverable, so review it like one.</p>
+<p><strong>Team plan:</strong> a team can share skills and bots within the team's workspace <strong>[Transcript, Check]</strong>.</p>
+<hr />
+<h2>Chapter 15.9 Judgement and homework</h2>
+<p><strong>What the transcript says the human must do:</strong>
+- Approve every message that goes to a real person.
+- Check every output against the brand bible and the real source.
+- Decide whether a result is good enough to show a client.</p>
+<p><strong>Homework from the transcript:</strong> pick a young brand you like and try these use cases for them. <strong>Do not email anyone.</strong> First improve the bots, check the outputs yourself, and ask: would a first-time buyer purchase this, does the output appeal to me, and would I actually use it? Only then show the work to the brand.</p>
+<p><strong>Judgement checklist before anything goes out</strong>
+- [ ] Every fact traces to a verified source, or is marked unverified and cleared with the client.
+- [ ] Prices, dates and offers match the brand's current site.
+- [ ] No health or medical claim beyond the brand's approved wording.
+- [ ] No personal data in the output that the recipient does not need.
+- [ ] No link, key or token pasted into a message.
+- [ ] A person has read, edited and approved the draft.</p>
+<hr />
+<h2>Chapter 15.10 What the transcript claims that we have not verified</h2>
+<div class="gm-tw"><table>
+<thead>
+<tr>
+<th>Claim in the transcript</th>
+<th>Our status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grok Bot is included only from the Premium plan, minimum $30 a month</td>
+<td><strong>[Transcript, Check]</strong> plans and prices change; see Module 4</td>
+</tr>
+<tr>
+<td>The 500,000-token context window, and the comparison with other models' window sizes</td>
+<td><strong>[Transcript]</strong> model names and limits change; see Module 3 and the official model page</td>
+</tr>
+<tr>
+<td>Four reasoning levels for Grok 4.7</td>
+<td><strong>[Transcript, Check]</strong> confirm in the app</td>
+</tr>
+<tr>
+<td>X search is built in at no extra cost</td>
+<td><strong>[Transcript, Check]</strong> confirm the plan terms</td>
+</tr>
+<tr>
+<td>Bots can earn money or win clients for you</td>
+<td><strong>[Transcript]</strong> no result is promised; see the honest caveat in Module 10</td>
+</tr>
+<tr>
+<td>A bot can negotiate with 40 suppliers on WhatsApp</td>
+<td><strong>[Transcript]</strong> an anecdote; not verified</td>
+</tr>
+<tr>
+<td>Scholarship and subscribe calls to action</td>
+<td>Not part of this course</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The transcript's own warning, which we repeat:</strong> the tools will change; the way of working (clear job, checked output, human approval) does not.</p></section><section id="exercises-and-final-assessment" class="gm-doc"><h1>Exercises and final assessment</h1><h1>Exercises and Final Assessment</h1>
 <p>Module exercises (three levels each) are at the end of every module. This file adds a consolidated assignment list and the final assessment.</p>
 <h2>Assignments</h2>
 <div class="gm-tw"><table>
@@ -3265,6 +3543,46 @@ Design an AI assistant for a hospital's appointment desk. Include: Grok Bot vs A
 <tr>
 <td>Workflow</td>
 <td>Fixed sequence of steps defined in advance</td>
+</tr>
+<tr>
+<td>Brand bible</td>
+<td>A short, verified reference for a brand: story, approved phrases, prices, products and claims. Every bot checks its output against it.</td>
+</tr>
+<tr>
+<td>Chief of staff bot</td>
+<td>A manager bot that takes an outcome, hires specialist bots, coordinates them and checks their work.</td>
+</tr>
+<tr>
+<td>Group chat (bots)</td>
+<td>A shared chat where a chief and its specialist bots receive requests and report progress.</td>
+</tr>
+<tr>
+<td>Plugin (Grok Bot)</td>
+<td>A connected app, such as Gmail or Notion, that a bot can read from or act in. Grok Bot calls connections plugins.</td>
+</tr>
+<tr>
+<td>Routine</td>
+<td>A job a bot runs on its own, on a schedule or when an event happens. It can be paused and resumed.</td>
+</tr>
+<tr>
+<td>Skill (Grok Bot)</td>
+<td>A repeatable process with its trigger, inputs, steps, checks, hand-back and approval points.</td>
+</tr>
+<tr>
+<td>Bot template</td>
+<td>A copy of a bot's memory, skills and instructions, published with a shareable link.</td>
+</tr>
+<tr>
+<td>Verified vs unverified fact</td>
+<td>Verified: taken from the brand's official source. Unverified: derived or assumed, and must be confirmed with the client.</td>
+</tr>
+<tr>
+<td>Escalation</td>
+<td>Handing a conversation from an AI agent to a human when it cannot or should not answer.</td>
+</tr>
+<tr>
+<td>Data fiduciary</td>
+<td>The party responsible for keeping personal data safe and lawful, even when a vendor's tools handle it.</td>
 </tr>
 </tbody>
 </table></div></section><section id="pricing-tables-references-and-verification-checklist" class="gm-doc"><h1>Pricing tables, references and verification checklist</h1><h1>Pricing Tables, References and Verification Checklist</h1>
