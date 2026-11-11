@@ -8,7 +8,7 @@
 
 [[redirects]]
   from = "/"
-  to = "/study-hub.html"
+  to = "/study-library.html"
   status = 200
   force = true
 

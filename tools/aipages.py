@@ -89,10 +89,8 @@ FEATURES = [
      ["10 classes + PDF", "Website to custom domain", "Connect Zapier, n8n, webhooks"], "Open the course"),
     ("ai-engineer.html", 12, "AI Engineer path", "Everything an AI engineer goes through: foundations, LLM engineering, RAG, agents and MCP, fine-tuning, evals, LLMOps, security, system design, roadmap and interviews.",
      ["12 classes + PDF", "12-month roadmap, 10 projects", "Under Resources, Other programs"], "Open the path"),
-    ("study-library.html", 13, "Study Library", "Every program, handbook, lesson, course, practice set, tool and PDF in one page with 11 tabs and a filter. Pair it with the 4-tab Study Hub.",
-     ["11 tabs, one filter", "All 129 lessons + every course", "Free with your details"], "Open the library"),
-    ("study-hub.html", 0, "Study Hub (4 tabs)", "AI Product Management, AI for Data Engineers, AI Engineer and GenAI Launchpad: curriculum, lessons, classes, practice and PDFs per path.",
-     ["4 program tabs", "Every class one click away", "Netlify front page"], "Open the hub")
+    ("study-library.html", 13, "Study Library", "Every lesson, class, practice set and PDF, organised by programme: AI Product Management, AI for Data Engineers, AI Engineer, GenAI Launchpad and Tools.",
+     ["5 programme tabs", "Each item listed once", "Free with your details"], "Open the library")
 ]
 
 # AI Studio dropdown (Option 2): two items, each with its own tabs
@@ -282,8 +280,7 @@ def write_index(out):
           "Web Automation: webhooks (signatures, idempotency), triggers (cron, events, polling), Playwright, Playwright MCP with Claude, Selenium, Puppeteer, Cypress, Browser Use, Stagehand, Skyvern, Browserbase, Apify, n8n, Zapier, Make, Pipedream, RPA (10 classes + PDF) | /web-automation.html | PM, GenAI, automation",
           "AI Builder Tools: Claude, Claude Code, ChatGPT & Codex, Gemini, Lovable: create websites, pages, connect tools and other websites, publish on a domain (10 classes + PDF) | /ai-builder-tools.html | PM, GenAI, tools",
           "Complete tutorials for Zapier, Make, Replit and Lovable (6 classes each, templates, project, PDF) | /zapier-tutorial.html /make-tutorial.html /replit-tutorial.html /lovable-tutorial.html | tools, automation, app builders",
-          "Study Library: all study material in one page (11 tabs) | /study-library.html | all programs",
-          "Study Hub: AI PM, AI for Data Engineers, AI Engineer, GenAI Launchpad in one page with four tabs | /study-hub.html | all programs",
+          "Study Library: all study material by programme (AI PM, AI for Data Engineers, AI Engineer, GenAI Launchpad, Tools) | /study-library.html | all programs",
           "AI Skills Academy: all AI skills courses in one place | /ai-academy.html | PM, GenAI",
           "AI Product Strategy (moats, flywheels, build vs buy) | /ai-product-strategy.html | PM",
           "Designing AI Experiences (AI UX) | /ai-ux-design.html | PM, design",

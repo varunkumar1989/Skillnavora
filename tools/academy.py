@@ -34,10 +34,22 @@ def grid(R=""):
 def hub():
     return f"""<section style="padding-top:28px"><div class="wrap">
 <div class="card" style="border:2px solid var(--brand,#6C4CF5);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between"><div style="max-width:720px"><b>One place for every AI skill course.</b> Each course has lessons on the website, a free PDF and an interactive version. Part of the <a href="program/ai-product-management.html">AI Product Management</a> and <a href="program/genai-launchpad.html">GenAI Launchpad</a> programs.</div>
-<div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-primary" href="study-hub.html">Study Hub (4 tabs)</a><a class="btn btn-line" href="study-library.html">Study Library (everything)</a><a class="btn btn-line" href="ai-skills-map.html">AI Skills Map</a><a class="btn btn-line" href="{ARTIFACT}">Interactive academy</a></div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-primary" href="study-library.html">Study Library</a><a class="btn btn-line" href="ai-skills-map.html">AI Skills Map</a><a class="btn btn-line" href="{ARTIFACT}">Interactive academy</a></div></div>
 {grid()}</div></section>"""
 
 def program_section(cid):
+    """Programme pages list the AI courses by name and link to each course; descriptions live only on the AI courses page."""
     who = "AI product managers" if cid == "ai-pm" else "every professional using GenAI"
+    link = lambda C: f'<a href="../{C["page"]}">{E(C["title"])}</a>'
+    core = "".join(link(C) for _, C, _ in CORE[:3]) + f'<a href="../{RESEARCH[2]}">{E(RESEARCH[1])}</a>' + "".join(link(C) for _, C, _ in CORE[3:])
+    tools = link(course_builder.COURSE) + "".join(link(c) for c in course_nocode.ALL) + link(course_webauto.COURSE)
+    adv = "".join(link(C) for C, _ in ADV)
+    groups = [("The 7 core AI skills", core), ("Advanced AI product management", adv), ("AI tools", tools)]
+    if cid != "ai-pm":
+        groups = [groups[2], groups[0], groups[1]]
+    groups.append(("Career path", link(course_aiengineer.COURSE)))
+    css = ('<style>.ac-links{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 16px}.ac-links a{border:1px solid var(--line);border-radius:99px;padding:6px 12px;'
+           'font-weight:600;font-size:14px;text-decoration:none;color:inherit;background:var(--surface)}.ac-links a:hover{border-color:var(--brand,#6C4CF5)}</style>')
+    body = "".join(f'<h3 class="ac-h" style="font-size:18px">{E(t)}</h3><div class="ac-links">{x}</div>' for t, x in groups)
     return f"""<section id="academy" class="tint"><div class="wrap"><div class="kicker">Included free · AI Skills Academy</div><h2 class="sec-h">AI skills courses for {who}</h2>
-<p class="sub" style="max-width:760px">Every course comes with lessons, a PDF and an interactive version: the 7 core AI skills plus advanced AI product topics. <a href="../ai-academy.html">Open the AI Skills Academy →</a></p>{grid("../")}</div></section>"""
+<p class="sub" style="max-width:760px">Every course has lessons, a PDF and an interactive version. Pick a course below, or <a href="../ai-academy.html">see every course with its description →</a></p>{CSS}{css}{body}</div></section>"""
