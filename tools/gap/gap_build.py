@@ -62,11 +62,11 @@ def audit_body():
     summary = (f'<p><b>Summary:</b> {COUNTS["COVERED"]} areas covered, {COUNTS["PARTIAL"]} partly covered, {COUNTS["MISSING"]} missing. '
                'The three supplements fill the missing and partial areas. Existing lessons, PDFs and tabs were not changed.</p>')
     prop = ("<h2>Proposed additions for your approval</h2><p>These are added as supplements, not as edits to existing lessons. You approve each one before any change to the course itself.</p><ul>"
-            "<li>Add a Data Engineering module (Supplement A) as course Module 8 with hands-on labs (Airflow, dbt, Docker, one cloud).</li>"
-            "<li>Add a Governance and Responsible AI module (Supplement B, B5) and a Business Consulting module (B3, B4).</li>"
-            "<li>Done: Excel automation (B1) added to Module 1 as lessons 13 to 16; SQL topics (B2) added to Module 2 as lessons 16 to 20; Fabric and Databricks (A10) added to Module 3 as lessons 7 and 8.</li>"
-            "<li>Add the eight capstone briefs (C4) as a workbook, and the 12-month roadmap (C8) as a tracker.</li>"
-            "<li>Add the no-code tool lessons (Part E of the prompt) in the tools track.</li></ul>")
+            "<li>Done: a Data Engineering &amp; Cloud track (15 lessons) with PDFs. Still to add: hands-on labs for Airflow, dbt, Spark, Kafka and one cloud.</li>"
+            "<li>Done: a Governance, Privacy &amp; Business Consulting track (5 lessons) covering B3, B4 and B5.</li>"
+            "<li>Done: Excel automation (B1) as lessons 13 to 16; SQL topics (B2) as lessons 16 to 20; Fabric and Databricks (A10) as Power BI lessons 7 and 8; production Python (B6) as Python lessons 30 and 31; recommenders and regression metrics (B7) as ML lessons 29 and 30; agent APIs, OAuth, MCP and frameworks as Agents lessons 7 to 11.</li>"
+            "<li>Done: the eight capstone briefs (C4) as career lesson 8 and the 12-month roadmap (C8) as career lesson 10. A printable workbook and tracker are still to be added.</li>"
+            "<li>Partly done: the tools directory and evaluation sheet are in the tools track (lesson 3). Hands-on no-code tutorials for each category are still to be written.</li></ul>")
     return ('<h1>Course gap audit</h1><p>This audit checks the Data Science, AI and Data Engineering master prompt against the existing course, topic by topic. Each row says whether the area is covered, partly covered or missing, and what the supplement adds.</p>'
             + summary + '<h2>Coverage by prompt module</h2>'
             + '<table><tr><th>Prompt module</th><th>Course home</th><th>Status</th><th>What the course covers</th><th>What is missing or partial</th><th>Where the supplement covers it</th></tr>' + rows + '</table>'
