@@ -95,7 +95,9 @@ FEATURES = [
      ["4 program tabs", "Every class one click away", "Netlify front page"], "Open the hub")
 ]
 
-AI_MENU = [x for x in AI_NAV if x[0] in ("ai.html", "ai-academy.html")]  # Study Library now sits under Upskill for free
+# AI Studio dropdown (Option 2): two items, each with its own tabs
+AI_MENU = [("ai.html", "AI tools", "Tutor, PRD writer, speaking coach and practice, free", AI_NAV[0][3]),
+           ("ai-academy.html", "AI courses", "Models and agents, Grokbot, context and evals, Lovable, tool tutorials", AI_NAV[1][3])]
 
 def link_card(path):
     """A card that links to an existing page, using the same name and text as the AI Studio cards."""
@@ -126,36 +128,42 @@ def tabgroup(gid, tabs, label):
           "var m=location.hash.slice(1),pre='" + gid + "-';if(m.indexOf(pre)===0&&g.querySelector('[data-tab=\"'+m.slice(pre.length)+'\"]'))show(m.slice(pre.length));})();</script>")
     return (TABS_CSS + f'<div class="wrap tabgroup-wrap" style="padding-top:28px"><div class="tabbar" id="{gid}" role="tablist" aria-label="{E(label)}">{btns}</div>{panels}</div>' + js)
 
+def plain_card(href, name, desc, cta, tag):
+    """A card for any existing page (used where a page is not in FEATURES)."""
+    return f'<a class="ai-card" href="{href}"><span class="ai-badge">{E(tag)}</span><h3>{E(name)}</h3><p>{E(desc)}</p><span class="go">{E(cta)} →</span></a>'
+
+def _grid(parts):
+    return '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(parts) + '</div></div>'
+
 def academy_tabs(body):
-    """Academy page: the existing course list stays in its own tab; the other tools open as tabs here."""
-    cards = lambda paths: '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in paths) + '</div></div>'
-    return tabgroup("academy-tabs", [
-        ("courses", "All courses", body),
-        ("automation", "Web Automation & Playwright MCP", cards(["web-automation.html"])),
-        ("engineer", "AI Engineer path", cards(["ai-engineer.html"])),
-        ("builder", "AI Builder Tools", cards(["ai-builder-tools.html"])),
-        ("map", "AI Skills Map", cards(["ai-skills-map.html"])),
-        ("library", "Study Library", cards(["study-library.html"])),
-        ("models", "AI Models &amp; Agents", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + __import__("guide_site").card("ai-models-guide.html", "AI Models and Platforms", "Grok (with Grok Bot, image generation and coding), ChatGPT, Claude, Gemini, Lovable and app builders: what each does and how to choose.", "AI models") + __import__("guide_site").card("ai-agents-guide.html", "How AI Agents Work", "How an agent runs step by step, building agents at three levels, multi-agent systems, context engineering and evals.", "Agents") + "</div></div>"),
-        ("grokbot", "Grokbot Course", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + __import__("grokbot_page").tab_card(icon_svg=ico(10)) + "</div></div>"),
-    ], "AI Skills Academy sections")
+    """AI courses page (Option 2): the full course list comes first; five tabs hold the rest, each with real content."""
+    import guide_site, grokbot_page
+    models = _grid([guide_site.card("ai-models-guide.html", "AI Models and Platforms", "Grok (with Grok Bot, image generation and coding), ChatGPT, Claude, Gemini, Lovable and app builders: what each does and how to choose.", "AI models"),
+                    guide_site.card("ai-agents-guide.html", "How AI Agents Work", "How an agent runs step by step, building agents at three levels, multi-agent systems, context engineering and evals.", "Agents"),
+                    plain_card("agent-orchestration.html", "Agent Orchestration", "How several agents share work, hand off results and stay reliable.", "Open the guide", "Agents")])
+    context = _grid([plain_card("context-engineering.html", "Context Engineering", "How to give an AI the right information at the right time, with a PDF.", "Open the course", "Course"),
+                     plain_card("ai-evals.html", "AI Evals", "How to measure whether an AI feature works, with a PDF.", "Open the course", "Course"),
+                     plain_card("ai-agents-guide.html", "Context and evals in agents", "The chapters on context and evals inside How AI Agents Work.", "Read the guide", "Guide")])
+    lovable = _grid([plain_card("lovable-tutorial.html", "Lovable Tutorial", "Build a working app from a prompt, then publish it: the step-by-step course.", "Open the tutorial", "Builder"),
+                     plain_card("ai-builder-tools.html", "AI Builder Tools", "Claude, Claude Code, ChatGPT and Codex, Gemini and Lovable: what each builds and how.", "Open the course", "Builder"),
+                     plain_card("ai-models-guide.html", "Lovable vs other builders", "Where Lovable fits among the AI models and app builders, with a comparison.", "Read the guide", "Guide")])
+    tools = _grid([plain_card("tools.html", "Tool Tutorials", "Every tool we teach: a free official tutorial, the official site and our lesson.", "Open tool tutorials", "Tutorials"),
+                   plain_card("web-automation.html", "Web Automation & Playwright MCP", "Webhooks and browser automation with Playwright MCP.", "Open the course", "Automation"),
+                   plain_card("ai-skills-map.html", "AI Skills Map", "Every AI skill and where to learn it.", "Open the map", "Map")])
+    return body + tabgroup("academy-tabs", [
+        ("models", "AI Models & Agents", models),
+        ("grokbot", "Grokbot", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + grokbot_page.tab_card(icon_svg=ico(10)) + "</div></div>"),
+        ("context", "Context & Evals", context),
+        ("lovable", "Lovable", lovable),
+        ("tools", "Tool Tutorials", tools),
+    ], "AI course sections")
 
 def ico(i):
     return f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{AI_NAV[i][3]}</svg>'
 
 def _hub_body():
-    cards = "".join(f'''<a class="ai-card" href="{p}"><span class="ic">{ico(i)}</span><span class="ai-badge">Free</span><h3>{E(n)}</h3><p>{E(d)}</p><ul>{"".join(f"<li>{E(x)}</li>" for x in L)}</ul><span class="go">{E(c)} →</span></a>'''
-                    for p, i, n, d, L, c in FEATURES)
-    more = '''<a class="ai-card" href="lab.html"><span class="ai-badge">Practice</span><h3>Practice Lab</h3><p>Run real SQL, Excel formulas and Python in your browser, spot the trap and see the fix.</p><span class="go">Open the lab →</span></a>
-<a class="ai-card" href="questions.html"><span class="ai-badge">Interview prep</span><h3>Top 100 interview questions</h3><p>Model answers for PM, Data & AI and GenAI, plus 86 AI product-sense questions with answers.</p><span class="go">See questions →</span></a>
-<a class="ai-card" href="handbooks/index.html"><span class="ai-badge">Handbooks</span><h3>Handbooks & PDFs</h3><p>PM Master Handbook, Data Science & AI handbook and GenAI Launchpad, free with your details.</p><span class="go">Open handbooks →</span></a>'''
-    return CSS + f'''<section style="padding-top:36px"><div class="wrap">
-<h2 class="sec-h" style="font-size:28px">Your AI learning assistants</h2><p class="sub">Everything runs right here on SkillNavora. No other AI app or account needed.</p>
-<div class="ai-cards">{cards}</div></div></section>
-<section style="padding-top:8px"><div class="wrap"><h2 class="sec-h" style="font-size:24px">How it works</h2>
-<div class="ai-steps"><div><b>Pick a tool</b>Tutor for questions, PRD Writer for documents, Speaking Coach for English and interviews.</div><div><b>Share your details once</b>After two free tries, tell us your name and email to unlock everything, like our handbooks.</div><div><b>Learn by doing</b>Ask follow-ups, revise, re-record. Your work stays on your device.</div><div><b>Go deeper</b>Each answer links to the SkillNavora lesson, test or live class that teaches it.</div></div>
-<p class="ai-note">AI can make mistakes; check important facts. Don't share passwords, financial or private company data. Answers come from leading AI models (Google Gemini, Llama via Groq or Cloudflare, Anthropic Claude or OpenAI ChatGPT) through SkillNavora's secure server, and every answer has buttons to continue in your favourite AI app. <a href="privacy.html">Privacy policy</a>.</p></div></section>
-<section style="padding-top:8px"><div class="wrap"><h2 class="sec-h" style="font-size:24px">More free ways to practise</h2><div class="ai-cards">{more}</div></div></section>'''
+    """Kept for reference only; the AI Studio hub is hub() below."""
+    return ""
 
 TUTOR_SUG = {
     "All": ["Explain the difference between a PM and a project manager", "What is RAG in GenAI, in simple words?", "Write a SQL query to find the top 3 customers by revenue", "How do I prepare for a product sense interview?"],
@@ -392,13 +400,33 @@ def pm_toolkit():
 <script type="application/json" id="pt-data">{json.dumps(data)}</script></div></section>'''
 
 def hub():
-    """AI Studio: 'All tools' keeps the existing page unchanged; Requirements and Practice are tabs inside it."""
-    req = '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in ["prd-writer.html", "prd-library.html", "brd-frd.html", "pm-toolkit.html"]) + '</div></div>'
-    prac = '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in ["ai-tutor.html", "practice.html", "speaking-coach.html"]) + '</div></div>'
-    speak = '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + "".join(link_card(p) for p in ["public-speaking.html", "speaking-coach.html"]) + '</div></div>'
-    return tabgroup("studio-tabs", [
-        ("all", "All tools", _hub_body()),
-        ("requirements", "Requirements", req),
-        ("practice", "Practice", prac),
-        ("speaking", "Public Speaking", speak),
-    ], "AI Studio sections")
+    # AI Studio (Option 2): four tabs. Each tab lists the tool and its related pages.
+    return CSS + tabgroup("studio-tabs", [
+        ("tutor", "AI Tutor", _grid([link_card("ai-tutor.html"), link_card("ai-skills-map.html"),
+                                     plain_card("questions.html", "Top 100 Interview Questions", "Model answers for PM, Data and GenAI roles, plus 86 AI product-sense questions.", "See questions", "Interview prep")])),
+        ("prd", "PRD Writer", _grid([link_card(p) for p in ["prd-writer.html", "prd-library.html", "brd-frd.html", "pm-toolkit.html"]])),
+        ("speaking", "Speaking Coach", _grid([link_card("speaking-coach.html"), link_card("public-speaking.html"),
+                                              plain_card("guides/public-speaking.html", "Public Speaking Guide", "Confidence, structure, storytelling and how to handle nerves.", "Read the guide", "Guide")])),
+        ("practice", "Practice", _grid([link_card("practice.html"),
+                                        plain_card("lab.html", "Practice Lab", "Run real SQL, Excel formulas and Python in your browser, spot the trap and see the fix.", "Open the lab", "Practice"),
+                                        plain_card("challenges.html", "Challenges", "Solve real product and AI problems.", "Start a challenge", "Practice")])),
+    ], "AI Studio sections") + '''<section style="padding-top:8px"><div class="wrap"><h2 class="sec-h" style="font-size:24px">How it works</h2>
+<div class="ai-steps"><div><b>Pick a tool</b>Tutor for questions, PRD Writer for documents, Speaking Coach for English and interviews.</div><div><b>Share your details once</b>After two free tries, tell us your name and email to unlock everything, like our handbooks.</div><div><b>Learn by doing</b>Ask follow-ups, revise, re-record. Your work stays on your device.</div><div><b>Go deeper</b>Each answer links to the SkillNavora lesson, test or live class that teaches it.</div></div>
+<p class="ai-note">AI can make mistakes; check important facts. Don't share passwords, financial or private company data. Answers come from leading AI models (Google Gemini, Llama via Groq or Cloudflare, Anthropic Claude or OpenAI ChatGPT) through SkillNavora's secure server, and every answer has buttons to continue in your favourite AI app. <a href="privacy.html">Privacy policy</a>.</p></div></section>'''
+
+
+def practice_hub():
+    """Upskill for free > Practice & interview prep: Questions | Tests | Quiz."""
+    return CSS + tabgroup("practice-tabs", [
+        ("questions", "Questions", _grid([plain_card("questions.html#pm", "Top 100 PM Questions", "Model answers for product manager interviews.", "See questions", "Questions"),
+                                          plain_card("questions.html#data", "Top 100 Data Questions", "Model answers for data analyst and data engineer interviews.", "See questions", "Questions"),
+                                          plain_card("questions.html#genai", "Top 100 GenAI Questions", "Model answers for GenAI and AI engineer interviews.", "See questions", "Questions"),
+                                          plain_card("questions.html#aips", "AI Product-Sense Questions", "86 AI product-sense questions with answers.", "See questions", "Questions")])),
+        ("tests", "Tests", _grid([plain_card("tests.html#pm", "PM Practice Test", "Questions with hints and solutions for product managers.", "Start the test", "Test"),
+                                  plain_card("tests.html#data", "Data Practice Test", "Questions with hints and solutions for data roles.", "Start the test", "Test"),
+                                  plain_card("tests.html#genai", "GenAI Practice Test", "Questions with hints and solutions for GenAI roles.", "Start the test", "Test"),
+                                  plain_card("lab.html", "Practice Lab", "Run SQL, Excel formulas and Python in your browser.", "Open the lab", "Practice")])),
+        ("quiz", "Quiz", _grid([plain_card("quiz.html", "Quiz Zone", "Test yourself with quick quizzes.", "Start a quiz", "Quiz"),
+                                plain_card("challenges.html", "Challenges", "Solve real product and AI problems.", "Start a challenge", "Quiz"),
+                                plain_card("practice.html", "Practice with AI", "Mock interview questions with AI feedback.", "Start practising", "Quiz")])),
+    ], "Practice and interview prep sections")

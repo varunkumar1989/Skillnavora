@@ -166,32 +166,12 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     Q = lambda h, n, sm: ("questions.html#" + h, n, sm, U["questions.html"][3])
     _RI = U["resources.html"][3]
     _TOOLS_IC = '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.6-.6-2.1z"/>'
-    # Other programs: five courses, then one nested dropdown with the resource items (6 entries in total)
-    _OTH = [("resources.html#op-ai-engineer", "AI Engineer", "Full AI engineer path, classes and interview prep", U["tools.html"][3]),
-            ("sfmc-academy.html", "SFMC", "Salesforce Marketing Cloud: complete guide, 28 modules, handbooks and labs", U["tools.html"][3]),
-            ("resources.html#op-speaking", "Public Speaking", "Speaking skills for PMs and leaders", U["tools.html"][3]),
-            ("resources.html#data", "Resources for Data Engineers", "Data Science & AI handbook, DSA, practice and tools", U["tools.html"][3]),
-            ("resources.html#dm", "Resources for Digital marketing", "Digital marketing course, content creation and guides", U["tools.html"][3])]
-    _OTH_RES = [("resources.html#other", "Other program and Link", "Learning sites, AI builder tools, tutorials and links", U["tools.html"][3]),
-                ("course-gap-check.html", "Course gap check", "What the course is missing, with supplements and a PDF for each", U["tools.html"][3]),
-                ("tools-and-resources.html", "Tool and learning resources", "Every tool, website and learning link in one place", _TOOLS_IC),
-                ("study-library.html", "Study Library", "All study material in one page", U["tools.html"][3]),
-                ("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department", '<path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>')]
-    _OTH_RES_NESTED = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(U["tools.html"][3])}</span>'
-                       f'<span><b>Other programs &amp; resources</b><small>Other program and link, course gap check, tools, study library and Master Freelancing</small></span>{RARR}</button>'
-                       f'<div class="dd-subm">' + "".join(item(*x) for x in _OTH_RES) + '</div></div>')
-    _OTHER_NESTED = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(U["tools.html"][3])}</span>'
-                     f'<span><b>Other programs</b><small>AI Engineer, SFMC, Public Speaking, Data Engineers, Digital marketing and resources</small></span>{RARR}</button>'
-                     f'<div class="dd-subm">' + "".join(item(*x) for x in _OTH) + _OTH_RES_NESTED + '</div></div>')
-    _RES_ITEMS = [("resources.html#pm", "Resources for PM", "Handbook, templates, tools and interview practice", _RI),
-                  ("resources.html#genai", "Resources for Gen AI", "GenAI handbook, AI tools, builders and automation", _RI),
-                  ("resources.html#op-fde", "Resources for FDE", "Forward deployed engineer: role, skills, deployment and interview prep", _RI)]
-    _RES_SUB = (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(_RI)}</span>'
-                f'<span><b>Resources &amp; AI tools</b><small>Handbooks, PDFs, AI tools and useful links in five tabs</small></span>{RARR}</button>'
-                f'<div class="dd-subm">' + "".join(item(*x) for x in _RES_ITEMS) + _OTHER_NESTED + '</div></div>')
-    # Upskill order: Learning platform first, then Resources & AI tools, then practice and events
+    # Option 2 (approved): Upskill for free has four flat items, no nested menus
+    _PR_IC = U["questions.html"][3]
     up_menu = (item("learning-platform.html", "Learning platform", "One page per programme: content, related programmes, tools and links", '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>')
-               + _RES_SUB + item("questions.html", "Practice & interview prep", U["questions.html"][2], U["questions.html"][3]) + item(*U["events.html"]))
+               + item("resources.html", "Free resources", "Handbooks & PDFs, tools, learning links and the study library", _RI)
+               + item("practice-hub.html", "Practice & interview prep", "Interview questions, practice tests and quizzes", _PR_IC)
+               + item(*U["events.html"]))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
 <html lang="en">
@@ -218,7 +198,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
   <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="{r}assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="{r}assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
   <nav class="nav" id="nav" aria-label="Main">
     <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC training, digital marketing, FDE and public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_MAIN + [("other-programs.html", "All other programs", "Content creation and every other program, with reading", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>'), ("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
-    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html'])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
+    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html', 'learning-platform.html', 'practice-hub.html'])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
     <div class="dd{on([p for p, *_ in aipages.AI_MENU if p != 'practice.html'])}"><button type="button" aria-expanded="false">AI Studio <span class="nav-new">Free</span> {CHEV}</button><div class="dd-menu">{"".join(item(*x) for x in aipages.AI_MENU)}</div></div>
     <div class="dd{on(['jobs.html', 'careers.html', 'mentor.html', 'hire.html'])}"><button type="button" aria-expanded="false">Jobs &amp; careers {CHEV}</button><div class="dd-menu">
       <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>All job portals, alerts and openings</small></span></a>
@@ -739,7 +719,7 @@ _hero = ('<div class="hb-hero"><div><div class="kicker">AI-First Product Managem
          '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/pm-extras/PM-Glossary-Handbook.pdf">PM Glossary Handbook</a>'
          '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/pm-extras/Tokens-Pricing-and-Tokenization-Handbook.pdf">Tokens, Pricing and Tokenization</a>'
          '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/pm-extras/Vibe-Coding-Non-Coder-Addendum.pdf">Vibe Coding addendum</a></div></div></div>')
-res = uhero("Upskill for free · Resources & AI tools", 'Resources <span class="g">&amp; AI tools</span>', "Handbooks, PDFs, tools, practice sites and useful links for product managers, data engineers and GenAI learners. Register once with your details to open any handbook, PDF or file.") + f"""
+res = uhero("Upskill for free · Resources & AI tools", 'Free <span class="g">resources</span>', "Handbooks, PDFs, tools, practice sites and useful links for product managers, data engineers and GenAI learners. Register once with your details to open any handbook, PDF or file.") + f"""
 <section style="padding-top:36px"><div class="wrap">
 {restabs.build(_hero + _pm, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT))}
 </div></section>
@@ -885,6 +865,8 @@ page("grokbot-course.html", "Grokbot Mastery Course: from zero to commercial AI 
 page("ai-academy.html", "AI Skills Academy: every AI skills course in one place · SkillNavora", "All SkillNavora AI skills courses in one section: the 7 core AI skills and advanced AI product management topics, each with lessons, a PDF and an interactive version.",
      uhero("AI Product Management · GenAI Launchpad", 'AI Skills <span class="g">Academy</span>', "Every AI skills course in one place: lessons, free PDFs and interactive versions, from prompting and context to strategy, AI UX, pricing, governance and more.") + aipages.academy_tabs(academy.hub()), "ai-academy.html")
 import academy_interactive, study_hub, study_library
+page("practice-hub.html", "Practice & interview prep · SkillNavora", "Interview questions with answers, practice tests and quizzes for PMs, data professionals and GenAI learners, in three tabs.",
+     uhero("Upskill for free · Practice", 'Practice & <span class="g">interview prep</span>', "Top 100 interview questions with answers, practice tests with hints and a quiz zone. Pick a tab to start.") + aipages.practice_hub(), "practice-hub.html")
 page("ai-academy-interactive.html", "Interactive AI Skills Academy · SkillNavora", "All AI skills courses as one interactive page: tabs for every course, illustrated classes, takeaways, practice, cheat sheets and interview questions.",
      academy_interactive.site_html(), "ai-academy.html")
 page("study-library.html", "SkillNavora Study Library: all study material in one place", "Every program, handbook, lesson, AI skills course, practice set, tool, learning site and PDF on SkillNavora in one page with 11 tabs and a filter.",
