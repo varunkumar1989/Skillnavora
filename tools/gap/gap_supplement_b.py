@@ -291,3 +291,7 @@ B_SECTIONS = [
     [("PagerDuty incident response guide (official)", "https://response.pagerduty.com/")]),
  ]),
 ]
+
+# topics that close the remaining audit gaps
+from gap_supplement_more import B_MORE
+B_SECTIONS += B_MORE

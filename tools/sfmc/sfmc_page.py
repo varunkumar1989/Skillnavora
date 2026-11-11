@@ -33,7 +33,7 @@ OTHER = [
  ("Data Science & AI: SQL and Power BI", "resources.html#data", "Next: SQL depth and dashboards for reporting roles."),
  ("AI Engineer", "resources.html#op-ai-engineer", "Next: APIs, integrations and AI features."),
  ("Forward Deployed Engineer (FDE)", "programme-fde.html", "Career path: customer-facing technical implementation."),
- ("Course gap check", "course-gap-check.html", "Shows what the wider data course still needs."),
+ ("Data Science & AI quick reference", "data-science-extras.html", "Cheat sheets, glossary and supplements for the wider data course."),
 ]
 
 def topic_block(mno, idx, t):

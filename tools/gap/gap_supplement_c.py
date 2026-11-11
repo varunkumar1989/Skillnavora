@@ -75,7 +75,11 @@ C_SECTIONS = [
   ("Scoring", "Ten or more yes: ready to apply for analyst roles with a portfolio. Seven to nine: complete the missing topics in the matching supplement and build one more project. Fewer than seven: return to the foundation months of the roadmap."),
  ]),
  ("C10", "Cheat Sheets and Glossary (index)", [
-  ("Cheat sheets to build", "Excel formulas; SQL commands (SELECT, joins, window functions, CTEs); DAX (CALCULATE, filter context, time intelligence); Python syntax and pandas commands; statistics formulas; ML metrics (precision, recall, F1, ROC-AUC, MAE, RMSE, R-squared); API terms (endpoint, method, status code, header, token); MCP terms (host, client, server, tool, resource, prompt); common AI terms (token, context window, embedding, RAG, agent)."),
-  ("Glossary entries", "Each entry: term, simple definition, real example, related terms, and acronym in full. Start with the terms in Supplements A and B."),
+  ("Cheat sheets (now built: PDF 14, Quick Reference and Cheat Sheets)", "Excel formulas; SQL commands (SELECT, joins, window functions, CTEs); DAX (CALCULATE, filter context, time intelligence); Python syntax and pandas commands; statistics formulas; ML metrics (precision, recall, F1, ROC-AUC, MAE, RMSE, R-squared); API terms (endpoint, method, status code, header, token); MCP terms (host, client, server, tool, resource, prompt); common AI terms (token, context window, embedding, RAG, agent)."),
+  ("Glossary (now built: PDF 15, Data Science and AI Glossary)", "Each entry: term, simple definition, real example, related terms, and acronym in full. It covers the terms in Supplements A and B and the course."),
  ]),
 ]
+
+# topics that close the remaining audit gaps
+from gap_supplement_more import C_MORE
+C_SECTIONS += C_MORE

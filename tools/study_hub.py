@@ -154,7 +154,7 @@ def build():
     de_ids = ["excel", "sql", "python", "powerbi", "tableau", "ai-analytics", "ml", "genai", "agents", "tools", "career"]
     aide = block("aide", "AI for Data Engineers", "AI-First Data Engineer / Data Science & AI", E(P["ai-de"]["short"]), btn("program/ai-data-engineering.html", "Program page", True) + btn("data-science/index.html", "Data Science & AI handbook") + btn("lab.html#data", "Practice Lab") + btn("brd-frd.html", "BRD & FRD guide"),
                  [curriculum(P["ai-de"], "program/ai-data-engineering.html"), G(tracks(de_ids, "Data Science & AI handbook: every lesson")), courses("aide"),
-                  practice("data"), G(pdf_once("aide", ["data-science/pdf/*.pdf", "data-science/pdf/tracks/*.pdf", "handbook/AI_Evals*.pdf", "handbook/Web_*.pdf", "handbook/Agent_*.pdf", "brochures/*data*.pdf"]))])
+                  practice("data"), G(pdf_once("aide", ["data-science/pdf/*.pdf", "data-science/pdf/tracks/*.pdf", "handbook/data-science-extras/*.pdf", "handbook/AI_Evals*.pdf", "handbook/Web_*.pdf", "handbook/Agent_*.pdf", "brochures/*data*.pdf"]))])
     ae = course_aiengineer.COURSE
     free = "".join(f'<li><a href="{E(u)}" target="_blank" rel="noopener">{E(n)} ↗</a></li>' for n, u in ae["links"])
     aieng = block("aieng", "AI Engineer", "AI Engineer: the complete path", "The full AI engineer path, the lessons that teach its foundations, related courses and PDFs.", btn("ai-engineer.html", "Course page", True) + btn("handbook/" + ae["pdf"], "PDF") + btn("programme-ai-engineer.html", "Programme page"),

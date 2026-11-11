@@ -375,7 +375,11 @@ def source_html(pm_html, cfg):
                    [("Open the PRD library", "prd-library.html"), ("✨ AI PRD Writer", "prd-writer.html"), ("PRD template (Word)", "handbook/templates/SkillNavora_PRD_Template.doc"), ("AI Evals for PMs (PDF)", "ai-evals.html")])
     ba_box = feat("Business analyst", "BRD &amp; FRD: templates, techniques and 25 project ideas", "BRD vs FRD vs PRD, section-by-section templates, a traced sample, BA techniques and real projects from banking to GenAI.",
                   [("Open the BRD &amp; FRD guide", "brd-frd.html"), ("✨ Write a BRD with AI", "prd-writer.html?doc=brd"), ("✨ Write an FRD with AI", "prd-writer.html?doc=frd")])
-    return ('<div id="sec-pm">' + quick("pm") + prd_box + pm_html + '</div><div id="sec-genai">' + quick("genai") + genai_tab(cfg) + '</div><div id="sec-data">' + quick("data") + ds_tab(cfg) + ba_box + '</div>'
+    ds_extras_box = feat("Data Science &amp; AI", "Quick reference, glossary, 12-month tracker and supplements",
+                         "Cheat sheets for Excel, SQL, DAX, Python, pandas, statistics and ML metrics; a glossary of data and AI terms; a printable 12-month tracker; and supplements on data engineering, cloud, Excel, SQL, governance, interviews and capstones.",
+                         [("Open quick reference &amp; supplements", "data-science-extras.html"), ("Cheat sheets (PDF)", "read.html?doc=handbook/data-science-extras/DS-14-Quick-Reference-and-Cheat-Sheets.pdf"),
+                          ("Glossary (PDF)", "read.html?doc=handbook/data-science-extras/DS-15-Data-Science-and-AI-Glossary.pdf"), ("12-month tracker (PDF)", "read.html?doc=handbook/data-science-extras/DS-13-12-Month-Roadmap-Tracker.pdf")])
+    return ('<div id="sec-pm">' + quick("pm") + prd_box + pm_html + '</div><div id="sec-genai">' + quick("genai") + genai_tab(cfg) + '</div><div id="sec-data">' + quick("data") + ds_tab(cfg) + ba_box + ds_extras_box + '</div>'
             + other_tab("dm") + '<div id="sec-ai">' + ai_tab() + '</div><div id="sec-data-tools">' + data_tools() + '</div>' + other_tab("rest") + learnsites.tab("", keys=("pm", "data", "genai", "build")))  # the groups the Learning platform uses
 
 
@@ -405,7 +409,6 @@ def programmes_tab():
              ("study-library.html", "Study Library", "Every lesson, class and PDF, listed once under its programme.", "Library"),
              ("handbooks/index.html", "SkillNavora Handbooks", "PM, Data Science & AI, DSA and GenAI handbooks with every PDF.", "Handbooks"),
              ("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department.", "Freelancing"),
-             ("course-gap-check.html", "Course gap check", "What each course is missing, with supplements and a PDF for each.", "Course gap"),
              ("public-speaking.html", "Public Speaking Practice", "Speak on a topic you did not expect, free speech, shadowing and everyday English, with AI feedback.", "Practice"),
              ("public-speaking.html#ps-tabs-guide", "Complete Public Speaking Guide", "The complete guide: confidence, structure, storytelling, slides, Q&A, video and a 30-day plan.", "Guide")]
     return (h("Programmes", "Each programme's handbooks, lessons, tools and learning links live on its own page on the Learning platform. Pick one to go straight to it.")

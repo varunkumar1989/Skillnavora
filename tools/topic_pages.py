@@ -171,8 +171,7 @@ function fromHash(push){show((location.hash||'#content').slice(1),push)}window.a
             ("ai-agents-guide.html", "How AI Agents Work", "How agents run, multi-agent systems, context and evals."),
             ("grokbot-course.html", "Grokbot course", "The Grok API from zero to commercial AI solutions."),
             ("master-freelancing.html", "Master Freelancing", "Freelance skills by department, the trading terminal handbook and Make Money with AI."),
-            ("study-library.html", "Study Library", "Every lesson, class and PDF, listed once under its programme."),
-            ("course-gap-check.html", "Course gap check", "What each course is missing, with supplements and a PDF for each.")]
+            ("study-library.html", "Study Library", "Every lesson, class and PDF, listed once under its programme.")]
     cards += '<h2 class="sec-h" style="margin:26px 0 12px">AI courses and guides</h2><div class="grid g3">' + "".join(
         f'<a class="card" href="{h}" style="text-decoration:none"><span class="ftag">AI courses and guides</span><h3 style="margin:8px 0 6px">{E(n)}</h3><p>{E(d)}</p><span class="go">Open →</span></a>' for h, n, d in more) + "</div>"
     idx = (uhero("Learning platform", 'All <span class="g">programmes</span>, one page each', "Pick a programme. Each opens on its own page with three tabs: Programme Content, Other Programmes, and Learning Tools & Links.")

@@ -282,3 +282,7 @@ A_SECTIONS = [
     [("System Design Primer (open source)", "https://github.com/donnemartin/system-design-primer")]),
  ]),
 ]
+
+# topics that close the remaining audit gaps
+from gap_supplement_more import A_MORE
+A_SECTIONS += A_MORE

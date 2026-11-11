@@ -902,8 +902,8 @@ _src = os.path.join(_tf.gettempdir(), "sn_learning_platform_source.html")
 open(_src, "w", encoding="utf-8").write("<!doctype html><html><body>" + _LP_SOURCE + "</body></html>")
 topic_pages.build(page, uhero, OUT, source=_src)
 _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "gap"))
-import gap_page
-gap_page.build(page, uhero, OUT)
+import ds_extras  # replaces the course gap check; the old address forwards here
+ds_extras.build(page, uhero, OUT)
 _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "sfmc"))
 import sfmc_page
 sfmc_page.build(page, uhero, OUT)
