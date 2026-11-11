@@ -1,4 +1,5 @@
 import re
+import make_money_page as _mm
 #!/usr/bin/env python3
 """Generate the SkillNavora LMS site into /home/user/skillnavora."""
 import os, re, html, shutil, json
@@ -750,7 +751,7 @@ tt = uhero("Upskill for free · Resources & AI tools", 'Tool <span class="g">tut
 <section style="padding-top:28px"><div class="wrap">{_tt_html}</div></section>"""
 _tt_banner = '<section style="padding:24px 0 0"><div class="wrap"><div class="card" style="border:2px solid var(--brand,#6C4CF5);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between"><div style="max-width:720px"><div class="kicker">New · step-by-step course</div><b style="font-size:18px">AI Builder Tools: Claude, Claude Code, ChatGPT &amp; Codex, Gemini, Lovable</b><p class="meta" style="margin:4px 0 0">What each tool can do and how: create a website, add pages, connect tools and other websites, publish on your own domain.</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-primary" href="ai-builder-tools.html">Open the course</a><a class="btn btn-line" href="ai-academy-interactive.html#builder-tools">Interactive</a><a class="btn btn-line" href="handbook/AI_Builder_Tools.pdf">PDF</a></div></div></div></section>'
 _tt_i = tt.find('</div></div>') + len('</div></div>') if tt.startswith('<div class="hero"') else 0
-page("tools.html", "Tool tutorials · SkillNavora", "Free tutorials for every AI, product, design, automation and data tool in SkillNavora programs, including complete Figma and n8n tutorials.", tt[:_tt_i] + _tt_banner + tt[_tt_i:], "tools.html")
+page("tools.html", "Tool tutorials · SkillNavora", "Free tutorials for every AI, product, design, automation and data tool in SkillNavora programs, including complete Figma and n8n tutorials.", tt[:_tt_i] + _tt_banner + _mm.section_html() + tt[_tt_i:], "tools.html")
 import practice
 _pt_html, _pt_n = practice.tests_page()
 page("tests.html", "Practice tests · SkillNavora", "Free practice tests for product management, data science, SQL, Excel, Python, Power BI, GenAI, agents and more, with hints and solutions.",
@@ -1393,7 +1394,8 @@ MF_BODY = uhero("Upskill for free", "Master <span class=\"g\">Freelancing</span>
 <section style="padding-top:8px"><div class="wrap"><div class="kicker">How to start</div><h2 class="sec-h">Six steps from zero to your first client</h2>
 <ol class="meta" style="max-width:74ch;line-height:1.7"><li>Pick one profession and learn its foundations.</li><li>Build three small samples, each with a short description of the problem it solves.</li><li>Create a simple portfolio page that shows the samples.</li><li>Set a clear starting price and a written scope for each service.</li><li>Pitch on marketplaces and LinkedIn with a specific offer, not a general profile.</li><li>Ask every client for a review or testimonial with their permission.</li></ol>
 <p class="meta" style="max-width:74ch">Freelancing and part-time options are listed on the <a href="jobs.html#freelance">Job board</a>. Learning roadmaps are learning plans, not guaranteed jobs or incomes.</p></div></section>"""
-page("master-freelancing.html", "Master Freelancing · SkillNavora", "Learn a skill, build a portfolio, find clients and earn: the SkillNavora Master Freelancing academy, department by department.", MF_BODY, "master-freelancing.html")
+page("master-freelancing.html", "Master Freelancing · SkillNavora", "Learn a skill, build a portfolio, find clients and earn: the SkillNavora Master Freelancing academy, department by department.", MF_BODY + _mm.section_html(), "master-freelancing.html")
+page("make-money-course.html", "Make Money with AI: from zero to your first paying client · SkillNavora", "A part-time guide to finding, pitching and closing a first AI service client: offer selection, a credibility stack, signal-based outreach, discovery calls, a capstone and a glossary.", _mm.body(), "learning-platform.html")
 page("careers.html", "Careers · SkillNavora", "Join SkillNavora: roles in teaching, curriculum, admissions, marketing, engineering and operations.", careers, "careers.html")
 
 

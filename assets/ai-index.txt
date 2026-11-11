@@ -87,6 +87,8 @@ DSA I: Big-O, Arrays, Strings, Hashing, Two Pointers and Sliding Window | /data-
 DSA II: Stacks, Queues, Linked Lists, Recursion, Sorting and Binary Search | /data-science/lessons/python-27-dsa-ii-stacks-queues-linked-lists-recursion-sorting-and-bina.html | Python for Data Science
 DSA III: Trees, Heaps, Graphs (BFS/DFS) and Dynamic Programming | /data-science/lessons/python-28-dsa-iii-trees-heaps-graphs-bfs-dfs-and-dynamic-programming.html | Python for Data Science
 Python Capstone: End-to-End Retail Sales Analytics Project | /data-science/lessons/python-29-python-capstone-end-to-end-retail-sales-analytics-project.html | Python for Data Science
+Automation: Scheduled Scripts, Reports and Email | /data-science/lessons/python-30-automation-scheduled-scripts-reports-and-email.html | Python for Data Science
+Production Python: Logging, Type Hints, Packaging and Code Organisation | /data-science/lessons/python-31-production-python-logging-type-hints-packaging-and-code-orga.html | Python for Data Science
 ## Statistics & Machine Learning: Probability, CLT, hypothesis tests, the ML lifecycle, regression, classification, trees, ensembles, clustering, PCA, time series, NLP, deep learning basics, evaluation, explainability and deployment.
 Descriptive Statistics: Centre, Spread, Shape and Relationships | /data-science/lessons/ml-01-descriptive-statistics-centre-spread-shape-and-relationships.html | Statistics & Machine Learning
 Probability and Distributions: Rules, Bayes, Binomial, Poisson and Normal | /data-science/lessons/ml-02-probability-and-distributions-rules-bayes-binomial-poisson-a.html | Statistics & Machine Learning
@@ -116,6 +118,8 @@ NLP and Text Analytics: Cleaning, TF-IDF, Sentiment Classification, Topics and E
 Neural Networks and Deep Learning: From a Neuron to Transformers | /data-science/lessons/ml-26-neural-networks-and-deep-learning-from-a-neuron-to-transform.html | Statistics & Machine Learning
 Explainable AI and MLOps: SHAP, Fairness, Deployment, Monitoring and Responsible ML | /data-science/lessons/ml-27-explainable-ai-and-mlops-shap-fairness-deployment-monitoring.html | Statistics & Machine Learning
 ML Capstone: End-to-End Churn Prediction and Retention Strategy | /data-science/lessons/ml-28-ml-capstone-end-to-end-churn-prediction-and-retention-strate.html | Statistics & Machine Learning
+Recommendation Systems: Collaborative, Content-Based and Hybrid | /data-science/lessons/ml-29-recommendation-systems-collaborative-content-based-and-hybri.html | Statistics & Machine Learning
+Regression Metrics: MAE, MSE, RMSE and R-Squared | /data-science/lessons/ml-30-regression-metrics-mae-mse-rmse-and-r-squared.html | Statistics & Machine Learning
 ## Generative AI & Agentic AI: How LLMs work, prompting, LLM APIs in Python, embeddings and vector search, RAG, tool use, agents, MCP, evaluation, guardrails, fine-tuning and responsible AI.
 How Large Language Models Work: Tokens, Embeddings, Transformers and Training | /data-science/lessons/genai-01-how-large-language-models-work-tokens-embeddings-transformer.html | Generative AI & Agentic AI
 Prompt Engineering in Depth: Patterns, Templates, Few-Shot, Reasoning and Structured Output | /data-science/lessons/genai-02-prompt-engineering-in-depth-patterns-templates-few-shot-reas.html | Generative AI & Agentic AI
@@ -136,14 +140,26 @@ How AI Agents Work and How to Build One Without Code | /data-science/lessons/age
 Connect All Your Apps with Claude, n8n, Make, Zapier and Replit | /data-science/lessons/agents-04-connect-all-your-apps-with-claude-n8n-make-zapier-and-replit.html | AI Agents, MCP & APIs for PMs and BAs
 Claude Code Complete Tutorial: From First Prompt to Agents, MCP, Hooks and Automation | /data-science/lessons/agents-05-claude-code-complete-tutorial-from-first-prompt-to-agents-mc.html | AI Agents, MCP & APIs for PMs and BAs
 Voice Agents and Voice Cloning: Tools, Architecture, Build Steps and Responsible Use | /data-science/lessons/agents-06-voice-agents-and-voice-cloning-tools-architecture-build-step.html | AI Agents, MCP & APIs for PMs and BAs
+OpenAPI and Swagger: Describing APIs So Machines and People Can Use Them | /data-science/lessons/agents-07-openapi-and-swagger-describing-apis-so-machines-and-people-c.html | AI Agents, MCP & APIs for PMs and BAs
+OAuth 2.0 in Depth: Scopes, PKCE and Secure Tokens | /data-science/lessons/agents-08-oauth-2-0-in-depth-scopes-pkce-and-secure-tokens.html | AI Agents, MCP & APIs for PMs and BAs
+MCP Security and Business Integrations: CRM, ERP, Jira, Slack and Notion | /data-science/lessons/agents-09-mcp-security-and-business-integrations-crm-erp-jira-slack-an.html | AI Agents, MCP & APIs for PMs and BAs
+Agent Frameworks: LangGraph, CrewAI and AutoGen | /data-science/lessons/agents-10-agent-frameworks-langgraph-crewai-and-autogen.html | AI Agents, MCP & APIs for PMs and BAs
+Agent Evaluation and Monitoring: Measuring Whether an Agent Works | /data-science/lessons/agents-11-agent-evaluation-and-monitoring-measuring-whether-an-agent-w.html | AI Agents, MCP & APIs for PMs and BAs
 ## AI & No-Code Tools Lab: Complete tutorials for the design and automation tools used across the programs: Figma (design systems, prototypes, Dev Mode, Figma Make) and n8n (workflows, APIs, AI agents, MCP).
 Figma Complete Tutorial: Interface, Auto Layout, Components, Variables, Prototypes, Dev Mode and Figma AI | /data-science/lessons/tools-01-figma-complete-tutorial-interface-auto-layout-components-var.html | AI & No-Code Tools Lab
 n8n Complete Tutorial: Workflow Automation, Data Pipelines and AI Agents | /data-science/lessons/tools-02-n8n-complete-tutorial-workflow-automation-data-pipelines-and.html | AI & No-Code Tools Lab
+Tools and Learning Resources Directory: How to Choose and Evaluate Tools | /data-science/lessons/tools-03-tools-and-learning-resources-directory-how-to-choose-and-eva.html | AI & No-Code Tools Lab
 ## Capstone, Portfolio & Interviews: End-to-end capstone, portfolio and GitHub, analyst and data scientist interview preparation with model answers, and a 90-day plan.
 Portfolio, GitHub and Resume for Data Roles | /data-science/lessons/career-01-portfolio-github-and-resume-for-data-roles.html | Capstone, Portfolio & Interviews
 Data Analyst Interview Preparation: SQL, Excel, Power BI, Statistics and Case Questions | /data-science/lessons/career-02-data-analyst-interview-preparation-sql-excel-power-bi-statis.html | Capstone, Portfolio & Interviews
 Data Scientist, ML and GenAI Interview Preparation: Questions and Model Answers | /data-science/lessons/career-03-data-scientist-ml-and-genai-interview-preparation-questions.html | Capstone, Portfolio & Interviews
 Your 90-Day Plan: Learning Roadmap, Job Search Strategy and Growing in Your First Role | /data-science/lessons/career-04-your-90-day-plan-learning-roadmap-job-search-strategy-and-gr.html | Capstone, Portfolio & Interviews
+Data Engineering and Analytics Interview Questions with Model Answers | /data-science/lessons/career-05-data-engineering-and-analytics-interview-questions-with-mode.html | Capstone, Portfolio & Interviews
+Business Scenario Interviews: Seven Problems and Answer Frameworks | /data-science/lessons/career-06-business-scenario-interviews-seven-problems-and-answer-frame.html | Capstone, Portfolio & Interviews
+Behavioural Interviews and STAR Answers | /data-science/lessons/career-07-behavioural-interviews-and-star-answers.html | Capstone, Portfolio & Interviews
+Eight Capstone Project Briefs and the Portfolio Checklist | /data-science/lessons/career-08-eight-capstone-project-briefs-and-the-portfolio-checklist.html | Capstone, Portfolio & Interviews
+Career Readiness Check: Know Where You Stand Before You Apply | /data-science/lessons/career-09-career-readiness-check-know-where-you-stand-before-you-apply.html | Capstone, Portfolio & Interviews
+A Realistic 12-Month Roadmap for a Beginner | /data-science/lessons/career-10-a-realistic-12-month-roadmap-for-a-beginner.html | Capstone, Portfolio & Interviews
 ## Salesforce Marketing Cloud (SFMC): Complete SFMC guide: data extensions, SQL, AMPscript, Email Studio, Automation Studio, Journey Builder, mobile channels, deliverability, Einstein and certification.
 Salesforce Marketing Cloud (SFMC) Complete Guide: Email Studio, Data Extensions, SQL, AMPscript, Journey Builder and Certification | /data-science/lessons/sfmc-01-salesforce-marketing-cloud-sfmc-complete-guide-email-studio.html | Salesforce Marketing Cloud (SFMC)
 ## Digital Marketing: Complete digital marketing guide: strategy, SEO and AI search, Google and Meta Ads, social and influencers, email and WhatsApp, GA4 and attribution, CRO, budgets and AI.
@@ -154,6 +170,28 @@ Content Creation Complete Guide: Strategy, Writing, Short and Long Video, Design
 Forward Deployed Engineer (FDE) Complete Guide: The Role, Skills, AI Deployments, Integrations and Interviews | /data-science/lessons/fde-01-forward-deployed-engineer-fde-complete-guide-the-role-skills.html | Forward Deployed Engineer (FDE)
 ## Public Speaking: Complete public speaking guide: confidence, structure (PREP, STAR, pyramid), storytelling, data and slides, voice and body language, Q&A, meetings, interviews, video and AI practice tools.
 Public Speaking Complete Guide: Confidence, Structure, Storytelling, Delivery, Slides, Meetings, Interviews and Video | /data-science/lessons/speaking-01-public-speaking-complete-guide-confidence-structure-storytel.html | Public Speaking
+## Data Engineering & Cloud: Data engineering fundamentals: roles, file formats, ingestion (batch, streaming, API, CDC), ETL and ELT, pipeline reliability, data modelling and slowly changing dimensions, warehouses, lakes and the medallion architecture, Airflow, dbt, Spark, Kafka, data quality and observability, cloud data services and cost, Docker, Kubernetes, CI/CD, architecture and system design, Linux and troubleshooting.
+What Data Engineering Is, Its Roles and the Data Formats It Uses | /data-science/lessons/data-engineering-01-what-data-engineering-is-its-roles-and-the-data-formats-it-u.html | Data Engineering & Cloud
+Ingestion: Batch, Streaming, API, File, Database and Change Data Capture | /data-science/lessons/data-engineering-02-ingestion-batch-streaming-api-file-database-and-change-data.html | Data Engineering & Cloud
+ETL versus ELT and Pipeline Reliability: Idempotency, Retries and Incremental Loads | /data-science/lessons/data-engineering-03-etl-versus-elt-and-pipeline-reliability-idempotency-retries.html | Data Engineering & Cloud
+Data Modelling: Conceptual, Logical and Physical Models, Star and Snowflake Schemas, and SCD Types 1 to 3 | /data-science/lessons/data-engineering-04-data-modelling-conceptual-logical-and-physical-models-star-a.html | Data Engineering & Cloud
+Data Warehouses, Data Marts, Data Lakes, Lakehouses and the Medallion Architecture | /data-science/lessons/data-engineering-05-data-warehouses-data-marts-data-lakes-lakehouses-and-the-med.html | Data Engineering & Cloud
+Apache Airflow: DAGs, Tasks, Scheduling and Retries | /data-science/lessons/data-engineering-06-apache-airflow-dags-tasks-scheduling-and-retries.html | Data Engineering & Cloud
+dbt: Models, Tests, Documentation and Lineage | /data-science/lessons/data-engineering-07-dbt-models-tests-documentation-and-lineage.html | Data Engineering & Cloud
+Apache Spark and PySpark: Distributed Processing for Large Data | /data-science/lessons/data-engineering-08-apache-spark-and-pyspark-distributed-processing-for-large-da.html | Data Engineering & Cloud
+Streaming with Apache Kafka: Topics, Partitions, Consumers and Delivery Guarantees | /data-science/lessons/data-engineering-09-streaming-with-apache-kafka-topics-partitions-consumers-and.html | Data Engineering & Cloud
+Data Quality Dimensions, Observability, Catalogues, Lineage and Classification | /data-science/lessons/data-engineering-10-data-quality-dimensions-observability-catalogues-lineage-and.html | Data Engineering & Cloud
+Cloud Fundamentals for Data: IaaS, PaaS, SaaS, Regions, Identity and Cost | /data-science/lessons/data-engineering-11-cloud-fundamentals-for-data-iaas-paas-saas-regions-identity.html | Data Engineering & Cloud
+Containers, Kubernetes and CI/CD for Data Pipelines | /data-science/lessons/data-engineering-12-containers-kubernetes-and-ci-cd-for-data-pipelines.html | Data Engineering & Cloud
+Data Architecture and System Design for Data and AI Systems | /data-science/lessons/data-engineering-13-data-architecture-and-system-design-for-data-and-ai-systems.html | Data Engineering & Cloud
+Linux and the Command Line for Data Work | /data-science/lessons/data-engineering-14-linux-and-the-command-line-for-data-work.html | Data Engineering & Cloud
+Technical Documentation, Runbooks and Production Troubleshooting for Pipelines and AI Apps | /data-science/lessons/data-engineering-15-technical-documentation-runbooks-and-production-troubleshoot.html | Data Engineering & Cloud
+## Governance, Privacy & Business Consulting: Business problem-solving and analytics consulting: KPIs, process mapping, discovery with interviews, Five Whys and fishbone analysis, hypotheses and recommendations; requirements, user stories, PRDs, data storytelling and agile delivery; data ownership and retention, GDPR and India's DPDP Act, masking and row-level security, responsible AI, threat modelling and incident response.
+Business Problem-Solving: KPIs, Process Mapping, Discovery and Hypotheses | /data-science/lessons/governance-01-business-problem-solving-kpis-process-mapping-discovery-and.html | Governance, Privacy & Business Consulting
+Requirements, User Stories, PRDs, Data Storytelling and Agile Delivery for Analytics | /data-science/lessons/governance-02-requirements-user-stories-prds-data-storytelling-and-agile-d.html | Governance, Privacy & Business Consulting
+Data Ownership, Stewardship, Retention and Privacy Law: GDPR and India's DPDP Act | /data-science/lessons/governance-03-data-ownership-stewardship-retention-and-privacy-law-gdpr-an.html | Governance, Privacy & Business Consulting
+Data Masking, Row-Level Security and Access Control | /data-science/lessons/governance-04-data-masking-row-level-security-and-access-control.html | Governance, Privacy & Business Consulting
+Responsible AI, Threat Modelling and Incident Response | /data-science/lessons/governance-05-responsible-ai-threat-modelling-and-incident-response.html | Governance, Privacy & Business Consulting
 ## Product Management Master Handbook
 Appendix: Source Coverage &amp; Gap Analysis | /handbooks/pm/appendix.html | Product management
 Case Study Library | /handbooks/pm/cases.html | Product management

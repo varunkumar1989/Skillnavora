@@ -137,6 +137,10 @@ function fromHash(push){show((location.hash||'#content').slice(1),push)}window.a
         for slug, title, short, group, *_ in items:
             cards += (f'<a class="card" href="{slug}.html" style="text-decoration:none"><span class="ftag">{E(group)}</span>'
                       f'<h3 style="margin:8px 0 6px">{E(short)}</h3><p>Programme content, related programmes, and tools and links.</p><span class="go">Open →</span></a>')
+        if g == "Tools and building":
+            import make_money_page
+            cards += '<a class="card" href="make-money-course.html" style="text-decoration:none"><span class="ftag">Tools and building</span>'
+            '<h3 style="margin:8px 0 6px">Make Money with AI</h3><p>Find, pitch and close a first AI service client while working part time: offer, credibility stack, outreach and discovery calls.</p><span class="go">Open →</span></a>'
         cards += "</div>"
     idx = (uhero("Learning platform", 'All <span class="g">programmes</span>, one page each', "Pick a programme. Each opens on its own page with three tabs: Programme Content, Other Programmes, and Learning Tools & Links.")
            + '<section style="padding-top:24px"><div class="wrap">'
