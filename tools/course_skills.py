@@ -78,6 +78,66 @@ description: Writes a PRD in our house format from a case study or brief. Use wh
 """, ["Ordered steps, missing-info rules, examples, checklist.", "Keep the core short; reference files for detail.", "The checklist doubles as your eval rubric."],
    "Improve your SKILL.md from Class 3 with a missing-info rule, a good example and a checklist."),
 
+  ("intermediate", "Anatomy of a skill: a complete worked example", "See every part of a finished skill, so you can write your own from a blank page.", r"""
+<p>A skill packages a repeatable piece of work: when to use it, the steps, the template and the quality checks. In Claude, Agent Skills are folders with a <code>SKILL.md</code> file whose header holds a name and a description; in ChatGPT, Gemini or a Project, the same content goes into the instructions and knowledge files. Check the current product documentation for exact limits and file formats.</p>
+<h3>Example: a "user interview synthesis" skill</h3>
+<pre>---
+name: interview-synthesis
+description: Turns raw user-interview notes or transcripts into themes,
+  quotes and opportunities. Use when the user shares interview notes and
+  asks for findings, insights or a synthesis.
+---
+# Interview synthesis
+
+## Inputs
+- 3 or more interview notes or transcripts (text, docs or PDFs)
+- Optional: research goal, product area
+
+## Steps
+1. List each participant with role and segment. Ask if missing.
+2. Extract every pain point, need and workaround, with a quote and
+   participant ID.
+3. Group into themes. A theme needs 2+ participants.
+4. Rank themes by how many participants and how severe.
+5. Write opportunities as "How might we..." statements.
+
+## Output (use exactly this template)
+| Theme | Participants | Severity (1-3) | Best quote | Opportunity |
+Then: 3 surprises, 3 open questions, recommended next research.
+
+## Quality checks before answering
+- Every quote is verbatim and attributed.
+- No theme is based on one participant.
+- Say "not enough data" rather than invent a theme.
+
+## Example
+(one short filled-in table from two sample interviews)</pre>
+<h3>Why each part matters</h3>
+<table><tr><th>Part</th><th>Job</th></tr>
+<tr><td>Description</td><td>Decides when the skill is picked up; name the trigger words users actually say</td></tr>
+<tr><td>Inputs</td><td>Tells the AI what to ask for when something is missing</td></tr>
+<tr><td>Steps</td><td>Makes the method repeatable instead of improvised</td></tr>
+<tr><td>Template</td><td>Makes every output comparable and complete</td></tr>
+<tr><td>Quality checks</td><td>Catches the most common mistakes before you see them</td></tr>
+<tr><td>Example</td><td>Shows the standard better than any adjective</td></tr></table>
+""", ["A skill = description (when), inputs, steps, template, checks, example.", "The description decides whether the skill is used at all.", "Quality checks and an example set the standard."],
+   "Write a complete skill for one task you do every week using the six parts, and test it on two real inputs."),
+
+  ("intermediate", "Why skills fail, and how to fix them", "Diagnose the common problems with a skill from its outputs.", r"""
+<table><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr>
+<tr><td>The skill is not used when it should be</td><td>Vague description</td><td>Name the task, inputs and phrases users say ("PRD", "requirements doc")</td></tr>
+<tr><td>The skill is used for the wrong task</td><td>Description overlaps another skill</td><td>Say when <i>not</i> to use it; merge or split overlapping skills</td></tr>
+<tr><td>Output skips sections</td><td>Template is described, not shown</td><td>Paste the exact template and say "keep every heading, write 'n/a' if empty"</td></tr>
+<tr><td>Facts or numbers are invented</td><td>No rule for missing data</td><td>"Ask, or write 'unknown'. Never estimate numbers unless asked."</td></tr>
+<tr><td>Quality varies run to run</td><td>Steps are loose; no example</td><td>Number the steps; add one good and one bad example with the reason</td></tr>
+<tr><td>Long, padded answers</td><td>No length or audience rule</td><td>Give a word limit and the reader ("for a VP, 150 words")</td></tr>
+<tr><td>Ignores the attached files</td><td>Files not referenced in the steps</td><td>"Step 1: read the policy file and list the clauses that apply"</td></tr>
+<tr><td>Worked last month, worse now</td><td>Model or source documents changed</td><td>Re-run your saved test cases after every change (see 'Testing skills with evals')</td></tr></table>
+<h3>A five-minute debugging routine</h3>
+<ol><li>Collect three bad outputs.</li><li>For each, find the first step where it went wrong.</li><li>Change one thing in the skill.</li><li>Re-run all saved test cases, not just the failing one.</li><li>Note the change and the result in the skill's changelog.</li></ol>
+""", ["Most failures trace to the description, the template or missing-data rules.", "Fix one thing at a time.", "Re-run every saved case after a change."],
+   "Find three weak outputs from a skill or template you use, diagnose each with the table, and fix the skill."),
+
   ("intermediate", "A PM skill library", "Build a set of skills that covers your core PM work.", r"""
 <table><tr><th>Skill</th><th>Produces</th></tr>
 <tr><td>Problem framing</td><td>Problem statement with evidence and assumptions</td></tr><tr><td>PRD creation</td><td>Requirements, scope, flows, metrics, risks</td></tr>
@@ -110,6 +170,25 @@ description: Writes a PRD in our house format from a case study or brief. Use wh
 """, ["Every skill needs an eval set.", "Mix exact checks and rubric checks.", "Re-run on every change."],
    "Write 10 eval cases and 5 checks for your PRD skill."),
 
+  ("advanced", "Running a team skill library", "Share skills across a team so they stay correct, owned and trusted.", r"""
+<p>Once a skill works for you, the team will want it. Shared skills need the same care as shared code or templates.</p>
+<h3>The library index</h3>
+<table><tr><th>Field</th><th>Example</th></tr>
+<tr><td>Skill name and purpose</td><td>prd-writer: first-draft PRDs from a brief</td></tr>
+<tr><td>Owner</td><td>One named person who approves changes</td></tr>
+<tr><td>Version and date</td><td>v2.1, updated 12 Mar</td></tr>
+<tr><td>Where it lives</td><td>Claude team Skills, shared Project or shared drive folder</td></tr>
+<tr><td>Data allowed</td><td>"Internal docs OK; no customer personal data"</td></tr>
+<tr><td>Test set</td><td>Link to 10 saved inputs and expected outputs</td></tr>
+<tr><td>Status</td><td>Draft, approved, deprecated</td></tr></table>
+<h3>The life cycle</h3>
+<ol><li><b>Propose</b>: the problem, who does this task and how often.</li><li><b>Build</b> with the six parts from 'Anatomy of a skill' and a test set.</li><li><b>Review</b>: a second person runs the tests and checks the data rules.</li><li><b>Publish</b> with a short how-to and one example.</li><li><b>Improve</b>: collect feedback in one place; change via the owner; keep a changelog.</li><li><b>Retire</b> skills nobody uses or that a better one replaces, and say which to use instead.</li></ol>
+<h3>Measuring value</h3>
+<ul><li>Usage: how many people used it this month.</li><li>Time saved per use (ask users; a rough estimate is fine).</li><li>Quality: pass rate on the test set, and edits people make to outputs.</li></ul>
+<div class="box">A small library of trusted, owned skills beats a large folder of untested prompts.</div>
+""", ["Every shared skill has an owner, version, data rules and a test set.", "Propose, build, review, publish, improve, retire.", "Track usage, time saved and quality."],
+   "Draft the index for a library of five skills your team could share, with owners and data rules."),
+
   ("advanced", "Project: case study → PRD → presentation skill", "Build a portfolio-ready reusable skill end to end (e.g. for a VitaFit-style assignment).", r"""
 <h3>Brief</h3>
 <p>You often receive a case study (for example, a fitness app like "VitaFit" wanting to improve retention) and must produce a PRD and a presentation. Build a reusable skill that does this from any case study.</p>
@@ -123,6 +202,7 @@ description: Writes a PRD in our house format from a case study or brief. Use wh
 <p>5-minute demo: the skill, one output, eval results before and after improvements. This shows interviewers you can build AI workflows, not just use chatbots.</p>
 """, ["Skills + sources + evals = reliable AI workflow.", "Test on several case studies, not one.", "Show before/after eval results in interviews."],
    "Build the case study → PRD → presentation skill and run it on 3 case studies."),
+
  ],
  "templates_html": """<h3>A. Skill spec</h3><pre>Name:
 When to use (description):
@@ -152,7 +232,9 @@ description: What it does and when to use it.
         ("How do you test a skill?", "Run it on 10–30 realistic inputs with exact checks (names, sections, numbers) and rubric checks (clarity, evidence), after every change."),
         ("Which PM tasks would you package first?", "The most frequent and template-driven: PRDs, weekly updates, interview synthesis and teardowns."),
         ("How do you avoid wrong numbers in AI documents?", "Require citations to the source, use helper scripts for calculations, and run faithfulness checks."),
-        ("What makes skill instructions good?", "Ordered steps with outputs, rules for missing info, examples, a checklist and short core text with reference files.")],
+        ("What makes skill instructions good?", "Ordered steps with outputs, rules for missing info, examples, a checklist and short core text with reference files."),
+        ("What makes a skill's description important?", "It decides when the skill is picked up. Name the task, inputs and the words users say, and when not to use it."),
+        ("How do you keep shared team skills reliable?", "Give each an owner, version, data rules and test set; review changes, keep a changelog, re-run tests after model or source changes, and retire unused skills.")],
  "glossary": [("SKILL.md", "Main instruction file of an Agent Skill"), ("Regression", "A drop in quality after a change"), ("House style", "Team's standard format and tone"), ("JTBD", "Jobs-to-be-done")],
  "links": [("Agent Skills documentation", "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"), ("Anthropic: Building effective agents", "https://www.anthropic.com/research/building-effective-agents"),
            ("OpenAI: Creating a GPT", "https://help.openai.com/en/articles/8554397-creating-a-gpt"), ("Google: Gems in Gemini", "https://support.google.com/gemini"), ("SkillNavora PRD library", "https://www.skillnavora.in/prd-library.html")],

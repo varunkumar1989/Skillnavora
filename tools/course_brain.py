@@ -116,6 +116,27 @@ Keep names exact; don't invent facts.</pre>
 """, ["Automate capture from meetings, email and reading.", "Structure summaries: decisions, actions, questions.", "Weekly review keeps it useful."],
    "Build one automation: starred Gmail → Notion task, or meeting summary → Notion page, using Zapier, Make or n8n."),
 
+  ("intermediate", "The weekly review: keeping the system alive", "Spend 30 minutes a week so your second brain stays useful instead of becoming a pile.", r"""
+<p>Most second brains fail quietly: capture keeps working, nothing gets processed, and after a few months nobody trusts the search results. A short weekly review prevents that.</p>
+<h3>A 30-minute routine</h3>
+<table><tr><th>Minutes</th><th>Step</th><th>What you do</th></tr>
+<tr><td>0–5</td><td>Empty the inbox</td><td>File each capture into a Project, Area or Resource, or delete it</td></tr>
+<tr><td>5–15</td><td>Distil</td><td>For the 3–5 most useful notes, add a 2-line summary and tags in your own words</td></tr>
+<tr><td>15–20</td><td>Projects check</td><td>Close finished projects and move them to the Archive; add next steps to active ones</td></tr>
+<tr><td>20–25</td><td>Ask AI</td><td>Run your review prompts (below) across the week's notes</td></tr>
+<tr><td>25–30</td><td>Plan</td><td>Pick the notes you will use next week and link them to calendar items</td></tr></table>
+<h3>Review prompts to reuse</h3>
+<pre>From my notes this week, list:
+1. Decisions I made, with the note each came from.
+2. Open questions I haven't answered.
+3. Ideas that connect to my active projects (name the project).
+4. Anything that contradicts something I noted before.
+Quote the note title for every item. If unsure, say so.</pre>
+<h3>Monthly pruning</h3>
+<ul><li>Archive notes you have not opened in six months unless they are reference material.</li><li>Merge duplicates and fix tags that mean the same thing ("pm", "product-management").</li><li>Check that AI answers still cite the right notes; stale notes produce stale answers.</li></ul>
+""", ["A weekly review keeps capture, organisation and trust working.", "Empty the inbox, distil, close projects, ask AI, plan.", "Prune monthly: archive, merge, fix tags."],
+   "Run the 30-minute review this week and note how many captures you filed, distilled and deleted."),
+
   ("advanced", "Second brains for PMs, students and teams", "Apply the system to product work, exam prep and team knowledge.", r"""
 <h3>For product managers</h3>
 <ul><li><b>Insight repository</b>: every user-interview quote tagged by theme and segment; AI finds patterns across 50 interviews.</li>
@@ -131,6 +152,25 @@ Keep names exact; don't invent facts.</pre>
 """, ["PMs: insight repository + decision log + interview bank.", "Students: notebooks per subject with AI quizzes.", "Teams: owned pages, permissions, privacy."],
    "Set up an insight repository with 10 real or sample interview quotes, tag them, and ask AI for the top 3 themes with supporting quotes."),
 
+  ("advanced", "Privacy, security and what not to store", "Decide what belongs in your second brain, where it is stored and who or what can read it.", r"""
+<p>A second brain connected to AI is powerful because the AI can read it. That is also the risk: anything stored there can end up in an answer, a shared link or a tool you connected.</p>
+<h3>Sort your information</h3>
+<table><tr><th>Category</th><th>Examples</th><th>Rule</th></tr>
+<tr><td>Public</td><td>Articles, course notes, book highlights</td><td>Store anywhere</td></tr>
+<tr><td>Personal</td><td>Journal, health, finances</td><td>Private workspace; think twice before connecting AI</td></tr>
+<tr><td>Work, internal</td><td>Meeting notes, roadmaps, PRDs</td><td>Only in tools your company approves; follow its AI policy</td></tr>
+<tr><td>Restricted</td><td>Passwords, API keys, customer personal data, contracts</td><td>Never in notes or AI tools; use a password manager and the company's systems</td></tr></table>
+<h3>Questions to ask about any tool</h3>
+<ul><li>Is my content used to train models, and can I switch that off? (Business plans and personal plans often differ; check the current settings.)</li>
+<li>Where is the data stored, and can I export and delete it?</li>
+<li>Which connected apps and AI assistants can read it, and with what permissions?</li>
+<li>Does it support two-step login?</li></ul>
+<h3>Safe habits</h3>
+<ul><li>Mask names and numbers in notes you share or paste into AI ("Client A", "₹X").</li><li>Give AI connectors read-only access and only to the folders they need.</li><li>Review shared links and connected apps every quarter.</li><li>Keep a local or exported backup of what matters most.</li><li>If you leave a job, its work notes stay with the employer; keep only your own learning notes.</li></ul>
+<div class="box">Students and freelancers in India: personal data about other people is covered by the Digital Personal Data Protection Act, 2023. Store only what you need, with consent.</div>
+""", ["Sort notes into public, personal, work and restricted.", "Check training, storage, export and connector settings for each tool.", "Mask data, limit AI access and review connections regularly."],
+   "Label every top-level folder in your second brain with one of the four categories and fix anything stored in the wrong place."),
+
   ("advanced", "Build your own: MCP, automation and evaluation", "Connect AI assistants to your notes with MCP and automation, and make sure answers stay accurate.", r"""
 <h3>MCP: connecting AI to your second brain</h3>
 <p>The <b>Model Context Protocol (MCP)</b> lets assistants like Claude read and write in your tools: Notion, Google Drive, GitHub, Slack, or a folder of Obsidian notes. Example requests: "Find my notes on pricing and draft a 1-page summary in my Projects folder", or "Add today's meeting actions to my Notion task list".</p>
@@ -144,6 +184,7 @@ Keep names exact; don't invent facts.</pre>
 <p>Build your AI second brain for one area of your life (study, job search or a product): PARA structure, capture from 3 sources, one automation, a personal context file, an AI Q&amp;A setup (NotebookLM, Projects or MCP), and a 20-question accuracy check. Show it in a 5-minute demo.</p>
 """, ["MCP connects assistants to your tools safely.", "DIY: chunk, embed, retrieve, answer with citations.", "Test with known questions; fix sources, not just prompts."],
    "Complete the final project and demo it to a friend or mentor."),
+
  ],
  "templates_html": """<h3>A. PARA starter</h3><pre>1 Projects/   Capstone PRD · Job search Q4 · SQL certification
 2 Areas/      Career · Health · Finances · Learning
@@ -172,7 +213,9 @@ Glossary:</pre>
         ("How do you know your AI second brain is accurate?", "Test with questions whose answers you know; check retrieval (right note), faithfulness (no invented facts) and correct 'I don't know' responses."),
         ("Biggest mistake people make?", "Hoarding without using: saving everything, never distilling or expressing. Fix it with a one-line 'why' on capture and a weekly review."),
         ("How do you automate capture?", "Meeting tools + automations into Notion, starred email to tasks, highlight syncing, and transcript summaries with structured prompts."),
-        ("What data should never go into it?", "Passwords, bank and card details, Aadhaar, health records, and others' personal data without permission, per the DPDP Act and company policy.")],
+        ("What data should never go into it?", "Passwords, bank and card details, Aadhaar, health records, and others' personal data without permission, per the DPDP Act and company policy."),
+        ("How do you stop a second brain from becoming a pile?", "A weekly review: empty the inbox, distil the best notes, close finished projects, ask AI review questions and plan the week, plus monthly pruning."),
+        ("What should never go into an AI-connected second brain?", "Passwords and keys, customer personal data, contracts and anything your employer has not approved for that tool.")],
  "glossary": [("Second brain", "External system for knowledge you want to reuse"), ("Context window", "The text an AI model can see at once"), ("Memory", "AI features that remember facts about you across chats"),
               ("Embedding", "Numeric 'meaning fingerprint' of text used for search"), ("Vector database", "Store for embeddings that finds similar meaning"), ("RAG", "Retrieval-augmented generation: answer from retrieved sources"),
               ("Inbox", "Single landing place for new captures"), ("Decision log", "Record of decisions with reasons"), ("MCP", "Model Context Protocol")],

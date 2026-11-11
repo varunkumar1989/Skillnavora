@@ -1,4 +1,4 @@
-"""AI Evals for Product Managers: 10 classes, basic to advanced. Builds handbook/AI_Evals_for_Product_Managers.pdf
+"""AI Evals for Product Managers: classes from basic to advanced. Builds handbook/AI_Evals_for_Product_Managers.pdf
 (via headless Chromium) and the web page ai-evals.html."""
 import html, os
 E = html.escape
@@ -123,6 +123,72 @@ p_o = 0.88; human pass 0.76, judge pass 0.78
 p_e = 0.76·0.78 + 0.24·0.22 = 0.646  →  κ = (0.88 − 0.646)/(1 − 0.646) ≈ 0.66</pre>
 """, ["Use code checks wherever possible; they are cheap and exact.", "LLM judges scale open-ended grading but must be calibrated against humans.", "One criterion per judge, binary verdict, reasoning first."],
  "Write an LLM-judge prompt that checks whether a tutor's SQL answer is correct for the question. Then list 2 biases you would test it for."),
+
+ ("intermediate", "Metrics for common tasks: classification, extraction and summaries", "Pick the right number for the job, and calculate it correctly.", r"""
+<p>Most AI features do one of a few jobs. Each job has a natural way to score it, and the wrong metric can make a bad feature look good.</p>
+<h3>Classification (label each item)</h3>
+<p>Example: an AI flags support tickets as "urgent". Out of 200 tickets, 40 are truly urgent. The AI flags 50; 32 of them are truly urgent.</p>
+<table><tr><th>Metric</th><th>Formula</th><th>Value</th><th>Meaning</th></tr>
+<tr><td>Precision</td><td>32 ÷ 50</td><td>64%</td><td>Of the tickets it flagged, how many were really urgent</td></tr>
+<tr><td>Recall</td><td>32 ÷ 40</td><td>80%</td><td>Of the truly urgent tickets, how many it caught</td></tr>
+<tr><td>F1</td><td>2 × P × R ÷ (P + R)</td><td>71%</td><td>One number balancing both</td></tr>
+<tr><td>Accuracy</td><td>(32 + 142) ÷ 200</td><td>87%</td><td>Looks high only because most tickets are not urgent</td></tr></table>
+<p>The 142 is the 160 non-urgent tickets minus the 18 false alarms. Choose with the cost of mistakes in mind: missing an urgent ticket (low recall) may be worse than an extra alarm (low precision).</p>
+<h3>Extraction (pull fields out of documents)</h3>
+<ul><li>Score <b>each field</b>: invoice number, date, amount, GSTIN. Report accuracy per field, not just per document.</li>
+<li>Normalise before comparing: "₹1,200.00" and "1200" are the same amount; "03/04/2025" needs a known date format.</li>
+<li>Track "missing" separately from "wrong": a blank field is safer than a confident wrong one.</li></ul>
+<h3>Summaries and free text</h3>
+<table><tr><th>Check</th><th>Question the grader answers</th></tr>
+<tr><td>Faithfulness</td><td>Is every claim supported by the source?</td></tr>
+<tr><td>Coverage</td><td>Are the key points (listed in advance per example) present?</td></tr>
+<tr><td>Format and length</td><td>Does it follow the template and word limit? (code check)</td></tr>
+<tr><td>Usefulness</td><td>Could the reader act on it? (rubric 1–3)</td></tr></table>
+<div class="box">Word-overlap scores such as ROUGE or BLEU say little about whether a summary is correct. Prefer faithfulness and coverage checks with a clear rubric.</div>
+""", ["Classification: precision, recall and F1; accuracy misleads when classes are unbalanced.", "Extraction: score per field, normalise values, count missing apart from wrong.", "Summaries: faithfulness, coverage, format and usefulness."],
+   "Take 30 outputs from an AI feature you use. Choose the metric for its job, score them by hand, and calculate the result."),
+
+ ("intermediate", "Calibrating an LLM judge", "Make sure an AI grader agrees with your experts before you trust its scores.", r"""
+<p>An LLM judge is a model that grades another model's answers against your rubric. It is fast and cheap, but it is itself an AI feature, so it needs its own eval.</p>
+<h3>Step by step</h3>
+<ol><li><b>Write one judge per criterion</b> ("Is the answer faithful to the sources? PASS or FAIL"), not one judge for "quality".</li>
+<li><b>Ask for a reason before the verdict</b>, and a fixed output such as <code>{"reason": "...", "verdict": "PASS"}</code>.</li>
+<li><b>Label 50–100 examples by hand</b> with your domain expert; include clear passes, clear fails and borderline cases.</li>
+<li><b>Run the judge on the same examples</b> and compare.</li>
+<li><b>Fix disagreements</b>: sharpen the rubric, add examples of borderline cases to the judge prompt, and re-check on a fresh set.</li></ol>
+<h3>Measuring agreement</h3>
+<p>Report the share of cases where judge and humans agree, and also <b>how it fails</b>: a judge that passes bad answers (false passes) is more dangerous than one that is too strict. Statisticians use Cohen's kappa to correct agreement for chance; values above about 0.6 are usually treated as substantial agreement, but look at the disagreements themselves, not only the number.</p>
+<pre>Human vs judge on 80 answers (faithfulness)
+                 Judge PASS   Judge FAIL
+Human PASS           52            4
+Human FAIL            6           18
+Agreement = (52 + 18) / 80 = 87.5%   False passes = 6 (read every one)</pre>
+<h3>Known judge biases</h3>
+<table><tr><th>Bias</th><th>Fix</th></tr>
+<tr><td>Prefers longer answers</td><td>Rubric that rewards meeting the need, not length; test with short correct answers</td></tr>
+<tr><td>Prefers the first option in A/B comparisons</td><td>Run both orders and only count consistent wins</td></tr>
+<tr><td>Prefers its own model family's style</td><td>Use a different model as judge, or check against humans</td></tr>
+<tr><td>Drifts when the judge model is updated</td><td>Pin the judge version; re-calibrate when it changes</td></tr></table>
+<div class="box">Re-check the judge against a fresh human-labelled sample every few months, and whenever the product or the judge model changes.</div>
+""", ["A judge is an AI feature: give it its own eval.", "One judge per criterion, reason before verdict, fixed output.", "Compare with expert labels; study false passes and known biases."],
+   "Write a judge prompt for one criterion of your feature, label 30 examples yourself, run the judge and count agreements and false passes."),
+
+ ("intermediate", "Comparing versions: regression tests and sample size", "Tell a real improvement from noise when you change a prompt, model or retrieval setting.", r"""
+<p>Every change (new prompt, new model, new chunk size) should be compared against the current version on the same eval set before it ships.</p>
+<h3>How big a difference is real?</h3>
+<p>A pass rate measured on a small set is uncertain. A quick rule: the standard error of a pass rate p on n cases is √(p × (1 − p) ÷ n).</p>
+<table><tr><th>Cases (n)</th><th>Pass rate 80%: standard error</th><th>Rough 95% range</th></tr>
+<tr><td>50</td><td>5.7 points</td><td>± 11 points</td></tr>
+<tr><td>100</td><td>4.0 points</td><td>± 8 points</td></tr>
+<tr><td>400</td><td>2.0 points</td><td>± 4 points</td></tr></table>
+<p>So on 100 cases, moving from 80% to 83% may be noise. Comparing both versions on the <b>same</b> cases helps: count the cases where only the new version passes and where only the old one passes. If the new version wins 15 and loses 3, that is a far stronger signal than the 3-point difference alone.</p>
+<h3>A regression routine</h3>
+<ol><li>Freeze a test set and keep a held-out part you never tune on.</li><li>Run old and new versions; fix randomness where you can (same settings, several runs for unstable outputs).</li><li>Look at the cases that changed, not just the totals.</li><li>Check every critical case: one new safety failure can block a release even if the average rose.</li><li>Record the result, the versions and the decision.</li></ol>
+<h3>Pairwise comparison</h3>
+<p>For open-ended answers, ask humans or a calibrated judge "which answer is better for this user, A or B?" in both orders. Win rates are often easier to agree on than absolute scores.</p>
+<div class="box">Ship rule of thumb: no regressions on critical cases, a clear net win on changed cases, and no unexplained drop in any key slice (language, user type, product area).</div>
+""", ["Small eval sets are noisy: on 100 cases, a few points can be chance.", "Compare versions on the same cases and read the cases that changed.", "Block releases on critical-case regressions, whatever the average."],
+   "Change one thing in a prompt you use, run old and new on 30 saved cases, and count wins, losses and ties."),
 
  ("intermediate", "Error analysis: finding what actually breaks", "Read outputs systematically, name the failure modes and fix the biggest ones first.", r"""
 <h3>Why error analysis comes first</h3>
@@ -306,6 +372,10 @@ QA = [
  ("How do you stop quality from regressing?", "Regression suite in CI on every prompt/model change, live sampling with alerts, re-running evals on provider model updates, and adding every incident as a test."),
  ("Precision vs recall for a fraud-flagging AI?", "High recall catches more fraud but annoys good users with false alarms; high precision means fewer false alarms but missed fraud. Choose by cost of each error; often a human reviews the flagged set."),
  ("What metrics would you show leadership?", "Quality pass-rate by critical criterion, safety incidents, resolution or task success, cost per successful task, latency p95, and user outcomes (CSAT, retention)."),
+ ("How do you know an LLM judge can be trusted?", "Label 50–100 examples with experts, run the judge on them, and measure agreement and especially false passes. Fix the rubric and known biases, pin the judge version and re-check regularly."),
+ ("Accuracy is 87%. Is the classifier good?", "Not necessarily. If most items are negative, accuracy hides misses. Check precision and recall on the class that matters and weigh the cost of each kind of mistake."),
+ ("A new prompt scores 83% against 80% on 100 cases. Ship it?", "Not on that alone; the difference is within noise. Compare on the same cases, count wins and losses, check critical cases and slices, and add cases if the result is unclear.")
+
 ]
 
 GLOSSARY = [("Golden set", "Curated examples with expected answers used as ground truth"), ("Held-out set", "Examples never used to tune prompts, for honest scores"), ("Rubric", "Written criteria and pass definitions"),
@@ -331,6 +401,11 @@ pre{background:#0d1630;color:#e8edfb;border-radius:8px;padding:9px 11px;font:8.9
 .class{page-break-before:always}.lvl{display:inline-block;font-weight:700;font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px;color:#fff;margin-bottom:6px}
 .goal{color:#55607a;font-size:11pt;margin:0 0 10px}.take{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 12px;margin-top:10px;page-break-inside:avoid}.ex{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:8px 12px;margin-top:8px;page-break-inside:avoid}
 .toc td{border:0;border-bottom:1px solid #eee;padding:6px}.small{font-size:9pt;color:#55607a}.foot{font-size:8.5pt;color:#888;margin-top:14px}"""
+
+def _levels():
+    n = {lv: sum(1 for c in CLASSES if c[0] == lv) for lv in ("basic", "intermediate", "advanced")}
+    b, i = n["basic"], n["intermediate"]
+    return f"Classes 1–{b} are <b>basic</b>, {b + 1}–{b + i} <b>intermediate</b>, {b + i + 1}–{len(CLASSES)} <b>advanced</b>."
 
 def classes_html():
     out = []
@@ -368,8 +443,8 @@ First reason step by step. Then output only JSON:
 def pdf_html():
     toc = "".join(f'<tr><td>Class {i}</td><td><b>{E(t)}</b></td><td>{LEVEL[lv][0]}</td></tr>' for i, (lv, t, *_) in enumerate(CLASSES, 1))
     return f"""<!doctype html><html><head><meta charset="utf-8"><title>AI Evals for Product Managers · SkillNavora</title><style>{PDF_CSS}</style></head><body>
-<div class="cover"><div class="k">SkillNavora · AI Product Management program</div><h1>AI Evals for Product Managers</h1><p>From basic to advanced: how to measure, improve and safely launch AI features. 10 classes, templates, metrics cheat sheet and interview questions.</p><p class="small" style="color:#d9e8ff">Edition 2026 · skillnavora.in</p></div>
-<h2>How to use this guide</h2><p>Each class has goals, concepts with Indian product examples, key takeaways and a practice exercise. Classes 1–3 are <b>basic</b>, 4–6 <b>intermediate</b>, 7–10 <b>advanced</b>. Finish with the capstone in Class 10 to build a portfolio-ready eval plan.</p>
+<div class="cover"><div class="k">SkillNavora · AI Product Management program</div><h1>AI Evals for Product Managers</h1><p>From basic to advanced: how to measure, improve and safely launch AI features. {len(CLASSES)} classes, templates, metrics cheat sheet and interview questions.</p><p class="small" style="color:#d9e8ff">Edition 2026 · skillnavora.in</p></div>
+<h2>How to use this guide</h2><p>Each class has goals, concepts with Indian product examples, key takeaways and a practice exercise. {_levels()} Finish with the capstone in Class {len(CLASSES)} to build a portfolio-ready eval plan.</p>
 <table class="toc"><tr><th></th><th>Class</th><th>Level</th></tr>{toc}<tr><td></td><td><b>Toolkit:</b> templates, metrics cheat sheet, glossary, 15 interview questions, further reading</td><td></td></tr></table>
 {classes_html()}{appendix_html()}</body></html>"""
 
@@ -381,8 +456,8 @@ def web_page():
 <div class="card" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;border:2px solid var(--brand,#6C4CF5);margin-bottom:26px"><div style="max-width:640px"><div class="kicker">Free PDF · {len(CLASSES)} classes · basic to advanced</div><h2 style="margin:6px 0">AI Evals for Product Managers</h2><p style="margin:0;color:var(--mu)">How to measure, improve and safely launch AI features: success criteria, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety and red-teaming, A/B tests and monitoring, tools, templates and 15 interview questions.</p></div>
 <div style="display:flex;flex-direction:column;gap:8px"><a class="btn btn-primary" href="handbook/AI_Evals_for_Product_Managers.pdf">Download the PDF</a><a class="btn btn-line" href="ai-tutor.html?q={E('Explain AI evals for product managers with an example')}">Ask the AI Tutor</a><a class="btn btn-line" href="pm-toolkit.html#experiment">Design an experiment with AI</a></div></div>
 <h2 class="sec-h" style="font-size:26px">What an eval is, in one line</h2><p class="sub" style="max-width:820px">An eval is a repeatable test that measures how well an AI feature does its job on a fixed set of examples, with a clear way to score each answer. It's the quality bar, the launch gate and the product spec for AI, and in AI teams the PM owns it.</p>
-<h2 class="sec-h" style="font-size:24px;margin-top:26px">The 10 classes</h2><div class="grid g2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">{cards}</div>
-<h2 class="sec-h" style="font-size:24px;margin-top:30px">Interview questions</h2><div style="display:grid;gap:10px">{qa}</div><p class="meta" style="margin-top:10px">All 15 questions with answers, templates and the metrics cheat sheet are in the PDF.</p>
+<h2 class="sec-h" style="font-size:24px;margin-top:26px">The {len(CLASSES)} classes</h2><div class="grid g2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">{cards}</div>
+<h2 class="sec-h" style="font-size:24px;margin-top:30px">Interview questions</h2><div style="display:grid;gap:10px">{qa}</div><p class="meta" style="margin-top:10px">All {len(QA)} questions with answers, templates and the metrics cheat sheet are in the PDF.</p>
 </div></section>"""
 
 def build_pdf(out_dir):

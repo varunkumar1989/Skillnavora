@@ -77,6 +77,30 @@ with sync_playwright() as p:
 """, ["codegen turns your clicks into code.", "Prefer role, label and test-id locators.", "Playwright powers both testing and AI browser tools (Playwright MCP)."],
    "Run the script above, then change it to add 5 tasks and mark the first one complete. Ask an AI assistant to help if you get stuck."),
 
+  ("intermediate", "Reliable scripts: locators, waiting and flaky runs", "Write browser scripts that keep working when the page loads slowly or changes a little.", r"""
+<p>Most broken browser scripts fail for three reasons: they find elements the wrong way, they do not wait for the page, or the site changed. Playwright helps with the first two if you use it as intended.</p>
+<h3>Find elements the way a user sees them</h3>
+<table><tr><th>Prefer</th><th>Avoid</th><th>Why</th></tr>
+<tr><td><code>page.getByRole('button', { name: 'Place order' })</code></td><td><code>page.locator('div:nth-child(3) &gt; button')</code></td><td>Roles and visible names survive layout changes</td></tr>
+<tr><td><code>page.getByLabel('Email')</code></td><td><code>page.locator('#input-17')</code></td><td>Generated IDs change between releases</td></tr>
+<tr><td><code>page.getByText('Order confirmed')</code></td><td>Long XPath expressions</td><td>Readable, and easy to fix when copy changes</td></tr>
+<tr><td><code>page.getByTestId('cart-total')</code></td><td>Styling classes such as <code>.btn-blue</code></td><td>Test IDs are added on purpose and stay stable</td></tr></table>
+<h3>Wait for conditions, not for time</h3>
+<pre>// Fragile: fixed sleep, too short on slow networks, wasteful on fast ones
+await page.waitForTimeout(5000);
+
+// Reliable: Playwright waits for the element to be ready before acting
+await page.getByRole('button', { name: 'Place order' }).click();
+await expect(page.getByText('Order confirmed')).toBeVisible();</pre>
+<p>Actions such as <code>click</code> and <code>fill</code> wait automatically for the element to be visible and enabled, and <code>expect(...)</code> assertions retry until a timeout.</p>
+<h3>When a run fails</h3>
+<ul><li>Turn on traces (<code>npx playwright test --trace on</code>) and open them with <code>npx playwright show-trace</code> to see each step, screenshot and network call.</li>
+<li>Use <code>npx playwright codegen https://example.com</code> to record a flow and get suggested locators.</li>
+<li>Retry a failed run once at most, and log it; a step that often needs retries is a bug to fix, not to hide.</li>
+<li>Check the site's terms and prefer an official API or export when one exists.</li></ul>
+""", ["Locate by role, label, text or test ID, not by layout.", "Wait for conditions with auto-waiting and expect(), never fixed sleeps.", "Use traces and codegen to debug; treat frequent retries as bugs."],
+   "Record a 4-step flow on a demo site with codegen, replace any fragile locators, and run it three times with traces on."),
+
   ("intermediate", "AI browser agents and computer use", "Understand how AI agents use browsers and computers, and how to give them good instructions.", r"""
 <h3>How an AI browser agent works</h3>
 <p class="flow">Goal → look at the page (screenshot and/or page structure) → decide the next action → click / type / scroll → look again → … → report result or ask the human</p>
@@ -130,6 +154,26 @@ If a pop-up or CAPTCHA appears, stop and ask me.</pre>
 """, ["Mix scripts (stable steps) with agents (messy steps).", "An orchestrator schedules, retries and notifies.", "Store results and screenshots for audit."],
    "Design (on paper or in n8n) a weekly competitor-price tracker for 3 e-commerce sites with an alert rule and a human-review step."),
 
+  ("advanced", "Collecting web data responsibly", "Extract information from websites in a way that is accurate, polite and within the rules.", r"""
+<p>Many automations exist to collect data: competitor prices, job listings, public reviews, government notices. Doing it well is as much about rules and quality as about code.</p>
+<h3>Choose the least intrusive option first</h3>
+<ol><li><b>Official API or data download</b>: stable, allowed and usually faster.</li><li><b>RSS feeds, sitemaps or export buttons</b>.</li><li><b>A no-code extractor or AI research agent</b> for small, occasional jobs.</li><li><b>A script</b> only when the above do not exist and the site's terms allow it.</li></ol>
+<h3>Be a good guest</h3>
+<ul><li>Read the terms of service and <code>robots.txt</code>; do not scrape behind logins without permission.</li>
+<li>Go slowly: a few requests per minute, outside peak hours; stop if you see errors or blocks.</li>
+<li>Identify your tool honestly and never try to get around CAPTCHAs or access controls.</li>
+<li>Do not collect personal data you do not need; public is not the same as free to reuse.</li></ul>
+<h3>Make the data trustworthy</h3>
+<table><tr><th>Check</th><th>Example</th></tr>
+<tr><td>Schema</td><td>Every row has product, price, currency, URL and scraped_at</td></tr>
+<tr><td>Types and ranges</td><td>Price is a number above 0; dates parse</td></tr>
+<tr><td>Completeness</td><td>Row count close to last run; alert if it drops by half</td></tr>
+<tr><td>Duplicates</td><td>Same URL counted once</td></tr>
+<tr><td>Spot check</td><td>Compare 5 random rows with the live page each week</td></tr></table>
+<div class="box">If an AI agent extracts the data, ask it to return JSON with the source URL for every row, and validate the JSON before using it.</div>
+""", ["API or export first; scripts only when allowed.", "Respect terms, robots.txt, rate limits and personal data.", "Validate schema, ranges, completeness and duplicates; spot-check weekly."],
+   "Design a weekly price-tracking job for 20 products: pick the method, the rate limit, the schema and three data checks."),
+
   ("advanced", "Safety, security, ethics and the law", "Prevent the main risks of browser agents: injection, wrong actions, data leaks and rule-breaking.", r"""
 <h3>Top risks and controls</h3>
 <table><tr><th>Risk</th><th>Example</th><th>Control</th></tr>
@@ -181,7 +225,9 @@ Stop and ask me if:</pre>
         ("How do deep research agents differ from browser agents?", "Research agents search and read many pages to write a cited report; browser agents take actions on specific sites. Use research for breadth, browser agents or manual checks for depth."),
         ("How would you reduce cost of an agent workflow?", "Use scripts for stable steps, agents only where needed; cap steps; cache pages; choose cheaper models for simple steps; measure cost per successful task."),
         ("What goes into a PRD for a browser-agent feature?", "Scope and allowed sites, approval matrix, credential and data handling, success/reliability/cost/safety bars, monitoring and human fallback."),
-        ("How do you make scripts less flaky?", "Use role/label/test-id locators, rely on auto-waits, add assertions, run headless in CI with retries, and inspect failures in the trace viewer.")],
+        ("How do you make scripts less flaky?", "Use role/label/test-id locators, rely on auto-waits, add assertions, run headless in CI with retries, and inspect failures in the trace viewer."),
+        ("Why do browser scripts break, and how do you make them reliable?", "Fragile locators, fixed waits and site changes. Use role, label, text or test-ID locators, rely on auto-waiting and assertions, and debug with traces."),
+        ("How do you collect web data responsibly?", "Use an API or export first; check terms and robots.txt; go slowly; avoid unneeded personal data; and validate every run's data.")],
  "glossary": [("Headless", "Browser running without a visible window"), ("Locator / selector", "How a script finds an element on a page"), ("RPA", "Robotic process automation: software bots that copy human clicks"),
               ("Computer use", "AI controlling a computer's screen, mouse and keyboard"), ("Prompt injection", "Hidden instructions in content that try to hijack an AI"), ("Allow-list", "The only sites or actions an agent may use"),
               ("Orchestrator", "Tool that schedules and connects steps (n8n, Zapier)"), ("Sandbox", "Safe test environment with test accounts and data"), ("robots.txt", "A site's file telling bots which pages not to crawl")],

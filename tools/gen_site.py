@@ -851,7 +851,7 @@ page("brd-frd.html", "BRD & FRD guide for business analysts · SkillNavora", "BR
      uhero("Resources for Data Engineers · Business analyst", 'BRD &amp; <span class="g">FRD</span> guide', f"For business and data analysts: what goes into a Business Requirements Document and a Functional Requirements Document, free templates, and {len(reqdocs.BRD_IDEAS)} real project ideas to practise with AI.") + reqdocs.brd_frd(), "brd-frd.html")
 import evals_course
 page("ai-evals.html", "AI Evals for Product Managers: free PDF, basic to advanced · SkillNavora", "What AI evals are and how product managers use them: success criteria, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety, A/B tests and monitoring. 10 classes and a free PDF.",
-     uhero("AI Product Management · AI Evals", 'AI <span class="g">Evals</span> for Product Managers', "How to measure, improve and safely launch AI features. 10 classes from basic to advanced, with templates, a metrics cheat sheet and interview questions.") + evals_course.web_page(), "ai-evals.html")
+     uhero("AI Product Management · AI Evals", 'AI <span class="g">Evals</span> for Product Managers', f"How to measure, improve and safely launch AI features. {len(__import__('evals_course').CLASSES)} classes from basic to advanced, with templates, a metrics cheat sheet and interview questions.") + evals_course.web_page(), "ai-evals.html")
 import coursekit, course_browser, course_brain, course_context, course_skills, course_orch, skillsmap
 _K = 'AI Product Management · GenAI Launchpad'
 for _C, _hero in [(course_browser.COURSE, (_K, 'Browser <span class="g">Automation</span> &amp; AI Agents')),
