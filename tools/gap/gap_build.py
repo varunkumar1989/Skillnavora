@@ -64,7 +64,7 @@ def audit_body():
     prop = ("<h2>Proposed additions for your approval</h2><p>These are added as supplements, not as edits to existing lessons. You approve each one before any change to the course itself.</p><ul>"
             "<li>Add a Data Engineering module (Supplement A) as course Module 8 with hands-on labs (Airflow, dbt, Docker, one cloud).</li>"
             "<li>Add a Governance and Responsible AI module (Supplement B, B5) and a Business Consulting module (B3, B4).</li>"
-            "<li>Add lessons for Excel automation (B1) and the missing SQL topics (B2).</li>"
+            "<li>Done: Excel automation (B1) added to Module 1 as lessons 13 to 16; SQL topics (B2) added to Module 2 as lessons 16 to 20; Fabric and Databricks (A10) added to Module 3 as lessons 7 and 8.</li>"
             "<li>Add the eight capstone briefs (C4) as a workbook, and the 12-month roadmap (C8) as a tracker.</li>"
             "<li>Add the no-code tool lessons (Part E of the prompt) in the tools track.</li></ul>")
     return ('<h1>Course gap audit</h1><p>This audit checks the Data Science, AI and Data Engineering master prompt against the existing course, topic by topic. Each row says whether the area is covered, partly covered or missing, and what the supplement adds.</p>'
