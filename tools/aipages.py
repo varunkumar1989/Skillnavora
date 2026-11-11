@@ -136,6 +136,7 @@ def academy_tabs(body):
         ("builder", "AI Builder Tools", cards(["ai-builder-tools.html"])),
         ("map", "AI Skills Map", cards(["ai-skills-map.html"])),
         ("library", "Study Library", cards(["study-library.html"])),
+        ("models", "AI Models &amp; Agents", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + __import__("guide_site").card("ai-models-guide.html", "AI Models and Platforms", "Grok (with Grok Bot, image generation and coding), ChatGPT, Claude, Gemini, Lovable and app builders: what each does and how to choose.", "AI models") + __import__("guide_site").card("ai-agents-guide.html", "How AI Agents Work", "How an agent runs step by step, building agents at three levels, multi-agent systems, context engineering and evals.", "Agents") + "</div></div>"),
         ("grokbot", "Grokbot Course", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + __import__("grokbot_page").tab_card(icon_svg=ico(10)) + "</div></div>"),
     ], "AI Skills Academy sections")
 

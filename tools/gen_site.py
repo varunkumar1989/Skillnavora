@@ -1,6 +1,7 @@
 import re
 import make_money_page as _mm
 import trading_page as _tp
+import guide_site as _gs
 #!/usr/bin/env python3
 """Generate the SkillNavora LMS site into /home/user/skillnavora."""
 import os, re, html, shutil, json
@@ -1397,6 +1398,8 @@ MF_BODY = uhero("Upskill for free", "Master <span class=\"g\">Freelancing</span>
 <p class="meta" style="max-width:74ch">Freelancing and part-time options are listed on the <a href="jobs.html#freelance">Job board</a>. Learning roadmaps are learning plans, not guaranteed jobs or incomes.</p></div></section>"""
 page("master-freelancing.html", "Master Freelancing · SkillNavora", "Learn a skill, build a portfolio, find clients and earn: the SkillNavora Master Freelancing academy, department by department.", MF_BODY + _mm.section_html() + _tp.section_html(), "master-freelancing.html")
 page("trading-terminal-handbook.html", "Personal Trading & Analytics Terminal: handbook · SkillNavora", "Master Freelancing chapter on algorithmic trading systems: architecture, security, option Greeks, a 9/21 EMA strategy with a friction-adjusted backtest, guarded execution and regulatory checks. Not a proof that any strategy works.", _tp.body(), "master-freelancing.html")
+page("ai-models-guide.html", "AI Models and Platforms: the complete guide · SkillNavora", "The complete guide to AI models and platforms: LLM basics, tokens and context, the Grok family (including Grok Bot, image generation and coding), ChatGPT, Claude, Gemini, Lovable and app builders, and how to choose.", _gs.body("AI-Models-and-Agents-Guide/ai-models-guide.md", "Model names, features, limits and prices change often. Check each one on the official page before you rely on it."), "ai-academy.html")
+page("ai-agents-guide.html", "How AI Agents Work: single agents, multi-agent systems, context and evals · SkillNavora", "How AI agents work step by step, how people build them at three levels, how multi-agent systems are organised, and how context engineering and evals keep them reliable.", _gs.body("AI-Models-and-Agents-Guide/ai-agents-guide.md", "Agent products change quickly. The patterns in this guide are stable; check product features on their official pages."), "ai-academy.html")
 page("make-money-course.html", "Make Money with AI: from zero to your first paying client · SkillNavora", "A part-time guide to finding, pitching and closing a first AI service client: offer selection, a credibility stack, signal-based outreach, discovery calls, a capstone and a glossary.", _mm.body(), "learning-platform.html")
 page("careers.html", "Careers · SkillNavora", "Join SkillNavora: roles in teaching, curriculum, admissions, marketing, engineering and operations.", careers, "careers.html")
 

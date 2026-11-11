@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>/* One address for everyone: logins are saved per address, so skillnavora.in and skillnavora.pages.dev move to www.skillnavora.in */if(/^(skillnavora\.in|skillnavora\.pages\.dev)$/.test(location.hostname))location.replace("https://www.skillnavora.in"+location.pathname+location.search+location.hash)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Models and Platforms: the complete guide · SkillNavora</title>
+<meta name="description" content="The complete guide to AI models and platforms: LLM basics, tokens and context, the Grok family (including Grok Bot, image generation and coding), ChatGPT, Claude, Gemini, Lovable and app builders, and how to choose.">
+<link rel="canonical" href="https://www.skillnavora.in/ai-models-guide">
+<meta property="og:type" content="website"><meta property="og:site_name" content="SkillNavora">
+<meta property="og:title" content="AI Models and Platforms: the complete guide · SkillNavora"><meta property="og:description" content="The complete guide to AI models and platforms: LLM basics, tokens and context, the Grok family (including Grok Bot, image generation and coding), ChatGPT, Claude, Gemini, Lovable and app builders, and how to choose.">
+<meta property="og:url" content="https://www.skillnavora.in/ai-models-guide"><meta property="og:image" content="https://www.skillnavora.in/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.skillnavora.in/assets/og.png">
+<meta name="theme-color" content="#07100f">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="assets/logo-badge.png" type="image/png"><link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=6531617b">
+</head>
+<body data-root="">
+<div class="topbar" id="topbar" hidden><div class="wrap"><span class="dot"></span><b></b><a class="cta" href="#">Apply now →</a><span class="tag"></span><button class="x" type="button" aria-label="Close announcement">×</button></div></div>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <div class="dd"><button type="button" aria-expanded="false">Programs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="program/ai-product-management.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span><span><b data-course-name="ai-pm">AI-First Product Management</b><small>Become a confident, AI-first PM</small></span></a><a href="program/ai-data-engineering.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><span><b data-course-name="ai-de">AI-First Data Engineer</b><small>Build data pipelines and AI data platforms</small></span></a><a href="program/genai-launchpad.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></span><span><b data-course-name="genai-launchpad">GenAI Launchpad</b><small>Practical GenAI for every professional</small></span></a><div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></span><span><b>Other programs</b><small>SFMC training, digital marketing, FDE and public speaking</small></span><svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="dd-subm"><a href="guides/sfmc.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 13 3.5 3.5 0 0 0 6 19z"/></svg></span><span><b>SFMC training</b><small>Salesforce Marketing Cloud: Email Studio to Journey Builder</small></span></a><a href="guides/digital-marketing.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg></span><span><b>Digital marketing</b><small>SEO, ads, social, email and analytics, end to end</small></span></a><a href="guides/fde.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span><span><b>Forward Deployed Engineer</b><small>The FDE role: customers, AI deployment and integrations</small></span></a><a href="guides/public-speaking.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></span><span><b>Public speaking</b><small>Speak with confidence: talks, meetings, interviews and video</small></span></a><a href="other-programs.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/></svg></span><span><b>All other programs</b><small>Content creation and every other program, with reading</small></span></a><a href="programs.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><span><b>All programs</b><small>Compare programs, fees and FAQs</small></span></a></div></div><a href="business.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
+    <div class="dd"><button type="button" aria-expanded="false">Upskill for free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="learning-platform.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/></svg></span><span><b>Learning platform</b><small>One page per programme: content, related programmes, tools and links</small></span></a><div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/></svg></span><span><b>Resources &amp; AI tools</b><small>Handbooks, PDFs, AI tools and useful links in five tabs</small></span><svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="dd-subm"><a href="resources.html#pm"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/></svg></span><span><b>Resources for PM</b><small>Handbook, templates, tools and interview practice</small></span></a><a href="resources.html#genai"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/></svg></span><span><b>Resources for Gen AI</b><small>GenAI handbook, AI tools, builders and automation</small></span></a><a href="resources.html#op-fde"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/></svg></span><span><b>Resources for FDE</b><small>Forward deployed engineer: role, skills, deployment and interview prep</small></span></a><div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Other programs</b><small>AI Engineer, SFMC, Public Speaking, Data Engineers, Digital marketing and resources</small></span><svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="dd-subm"><a href="resources.html#op-ai-engineer"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>AI Engineer</b><small>Full AI engineer path, classes and interview prep</small></span></a><a href="sfmc-academy.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>SFMC</b><small>Salesforce Marketing Cloud: complete guide, 28 modules, handbooks and labs</small></span></a><a href="resources.html#op-speaking"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Public Speaking</b><small>Speaking skills for PMs and leaders</small></span></a><a href="resources.html#data"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Resources for Data Engineers</b><small>Data Science &amp; AI handbook, DSA, practice and tools</small></span></a><a href="resources.html#dm"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Resources for Digital marketing</b><small>Digital marketing course, content creation and guides</small></span></a><div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Other programs &amp; resources</b><small>Other program and link, course gap check, tools, study library and Master Freelancing</small></span><svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="dd-subm"><a href="resources.html#other"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Other program and Link</b><small>Learning sites, AI builder tools, tutorials and links</small></span></a><a href="course-gap-check.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Course gap check</b><small>What the course is missing, with supplements and a PDF for each</small></span></a><a href="tools-and-resources.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.6-.6-2.1z"/></svg></span><span><b>Tool and learning resources</b><small>Every tool, website and learning link in one place</small></span></a><a href="study-library.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Study Library</b><small>All study material in one page</small></span></a><a href="master-freelancing.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></span><span><b>Master Freelancing</b><small>Freelance skills, portfolios and client work, department by department</small></span></a></div></div></div></div></div></div><a href="questions.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v.01M12 13a2 2 0 1 0-2-2"/></svg></span><span><b>Practice &amp; interview prep</b><small>Interview questions with answers for PM, data and GenAI</small></span></a><a href="events.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span><b>Events</b><small>Free live sessions, workshops and masterclasses</small></span></a></div></div>
+    <div class="dd on"><button type="button" aria-expanded="false">AI Studio <span class="nav-new">Free</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="ai.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span><span><b>AI Studio</b><small>All AI tools in one place, free</small></span></a><a href="ai-academy.html" aria-current="page"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><span><b>AI Skills Academy</b><small>All AI skills courses: lessons, PDFs, interactive</small></span></a></div></div>
+    <div class="dd"><button type="button" aria-expanded="false">Jobs &amp; careers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu">
+      <a href="jobs.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span><span><b>Job board</b><small>All job portals, alerts and openings</small></span></a>
+      <a href="mentor.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><span><b>Become a mentor</b><small>Guide learners, run sessions and mock interviews</small></span></a>
+      <a href="careers.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg></span><span><b>Career with SkillNavora</b><small>Open roles and how to join our team</small></span></a>
+      <a href="hire.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><span><b>Hire from SkillNavora</b><small>Is your company hiring? Get in touch</small></span></a>
+    </div></div>
+    <a href="#" data-community hidden>Community</a>
+    <div class="dd"><button type="button" aria-expanded="false">About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="about.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span><span><b>About SkillNavora</b><small>Our story, mission and team</small></span></a><a href="about.html#team"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span><span><b>SkillNavora team</b><small>Meet our founder and mentors</small></span></a><a href="about.html#why-us"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></span><span><b>Why us</b><small>What makes SkillNavora different</small></span></a><a href="reviews.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span><span><b>Reviews</b><small>What learners say</small></span></a><a href="blogs.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span><b>Blog</b><small>Guides, case studies and career advice</small></span></a><a href="contact.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></span><span><b>Contact us</b><small>Talk to our team</small></span></a></div></div>
+  </nav>
+  <div class="tools">
+    <a class="icon-btn search-btn" href="search.html" aria-label="Search the site" title="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></a>
+    <button class="icon-btn theme" type="button" aria-label="Switch light or dark mode"><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    <div class="dd login-dd"><button type="button" class="btn-login" id="nav-login" aria-expanded="false"><span>Log in</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu">
+      <a href="login.html" id="nav-student"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><span><b>Student login</b><small>Your LMS, courses, handbook and resources</small></span></a>
+      <a href="login.html?role=admin&amp;next=admin.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span><b>Admin login</b><small>For the SkillNavora team</small></span></a></div></div>
+    <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</div></header>
+<main>
+<style>
+.gd-doc h1{font-size:30px;margin:0 0 6px}.gd-doc h2{margin-top:34px;border-bottom:1px solid #e5e5e5;padding-bottom:6px;scroll-margin-top:16px}
+.gd-doc h3{margin-top:24px}.gd-tw{display:block;width:100%;max-width:100%;overflow-x:auto;margin:12px 0}
+.gd-doc table{border-collapse:collapse;width:100%;min-width:0;font-size:14px}
+.gd-doc th,.gd-doc td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}.gd-doc th{background:#f4f4f6}
+.gd-doc pre{background:#0f1020;color:#e8e8f0;padding:12px;border-radius:8px;overflow-x:auto;font-size:13px}
+.gd-doc code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:0.92em}
+.gd-doc p code,.gd-doc li code,.gd-doc td code{background:#f1f1f5;padding:1px 4px;border-radius:4px}
+.gd-doc blockquote{border-left:4px solid #6C4CF5;background:#f7f5ff;margin:14px 0;padding:8px 14px;border-radius:0 8px 8px 0}
+.gd-doc,.gd-tw,.gd-doc *{min-width:0;box-sizing:border-box}.gd-doc{width:100%;max-width:100%;overflow-wrap:anywhere}
+.gd-toc{display:grid;gap:6px;margin:14px 0 26px;padding:0;list-style:none}
+.gd-toc a{display:block;padding:10px 14px;border:1px solid #ddd;border-radius:8px;text-decoration:none;color:inherit}
+.gd-note{background:#fff8e6;border:1px solid #f0d78c;padding:12px 14px;border-radius:8px;margin:16px 0}
+</style><section><div class="wrap"><div class="gd-doc"><p><strong>Who this is for:</strong> anyone who uses AI tools at work or at home and wants to know what each model and platform does, which one to choose, and how the features fit together.
+<strong>What it covers:</strong> the core concepts (LLM, tokens, context window, reasoning, multimodal inputs), the Grok family including Grok Bot, image generation and coding, ChatGPT, Claude, Gemini, Lovable and app builders, and how to choose.
+<strong>How to use it:</strong> read Chapter 1 once. Then go to the platform you use. Every platform chapter follows the same structure, so you can compare them quickly.</p>
+<hr /></div><div class="gd-note"><b>Read first.</b> Model names, features, limits and prices change often. Check each one on the official page before you rely on it.</div><h2 class="sec-h">Contents</h2><ol class="gd-toc"><li><a href="#read-this-first-what-is-verified-and-what-is-not">Read this first: what is verified and what is not</a></li><li><a href="#chapter-1-how-large-language-models-work">Chapter 1: How large language models work</a></li><li><a href="#chapter-2-the-grok-family-xai">Chapter 2: The Grok family (xAI)</a></li><li><a href="#chapter-3-chatgpt-openai">Chapter 3: ChatGPT (OpenAI)</a></li><li><a href="#chapter-4-claude-anthropic">Chapter 4: Claude (Anthropic)</a></li><li><a href="#chapter-5-gemini-google">Chapter 5: Gemini (Google)</a></li><li><a href="#chapter-6-lovable-and-app-builders">Chapter 6: Lovable and app builders</a></li><li><a href="#chapter-7-other-models-and-platforms">Chapter 7: Other models and platforms</a></li><li><a href="#chapter-8-connecting-models-to-tools-mcp-and-apis">Chapter 8: Connecting models to tools: MCP and APIs</a></li><li><a href="#chapter-9-choosing-and-comparing-platforms">Chapter 9: Choosing and comparing platforms</a></li><li><a href="#chapter-10-glossary">Chapter 10: Glossary</a></li><li><a href="#learning-tools-and-links">Learning tools and links</a></li><li><a href="#related-pages-on-this-site">Related pages on this site</a></li><li><a href="#sources-and-disclosure">Sources and disclosure</a></li></ol></div></section><section><div class="wrap"><section id="read-this-first-what-is-verified-and-what-is-not" class="gd-doc"><h2>Read this first: what is verified and what is not</h2>
+<div class="gd-tw"><table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>[Fact]</strong></td>
+<td>A standard definition that does not change between products</td>
+</tr>
+<tr>
+<td><strong>[Check]</strong></td>
+<td>A product name, feature, limit or price that changes often. Confirm it on the official page before you rely on it, and note the date you checked</td>
+</tr>
+<tr>
+<td><strong>[Opinion]</strong></td>
+<td>A recommendation, not a measured result</td>
+</tr>
+</tbody>
+</table></div>
+<p>Product lineups change every few months. Model names, plan names and limits in this guide are the names known when it was written. Treat every product-specific detail as <strong>[Check]</strong>. This guide does not compare benchmark scores, because they change constantly and are often measured under conditions that do not match everyday use.</p>
+<p><strong>Official pages to check (start here):</strong>
+- xAI and Grok: https://x.ai and https://grok.com
+- OpenAI and ChatGPT: https://openai.com and https://chatgpt.com
+- Anthropic and Claude: https://www.anthropic.com and https://claude.ai
+- Google and Gemini: https://gemini.google.com
+- Lovable: https://lovable.dev</p>
+<hr /></section><section id="chapter-1-how-large-language-models-work" class="gd-doc"><h2>Chapter 1: How large language models work</h2>
+<h3>1.1 What a large language model is <strong>[Fact]</strong></h3>
+<p>A <strong>large language model (LLM)</strong> is a program trained on very large amounts of text to predict the next piece of text. When you ask a question, it generates an answer one piece at a time, each time choosing a likely continuation. "Large" refers to the number of internal numbers it learned, called <strong>parameters</strong>, which can run into the billions.</p>
+<blockquote>
+<p><strong>Analogy.</strong> A phone keyboard suggests the next word. An LLM does the same job at a far larger scale, which is why its answers can read like reasoning.</p>
+</blockquote>
+<h3>1.2 Training and inference <strong>[Fact]</strong></h3>
+<ul>
+<li><strong>Training</strong> is the one-off, expensive process that sets the parameters from data.</li>
+<li><strong>Inference</strong> is every time you use the model. You pay for inference, usually per token.</li>
+</ul>
+<h3>1.3 Tokens <strong>[Fact]</strong></h3>
+<p>A <strong>token</strong> is a piece of text the model reads or writes: a whole word, part of a word, a number fragment or punctuation. The same sentence can be a different number of tokens in different models, because each has its own tokenizer. As a rough English rule, one token is about three-quarters of a word <strong>[Estimate]</strong>.</p>
+<p>Tokens matter for three reasons:
+1. <strong>Cost.</strong> API prices are quoted per million tokens, separately for input and output.
+2. <strong>Limits.</strong> Every model has a maximum amount it can handle at once.
+3. <strong>Speed.</strong> More output tokens take longer to generate.</p>
+<h3>1.4 Context window and context <strong>[Fact]</strong></h3>
+<p>The <strong>context</strong> is everything the model can see when it answers: your message, the earlier conversation, any uploaded documents, and any hidden instructions the product adds. The <strong>context window</strong> is the maximum amount of context a model can hold in one request, measured in tokens. A larger window lets you include more material, but a model does not always use every part of a very long input equally well.</p>
+<p>What fills the context window in a typical chat:
+- The product's own instructions (hidden from you)
+- Your custom instructions, project files or saved memory, if the product uses them
+- The conversation so far
+- The message you are writing now
+- Any tool results, search results or uploaded files</p>
+<p>When a conversation grows too long, products drop or summarise older parts. That is why a model can "forget" a detail from the start of a long chat.</p>
+<h3>1.5 Parameters, weights and model size <strong>[Fact]</strong></h3>
+<p>Parameters are the learned values inside the model. Bigger models often know more and reason better, but they are slower and more expensive. Smaller models are fast and cheap and are often good enough for simple tasks. Choosing a model is a trade-off between quality, speed and cost.</p>
+<h3>1.6 Reasoning models <strong>[Fact]</strong></h3>
+<p>Some models spend extra output on working through a problem before they give the final answer. These are often called reasoning models. They are better at maths, multi-step logic and code, and slower and more costly per answer. Use them for hard problems, not for simple drafting. Whether a product shows the reasoning, and how it bills it, is <strong>[Check]</strong>.</p>
+<h3>1.7 Multimodal models <strong>[Fact]</strong></h3>
+<p>A <strong>multimodal</strong> model accepts more than text: images, documents, sometimes audio and video, and sometimes produces images. Which inputs and outputs a given model supports is <strong>[Check]</strong>, because it varies by model and plan.</p>
+<h3>1.8 Hallucination <strong>[Fact]</strong></h3>
+<p>A model can produce a confident answer that is false, such as a made-up citation or statistic. Check any fact that matters, and ask for sources you can open. Chapter 1.4 explains why: the model generates likely text, and it does not check it against a database unless a tool does that for it.</p>
+<h3>1.9 Knowledge cut-off and tools <strong>[Fact]</strong></h3>
+<p>A model knows only what was in its training data up to a cut-off date. For newer information it needs a tool: web search, a document, or a connector to a live system. When a product says it "searched the web", it is using a tool, and the sources it cites are the ones to check.</p>
+<h3>1.10 Choosing a model: a quick method <strong>[Opinion]</strong></h3>
+<ol>
+<li>Write the task in one sentence and the output you need.</li>
+<li>Pick the cheapest model that handles that task. Test it on three real examples.</li>
+<li>Move to a stronger model only if the cheap one fails on quality.</li>
+<li>For code or long documents, check the context window and the output limit first.</li>
+<li>For private data, read the platform's data-use and retention terms, not just the marketing page.</li>
+</ol>
+<hr /></section><section id="chapter-2-the-grok-family-xai" class="gd-doc"><h2>Chapter 2: The Grok family (xAI)</h2>
+<h3>2.1 What Grok is <strong>[Check]</strong></h3>
+<p><strong>Grok</strong> is xAI's family of AI models and the chat products built on them. The consumer chat is available on the Grok website and apps, and xAI also offers models through an API for developers. The API is billed per token. Plans for the chat products are subscriptions. Keep the two separate: a subscription does not give you API credits unless the provider says so.</p>
+<h3>2.2 Model generations and how to pick <strong>[Check]</strong></h3>
+<p>Model names have moved quickly through 2026. Third-party price listings mention Grok 4.3, Grok 4.6 and Grok 4.7, and a separate coding model called Grok Build 0.1. Read the current model list on xAI's own documentation before you choose. For each model, check:
+- context window (how much it can hold at once)
+- whether it accepts images or files
+- whether it has a reasoning mode
+- price per million input and output tokens
+- rate limits and the plan that includes it</p>
+<h3>2.3 Context windows in the Grok family <strong>[Check]</strong></h3>
+<p>Some third-party sources list a context window of about 500,000 tokens for one Grok 4.x model and about 1,000,000 tokens for another. Confirm the figure for the exact model you use. Long context is useful for large codebases and document sets, but test whether the answers stay accurate near the end of a very long input.</p>
+<h3>2.4 Grok in the chat app <strong>[Check]</strong></h3>
+<ul>
+<li>Ask questions, draft text, summarise documents and analyse images.</li>
+<li>Use it for current events that need live search, and check the sources it links.</li>
+<li>Use the model picker if your plan offers several models, and choose the fast one for simple tasks.</li>
+</ul>
+<h3>2.5 Grok Bot: agents that work for you <strong>[Check]</strong></h3>
+<p><strong>Grok Bot</strong> is xAI's agent product. A Grok Bot agent is a named assistant that can work in your apps and on a schedule. Reported features include connections to email and team chat (Gmail and Slack have been named), learning a task by watching you do it, and running on a schedule. Plan availability and usage limits change, and reviewers have reported that usage allowances can run out quickly. Confirm which plan includes Grok Bot and what the usage limit is before you rely on it.</p>
+<p>Chapter 2 of the AI Agents guide explains how any agent works, which applies to Grok Bot as well.</p>
+<h3>2.6 Grok image generation <strong>[Check]</strong></h3>
+<p>Grok can generate images inside the chat product. Check the current image feature name, which plans include it, how many images you get, and the rules on what you may create and publish. Do not generate images of real people in ways that could mislead or harm them, and do not use generated images in advertising without checking the licence and disclosure rules that apply to you.</p>
+<h3>2.7 Grok for coding <strong>[Check]</strong></h3>
+<p>xAI offers coding-focused models and coding tools. Use them the way you would use any coding assistant:
+- give the model the file, the error message and the expected behaviour
+- ask for a small change, then run the tests
+- review every change before you commit it
+- never paste secret keys into a prompt</p>
+<p>Whether a coding tool can run commands on your machine, and how it is sandboxed, is <strong>[Check]</strong> for the exact product.</p>
+<h3>2.8 Grok pitfalls <strong>[Opinion]</strong></h3>
+<ul>
+<li>Assuming a subscription includes API usage.</li>
+<li>Relying on a model's live-search answer without opening its sources.</li>
+<li>Using a coding model's output without tests.</li>
+<li>Confusing Grok (xAI) with Groq, a different company.</li>
+</ul>
+<hr /></section><section id="chapter-3-chatgpt-openai" class="gd-doc"><h2>Chapter 3: ChatGPT (OpenAI)</h2>
+<h3>3.1 What ChatGPT is <strong>[Fact]</strong></h3>
+<p>ChatGPT is OpenAI's chat product, built on OpenAI's GPT models. OpenAI also offers the models through an API. As with Grok, the chat plans and the API are billed separately <strong>[Check]</strong>.</p>
+<h3>3.2 Models in ChatGPT <strong>[Check]</strong></h3>
+<p>OpenAI releases models in families and sizes, and the set available in ChatGPT depends on your plan. Check the model picker in your account and OpenAI's current model documentation. Look at context window, image input, reasoning options and rate limits for each model.</p>
+<h3>3.3 Core features <strong>[Check]</strong></h3>
+<p>Feature names and plan limits change. These are the categories to check in your own account:
+- <strong>Chat and writing:</strong> drafting, rewriting, summarising and translating.
+- <strong>File and image input:</strong> upload documents and images for analysis.
+- <strong>Search:</strong> answers with web sources. Open the sources.
+- <strong>Deep research:</strong> longer multi-step research that produces a report with citations. Check how long it takes and what it costs in your plan.
+- <strong>Image generation:</strong> create and edit images in the chat. Check the rules and the licence terms.
+- <strong>Voice:</strong> spoken conversation on mobile and desktop.
+- <strong>Projects:</strong> group chats with shared files and instructions.
+- <strong>Custom GPTs:</strong> saved assistants with their own instructions and files. Check who can see and share them.
+- <strong>Memory:</strong> the product can remember facts about you across chats. You can view and delete them.
+- <strong>Canvas or document editing:</strong> edit long text or code side by side with the chat.
+- <strong>Agent features:</strong> tasks where ChatGPT uses a browser or connected apps. These need care; see the AI Agents guide, Chapter 8.</p>
+<h3>3.4 Custom GPTs and projects: when to use which <strong>[Opinion]</strong></h3>
+<p>Use a <strong>Project</strong> when you work on one ongoing piece of work with shared files. Use a <strong>custom GPT</strong> when you want the same instructions and knowledge available to many people, and when you have checked who can access it. Before sharing any custom GPT, remove private data from its files.</p>
+<h3>3.5 The API <strong>[Check]</strong></h3>
+<p>The API gives developers the same models for their own products. It is billed per token. Use the API for products, automations and integrations. Use the chat product for personal work.</p>
+<h3>3.6 ChatGPT pitfalls <strong>[Opinion]</strong></h3>
+<ul>
+<li>Trusting a search answer without opening its sources.</li>
+<li>Uploading confidential documents without checking the data controls on your plan.</li>
+<li>Sharing a custom GPT that contains private information in its files.</li>
+<li>Expecting memory to be perfect. Check what it has stored.</li>
+</ul>
+<hr /></section><section id="chapter-4-claude-anthropic" class="gd-doc"><h2>Chapter 4: Claude (Anthropic)</h2>
+<h3>4.1 What Claude is <strong>[Fact]</strong></h3>
+<p>Claude is Anthropic's AI assistant, built on the Claude family of models. It is available through the Claude website and apps, through Claude Code for developers, and through the API. The API is billed per token; the chat plans are subscriptions <strong>[Check]</strong>.</p>
+<h3>4.2 Models <strong>[Check]</strong></h3>
+<p>Anthropic publishes a family of models in several sizes, aimed at different trade-offs of speed, cost and capability. The current names and prices are on Anthropic's model pages. Choose the smallest model that does the task well, and move up only when the smaller one fails your tests.</p>
+<h3>4.3 Core features in the Claude app <strong>[Check]</strong></h3>
+<p>Feature names and plan limits change. These are the categories to check:
+- <strong>Chat and writing:</strong> drafting, editing and analysis.
+- <strong>File and image input:</strong> upload documents, spreadsheets and images.
+- <strong>Projects:</strong> a workspace with its own instructions and uploaded files, for ongoing work.
+- <strong>Artifacts:</strong> a panel where Claude produces a document, a web page, a diagram or a small app, which you can view, edit and download.
+- <strong>Styles and preferences:</strong> instructions that shape how Claude writes for you.
+- <strong>Memory:</strong> Claude can use context from earlier chats where the feature is enabled. Check what is stored and how to delete it.
+- <strong>Skills:</strong> saved, reusable instructions and resources that Claude uses for a type of task.
+- <strong>Connectors:</strong> links to external services (for example, a hosting provider or a data tool) through the Model Context Protocol (MCP). Chapter 8 explains MCP.
+- <strong>Web search:</strong> answers with sources. Open the sources.</p>
+<h3>4.4 Claude Code <strong>[Check]</strong></h3>
+<p>Claude Code is a coding tool that works inside a project folder on your computer. It can read files, propose changes, run commands and tests, with your approval for each step. Use it for real projects. Read the permission prompts, keep secrets out of the project, and review every change before you commit.</p>
+<h3>4.5 The API and prompt caching <strong>[Check]</strong></h3>
+<p>The API bills input and output tokens separately. Some providers offer <strong>prompt caching</strong>, which lowers the cost of repeated input such as a long system prompt or a reference document. Check whether caching is available for your model and how long a cache lasts.</p>
+<h3>4.6 Claude pitfalls <strong>[Opinion]</strong></h3>
+<ul>
+<li>Pasting private client data into a chat without checking the data terms of your plan.</li>
+<li>Forgetting that a Project's files and instructions apply to every chat in it.</li>
+<li>Trusting a generated artifact without opening and testing it.</li>
+<li>Connecting a tool with more permission than the task needs.</li>
+</ul>
+<hr /></section><section id="chapter-5-gemini-google" class="gd-doc"><h2>Chapter 5: Gemini (Google)</h2>
+<h3>5.1 What Gemini is <strong>[Fact]</strong></h3>
+<p>Gemini is Google's family of AI models and its assistant. It is built into Google products such as Search, Gmail, Docs and Workspace, and is also offered as an app and through the Gemini API <strong>[Check]</strong>.</p>
+<h3>5.2 Features to check <strong>[Check]</strong></h3>
+<ul>
+<li>Chat, writing and summarising.</li>
+<li>Working with Google Docs, Gmail and Drive content, where your organisation allows it.</li>
+<li>Image and document input.</li>
+<li>Deep research style reports with sources.</li>
+<li>Video and audio understanding in some models <strong>[Check]</strong>.</li>
+<li>The API, billed per token, with a free tier for testing <strong>[Check the current limits]</strong>.</li>
+</ul>
+<h3>5.3 When Gemini fits well <strong>[Opinion]</strong></h3>
+<p>Gemini is a natural choice when your work already lives in Google Workspace, because the integration removes copy-and-paste. Check your organisation's admin settings for which apps the assistant can read.</p>
+<hr /></section><section id="chapter-6-lovable-and-app-builders" class="gd-doc"><h2>Chapter 6: Lovable and app builders</h2>
+<h3>6.1 What Lovable is <strong>[Check]</strong></h3>
+<p>Lovable is an AI tool that builds working web apps from a description. You describe the app in plain language; it writes the code, shows a live preview, and can connect a database and login. It is one of several AI app builders. Others include Replit and Bolt. Check each product's current features and pricing.</p>
+<h3>6.2 How app builders work <strong>[Fact]</strong></h3>
+<p>An app builder combines three things: a model that writes code from your instructions, a sandbox that runs the app so you can see it, and integrations for hosting, a database and sign-in. Each change is a new prompt that edits the code.</p>
+<h3>6.3 Using an app builder well <strong>[Opinion]</strong></h3>
+<ol>
+<li>Start with the smallest working version: one screen, one action.</li>
+<li>Be specific: name the data, the user and the result you expect.</li>
+<li>Check the database security rules before you put real user data in. Row-level security must restrict each user to their own rows.</li>
+<li>Test sign-up, log-in, the main action and an invalid input.</li>
+<li>Export or sync the code to a repository before you rely on the app.</li>
+<li>Keep the secret keys in the platform's secret store, not in a prompt.</li>
+</ol>
+<p>The full Lovable tutorial with 14 classes is on the site: Lovable: Complete Tutorial (lovable-tutorial.html).</p>
+<h3>6.4 Security checks for app builders <strong>[Fact]</strong></h3>
+<ul>
+<li>Never publish an app that lets anyone read or change other users' data.</li>
+<li>Assume that any value in front-end code is visible to users.</li>
+<li>Run the platform's security scan, and read its findings.</li>
+</ul>
+<hr /></section><section id="chapter-7-other-models-and-platforms" class="gd-doc"><h2>Chapter 7: Other models and platforms</h2>
+<div class="gd-tw"><table>
+<thead>
+<tr>
+<th>Platform type</th>
+<th>Examples <strong>[Check]</strong></th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open-weight models you can run yourself</td>
+<td>Llama, Mistral, Qwen and others</td>
+<td>Private data, offline use, cost control; needs technical setup</td>
+</tr>
+<tr>
+<td>Search-first assistants</td>
+<td>Perplexity and similar</td>
+<td>Research with cited sources</td>
+</tr>
+<tr>
+<td>Coding assistants in an editor</td>
+<td>GitHub Copilot, Cursor and similar</td>
+<td>Writing and editing code in your project</td>
+</tr>
+<tr>
+<td>Automation platforms</td>
+<td>n8n, Make, Zapier</td>
+<td>Connecting apps on triggers, with AI steps</td>
+</tr>
+<tr>
+<td>Image and video generators</td>
+<td>Various, check licence and rights</td>
+<td>Creative assets; check commercial-use terms</td>
+</tr>
+</tbody>
+</table></div>
+<p>Open-weight models have their own licence terms; read them before commercial use <strong>[Check]</strong>.</p>
+<hr /></section><section id="chapter-8-connecting-models-to-tools-mcp-and-apis" class="gd-doc"><h2>Chapter 8: Connecting models to tools: MCP and APIs</h2>
+<h3>8.1 What an API is <strong>[Fact]</strong></h3>
+<p>An <strong>API</strong> (application programming interface) lets one program ask another for a service. A model API receives your messages and returns the model's reply.</p>
+<h3>8.2 What MCP is <strong>[Fact]</strong></h3>
+<p>The <strong>Model Context Protocol (MCP)</strong> is an open standard for connecting AI assistants to tools and data sources in a consistent way. An <strong>MCP server</strong> exposes tools (actions) and resources (readable data). An assistant that supports MCP can discover those tools and use them when a task needs them. Check the current MCP documentation at https://modelcontextprotocol.io.</p>
+<h3>8.3 Why it matters <strong>[Opinion]</strong></h3>
+<p>Without a standard, every assistant needs its own connector for every service. With MCP, one server can serve many assistants. The trade-off is that a connector gives the assistant real power, so each tool needs permission limits and logging.</p>
+<hr /></section><section id="chapter-9-choosing-and-comparing-platforms" class="gd-doc"><h2>Chapter 9: Choosing and comparing platforms</h2>
+<div class="gd-tw"><table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Look at</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Which tasks?</td>
+<td>Writing, research, code, images, data, automation</td>
+</tr>
+<tr>
+<td>Which data?</td>
+<td>Public, internal or confidential; check the data-use terms</td>
+</tr>
+<tr>
+<td>Which budget?</td>
+<td>Subscription for personal use; API for products; check limits</td>
+</tr>
+<tr>
+<td>Which integrations?</td>
+<td>Your email, documents, code host, database, team chat</td>
+</tr>
+<tr>
+<td>Which quality?</td>
+<td>Your own three-example test, not a leaderboard</td>
+</tr>
+<tr>
+<td>Which control?</td>
+<td>Admin settings, memory controls, sharing controls</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>A simple decision guide [Opinion]:</strong>
+- Personal writing and research: pick the one you find easiest, then test it on your real work.
+- Team knowledge in documents: use a platform with project or workspace features and admin controls.
+- A product for customers: use an API, with cost controls, tests and monitoring.
+- Building a small web app without deep coding: an app builder, then review the security rules.
+- Automating a workflow across apps: an automation platform with an AI step, or an agent (see the AI Agents guide).</p>
+<hr /></section><section id="chapter-10-glossary" class="gd-doc"><h2>Chapter 10: Glossary</h2>
+<div class="gd-tw"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLM</td>
+<td>Large language model: a model trained to predict and generate text</td>
+</tr>
+<tr>
+<td>Parameter</td>
+<td>A learned value inside a model</td>
+</tr>
+<tr>
+<td>Token</td>
+<td>A unit of text the model reads and writes; the basis of price and limits</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>Everything the model can see when it answers</td>
+</tr>
+<tr>
+<td>Context window</td>
+<td>The maximum context a model can hold in one request</td>
+</tr>
+<tr>
+<td>Inference</td>
+<td>Running a trained model to produce an answer</td>
+</tr>
+<tr>
+<td>Reasoning model</td>
+<td>A model that works through a problem before answering</td>
+</tr>
+<tr>
+<td>Multimodal</td>
+<td>Accepting or producing more than text</td>
+</tr>
+<tr>
+<td>Hallucination</td>
+<td>A confident answer that is false</td>
+</tr>
+<tr>
+<td>Knowledge cut-off</td>
+<td>The date after which a model has no training data</td>
+</tr>
+<tr>
+<td>Tool</td>
+<td>An action a model can request, such as search or running code</td>
+</tr>
+<tr>
+<td>API</td>
+<td>Application programming interface, a way for programs to call a service</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>Model Context Protocol, a standard for connecting assistants to tools</td>
+</tr>
+<tr>
+<td>Prompt caching</td>
+<td>Reusing processed repeated input at lower cost</td>
+</tr>
+<tr>
+<td>Project (Claude, ChatGPT)</td>
+<td>A workspace with shared files and instructions</td>
+</tr>
+<tr>
+<td>Custom GPT</td>
+<td>A saved ChatGPT assistant with its own instructions and files</td>
+</tr>
+<tr>
+<td>Artifact (Claude)</td>
+<td>A document, page or app that Claude produces in a side panel</td>
+</tr>
+<tr>
+<td>Skill (Claude)</td>
+<td>Saved reusable instructions for a type of task</td>
+</tr>
+<tr>
+<td>Connector</td>
+<td>A permission link to an external service</td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>An AI system that takes steps towards a goal using tools (see the AI Agents guide)</td>
+</tr>
+</tbody>
+</table></div>
+<hr /></section><section id="learning-tools-and-links" class="gd-doc"><h2>Learning tools and links</h2>
+<ul>
+<li>xAI (Grok, API): https://x.ai</li>
+<li>Grok: https://grok.com</li>
+<li>OpenAI (ChatGPT, API): https://openai.com</li>
+<li>ChatGPT: https://chatgpt.com</li>
+<li>Anthropic (Claude, API): https://www.anthropic.com</li>
+<li>Claude: https://claude.ai</li>
+<li>Claude documentation: https://docs.claude.com</li>
+<li>Google Gemini: https://gemini.google.com</li>
+<li>Lovable: https://lovable.dev</li>
+<li>Replit: https://replit.com</li>
+<li>Model Context Protocol: https://modelcontextprotocol.io</li>
+<li>n8n: https://n8n.io</li>
+</ul>
+<hr /></section><section id="related-pages-on-this-site" class="gd-doc"><h2>Related pages on this site</h2>
+<ul>
+<li>Context engineering course: context-engineering.html</li>
+<li>AI evals course: ai-evals.html</li>
+<li>Agent orchestration and multi-agent systems: agent-orchestration.html</li>
+<li>Browser automation and AI agents: browser-automation.html</li>
+<li>Lovable tutorial: lovable-tutorial.html</li>
+<li>Grok Bot Mastery Course: grokbot-course.html</li>
+</ul>
+<hr /></section><section id="sources-and-disclosure" class="gd-doc"><h2>Sources and disclosure</h2>
+<ul>
+<li>Product names, features, limits and prices are the names known when this guide was written and must be checked on the official pages listed above.</li>
+<li>No benchmark scores are reported.</li>
+<li>Sponsored or affiliate material is not included.</li>
+</ul></section></div></section>
+</main>
+<footer><div class="wrap">
+  <div class="cols">
+    <div><a class="brand" href="index.html"><img class="lg lg-light" src="assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
+      <p>AI-first programs in product management, data engineering and generative AI, with live classes, an LMS and career support.</p>
+      <div class="follow"><h4>Follow us</h4><div id="social" class="soc"></div></div></div>
+    <div><h4>Programs</h4><ul><li><a href="program/ai-product-management.html" data-course-name="ai-pm">AI-First Product Management</a></li><li><a href="program/ai-data-engineering.html" data-course-name="ai-de">AI-First Data Engineer</a></li><li><a href="program/genai-launchpad.html" data-course-name="genai-launchpad">GenAI Launchpad</a></li><li><a href="programs.html">All programs and FAQs</a></li></ul></div>
+    <div><h4>Upskill for free</h4><ul><li><a href="tests.html">Practice tests</a></li><li><a href="questions.html">Top 100 questions</a></li><li><a href="quiz.html">Quiz zone</a></li><li><a href="challenges.html">Challenges</a></li><li><a href="practice.html">Practice with AI</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources &amp; AI tools</a></li><li><a href="tools.html">Tool tutorials</a></li><li><a href="handbooks/index.html">SkillNavora Handbooks</a></li><li><a href="resources.html#pm">Resources for PM</a></li><li><a href="resources.html#data">Resources for Data Engineers</a></li><li><a href="resources.html#genai">Resources for GenAI</a></li><li><a href="resources.html#more">Other resources &amp; links</a></li><li><a href="blogs.html">Blogs</a></li><li><a href="refer.html">Refer &amp; earn</a></li><li><a href="hire.html">Hire from us</a></li><li><a href="jobs.html">Job board</a></li><li><a href="business.html">For business</a></li></ul></div>
+    <div><h4>Contact us</h4><ul id="fcontact"></ul><ul style="margin-top:14px"><li><a href="mentor.html">Become a mentor</a></li><li><a href="careers.html">Careers</a></li><li><a href="login.html">Member login</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms and conditions</a></li><li><a href="refund.html">Cancellation and refund policy</a></li></ul></div>
+  </div>
+  <div class="base"><span>© <span id="yr"></span> SkillNavora. All rights reserved.</span><span class="madeby">Made with care in India</span></div>
+</div></footer>
+
+<a class="callfab" id="callfab" hidden aria-label="Call us" title="Call us"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a><a class="wa" id="wa" hidden target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><em class="t">Chat on WhatsApp</em></a>
+<div class="modal" id="m-counsel" role="dialog" aria-modal="true" aria-labelledby="mc-h"><div class="mbox wide">
+  <div class="mside">
+    <h2>Have questions about the course unanswered?</h2>
+    <div class="kicker" style="color:#cfe0ff">Our recommendation</div>
+    <p class="mside-sub">Talk to the founder</p>
+    <div class="mperson"><div class="ring"><img src="assets/varun.jpg" alt="Varun Kumar" width="150" height="150"></div>
+      <div class="pcard"><div class="pt">Free 1:1 · 15 minutes · No sales pitch</div><div class="pb"><b>Varun Kumar</b><span>Founder, SkillNavora · Product Manager</span></div></div></div>
+  </div>
+  <div class="mform">
+    <div class="mhead"><h2 id="mc-h">Talk to a counsellor</h2><button class="mclose" type="button" data-close aria-label="Close">×</button></div>
+    <div class="mprog"><span id="mc-bar"></span></div>
+    <form id="f-counsel" novalidate>
+      <div class="mstep" data-step="1">
+        <fieldset><legend><span class="req">Select your highest qualification</span></legend><div class="radios">
+          <label><input type="radio" name="qual" value="12th"> 12th</label><label><input type="radio" name="qual" value="Diploma"> Diploma</label><label><input type="radio" name="qual" value="Undergraduate"> Undergraduate</label><label><input type="radio" name="qual" value="Postgraduate"> Postgraduate</label></div></fieldset>
+        <fieldset><legend><span class="req">Select your graduation year</span></legend><div class="radios">
+          <label><input type="radio" name="grad" value="Before 2015"> Before 2015</label><label><input type="radio" name="grad" value="2015 – 2020"> 2015 – 2020</label><label><input type="radio" name="grad" value="2021 – 2025"> 2021 – 2025</label><label><input type="radio" name="grad" value="2026 or later"> 2026 or later</label><label><input type="radio" name="grad" value="Haven't joined college yet"> Haven't joined college yet</label></div></fieldset>
+      </div>
+      <div class="mstep" data-step="2" hidden>
+        <fieldset><legend><span class="req">Your work experience</span></legend><div class="radios">
+          <label><input type="radio" name="exp" value="Student / Fresher"> Student / Fresher</label><label><input type="radio" name="exp" value="0 – 2 years"> 0 – 2 years</label><label><input type="radio" name="exp" value="2 – 5 years"> 2 – 5 years</label><label><input type="radio" name="exp" value="5 – 10 years"> 5 – 10 years</label><label><input type="radio" name="exp" value="10+ years"> 10+ years</label></div></fieldset>
+        <fieldset><legend><span class="req">Which program interests you?</span></legend><div class="radios" id="mc-courses"></div></fieldset>
+      </div>
+      <div class="mstep" data-step="3" hidden>
+        <label><span class="req">Name</span><input name="name" maxlength="80" autocomplete="name" placeholder="Enter your name"></label>
+        <label><span class="req">Phone number</span><span class="phone"><select name="cc" aria-label="Country code"><option value="+91">🇮🇳 +91</option><option value="+971">🇦🇪 +971</option><option value="+1">🇺🇸 +1</option><option value="+44">🇬🇧 +44</option></select><input name="phone" inputmode="tel" maxlength="15" autocomplete="tel-national" placeholder="98765 43210"></span></label>
+        <label>Email <span class="meta">(optional)</span><input name="email" type="email" maxlength="200" autocomplete="email" placeholder="you@gmail.com"></label>
+        <label>Best time to call<select name="time"><option>Morning (9–12)</option><option>Afternoon (12–5)</option><option selected>Evening (5–9)</option><option>Weekend</option></select></label>
+      </div>
+      <p class="notice error" id="mc-err" hidden role="alert"></p>
+      <div class="mfoot"><button class="btn btn-line" type="button" id="mc-back" hidden>← Back</button><button class="btn btn-primary" type="submit" id="mc-next">Next →</button></div>
+      <a class="meta" id="counsel-book" href="#" target="_blank" rel="noopener" hidden style="display:block;text-align:center;margin-top:10px">Or pick a time on our calendar →</a>
+    </form>
+    <div id="counsel-done" class="done-box" hidden><div class="big">🎉</div><h3>You're booked in!</h3><p class="meta">We'll call you at your preferred time. You can also message us on WhatsApp any time.</p></div>
+  </div></div></div>
+<div class="modal" id="m-unsure" role="dialog" aria-modal="true" aria-labelledby="mu-h"><div class="mbox">
+  <button class="mclose" type="button" data-close aria-label="Close">×</button>
+  <div class="art"><svg viewBox="0 0 200 120" aria-hidden="true"><circle cx="40" cy="30" r="18" fill="#fff" stroke="#e1e6f0"/><circle cx="40" cy="25" r="6" fill="#55607a"/><path d="M29 41a11 11 0 0 1 22 0" fill="#55607a"/><circle cx="53" cy="42" r="5" fill="#22c55e" stroke="#fff" stroke-width="2"/>
+<rect x="55" y="38" width="88" height="48" rx="14" fill="#0d1630"/><path d="M70 86l-4 16 18-16z" fill="#0d1630"/><circle cx="84" cy="62" r="5" fill="#8a96b5"/><circle cx="99" cy="62" r="5" fill="#8a96b5"/><circle cx="114" cy="62" r="5" fill="#8a96b5"/>
+<rect x="120" y="62" width="76" height="42" rx="12" fill="#fff" stroke="#e1e6f0"/><rect x="132" y="75" width="48" height="5" rx="2.5" fill="#cdd5e6"/><rect x="132" y="87" width="34" height="5" rx="2.5" fill="#cdd5e6"/>
+<path d="M165 26l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#ff8a3d"/><path d="M22 74l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" fill="#ff8a3d" opacity=".7"/></svg></div>
+  <div class="in"><h2 id="mu-h">Not sure if this is for you?</h2><div class="rule"></div>
+    <p>Find out by connecting 1:1 with our team and ask any questions you have.</p>
+    <button class="btn btn-dark" type="button" id="unsure-call">Book a free 1:1 call →</button>
+    <a class="btn btn-wa" id="unsure-wa" href="#" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Ask on WhatsApp</a>
+    <div class="mnote"><i>✓</i>15 minutes · No sales pitch · Free</div>
+    <button class="mskip" type="button" data-close>I'm just browsing</button>
+  </div></div></div>
+<a class="refab" href="refer.html" aria-label="Refer and earn" title="Refer &amp; earn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2zM12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span>Refer &amp; earn</span></a>
+<button class="chat-fab" id="chat-fab" type="button" hidden aria-label="Ask SkillNavora AI"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg><span>Ask AI</span></button>
+<div class="chat" id="chat" role="dialog" aria-label="SkillNavora AI assistant">
+  <div class="chat-h"><img src="assets/logo-badge.png" alt="" width="32" height="32"><span><b>SkillNavora assistant</b><small>Answers about programs, fees and careers</small></span><button type="button" id="chat-x" aria-label="Close chat">×</button></div>
+  <div class="chat-b" id="chat-b" aria-live="polite"></div>
+  <form class="chat-f" id="chat-f"><textarea id="chat-in" rows="1" maxlength="1500" placeholder="Ask a question…" aria-label="Your question"></textarea><button type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></form>
+  <div class="chat-n">AI answers can be wrong. Confirm fees and dates with a counsellor.</div>
+</div>
+<script src="assets/config.js?v=790d22d6"></script>
+<script src="assets/site.js?v=9e37e19d"></script><script src="assets/engage.js?v=8d2e90ba"></script><script src="assets/gate.js?v=4ec22fed"></script>
+</body>
+</html>
