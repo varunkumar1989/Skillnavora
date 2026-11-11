@@ -841,7 +841,8 @@ def _ps_guide_html():
     src = open(os.path.join(OUT, "data-science/lessons/speaking-01-public-speaking-complete-guide-confidence-structure-storytel.html"), encoding="utf-8").read()
     main = re.search(r"<main[^>]*>(.*?)</main>", src, re.S).group(1)
     main = main.replace('"../../read.html', '"read.html').replace('"../img/', '"data-science/img/')
-    return '<div class="wrap" style="padding-top:20px">' + main + '</div>'
+    return ('<style>.ps-guide{min-width:0;overflow-wrap:anywhere}.ps-guide pre{max-width:100%;overflow-x:auto;white-space:pre}.ps-guide table{display:block;max-width:100%;overflow-x:auto}</style>'
+            '<div class="wrap ps-guide" style="padding-top:20px">' + main + '</div>')
 _PS_CUT = PS_BODY.index("\n<section>")  # the page header stays above the tabs
 _PS_PRACTICE, _PS_SECTIONS = PS_BODY[:_PS_CUT], PS_BODY[_PS_CUT:]
 _PS_TABS = aipages.tabgroup("ps-tabs", [
