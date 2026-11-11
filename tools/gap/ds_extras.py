@@ -148,7 +148,7 @@ def tracker_panel():
 
 
 def build(page, uhero, out):
-    tabs = [("reference", "Quick Reference"), ("glossary", "Glossary"), ("A", "Data Engineering & Cloud"), ("B", "Excel, SQL, Business & Governance"), ("C", "Interviews, Capstones & Roadmap")]
+    tabs = [("reference", "Quick Reference"), ("glossary", "Glossary"), ("A", "Data Engineering"), ("B", "Analyst Skills"), ("C", "Careers & Capstones")]
     bars = {"reference": _pdf_btn("reference", "Quick reference and cheat sheets (PDF)"),
             "glossary": _pdf_btn("glossary", "Data Science and AI glossary (PDF)"),
             "A": _pdf_btn("A", "Supplement A (PDF)"), "B": _pdf_btn("B", "Supplement B (PDF)"),

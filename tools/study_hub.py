@@ -118,7 +118,7 @@ RELATED = {"aipm": ["builder-tools", "context", "skills", "brain", "multimodal",
            "aieng": ["context", "evals", "web-automation", "builder-tools", "ml-products", "ai-governance", "platform-pm", "ai-strategy"],
            "genai": ["evals", "web-automation", "orch", "browser", "ai-strategy", "ai-ux", "ai-pricing", "ml-products", "ai-governance", "platform-pm", "product-ops", "system-design", "product-design",
                      "zapier-tutorial", "make-tutorial", "replit-tutorial", "lovable-tutorial"]}
-TAB_NAME = {"aipm": "AI Product Management", "aide": "AI for Data Engineers", "aieng": "AI Engineer", "genai": "GenAI Launchpad", "tools": "Tools & tutorials"}
+TAB_NAME = {"aipm": "AI Product Management", "aide": "AI for Data Engineers", "aieng": "AI Engineer", "genai": "GenAI Launchpad", "tools": "Tools & Tutorials"}
 
 def courses(tab):
     home = "".join(course_block(k, k == "ai-engineer") for k in COURSE_HOME[tab])
@@ -165,7 +165,7 @@ def build():
                   [curriculum(gl, "program/genai-launchpad.html"), track_links(["genai", "agents", "tools", "ai-analytics"], "GenAI and agents lessons"), courses("genai"),
                    practice("genai"), G(pdf_once("genai", ["handbooks/genai/*.pdf", "handbook/AI_*.pdf", "handbook/Prompt_*.pdf", "handbook/Agent_*.pdf", "handbook/Browser_*.pdf", "handbook/Web_*.pdf", "brochures/*genai*.pdf"]))])
     tools = block("tools", "Tools", "Tools & tutorials", "Every tool used in the programs with its free tutorial, official site and our lessons, plus our complete tutorials for Zapier, Make, Replit, Lovable, n8n and Figma.", btn("tools.html", "Tool tutorials page", True) + btn("resources.html#learn", "147 learning sites") + btn("ai-academy-interactive.html#builder-tools", "AI Builder Tools"), [tools_tab()])
-    tabs = [("aipm", "AI Product Management"), ("aide", "AI for Data Engineers"), ("aieng", "AI Engineer"), ("genai", "GenAI Launchpad"), ("tools", "Tools & tutorials")]
+    tabs = [("aipm", "AI Product Management"), ("aide", "AI for Data Engineers"), ("aieng", "AI Engineer"), ("genai", "GenAI Launchpad"), ("tools", "Tools & Tutorials")]
     nav = "".join(f'<button type="button" role="tab" data-t="{k}" aria-selected="false">{E(n)}</button>' for k, n in tabs)
     css = """<style>.hub{padding-block:18px 50px}.hub .htabs{position:sticky;top:var(--a-hh,68px);z-index:30;background:var(--bg);display:flex;gap:8px;overflow-x:auto;padding-block:12px;border-bottom:1px solid var(--line);margin-bottom:20px}
 .hub .htabs button{flex:none;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 16px;font:700 14.5px var(--body)}.hub .htabs button[aria-selected=true]{background:#5b4ee8;border-color:#5b4ee8;color:#fff}

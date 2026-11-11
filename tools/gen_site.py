@@ -168,11 +168,11 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     _TOOLS_IC = '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.6-.6-2.1z"/>'
     # Option 2 (approved): Upskill for free has four flat items, no nested menus
     _PR_IC = U["questions.html"][3]
-    up_menu = (item("learning-platform.html", "Learning platform", "One page per programme: content, related programmes, tools and links", '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>')
+    up_menu = (item("learning-platform.html", "Learning Platform", "One page per programme: content, related programmes, tools and links", '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>')
                + item("ai.html", "AI Studio", "AI tutor, PRD writer, speaking coach and practice, free", aipages.AI_NAV[0][3])
                + item("ai-academy.html", "AI Courses", "Every AI skills course: models and agents, Grokbot, context and evals, Lovable, tool tutorials", aipages.AI_NAV[1][3])
-               + item("resources.html", "Free resources", "Programmes, tools, context engineering, evals, LLMs and RAG", _RI)
-               + item("practice-hub.html", "Practice & interview prep", "Interview questions, practice tests and quizzes", _PR_IC)
+               + item("resources.html", "Free Resources", "Programmes, tools, context engineering, evals, LLMs and RAG", _RI)
+               + item("practice-hub.html", "Interview Prep", "Interview questions, practice tests and quizzes", _PR_IC)
                + item(*U["events.html"]))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
@@ -200,8 +200,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
   <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="{r}assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="{r}assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
   <nav class="nav" id="nav" aria-label="Main">
     <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC training, digital marketing, FDE and public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_MAIN + [("other-programs.html", "All other programs", "Content creation and every other program, with reading", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>'), ("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
-    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html', 'learning-platform.html', 'practice-hub.html', 'ai.html', 'ai-academy.html'])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
-    <div class="dd{on(['jobs.html', 'careers.html', 'mentor.html', 'hire.html'])}"><button type="button" aria-expanded="false">Jobs &amp; careers {CHEV}</button><div class="dd-menu">
+    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html', 'learning-platform.html', 'practice-hub.html', 'ai.html', 'ai-academy.html'])}"><button type="button" aria-expanded="false">Upskill for Free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
+    <div class="dd{on(['jobs.html', 'careers.html', 'mentor.html', 'hire.html'])}"><button type="button" aria-expanded="false">Jobs &amp; Careers {CHEV}</button><div class="dd-menu">
       <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>All job portals, alerts and openings</small></span></a>
       <a href="{r}mentor.html"{cur('mentor.html')}><span class="dd-ico">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><span><b>Become a mentor</b><small>Guide learners, run sessions and mock interviews</small></span></a>
       <a href="{r}careers.html"{cur('careers.html')}><span class="dd-ico">{SVG('<path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>')}</span><span><b>Career with SkillNavora</b><small>Open roles and how to join our team</small></span></a>
@@ -774,7 +774,7 @@ for _gp, _tid in GUIDE_TRACK.items():
 import labpage
 _lb_html, _lb_n = labpage.build()
 page("lab.html", "Practice Lab · SkillNavora", "Free practice lab: run SQL, Excel formulas and Python in your browser, spot the trap and see the fix. AI PM and GenAI real-life scenarios with hints.",
-     uhero("Upskill for free · Practice & interview prep", 'Practice <span class="g">Lab</span>', f"{_lb_n} hands-on challenges from basic to advanced. Run real SQL, Excel formulas and Python in your browser, spot the trap before your interviewer does, and see the fix. Free, no sign-up.")
+     uhero("Upskill for Free · Interview Prep", 'Practice <span class="g">Lab</span>', f"{_lb_n} hands-on challenges from basic to advanced. Run real SQL, Excel formulas and Python in your browser, spot the trap before your interviewer does, and see the fix. Free, no sign-up.")
      + f"""<section style="padding-top:24px"><div class="wrap">{_lb_html}</div></section>""", "lab.html", '<script src="{r}assets/vendor/formula-parser.min.js"></script><script src="{r}assets/lab.js"></script>')
 _AIJS = '<script src="{r}assets/ai.js"></script>'
 aipages.write_index(OUT)
@@ -882,8 +882,8 @@ page("grokbot-course.html", "Grokbot Mastery Course: from zero to commercial AI 
 page("ai-academy.html", "AI Skills Academy: every AI skills course in one place · SkillNavora", "All SkillNavora AI skills courses in one section: the 7 core AI skills and advanced AI product management topics, each with lessons, a PDF and an interactive version.",
      uhero("AI Product Management · GenAI Launchpad", 'AI Skills <span class="g">Academy</span>', "Every AI skills course in one place: lessons, free PDFs and interactive versions, from prompting and context to strategy, AI UX, pricing, governance and more.") + aipages.academy_tabs(academy.hub()), "ai-academy.html")
 import academy_interactive, study_hub, study_library
-page("practice-hub.html", "Practice & interview prep · SkillNavora", "Interview questions with answers, practice tests and quizzes for PMs, data professionals and GenAI learners, in three tabs.",
-     uhero("Upskill for free · Practice", 'Practice & <span class="g">interview prep</span>', "Top 100 interview questions with answers, practice tests with hints and a quiz zone. Pick a tab to start.") + aipages.practice_hub(), "practice-hub.html")
+page("practice-hub.html", "Interview Prep: questions, tests and quizzes · SkillNavora", "Interview questions with answers, practice tests and quizzes for PMs, data professionals and GenAI learners, in three tabs.",
+     uhero("Upskill for Free · Interview Prep", 'Interview <span class="g">Prep</span>', "Top 100 interview questions with answers, practice tests with hints and a quiz zone. Pick a tab to start.") + aipages.practice_hub(), "practice-hub.html")
 page("ai-academy-interactive.html", "Interactive AI Skills Academy · SkillNavora", "All AI skills courses as one interactive page: tabs for every course, illustrated classes, takeaways, practice, cheat sheets and interview questions.",
      academy_interactive.site_html(), "ai-academy.html")
 page("study-library.html", "Study Library: all study material by programme · SkillNavora", "All SkillNavora study material in one page with five tabs: AI Product Management, AI for Data Engineers, AI Engineer, GenAI Launchpad and Tools, with every lesson, class, PDF and practice set listed once.",
