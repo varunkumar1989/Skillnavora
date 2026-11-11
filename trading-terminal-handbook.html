@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>/* One address for everyone: logins are saved per address, so skillnavora.in and skillnavora.pages.dev move to www.skillnavora.in */if(/^(skillnavora\.in|skillnavora\.pages\.dev)$/.test(location.hostname))location.replace("https://www.skillnavora.in"+location.pathname+location.search+location.hash)</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Trading &amp; Analytics Terminal: handbook · SkillNavora</title>
+<meta name="description" content="Master Freelancing chapter on algorithmic trading systems: architecture, security, option Greeks, a 9/21 EMA strategy with a friction-adjusted backtest, guarded execution and regulatory checks. Not a proof that any strategy works.">
+<link rel="canonical" href="https://www.skillnavora.in/trading-terminal-handbook">
+<meta property="og:type" content="website"><meta property="og:site_name" content="SkillNavora">
+<meta property="og:title" content="Personal Trading &amp; Analytics Terminal: handbook · SkillNavora"><meta property="og:description" content="Master Freelancing chapter on algorithmic trading systems: architecture, security, option Greeks, a 9/21 EMA strategy with a friction-adjusted backtest, guarded execution and regulatory checks. Not a proof that any strategy works.">
+<meta property="og:url" content="https://www.skillnavora.in/trading-terminal-handbook"><meta property="og:image" content="https://www.skillnavora.in/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://www.skillnavora.in/assets/og.png">
+<meta name="theme-color" content="#07100f">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="assets/logo-badge.png" type="image/png"><link rel="icon" href="assets/favicon-64.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=6531617b">
+</head>
+<body data-root="">
+<div class="topbar" id="topbar" hidden><div class="wrap"><span class="dot"></span><b></b><a class="cta" href="#">Apply now →</a><span class="tag"></span><button class="x" type="button" aria-label="Close announcement">×</button></div></div>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <div class="dd"><button type="button" aria-expanded="false">Programs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="program/ai-product-management.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span><span><b data-course-name="ai-pm">AI-First Product Management</b><small>Become a confident, AI-first PM</small></span></a><a href="program/ai-data-engineering.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><span><b data-course-name="ai-de">AI-First Data Engineer</b><small>Build data pipelines and AI data platforms</small></span></a><a href="program/genai-launchpad.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></span><span><b data-course-name="genai-launchpad">GenAI Launchpad</b><small>Practical GenAI for every professional</small></span></a><div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></span><span><b>Other programs</b><small>SFMC training, digital marketing, FDE and public speaking</small></span><svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="dd-subm"><a href="guides/sfmc.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 13 3.5 3.5 0 0 0 6 19z"/></svg></span><span><b>SFMC training</b><small>Salesforce Marketing Cloud: Email Studio to Journey Builder</small></span></a><a href="guides/digital-marketing.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg></span><span><b>Digital marketing</b><small>SEO, ads, social, email and analytics, end to end</small></span></a><a href="guides/fde.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span><span><b>Forward Deployed Engineer</b><small>The FDE role: customers, AI deployment and integrations</small></span></a><a href="guides/public-speaking.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></span><span><b>Public speaking</b><small>Speak with confidence: talks, meetings, interviews and video</small></span></a><a href="other-programs.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/></svg></span><span><b>All other programs</b><small>Content creation and every other program, with reading</small></span></a><a href="programs.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><span><b>All programs</b><small>Compare programs, fees and FAQs</small></span></a></div></div><a href="business.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
+    <div class="dd on"><button type="button" aria-expanded="false">Upskill for free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="learning-platform.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/></svg></span><span><b>Learning platform</b><small>One page per programme: content, related programmes, tools and links</small></span></a><div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/></svg></span><span><b>Resources &amp; AI tools</b><small>Handbooks, PDFs, AI tools and useful links in five tabs</small></span><svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="dd-subm"><a href="resources.html#pm"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/></svg></span><span><b>Resources for PM</b><small>Handbook, templates, tools and interview practice</small></span></a><a href="resources.html#genai"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/></svg></span><span><b>Resources for Gen AI</b><small>GenAI handbook, AI tools, builders and automation</small></span></a><a href="resources.html#op-fde"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/></svg></span><span><b>Resources for FDE</b><small>Forward deployed engineer: role, skills, deployment and interview prep</small></span></a><div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Other programs</b><small>AI Engineer, SFMC, Public Speaking, Data Engineers, Digital marketing and resources</small></span><svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="dd-subm"><a href="resources.html#op-ai-engineer"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>AI Engineer</b><small>Full AI engineer path, classes and interview prep</small></span></a><a href="sfmc-academy.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>SFMC</b><small>Salesforce Marketing Cloud: complete guide, 28 modules, handbooks and labs</small></span></a><a href="resources.html#op-speaking"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Public Speaking</b><small>Speaking skills for PMs and leaders</small></span></a><a href="resources.html#data"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Resources for Data Engineers</b><small>Data Science &amp; AI handbook, DSA, practice and tools</small></span></a><a href="resources.html#dm"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Resources for Digital marketing</b><small>Digital marketing course, content creation and guides</small></span></a><div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Other programs &amp; resources</b><small>Other program and link, course gap check, tools, study library and Master Freelancing</small></span><svg class="dd-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button><div class="dd-subm"><a href="resources.html#other"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Other program and Link</b><small>Learning sites, AI builder tools, tutorials and links</small></span></a><a href="course-gap-check.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Course gap check</b><small>What the course is missing, with supplements and a PDF for each</small></span></a><a href="tools-and-resources.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.6-.6-2.1z"/></svg></span><span><b>Tool and learning resources</b><small>Every tool, website and learning link in one place</small></span></a><a href="study-library.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><span><b>Study Library</b><small>All study material in one page</small></span></a><a href="master-freelancing.html" aria-current="page"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></span><span><b>Master Freelancing</b><small>Freelance skills, portfolios and client work, department by department</small></span></a></div></div></div></div></div></div><a href="questions.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v.01M12 13a2 2 0 1 0-2-2"/></svg></span><span><b>Practice &amp; interview prep</b><small>Interview questions with answers for PM, data and GenAI</small></span></a><a href="events.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span><b>Events</b><small>Free live sessions, workshops and masterclasses</small></span></a></div></div>
+    <div class="dd"><button type="button" aria-expanded="false">AI Studio <span class="nav-new">Free</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="ai.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span><span><b>AI Studio</b><small>All AI tools in one place, free</small></span></a><a href="ai-academy.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><span><b>AI Skills Academy</b><small>All AI skills courses: lessons, PDFs, interactive</small></span></a></div></div>
+    <div class="dd"><button type="button" aria-expanded="false">Jobs &amp; careers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu">
+      <a href="jobs.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span><span><b>Job board</b><small>All job portals, alerts and openings</small></span></a>
+      <a href="mentor.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><span><b>Become a mentor</b><small>Guide learners, run sessions and mock interviews</small></span></a>
+      <a href="careers.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg></span><span><b>Career with SkillNavora</b><small>Open roles and how to join our team</small></span></a>
+      <a href="hire.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><span><b>Hire from SkillNavora</b><small>Is your company hiring? Get in touch</small></span></a>
+    </div></div>
+    <a href="#" data-community hidden>Community</a>
+    <div class="dd"><button type="button" aria-expanded="false">About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="about.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span><span><b>About SkillNavora</b><small>Our story, mission and team</small></span></a><a href="about.html#team"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span><span><b>SkillNavora team</b><small>Meet our founder and mentors</small></span></a><a href="about.html#why-us"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></span><span><b>Why us</b><small>What makes SkillNavora different</small></span></a><a href="reviews.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span><span><b>Reviews</b><small>What learners say</small></span></a><a href="blogs.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span><b>Blog</b><small>Guides, case studies and career advice</small></span></a><a href="contact.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></span><span><b>Contact us</b><small>Talk to our team</small></span></a></div></div>
+  </nav>
+  <div class="tools">
+    <a class="icon-btn search-btn" href="search.html" aria-label="Search the site" title="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></a>
+    <button class="icon-btn theme" type="button" aria-label="Switch light or dark mode"><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    <div class="dd login-dd"><button type="button" class="btn-login" id="nav-login" aria-expanded="false"><span>Log in</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu">
+      <a href="login.html" id="nav-student"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><span><b>Student login</b><small>Your LMS, courses, handbook and resources</small></span></a>
+      <a href="login.html?role=admin&amp;next=admin.html"><span class="dd-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span><b>Admin login</b><small>For the SkillNavora team</small></span></a></div></div>
+    <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</div></header>
+<main>
+<style>
+.tt-doc h1{font-size:30px;margin:0 0 6px}.tt-doc h2{margin-top:34px;border-bottom:1px solid #e5e5e5;padding-bottom:6px}
+.tt-doc h3{margin-top:24px}.tt-tw{display:block;width:100%;max-width:100%;overflow-x:auto;margin:12px 0}
+.tt-doc table{border-collapse:collapse;width:100%;min-width:0;font-size:14px}
+.tt-doc th,.tt-doc td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}.tt-doc th{background:#f4f4f6}
+.tt-doc pre{background:#0f1020;color:#e8e8f0;padding:12px;border-radius:8px;overflow-x:auto;font-size:13px}
+.tt-doc code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:0.92em}
+.tt-doc p code,.tt-doc li code,.tt-doc td code{background:#f1f1f5;padding:1px 4px;border-radius:4px}
+.tt-doc blockquote{border-left:4px solid #b7791f;background:#fff8e6;margin:14px 0;padding:8px 14px;border-radius:0 8px 8px 0}
+.tt-doc img{max-width:100%;height:auto;display:block;margin:14px auto;border:1px solid #e5e5e5;border-radius:10px;background:#fff}
+.tt-doc figcaption,.tt-doc em{color:#56626c}
+.tt-doc,.tt-tw,.tt-doc *{min-width:0;box-sizing:border-box}.tt-doc{width:100%;max-width:100%;overflow-wrap:anywhere}
+.tt-toc{display:grid;gap:6px;margin:14px 0 26px;padding:0;list-style:none}
+.tt-toc a{display:block;padding:10px 14px;border:1px solid #ddd;border-radius:8px;text-decoration:none;color:inherit}
+.tt-note{background:#fff8e6;border:1px solid #f0d78c;padding:12px 14px;border-radius:8px;margin:16px 0}
+</style><section><div class="wrap"><div class="tt-doc"><p><strong>Chapter:</strong> Master Freelancing · Algorithmic trading systems
+<strong>Scope:</strong> Architecture, security, data, option analytics, the 9/21 EMA crossover strategy, a friction-adjusted backtest, paper and live execution with guardrails, and the business and regulatory checks you need before you build or sell anything like this.
+<strong>Status of the strategy:</strong> not proven. This handbook describes rules and a method to test them. No result, win rate or profit figure in this chapter is a finding. The only numbers are worked examples on synthetic or hypothetical inputs.</p>
+<hr /></div><div class="tt-note"><b>Read first.</b> This chapter describes rules and a way to test them. It does not show that any strategy works. Charges, lot sizes, APIs and regulations must be checked on official pages. Options can lose all the premium paid, and selling options can lose more than was received.</div><h2 class="sec-h">Contents</h2><ol class="tt-toc"><li><a href="#read-this-first">Read this first</a></li><li><a href="#chapter-0-can-this-be-done-on-claude">Chapter 0: Can this be done on Claude?</a></li><li><a href="#chapter-1-scope-regulation-and-the-business-question">Chapter 1: Scope, regulation and the business question</a></li><li><a href="#chapter-2-architecture">Chapter 2: Architecture</a></li><li><a href="#chapter-3-security-and-credentials">Chapter 3: Security and credentials</a></li><li><a href="#chapter-4-data-layer">Chapter 4: Data layer</a></li><li><a href="#chapter-5-broker-integration-dual-feed">Chapter 5: Broker integration (dual feed)</a></li><li><a href="#chapter-6-dashboard">Chapter 6: Dashboard</a></li><li><a href="#chapter-7-black-scholes-greeks-method-and-code">Chapter 7: Black-Scholes Greeks (method and code)</a></li><li><a href="#chapter-8-strategy-9-21-ema-crossover">Chapter 8: Strategy: 9/21 EMA crossover</a></li><li><a href="#chapter-9-backtesting-costs-and-scorecards">Chapter 9: Backtesting, costs and scorecards</a></li><li><a href="#chapter-10-execution-paper-trading-and-live-routing">Chapter 10: Execution, paper trading and live routing</a></li><li><a href="#chapter-11-build-plan-30-days">Chapter 11: Build plan (30 days)</a></li><li><a href="#chapter-12-testing-and-release-checklist">Chapter 12: Testing and release checklist</a></li><li><a href="#chapter-13-glossary">Chapter 13: Glossary</a></li><li><a href="#learning-tools-and-links">Learning tools and links</a></li><li><a href="#sources-and-disclosure">Sources and disclosure</a></li></ol></div></section><section><div class="wrap"><section id="read-this-first" class="tt-doc"><h2>Read this first</h2>
+<ul>
+<li><strong>Risk.</strong> Options are leveraged and can lose all the premium paid. Selling options can lose far more than the premium received. A strategy that looks good on past data can fail on new data. You can lose money on every trade in this handbook.</li>
+<li><strong>Not advice.</strong> This is an engineering and learning guide. It is not investment, tax or legal advice.</li>
+<li><strong>Labels used below.</strong> <strong>[Fact]</strong> is a standard definition or formula. <strong>[Check]</strong> must be confirmed on an official page before you rely on it (charges, lot sizes, rules, APIs). <strong>[Assumption]</strong> is a value chosen for the worked examples. <strong>[Opinion]</strong> is a design recommendation.</li>
+</ul>
+<hr /></section><section id="chapter-0-can-this-be-done-on-claude" class="tt-doc"><h2>Chapter 0: Can this be done on Claude?</h2>
+<p><strong>Short answer:</strong> Claude can write the code, the tests, the documentation and the diagrams for this system. Claude cannot run the live trading part for you. Two different tools are involved.</p>
+<div class="tt-tw"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>In Claude chat or Artifacts</th>
+<th>In Claude Code on your own computer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Write the modules, tests and documentation</td>
+<td>Yes</td>
+<td>Yes, and it can run the tests in your project folder</td>
+</tr>
+<tr>
+<td>Run a backtest on data you provide (CSV)</td>
+<td>Yes, for small files, in a browser artifact or a file upload</td>
+<td>Yes, on the full dataset</td>
+</tr>
+<tr>
+<td>Show a dashboard</td>
+<td>Yes, as a static or client-side page with sample or uploaded data</td>
+<td>Yes, served on <code>127.0.0.1</code> on your machine</td>
+</tr>
+<tr>
+<td>Hold your broker password, TOTP secret or API key</td>
+<td><strong>No. Never paste them into a chat.</strong></td>
+<td>Yes, in a local <code>.env</code> file that is never committed</td>
+</tr>
+<tr>
+<td>Connect to your broker and place orders</td>
+<td><strong>No.</strong> A cloud sandbox has no secure connection to your account and is the wrong place for live orders</td>
+<td>Yes, from your machine, behind the guardrails in Chapter 9</td>
+</tr>
+<tr>
+<td>Keep a static IP that the broker can whitelist</td>
+<td><strong>No</strong></td>
+<td>Only if the machine or server has a fixed public IP (your own router, a VPS)</td>
+</tr>
+<tr>
+<td>Run a 24/7 WebSocket feed and Telegram bot</td>
+<td><strong>No</strong></td>
+<td>Yes, on a server or PC that stays on during market hours</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>What to do:</strong> build the project in a folder on your own computer, with Claude Code or your editor, and keep the secrets on that computer only. Use Claude for code review, tests and documentation. Do not publish a page that displays a live account, a token or a broker session.</p>
+<p><strong>Two things Claude cannot promise:</strong> that the strategy makes money, and that the broker's API, charges or regulations are what this handbook says. Check both yourself.</p>
+<hr /></section><section id="chapter-1-scope-regulation-and-the-business-question" class="tt-doc"><h2>Chapter 1: Scope, regulation and the business question</h2>
+<h3>1.1 Regulatory checks before any live use <strong>[Check]</strong></h3>
+<ul>
+<li><strong>Personal use:</strong> placing your own orders through your own broker account is different from running a service for others. Read your broker's API terms and any algorithmic-trading rules that apply to retail users in India (SEBI and the exchanges have issued rules on algorithmic trading and on broker APIs; confirm the current version).</li>
+<li><strong>Selling or sharing:</strong> giving other people trading signals or managing their money can require registration as a research analyst or investment adviser with SEBI. Do not sell signals or manage other people's money without legal advice.</li>
+<li><strong>Data:</strong> market data licences and the broker's terms govern how you can store, display and redistribute prices.</li>
+</ul>
+<h3>1.2 Business angle (freelancing)</h3>
+<p>The skills in this project transfer to paid work that does not give investment advice: building internal dashboards for a finance team, writing data pipelines and reconciliation checks, building backtesting infrastructure for a research team, and automating reports. A client who wants a "signal service" is a regulatory question first and a technical question second.</p>
+<hr /></section><section id="chapter-2-architecture" class="tt-doc"><h2>Chapter 2: Architecture</h2>
+<h3>2.1 Directory structure (target)</h3>
+<pre><code>trading-terminal/
+  backend/        FastAPI or Flask server, broker connectors, WebSocket handlers, quant modules
+  database/       Postgres schema (candles, option chain, journal), Redis cache manager
+  frontend/       dashboard: plain JavaScript with Tailwind, or a light React app
+  strategies/     backtest engine, signal generator, paper and live execution
+  alerts/         Telegram bot and notification dispatcher
+  tests/          unit tests for maths, cost model and guardrails
+  .env            secrets (never committed; see Chapter 3)
+  .gitignore      must list .env, *.csv with broker data, and logs
+</code></pre>
+<h3>2.2 Components and data flow</h3>
+<pre><code>Broker REST ──► history download, margin snapshot, order dispatch ──► Postgres (candles, journal)
+Broker WebSocket ──► ticks, depth, option prices ──► Redis pub/sub ──► dashboard (WebSocket)
+                                        │
+                              strategy engine on candle close
+                                        │
+               paper ledger  ◄── mode B        mode C (guarded) ──► broker order API
+                                        │
+                     Telegram alerts ◄──┴──► [Execute] / [Skip] buttons ──► backend
+</code></pre>
+<h3>2.3 Modes of operation</h3>
+<div class="tt-tw"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>What runs</th>
+<th>Money at risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. Backtest</td>
+<td>Historical candles and option prices, no clock</td>
+<td>None</td>
+</tr>
+<tr>
+<td>B. Forward paper</td>
+<td>Live ticks, simulated fills in a virtual ledger</td>
+<td>None (but test the data feed carefully)</td>
+</tr>
+<tr>
+<td>C. Live routing</td>
+<td>Real orders through the broker API</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<p>Move from A to B to C in that order. Do not skip B. Use C only with small size after B has run for weeks with a clean record.</p>
+<h3>2.4 Market hours and states <strong>[Check: exchange calendar]</strong></h3>
+<ul>
+<li>Regular session for NSE and F&amp;O: 09:15 to 15:30 IST, Monday to Friday, excluding exchange holidays.</li>
+<li>Outside those hours the terminal shows <strong>"Market Closed"</strong> and does not generate trades.</li>
+<li>Pre-open and special sessions have different rules. Do not trade them with this strategy.</li>
+</ul>
+<hr /></section><section id="chapter-3-security-and-credentials" class="tt-doc"><h2>Chapter 3: Security and credentials</h2>
+<h3>3.1 Where secrets live</h3>
+<ul>
+<li>All secrets (broker credentials, TOTP secret, API keys, database URL, Telegram bot token, the allowlisted Telegram user IDs) live in a <strong>local <code>.env</code> file</strong> on your computer.</li>
+<li>Never hard-code them. Never print them in logs. Never paste them into a chat, a ticket or a screenshot.</li>
+<li>Set file permissions so only your user can read it (on Linux and macOS: <code>chmod 600 .env</code>).</li>
+<li>A <code>keys.txt</code> file, as one prompt suggests, is the same risk in a different file name. If you use one, apply the same rules: outside any repository, read-only to your user, and deleted once you have moved the values into a secrets store.</li>
+</ul>
+<h3>3.2 TOTP auto-login <strong>[Check: broker terms]</strong></h3>
+<ul>
+<li>A TOTP (time-based one-time password) is a six-digit code that changes every 30 seconds. Some brokers let an app generate it from a shared secret, which can automate daily login.</li>
+<li><strong>Risk:</strong> the TOTP secret is as sensitive as the password. Anyone holding it can log in as you. Automating login may also be prohibited by the broker's terms. Check before you build it.</li>
+<li>Store the session token in memory or in an encrypted store, with an expiry. Re-authenticate when it expires. Never write a live token to a log or a browser page.</li>
+</ul>
+<h3>3.3 Static IP</h3>
+<p>Brokers that require a registered static IP for API orders will reject requests from any other address. Your code can check its own public address and refuse to place orders if it does not match the registered one. That is a safety check, not a substitute for the broker's own rule. <strong>[Check: the current SEBI and broker static-IP requirement for retail API orders.]</strong> A home connection with a changing IP fails this check; a fixed-IP server is the usual fix.</p>
+<h3>3.4 Web security for the dashboard</h3>
+<ul>
+<li>Bind the server to <code>127.0.0.1</code>, not <code>0.0.0.0</code>, unless you have authentication and HTTPS in front of it.</li>
+<li>Require a login for any page that shows balances or positions.</li>
+<li>Use CSRF protection on every state-changing request (orders, mode switches, confirmations).</li>
+<li>Set <code>Content-Security-Policy</code> headers and avoid inline scripts that take untrusted input.</li>
+</ul>
+<hr /></section><section id="chapter-4-data-layer" class="tt-doc"><h2>Chapter 4: Data layer</h2>
+<h3>4.1 PostgreSQL schema (outline)</h3>
+<pre><code class="language-sql">CREATE TABLE candles (
+  symbol     TEXT        NOT NULL,        -- e.g. NIFTY, BANKNIFTY, CRUDEOIL, SILVER
+  instrument TEXT        NOT NULL,        -- 'INDEX' | 'FUT' | 'OPT'
+  expiry     DATE,                        -- NULL for index
+  strike     NUMERIC(12,2),               -- NULL for index and futures
+  option_type CHAR(2),                    -- 'CE' | 'PE' | NULL
+  timeframe  TEXT        NOT NULL,        -- '1s' | '1m' | '5m' | '15m' | '30m'
+  ts         TIMESTAMPTZ NOT NULL,        -- candle open time, stored in UTC
+  open NUMERIC(12,2), high NUMERIC(12,2), low NUMERIC(12,2), close NUMERIC(12,2),
+  volume BIGINT, oi BIGINT,
+  PRIMARY KEY (symbol, instrument, COALESCE(expiry,'1900-01-01'), COALESCE(strike,0), COALESCE(option_type,''), timeframe, ts)
+);
+CREATE INDEX candles_ts ON candles (symbol, timeframe, ts);
+</code></pre>
+<ul>
+<li>Store times in UTC and convert to IST for display. Mixing the two is a classic source of wrong 9:30 and 15:00 gates.</li>
+<li>Keep expired option contracts. Survivorship bias (testing only contracts that still exist) inflates results.</li>
+<li>One-second candles for two years on several instruments is large. Partition by month or use a time-series extension if you need it, and do not store ticks you never use.</li>
+</ul>
+<h3>4.2 Redis</h3>
+<ul>
+<li>Use Redis pub/sub for live fan-out: one channel per instrument for ticks, one for depth, one for portfolio mark-to-market (M2M).</li>
+<li>Redis is a cache and message bus, not the system of record. The journal lives in Postgres or SQLite.</li>
+<li>Set expiry on cached snapshots so a stalled feed does not look live.</li>
+</ul>
+<h3>4.3 Data quality checks (run on every download)</h3>
+<ul>
+<li>No gaps in 1-minute bars during market hours (or a known holiday list explains them).</li>
+<li>High ≥ max(open, close) and low ≤ min(open, close) on every bar.</li>
+<li>No duplicate timestamps for the same contract.</li>
+<li>Option strikes exist for the expiry and the chain is complete around ATM.</li>
+<li>Volume and OI are non-negative. OI change matches the previous day's OI.</li>
+</ul>
+<hr /></section><section id="chapter-5-broker-integration-dual-feed" class="tt-doc"><h2>Chapter 5: Broker integration (dual feed)</h2>
+<h3>5.1 REST</h3>
+<ul>
+<li>Historical candles, margin and balance snapshots, order placement and status.</li>
+<li>Rate limits: queue requests and back off on HTTP 429. Log every response code.</li>
+</ul>
+<h3>5.2 WebSocket</h3>
+<ul>
+<li>High-throughput tick and depth feed. Subscribe only to instruments you use; a 500-strike chain subscribed by default is a common cause of dropped messages.</li>
+<li>Reconnect with exponential backoff (1 s, 2 s, 4 s… capped at 60 s) and re-subscribe after each reconnect.</li>
+<li>Detect stale data: if no tick arrives for N seconds during market hours, show a warning and stop generating trades.</li>
+</ul>
+<h3>5.3 Error states the code must handle</h3>
+<div class="tt-tw"><table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Required behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broker disconnect</td>
+<td>Mark feed "disconnected", stop new signals, keep existing positions visible, alert on Telegram</td>
+</tr>
+<tr>
+<td>Session token expired</td>
+<td>Re-authenticate once; if that fails, stop live routing and alert</td>
+</tr>
+<tr>
+<td>Market closed</td>
+<td>Show "Market Closed"; no signals, no orders</td>
+</tr>
+<tr>
+<td>Missing strike data</td>
+<td>Skip the contract, log it, never fill with a guessed price</td>
+</tr>
+<tr>
+<td>Order rejected</td>
+<td>Record the broker's reason in the journal; do not retry blindly</td>
+</tr>
+<tr>
+<td>Partial fill</td>
+<td>Track filled quantity; the position is only as big as the fill</td>
+</tr>
+<tr>
+<td>Stale price</td>
+<td>Refuse to route an order priced from data older than the threshold</td>
+</tr>
+</tbody>
+</table></div>
+<hr /></section><section id="chapter-6-dashboard" class="tt-doc"><h2>Chapter 6: Dashboard</h2>
+<h3>6.1 Watchlist and charts</h3>
+<ul>
+<li>Multi-asset watchlist: Nifty 50, F&amp;O stocks, MCX commodities (crude oil, silver). Confirm each contract's symbol and lot size on the exchange.</li>
+<li>Candlestick chart with 9 EMA and 21 EMA overlays and markers for entries and exits. <strong>[Check]</strong> the TradingView Lightweight Charts licence (Apache 2.0 at the time of writing) and its current API.</li>
+</ul>
+<h3>6.2 Order book (market depth)</h3>
+<p>Top five bids and asks with quantity and orders. Depth is only meaningful during live sessions; show "no depth" outside them.</p>
+<h3>6.3 Option chain and Greeks</h3>
+<ul>
+<li>Current-week and next-week expiries; strikes around ATM (for example ±10 strikes).</li>
+<li>Per strike: LTP, bid, ask, OI, OI change, IV, delta, gamma, theta, vega.</li>
+<li>Greeks are computed locally with Black-Scholes (Chapter 7). Label them as model values, not vendor values.</li>
+</ul>
+<h3>6.4 Statistical spot profiling (0DTE)</h3>
+<p>For expiry days, compute from history:
+- <strong>Intraday range:</strong> (day high − day low) ÷ day open, averaged, in percent and in points.
+- <strong>Gap-up / gap-down probability:</strong> share of days where the open is above (below) the previous close by more than a threshold you set. Define the threshold before you look at results.
+- <strong>Probability an OTM strike expires worthless:</strong> for each OTM strike (for example 100, 200, 250 points away), the share of expiry days where the settlement price was below that strike (for a call) or above it (for a put). Use settlement prices from expired contracts. Report sample size with every number.</p>
+<hr /></section><section id="chapter-7-black-scholes-greeks-method-and-code" class="tt-doc"><h2>Chapter 7: Black-Scholes Greeks (method and code)</h2>
+<h3>7.1 Formulas <strong>[Fact]</strong></h3>
+<p>For a European call with spot S, strike K, time to expiry T (years), risk-free rate r, dividend yield q, volatility σ:</p>
+<ul>
+<li>d1 = [ln(S/K) + (r − q + σ²/2)·T] / (σ√T)</li>
+<li>d2 = d1 − σ√T</li>
+<li>Call = S·e^(−qT)·N(d1) − K·e^(−rT)·N(d2)</li>
+<li>Put = K·e^(−rT)·N(−d2) − S·e^(−qT)·N(−d1)</li>
+<li>Delta: call e^(−qT)N(d1); put −e^(−qT)N(−d1)</li>
+<li>Gamma = e^(−qT)·φ(d1) / (Sσ√T)</li>
+<li>Vega = S·e^(−qT)·φ(d1)·√T (per 1 vol point after dividing by 100)</li>
+<li>Theta (per day): divide the annual theta by 365</li>
+</ul>
+<p>N is the standard normal cumulative distribution; φ is its density.</p>
+<h3>7.2 Implied volatility <strong>[Fact]</strong></h3>
+<p>Implied volatility (IV) is the σ that makes the model price equal the market price. There is no closed form; the code uses bisection between no-arbitrage bounds. Check the model price against the market before trusting the IV, because a stale or illiquid quote gives a meaningless IV.</p>
+<h3>7.3 Code and tests</h3>
+<p>The reference implementation is <code>code/bs.py</code> with tests in <code>code/test_bs.py</code>. The tests check put-call parity, a textbook value (S = K = 100, T = 1, r = 5%, σ = 20%, call ≈ 10.4506), delta relations, gamma and vega equality, and an implied-volatility round trip.</p>
+<p>Worked example (synthetic inputs: S = 22,000, K = 22,100, 5 days to expiry, r = 6.5%, σ = 14%): call delta ≈ 0.415, gamma ≈ 0.0011, theta ≈ −15.7 per day, vega ≈ 10.0 per vol point.</p>
+<hr /></section><section id="chapter-8-strategy-9-21-ema-crossover" class="tt-doc"><h2>Chapter 8: Strategy: 9/21 EMA crossover</h2>
+<h3>8.1 Rules as specified</h3>
+<ul>
+<li><strong>Underlying:</strong> Nifty 50 index. Indicators are computed on the index, not on the option.</li>
+<li><strong>Bullish signal:</strong> EMA 9 crosses above EMA 21 <strong>on a candle close</strong>.</li>
+<li><strong>Bearish signal:</strong> EMA 9 crosses below EMA 21 <strong>on a candle close</strong>.</li>
+<li><strong>Bullish trade options:</strong> buy ATM call, buy deep in-the-money call, or sell ATM put.</li>
+<li><strong>Bearish trade options:</strong> buy ATM put, buy deep in-the-money put, or sell ATM call.</li>
+<li><strong>Entry window:</strong> no new entries before 09:30 IST (09:15–09:30 is excluded as opening chop).</li>
+<li><strong>Exit:</strong> reverse crossover on candle close, or the mandatory square-off at 15:00 IST. No overnight positions.</li>
+<li><strong>Timeframes to compare:</strong> 5-minute, 15-minute and 30-minute candles.</li>
+</ul>
+<p>The one-prompt version said "ignore 9:15 to 9:30". The other said "after 9:30". Both mean the same gate; the code uses 09:30.</p>
+<h3>8.2 The flow (image)</h3>
+<p><img alt="9/21 EMA crossover decision flow" src="Master-Freelancing-Trading-Terminal/images/ema-strategy-flow.svg" /></p>
+<p><em>Figure 1. The rule flow as written. It shows the logic, not any result.</em></p>
+<h3>8.3 What a crossover looks like (synthetic)</h3>
+<p><img alt="EMA crossover on synthetic prices" src="Master-Freelancing-Trading-Terminal/images/ema-crossover-illustration.png" /></p>
+<p><em>Figure 2. Synthetic random-walk prices with EMA 9 and EMA 21. The triangles mark confirmed crossovers on candle close. This is not Nifty data and says nothing about profitability.</em></p>
+<h3>8.4 Why a crossover strategy needs friction and testing</h3>
+<ul>
+<li>In a range-bound market, EMAs cross often and each cross is a loss after costs. These are <strong>whipsaws</strong>. Count them separately (the reference code has <code>whipsaw_count</code>).</li>
+<li>An option buy loses to time decay even when the index moves the right way slowly. Theta matters most on expiry days.</li>
+<li>An ATM option sell collects premium but has large or unlimited loss in a fast move. Naked short options need margin, stop rules and a plan for a gap. Without those, one bad day can wipe out many good ones.</li>
+<li>A deep in-the-money option behaves more like the underlying (higher delta) but costs more premium and carries more capital per trade.</li>
+</ul>
+<h3>8.5 Operational guardrails in the strategy</h3>
+<ul>
+<li>Signals only on closed candles. Never act on the forming candle, because the close is not known until the candle ends.</li>
+<li>Enter on the next candle's open (or a defined fill rule). Using the same candle's close as the fill is look-ahead bias.</li>
+<li>One position at a time per strategy unless you explicitly test otherwise.</li>
+<li>Hard stop at 15:00 IST regardless of signal.</li>
+</ul>
+<hr /></section><section id="chapter-9-backtesting-costs-and-scorecards" class="tt-doc"><h2>Chapter 9: Backtesting, costs and scorecards</h2>
+<h3>9.1 Data you need</h3>
+<ul>
+<li>Index 1-minute candles, two years, Nifty 50 (and the timeframes you compare, aggregated from 1-minute).</li>
+<li>Option premiums for the ATM, deep ITM and chosen strikes at each relevant minute, including expired contracts.</li>
+<li>Lot sizes and expiry calendar for each period. <strong>[Check: NSE lot sizes change over time.]</strong></li>
+<li>Charges schedule for each period. <strong>[Check]</strong></li>
+</ul>
+<p><strong>Availability:</strong> whether the broker API provides two years of one-minute index and option history, and for expired contracts, is <strong>[Check]</strong>. If it does not, say so in the report; do not fill the gap with simulated premiums and present them as history.</p>
+<h3>9.2 Engine rules that prevent false results</h3>
+<ol>
+<li>Signal on candle close, fill on the next candle (see 8.5).</li>
+<li>Use the option price at the fill time, not the index price.</li>
+<li>Apply frictions to every fill (9.3).</li>
+<li>Include expired contracts and the exact expiry calendar.</li>
+<li>Split the data: optimise on one period, test on a later period that was not used for any choice. Report both.</li>
+<li>Do not tune EMA lengths, time gates and strike offsets until one combination looks good. Test a small grid and report all of it.</li>
+<li>Report sample size and the number of parameter combinations tried.</li>
+</ol>
+<h3>9.3 Friction model</h3>
+<p>For each fill:
+- <strong>Premium slippage:</strong> 0.5% adverse. A buy fills at premium × 1.005; a sell fills at premium × 0.995.
+- <strong>Tick penalty:</strong> one tick (₹0.05) adverse on each fill, so buy + 0.05 and sell − 0.05.
+- <strong>Brokerage:</strong> per order <strong>[Check: your broker's plan]</strong>.
+- <strong>STT:</strong> on option premium, on the sell side <strong>[Check: the current rate and base. The brief says "sell value"; confirm the base the exchange uses.]</strong>
+- <strong>Exchange transaction charge, SEBI fee, stamp duty (buy side), GST on brokerage and fees.</strong> <strong>[Check each rate.]</strong></p>
+<p>All rates are constants in <code>code/strategy_reference.py</code> (<code>CHARGES</code>). Change them there once you have verified them, and rerun the tests.</p>
+<p>Worked example (hypothetical, 75 units, buy at 100, sell at 110): entry fill 100.55, exit fill 109.40, gross 750.00, price frictions 86.25, charges 62.16, net 601.59. The charge figures use the placeholder rates above, so the net is illustrative only.</p>
+<h3>9.4 KPI definitions</h3>
+<div class="tt-tw"><table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total trades</td>
+<td>Count of closed trades</td>
+</tr>
+<tr>
+<td>Win / loss count</td>
+<td>Trades with net &gt; 0 / net &lt; 0</td>
+</tr>
+<tr>
+<td>Win rate</td>
+<td>wins ÷ total trades</td>
+</tr>
+<tr>
+<td>Gross PnL</td>
+<td>Sum of (exit − entry) × quantity before frictions</td>
+</tr>
+<tr>
+<td>Charges</td>
+<td>Sum of brokerage, STT, exchange, SEBI, stamp and GST</td>
+</tr>
+<tr>
+<td>Net PnL</td>
+<td>Gross − price frictions − charges</td>
+</tr>
+<tr>
+<td>Profit factor</td>
+<td>sum of winning net PnL ÷ absolute sum of losing net PnL</td>
+</tr>
+<tr>
+<td>Payoff ratio</td>
+<td>average win ÷ average loss</td>
+</tr>
+<tr>
+<td>Expectancy</td>
+<td>net PnL ÷ number of trades (the average result per trade)</td>
+</tr>
+<tr>
+<td>Max drawdown</td>
+<td>the largest fall from a peak in cumulative net PnL</td>
+</tr>
+<tr>
+<td>Whipsaws</td>
+<td>losing trades closed within a few candles by a reverse crossover</td>
+</tr>
+</tbody>
+</table></div>
+<p>Read the scorecard with the sample size. Fewer than about 30 trades is too few to say much; the code adds a warning.</p>
+<h3>9.5 The three option modes</h3>
+<p>Compare them on the same signals and the same costs:
+1. <strong>ATM option buy:</strong> limited loss (the premium), theta works against you, needs a sharp move.
+2. <strong>Deep ITM option buy:</strong> higher delta, less time-value decay, more capital per trade.
+3. <strong>ATM option sell:</strong> collects premium, unlimited or large loss in a fast move; needs margin and a stop plan.</p>
+<p>A mode can look best on one timeframe and worst on another. Report the full grid, not the best cell.</p>
+<hr /></section><section id="chapter-10-execution-paper-trading-and-live-routing" class="tt-doc"><h2>Chapter 10: Execution, paper trading and live routing</h2>
+<h3>10.1 Paper trading (Mode B)</h3>
+<ul>
+<li>Runs during 09:15 to 15:30 IST on live ticks. Generates signals on candle close and records simulated fills with the frictions from Chapter 9.</li>
+<li>Writes to a virtual ledger and to the same journal as live trades, tagged <code>PAPER</code>.</li>
+<li>Outside market hours it shows "Market Closed" and does nothing else.</li>
+</ul>
+<h3>10.2 Live routing (Mode C) and the guardrails</h3>
+<p>Use <strong>two independent guardrails</strong>, and make both required:</p>
+<ol>
+<li><strong>Environment flag.</strong> The server refuses to enable live routing unless the variable is set when it starts. Pick one name and use it everywhere. The two prompts this chapter draws on name it differently (<code>TERMINAL_LIVE_TRADING=1</code> in one, <code>EMA_LIVE=1</code> in the other). <strong>[Decision needed: choose one.]</strong></li>
+<li><strong>Typed confirmation.</strong> The UI asks you to type a fixed phrase before a live session starts. The two prompts use different phrases (<code>CONFIRM TRADE</code> and <code>trade live</code>). Choose one. Typing it is a deliberate act, so do not make the phrase a single button.</li>
+</ol>
+<p>Add a third layer that most tutorials leave out:
+3. <strong>Static IP check.</strong> Confirm the outbound IP matches the registered address before every live session, and refuse if it does not.</p>
+<p>Also add:
+- A <strong>kill switch</strong> that stops all new orders and flattens the book, reachable from the dashboard and from Telegram.
+- A <strong>per-day loss limit</strong> and a <strong>per-trade maximum quantity</strong>. When either is hit, live routing stops until you reset it.
+- <strong>Order confirmation for each trade</strong> (Telegram <code>[Execute]</code> / <code>[Skip]</code>) in semi-automated mode. Verify the callback comes from your user ID; do not trust the button data alone.</p>
+<h3>10.3 Telegram</h3>
+<ul>
+<li>A bot token and a list of allowed Telegram user IDs in <code>.env</code>. Ignore messages from any other ID.</li>
+<li>Alerts: trade trigger, large IV change, a one-minute M2M update, feed disconnected, order rejected.</li>
+<li><code>[Execute]</code> and <code>[Skip]</code> buttons call the backend with a signed, single-use trade ID that expires after a few seconds.</li>
+</ul>
+<h3>10.4 Trade journal</h3>
+<p>Every paper and live order is written to one table (Postgres or SQLite) with:
+Timestamp (IST and UTC), mode (<code>PAPER</code>/<code>LIVE</code>), strategy name ("9/21 EMA Crossover"), timeframe, underlying price at trigger, strike, option type (CE/PE), side, quantity, expected price, fill price, slippage incurred (in INR), charges, realised net PnL, and the broker order ID.</p>
+<p>Journal entries are append-only. A correction is a new row that references the old one.</p>
+<hr /></section><section id="chapter-11-build-plan-30-days" class="tt-doc"><h2>Chapter 11: Build plan (30 days)</h2>
+<div class="tt-tw"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Goal</th>
+<th>Done when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Project skeleton, <code>.env</code> loading, tests for the maths and cost model</td>
+<td><code>pytest</code> passes; no secret in the repo</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data download and quality checks; Postgres schema loaded</td>
+<td>2 years of 1-minute index data loaded; quality report clean</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Backtest engine on the strategy; scorecards; three timeframes and three option modes</td>
+<td>Scorecard produced for each combination, with sample sizes</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dashboard (charts, watchlist, scorecard), paper mode, journal</td>
+<td>Paper trading runs for a full market day with a clean journal</td>
+</tr>
+</tbody>
+</table></div>
+<p>Then: at least four more weeks of paper trading before any live routing, and a written review of the paper results against the backtest. If they disagree, find out why before going further.</p>
+<hr /></section><section id="chapter-12-testing-and-release-checklist" class="tt-doc"><h2>Chapter 12: Testing and release checklist</h2>
+<ul>
+<li>[ ] Unit tests pass for EMA, crossovers, fills, charges, scorecard and Black-Scholes.</li>
+<li>[ ] Put-call parity and implied-volatility round trip pass.</li>
+<li>[ ] Backtest reports the friction model and the sample size.</li>
+<li>[ ] Out-of-sample period was not used to choose parameters.</li>
+<li>[ ] Paper trading has run long enough to show the feed handles disconnects.</li>
+<li>[ ] Missing strikes, stale prices and rejected orders are handled and logged.</li>
+<li>[ ] Live routing is off by default. Both guardrails and the static IP check are tested to block an order.</li>
+<li>[ ] Kill switch works from the dashboard and from Telegram.</li>
+<li>[ ] <code>.env</code> is not in version control; secrets were rotated after any accidental exposure.</li>
+<li>[ ] The dashboard is bound to <code>127.0.0.1</code> or behind authentication and HTTPS.</li>
+</ul>
+<hr /></section><section id="chapter-13-glossary" class="tt-doc"><h2>Chapter 13: Glossary</h2>
+<div class="tt-tw"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ATM</td>
+<td>At-the-money: strike closest to the spot price</td>
+</tr>
+<tr>
+<td>ITM / OTM</td>
+<td>In-the-money / out-of-the-money: a call is ITM when spot is above strike; a put is ITM when spot is below strike</td>
+</tr>
+<tr>
+<td>CE / PE</td>
+<td>Call option / put option</td>
+</tr>
+<tr>
+<td>0DTE</td>
+<td>Zero days to expiry: the contract expires that day</td>
+</tr>
+<tr>
+<td>Delta</td>
+<td>Change in option price for a 1-point move in the underlying</td>
+</tr>
+<tr>
+<td>Gamma</td>
+<td>Change in delta for a 1-point move in the underlying</td>
+</tr>
+<tr>
+<td>Theta</td>
+<td>Change in option price per day from the passage of time (usually negative for long options)</td>
+</tr>
+<tr>
+<td>Vega</td>
+<td>Change in option price for a 1-point change in volatility</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>Implied volatility: the volatility that matches the market price in the model</td>
+</tr>
+<tr>
+<td>OI</td>
+<td>Open interest: number of contracts open</td>
+</tr>
+<tr>
+<td>EMA</td>
+<td>Exponential moving average: a moving average that weights recent prices more</td>
+</tr>
+<tr>
+<td>Crossover on close</td>
+<td>A signal confirmed only when the candle closes</td>
+</tr>
+<tr>
+<td>Whipsaw</td>
+<td>A false signal that reverses quickly and loses money</td>
+</tr>
+<tr>
+<td>Slippage</td>
+<td>The gap between the expected and actual fill price</td>
+</tr>
+<tr>
+<td>Tick</td>
+<td>The smallest price step (₹0.05 in this brief)</td>
+</tr>
+<tr>
+<td>STT</td>
+<td>Securities Transaction Tax, a statutory charge in India</td>
+</tr>
+<tr>
+<td>Profit factor</td>
+<td>Gross winning PnL divided by gross losing PnL</td>
+</tr>
+<tr>
+<td>Expectancy</td>
+<td>Average net result per trade</td>
+</tr>
+<tr>
+<td>Max drawdown</td>
+<td>Largest peak-to-trough fall in cumulative PnL</td>
+</tr>
+<tr>
+<td>M2M</td>
+<td>Mark-to-market: the current value of open positions</td>
+</tr>
+<tr>
+<td>Pub/sub</td>
+<td>A messaging pattern where publishers send to channels and subscribers receive them</td>
+</tr>
+<tr>
+<td>WebSocket</td>
+<td>A two-way connection for streaming messages</td>
+</tr>
+<tr>
+<td>TOTP</td>
+<td>Time-based one-time password, a six-digit code that changes every 30 seconds</td>
+</tr>
+<tr>
+<td>Static IP</td>
+<td>A fixed public address used for broker API requests</td>
+</tr>
+<tr>
+<td>Look-ahead bias</td>
+<td>Using information that would not have been known at the time of the decision</td>
+</tr>
+<tr>
+<td>Survivorship bias</td>
+<td>Testing only instruments that still exist, which flatters results</td>
+</tr>
+<tr>
+<td>Out-of-sample</td>
+<td>Data not used to choose the strategy's parameters</td>
+</tr>
+</tbody>
+</table></div>
+<hr /></section><section id="learning-tools-and-links" class="tt-doc"><h2>Learning tools and links</h2>
+<ul>
+<li>NSE India (market data, lot sizes, holidays, circulars): https://www.nseindia.com</li>
+<li>SEBI (regulation, algorithmic trading and investment advice rules): https://www.sebi.gov.in</li>
+<li>Black-Scholes model overview (for the maths, read an introductory text, then check any formula against the code tests): https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model</li>
+<li>TradingView Lightweight Charts documentation: https://tradingview.github.io/lightweight-charts/</li>
+<li>FastAPI documentation: https://fastapi.tiangolo.com</li>
+<li>Flask documentation: https://flask.palletsprojects.com</li>
+<li>PostgreSQL documentation: https://www.postgresql.org/docs/</li>
+<li>Redis documentation (pub/sub): https://redis.io/docs/</li>
+<li>Telegram Bot API: https://core.telegram.org/bots/api</li>
+<li>Groww API developer documentation: <strong>[Check: locate the official developer portal and its current terms]</strong></li>
+</ul>
+<hr /></section><section id="sources-and-disclosure" class="tt-doc"><h2>Sources and disclosure</h2>
+<ul>
+<li>This handbook is based on the feature list and rules in the brief supplied with it. No broker, exchange or regulator document was opened while writing it; every item marked [Check] must be confirmed against the official page.</li>
+<li>The code in <code>code/</code> was tested with its own unit tests. It has not been run against any live broker, and it does not include any broker connector.</li>
+<li>Figures in worked examples are hypothetical or synthetic.</li>
+</ul></section></div></section>
+</main>
+<footer><div class="wrap">
+  <div class="cols">
+    <div><a class="brand" href="index.html"><img class="lg lg-light" src="assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
+      <p>AI-first programs in product management, data engineering and generative AI, with live classes, an LMS and career support.</p>
+      <div class="follow"><h4>Follow us</h4><div id="social" class="soc"></div></div></div>
+    <div><h4>Programs</h4><ul><li><a href="program/ai-product-management.html" data-course-name="ai-pm">AI-First Product Management</a></li><li><a href="program/ai-data-engineering.html" data-course-name="ai-de">AI-First Data Engineer</a></li><li><a href="program/genai-launchpad.html" data-course-name="genai-launchpad">GenAI Launchpad</a></li><li><a href="programs.html">All programs and FAQs</a></li></ul></div>
+    <div><h4>Upskill for free</h4><ul><li><a href="tests.html">Practice tests</a></li><li><a href="questions.html">Top 100 questions</a></li><li><a href="quiz.html">Quiz zone</a></li><li><a href="challenges.html">Challenges</a></li><li><a href="practice.html">Practice with AI</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources &amp; AI tools</a></li><li><a href="tools.html">Tool tutorials</a></li><li><a href="handbooks/index.html">SkillNavora Handbooks</a></li><li><a href="resources.html#pm">Resources for PM</a></li><li><a href="resources.html#data">Resources for Data Engineers</a></li><li><a href="resources.html#genai">Resources for GenAI</a></li><li><a href="resources.html#more">Other resources &amp; links</a></li><li><a href="blogs.html">Blogs</a></li><li><a href="refer.html">Refer &amp; earn</a></li><li><a href="hire.html">Hire from us</a></li><li><a href="jobs.html">Job board</a></li><li><a href="business.html">For business</a></li></ul></div>
+    <div><h4>Contact us</h4><ul id="fcontact"></ul><ul style="margin-top:14px"><li><a href="mentor.html">Become a mentor</a></li><li><a href="careers.html">Careers</a></li><li><a href="login.html">Member login</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms and conditions</a></li><li><a href="refund.html">Cancellation and refund policy</a></li></ul></div>
+  </div>
+  <div class="base"><span>© <span id="yr"></span> SkillNavora. All rights reserved.</span><span class="madeby">Made with care in India</span></div>
+</div></footer>
+
+<a class="callfab" id="callfab" hidden aria-label="Call us" title="Call us"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a><a class="wa" id="wa" hidden target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><em class="t">Chat on WhatsApp</em></a>
+<div class="modal" id="m-counsel" role="dialog" aria-modal="true" aria-labelledby="mc-h"><div class="mbox wide">
+  <div class="mside">
+    <h2>Have questions about the course unanswered?</h2>
+    <div class="kicker" style="color:#cfe0ff">Our recommendation</div>
+    <p class="mside-sub">Talk to the founder</p>
+    <div class="mperson"><div class="ring"><img src="assets/varun.jpg" alt="Varun Kumar" width="150" height="150"></div>
+      <div class="pcard"><div class="pt">Free 1:1 · 15 minutes · No sales pitch</div><div class="pb"><b>Varun Kumar</b><span>Founder, SkillNavora · Product Manager</span></div></div></div>
+  </div>
+  <div class="mform">
+    <div class="mhead"><h2 id="mc-h">Talk to a counsellor</h2><button class="mclose" type="button" data-close aria-label="Close">×</button></div>
+    <div class="mprog"><span id="mc-bar"></span></div>
+    <form id="f-counsel" novalidate>
+      <div class="mstep" data-step="1">
+        <fieldset><legend><span class="req">Select your highest qualification</span></legend><div class="radios">
+          <label><input type="radio" name="qual" value="12th"> 12th</label><label><input type="radio" name="qual" value="Diploma"> Diploma</label><label><input type="radio" name="qual" value="Undergraduate"> Undergraduate</label><label><input type="radio" name="qual" value="Postgraduate"> Postgraduate</label></div></fieldset>
+        <fieldset><legend><span class="req">Select your graduation year</span></legend><div class="radios">
+          <label><input type="radio" name="grad" value="Before 2015"> Before 2015</label><label><input type="radio" name="grad" value="2015 – 2020"> 2015 – 2020</label><label><input type="radio" name="grad" value="2021 – 2025"> 2021 – 2025</label><label><input type="radio" name="grad" value="2026 or later"> 2026 or later</label><label><input type="radio" name="grad" value="Haven't joined college yet"> Haven't joined college yet</label></div></fieldset>
+      </div>
+      <div class="mstep" data-step="2" hidden>
+        <fieldset><legend><span class="req">Your work experience</span></legend><div class="radios">
+          <label><input type="radio" name="exp" value="Student / Fresher"> Student / Fresher</label><label><input type="radio" name="exp" value="0 – 2 years"> 0 – 2 years</label><label><input type="radio" name="exp" value="2 – 5 years"> 2 – 5 years</label><label><input type="radio" name="exp" value="5 – 10 years"> 5 – 10 years</label><label><input type="radio" name="exp" value="10+ years"> 10+ years</label></div></fieldset>
+        <fieldset><legend><span class="req">Which program interests you?</span></legend><div class="radios" id="mc-courses"></div></fieldset>
+      </div>
+      <div class="mstep" data-step="3" hidden>
+        <label><span class="req">Name</span><input name="name" maxlength="80" autocomplete="name" placeholder="Enter your name"></label>
+        <label><span class="req">Phone number</span><span class="phone"><select name="cc" aria-label="Country code"><option value="+91">🇮🇳 +91</option><option value="+971">🇦🇪 +971</option><option value="+1">🇺🇸 +1</option><option value="+44">🇬🇧 +44</option></select><input name="phone" inputmode="tel" maxlength="15" autocomplete="tel-national" placeholder="98765 43210"></span></label>
+        <label>Email <span class="meta">(optional)</span><input name="email" type="email" maxlength="200" autocomplete="email" placeholder="you@gmail.com"></label>
+        <label>Best time to call<select name="time"><option>Morning (9–12)</option><option>Afternoon (12–5)</option><option selected>Evening (5–9)</option><option>Weekend</option></select></label>
+      </div>
+      <p class="notice error" id="mc-err" hidden role="alert"></p>
+      <div class="mfoot"><button class="btn btn-line" type="button" id="mc-back" hidden>← Back</button><button class="btn btn-primary" type="submit" id="mc-next">Next →</button></div>
+      <a class="meta" id="counsel-book" href="#" target="_blank" rel="noopener" hidden style="display:block;text-align:center;margin-top:10px">Or pick a time on our calendar →</a>
+    </form>
+    <div id="counsel-done" class="done-box" hidden><div class="big">🎉</div><h3>You're booked in!</h3><p class="meta">We'll call you at your preferred time. You can also message us on WhatsApp any time.</p></div>
+  </div></div></div>
+<div class="modal" id="m-unsure" role="dialog" aria-modal="true" aria-labelledby="mu-h"><div class="mbox">
+  <button class="mclose" type="button" data-close aria-label="Close">×</button>
+  <div class="art"><svg viewBox="0 0 200 120" aria-hidden="true"><circle cx="40" cy="30" r="18" fill="#fff" stroke="#e1e6f0"/><circle cx="40" cy="25" r="6" fill="#55607a"/><path d="M29 41a11 11 0 0 1 22 0" fill="#55607a"/><circle cx="53" cy="42" r="5" fill="#22c55e" stroke="#fff" stroke-width="2"/>
+<rect x="55" y="38" width="88" height="48" rx="14" fill="#0d1630"/><path d="M70 86l-4 16 18-16z" fill="#0d1630"/><circle cx="84" cy="62" r="5" fill="#8a96b5"/><circle cx="99" cy="62" r="5" fill="#8a96b5"/><circle cx="114" cy="62" r="5" fill="#8a96b5"/>
+<rect x="120" y="62" width="76" height="42" rx="12" fill="#fff" stroke="#e1e6f0"/><rect x="132" y="75" width="48" height="5" rx="2.5" fill="#cdd5e6"/><rect x="132" y="87" width="34" height="5" rx="2.5" fill="#cdd5e6"/>
+<path d="M165 26l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#ff8a3d"/><path d="M22 74l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" fill="#ff8a3d" opacity=".7"/></svg></div>
+  <div class="in"><h2 id="mu-h">Not sure if this is for you?</h2><div class="rule"></div>
+    <p>Find out by connecting 1:1 with our team and ask any questions you have.</p>
+    <button class="btn btn-dark" type="button" id="unsure-call">Book a free 1:1 call →</button>
+    <a class="btn btn-wa" id="unsure-wa" href="#" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Ask on WhatsApp</a>
+    <div class="mnote"><i>✓</i>15 minutes · No sales pitch · Free</div>
+    <button class="mskip" type="button" data-close>I'm just browsing</button>
+  </div></div></div>
+<a class="refab" href="refer.html" aria-label="Refer and earn" title="Refer &amp; earn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2zM12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span>Refer &amp; earn</span></a>
+<button class="chat-fab" id="chat-fab" type="button" hidden aria-label="Ask SkillNavora AI"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg><span>Ask AI</span></button>
+<div class="chat" id="chat" role="dialog" aria-label="SkillNavora AI assistant">
+  <div class="chat-h"><img src="assets/logo-badge.png" alt="" width="32" height="32"><span><b>SkillNavora assistant</b><small>Answers about programs, fees and careers</small></span><button type="button" id="chat-x" aria-label="Close chat">×</button></div>
+  <div class="chat-b" id="chat-b" aria-live="polite"></div>
+  <form class="chat-f" id="chat-f"><textarea id="chat-in" rows="1" maxlength="1500" placeholder="Ask a question…" aria-label="Your question"></textarea><button type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></form>
+  <div class="chat-n">AI answers can be wrong. Confirm fees and dates with a counsellor.</div>
+</div>
+<script src="assets/config.js?v=790d22d6"></script>
+<script src="assets/site.js?v=9e37e19d"></script><script src="assets/engage.js?v=8d2e90ba"></script><script src="assets/gate.js?v=4ec22fed"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 import re
 import make_money_page as _mm
+import trading_page as _tp
 #!/usr/bin/env python3
 """Generate the SkillNavora LMS site into /home/user/skillnavora."""
 import os, re, html, shutil, json
@@ -1394,7 +1395,8 @@ MF_BODY = uhero("Upskill for free", "Master <span class=\"g\">Freelancing</span>
 <section style="padding-top:8px"><div class="wrap"><div class="kicker">How to start</div><h2 class="sec-h">Six steps from zero to your first client</h2>
 <ol class="meta" style="max-width:74ch;line-height:1.7"><li>Pick one profession and learn its foundations.</li><li>Build three small samples, each with a short description of the problem it solves.</li><li>Create a simple portfolio page that shows the samples.</li><li>Set a clear starting price and a written scope for each service.</li><li>Pitch on marketplaces and LinkedIn with a specific offer, not a general profile.</li><li>Ask every client for a review or testimonial with their permission.</li></ol>
 <p class="meta" style="max-width:74ch">Freelancing and part-time options are listed on the <a href="jobs.html#freelance">Job board</a>. Learning roadmaps are learning plans, not guaranteed jobs or incomes.</p></div></section>"""
-page("master-freelancing.html", "Master Freelancing · SkillNavora", "Learn a skill, build a portfolio, find clients and earn: the SkillNavora Master Freelancing academy, department by department.", MF_BODY + _mm.section_html(), "master-freelancing.html")
+page("master-freelancing.html", "Master Freelancing · SkillNavora", "Learn a skill, build a portfolio, find clients and earn: the SkillNavora Master Freelancing academy, department by department.", MF_BODY + _mm.section_html() + _tp.section_html(), "master-freelancing.html")
+page("trading-terminal-handbook.html", "Personal Trading & Analytics Terminal: handbook · SkillNavora", "Master Freelancing chapter on algorithmic trading systems: architecture, security, option Greeks, a 9/21 EMA strategy with a friction-adjusted backtest, guarded execution and regulatory checks. Not a proof that any strategy works.", _tp.body(), "master-freelancing.html")
 page("make-money-course.html", "Make Money with AI: from zero to your first paying client · SkillNavora", "A part-time guide to finding, pitching and closing a first AI service client: offer selection, a credibility stack, signal-based outreach, discovery calls, a capstone and a glossary.", _mm.body(), "learning-platform.html")
 page("careers.html", "Careers · SkillNavora", "Join SkillNavora: roles in teaching, curriculum, admissions, marketing, engineering and operations.", careers, "careers.html")
 

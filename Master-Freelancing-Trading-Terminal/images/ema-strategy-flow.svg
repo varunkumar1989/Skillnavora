@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" role="img" aria-labelledby="t d">
+<title id="t">9/21 EMA crossover strategy: decision flow</title>
+<desc id="d">Each candle close updates the 9 and 21 period EMAs. Signals before 09:30 IST are ignored. A bullish cross leads to a bullish trade, a bearish cross to a bearish trade. Exits on reverse cross or at 15:00 IST square-off.</desc>
+<style>
+ text{font-family:Inter,Arial,sans-serif;fill:#17202a}
+ .box{fill:#ffffff;stroke:#0c7a69;stroke-width:2}
+ .gate{fill:#fff6e0;stroke:#b7791f;stroke-width:2}
+ .bull{fill:#e6f6ef;stroke:#15803d;stroke-width:2}
+ .bear{fill:#fdecec;stroke:#b91c1c;stroke-width:2}
+ .exit{fill:#eef2ff;stroke:#4338ca;stroke-width:2}
+ .arrow{stroke:#56626c;stroke-width:2;fill:none;marker-end:url(#a)}
+ .h{font-size:18px;font-weight:700}
+ .s{font-size:14px}
+ .note{font-size:13px;fill:#56626c}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#56626c"/></marker></defs>
+<rect width="1000" height="760" fill="#f6f7f4"/>
+<text x="40" y="44" class="h" style="font-size:22px">9/21 EMA crossover (Nifty 50 options): decision flow</text>
+<text x="40" y="66" class="note">Rules as written in the brief. The flow shows the logic, not any result. Validate with backtests before use.</text>
+
+<rect x="330" y="92" width="340" height="62" rx="10" class="box"/>
+<text x="500" y="118" text-anchor="middle" class="h">Candle closes (5, 15 or 30 min)</text>
+<text x="500" y="140" text-anchor="middle" class="s">Update EMA 9 and EMA 21 on the close</text>
+
+<line x1="500" y1="154" x2="500" y2="190" class="arrow"/>
+<rect x="300" y="192" width="400" height="62" rx="10" class="gate"/>
+<text x="500" y="218" text-anchor="middle" class="h">Time gate</text>
+<text x="500" y="240" text-anchor="middle" class="s">Before 09:30 IST: ignore signals (opening chop)</text>
+
+<line x1="500" y1="254" x2="500" y2="290" class="arrow"/>
+<rect x="300" y="292" width="400" height="62" rx="10" class="gate"/>
+<text x="500" y="318" text-anchor="middle" class="h">Crossover on this candle?</text>
+<text x="500" y="340" text-anchor="middle" class="s">EMA 9 crossed EMA 21 on close (not intrabar)</text>
+
+<line x1="380" y1="354" x2="230" y2="410" class="arrow"/>
+<line x1="620" y1="354" x2="770" y2="410" class="arrow"/>
+<text x="250" y="382" class="note">bullish cross</text>
+<text x="700" y="382" class="note">bearish cross</text>
+
+<rect x="60" y="412" width="340" height="150" rx="10" class="bull"/>
+<text x="230" y="442" text-anchor="middle" class="h">Bullish trade</text>
+<text x="230" y="468" text-anchor="middle" class="s">Option mode 1: buy ATM call</text>
+<text x="230" y="490" text-anchor="middle" class="s">Option mode 2: buy deep ITM call</text>
+<text x="230" y="512" text-anchor="middle" class="s">Option mode 3: sell ATM put</text>
+
+<rect x="600" y="412" width="340" height="150" rx="10" class="bear"/>
+<text x="770" y="442" text-anchor="middle" class="h">Bearish trade</text>
+<text x="770" y="468" text-anchor="middle" class="s">Option mode 1: buy ATM put</text>
+<text x="770" y="490" text-anchor="middle" class="s">Option mode 2: buy deep ITM put</text>
+<text x="770" y="512" text-anchor="middle" class="s">Option mode 3: sell ATM call</text>
+
+<line x1="230" y1="562" x2="230" y2="610" class="arrow"/>
+<line x1="770" y1="562" x2="770" y2="610" class="arrow"/>
+<rect x="60" y="612" width="880" height="110" rx="10" class="exit"/>
+<text x="500" y="642" text-anchor="middle" class="h">Exit rules (position held)</text>
+<text x="500" y="666" text-anchor="middle" class="s">Reverse crossover on candle close: exit and, if the rules allow, open the opposite trade</text>
+<text x="500" y="688" text-anchor="middle" class="s">15:00 IST: mandatory square-off. No overnight positions.</text>
+
+<text x="40" y="744" class="note">Frictions applied to every fill: 0.5% premium slippage and one tick (INR 0.05) adverse, plus statutory charges.</text>
+</svg>
