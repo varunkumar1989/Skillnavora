@@ -1643,3 +1643,23 @@ img.lg-dark{display:none}
 :root[data-theme="dark"] img.lg-light{display:none}
 :root[data-theme="dark"] img.lg-dark{display:block}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) img.lg-light{display:none}:root:not([data-theme="light"]) img.lg-dark{display:block}}
+
+/* ---- Header: larger menu text, logo and SkillNavora name (final override) ---- */
+.top .nav>a,.top .nav>.dd>button{font:600 16px var(--body);padding:10px 12px;letter-spacing:.005em}
+@media (min-width:1321px){
+  .top .nav>a,.top .nav>.dd>button{font-size:16.5px;padding:11px 14px}
+  .top .brand img.lg{height:50px!important;width:auto!important}
+}
+@media (min-width:1021px) and (max-width:1320px){
+  .top .nav>a,.top .nav>.dd>button{font-size:15px;padding:9px 9px}
+  .top .brand img.lg{height:42px!important;width:auto!important}
+}
+@media (max-width:1020px){
+  .top .nav>a,.top .nav>.dd>button{font-size:17px;padding:15px 12px}
+  .top .brand img.lg{height:40px!important;width:auto!important}
+}
+@media (max-width:520px){
+  .top .brand img.lg{height:34px!important}
+}
+
+.top .brand img.lg{height:38px!important}
