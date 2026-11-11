@@ -35,6 +35,18 @@ TOPICS = [
      ["op-speaking"], [], "Public speaking"),
 ]
 
+# One line per programme for the cards (Learning platform index and Free resources)
+DESC = {"programme-pm": "PM Master Handbook, PRD and BRD templates, interview prep and PM learning sites.",
+        "programme-genai": "The GenAI Launchpad handbook, prompting, agents, AI tools and GenAI learning sites.",
+        "programme-data": "Every Data Science & AI lesson: Excel, SQL, Python, Power BI, ML and data tools.",
+        "programme-ai-engineer": "The AI engineer path: foundations, LLM apps, RAG, agents, evals and interviews.",
+        "programme-fde": "Forward deployed engineering: the role, skills, deployment and interview prep.",
+        "programme-tool-tutorials": "AI and product tools grouped by use, each with its official site.",
+        "programme-no-code": "No-code builders, design and automation tools with tutorials.",
+        "programme-digital-marketing": "Digital marketing and content creation guides, tools and courses.",
+        "programme-sfmc": "Salesforce Marketing Cloud: the complete guide, labs and Trailhead links.",
+        "programme-public-speaking": "Speaking guide, practice with the AI coach, and speaking resources."}
+
 GROUP_ORDER = ["Foundations and product", "Data and engineering", "Tools and building", "Business and communication"]
 
 
@@ -70,8 +82,8 @@ def _inner(tag):
     return "".join(str(c) for c in tag.contents) if tag is not None else ""
 
 
-def build(page, uhero, out):
-    res_path = os.path.join(out, "resources.html")
+def build(page, uhero, out, source=None):
+    res_path = source or os.path.join(out, "resources.html")
     soup = BeautifulSoup(open(res_path, encoding="utf-8").read(), "html.parser")
     styles = "".join(str(st) for st in soup.find_all("style"))
     built = {}
@@ -98,6 +110,18 @@ def build(page, uhero, out):
             "content": _rewrite("".join(content_parts)),
             "tools": styles + _rewrite("".join(tool_parts)),
         }
+
+    # where each copied id now lives, so in-page links ("#learn-pm") go to the right programme tab
+    where = {}
+    for slug, d in built.items():
+        for part in ("content", "tools"):
+            for m in re.finditer(r'id="([^"]+)"', d[part]):
+                where.setdefault(m.group(1), f"{slug}.html#{part}")
+    import restabs
+    def fix(h):
+        return re.sub(r'href="resources\.html#([^"]+)"', lambda m: f'href="{where.get(m.group(1)) or restabs.LEGACY.get(m.group(1)) or "resources.html#" + m.group(1)}"', h)
+    for d in built.values():
+        d["content"], d["tools"] = fix(d["content"]), fix(d["tools"])
 
     order = [t[0] for t in TOPICS]
     for i, (slug, title, short, group, c_ids, t_ids, kicker) in enumerate(TOPICS):
@@ -136,12 +160,21 @@ function fromHash(push){show((location.hash||'#content').slice(1),push)}window.a
         cards += f'<h2 class="sec-h" style="margin:26px 0 12px">{E(g)}</h2><div class="grid g3">'
         for slug, title, short, group, *_ in items:
             cards += (f'<a class="card" href="{slug}.html" style="text-decoration:none"><span class="ftag">{E(group)}</span>'
-                      f'<h3 style="margin:8px 0 6px">{E(short)}</h3><p>Programme content, related programmes, and tools and links.</p><span class="go">Open →</span></a>')
+                      f'<h3 style="margin:8px 0 6px">{E(short)}</h3><p>{E(DESC[slug])}</p><span class="go">Open →</span></a>')
         if g == "Tools and building":
             import make_money_page
-            cards += '<a class="card" href="make-money-course.html" style="text-decoration:none"><span class="ftag">Tools and building</span>'
-            '<h3 style="margin:8px 0 6px">Make Money with AI</h3><p>Find, pitch and close a first AI service client while working part time: offer, credibility stack, outreach and discovery calls.</p><span class="go">Open →</span></a>'
+            cards += ('<a class="card" href="make-money-course.html" style="text-decoration:none"><span class="ftag">Tools and building</span>'
+            '<h3 style="margin:8px 0 6px">Make Money with AI</h3><p>Find, pitch and close a first AI service client while working part time: offer, credibility stack, outreach and discovery calls.</p><span class="go">Open →</span></a>')
         cards += "</div>"
+    more = [("ai-academy.html", "AI courses", "Every AI skills course: prompting and context, skills, second brain, evals, browser agents, orchestration and advanced AI PM."),
+            ("ai-models-guide.html", "AI Models and Platforms", "Grok, ChatGPT, Claude, Gemini, Lovable and app builders, and how to choose."),
+            ("ai-agents-guide.html", "How AI Agents Work", "How agents run, multi-agent systems, context and evals."),
+            ("grokbot-course.html", "Grokbot course", "The Grok API from zero to commercial AI solutions."),
+            ("master-freelancing.html", "Master Freelancing", "Freelance skills by department, the trading terminal handbook and Make Money with AI."),
+            ("study-library.html", "Study Library", "Every lesson, class and PDF, listed once under its programme."),
+            ("course-gap-check.html", "Course gap check", "What each course is missing, with supplements and a PDF for each.")]
+    cards += '<h2 class="sec-h" style="margin:26px 0 12px">AI courses and guides</h2><div class="grid g3">' + "".join(
+        f'<a class="card" href="{h}" style="text-decoration:none"><span class="ftag">AI courses and guides</span><h3 style="margin:8px 0 6px">{E(n)}</h3><p>{E(d)}</p><span class="go">Open →</span></a>' for h, n, d in more) + "</div>"
     idx = (uhero("Learning platform", 'All <span class="g">programmes</span>, one page each', "Pick a programme. Each opens on its own page with three tabs: Programme Content, Other Programmes, and Learning Tools & Links.")
            + '<section style="padding-top:24px"><div class="wrap">'
            + '<p class="meta" style="margin:0 0 6px">Start with the foundations on the top row, then build, then take it to business. Every tool and learning link is also collected on the <a href="tools-and-resources.html">Tools &amp; learning resources</a> page.</p>'
@@ -153,9 +186,11 @@ function fromHash(push){show((location.hash||'#content').slice(1),push)}window.a
     sections = ""
     for slug, title, short, group, *_ in TOPICS:
         d = built[slug]
-        sections += f'<h2 class="sec-h" style="margin:26px 0 8px"><a href="{slug}.html#tools" style="color:inherit;text-decoration:none">{E(short)}</a></h2>{d["tools"]}'
+        n = len(set(re.findall(r'href="(https?://[^"]+)"', d["tools"])))
+        sections += (f'<a class="card" href="{slug}.html#tools" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px"><span class="ftag">{E(group)}</span>'
+                     f'<h3 style="margin:8px 0 6px">{E(short)}</h3><p>{n} tools, websites and learning links.</p><span class="go">Open tools &amp; links →</span></a>')
     hub = (uhero("Tools & learning resources", 'Tools, websites and <span class="g">learning links</span>', "Every tool, website, documentation page, tutorial and useful link for each programme, in one place. Each link opens the provider's own site.")
-           + '<section style="padding-top:24px"><div class="wrap">' + sections + '</div></section>')
+           + '<section style="padding-top:24px"><div class="wrap"><p class="meta" style="margin:0 0 14px">Each programme keeps its tools and learning links on its own page. Pick one to open them.</p><div class="grid g3">' + sections + '</div></div></section>')
     page("tools-and-resources.html", "Tools & learning resources · SkillNavora",
          "Tools, websites, documentation, tutorials and useful learning links for every SkillNavora programme, in one place.", hub, "tools-and-resources.html")
     return len(TOPICS)

@@ -231,14 +231,15 @@ CSS = """<style>.ls-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}.l
 def count():
     return sum(len(items) for _, _, _, groups in LEARN for _, items in groups)
 
-def tab(pre=""):
-    chips = f'<button type="button" data-ls="all" aria-pressed="true">All programs</button>' + "".join(f'<button type="button" data-ls="{k}" aria-pressed="false">{E(n)}</button>' for k, n, _, _ in LEARN)
+def tab(pre="", keys=None):
+    L = [x for x in LEARN if keys is None or x[0] in keys]
+    chips = f'<button type="button" data-ls="all" aria-pressed="true">All programs</button>' + "".join(f'<button type="button" data-ls="{k}" aria-pressed="false">{E(n)}</button>' for k, n, _, _ in L)
     secs = []
-    for k, n, blurb, groups in LEARN:
+    for k, n, blurb, groups in L:
         g = "".join(f'<div class="ls-g">{E(gn)}</div><div class="ls-grid">' + "".join(
             f'<a class="ls-i" href="{E(u)}"' + (' target="_blank" rel="noopener"' if u.startswith("http") else "") + f'><em>{E(t)}</em><b>{E(nm)}</b><small>{E(w)}</small><span class="go">{"Open tutorial ↗" if u.startswith("http") else "Open →"}</span></a>'
             for nm, w, u, t in items) + "</div>" for gn, items in groups)
         secs.append(f'<section class="ls-prog" id="{pre}learn-{k}" data-ls="{k}"><h3>{E(n)}</h3><p>{E(blurb)}</p>{g}</section>')
     js = f"""<script>(function(){{var r=document.getElementById('{pre}ls'),c=r.querySelector('.ls-chips');c.addEventListener('click',function(e){{var b=e.target.closest('button');if(!b)return;[].forEach.call(c.children,function(x){{x.setAttribute('aria-pressed',x===b)}});[].forEach.call(r.querySelectorAll('.ls-prog'),function(s){{s.hidden=b.dataset.ls!=='all'&&s.dataset.ls!==b.dataset.ls}})}});window.addEventListener('hashchange',function(){{var t=document.getElementById(location.hash.slice(1));if(t&&r.contains(t)){{c.children[0].click();t.scrollIntoView()}}}})}})();</script>"""
-    return (CSS + f'<div id="{pre}ls"><p class="meta" style="margin:0 0 12px">{count()} hand-picked sites to learn and practise, sorted by program. Each link opens the tutorial or practice page directly.</p>'
+    return (CSS + f'<div id="{pre}ls"><p class="meta" style="margin:0 0 12px">{count() if keys is None else sum(len(i) for x in L for _, i in x[3])} hand-picked sites to learn and practise, sorted by program. Each link opens the tutorial or practice page directly.</p>'
             f'<div class="ls-chips" role="group" aria-label="Filter by program">{chips}</div>' + "".join(secs) + "</div>" + js)

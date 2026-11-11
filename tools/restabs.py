@@ -366,12 +366,8 @@ def data_tools():
             + grid([(n, d, u, t) for n, d, u, t in DATA_TOOLS]))
 
 
-def build(pm_html, cfg, scope=None):
-    """Four resource tabs. scope=None: the Resources page (hash links #pm, #data, #genai, #more).
-    scope="lms": the same tabs inside the LMS Resources panel, with their own ids and attributes so the LMS tab code ignores them."""
-    tabs = [("handbooks", "Handbooks & PDFs"), ("tools", "Tools"), ("links", "Learning links"), ("library", "Study library")]  # Option 2: four tabs
-    pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
-    bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
+def source_html(pm_html, cfg):
+    """Every programme block the Learning platform pages are built from (not published as its own page)."""
     feat = lambda kick, h, p, btns: (f'<div class="card" style="margin:0 0 22px;border:2px solid var(--brand,#6C4CF5);background:linear-gradient(135deg,rgba(108,76,245,.07),rgba(34,211,238,.07))">'
         f'<div class="kicker">{kick}</div><h3 style="margin:6px 0 6px;font-size:21px">{h}</h3><p style="margin:0 0 12px;color:var(--mu)">{p}</p><div style="display:flex;flex-wrap:wrap;gap:8px">'
         + "".join(f'<a class="btn {"btn-primary" if i == 0 else "btn-line"} btn-sm" href="{u}">{t}</a>' for i, (t, u) in enumerate(btns)) + '</div></div>')
@@ -379,28 +375,136 @@ def build(pm_html, cfg, scope=None):
                    [("Open the PRD library", "prd-library.html"), ("✨ AI PRD Writer", "prd-writer.html"), ("PRD template (Word)", "handbook/templates/SkillNavora_PRD_Template.doc"), ("AI Evals for PMs (PDF)", "ai-evals.html")])
     ba_box = feat("Business analyst", "BRD &amp; FRD: templates, techniques and 25 project ideas", "BRD vs FRD vs PRD, section-by-section templates, a traced sample, BA techniques and real projects from banking to GenAI.",
                   [("Open the BRD &amp; FRD guide", "brd-frd.html"), ("✨ Write a BRD with AI", "prd-writer.html?doc=brd"), ("✨ Write an FRD with AI", "prd-writer.html?doc=frd")])
-    def _rcard(href, name, desc, tag):
-        return f'<a class="card" href="{href}" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px"><span class="ftag">{tag}</span><h3 style="margin:8px 0 6px">{name}</h3><p>{desc}</p><span class="go">Open →</span></a>'
-    panels = {"handbooks": '<div id="sec-pm">' + quick("pm") + prd_box + pm_html + '</div><div id="sec-genai">' + quick("genai") + genai_tab(cfg) + '</div><div id="sec-data">' + quick("data") + ds_tab(cfg) + ba_box + '</div>' + other_tab("dm"),
-              "tools": quick("other") + '<div id="sec-ai">' + ai_tab() + '</div><div id="sec-data-tools">' + data_tools() + '</div>' + other_tab("rest"),
-              "links": '<div id="learn" style="scroll-margin-top:90px"></div>' + learnsites.tab(pre) + '<div class="grid g3" style="margin-top:22px">' + _rcard("course-gap-check.html", "Course gap check", "What each course is missing, with supplements and a PDF for each.", "Course gap") + _rcard("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department.", "Freelancing") + '</div><div id="more" style="scroll-margin-top:90px"></div>' + quick("more") + more_tab(),
-              "library": '<div class="grid g3">' + _rcard("study-library.html", "Study Library", "Every lesson, class and PDF, listed once under its programme.", "Library") + _rcard("learning-platform.html", "Learning platform", "One page per programme: content, related programmes, tools and links.", "Programmes") + _rcard("handbooks/index.html", "SkillNavora Handbooks", "Data Science, GenAI, DSA and PM handbooks with every PDF.", "Handbooks") + '</div>'}
+    return ('<div id="sec-pm">' + quick("pm") + prd_box + pm_html + '</div><div id="sec-genai">' + quick("genai") + genai_tab(cfg) + '</div><div id="sec-data">' + quick("data") + ds_tab(cfg) + ba_box + '</div>'
+            + other_tab("dm") + '<div id="sec-ai">' + ai_tab() + '</div><div id="sec-data-tools">' + data_tools() + '</div>' + other_tab("rest") + learnsites.tab("", keys=("pm", "data", "genai", "build")))  # the groups the Learning platform uses
+
+
+# Old Free resources addresses: send each to its one home on the Learning platform
+LEGACY = {"pm": "programme-pm.html", "sec-pm": "programme-pm.html", "learn-pm": "programme-pm.html#tools", "genai": "programme-genai.html", "sec-genai": "programme-genai.html",
+          "learn-genai": "programme-genai.html#tools", "data": "programme-data.html", "sec-data": "programme-data.html", "learn-data": "programme-data.html#tools",
+          "ai": "programme-tool-tutorials.html", "sec-ai": "programme-tool-tutorials.html", "learn-build": "programme-no-code.html#tools", "dm": "programme-digital-marketing.html",
+          "op-marketing": "programme-digital-marketing.html", "op-content": "programme-digital-marketing.html", "op-ai-engineer": "programme-ai-engineer.html", "op-fde": "programme-fde.html",
+          "op-sfmc": "programme-sfmc.html", "op-speaking": "programme-public-speaking.html", "other": "learning-platform.html", "handbooks": "learning-platform.html",
+          "library": "study-library.html", "links": "resources.html#tools", "learn": "resources.html#tools", "dsa": "handbooks/index.html#dsa"}
+
+
+def _card(href, name, desc, tag, new=False):
+    t = ' target="_blank" rel="noopener"' if new or href.startswith("http") else ""
+    return (f'<a class="card" href="{E(href)}"{t} style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px"><span class="ftag">{E(tag)}</span>'
+            f'<h3 style="margin:8px 0 6px">{E(name)}{" ↗" if t else ""}</h3><p>{E(desc)}</p><span class="go">Open →</span></a>')
+
+
+def _cards(items, cols="g3"):
+    return f'<div class="grid {cols}">' + "".join(_card(*i) for i in items) + "</div>"
+
+
+def programmes_tab():
+    import topic_pages
+    items = [(f"{slug}.html", short, topic_pages.DESC[slug], group) for slug, title, short, group, *_ in topic_pages.TOPICS]
+    extra = [("ai-academy.html", "AI courses", "Every AI skills course with lessons, PDFs and interactive versions.", "AI courses"),
+             ("study-library.html", "Study Library", "Every lesson, class and PDF, listed once under its programme.", "Library"),
+             ("handbooks/index.html", "SkillNavora Handbooks", "PM, Data Science & AI, DSA and GenAI handbooks with every PDF.", "Handbooks"),
+             ("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department.", "Freelancing"),
+             ("course-gap-check.html", "Course gap check", "What each course is missing, with supplements and a PDF for each.", "Course gap")]
+    return (h("Programmes", "Each programme's handbooks, lessons, tools and learning links live on its own page on the Learning platform. Pick one to go straight to it.")
+            + _cards(items) + h("Libraries, handbooks and more") + _cards(extra))
+
+
+def tools_tab():
+    return (h("Tools", "Every tool for each programme is on that programme's page; these pages collect them.")
+            + _cards([("tools-and-resources.html", "Tools for every programme", "One index: open any programme's tools and learning links.", "Tools"),
+                      ("tools.html", "Tool tutorials", "Every tool we teach: free official tutorial, official site and our lesson.", "Tutorials"),
+                      ("ai.html", "AI Studio", "Free AI tutor, PRD writer, speaking coach and practice.", "AI Studio")])
+            + h("Learning sites for coding and other skills", "Coding, DSA, cloud and marketing sites that are not part of a single programme.")
+            + learnsites.tab("", keys=("code", "other"))
+            + '<div id="more" style="scroll-margin-top:90px"></div>' + quick("more") + more_tab())
+
+
+def context_tab():
+    import course_context
+    return (h("Our course", "Prompt & Context Engineering: system prompts, structured outputs, retrieval, context budgets, prompt injection and a capstone.")
+            + _cards([("context-engineering.html", "Prompt & Context Engineering", "13 classes from basic to advanced, with templates and interview questions.", "Course"),
+                      ("handbook/Prompt_and_Context_Engineering.pdf", "Course PDF", "All 13 context engineering classes, templates and a patterns cheat sheet to print.", "PDF"),
+                      ("ai-academy-interactive.html#context", "Interactive version", "Click through each context engineering class with takeaways and exercises.", "Interactive")])
+            + h("Related lessons", "Where context engineering is used in other SkillNavora material.")
+            + _cards([("data-science/lessons/genai-02-prompt-engineering-in-depth-patterns-templates-few-shot-reas.html", "Prompt engineering in depth", "Patterns, templates, few-shot and reasoning prompts.", "Lesson"),
+                      ("ai-skills.html", "AI Skills & Templates", "Package context into reusable skills and templates.", "Course"),
+                      ("ai-second-brain.html", "Your AI Second Brain", "Give AI the right context about you and your work.", "Course")])
+            + h("Official guides") + grid([(n, "Official documentation and guides.", u, "Guide") for n, u in course_context.COURSE["links"]]))
+
+
+def evals_tab():
+    import evals_course
+    return (h("Our course", "AI Evals for Product Managers: criteria, golden sets, metrics, LLM judges, RAG and agent evals, safety and online evals.")
+            + _cards([("ai-evals.html", "AI Evals for Product Managers", "13 classes from basic to advanced, with a metrics cheat sheet and interview questions.", "Course"),
+                      ("handbook/AI_Evals_for_Product_Managers.pdf", "Course PDF", "All 13 evals classes, the metrics cheat sheet and eval templates to print.", "PDF"),
+                      ("ai-academy-interactive.html#evals", "Interactive version", "Click through each evals class with takeaways and exercises.", "Interactive")])
+            + h("Related lessons")
+            + _cards([("data-science/lessons/genai-09-evaluating-llm-applications-and-building-guardrails-test-set.html", "Evaluating LLM applications", "Test sets, metrics and guardrails, with code.", "Lesson"),
+                      ("data-science/lessons/agents-11-agent-evaluation-and-monitoring-measuring-whether-an-agent-w.html", "Agent evaluation and monitoring", "Measuring whether an agent works.", "Lesson"),
+                      ("agent-orchestration.html", "Agent Orchestration & Monitoring", "Testing and monitoring workflows in production.", "Course")])
+            + h("Official guides and tools") + grid([(n, "Documentation and guides.", u, "Guide") for n, u in evals_course.LINKS]))
+
+
+def rag_tab():
+    L = "data-science/lessons/"
+    return (h("How LLMs work", "Tokens, embeddings, transformers and choosing a model.")
+            + _cards([(L + "genai-01-how-large-language-models-work-tokens-embeddings-transformer.html", "How large language models work", "Tokens, embeddings and transformers, explained.", "Lesson"),
+                      ("ai-models-guide.html", "AI Models and Platforms", "Grok, ChatGPT, Claude, Gemini, Lovable and app builders: what each does and how to choose.", "Guide"),
+                      ("handbooks/genai/SkillNavora_Tokens_Context_Cost_Guide.pdf", "Tokens, context and cost guide", "How tokens, context windows and prices work.", "PDF")])
+            + h("Retrieval-augmented generation (RAG)", "Search your documents and answer from them, with sources.")
+            + _cards([(L + "genai-04-embeddings-and-vector-search-meaning-as-numbers-similarity-a.html", "Embeddings and vector search", "Meaning as numbers, similarity and vector databases.", "Lesson"),
+                      (L + "genai-05-retrieval-augmented-generation-rag-build-evaluate-and-improv.html", "RAG: build, evaluate and improve", "A working RAG pipeline in Python, step by step.", "Lesson"),
+                      ("ai-academy-interactive.html#context-c6", "Retrieval for PMs", "The decisions a PM owns: scope, chunks, freshness and permissions.", "Class"),
+                      ("ai-academy-interactive.html#evals-c9", "Evaluating RAG", "Measure retrieval and answers separately.", "Class"),
+                      (L + "genai-10-customising-models-prompting-vs-rag-vs-fine-tuning-lora-dist.html", "Prompting vs RAG vs fine-tuning", "When to use each, with costs and trade-offs.", "Lesson"),
+                      (L + "genai-06-tool-use-and-function-calling-letting-llms-query-data-call-a.html", "Tool use and function calling", "Let LLMs query data and call APIs.", "Lesson")])
+            + h("Agents built on LLMs")
+            + _cards([("ai-agents-guide.html", "How AI Agents Work", "Single agents, multi-agent systems, context and evals.", "Guide"),
+                      (L + "genai-08-model-context-protocol-mcp-connecting-ai-assistants-to-your.html", "Model Context Protocol (MCP)", "Connect AI assistants to your tools and data.", "Lesson"),
+                      ("grokbot-course.html", "Grokbot course", "Grok API, chatbots, agents and RAG, from zero to commercial.", "Course")])
+            + h("Learn more outside SkillNavora")
+            + grid([("DeepLearning.AI short courses", "1-hour courses on LLMs, RAG and agents", "https://www.deeplearning.ai/short-courses/", "Course"),
+                    ("Hugging Face Learn", "LLM, agents and NLP courses", "https://huggingface.co/learn", "Course"),
+                    ("OpenAI Cookbook", "Code examples for LLM apps", "https://cookbook.openai.com/", "Code"),
+                    ("Ragas docs", "Evaluate RAG pipelines", "https://docs.ragas.io/", "Evals")]))
+
+
+def _drop_repeats(html_s, exclude):
+    """Remove external link cards whose site is already on the Learning platform, and any group left empty."""
+    import re
+    if not exclude: return html_s
+    ex = {u.rstrip("/") for u in exclude}
+    card = re.compile(r'<a class="(card tool|ls-i)" href="(https?://[^"]+)"[^>]*>.*?</a>', re.S)
+    html_s = card.sub(lambda m: "" if m.group(2).rstrip("/") in ex else m.group(0), html_s)
+    html_s = re.sub(r'<div class="ls-g">[^<]*</div><div class="ls-grid"></div>', "", html_s)
+    html_s = re.sub(r'<h3 class="h3s hb-h">[^<]*</h3>(<p class="meta"[^>]*>[^<]*</p>)?<div class="grid g4"></div>', "", html_s)
+    return html_s
+
+
+def build(pm_html, cfg, scope=None, exclude=None):
+    """Free resources: five tabs. Programme content lives on the Learning platform; this page links to it once."""
+    tabs = [("programmes", "Programmes"), ("tools", "Tools & Learning Sites"), ("context", "Context Engineering"), ("evals", "Evals"), ("rag", "LLMs & RAG")]
+    pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
+    bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Free resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
+    panels = {"programmes": programmes_tab(), "tools": tools_tab(), "context": context_tab(), "evals": evals_tab(), "rag": rag_tab()}
+    panels = {k: _drop_repeats(v, exclude) for k, v in panels.items()}
     if scope:
-        panels = {k: v.replace('href="#learn-', 'href="resources.html#learn-') for k, v in panels.items()}
+        panels = {k: v.replace('href="#more"', 'href="resources.html#more"').replace('href="#news"', 'href="resources.html#news"') for k, v in panels.items()}
     body = "".join(f'<div class="{cls}" id="{pre}p-{k}" role="tabpanel" aria-labelledby="{pre}t-{k}"{"" if i == 0 else " hidden"}>{panels[k]}</div>' for i, (k, _) in enumerate(tabs))
-    if not scope:
-        bar = '<div id="res-back" hidden style="margin:0 0 12px"><button type="button" class="btn btn-line btn-sm" id="res-back-btn">← Back to the previous tab</button></div>' + bar
     if scope:
         js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#lr-res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.rpanel'));
 function show(k){tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.rtab===k?'true':'false')});panels.forEach(function(p){p.hidden=p.id!=='lr-p-'+k})}
 tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.rtab)})});
-var c=new URL(location).searchParams.get('res');show(c&&document.getElementById('lr-p-'+c)?c:'handbooks')})();</script>"""
+var c=new URL(location).searchParams.get('res');show(c&&document.getElementById('lr-p-'+c)?c:'programmes')})();</script>"""
         return bar + body + js
+    bar = '<div id="res-back" hidden style="margin:0 0 12px"><button type="button" class="btn btn-line btn-sm" id="res-back-btn">← Back to the previous tab</button></div>' + bar
+    legacy = "<script>(function(){var m=" + json.dumps(LEGACY) + ",h=(location.hash||'').slice(1);if(m[h]&&!document.getElementById('p-'+h)&&!document.getElementById(h))location.replace(m[h])})();</script>"
     js = """<script>(function(){var tabs=[].slice.call(document.querySelectorAll('#res-tabs [role=tab]')),panels=[].slice.call(document.querySelectorAll('.panel[role=tabpanel]')),back=document.getElementById('res-back'),bb=document.getElementById('res-back-btn'),cur=null,stack=[];
 function render(){if(back)back.hidden=stack.length===0}
-function show(k,push){if(!document.getElementById('p-'+k))k='handbooks';if(push&&cur&&cur!==k)stack.push(cur);cur=k;tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.tab===k?'true':'false')});panels.forEach(function(p){p.hidden=p.id!=='p-'+k});render()}
+function show(k,push){if(!document.getElementById('p-'+k))k='programmes';if(push&&cur&&cur!==k)stack.push(cur);cur=k;tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.tab===k?'true':'false')});panels.forEach(function(p){p.hidden=p.id!=='p-'+k});render()}
 tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.tab,true);try{history.replaceState(null,'','#'+t.dataset.tab)}catch(e){}})});
 if(bb)bb.addEventListener('click',function(){var prev=stack.pop();if(prev){show(prev,false);try{history.replaceState(null,'','#'+prev)}catch(e){}}});
-function fromHash(push){var h=(location.hash||'#handbooks').slice(1),el=document.getElementById(h);if(document.getElementById('p-'+h)){show(h,push);return}var p=el&&el.closest('.panel[role=tabpanel]');show(p?p.id.slice(2):'handbooks',push);if(el)el.scrollIntoView()}
+function fromHash(push){var h=(location.hash||'#programmes').slice(1),el=document.getElementById(h);if(document.getElementById('p-'+h)){show(h,push);return}var p=el&&el.closest('.panel[role=tabpanel]');show(p?p.id.slice(2):'programmes',push);if(el)el.scrollIntoView()}
 window.addEventListener('hashchange',function(){fromHash(true)});fromHash(false)})();</script>"""
-    return bar + body + js
+    return legacy + bar + body + js

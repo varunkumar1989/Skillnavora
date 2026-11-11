@@ -169,7 +169,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     # Option 2 (approved): Upskill for free has four flat items, no nested menus
     _PR_IC = U["questions.html"][3]
     up_menu = (item("learning-platform.html", "Learning platform", "One page per programme: content, related programmes, tools and links", '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>')
-               + item("resources.html", "Free resources", "Handbooks & PDFs, tools, learning links and the study library", _RI)
+               + item("ai.html", "AI Studio", "AI tutor, PRD writer, speaking coach and practice, free", aipages.AI_NAV[0][3])
+               + item("resources.html", "Free resources", "Programmes, tools, context engineering, evals, LLMs and RAG", _RI)
                + item("practice-hub.html", "Practice & interview prep", "Interview questions, practice tests and quizzes", _PR_IC)
                + item(*U["events.html"]))
     on = lambda group: " on" if active in group else ""
@@ -198,8 +199,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
   <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="{r}assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="{r}assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
   <nav class="nav" id="nav" aria-label="Main">
     <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC training, digital marketing, FDE and public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_MAIN + [("other-programs.html", "All other programs", "Content creation and every other program, with reading", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>'), ("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
-    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html', 'learning-platform.html', 'practice-hub.html'])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
-    <div class="dd{on([p for p, *_ in aipages.AI_MENU if p != 'practice.html'])}"><button type="button" aria-expanded="false">AI Studio <span class="nav-new">Free</span> {CHEV}</button><div class="dd-menu">{"".join(item(*x) for x in aipages.AI_MENU)}</div></div>
+    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html', 'learning-platform.html', 'practice-hub.html', 'ai.html'])}"><button type="button" aria-expanded="false">Upskill for free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
+    <div class="dd{on([p for p, *_ in aipages.AI_MENU if p not in ('practice.html', 'ai.html')])}"><button type="button" aria-expanded="false">AI Studio <span class="nav-new">Free</span> {CHEV}</button><div class="dd-menu">{"".join(item(*x) for x in aipages.AI_MENU if x[0] != "ai.html")}</div></div>
     <div class="dd{on(['jobs.html', 'careers.html', 'mentor.html', 'hire.html'])}"><button type="button" aria-expanded="false">Jobs &amp; careers {CHEV}</button><div class="dd-menu">
       <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>All job portals, alerts and openings</small></span></a>
       <a href="{r}mentor.html"{cur('mentor.html')}><span class="dd-ico">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><span><b>Become a mentor</b><small>Guide learners, run sessions and mock interviews</small></span></a>
@@ -719,14 +720,17 @@ _hero = ('<div class="hb-hero"><div><div class="kicker">AI-First Product Managem
          '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/pm-extras/PM-Glossary-Handbook.pdf">PM Glossary Handbook</a>'
          '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/pm-extras/Tokens-Pricing-and-Tokenization-Handbook.pdf">Tokens, Pricing and Tokenization</a>'
          '<a class="btn btn-line btn-sm" href="read.html?doc=handbook/pm-extras/Vibe-Coding-Non-Coder-Addendum.pdf">Vibe Coding addendum</a></div></div></div>')
-res = uhero("Upskill for free · Resources & AI tools", 'Free <span class="g">resources</span>', "Handbooks, PDFs, tools, practice sites and useful links for product managers, data engineers and GenAI learners. Register once with your details to open any handbook, PDF or file.") + f"""
+_RES_PM = _hero + _pm  # kept for the learning-platform source (_hero is reused later)
+_LP_SOURCE = restabs.source_html(_RES_PM, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT))
+_LP_URLS = set(re.findall(r'href="(https?://[^"]+)"', _LP_SOURCE))  # external links already on the Learning platform
+res = uhero("Upskill for free · Free resources", 'Free <span class="g">resources</span>', "Go straight to any programme on the Learning platform, or explore tools, learning sites, context engineering, evals, and LLMs and RAG. Register once with your details to open any handbook, PDF or file.") + f"""
 <section style="padding-top:36px"><div class="wrap">
-{restabs.build(_hero + _pm, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT))}
+{restabs.build(_hero + _pm, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT), exclude=_LP_URLS)}
 </div></section>
 """
 LMS_RES = ('    <div class="panel" id="p-resources" hidden>\n      <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Resources &amp; AI tools</h2>'
-           '<p class="meta" style="margin:0">Choose a course tab: PM, Data Engineers, GenAI or other links. Every handbook, PDF and tool for that course is listed in its tab.</p></div></div>\n'
-           + restabs.build(_hero + _pm, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT), scope="lms") + "\n    </div>\n")
+           '<p class="meta" style="margin:0">Go straight to any programme on the Learning platform, or explore tools, context engineering, evals, and LLMs and RAG.</p></div></div>\n'
+           + restabs.build(_hero + _pm, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT), scope="lms", exclude=_LP_URLS) + "\n    </div>\n")
 import tooltuts
 _tt_html, _tt_n = tooltuts.build()
 tt = uhero("Upskill for free · Resources & AI tools", 'Tool <span class="g">tutorials</span>', f"All {_tt_n} tools taught in our programs: a free official tutorial, the official website and the SkillNavora lesson for each, including complete Figma and n8n tutorials.") + f"""
@@ -880,7 +884,10 @@ page("ai-skills-map.html", "AI Skills Map: every AI skill and where to learn it 
      uhero("AI Studio · AI Skills Map", 'Every <span class="g">AI skill</span>, one map', "What to learn first, the full catalogue of AI skills, and exactly where to learn each one on SkillNavora, plus the skills employers ask for in AI-era job descriptions.") + skillsmap.page(), "ai-skills-map.html")
 page("resources.html", "Resources & AI tools · SkillNavora", "Handbooks, PDFs, AI tools, practice sites and useful links for product managers, data engineers and GenAI learners.", res, "resources.html")
 import topic_pages
-topic_pages.build(page, uhero, OUT)
+import tempfile as _tf
+_src = os.path.join(_tf.gettempdir(), "sn_learning_platform_source.html")
+open(_src, "w", encoding="utf-8").write("<!doctype html><html><body>" + _LP_SOURCE + "</body></html>")
+topic_pages.build(page, uhero, OUT, source=_src)
 _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "gap"))
 import gap_page
 gap_page.build(page, uhero, OUT)
@@ -1611,3 +1618,6 @@ print("external links set to new tab in", newtab.run(), "static pages")
 print("reader:", reader.run())
 import cardlinks
 print("card titles linked (pages, cards):", cardlinks.run())
+
+import legacy_links
+print("legacy links rewritten:", legacy_links.run(OUT))
