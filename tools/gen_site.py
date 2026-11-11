@@ -730,7 +730,8 @@ _pm = _pm[_pm.index('<h3 class="h3s hb-h">PM Master Handbook by Varun Kumar</h3>
 _pm = _pm.replace('<div class="tgroups" id="res-tools"></div>', '<div class="tgroups" data-res-tools="ai-pm"></div>')
 _pm = _pm.replace('PM Master Handbook by Varun Kumar</h3>', 'PM Master Handbook by Varun Kumar</h3>')
 _hero = ('<div class="hb-hero"><div><div class="kicker">AI-First Product Management</div><h2 class="h2s" style="margin:4px 0 6px">Resources for Product Managers</h2>'
-         '<p class="meta" style="margin:0">The PM Master Handbook, AI and product tools with their official websites, interview practice, a frameworks cheat sheet, a PRD template and free courses.</p></div></div>')
+         '<p class="meta" style="margin:0">The PM Master Handbook, AI and product tools with their official websites, interview practice, a frameworks cheat sheet, a PRD template and free courses.</p>'
+         '<div class="hb-acts" style="margin-top:12px"><a class="btn btn-primary btn-sm" href="https://claude.ai/artifact/XmhTL4Yv72bgmSFFuR2hzz" target="_blank" rel="noopener" data-nogate>Open the PM handbook library: all 68 PDFs ↗</a></div></div></div>')
 res = uhero("Upskill for free · Resources & AI tools", 'Resources <span class="g">&amp; AI tools</span>', "Handbooks, PDFs, tools, practice sites and useful links for product managers, data engineers and GenAI learners. Register once with your details to open any handbook, PDF or file.") + f"""
 <section style="padding-top:36px"><div class="wrap">
 {restabs.build(_hero + _pm, dict(dsa_artifact=DSA_ARTIFACT, ds_artifact=DS_ARTIFACT, genai_artifact=GENAI_ARTIFACT))}
