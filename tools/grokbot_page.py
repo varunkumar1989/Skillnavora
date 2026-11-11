@@ -65,6 +65,9 @@ def _render(path):
     with open(os.path.join(ROOT, path), encoding="utf-8") as f:
         src = f.read()
     html_out = markdown.markdown(src, extensions=["tables", "fenced_code", "sane_lists"])
+    # <https://...> autolinks show the full address as text; show the site name instead, opening in a new tab
+    html_out = re.sub(r'<a href="(https?://([^"/]+)[^"]*)">\1</a>',
+                      lambda m: f'<a href="{m.group(1)}" target="_blank" rel="noopener">{m.group(2).removeprefix("www.")} ↗</a>', html_out)
     # wrap tables so wide ones scroll inside their own box instead of widening the phone page
     return html_out.replace("<table>", '<div class="gm-tw"><table>').replace("</table>", "</table></div>")
 

@@ -405,7 +405,9 @@ def programmes_tab():
              ("study-library.html", "Study Library", "Every lesson, class and PDF, listed once under its programme.", "Library"),
              ("handbooks/index.html", "SkillNavora Handbooks", "PM, Data Science & AI, DSA and GenAI handbooks with every PDF.", "Handbooks"),
              ("master-freelancing.html", "Master Freelancing", "Freelance skills, portfolios and client work, department by department.", "Freelancing"),
-             ("course-gap-check.html", "Course gap check", "What each course is missing, with supplements and a PDF for each.", "Course gap")]
+             ("course-gap-check.html", "Course gap check", "What each course is missing, with supplements and a PDF for each.", "Course gap"),
+             ("public-speaking.html", "Public Speaking Practice", "Speak on a topic you did not expect, free speech, shadowing and everyday English, with AI feedback.", "Practice"),
+             ("public-speaking.html#ps-tabs-guide", "Complete Public Speaking Guide", "The complete guide: confidence, structure, storytelling, slides, Q&A, video and a 30-day plan.", "Guide")]
     return (h("Programmes", "Each programme's handbooks, lessons, tools and learning links live on its own page on the Learning platform. Pick one to go straight to it.")
             + _cards(items) + h("Libraries, handbooks and more") + _cards(extra))
 

@@ -148,7 +148,10 @@ def academy_tabs(body):
     tools = _grid([plain_card("tools.html", "Tool Tutorials", "Every tool we teach: a free official tutorial, the official site and our lesson.", "Open tool tutorials", "Tutorials"),
                    plain_card("web-automation.html", "Web Automation & Playwright MCP", "Webhooks and browser automation with Playwright MCP.", "Open the course", "Automation"),
                    plain_card("ai-skills-map.html", "AI Skills Map", "Every AI skill and where to learn it.", "Open the map", "Map")])
-    return body + tabgroup("academy-tabs", [
+    speaking = ('<section style="padding-top:28px"><div class="wrap"><h2 class="sec-h" style="font-size:24px">Public speaking</h2><p class="sub" style="max-width:760px">Practice and the complete guide in one place.</p></div>'
+                + _grid([plain_card("public-speaking.html", "Public Speaking Practice", "Speak on a topic you did not expect, free speech, shadowing and everyday English, with AI feedback.", "Open practice", "Practice"),
+                         plain_card("public-speaking.html#ps-tabs-guide", "Complete Public Speaking Guide", "The complete guide: confidence, structure, storytelling, slides, Q&A, video and a 30-day plan.", "Read the guide", "Guide")]) + '</section>')
+    return body + speaking + tabgroup("academy-tabs", [
         ("models", "AI Models & Agents", models),
         ("grokbot", "Grokbot", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + grokbot_page.tab_card(icon_svg=ico(10)) + "</div></div>"),
         ("context", "Context & Evals", context),
@@ -402,8 +405,9 @@ def hub():
         ("tutor", "AI Tutor", _grid([link_card("ai-tutor.html"), link_card("ai-skills-map.html"),
                                      plain_card("questions.html", "Top 100 Interview Questions", "Model answers for PM, Data and GenAI roles, plus 86 AI product-sense questions.", "See questions", "Interview prep")])),
         ("prd", "PRD Writer", _grid([link_card(p) for p in ["prd-writer.html", "prd-library.html", "brd-frd.html", "pm-toolkit.html"]])),
-        ("speaking", "Speaking Coach", _grid([link_card("speaking-coach.html"), link_card("public-speaking.html"),
-                                              plain_card("guides/public-speaking.html", "Public Speaking Guide", "Confidence, structure, storytelling and how to handle nerves.", "Read the guide", "Guide")])),
+        ("speaking", "Speaking Coach", _grid([link_card("speaking-coach.html"),
+                                              plain_card("public-speaking.html", "Public Speaking Practice", "Speak on a topic you did not expect, free speech, shadowing and everyday English, with AI feedback.", "Open practice", "Practice"),
+                                              plain_card("public-speaking.html#ps-tabs-guide", "Complete Public Speaking Guide", "The complete guide: confidence, structure, storytelling, slides, Q&A, video and a 30-day plan.", "Read the guide", "Guide")])),
         ("practice", "Practice", _grid([link_card("practice.html"),
                                         plain_card("lab.html", "Practice Lab", "Run real SQL, Excel formulas and Python in your browser, spot the trap and see the fix.", "Open the lab", "Practice"),
                                         plain_card("challenges.html", "Challenges", "Solve real product and AI problems.", "Start a challenge", "Practice")])),
@@ -422,7 +426,8 @@ def practice_hub():
         ("tests", "Tests", _grid([plain_card("tests.html#pm", "PM Practice Test", "Questions with hints and solutions for product managers.", "Start the test", "Test"),
                                   plain_card("tests.html#data", "Data Practice Test", "Questions with hints and solutions for data roles.", "Start the test", "Test"),
                                   plain_card("tests.html#genai", "GenAI Practice Test", "Questions with hints and solutions for GenAI roles.", "Start the test", "Test"),
-                                  plain_card("lab.html", "Practice Lab", "Run SQL, Excel formulas and Python in your browser.", "Open the lab", "Practice")])),
+                                  plain_card("lab.html", "Practice Lab", "Run SQL, Excel formulas and Python in your browser.", "Open the lab", "Practice"),
+                                  plain_card("public-speaking.html", "Public Speaking Practice", "Speak on a topic you did not expect, free speech, shadowing and everyday English, with AI feedback.", "Open practice", "Practice")])),
         ("quiz", "Quiz", _grid([plain_card("quiz.html", "Quiz Zone", "Test yourself with quick quizzes.", "Start a quiz", "Quiz"),
                                 plain_card("challenges.html", "Challenges", "Solve real product and AI problems.", "Start a challenge", "Quiz"),
                                 plain_card("practice.html", "Practice with AI", "Mock interview questions with AI feedback.", "Start practising", "Quiz")])),

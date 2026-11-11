@@ -293,7 +293,7 @@ JA_S = lambda cls="": sec("Get job-ready", "Job assistance program and intensive
 MENTORS_S = '<section id="mentors" hidden><div class="wrap center"><div class="kicker">Mentors</div><h2 class="sec-h">Learn from practising product leaders</h2><p class="sub">Mentors and guest speakers who build products every day.</p><div class="mentors" id="mentors-list" style="text-align:left"></div></div></section>'
 REVIEWS_S = '<section id="home-reviews" class="tint" hidden><div class="wrap"><div class="center"><div class="kicker">Testimonials and reviews</div><h2 class="sec-h">Careers that changed, <span class="g">in their own words.</span></h2></div><div class="reviews" id="home-reviews-list" style="margin-top:30px"></div><p class="center"><a class="btn btn-line btn-sm" href="{R}reviews.html">All reviews →</a></p></div></section>'
 
-BIG_LOGO = '<div class="biglogo">' + LOGO_LOCKUP_R.replace('height="36"', 'height="72"') + '</div>'
+BIG_LOGO = '<div class="biglogo" style="max-width:150px;margin:0 auto">' + LOGO_LOCKUP_R.replace('height="36"', 'height="40"') + '</div>'
 COMPASS_SIDE = '''  <div class="hero-art side" aria-hidden="true">''' + BIG_LOGO.replace("{r}", "") + '''</div>
 '''
 FREE_TRACKS = [("AI for Product Managers", "LLMs, RAG, vibe coding and agentic AI, explained for PMs.", "3 modules", "AI Product"),
@@ -836,7 +836,19 @@ PS_BODY = uhero("Public speaking · English", 'Speak English with <span class="g
 <section><div class="ps-wrap"><h2 class="sec-h" style="font-size:26px">Prepare for a topic in five steps</h2><p class="sub">Use this whenever you need to speak on something you did not expect.</p><ol class="ps-steps">{_ps_steps_html}</ol></div></section>
 <section><div class="ps-wrap"><div class="card" style="padding:18px"><b>New to speaking English?</b> Start with <a href="speaking-coach.html">Speak with AI</a>, then do one short Shadowing round a day. Practise Free Speech once a week and check your score each time.</div></div></section>
 """
-page("public-speaking.html", "Public Speaking · English practice · SkillNavora", "Public speaking and English in one place: Speak with AI, interview questions, preparing a topic, free speech, shadowing and everyday English.", PS_CSS + PS_BODY, "public-speaking.html")
+def _ps_guide_html():
+    """The Complete Public Speaking Guide lesson, placed in the Complete guide tab with its links made to work from this page."""
+    src = open(os.path.join(OUT, "data-science/lessons/speaking-01-public-speaking-complete-guide-confidence-structure-storytel.html"), encoding="utf-8").read()
+    main = re.search(r"<main[^>]*>(.*?)</main>", src, re.S).group(1)
+    main = main.replace('"../../read.html', '"read.html').replace('"../img/', '"data-science/img/')
+    return '<div class="wrap" style="padding-top:20px">' + main + '</div>'
+_PS_CUT = PS_BODY.index("\n<section>")  # the page header stays above the tabs
+_PS_PRACTICE, _PS_SECTIONS = PS_BODY[:_PS_CUT], PS_BODY[_PS_CUT:]
+_PS_TABS = aipages.tabgroup("ps-tabs", [
+    ("practice", "Practice", '<div style="padding-top:20px">' + _PS_SECTIONS + '</div>'),
+    ("guide", "Complete Guide", _ps_guide_html()),
+], "Public speaking sections")
+page("public-speaking.html", "Public Speaking Practice and Complete Guide · SkillNavora", "Public speaking practice and the complete guide: confidence, structure, storytelling, slides, Q&A, free speech, shadowing and everyday English, in one place.", PS_CSS + _PS_PRACTICE + _PS_TABS, "public-speaking.html")
 def _op_card(p, n, sm, ic):
     return _ps_card(p, ic, n, sm, "Reading and details")
 _OP_TABS = [

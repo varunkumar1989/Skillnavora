@@ -31,7 +31,7 @@ def pdf_html(C):
     cheat = "".join(f"<tr><td><b>{E(a)}</b></td><td>{E(b)}</td></tr>" for a, b in C["cheat"])
     qa = "".join(f"<p><b>Q{i}. {E(q)}</b><br>{E(a)}</p>" for i, (q, a) in enumerate(C["qa"], 1))
     glo = "".join(f"<tr><td><b>{E(a)}</b></td><td>{E(b)}</td></tr>" for a, b in C["glossary"])
-    links = "".join(f'<li>{E(n)}: <a href="{E(u)}">{E(u)}</a></li>' for n, u in C["links"])
+    links = "".join(f'<li><a href="{E(u)}" target="_blank" rel="noopener">{E(n)} ↗</a></li>' for n, u in C["links"])
     return f"""<!doctype html><html><head><meta charset="utf-8"><title>{E(C['title'])} · SkillNavora</title><style>{PDF_CSS}</style></head><body>
 <div class="cover"><div class="k">{E(C['kicker'])}</div><h1>{E(C['title'])}</h1><p>{E(C['intro'])}</p><p class="small" style="color:#9fb6b1">Edition 2026 · skillnavora.in</p></div>
 <h2>How to use this guide</h2><p>Each class has goals, concepts with Indian examples, key takeaways and a practice exercise, from basic to advanced. Finish with the final project to build something you can show in interviews.</p>
@@ -63,6 +63,7 @@ def web_page(C):
 <div style="display:flex;flex-direction:column;gap:8px"><a class="btn btn-primary" href="handbook/{E(C['pdf'])}">Download the PDF</a><a class="btn btn-line" href="ai-tutor.html?q={quote(C['tutor_q'])}">Ask the AI Tutor</a>{C.get('extra_btn','')}</div></div>
 <h2 class="sec-h" style="font-size:26px">In one line</h2><p class="sub" style="max-width:820px">{E(C['oneline'])}</p>
 <h2 class="sec-h" style="font-size:24px;margin-top:26px">The {len(C['classes'])} classes <span class="meta" style="font-size:14px;font-weight:500">(click a class to read it in full)</span></h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">{cards}</div>
+{('<h2 class="sec-h" style="font-size:24px;margin-top:30px">Further reading and tools</h2><div style="display:flex;flex-wrap:wrap;gap:8px">' + "".join(f'<a class="btn btn-line btn-sm" href="{E(u)}" target="_blank" rel="noopener">{E(n)} ↗</a>' for n, u in C.get("links", [])) + '</div>') if C.get("links") else ""}
 <h2 class="sec-h" style="font-size:24px;margin-top:30px">Interview questions</h2><div style="display:grid;gap:10px">{qa}</div><p class="meta" style="margin-top:10px">All {len(C['qa'])} questions with answers, templates and the cheat sheet are in the PDF.</p>
 </div></section>"""
 
