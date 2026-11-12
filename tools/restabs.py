@@ -381,7 +381,10 @@ def source_html(pm_html, cfg):
                          "Cheat sheets for Excel, SQL, DAX, Python, pandas, statistics and ML metrics; a glossary of data and AI terms; a printable 12-month tracker; and supplements on data engineering, cloud, Excel, SQL, governance, interviews and capstones.",
                          [("Open quick reference &amp; supplements", "data-science-extras.html"), ("Cheat sheets (PDF)", "read.html?doc=handbook/data-science-extras/DS-14-Quick-Reference-and-Cheat-Sheets.pdf"),
                           ("Glossary (PDF)", "read.html?doc=handbook/data-science-extras/DS-15-Data-Science-and-AI-Glossary.pdf"), ("12-month tracker (PDF)", "read.html?doc=handbook/data-science-extras/DS-13-12-Month-Roadmap-Tracker.pdf")])
-    return ('<div id="sec-pm">' + quick("pm") + prd_box + pm_html + '</div><div id="sec-genai">' + quick("genai") + genai_tab(cfg) + '</div><div id="sec-data">' + quick("data") + ds_tab(cfg) + ba_box + ds_extras_box + '</div>'
+    ctx_box = feat("Context window", "Context window: what a model can see at once",
+                   "The context window is the most tokens a model can consider in one request. It covers your prompt, any documents you paste, the conversation so far and the reply. Anything outside it is invisible to the model. For PMs: a longer window fits more material but costs more and can slow responses; put the most important facts near the instructions; use retrieval (RAG) rather than pasting whole libraries; and test answers on long inputs, where quality can drop.",
+                   [("Context engineering course", "context-engineering.html"), ("Context windows in the AI PM 2 course", "programme-pm2.html#a2-s12"), ("Tokens and context in the Grokbot course", "grokbot-course.html")])
+    return ('<div id="sec-pm">' + quick("pm") + prd_box + ctx_box + pm_html + '</div><div id="sec-genai">' + quick("genai") + genai_tab(cfg) + '</div><div id="sec-data">' + quick("data") + ds_tab(cfg) + ba_box + ds_extras_box + '</div>'
             + other_tab("dm") + '<div id="sec-ai">' + ai_tab() + '</div><div id="sec-data-tools">' + data_tools() + '</div>' + other_tab("rest") + learnsites.tab("", keys=("pm", "data", "genai", "build")))  # the groups the Learning platform uses
 
 
