@@ -1,0 +1,28 @@
+skill,records_mentioning,record_ids,share_of_records_with_requirements
+Experience-level bar (years),19,J01;J06;J07;J10;J11;J13;J15;J17;J18;J19;J21;J27;J29;J31;J37;J38;J39;J40;J46,50%
+SQL,6,J14;J25;J26;J27;J31;J35,16%
+Experimentation / A/B testing,5,J15;J31;J32;J33;J35,13%
+Requirements / user stories / acceptance criteria,4,J05;J15;J24;J25,11%
+Payments / banking domain,4,J17;J18;J20;J21,11%
+Product roadmap & strategy,3,J01;J15;J16,8%
+Stakeholder & cross-functional work,3,J01;J07;J15,8%
+Degree required or preferred,3,J06;J12;J13,8%
+Analytics dashboards / product metrics,3,J14;J15;J35,8%
+Agile / Scrum / SAFe,3,J36;J37;J46,8%
+Agent frameworks (LangChain/LangGraph/AutoGen/CrewAI/n8n),3,J39;J42;J45,8%
+Customer & market research,2,J05;J15,5%
+ML / AI model lifecycle,2,J13;J43,5%
+"APIs (REST, OAuth/SAML)",2,J28;J30,5%
+System architecture / data pipelines,2,J29;J30,5%
+Product analytics tools (Amplitude/Mixpanel/Looker/Tableau),2,J32;J35,5%
+Statistics for experiments,2,J33;J34,5%
+Jira / Confluence,2,J36;J37,5%
+Work authorisation,2,J37;J46,5%
+AI tool proficiency,1,J01,3%
+Prioritisation,1,J15,3%
+Regulatory / governance knowledge,1,J17,3%
+Language requirement,1,J20,3%
+Cloud (AWS/Azure/GCP),1,J30,3%
+Python,1,J31,3%
+Shipping 0-to-1 AI products,1,J44,3%
+Certification (CSPO / SAFe),1,J46,3%
