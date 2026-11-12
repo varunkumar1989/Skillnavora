@@ -65,11 +65,11 @@ def body():
     intro, secs = _sections(src)
     intro = re.sub(r"^# [^\n]*\n", "", intro, count=1)
     toc = "".join(f'<li><a href="#{_slug(h)}">{html.escape(h)}</a></li>' for h, _ in secs)
-    rendered = "".join(f'<section id="{_slug(h)}" class="tt-doc">{_md(s, IMG_PREFIX)}</section>' for h, s in secs)
+    rendered = "".join(f'<section id="{_slug(h)}" class="tt-doc">{re.sub(r"<(/?)h1(\b[^>]*)>", r"<\1h2\2>", _md(s, IMG_PREFIX))}</section>' for h, s in secs)
     note = ('<div class="tt-note"><b>Read first.</b> This chapter describes rules and a way to test them. It does not show that any strategy '
             'works. Charges, lot sizes, APIs and regulations must be checked on official pages. Options can lose all the premium paid, and '
             'selling options can lose more than was received.</div>')
-    return (STYLE + '<section><div class="wrap"><div class="tt-doc">' + _md(intro, IMG_PREFIX) + '</div>' + note
+    return (STYLE + '<section><div class="wrap"><h1 style="font-size:clamp(26px,4vw,36px);line-height:1.2;margin:8px 0 10px">Personal Trading &amp; Analytics Terminal</h1><div class="tt-doc">' + _md(intro, IMG_PREFIX) + '</div>' + note
             + '<h2 class="sec-h">Contents</h2><ol class="tt-toc">' + toc + '</ol></div></section>'
             + '<section><div class="wrap">' + rendered + '</div></section>')
 

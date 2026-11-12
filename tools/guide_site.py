@@ -55,12 +55,13 @@ def _intro(intro):
     return re.sub(r"^# [^\n]*\n", "", intro, count=1)
 
 
-def body(md_path, note):
+def body(md_path, note, title=None):
     src = _read(md_path)
     intro, secs = _sections(src)
+    h1 = (f'<h1 style="font-size:clamp(26px,4vw,36px);line-height:1.2;margin:8px 0 10px">{html.escape(title)}</h1>' if title else "")
     toc = "".join(f'<li><a href="#{_slug(h)}">{html.escape(h)}</a></li>' for h, _ in secs)
-    rendered = "".join(f'<section id="{_slug(h)}" class="gd-doc">{_md(s)}</section>' for h, s in secs)
-    return (STYLE + '<section><div class="wrap"><div class="gd-doc">' + _md(_intro(intro)) + '</div>'
+    rendered = "".join(f'<section id="{_slug(h)}" class="gd-doc">{re.sub(r"<(/?)h1(\b[^>]*)>", r"<\1h2\2>", _md(s))}</section>' for h, s in secs)
+    return (STYLE + '<section><div class="wrap">' + h1 + '<div class="gd-doc">' + _md(_intro(intro)) + '</div>'
             f'<div class="gd-note"><b>Read first.</b> {html.escape(note)}</div>'
             '<h2 class="sec-h">Contents</h2><ol class="gd-toc">' + toc + '</ol></div></section>'
             '<section><div class="wrap">' + rendered + '</div></section>')

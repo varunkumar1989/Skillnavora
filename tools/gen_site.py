@@ -150,6 +150,17 @@ MODALS_HTML = f'''<div class="modal" id="m-counsel" role="dialog" aria-modal="tr
 
 import aipages, academy
 
+def short_desc(text, limit=158):
+    """Search results show about 155-160 characters. Cut long descriptions at a word boundary, ending with a full stop."""
+    text = " ".join(str(text).split())
+    if len(text) <= limit:
+        return text
+    cut = text[:limit]
+    stop = cut.rfind(". ")
+    if stop > 80:
+        return cut[:stop + 1]
+    return cut[:cut.rfind(" ")].rstrip(" ,;:") + "…"
+
 def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs="", sticky=False, wa=True, footer=True, app=False):
     r = "../" * path.count("/")
     canon = DOMAIN + "/" + ("" if path == "index.html" else path.replace(".html", ""))
@@ -181,7 +192,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
 <script>/* One address for everyone: logins are saved per address, so skillnavora.in and skillnavora.pages.dev move to www.skillnavora.in */if(/^(skillnavora\.in|skillnavora\.pages\.dev)$/.test(location.hostname))location.replace("https://www.skillnavora.in"+location.pathname+location.search+location.hash)</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(title)}</title>
-<meta name="description" content="{E(desc)}">
+<meta name="description" content="{E(short_desc(desc))}">
 {'<meta name="robots" content="noindex">' if noindex else f'<link rel="canonical" href="{canon}">'}
 <meta property="og:type" content="website"><meta property="og:site_name" content="SkillNavora">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">
@@ -841,6 +852,7 @@ def _ps_guide_html():
     src = open(os.path.join(OUT, "data-science/lessons/speaking-01-public-speaking-complete-guide-confidence-structure-storytel.html"), encoding="utf-8").read()
     main = re.search(r"<main[^>]*>(.*?)</main>", src, re.S).group(1)
     main = main.replace('"../../read.html', '"read.html').replace('"../img/', '"data-science/img/')
+    main = re.sub(r"<(/?)h1(\b[^>]*)>", r"<\1h2\2>", main)  # the page header is the one main heading
     return ('<style>.ps-guide{min-width:0;overflow-wrap:anywhere}.ps-guide pre{max-width:100%;overflow-x:auto;white-space:pre}.ps-guide table{display:block;max-width:100%;overflow-x:auto}</style>'
             '<div class="wrap ps-guide" style="padding-top:20px">' + main + '</div>')
 _PS_CUT = PS_BODY.index("\n<section>")  # the page header stays above the tabs
@@ -1405,8 +1417,8 @@ MF_BODY = uhero("Upskill for free", "Master <span class=\"g\">Freelancing</span>
 <p class="meta" style="max-width:74ch">Freelancing and part-time options are listed on the <a href="jobs.html#freelance">Job board</a>. Learning roadmaps are learning plans, not guaranteed jobs or incomes.</p></div></section>"""
 page("master-freelancing.html", "Master Freelancing · SkillNavora", "Learn a skill, build a portfolio, find clients and earn: the SkillNavora Master Freelancing academy, department by department.", MF_BODY + _mm.section_html() + _tp.section_html(), "master-freelancing.html")
 page("trading-terminal-handbook.html", "Personal Trading & Analytics Terminal: handbook · SkillNavora", "Master Freelancing chapter on algorithmic trading systems: architecture, security, option Greeks, a 9/21 EMA strategy with a friction-adjusted backtest, guarded execution and regulatory checks. Not a proof that any strategy works.", _tp.body(), "master-freelancing.html")
-page("ai-models-guide.html", "AI Models and Platforms: the complete guide · SkillNavora", "The complete guide to AI models and platforms: LLM basics, tokens and context, the Grok family (including Grok Bot, image generation and coding), ChatGPT, Claude, Gemini, Lovable and app builders, and how to choose.", _gs.body("AI-Models-and-Agents-Guide/ai-models-guide.md", "Model names, features, limits and prices change often. Check each one on the official page before you rely on it."), "ai-academy.html")
-page("ai-agents-guide.html", "How AI Agents Work: single agents, multi-agent systems, context and evals · SkillNavora", "How AI agents work step by step, how people build them at three levels, how multi-agent systems are organised, and how context engineering and evals keep them reliable.", _gs.body("AI-Models-and-Agents-Guide/ai-agents-guide.md", "Agent products change quickly. The patterns in this guide are stable; check product features on their official pages."), "ai-academy.html")
+page("ai-models-guide.html", "AI Models and Platforms: the complete guide · SkillNavora", "The complete guide to AI models and platforms: LLM basics, tokens and context, the Grok family (including Grok Bot, image generation and coding), ChatGPT, Claude, Gemini, Lovable and app builders, and how to choose.", _gs.body("AI-Models-and-Agents-Guide/ai-models-guide.md", "Model names, features, limits and prices change often. Check each one on the official page before you rely on it.", title="AI Models and Platforms"), "ai-academy.html")
+page("ai-agents-guide.html", "How AI Agents Work: single agents, multi-agent systems, context and evals · SkillNavora", "How AI agents work step by step, how people build them at three levels, how multi-agent systems are organised, and how context engineering and evals keep them reliable.", _gs.body("AI-Models-and-Agents-Guide/ai-agents-guide.md", "Agent products change quickly. The patterns in this guide are stable; check product features on their official pages.", title="How AI Agents Work"), "ai-academy.html")
 page("make-money-course.html", "Make Money with AI: from zero to your first paying client · SkillNavora", "A part-time guide to finding, pitching and closing a first AI service client: offer selection, a credibility stack, signal-based outreach, discovery calls, a capstone and a glossary.", _mm.body(), "learning-platform.html")
 page("careers.html", "Careers · SkillNavora", "Join SkillNavora: roles in teaching, curriculum, admissions, marketing, engineering and operations.", careers, "careers.html")
 

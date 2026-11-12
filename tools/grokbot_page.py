@@ -67,6 +67,8 @@ def _render(path):
     with open(os.path.join(ROOT, path), encoding="utf-8") as f:
         src = f.read()
     html_out = markdown.markdown(src, extensions=["tables", "fenced_code", "sane_lists"])
+    # one main heading per page: the page title is the only <h1>; headings inside the course text become <h2>/<h3>
+    html_out = re.sub(r"<(/?)h1(\b[^>]*)>", r"<\1h2\2>", html_out)
     # <https://...> autolinks show the full address as text; show the site name instead, opening in a new tab
     html_out = re.sub(r'<a href="(https?://([^"/]+)[^"]*)">\1</a>',
                       lambda m: f'<a href="{m.group(1)}" target="_blank" rel="noopener">{m.group(2).removeprefix("www.")} ↗</a>', html_out)
@@ -79,8 +81,8 @@ def body():
     for heading, path in ORDER:
         sid = _slug(heading)
         toc.append(f'<li><a href="#{sid}">{html.escape(heading)}</a></li>')
-        sections.append(f'<section id="{sid}" class="gm-doc"><h1>{html.escape(heading)}</h1>{_render(path)}</section>')
-    return (STYLE + '<section><div class="wrap">' + INTRO + EXTRA_LINKS
+        sections.append(f'<section id="{sid}" class="gm-doc"><h2>{html.escape(heading)}</h2>{_render(path)}</section>')
+    return (STYLE + '<section><div class="wrap"><h1 style="font-size:clamp(26px,4vw,36px);line-height:1.2;margin:8px 0 10px">Grokbot Mastery Course</h1>' + INTRO + EXTRA_LINKS
             + '<h2 class="sec-h">Contents</h2><ol class="gm-toc">' + "".join(toc) + "</ol></div></section>"
             + '<section><div class="wrap">' + "".join(sections) + "</div></section>")
 
