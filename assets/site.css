@@ -1673,3 +1673,7 @@ img.lg-dark{display:none}
   .cols li a{display:inline-block;padding:6px 0;min-height:32px}
   .meta > a{display:inline-block;padding:4px 0}
 }
+
+/* Instagram DM button (AI Studio / chat fallback) */
+.ig-dm{display:inline-block;padding:9px 14px;border-radius:10px;color:#fff!important;font-weight:600;text-decoration:none;background:linear-gradient(45deg,#f09433,#dc2743 50%,#bc1888)}
+.ig-dm:hover{filter:brightness(1.08)}

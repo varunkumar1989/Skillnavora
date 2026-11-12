@@ -85,7 +85,11 @@ if (firstHits.length) {
     reply = listReply(hits);
     matched = "content: " + hits[0].title;
   } else {
-    reply = fallback ? fallback.answer + (fallback.link ? "\n" + fallback.link : "") : "Sorry, I don't have that information yet.";
+    if (incoming.channel === "instagram" || incoming.channel === "messenger") {
+      reply = "Thanks for your question! Someone from our team will reply to you here shortly.";
+    } else {
+      reply = fallback ? fallback.answer + (fallback.link ? "\n" + fallback.link : "") : "Sorry, I don't have that information yet.";
+    }
   }
 }
 

@@ -15,6 +15,7 @@ const SITE = {
   linkedin: "https://www.linkedin.com/in/skill-navora-1600b5447",
   founderLinkedin: "https://www.linkedin.com/in/varun-pm01",   // instructor section
   instagram: "https://www.instagram.com/skillnavora/",
+  instagramDM: "https://ig.me/m/skillnavora",   // opens a direct message to the Instagram account (AI Studio and chat fallback)
   youtube: "https://www.youtube.com/@SkillNavora",
   twitter: "https://x.com/skillnavora",   // X (Twitter)
   facebook: "https://www.facebook.com/profile.php?id=61595706998987",

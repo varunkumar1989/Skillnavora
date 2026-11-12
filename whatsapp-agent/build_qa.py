@@ -108,8 +108,8 @@ add("Contact", "social,instagram,youtube,linkedin,twitter,facebook", "What are y
     f"Instagram: {s['instagram']}. YouTube: {s['youtube']}. LinkedIn: {s['linkedin']}. X: {s['twitter']}. Facebook: {s['facebook']}.", BASE)
 
 # Fallback
-add("Fallback", "", "Anything else", "I don't have that information yet. I can connect you with a counsellor on WhatsApp, or you can ask on the website.",
-    f"{BASE}/contact.html", "")
+add("Fallback", "", "Anything else", "I don't have that information yet. Message us on Instagram and someone from our team will reply to you directly.",
+    "https://ig.me/m/skillnavora", "")
 
 with open(os.path.join(HERE, "knowledge_qa.csv"), "w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))

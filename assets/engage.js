@@ -325,7 +325,7 @@
       }
       const hits = await where();
       if (hits.length) return listOf(hits);
-      return { text: "I don't have that information yet. Our team is happy to help. Use the links below, or ask your question on WhatsApp.", link: "" };
+      return { text: "I couldn't find that on the website. Message us on Instagram and someone from our team will reply to you directly.", link: "", ig: true, q };
     }
     let busy = false;
     async function send(text) {
@@ -344,6 +344,12 @@
         const ans = await answerFromKnowledge(text);
         add("assistant", ans.text);
         if (ans.link) add("assistant", "Open the page: " + ans.link);
+        if (ans.ig) {
+          const d = document.createElement("div"); d.className = "sugg";
+          const a = document.createElement("a"); a.className = "btn btn-sm ig-dm"; a.href = (typeof SITE !== "undefined" && SITE.instagramDM) || "https://ig.me/m/skillnavora"; a.target = "_blank"; a.rel = "noopener";
+          a.textContent = "💬 Chat with our team on Instagram"; d.appendChild(a); body.appendChild(d); body.scrollTop = body.scrollHeight;
+          try { navigator.clipboard.writeText(ans.q).then(() => add("assistant", "Your question is copied, so you can paste it in Instagram."), () => {}); } catch (e) {}
+        }
         helpLinks();
       }
       store.sset("chat", JSON.stringify(hist)); busy = false; inp.focus();

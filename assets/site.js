@@ -361,13 +361,23 @@ ${T.map(([h, i, n, s]) => `<a class="t" href="${R + h}"><span>${i}</span><span><
     return false;
   }
   box.querySelectorAll("#askai-quick [data-q]").forEach(b => b.addEventListener("click", () => { ta.value = b.dataset.q; answer(b.dataset.q).catch(() => show([{ text: "Sorry, the answers are unavailable right now. Please try again." }])); }));
+  function noAnswer(q) {
+    ans.hidden = false; ans.innerHTML = "";
+    const p = document.createElement("p"); p.style.margin = "0 0 8px";
+    p.textContent = "I couldn't find that on the website. Message us on Instagram and someone from our team will reply to you directly.";
+    try { navigator.clipboard.writeText(q).then(() => { p.textContent += " Your question is copied, so you can paste it there."; }, () => {}); } catch (err) {}
+    const ig = document.createElement("a"); ig.href = (typeof SITE !== "undefined" && SITE.instagramDM) || "https://ig.me/m/skillnavora"; ig.target = "_blank"; ig.rel = "noopener"; ig.className = "ig-dm";
+    ig.textContent = "💬 Chat with our team on Instagram";
+    const tu = new URL(R + "ai-tutor.html", location.href); tu.searchParams.set("q", q);
+    const t = document.createElement("a"); t.href = tu.href; t.textContent = "Study question? Ask the AI Tutor →"; t.style.cssText = "display:block;margin-top:8px;font-size:.9em";
+    ans.appendChild(p); ans.appendChild(ig); ans.appendChild(t);
+  }
   const originalSubmit = box.querySelector("form");
   originalSubmit.addEventListener("submit", e => {
     const q = ta.value.trim();
     if (!q) return;
     e.preventDefault();
     e.stopImmediatePropagation();
-    answer(q).then(ok => { if (!ok) { const u = new URL(R + "ai-tutor.html", location.href); u.searchParams.set("q", q); location.href = u.href; } })
-      .catch(() => { location.href = new URL(R + "ai-tutor.html", location.href).href; });
+    answer(q).then(ok => { if (!ok) noAnswer(q); }).catch(() => noAnswer(q));
   }, true);
 })();
