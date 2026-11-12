@@ -1,0 +1,20 @@
+Identifying AI Product Opportunities :: Look for frequent, costly tasks involving language, patterns or judgement where partial automation helps. The best opportunities also have data available and a clear person who gains.
+AI Opportunity Assessment :: Score a use case on value, feasibility, data readiness, risk and cost before committing. Decide quickly which opportunities need a prototype and which should be dropped.
+AI Product-Market Fit :: Evidence that users rely on the AI feature for real outcomes: repeat use, measurable time saved and willingness to pay. Novelty use fades; reliance does not.
+Build vs Buy vs Partner :: Decide by differentiation, speed, cost, control and data sensitivity. Build what makes you different, buy commodity capability and partner when you need speed or expertise.
+AI Business Models :: Seat-based, usage-based, outcome-based, add-on and platform models each have different margins and risks. Usage-based models protect margin when costs scale, but they make revenue less predictable.
+AI Product Pricing :: Price to the value delivered while covering variable inference cost. Tiers and usage limits keep heavy users from eroding margin.
+Usage-Based Pricing :: Charge by tokens, requests, tasks or outcomes, so revenue follows cost. Customers need a clear way to estimate and control their spend.
+Subscription Monetisation :: Fixed plans with usage allowances are simple to buy but sensitive to heavy users. Monitor cost per plan so a small group of heavy users does not make a plan unprofitable.
+Enterprise AI Monetisation :: Large customers pay through contracts, platform fees, integrations and services, often after security reviews. Price in the cost of those reviews and of custom integration.
+AI Unit Economics :: Margin per user or per task after inference, data, support and infrastructure costs. Know the margin before scaling, not after.
+Inference Cost Management :: Reduce cost through smaller models for simple tasks, caching, shorter prompts, batching and routing. Routing sends easy requests to cheap models and hard ones to strong models.
+Token Economics :: Understand the price per million tokens and how prompt design and volume change cost. Long system prompts sent with every request can dominate cost.
+AI ROI Calculation :: ROI is the benefit (time saved, revenue gained or cost avoided) minus total cost, divided by total cost. Measure the benefit against a baseline, not against a guess.
+Total Cost of Ownership :: Total cost includes models, infrastructure, data, people, governance and maintenance over the life of the product. Many AI projects underestimate maintenance, especially evaluation.
+AI Product Differentiation :: Advantages come from proprietary data, workflow integration, evaluation quality, distribution and trust. A better model alone is a weak advantage because competitors can access the same models.
+AI Competitive Positioning :: Define where you win against general-purpose assistants and rival tools. Be specific about the job, the user and the workflow you serve better.
+AI Product GTM :: Positioning, pricing, proof points, pilots and enablement for launching AI products. Enterprise buyers often want a pilot with measurable results before a contract.
+Enterprise AI Adoption :: Moving from pilot to production through change management, integration and governance. Most AI pilots fail at adoption, not at the model.
+AI Customer Retention :: Keep customers through reliability, improving quality, integration and shown outcomes. Regular reports on results help customers see the value.
+AI Product Scaling :: Grow usage while controlling cost, quality, latency and risk. Scale only after unit economics and quality are stable.

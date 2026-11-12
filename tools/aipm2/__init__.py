@@ -17,3 +17,29 @@ def load():
                 name, text = line.split(" :: ", 1)
                 subs[-1]["topics"].append((name.strip(), text.strip()))
     return sorted(subs, key=lambda s: s["n"])
+
+def load_detailed():
+    """Subjects with detailed explanations: [{'n','title','overview','topics': [(name, short, detail)]}], in order.
+    Every topic must have a detail line in aipm2/details/dNN.txt with the same name, in the same order."""
+    subs = load()
+    det = {}
+    for f in sorted(x for x in os.listdir(os.path.join(_D, "details")) if re.fullmatch(r"d\d\d\.txt", x)):
+        n = int(f[1:3])
+        det[n] = []
+        for line in open(os.path.join(_D, "details", f), encoding="utf-8"):
+            line = line.rstrip("\n")
+            if line.strip():
+                name, text = line.split(" :: ", 1)
+                det[n].append((name.strip(), text.strip()))
+    out = []
+    for s in subs:
+        d = det.get(s["n"], [])
+        if [x for x, _ in d] != [x for x, _ in s["topics"]]:
+            raise ValueError(f"details out of step with topics in subject {s['n']}")
+        out.append({**s, "topics": [(name, short, dt) for (name, short), (_, dt) in zip(s["topics"], d)]})
+    return out
+
+
+def pdf_name(n, title):
+    """File name of a chapter PDF, e.g. AIPM2-01-Product-Management-Foundations.pdf"""
+    return f"AIPM2-{n:02d}-" + "".join(c if c.isalnum() else "-" for c in title).strip("-").replace("--", "-") + ".pdf"

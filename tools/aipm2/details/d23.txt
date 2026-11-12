@@ -1,0 +1,16 @@
+Technical Product Management :: Products where technical depth matters, such as infrastructure, developer tools, APIs and data platforms. The PM must discuss architecture trade-offs and developer experience credibly.
+Growth Product Management :: Owns acquisition, activation, retention and revenue through experiments. Growth PMs work from funnels and cohorts and ship many small tests.
+Platform Product Management :: Builds shared capabilities that other teams or partners build on. Success means other teams adopt the platform without friction.
+B2B Product Management :: Selling to organisations involves several stakeholders, integrations, security reviews and long cycles. Success depends on admin controls, reporting and reliability.
+B2C Product Management :: Consumer products depend on scale, delight, habit formation and rapid experiments. Retention and daily use are central metrics.
+SaaS Product Management :: Subscription software needs strong onboarding, retention, expansion and continuous delivery. Pricing and packaging are ongoing product decisions.
+Fintech Product Management :: Financial products have regulation, risk, fraud, reliability and trust at the centre. Compliance and security requirements shape the roadmap.
+Banking Product Management :: Retail, corporate and payments products inside regulated institutions, often with legacy system integration. Change moves slowly, so plan releases carefully.
+E-commerce Product Management :: Catalogue, search, checkout, fulfilment and conversion. Small improvements in checkout speed can have large revenue effects.
+Marketplace Product Management :: Balances supply and demand, trust and safety, pricing and liquidity. A marketplace fails when one side leaves, so watch both sides' metrics.
+API Product Management :: Treats an API as a product: developer experience, documentation, versioning and pricing. Breaking changes damage trust quickly.
+Data Product Management :: Manages data assets and analytics products with quality, access and usability for consumers. Data products are judged by whether people trust and use them.
+AI Product Management :: Products whose core value comes from machine learning, with uncertainty, evaluation and data in scope. The PM must define quality in measurable terms.
+Generative AI Product Management :: Products built on foundation models: prompts, retrieval, evaluation, cost and safety. Output quality varies, so the PM manages it continuously.
+Agentic AI Product Management :: Products where agents act on a user's behalf: autonomy, permissions, reliability and human oversight. The main questions are what the agent may do and how it is stopped.
+Enterprise AI Product Management :: AI for organisations: integration, governance, security, adoption and measurable return on investment. Enterprise buyers ask for audit logs, data controls and proof of value.

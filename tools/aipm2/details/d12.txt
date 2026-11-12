@@ -1,0 +1,30 @@
+Introduction to Generative AI :: Generative AI models create new content such as text, images, audio, video and code, based on patterns learned from data. Its outputs are probabilistic, so the same prompt can give different answers.
+Generative AI Architecture :: A typical stack includes the foundation model, prompts, retrieval of company data, tools the model can call, guardrails and the application layer that the user sees. Each layer can fail, so each needs monitoring.
+Foundation Models :: Foundation models are large models pre-trained on broad data and adapted to many tasks. Products build on them through prompting, retrieval and fine-tuning rather than training from scratch.
+Large Language Models (LLMs) :: LLMs are transformer models trained to predict the next token in text. That simple objective, at scale and with alignment training, gives broad language ability, including summarising and coding.
+GPT Architecture :: GPT models are decoder-only transformers trained to predict the next token, then aligned with instructions and human feedback. The name refers to a family of OpenAI models; the architecture idea is shared widely.
+Claude Model Ecosystem :: Anthropic offers a family of Claude models across capability and cost tiers, with long context windows and strong performance on writing and coding. Model names and prices change, so check the current documentation before choosing.
+Gemini Model Ecosystem :: Google's Gemini models handle text, images, audio, video and code, and are available through the Gemini API and Vertex AI. Their multimodal inputs suit document and video workflows.
+Open-Source LLMs :: Models with downloadable weights, such as Llama, Mistral and Qwen, can be hosted and tuned by the company. Check the licence, because some restrict commercial use or large-scale deployment.
+Transformer Architecture :: A transformer stacks attention and feed-forward layers, with embeddings and positional information. It processes all tokens in parallel, which makes training at scale practical.
+Tokens and Tokenisation :: Text is split into sub-word tokens. Cost, context limits and speed are measured in tokens, so a 1,000-word document is roughly 1,300 to 1,500 tokens in English, and more in some other languages.
+Context Windows :: The context window is the maximum number of tokens the model can consider at once, covering the prompt and the response. Long documents may need retrieval rather than being pasted in full.
+Embeddings :: Embeddings are numeric vectors that capture meaning, so similar texts sit close together. They power semantic search, recommendations and clustering.
+Pre-Training :: Pre-training trains the model on very large general data to learn language and world knowledge. It is expensive and done by model providers, not by most product teams.
+Instruction Tuning :: Instruction tuning trains the model on instruction and response pairs so it follows directions. It turns a text predictor into an assistant.
+Fine-Tuning :: Fine-tuning trains a model further on task or domain data to change behaviour, style or accuracy on a narrow task. It is often unnecessary when good prompting and retrieval work.
+RLHF :: Reinforcement learning from human feedback trains a reward model on human preferences and optimises the model against it. It makes outputs more helpful and safer, but it can also make them overly cautious.
+Reasoning Models :: Reasoning models spend extra computation working through steps before answering. They improve on hard maths, planning and coding, but cost more and respond more slowly.
+Multimodal AI :: Multimodal models accept or produce several types of data, such as text, images and audio. A product can let users photograph a receipt and ask a question about it.
+Text Generation :: Text generation produces summaries, drafts, answers, code and structured data. Quality depends on the prompt, the context and the evaluation applied to the output.
+Image Generation :: Image models create pictures from prompts, often using diffusion methods. Commercial use depends on the provider's licence and on the rights of training data, so check terms.
+Audio Generation :: Audio models generate speech, music and sound effects. Voice cloning raises consent and misuse risks that the product must control.
+Video Generation :: Video models create clips from text or images. Quality, length and cost remain constraints, so products usually limit duration and review outputs before publishing.
+Speech-to-Text :: Speech recognition converts audio to text. Accuracy depends on accents, background noise and domain vocabulary, so test with real recordings from your users.
+Text-to-Speech :: Text-to-speech generates natural voice from text, with control over style and pace. Disclose when users hear AI-generated voices.
+Structured Outputs :: Structured outputs constrain the model to produce data in a schema such as JSON, so software can use the result reliably. Validate the output in code as well.
+Function Calling :: The model returns a structured request to call a named function with arguments, and the application runs it. This lets models query databases or book appointments safely.
+Model Selection and Benchmarking :: Choose a model by testing it on your own tasks, measuring quality, latency and cost. Public leaderboards are a hint, not proof of fit for your use case.
+Model Latency :: Latency is shaped by model size, output length and load. Time to first token affects perceived speed, so streaming responses improves user experience.
+Model Cost and Token Economics :: Cost equals tokens processed multiplied by price per token. Shorter prompts, caching, smaller models for easy tasks and batching reduce cost. Track cost per successful task, not per call.
+LLM Limitations and Hallucinations :: Models can state false information confidently, lack current knowledge and vary between runs. Design for verification: show sources, check high-stakes outputs and allow users to correct errors.

@@ -1,0 +1,24 @@
+Responsible AI Fundamentals :: Responsible AI principles include fairness, reliability, safety, privacy, transparency, accountability and inclusiveness. Turn each principle into a testable requirement for your product.
+AI Ethics :: Ethics weighs the benefits and harms to people and society when designing and deploying AI. Ask who could be harmed and who has not been consulted.
+Data Privacy :: Respect what personal data is collected, how it is used and who can see it. Collect only what the feature needs and explain it clearly to users.
+Data Protection :: Safeguards include encryption, access control, retention limits and data minimisation. Retention limits mean deleting data when it is no longer needed.
+GDPR :: The EU regulation gives people rights over their personal data and places duties on organisations that process it. It applies to products serving EU residents, even when the company is based elsewhere.
+India's Digital Personal Data Protection Act :: India's 2023 law regulates digital personal data, based on consent, notice and obligations for data fiduciaries. Check current rules and their implementation timeline with legal counsel.
+AI Security :: Protect models, data, prompts and tools from misuse and attack. Security reviews should cover the model provider, the data flow and the tools the model can call.
+Data Leakage :: Sensitive information can leak through prompts, outputs, logs or training data. Redact personal data before it reaches a model or a log, when the feature does not need it.
+Prompt Injection :: Malicious text tries to override instructions or trigger unwanted actions, including text hidden in retrieved documents. Separate instructions from data and limit the tools available to the model.
+Jailbreak Risks :: Jailbreak prompts try to bypass safety rules. Test regularly with known patterns, and layer defences rather than relying on one filter.
+AI Bias :: Bias is systematic unfairness from skewed data, labels or design choices. Audit outcomes across groups, not only overall accuracy.
+Fairness :: Fairness means outcomes are equitable across groups, measured with agreed metrics. There is no single fairness metric, so choose the one that matches the harm you are guarding against.
+Explainability :: Explainability gives understandable reasons for outputs, especially for high-stakes decisions such as credit. Users and regulators may need the reasons, not only the score.
+Transparency :: Be clear about when AI is used, its limits and how data is handled. Users calibrate trust better when they know what the system is.
+Human Oversight :: Meaningful human review, override and accountability for important decisions. A human who rubber-stamps every output does not provide real oversight.
+AI Guardrails :: Input and output filters, policy checks and permission limits constrain behaviour. Guardrails work best as several layers rather than one rule.
+Content Moderation :: Detect and handle harmful or disallowed content from users and models. Define the policy first, then build tools to enforce it, with an appeals path.
+Access Control :: Limit who and what can reach data, tools and models, based on role and need. Apply the same rules to the AI feature as to the underlying data.
+AI Governance :: Governance sets policies, roles, review processes and standards for responsible AI across the organisation. It answers who approves an AI use case and who is accountable when it fails.
+AI Risk Management :: Identify, rate and mitigate AI risks. Frameworks such as the NIST AI Risk Management Framework give a structure for this work.
+Enterprise AI Governance :: Central oversight of AI use cases, vendors, data and approvals in large organisations. It prevents teams from adopting unapproved tools with customer data.
+Regulatory Compliance :: Meet the laws and standards that apply to your market and use case, such as the EU AI Act, GDPR and sector rules. Compliance requirements shape product design, so involve legal early.
+AI Incident Management :: Detect, triage, fix and learn from AI failures, with clear communication and a post-incident review. Blameless reviews find systemic causes.
+Responsible AI Product Launch :: A pre-launch checklist covers risks, testing, approvals, user disclosure, monitoring and rollback. Launch only when every item has an owner and a status.

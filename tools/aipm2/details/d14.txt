@@ -1,0 +1,29 @@
+RAG Fundamentals :: Retrieval-augmented generation finds relevant documents at request time and gives them to the model so its answer is grounded in them. It lets a product answer from current company data without retraining the model.
+Why RAG Is Required :: Models do not know your private or recent data and can hallucinate. RAG supplies sources, which enables citations and makes answers checkable.
+RAG vs Fine-Tuning :: RAG adds knowledge at query time and is easy to update. Fine-tuning changes behaviour, style or format. Many products start with RAG and fine-tune only if behaviour still falls short.
+RAG Architecture :: The pipeline ingests and indexes documents, retrieves candidates for a query, reranks them, builds the context, generates the answer with citations and is monitored for quality.
+Data Ingestion :: Ingestion collects documents from sources such as drives, wikis and databases, then keeps the index in sync when content changes. Stale content is a common cause of wrong answers.
+Document Parsing :: Parsing extracts clean text, tables and headings from PDFs, web pages and office files. Poor parsing silently degrades every later step, so check parsed output by hand.
+Data Cleaning :: Cleaning removes boilerplate, duplicates and noise, and fixes encoding problems. Clean data makes retrieval more accurate and smaller.
+Document Chunking :: Chunking splits documents into passages sized for retrieval and the context window. Chunks that are too small lose meaning; chunks that are too large dilute relevance.
+Chunking Strategies :: Options include fixed-size chunks, recursive splitting, splitting by heading, and semantic boundaries, often with some overlap to keep context. Evaluate each option on your own questions.
+Embedding Models :: Embedding models turn text into vectors. Compare them on retrieval quality for your language and domain, plus dimensions, cost and speed.
+Vector Databases :: Vector databases store embeddings and run fast nearest-neighbour search. They also support metadata filters. Choose based on scale, hosting needs and integration.
+Pinecone :: Pinecone is a managed vector database service with simple scaling. Teams that do not want to run infrastructure often choose a managed option.
+Weaviate :: Weaviate is an open-source vector database with hybrid search and modules for embedding. It can be self-hosted or used as a managed service.
+Chroma :: Chroma is a lightweight open-source vector store, popular for prototypes and small applications. Check its production readiness for your scale before committing.
+FAISS :: FAISS is a library from Meta for efficient similarity search, run inside your own process. It is fast but does not provide a full database service by itself.
+Semantic Search :: Semantic search finds passages by meaning, even when they do not share keywords. It handles paraphrases well but can miss exact codes and names.
+Keyword Search :: Keyword search, often BM25, matches exact terms. It is strong for names, product codes and rare words that embeddings can blur.
+Hybrid Search :: Hybrid search combines keyword and semantic scores. It usually improves recall over either method alone, at the cost of more tuning.
+Metadata Filtering :: Filters restrict retrieval by attributes such as date, source, product or user permission. Permission filters are essential so users only retrieve documents they may read.
+Retrieval Strategies :: Options include top-k retrieval, multi-query retrieval, parent-document retrieval and query rewriting. Choose based on the failure patterns you see in evaluation.
+Reranking :: A reranker, a second model, reorders retrieved candidates by relevance before generation. It improves precision at the cost of extra latency.
+Context Construction :: Context construction selects, orders and formats retrieved passages inside the prompt, with source labels. Include only what supports the answer, since extra text can distract the model.
+Grounded Generation :: The model is instructed to answer only from the provided sources and to say when they are insufficient. Test that it does this on questions the documents do not cover.
+Citation and Source Attribution :: Each claim links to its source so users can verify it. Citations build trust, but they must point to the passage that actually supports the claim.
+RAG Evaluation :: Evaluate retrieval and answer quality separately on a labelled set of questions. A wrong answer may come from retrieval or from generation, and you need to know which.
+Retrieval Precision and Recall :: Precision is the share of retrieved passages that are relevant. Recall is the share of relevant passages that were retrieved. Both must be measured to tune chunking and ranking.
+Faithfulness and Context Relevance :: Faithfulness checks the answer is supported by the context. Context relevance checks the retrieved context fits the question. Both can be scored with a model-based judge validated against human labels.
+RAG Performance Optimisation :: Tune chunking, embeddings, hybrid search, reranking, caching and prompts for quality, speed and cost. Change one factor at a time and re-run the evaluation.
+Production RAG Monitoring :: Monitor retrieval quality, unanswered questions, latency, cost and document freshness in live use. Questions with no good source are a useful signal for content gaps.

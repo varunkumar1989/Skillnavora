@@ -1,0 +1,26 @@
+AI Product Architecture Fundamentals :: An AI product has layers: data, models, orchestration, application, monitoring and governance. A weakness in any layer limits the whole product, so review all layers, not only the model.
+AI Application Architecture :: The interface, backend, model calls, data stores and tools fit together through defined APIs. Draw this picture early so engineers and PMs agree on boundaries.
+LLM Application Architecture :: An LLM request usually assembles a prompt, retrieves context, calls the model, runs any tools, validates the output and returns the response. Each step adds latency and failure points.
+Model Integration :: Connect models through APIs or SDKs with timeouts, retries and fallbacks. Plan for provider outages, because a model dependency is an external service.
+AI APIs :: Hosted endpoints provide models for text, speech, vision and embeddings, billed per use. They remove infrastructure work but add cost per request and dependence on the provider.
+Model Hosting :: Hosting runs models on a provider's servers or your own infrastructure. Self-hosting gives control over data and cost at scale, but needs machine learning operations skills.
+Model Serving :: Serving systems load models and answer requests efficiently, using batching and scaling. Serving is where latency and cost targets are met or missed.
+Inference Endpoints :: Endpoints return predictions or generations on request. Monitor their latency, errors and cost separately from the rest of the application.
+GPU Fundamentals :: GPUs run the parallel calculations behind training and inference. Memory size and availability drive both cost and capacity, so plan capacity with engineers.
+AI Data Pipelines :: Pipelines collect, clean, label and deliver data for training, retrieval and monitoring. Pipelines run continuously, so their failures can silently degrade quality.
+ETL and ELT :: ETL transforms data before loading it into a store. ELT loads raw data first and transforms it in the warehouse. Modern analytics stacks often prefer ELT.
+AI Application Databases :: Operational stores hold users, sessions, prompts, outputs and feedback. Feedback stored here feeds later evaluation and improvement.
+Vector Database Integration :: Embed content, index it and query by similarity inside the application. Keep the index in sync with source content and respect permissions at query time.
+AI Orchestration Layers :: Code or frameworks sequence model calls, retrieval and tools. A clear orchestration layer makes behaviour easier to test and change.
+Microservices for AI :: Separating model, retrieval and business services lets each scale and deploy independently. The cost is more network calls and more operational work.
+Cloud AI Infrastructure :: Managed platforms for training, hosting and monitoring models include Amazon Bedrock, Azure AI Foundry and Google Vertex AI. They reduce operational work and tie you to a provider's services.
+AI Application Scalability :: Scale with queues, caching, rate limits, batching and autoscaling. Rate limits protect the product and the provider budget during traffic spikes.
+Model Deployment :: Release a model or prompt change to production with testing, staged rollout and rollback. Treat it like any software release with monitoring after each stage.
+Model Versioning :: Record model, prompt and data versions so results can be reproduced and regressions traced. Without versions, you cannot explain why behaviour changed.
+MLOps :: MLOps covers training, deploying, monitoring and retraining machine learning models reliably. It applies software engineering discipline to models.
+LLMOps :: LLMOps adapts MLOps to LLM applications, adding prompt and evaluation management, tracing, cost control and guardrails.
+CI/CD for AI :: Automated tests and evaluation gates run on every change to code, prompts or models. A change that lowers the quality score is blocked before release.
+AI System Monitoring :: Track quality, latency, errors, cost, drift and safety signals in production. Set alerts on changes, not only on outages.
+AI Application Reliability :: Keep the product working despite model outages and variable outputs, using fallbacks, timeouts and degraded modes. A degraded mode might show search results when the AI answer is unavailable.
+Production AI Architecture :: A production design includes security, observability, evaluation, cost controls and operational runbooks. Runbooks say what to do when something goes wrong at 2 a.m.
+Build vs Buy vs Partner Decisions :: Build where the capability differentiates you, buy commodity capability, and partner for speed or expertise. Weigh cost, control over data, time to market and risk.

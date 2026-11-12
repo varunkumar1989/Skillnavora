@@ -1,0 +1,17 @@
+AI-First Product Design :: Design around what AI does well, with clear fallbacks for what it cannot do. Decide early which parts of the job the AI handles and which the user still controls.
+Conversational UX :: Natural dialogue with clear scope, suggested prompts and recovery from misunderstanding. Users should know what the assistant can and cannot do.
+AI Chat Interfaces :: Chat layouts need streaming responses, history, attachments, citations and actions the user can take on an answer. Make it easy to copy, edit or regenerate.
+Copilot Experiences :: AI embedded in a workflow suggests and assists while the user stays in charge. The copilot should appear where the work happens, not in a separate tab.
+AI-Assisted Workflows :: Steps in a task where AI drafts, classifies or automates, with review points. Show what the AI did so the reviewer can check it quickly.
+Human-AI Collaboration :: Divide work so each side does what it does best, with clear hand-offs. People set goals and judge; AI drafts, searches and summarises.
+Trust and Transparency :: Show sources, reasoning summaries and limits so users calibrate trust. Trust should match accuracy: too much trust is as harmful as too little.
+Communicating AI Uncertainty :: Convey confidence honestly through wording, indicators and prompts to verify. Avoid false precision such as "97.3% sure" unless the number is calibrated.
+AI Error Recovery :: Let users undo, edit, regenerate and report wrong outputs easily. A visible undo path makes users more willing to try the feature.
+Human Approval Workflows :: Require user confirmation before consequential actions such as sending messages, spending money or deleting records. Show exactly what will happen before the user confirms.
+AI Personalisation :: Adapt content and behaviour to the user, with consent and control. Explain why a recommendation appears and let users adjust it.
+Multimodal UX :: Combine text, voice, image and video input and output coherently. Test each mode separately and together, since errors often appear at the boundaries.
+AI Onboarding :: Set expectations, show example prompts and guide the first success. Users who get a good first result are far more likely to return.
+AI Feature Adoption :: Help users discover, try and keep using AI features, measured by repeat use rather than first clicks. Repeat use shows whether the feature is useful.
+AI Accessibility :: Make AI experiences usable with assistive technology, including voice, captions and plain language. Streaming text needs care so screen readers are not overwhelmed.
+Feedback Loops :: Collect ratings, edits and corrections, and feed them into evaluation and improvement. Edits the user makes are some of the most valuable signals you will get.
+AI User Experience Evaluation :: Test usefulness, trust, effort and satisfaction with real users and metrics. Combine task success with qualitative interviews to learn why users trust or reject the output.

@@ -1,0 +1,30 @@
+Traditional Software Testing vs AI Testing :: Traditional tests expect exact outputs for given inputs. AI outputs vary, so quality is scored statistically across many cases, with a pass threshold set in advance.
+AI Product Evaluation Fundamentals :: Define what good means to users, build representative test sets, choose metrics and set a launch bar. Without a definition of good, every release becomes an argument.
+Offline Evaluation :: Score a model or prompt on a fixed dataset before release. It is fast and repeatable, but it may not reflect real users.
+Online Evaluation :: Measure real behaviour after release through experiments and user signals such as edits, retries and ratings. It shows the impact that matters, but carries user risk.
+Human Evaluation :: Reviewers rate outputs against a rubric. It is the most trusted method but slow and expensive, so use it to calibrate automated scoring.
+Automated Evaluation :: Programmatic checks and model-based scoring run quickly at scale. Check the automated scores against human ratings regularly.
+LLM-as-a-Judge :: A model grades outputs against a rubric. Validate its agreement with human labels first, and watch for bias toward longer or similar-sounding answers.
+Golden Datasets :: Curated, trusted examples with expected answers anchor evaluation. Keep them representative and update them when the product or users change.
+Evaluation Datasets :: Representative collections of inputs, including hard and adversarial cases, are versioned and refreshed. A dataset that never changes stops finding new failures.
+Benchmarking :: Benchmarking compares models or versions on shared tasks. Public benchmarks are a hint; test on your own data before deciding.
+Accuracy and Relevance :: Accuracy asks whether the answer is correct. Relevance asks whether it addresses the question. An answer can be accurate but irrelevant.
+Faithfulness :: Faithfulness checks that claims are supported by the provided sources. It is the key quality check for grounded answers.
+Hallucination Measurement :: Track the rate of unsupported or false statements on a fixed test set. Measure it on every model or prompt change.
+Retrieval Evaluation :: Check whether the right passages are found, using precision, recall and ranking measures. Retrieval errors look like generation errors unless measured separately.
+Agent Success Rate :: The share of tasks an agent completes correctly end to end. Break failures down by step to see where the agent struggles.
+Task Completion Rate :: The share of user tasks finished, with or without help. A low rate with high satisfaction can mean the task is too hard to finish.
+Safety Evaluation :: Test for harmful, unsafe or policy-violating outputs using adversarial and everyday inputs. Safety tests should run before every release.
+Toxicity and Bias Testing :: Measure offensive output and unequal treatment across groups, using paired test inputs that differ only in the group mentioned.
+Robustness Testing :: Check behaviour under typos, paraphrases, noisy inputs and adversarial prompts. A product that works only on perfectly written questions will fail in use.
+Regression Testing :: Re-run the evaluation suite after every change to catch quality drops. Regressions are often silent until a user reports them.
+AI Red Teaming :: Deliberately attack the system to find failures before attackers or users do. Include prompt injection, data extraction and misuse scenarios.
+A/B Testing for AI :: Compare model or prompt variants on real users with quality, cost and safety guardrails. Keep the metrics defined before the test starts.
+Model Latency :: Measure response time at median and tail percentiles against a target. Tail latency (the slowest 5 to 1 per cent) often drives user complaints.
+Throughput :: Throughput is requests handled per second under load. Load test before launch so you know where the system slows down.
+Cost per Request :: Total model and infrastructure cost divided by requests. Also track cost per successful task, which is the number that shows real efficiency.
+Token Consumption :: Input and output tokens drive cost and latency. Monitor token use per feature to find prompts that grew without anyone noticing.
+AI Observability :: Logs, traces and metrics explain what the system did and why. Observability turns a vague complaint into a specific failing step.
+Production Monitoring :: Dashboards and alerts track quality, errors, latency, cost and safety in live traffic. Alerts should point to an owner and a runbook.
+Model Drift :: Performance changes as data, user behaviour or the model itself changes. Compare recent inputs with the data the system was tested on to detect drift early.
+Continuous Evaluation :: Score live samples and run the test suite continuously, so quality is tracked, not assumed. Quality can fall slowly, and continuous scoring is the only reliable way to notice.

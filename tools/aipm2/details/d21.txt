@@ -1,0 +1,32 @@
+ChatGPT :: OpenAI's assistant for writing, analysis, coding and research, with custom GPTs and tool integrations. Use it to draft, summarise and test ideas; check current features on the official site.
+Claude :: Anthropic's assistant and API, known for long documents, writing and coding, with projects and tool use. Use it for reviewing long specifications and drafting PRDs.
+Gemini :: Google's multimodal assistant and models, integrated with Workspace and Google Cloud. Useful when your documents live in Google Drive.
+Perplexity :: An answer engine that searches the web and cites sources. Good for quick, sourced research; still verify the sources it cites.
+NotebookLM :: Google's tool for asking questions of and summarising your own uploaded sources. Useful for synthesising interview notes or research reports.
+Cursor :: An AI code editor that edits code across a project through chat and agent modes. PMs use it to prototype small tools; engineers use it for production code.
+Lovable :: A prompt-to-app builder that generates web apps with a backend. Good for fast prototypes to test with users.
+Replit :: A browser development environment with an AI agent that builds and hosts apps. Useful for quick prototypes and demos.
+Bolt :: A browser tool that generates and runs full-stack web apps from prompts. Use it to prototype flows for user testing.
+n8n :: An open-source workflow automation tool with AI and agent nodes. Good for connecting tools and automating internal processes.
+Make :: A visual automation platform connecting apps through scenarios. Useful for no-code integrations with clear branching.
+Zapier :: No-code automation linking thousands of apps through triggers and actions. Quick for simple automations, but costs rise with volume.
+LangChain :: A framework for LLM applications with tools, chains and retrievers. Understand it at a conceptual level to discuss implementation with engineers.
+LangGraph :: Graph-based orchestration for stateful agents with loops and human checkpoints. Useful when an agent must follow a branching process.
+LlamaIndex :: A framework for data ingestion, indexing and retrieval. Relevant when your main challenge is connecting models to documents.
+CrewAI :: A multi-agent framework with role-based teams. Test whether separate agent roles improve results before adopting it.
+Pinecone :: A managed vector database. Relevant when you evaluate retrieval infrastructure for a RAG product.
+Weaviate :: An open-source vector database with hybrid search. Consider it when you need self-hosting and hybrid retrieval.
+Chroma :: A lightweight open-source vector store, common in prototypes. Check production readiness before scaling.
+Postman :: A tool for testing and documenting APIs. PMs use it to understand and check integrations.
+GitHub :: Code hosting, pull requests, issues and automation. PMs read pull requests and documentation to follow releases.
+Figma :: Collaborative interface design and prototyping. Learn to read components and comment on designs.
+Jira :: Issue and sprint tracking. Learn the team's workflow and keep tickets clear and current.
+Linear :: Fast issue tracking for product and engineering teams. Its simple workflow suits small teams.
+Notion :: A workspace for docs, wikis and lightweight databases, with built-in AI. Good for shared product documentation.
+Mixpanel :: Event-based product analytics for funnels, retention and cohorts. Used to answer everyday product questions.
+Amplitude :: Product analytics with cohorts, journeys and experimentation. Used for behavioural analysis at scale.
+LangSmith :: Tracing, evaluation and monitoring for LLM applications. Use it to inspect why an AI response was produced.
+Arize Phoenix :: Open-source observability and evaluation for LLM applications. Useful for tracing and evaluating retrieval quality.
+MLflow :: An open-source platform for experiment tracking, model registry and deployment. It records which model and parameters produced which result.
+Cloud AI Platforms :: Managed AI services such as Amazon Bedrock, Azure AI Foundry and Google Vertex AI. They combine model access, security controls and monitoring in one place.
+AI Evaluation Platforms :: Tools that manage test sets, scoring and regression checks for LLM applications, such as LangSmith, Braintrust and Arize. Choose one that fits your stack and data rules.

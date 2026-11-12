@@ -1,0 +1,33 @@
+Introduction to Agentic AI :: An agent pursues a goal over several steps: it plans, calls tools, observes the results and decides the next step. Products differ by how much autonomy they give the agent.
+AI Agents vs Chatbots :: A chatbot replies to messages. An agent takes actions toward a goal, such as creating a ticket and updating a customer record. Agents need permissions and oversight that chatbots do not.
+AI Agents vs Traditional Automation :: Automation follows fixed rules and fails on unexpected inputs. Agents handle variable inputs and choose the next step, but they are less predictable, so they need evaluation and limits.
+Agent Architecture :: An agent combines a model, instructions, tools, memory, a control loop and guardrails. The loop repeats: decide, act, observe, until the goal is met or a limit is reached.
+Single-Agent Systems :: One agent with a defined set of tools handles the task. Single agents are simpler to build, test and debug, so start here unless the task clearly separates into roles.
+Multi-Agent Systems :: Several specialised agents coordinate, for example a researcher, a writer and a checker. They suit separable roles, but add cost, latency and harder failure analysis.
+Agent Planning :: Planning decides the sequence of steps toward a goal and revises it as results arrive. Plans should be inspectable so users and developers can see what the agent intended.
+Reasoning and Task Decomposition :: Breaking a goal into smaller sub-tasks the agent can complete and verify. Each sub-task should have a clear success check.
+Tool Calling :: The agent selects and invokes tools such as search, databases, code execution and APIs. Each tool needs a clear description, input schema and error messages the agent can understand.
+Function Calling :: The model returns a structured request naming a function and its arguments. Your code runs the function and returns the result to the model.
+Agent Memory :: Memory keeps facts, steps and preferences the agent needs later. Decide what is stored, for how long and who can see it.
+Short-Term and Long-Term Memory :: Short-term memory lives in the current context. Long-term memory is stored externally and retrieved when needed, such as a user's saved preferences.
+State Management :: State tracks progress, inputs and results across steps. It lets runs resume after failure and gives auditors a record of what happened.
+Agent Orchestration :: Orchestration coordinates agents, tools and steps, including routing, ordering and error paths. It is the control layer that makes multi-step work reliable.
+Workflow Orchestration :: A workflow defines fixed or conditional steps around model calls. Workflows give predictable behaviour and are often the right choice before full autonomy.
+Agent Communication :: Agents exchange messages and shared state. Protocols such as MCP connect agents to tools and data, and agent-to-agent protocols connect agents to each other.
+Human-in-the-Loop :: Humans approve, edit or take over at defined checkpoints. Place checkpoints before irreversible or costly actions, such as sending a payment or deleting data.
+Autonomous Execution :: The agent acts without per-step approval. This suits low-risk, reversible tasks with good evaluation, such as tagging support tickets.
+Agent Permissions :: Agents get least-privilege access to tools and data, scoped to each task and revocable. An agent with broad access is a security incident waiting to happen.
+Agent Error Handling :: Handle tool failures, bad outputs and loops. Set timeouts, validate outputs and return clear errors to the agent so it can recover or stop safely.
+Retry and Recovery Mechanisms :: Use retries with backoff, fallbacks, checkpoints and idempotent actions. Idempotent actions are safe to repeat, so a retry does not create a duplicate payment.
+Agent Evaluation :: Measure task success, number of steps, cost and safety on realistic scenarios. Include tasks that should be refused, not only tasks that should succeed.
+Agent Observability :: Traces record every model call, tool call and decision. Traces let engineers debug failures and let auditors reconstruct what an agent did.
+Agent Security :: Defend against prompt injection through tool outputs, data exfiltration, excessive permissions and malicious tools. Treat every external input as untrusted.
+Agent Governance :: Governance sets what agents may do, approval rules, logging, ownership and incident response. Assign a named owner to each production agent.
+LangChain :: LangChain is a framework for LLM applications, with chains, tools and retrievers. It speeds up prototyping, but check its abstractions against your needs before adopting it widely.
+LangGraph :: LangGraph builds stateful, graph-based agent workflows with loops and human checkpoints. It suits agents that must follow a defined but branching process.
+CrewAI :: CrewAI is a framework for teams of role-based agents collaborating on tasks. It makes multi-agent designs quick to prototype, so test whether the roles add value.
+LlamaIndex :: LlamaIndex focuses on data ingestion, indexing and retrieval for LLM applications. It is a strong choice when the main challenge is connecting models to documents.
+OpenAI Agents SDK :: OpenAI's SDK builds agents with tools, handoffs between agents and guardrails. Handoffs let one agent pass the conversation to a specialist.
+Microsoft Agent Framework :: Microsoft's framework builds and orchestrates agents, evolved from earlier Semantic Kernel and AutoGen work. It fits organisations already using Microsoft cloud services.
+Google Agent Development Kit :: Google's kit builds and deploys agents, integrated with Gemini and Vertex AI. It suits teams already on Google Cloud.
+Production Agentic Systems :: Reliable agents need evaluation, limits on steps and spend, observability, permissions, human review and rollback. A demo that works once is not a production agent.

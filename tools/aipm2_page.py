@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import aipm2
 from aipm2 import extras
 E = html.escape
+SITE_HANDBOOK = "handbook/"
 SUBJECTS = aipm2.load()
 N_TOPICS = sum(len(s["topics"]) for s in SUBJECTS)
 GUIDE_URL = "https://claude.ai/artifact/PLACEHOLDER"   # replaced by the published artifact link (see GUIDE_LINK_FILE)
@@ -96,8 +97,10 @@ def _subject(s, open_=False):
     extra = ""
     if s["n"] == 25:
         extra = ("<h4 style=\"margin:14px 0 6px\">Every capstone must include</h4><ul class=\"a2-chk\">" + "".join(f"<li>{E(x)}</li>" for x in extras.CAPSTONE_CHECKLIST) + "</ul>")
+    pdf = f'{SITE_HANDBOOK}aipm2/{aipm2.pdf_name(s["n"], s["title"])}'
+    dl = f'<p style="margin:12px 0 0"><a class="btn btn-line btn-sm" href="{E(pdf)}" target="_blank" rel="noopener">Download chapter PDF ↗</a></p>'
     return (f'<details class="a2-sub" id="a2-s{s["n"]:02d}"{" open" if open_ else ""}><summary><span class="n">SUBJECT {s["n"]:02d}</span>{E(s["title"])}'
-            f'<span class="c">{len(s["topics"])} topics</span></summary><div class="a2-body"><p class="ov">{E(s["overview"])}</p><ol class="a2-tp" style="list-style:none">{items}</ol>{extra}</div></details>')
+            f'<span class="c">{len(s["topics"])} topics</span></summary><div class="a2-body"><p class="ov">{E(s["overview"])}</p><ol class="a2-tp" style="list-style:none">{items}</ol>{extra}{dl}</div></details>')
 
 def content():
     g = guide_url()
@@ -116,7 +119,7 @@ q.addEventListener('input',run)})();</script>"""
           f'It sits next to the original <a href="programme-pm.html">AI Product Management</a> programme, which is unchanged, so you can compare the two. '
           f'Section 3 maps your existing SkillNavora AI PM material onto these subjects.</div>'
         + f'<div class="a2-kpi"><div><b>{len(SUBJECTS)}</b>subjects</div><div><b>{N_TOPICS}</b>topics</div><div><b>12</b>capstone projects</div><div><b>{len(extras.OUTCOMES)}</b>outcomes</div></div>'
-        + f'<div class="hb-acts" style="margin:0 0 18px">{guide_btn}<a class="btn btn-line btn-sm" href="ai-pm-industry-research.html#interview-guide">Interview guide</a><a class="btn btn-line btn-sm" href="programme-pm.html">Original AI PM programme</a></div>'
+        + f'<div class="hb-acts" style="margin:0 0 18px">{guide_btn}<a class="btn btn-line btn-sm" href="{SITE_HANDBOOK}aipm2/AIPM2-Complete-Course.pdf" target="_blank" rel="noopener">Complete course PDF (163 pages) ↗</a><a class="btn btn-line btn-sm" href="ai-pm-industry-research.html#interview-guide">Interview guide</a><a class="btn btn-line btn-sm" href="programme-pm.html">Original AI PM programme</a></div>'
         + '<h2 class="sec-h">1. Course curriculum</h2>'
         + f'<p class="meta" style="margin:-4px 0 12px">{E(extras.TITLE)}: {E(extras.SUBTITLE)}.</p>'
         + f'<div class="a2-ph">{phases}</div>'

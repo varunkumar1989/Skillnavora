@@ -1,0 +1,12 @@
+Build an E-commerce Product Strategy. :: Define target shoppers, positioning, growth levers such as search, recommendations and checkout, and a prioritised roadmap with metrics for each lever.
+Design a Fintech Payment Product. :: Cover onboarding and KYC, the payment flow, fraud and risk controls, compliance requirements, reliability targets and the value to merchants and consumers.
+Build a Product Analytics Dashboard. :: Choose a north star and input metrics, define events, build funnel and retention views, and document how each metric drives a decision.
+Create a Customer Onboarding Optimisation Plan. :: Map the activation journey, find drop-offs from data, propose experiments and set success targets for each stage.
+Develop an AI Customer Support Assistant. :: Scope the intents, knowledge sources and escalation to humans. Define quality and safety evaluation, and track deflection and satisfaction.
+Design a RAG-Based Enterprise Knowledge Assistant. :: Specify sources, permissions, chunking and retrieval design, citation behaviour, the evaluation set and monitoring.
+Build an AI Document Intelligence Product. :: Extract and validate fields from documents, route low-confidence cases to human review, and measure accuracy and time saved.
+Design an AI Recommendation Engine. :: Choose the signals and approach, handle cold start for new users and items, ensure diversity and fairness, and define offline and online evaluation with business metrics.
+Create an AI Customer Complaint Management System. :: Classify, route and summarise complaints, set priorities and service-level targets, and include human review and compliance tracking.
+Build a Multi-Agent Business Automation Workflow. :: Define agent roles, tools, permissions, hand-offs, approval points, failure handling and cost limits.
+Develop an AI Sales Assistant. :: Support prospecting, call preparation and follow-up with CRM grounding and guardrails. Track pipeline impact, not just usage.
+Create an AI-Powered Product Analytics Assistant. :: Let users ask data questions in plain language, generate safe queries, verify results and show where each answer came from.

@@ -1,0 +1,20 @@
+OpenAI – ChatGPT :: Study how a chat interface grew into a platform: free and paid tiers, model releases, custom GPTs and enterprise offerings. Research from public sources only.
+Anthropic – Claude :: Study the safety-focused positioning, long context, coding use and API-first business. Compare its packaging for individuals and for enterprises.
+Google – Gemini :: Study the integration across Search, Workspace and Cloud, and the multimodal strategy. Ask how distribution through existing products changes adoption.
+Microsoft – Copilot :: Study AI across Office, GitHub and Windows, the seat-based pricing and enterprise distribution. Ask how bundling affects adoption.
+Perplexity – AI Search :: Study answer-engine interface design, citations and the challenge to traditional search. Ask how trust is built when the answer replaces the list of links.
+Salesforce – Agentforce :: Study agents inside a CRM: data grounding, actions, trust controls and pricing. Ask how permissions are managed across customer records.
+Adobe – Firefly :: Study commercially safer generative models integrated into creative workflows. Ask how licensing shapes the product promise.
+Amazon – AI Shopping Experiences :: Study AI in product discovery, review summaries and shopping assistants inside a marketplace. Ask how the assistant changes conversion.
+Netflix – Recommendation Systems :: Study personalisation, artwork selection, experimentation culture and retention. Ask how the team measures the value of recommendations.
+Spotify – Personalisation :: Study discovery playlists, taste profiles and how personalisation drives engagement. Ask how the product balances familiar and new content.
+Uber – Marketplace and Pricing :: Study matching, dynamic pricing, supply and demand balance and trust. Ask how each side of the marketplace is measured.
+Airbnb – Marketplace Product Strategy :: Study trust mechanisms, search ranking, two-sided growth and host experience. Ask how quality is maintained as supply grows.
+Notion – AI Workspace :: Study AI embedded in documents and databases, and its add-on monetisation. Ask how users discover the feature.
+ServiceNow – AI Workflows :: Study enterprise workflow automation with AI agents and governance. Ask how approvals and audit trails are designed.
+Freshworks – AI Customer Support :: Study AI-assisted support: deflection, agent assist and resolution metrics. Ask how customer satisfaction is protected when the AI answers.
+American Express – Financial Services and AI Use Cases :: Study fraud detection, personalisation and servicing in a regulated setting. Ask how the bank balances customer experience with risk controls.
+Flipkart – E-commerce Product Strategy :: Study serving diverse Indian customers: regional languages, payments, logistics and large sales events. Ask how each constraint shapes the product.
+PhonePe – Fintech Product Strategy :: Study UPI-led growth, trust, merchant payments and adjacent financial services. Ask how the product expands beyond payments.
+Razorpay – Payment Products :: Study the payment gateway, developer experience, banking stack and merchant onboarding. Ask how the API design lowers integration effort.
+Swiggy – Marketplace and Delivery Products :: Study three-sided marketplace dynamics, delivery times, pricing and quick commerce. Ask how the product balances speed and cost.

@@ -1,0 +1,22 @@
+Product Management Interview Fundamentals :: Know the typical loop: screening, product sense, execution, analytics, technical, strategy and behavioural rounds. Prepare a story bank that covers each.
+Associate Product Manager Interviews :: Emphasise structured thinking, curiosity, user empathy and learning ability over experience. Show how you learned from a project.
+Product Manager Interviews :: Show end-to-end ownership, prioritisation, metrics and influence with examples and numbers.
+Product Owner Interviews :: Show backlog management, story writing, Scrum fluency and stakeholder handling.
+Product Analyst Interviews :: Expect SQL, metric definition, experiment analysis and data storytelling. Practise explaining a result to a non-technical audience.
+AI Product Manager Interviews :: Expect AI fundamentals, evaluation, cost and risk trade-offs, and product sense for AI features. Use the interview guide on this site to practise.
+Product Sense Interviews :: Use a clear structure: the user, the problem, possible solutions, prioritisation and metrics.
+Product Design Interviews :: Design a product for a user group, covering flows, trade-offs and validation with users.
+Product Strategy Interviews :: Cover market analysis, positioning, competitive moats and a recommendation with its risks.
+Technical Product Interviews :: Explain systems, APIs and trade-offs clearly and discuss feasibility with an engineer.
+AI/ML Technical Interviews :: Explain model types, metrics, LLM concepts, prompting, retrieval and when to fine-tune.
+RAG and Agentic AI Interviews :: Design a retrieval or agent system and discuss evaluation, failure modes, permissions and cost.
+Product Analytics Interviews :: Define metrics, diagnose a sudden drop, design an experiment and read a funnel.
+Product Case Studies :: Practise end-to-end cases from problem framing through rollout and measurement. Time yourself and state assumptions aloud.
+Business Case Interviews :: Estimate market size, profitability and return on investment with clear assumptions and sensitivity checks.
+Behavioural Interviews :: Prepare STAR stories (situation, task, action, result) on conflict, failure, influence and leadership, each with a measurable result.
+Stakeholder Management Interviews :: Show how you handle disagreement, ambiguity and competing priorities, with a specific example.
+Product Execution Interviews :: Show how you plan launches, manage risks and diagnose a metric drop.
+Product Leadership Interviews :: Show vision, team building, strategy and organisational influence, with examples at the right scope.
+Resume and Portfolio Development :: Write quantified outcomes and clear scope. Build two or three case studies from your capstone projects with artefacts.
+Mock Interviews :: Practise under time limits with feedback on structure, clarity and depth. Record the session and review it.
+Job Description-Based Skill Gap Analysis :: Compare a target job's requirements with your skills and build a learning plan. The industry research page shows which skills employers name most often.

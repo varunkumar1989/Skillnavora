@@ -1,0 +1,18 @@
+Product Leadership Fundamentals :: Product leaders set direction, build clarity and accountability, and grow others while keeping the customer outcome in view. Leadership is measured by what the team can do without the leader.
+Stakeholder Mapping :: List stakeholders by influence and interest, then decide how to engage each. An executive with high influence and low interest needs short, decision-focused updates.
+Stakeholder Communication :: Tailored, regular updates state decisions, risks and requests clearly. Stakeholders trust a PM who reports bad news early.
+Influence Without Authority :: Gain support through evidence, relationships, shared goals and understanding of others' incentives. Most PM work happens without direct authority over the people involved.
+Cross-Functional Leadership :: Align product, engineering, design, data, sales and operations on one outcome. Shared goals and a common view of the data reduce conflict.
+Engineering Collaboration :: Involve engineers early, respect constraints, and agree trade-offs on scope and quality together. An engineer's estimate of risk is valuable input, not an obstacle.
+Design Collaboration :: Co-own the problem with designers, share research and critique work against goals rather than taste. Good critique asks what the user is trying to do.
+Data Science Collaboration :: Frame the problem together, agree success metrics and evaluation, and share an understanding of model limits. Data scientists know what the data can and cannot support.
+Executive Communication :: Lead with the conclusion, give the key numbers and state the decision needed. Keep it short, and prepare for the question you least want to be asked.
+Product Presentations :: Structure the talk around the audience's question: context, insight, recommendation and next steps. Show the evidence behind each claim.
+Negotiation :: Reach agreement by understanding interests, creating options and trading what each side values less for what it values more. Negotiate scope and date together, not separately.
+Conflict Resolution :: Surface the real disagreement, use shared facts and refocus on the goal. Most product conflicts are about different assumptions about the user.
+Decision-Making :: A good decision has a clear owner, defined criteria, enough evidence for the risk involved and a written record. Decide at the lowest level that has the information needed.
+Product Reviews :: Scheduled reviews of progress, metrics and risks with leadership. Bring the metrics, what changed, what you learned and what you need.
+Product Governance :: Standards and forums that guide what is built, approved and retired. Good governance speeds decisions by making rules clear in advance.
+Managing Product Teams :: Hire, coach, set expectations and give feedback to PMs. Give feedback close to the event and focus on behaviour and outcome.
+Strategic Alignment :: Make sure team goals connect to company strategy and to each other. Check alignment by asking teams to explain the company goal in their own words.
+Product Culture :: Shared habits of curiosity, customer focus, evidence and accountability. Culture shows in what teams do when no one is watching, such as how they handle a failed launch.

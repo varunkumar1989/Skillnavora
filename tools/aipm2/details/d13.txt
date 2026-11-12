@@ -1,0 +1,23 @@
+Prompt Engineering Fundamentals :: A good prompt states the task, context, constraints and output format. Clear instructions reduce variation and make outputs easier to evaluate.
+Prompt Structure :: Typical parts are role, task, context, examples, constraints and output format. Keep the order consistent so teams can read and edit prompts quickly.
+System Prompts :: A system prompt sets persistent role, rules and behaviour for a whole conversation or product. It is the first place to put product policy, tone and safety rules.
+User Prompts :: The user prompt is the per-turn request. Treat its content as untrusted input, especially when it is combined with company data.
+Role-Based Prompting :: Asking the model to act as an expert, such as a senior tax advisor, can shape tone and focus. It does not add knowledge the model lacks, so verify the content.
+Zero-Shot Prompting :: Zero-shot asks for the task with no examples. It is the fastest approach and works well for common tasks with clear instructions.
+One-Shot Prompting :: One-shot gives a single example of the desired output. It helps the model match format or style.
+Few-Shot Prompting :: Few-shot provides several examples so the model infers the pattern. Choose examples that cover typical and difficult cases.
+Instruction-Based Prompting :: Explicit step-by-step instructions and rules define the task. Numbered steps and clear do and do-not lists reduce ambiguity.
+Chain-of-Thought Concepts :: Asking the model to reason through steps can improve accuracy on multi-step problems. For products, consider whether the reasoning should be shown to users or kept internal.
+Prompt Chaining :: A task is split into several prompts where each output feeds the next, such as extract, then validate, then summarise. Chains are easier to test than one very long prompt.
+Structured Prompting :: Sections, delimiters and schemas make prompts unambiguous. Use clear markers around user-provided text so the model does not confuse it with instructions.
+JSON-Based Outputs :: Requesting JSON with defined fields lets software use the result. Validate it in code and handle malformed output with a retry or a fallback.
+Prompt Templates :: Templates are reusable prompts with placeholders filled at run time. They keep wording consistent across features and make changes easier to review.
+Dynamic Prompt Variables :: Variables insert user, document or session data into a template. Escape or delimit inserted text, so it cannot change the instructions.
+Context Engineering :: Context engineering decides exactly what information, tools and memory the model sees at each step. It often matters more than the wording of the prompt.
+Context Window Optimisation :: Prioritise, summarise and trim content to fit the window while keeping what matters. Put the most important information where the model attends most reliably, usually near the instructions or the question.
+Memory and Context Management :: Memory stores conversation facts, summaries and preferences across turns and sessions. Ask users what should be remembered and let them delete it.
+Prompt Versioning :: Track prompt changes like code, with versions, owners and test results. Without versioning, teams cannot tell which change caused a quality drop.
+Prompt Evaluation :: Score prompt versions against a fixed test set before release. Use the same inputs for every version so the comparison is fair.
+Prompt Injection Awareness :: Untrusted text, including content from web pages or documents, can try to override instructions. Treat external content as data, not commands, and limit what tools the model can use.
+Prompt Guardrails :: Input and output checks, refusals and policy rules keep behaviour within bounds. Guardrails are layers, so combine rules, classifiers and human review for high-risk cases.
+Production Prompt Management :: Production prompts need central storage, review, staged rollout, monitoring and rollback. Treat a prompt change like a code change with the same release discipline.
