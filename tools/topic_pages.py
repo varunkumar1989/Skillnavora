@@ -166,7 +166,8 @@ function fromHash(push){show((location.hash||'#content').slice(1),push)}window.a
             cards += ('<a class="card" href="make-money-course.html" style="text-decoration:none"><span class="ftag">Tools and building</span>'
             '<h3 style="margin:8px 0 6px">Make Money with AI</h3><p>Find, pitch and close a first AI service client while working part time: offer, credibility stack, outreach and discovery calls.</p><span class="go">Open →</span></a>')
         cards += "</div>"
-    more = [("ai-academy.html", "AI courses", "Every AI skills course: prompting and context, skills, second brain, evals, browser agents, orchestration and advanced AI PM."),
+    more = [("ai-pm-industry-research.html", "AI PM industry research", "Institutional courses, 46 job records and the skills employers name most, with the release management gap."),
+            ("ai-academy.html", "AI courses", "Every AI skills course: prompting and context, skills, second brain, evals, browser agents, orchestration and advanced AI PM."),
             ("ai-models-guide.html", "AI Models and Platforms", "Grok, ChatGPT, Claude, Gemini, Lovable and app builders, and how to choose."),
             ("ai-agents-guide.html", "How AI Agents Work", "How agents run, multi-agent systems, context and evals."),
             ("grokbot-course.html", "Grokbot course", "The Grok API from zero to commercial AI solutions."),
