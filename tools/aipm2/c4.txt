@@ -1,0 +1,57 @@
+@S|22|Product Leadership and Stakeholder Management|The people skills that turn good plans into shipped results: influence, communication and decision-making.
+Product Leadership Fundamentals :: Setting direction, building clarity and accountability, and growing others while keeping the product outcome in view.
+Stakeholder Mapping :: Listing stakeholders by influence and interest to decide how to engage each.
+Stakeholder Communication :: Tailored, regular updates that state decisions, risks and asks clearly.
+Influence Without Authority :: Gaining support through evidence, relationships, shared goals and understanding others' incentives.
+Cross-Functional Leadership :: Aligning product, engineering, design, data, sales and operations on one outcome.
+Engineering Collaboration :: Involving engineers early, respecting constraints and agreeing trade-offs on scope and quality.
+Design Collaboration :: Co-owning the problem with designers, sharing research and critiquing work against goals.
+Data Science Collaboration :: Framing the problem, agreeing success metrics and evaluation, and understanding model limits together.
+Executive Communication :: Lead with the conclusion, give the numbers and the decision needed, and keep it short.
+Product Presentations :: Structure around the audience's question: context, insight, recommendation and next steps.
+Negotiation :: Reaching agreements by understanding interests, creating options and trading what each side values.
+Conflict Resolution :: Surfacing the real disagreement, using shared facts and focusing on the goal.
+Decision-Making :: Clear owner, defined criteria, enough evidence for the risk, and a record of the decision.
+Product Reviews :: Scheduled reviews of progress, metrics and risks with leadership.
+Product Governance :: Standards and forums that guide what is built, approved and retired.
+Managing Product Teams :: Hiring, coaching, setting expectations and giving feedback to PMs.
+Strategic Alignment :: Making sure team goals connect to company strategy and to each other.
+Product Culture :: Shared habits of curiosity, customer focus, evidence and accountability.
+@S|23|Product Management Specialisations|How the PM role changes by product type, and what each specialisation emphasises.
+Technical Product Management :: Products where technical depth matters: infrastructure, developer tools, APIs and data platforms.
+Growth Product Management :: Owning acquisition, activation, retention and revenue through experiments.
+Platform Product Management :: Building shared capabilities that other teams or partners build on, with internal or external customers.
+B2B Product Management :: Selling to organisations: multiple stakeholders, integrations, security and long cycles.
+B2C Product Management :: Consumer products: scale, delight, habits and rapid experimentation.
+SaaS Product Management :: Subscription software: onboarding, retention, expansion and continuous delivery.
+Fintech Product Management :: Financial products with regulation, risk, fraud, reliability and trust at the centre.
+Banking Product Management :: Retail, corporate and payments products inside regulated institutions with legacy integration.
+E-commerce Product Management :: Catalogue, search, checkout, fulfilment and conversion.
+Marketplace Product Management :: Balancing supply and demand, trust and safety, pricing and liquidity.
+API Product Management :: Treating an API as a product: developer experience, documentation, versioning and pricing.
+Data Product Management :: Managing data assets and analytics products with quality, access and usability for consumers.
+AI Product Management :: Managing products whose core value comes from machine learning, with uncertainty, evaluation and data in scope.
+Generative AI Product Management :: Products built on foundation models: prompts, retrieval, evaluation, cost and safety.
+Agentic AI Product Management :: Products where agents act on a user's behalf: autonomy, permissions, reliability and oversight.
+Enterprise AI Product Management :: AI for organisations: integration, governance, security, adoption and measurable ROI.
+@S|24|Industry Case Studies and Product Teardowns|A method for studying real products. The notes below are starting prompts for your own research from public sources, not claims about internal data.
+OpenAI – ChatGPT :: Study how a chat interface became a platform: free vs paid tiers, model releases, plugins/GPTs and enterprise offerings.
+Anthropic – Claude :: Study the safety-focused positioning, long context, coding use and API-first business.
+Google – Gemini :: Study integration across Search, Workspace and Cloud, and the multimodal strategy.
+Microsoft – Copilot :: Study embedding AI across Office, GitHub and Windows, seat-based pricing and enterprise distribution.
+Perplexity – AI Search :: Study answer-engine UX, citations and the challenge to traditional search.
+Salesforce – Agentforce :: Study agents inside a CRM: data grounding, actions, trust layer and pricing.
+Adobe – Firefly :: Study commercially safe generative models integrated into creative workflows.
+Amazon – AI Shopping Experiences :: Study AI in discovery, reviews summaries and assistants within a marketplace.
+Netflix – Recommendation Systems :: Study personalisation, artwork selection, experimentation culture and retention.
+Spotify – Personalisation :: Study discovery playlists, taste profiles and how personalisation drives engagement.
+Uber – Marketplace and Pricing :: Study matching, dynamic pricing, supply-demand balance and trust.
+Airbnb – Marketplace Product Strategy :: Study trust mechanisms, search ranking, two-sided growth and host experience.
+Notion – AI Workspace :: Study AI embedded in documents and databases and its add-on monetisation.
+ServiceNow – AI Workflows :: Study enterprise workflow automation with AI agents and governance.
+Freshworks – AI Customer Support :: Study AI-assisted support: deflection, agent assist and resolution metrics.
+American Express – Financial Services and AI Use Cases :: Study fraud detection, personalisation and servicing in a regulated setting.
+Flipkart – E-commerce Product Strategy :: Study serving diverse Indian customers: regional languages, payments, logistics and sales events.
+PhonePe – Fintech Product Strategy :: Study UPI-led growth, trust, merchant payments and adjacent financial services.
+Razorpay – Payment Products :: Study payment gateway, developer experience, banking stack and merchant onboarding.
+Swiggy – Marketplace and Delivery Products :: Study three-sided marketplace dynamics, delivery times, pricing and quick commerce.

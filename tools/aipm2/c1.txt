@@ -1,0 +1,151 @@
+@S|01|Product Management Foundations|What a product manager does, how the role differs from its neighbours, and how a product moves from idea to growth. This subject sets the vocabulary used in every later subject.
+Introduction to Product Management :: The discipline of deciding what to build, for whom and why, then guiding it from idea to a product that delivers customer and business value.
+Evolution of Product Management :: From brand and packaged-goods managers, through software and agile teams, to today's data-driven and AI-assisted product teams.
+Product Manager Roles and Responsibilities :: Owning the problem, vision, strategy, roadmap, priorities and outcomes, and aligning engineering, design, data, marketing and sales around them.
+Product Manager vs Product Owner vs Project Manager vs Business Analyst :: PM owns the why and what; the product owner manages the backlog in Scrum; the project manager owns schedule and delivery; the analyst owns detailed requirements and process.
+Product Manager vs Product Analyst vs Product Operations :: The analyst answers questions with data; product operations builds the processes, tooling and insights that let PMs work faster; the PM decides what to do.
+Types of Product Managers :: Core, technical, growth, platform, data, AI, B2B, B2C and enterprise PMs, each weighting skills differently.
+Product Lifecycle Management :: Managing a product through introduction, growth, maturity and decline, adjusting strategy, investment and metrics at each stage.
+Product Discovery vs Product Delivery :: Discovery decides what is worth building through research and experiments; delivery builds and ships it. Strong teams run both continuously.
+Product Thinking and Customer-Centricity :: Starting from the customer's problem and the outcome they want, then working back to features, instead of starting from solutions.
+Product Vision, Mission and Objectives :: Mission says why the company exists, vision describes the future state the product enables, and objectives set the measurable steps toward it.
+Product Strategy Fundamentals :: A coherent set of choices on where to play and how to win, backed by evidence about customers, market and capabilities.
+Product-Market Fit :: The point at which a product satisfies strong market demand, seen in retention, organic growth and customers who would be very disappointed to lose it.
+Product-Led Growth :: A model where the product itself drives acquisition, conversion and expansion, through free tiers, trials, self-serve onboarding and viral loops.
+B2B, B2C, B2B2C and SaaS Product Models :: Who buys and who uses differ by model: businesses, consumers, businesses serving consumers, and subscription software delivered online.
+Product Management Operating Models :: How product work is organised: feature teams, stream-aligned teams, platform teams, centralised or embedded PMs, and how they plan together.
+Product Management Career Paths :: Associate PM to PM, senior, group, director and CPO, plus branches into specialist, founder and AI product roles.
+@S|02|Customer Discovery and Market Research|Methods to find real problems worth solving, understand customers deeply and size and test the opportunity before heavy investment.
+Design Thinking :: A human-centred loop of empathise, define, ideate, prototype and test used to explore problems and solutions.
+Problem Identification and Validation :: Finding a problem, then proving it is frequent, painful and valuable enough that people will change behaviour or pay.
+Customer Research Methodologies :: Interviews, surveys, observation, diary studies, usability tests and data analysis, chosen to match the question.
+Qualitative and Quantitative Research :: Qualitative research explains why people behave as they do; quantitative research measures how many and how much.
+Customer Interviews :: Open, non-leading conversations about past behaviour and real problems; ask for stories, not opinions about your idea.
+Surveys and Feedback Collection :: Structured questions at scale; keep them short, unbiased and tied to a decision, and pair them with interviews.
+User Personas :: Evidence-based archetypes of key user groups with goals, context and pain points, used to keep decisions grounded.
+Jobs to Be Done (JTBD) :: People hire products to make progress in a situation; the job, not demographics, explains what they choose.
+Customer Pain Points :: Specific frustrations in a workflow, ranked by severity and frequency, that products can relieve.
+Customer Journey Mapping :: A map of stages, actions, thoughts and emotions from awareness to loyalty, exposing gaps and moments that matter.
+User Journey Analysis :: Examining how users actually move through the product, using behaviour data to find drop-offs and detours.
+Empathy Mapping :: A one-page view of what a user says, thinks, does and feels to align the team on their perspective.
+Voice of Customer (VoC) :: Systematically collecting and synthesising customer feedback from support, reviews, sales calls and surveys.
+Market Research :: Gathering and analysing information about market size, trends, customers and competitors to guide decisions.
+Market Segmentation :: Dividing a market into groups with shared needs or behaviours so you can target and position precisely.
+TAM, SAM and SOM :: Total addressable market, the serviceable part you can reach with your model, and the share you can realistically obtain.
+Competitor Analysis :: Comparing competitors' offers, pricing, positioning and strengths to find gaps and differentiation.
+SWOT Analysis :: Strengths, weaknesses, opportunities and threats, a quick structured view of internal and external factors.
+Porter's Five Forces :: Industry attractiveness from rivalry, new entrants, substitutes, buyer power and supplier power.
+Value Proposition Canvas :: Matches customer jobs, pains and gains to the products, pain relievers and gain creators you offer.
+Opportunity Assessment :: A short brief that asks the key questions: problem, audience, size, alternatives, why now, success measures and risks.
+Hypothesis Development and Validation :: Turn assumptions into testable statements with a metric and threshold, then run the cheapest test that could prove them wrong.
+@S|03|Product Strategy and Roadmapping|Turning vision and research into focused strategy, an outcome-based roadmap, and defensible prioritisation and investment decisions.
+Product Vision and Strategic Alignment :: Connecting the product vision to company strategy so teams share direction and priorities.
+Strategic Product Planning :: Setting goals, bets and sequencing over quarters and years, balancing growth, quality and capacity.
+Product Positioning :: The place your product holds in the customer's mind relative to alternatives: for whom, what category and why better.
+Product Differentiation :: The distinct, valued advantage that competitors cannot easily copy, such as data, workflow depth, brand or distribution.
+Product Strategy Frameworks :: Tools such as Playing to Win, Good Strategy (diagnosis, guiding policy, actions), Wardley maps and the three horizons model.
+Product Roadmap Development :: A communication tool showing problems and outcomes planned over time, flexible on detail and honest about uncertainty.
+Outcome-Based Roadmapping :: Organising the roadmap around customer and business outcomes instead of a feature list with dates.
+OKRs and KPIs :: OKRs set ambitious objectives with measurable key results for a period; KPIs track ongoing health of the business or product.
+North Star Metric :: The single metric that best captures the value customers get, and that leads revenue.
+Product Portfolio Management :: Allocating investment across multiple products or bets by stage, risk and return.
+Feature Prioritisation :: Ordering work by value, effort, risk and strategic fit with explicit criteria rather than opinion.
+RICE Framework :: Score = (Reach x Impact x Confidence) / Effort, a simple way to compare initiatives.
+MoSCoW Framework :: Classify requirements as Must, Should, Could and Won't have in this release to fix scope.
+Kano Model :: Separates basic expectations, performance features and delighters to see how features affect satisfaction.
+ICE Scoring :: Impact, Confidence and Ease scored 1-10 and multiplied or averaged for fast ranking.
+Impact vs Effort Matrix :: A 2x2 that shows quick wins, big bets, fill-ins and time sinks.
+Opportunity Scoring :: Rates how important a customer need is against how satisfied they are; high importance with low satisfaction signals opportunity.
+Stakeholder Prioritisation :: Aligning priorities with executives, sales, support and engineering using shared criteria and transparent trade-offs.
+Strategic Trade-Offs :: Choosing what not to do: speed vs quality, breadth vs depth, build now vs later, and documenting the reasoning.
+Product Investment Decisions :: Deciding where to put people and money using expected value, strategic fit, evidence and option value.
+@S|04|Product Design, UX and Prototyping|The design knowledge a PM needs to partner with designers, test ideas cheaply and shape usable, accessible products, including AI-first experiences.
+UX Fundamentals :: User experience covers the whole interaction: usefulness, usability, findability, credibility and delight.
+UI Fundamentals :: Visual interface design: layout, typography, colour, components and consistency.
+Human-Centred Design :: Designing with deep understanding of people and testing with them throughout.
+Design Thinking Process :: Empathise, define, ideate, prototype, test, applied iteratively to product problems.
+Information Architecture :: Organising and labelling content and navigation so users can find things.
+User Flows :: Diagrams of the steps a user takes to complete a task, including decisions and error paths.
+Wireframing :: Low-detail layout sketches that settle structure and content before visual design.
+Low-Fidelity and High-Fidelity Prototypes :: Low-fi (paper, boxes) tests ideas fast; high-fi looks and behaves like the real product for realistic testing.
+Interactive Prototyping :: Clickable prototypes that simulate flows so you can test with users before engineering builds.
+Figma Fundamentals :: Frames, components, auto layout, variables and prototyping in the standard collaborative design tool.
+Usability Testing :: Watching representative users attempt tasks, to find where they struggle, with five users per round revealing most issues.
+Design Validation :: Confirming a design solves the problem with evidence from tests, metrics and feedback before scaling it.
+Accessibility and Inclusive Design :: Designing for people with different abilities and contexts, guided by WCAG: contrast, keyboard use, screen readers and clear language.
+Mobile-First Product Design :: Designing for small screens and constraints first, then extending to larger screens.
+Conversational UX :: Designing dialogue: turn-taking, clarifying questions, tone, error recovery and graceful hand-off.
+AI-First User Experience :: Experiences built around AI capability from the start, with uncertainty, feedback and control designed in.
+Human-AI Interaction Design :: Patterns that set expectations, show confidence, let users correct the AI and keep them in control.
+@S|05|Product Requirements and Documentation|Writing clear requirements and documents that engineers can build from and teams can trace, test and release.
+Product Requirement Document (PRD) :: The shared document describing the problem, users, goals, scope, requirements, metrics and launch plan.
+Business Requirement Document (BRD) :: Business-level needs, objectives, scope and constraints, usually for stakeholders and sponsors.
+Functional Requirements :: What the system must do: behaviours and features.
+Non-Functional Requirements :: How well it must do it: performance, security, reliability, scalability and compliance.
+Technical Requirements :: Constraints and needs for architecture, integrations, data, platforms and infrastructure.
+Product Specifications :: Detailed descriptions of behaviour, rules, data and interfaces sufficient for build and test.
+Epics, Features and User Stories :: Epics are large goals, features are deliverable capabilities, stories are small user-centred slices a team can finish in a sprint.
+User Story Mapping :: Arranging stories along the user journey to see the whole experience and slice releases.
+Acceptance Criteria :: Specific, testable conditions that must be true for a story to be accepted, often in Given/When/Then form.
+Definition of Ready :: The checklist a story must meet before the team starts it, such as clear value, criteria and dependencies.
+Definition of Done :: The shared quality bar every item must meet to count as finished: tested, reviewed, documented, deployable.
+Use Cases :: Step-by-step descriptions of how an actor achieves a goal with the system, including alternatives.
+Edge Cases :: Rare or extreme inputs and states that can break flows, found by asking what happens when things are empty, huge, slow or invalid.
+Error Scenarios :: How the product behaves when things fail, with clear messages, recovery paths and logging.
+Product Backlog Creation :: A prioritised list of everything that might be built, each item with value and clear description.
+Backlog Refinement :: Regularly clarifying, splitting, estimating and ordering backlog items so the next sprints are ready.
+Release Documentation :: Release notes, change logs, runbooks and support guides that explain what changed and how to operate it.
+Product Requirement Traceability :: Linking each requirement to its goal, design, tests and release to prove coverage and manage change.
+Technical Documentation :: Architecture notes, API docs and runbooks that let others build, integrate and maintain.
+Product Decision Records :: Short records of decisions, options considered, reasons and consequences, so context is not lost.
+@S|06|Agile, Scrum and Product Delivery|How teams plan, build and ship iteratively, and the tools PMs use to coordinate delivery.
+Agile Fundamentals :: Iterative delivery, frequent feedback and adapting to change over following a fixed plan.
+Agile Manifesto :: Four values and twelve principles favouring individuals, working software, collaboration and responding to change.
+Scrum Framework :: Fixed-length sprints with defined roles, events and artefacts to deliver increments.
+Kanban Methodology :: A continuous flow board that limits work in progress and optimises throughput.
+Scrum Roles and Responsibilities :: Product Owner, Scrum Master and Developers, each accountable for a distinct part of the work.
+Product Owner Responsibilities :: Maximising product value by managing and ordering the backlog and accepting work.
+Sprint Planning :: The team selects backlog items and plans how to deliver them within the sprint goal.
+Daily Stand-ups :: A 15-minute sync on progress toward the sprint goal and blockers.
+Sprint Reviews :: Demonstrating the increment to stakeholders and gathering feedback.
+Sprint Retrospectives :: The team reflects on how it worked and agrees small improvements.
+Backlog Grooming :: Older term for refinement: keeping the backlog clear, sized and ordered.
+Story Points :: A relative unit of effort and complexity for sizing stories, not hours.
+Estimation Techniques :: Planning poker, t-shirt sizing, affinity estimation and reference-class estimates to forecast work.
+Velocity and Burndown Charts :: Velocity is points completed per sprint; burndown shows remaining work over time. Use for forecasting, not for judging people.
+Release Planning :: Sequencing sprints into releases with dates, scope, dependencies and risk buffers; staged rollout and rollback plans belong here.
+Dependency Management :: Identifying and tracking work that relies on other teams, systems or vendors, and resolving early.
+Risk and Issue Management :: Risks are possible problems to mitigate; issues are problems that have occurred and need action.
+Cross-Functional Team Collaboration :: Product, design, engineering, data, QA and go-to-market working toward one goal with shared context.
+Engineering Collaboration :: Working with engineers on trade-offs, feasibility and scope, treating them as partners from discovery onward.
+Product Delivery Lifecycle :: Idea to discovery, design, build, test, release, measure and iterate.
+Jira :: Issue and sprint tracking tool for backlogs, boards, workflows and reports.
+Confluence :: Team wiki used for specs, decision records and knowledge sharing, integrated with Jira.
+Linear and Azure DevOps :: Linear is a fast, opinionated issue tracker; Azure DevOps combines boards, repos and pipelines for engineering teams.
+@S|07|Product Analytics and Data-Driven Decision Making|The data skills a PM uses to answer questions, measure behaviour and run experiments that inform decisions.
+Data Fundamentals for Product Managers :: Data types, sources, quality, events vs tables, and the habit of asking what decision the data should inform.
+Descriptive Statistics :: Mean, median, mode, spread and percentiles to summarise data; prefer medians and percentiles for skewed metrics.
+Probability Fundamentals :: Likelihood, conditional probability and distributions, the basis for reasoning under uncertainty.
+Hypothesis Testing :: Testing whether an observed difference is likely due to chance, using null hypothesis, p-values and significance level.
+SQL Fundamentals :: SELECT, WHERE, GROUP BY, ORDER BY and LIMIT to query tables.
+SQL Joins and Aggregations :: Combining tables (inner, left) and summarising with COUNT, SUM, AVG across groups.
+Advanced SQL for Product Analytics :: Window functions, CTEs, date handling and cohort queries for retention and funnel analysis.
+Excel and Google Sheets :: Pivot tables, lookups, formulas and charts for fast analysis and sharing.
+Data Visualisation :: Choosing charts that make comparisons obvious, with clear labels and no distortion.
+Tableau and Power BI :: BI tools for interactive dashboards and self-serve reporting on warehouse data.
+Product Analytics Fundamentals :: Tracking user behaviour as events with properties, then analysing funnels, cohorts and paths.
+Funnel Analysis :: Measuring conversion between steps to find where users drop off.
+Cohort Analysis :: Grouping users by a shared start (such as signup week) and following them over time.
+Retention Analysis :: How many users return over days or weeks; the retention curve flattening signals product-market fit.
+Churn Analysis :: Why and when customers leave, using exit surveys, usage patterns and segment comparison.
+Conversion Rate Optimisation :: Improving the share of visitors who complete a goal through research, tests and friction removal.
+Customer Segmentation :: Grouping users by behaviour, value or needs to tailor products and messages.
+A/B Testing :: Randomly split users between versions and compare a pre-chosen metric to measure causal impact.
+Multivariate Testing :: Testing combinations of multiple elements at once; needs more traffic than A/B.
+Experimentation Frameworks :: A repeatable process: hypothesis, metric, sample size, guardrails, run length, analysis and decision.
+Event Tracking :: Defining and logging user actions with a consistent naming plan so analysis is trustworthy.
+Product Analytics Dashboards :: Live views of key metrics for the team, with a clear owner, definitions and thresholds for action.
+Mixpanel :: Event-based product analytics for funnels, retention and cohorts.
+Amplitude :: Product analytics platform with behavioural cohorts, journeys and experimentation.
+Google Analytics :: Web and app analytics for traffic, acquisition and conversion.
+Data-Driven Product Decisions :: Combining quantitative data with qualitative insight, stating the decision rule in advance.

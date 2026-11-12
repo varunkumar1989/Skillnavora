@@ -1,0 +1,193 @@
+@S|08|Product Metrics and Business Analytics|The metrics that describe product health and business performance, and how to read and review them.
+Product KPIs :: A small set of measures tied to goals that show whether the product is succeeding.
+North Star Metrics :: The one measure of delivered customer value that guides the whole team, supported by input metrics.
+Acquisition Metrics :: How users arrive: visitors, signups, cost per acquisition and channel conversion.
+Activation Metrics :: Whether new users reach the first moment of value, such as completing a key action.
+Engagement Metrics :: How deeply and often users use the product: sessions, actions, time in product, stickiness.
+Retention Metrics :: The share of users or revenue that remains over time.
+Revenue Metrics :: Revenue, ARPU, expansion and contraction, margin and bookings.
+Customer Satisfaction Metrics :: Direct measures of how customers feel about the product or interaction.
+NPS, CSAT and CES :: NPS asks likelihood to recommend; CSAT rates satisfaction with an interaction; CES measures how easy a task was.
+DAU, WAU and MAU :: Daily, weekly and monthly active users; DAU/MAU indicates stickiness.
+ARPU and ARPPU :: Average revenue per user and per paying user.
+Customer Lifetime Value (LTV) :: Expected gross profit from a customer over their lifetime, from average revenue, margin and lifespan.
+Customer Acquisition Cost (CAC) :: Total sales and marketing spend divided by customers acquired in the period.
+LTV/CAC Ratio :: Return on acquisition spend; around 3 or higher is often a healthy target for subscription businesses.
+Monthly Recurring Revenue (MRR) :: Predictable subscription revenue normalised to a month.
+Annual Recurring Revenue (ARR) :: Predictable subscription revenue annualised, typically MRR x 12.
+Churn and Retention Rate :: Churn is the share lost in a period; retention is the share kept, and the two sum to one.
+Feature Adoption :: The share of eligible users who try and keep using a feature.
+Product Health Metrics :: A balanced set: reliability, performance, quality, support load, satisfaction and usage.
+Product Performance Reviews :: A regular forum to read metrics, explain changes, agree actions and adjust the roadmap.
+@S|09|Business, Finance and Product Commercialisation|How products make money and how a PM builds a financial case, sets price and takes the product to market.
+Business Fundamentals :: Revenue, cost, profit, cash flow, margins and how value flows through a company.
+Business Model Canvas :: Nine blocks describing customers, value, channels, revenue, resources, activities, partners and costs.
+Revenue Models :: Subscription, transaction fee, advertising, licensing, usage-based, marketplace commission and services.
+Subscription Business Models :: Recurring fees for continued access, optimising retention, expansion and predictable revenue.
+Freemium Models :: A free tier drives adoption and conversion to paid; works when marginal cost is low and upgrade triggers are clear.
+Usage-Based Pricing :: Customers pay according to consumption, aligning price with value but making revenue less predictable.
+Product Pricing Strategy :: Setting price using cost, competitors and value to the customer, with packaging and tiers that fit segments.
+Monetisation Strategies :: The mechanisms by which a product earns revenue and when in the user journey they appear.
+Financial Modelling :: A spreadsheet model of revenue, costs and cash under stated assumptions, with scenarios.
+Unit Economics :: Profit or loss per unit (customer or transaction) after variable costs, such as CAC, LTV and payback period.
+ROI and ROE :: Return on investment is gain relative to cost; return on equity is net income relative to shareholder equity.
+Cost-Benefit Analysis :: Comparing total expected costs and benefits, in money terms, to decide.
+Break-Even Analysis :: The volume at which revenue equals total cost; fixed cost divided by contribution margin per unit.
+Profitability Analysis :: Assessing margins by product, segment or channel to see where money is made.
+Business Case Development :: A structured argument for an investment: problem, options, costs, benefits, risks and recommendation.
+Budget Planning :: Allocating funds to teams and initiatives, tracking against plan and forecasting.
+Go-to-Market Strategy :: Who you sell to, with what message and price, through which channels, and how you measure launch.
+Product Launch Strategy :: A staged plan for readiness, beta, announcement, enablement and post-launch monitoring.
+Product Adoption :: Moving customers from awareness to trial to regular use through onboarding and value moments.
+Customer Acquisition :: Channels and tactics to attract customers efficiently: content, paid, partners, sales and referrals.
+Customer Retention Strategy :: Keeping customers through onboarding, ongoing value, support, community and proactive outreach.
+Product Growth Strategy :: Loops and levers across acquisition, activation, retention, revenue and referral.
+Product-Led Sales :: Using product usage signals to identify and convert qualified accounts, blending self-serve with sales.
+Enterprise Product Commercialisation :: Selling to large organisations: security reviews, procurement, pilots, integration and long sales cycles.
+@S|10|Technical Foundations for Product Managers|Enough software and systems knowledge to discuss trade-offs credibly with engineers and make sound decisions.
+How Software Applications Work :: Users interact with a front end that calls back-end services, which read and write data and return results.
+Software Development Lifecycle (SDLC) :: Plan, design, build, test, deploy and maintain, in sequential or iterative form.
+Frontend Fundamentals :: HTML, CSS and JavaScript in the browser or native code on mobile, handling what users see and touch.
+Backend Fundamentals :: Server logic, business rules, databases and integrations that power the front end.
+Client-Server Architecture :: Clients send requests; servers process and respond, over a network.
+Databases and Data Storage :: Persistent stores for application data, chosen for structure, scale and query needs.
+SQL and NoSQL Databases :: SQL stores structured tables with strong consistency; NoSQL covers document, key-value, column and graph stores built for flexibility and scale.
+Relational Database Concepts :: Tables, keys, relationships, normalisation and transactions (ACID).
+APIs and API Fundamentals :: Contracts that let software components talk, with defined requests, responses and rules.
+REST APIs :: Resource-based HTTP APIs using verbs like GET, POST, PUT and DELETE and status codes.
+GraphQL :: A query language where clients request exactly the fields they need from one endpoint.
+Webhooks :: Event-driven callbacks where one system sends an HTTP request to another when something happens.
+Authentication and Authorisation :: Authentication proves who you are; authorisation decides what you may do (OAuth, SSO, roles).
+JSON and XML :: Text formats for exchanging structured data; JSON is lighter and more common today.
+API Documentation :: Reference, guides and examples (often OpenAPI) that make APIs easy to adopt.
+Postman :: A tool to explore, test and document APIs by sending requests and viewing responses.
+Git and GitHub Fundamentals :: Git tracks changes; GitHub hosts repositories and supports pull requests and reviews.
+Version Control :: Recording history of changes so teams can collaborate, branch, review and roll back.
+Microservices Architecture :: Many small, independently deployable services that communicate over APIs.
+Monolithic Architecture :: One deployable unit containing all functionality: simple to start, harder to scale teams.
+System Design Fundamentals :: Choosing components, data flow and trade-offs to meet requirements for scale, cost and reliability.
+Scalability and Reliability :: Handling growth in load and staying available despite failures, using redundancy, caching and graceful degradation.
+Latency and Throughput :: Latency is time per request; throughput is requests handled per unit time.
+Cloud Computing Fundamentals :: On-demand computing, storage and services paid by use: IaaS, PaaS, SaaS, regions and shared responsibility.
+AWS Fundamentals :: Amazon's cloud: EC2, S3, Lambda, RDS and IAM as core building blocks.
+Microsoft Azure Fundamentals :: Microsoft's cloud: virtual machines, storage, Azure AD, Azure OpenAI and DevOps.
+Google Cloud Platform Fundamentals :: Google's cloud: Compute Engine, Cloud Storage, BigQuery and Vertex AI.
+Cybersecurity Fundamentals :: Confidentiality, integrity, availability, encryption, secure coding, access control and common attacks.
+@S|11|Artificial Intelligence and Machine Learning Foundations|How AI and machine learning work, the main problem types and how models are trained and judged.
+Introduction to Artificial Intelligence :: Systems that perform tasks associated with human intelligence, such as perception, language and decision making.
+History and Evolution of AI :: Rules and symbolic AI, expert systems, statistical ML, deep learning from 2012, transformers from 2017, and generative AI.
+Traditional AI vs Generative AI :: Traditional models classify or predict from data; generative models create new text, images, audio or code.
+Narrow AI vs General AI :: Narrow AI does specific tasks; general AI would match human breadth, and does not yet exist.
+AI Applications Across Industries :: Fraud detection, recommendations, diagnostics, document processing, support automation, forecasting and more.
+Machine Learning Fundamentals :: Algorithms that learn patterns from data to predict or decide without explicit rules.
+Supervised Learning :: Learning from labelled examples to predict labels for new data.
+Unsupervised Learning :: Finding structure in unlabelled data, such as clusters or anomalies.
+Semi-Supervised Learning :: Using a small labelled set plus a large unlabelled set.
+Reinforcement Learning :: An agent learns by trial and error to maximise cumulative reward.
+Classification :: Predicting a category, such as spam or not spam.
+Regression :: Predicting a continuous number, such as price or demand.
+Clustering :: Grouping similar items without labels, used for segmentation.
+Recommendation Systems :: Suggesting items using collaborative filtering, content features or hybrid models.
+Predictive Analytics :: Using historical data to forecast outcomes such as churn or demand.
+Feature Engineering :: Creating informative inputs from raw data to help models learn.
+Training, Validation and Testing :: Train to fit, validate to tune, and test once on unseen data for an honest estimate.
+Model Training and Inference :: Training learns parameters from data; inference uses the trained model to make predictions.
+Overfitting and Underfitting :: Overfitting memorises training noise and fails on new data; underfitting is too simple to capture the pattern.
+Bias-Variance Trade-Off :: Simple models have high bias; complex models have high variance; aim for the balance with best generalisation.
+Model Performance Metrics :: Accuracy, precision, recall, F1, AUC for classification; MAE and RMSE for regression, picked to match business cost of errors.
+Precision, Recall and F1 Score :: Precision is correctness of positive predictions; recall is coverage of actual positives; F1 balances both.
+Confusion Matrix :: A table of true/false positives and negatives that shows the types of errors.
+ROC-AUC :: Area under the curve of true-positive vs false-positive rate across thresholds; 0.5 is chance, 1.0 is perfect.
+Deep Learning Fundamentals :: Multi-layer neural networks that learn features automatically from large data.
+Neural Networks :: Layers of connected units with weights, trained by backpropagation and gradient descent.
+CNN, RNN and LSTM :: CNNs process images, RNNs process sequences, LSTMs handle longer dependencies in sequences.
+Transformers :: An architecture based on attention that processes sequences in parallel and underlies modern language models.
+Attention Mechanisms :: A way for a model to weigh which parts of the input matter for each output.
+Natural Language Processing :: Techniques for understanding and generating human language, from tokenisation to LLMs.
+Computer Vision Fundamentals :: Techniques for classifying, detecting and segmenting content in images and video.
+AI Model Lifecycle :: Problem framing, data, training, evaluation, deployment, monitoring and retraining.
+@S|12|Generative AI and Large Language Models|What generative models are, how LLMs work, and the practical limits that shape product decisions.
+Introduction to Generative AI :: Models that generate new content from learned patterns, across text, image, audio, video and code.
+Generative AI Architecture :: The stack from foundation model to prompts, retrieval, tools, guardrails and application layer.
+Foundation Models :: Large models pre-trained on broad data and adapted to many tasks.
+Large Language Models (LLMs) :: Transformer models trained to predict the next token, which gives them broad language ability.
+GPT Architecture :: A decoder-only transformer trained to predict the next token, scaled up and then aligned with instructions and feedback.
+Claude Model Ecosystem :: Anthropic's model family across capability and cost tiers, with long context, tool use and strong coding and writing; check current model names in its documentation.
+Gemini Model Ecosystem :: Google's multimodal model family for text, image, audio, video and code, offered through the Gemini API and Vertex AI.
+Open-Source LLMs :: Models with downloadable weights, such as Llama, Mistral and Qwen, that you can host and tune, with licence terms to check.
+Transformer Architecture :: Stacked attention and feed-forward layers with embeddings and positional information.
+Tokens and Tokenisation :: Text is split into sub-word tokens; cost, limits and speed are measured in tokens.
+Context Windows :: The maximum tokens a model can consider at once, covering prompt and response.
+Embeddings :: Numeric vectors that capture meaning so similar items sit close together.
+Pre-Training :: Initial large-scale training on broad data to learn language and world knowledge.
+Instruction Tuning :: Training on instruction-response pairs so the model follows directions.
+Fine-Tuning :: Further training on task or domain data to change behaviour, style or accuracy.
+RLHF :: Reinforcement learning from human feedback: human preferences train a reward signal to align outputs.
+Reasoning Models :: Models that spend extra compute thinking through steps before answering, improving hard tasks at higher cost and latency.
+Multimodal AI :: Models that handle several input or output types, such as text, images and audio.
+Text Generation :: Producing written content, summaries, answers, code and structured data.
+Image Generation :: Creating images from prompts using diffusion or similar models.
+Audio Generation :: Generating speech, music or sound effects.
+Video Generation :: Creating video clips from text or images; quality, length and cost are still constraints.
+Speech-to-Text :: Transcribing audio into text; accuracy depends on accents, noise and vocabulary.
+Text-to-Speech :: Converting text into natural-sounding voice with controllable style.
+Structured Outputs :: Constraining model output to a schema such as JSON so software can use it reliably.
+Function Calling :: The model returns a structured request to call a named function, which your code runs.
+Model Selection and Benchmarking :: Choosing a model by testing it on your own task data, not only public leaderboards.
+Model Latency :: Time to first token and total time; shaped by model size, output length and load.
+Model Cost and Token Economics :: Price per input and output token, multiplied by volume; shorter prompts, caching and smaller models cut cost.
+LLM Limitations and Hallucinations :: Models can state false things confidently, lack current knowledge, and vary between runs; design for verification.
+@S|13|Prompt Engineering and Context Engineering|Writing and managing the instructions and context that make model behaviour reliable in production.
+Prompt Engineering Fundamentals :: Giving clear task, context, constraints and format so the model produces the output you need.
+Prompt Structure :: Typical parts: role, task, context, examples, constraints and output format.
+System Prompts :: Persistent instructions that set role, rules and behaviour for a whole conversation.
+User Prompts :: The per-turn request or input from the user.
+Role-Based Prompting :: Assigning a persona or expertise to shape tone and focus.
+Zero-Shot Prompting :: Asking for the task with no examples.
+One-Shot Prompting :: Providing a single example of the desired output.
+Few-Shot Prompting :: Providing several examples so the model infers the pattern.
+Instruction-Based Prompting :: Explicit step-by-step instructions and rules for the task.
+Chain-of-Thought Concepts :: Asking the model to reason through steps, which can improve accuracy on multi-step problems.
+Prompt Chaining :: Splitting a task into several prompts where each output feeds the next.
+Structured Prompting :: Using sections, delimiters and schemas to make prompts unambiguous.
+JSON-Based Outputs :: Requesting JSON with defined fields and validating it in code.
+Prompt Templates :: Reusable prompts with placeholders filled at run time.
+Dynamic Prompt Variables :: Inserting user, document or session data into templates safely.
+Context Engineering :: Deciding exactly what information, tools and memory the model sees at each step.
+Context Window Optimisation :: Prioritising, summarising and trimming content to fit limits while keeping what matters.
+Memory and Context Management :: Storing and recalling conversation facts, summaries and user preferences across turns and sessions.
+Prompt Versioning :: Tracking prompt changes like code, with versions, owners and test results.
+Prompt Evaluation :: Scoring prompt versions against a fixed test set before release.
+Prompt Injection Awareness :: Untrusted text can try to override instructions; treat external content as data, not commands.
+Prompt Guardrails :: Input and output checks, refusals and policy rules that keep behaviour within bounds.
+Production Prompt Management :: Central storage, review, rollout, monitoring and rollback of prompts used in live products.
+@S|14|Retrieval-Augmented Generation (RAG)|Grounding model answers in your own data: architecture, retrieval quality, evaluation and production operation.
+RAG Fundamentals :: Retrieve relevant documents at request time and give them to the model to ground its answer.
+Why RAG Is Required :: Models lack your private or recent data and can hallucinate; RAG supplies sources and enables citations.
+RAG vs Fine-Tuning :: RAG adds knowledge at query time and is easy to update; fine-tuning changes behaviour or style. They are often combined.
+RAG Architecture :: Ingest and index, retrieve, rerank, build context, generate, cite, and monitor.
+Data Ingestion :: Collecting documents from sources and keeping the index in sync with changes.
+Document Parsing :: Extracting clean text, tables and structure from PDFs, web pages and office files.
+Data Cleaning :: Removing noise, duplicates and boilerplate and fixing encoding so retrieval is accurate.
+Document Chunking :: Splitting documents into passages sized for retrieval and context limits.
+Chunking Strategies :: Fixed size, recursive, by heading or semantic boundaries, with overlap to preserve context.
+Embedding Models :: Models that convert text to vectors; choose by quality, language coverage, dimensions and cost.
+Vector Databases :: Stores optimised for nearest-neighbour search over embeddings.
+Pinecone :: A managed vector database service with simple scaling.
+Weaviate :: An open-source vector database with hybrid search and modules.
+Chroma :: A lightweight open-source vector store popular for prototypes.
+FAISS :: Meta's library for efficient similarity search over vectors, run in your own process.
+Semantic Search :: Finding passages by meaning using embeddings, even without shared keywords.
+Keyword Search :: Matching exact terms (BM25), strong for names, codes and rare words.
+Hybrid Search :: Combining keyword and semantic scores for better recall.
+Metadata Filtering :: Restricting retrieval by attributes such as date, source, permission or product.
+Retrieval Strategies :: Top-k, multi-query, parent-document, query rewriting and filters tuned to the content.
+Reranking :: A second model reorders retrieved candidates by relevance before generation.
+Context Construction :: Selecting, ordering and formatting retrieved passages inside the prompt.
+Grounded Generation :: Instructing the model to answer only from provided sources and say when they are insufficient.
+Citation and Source Attribution :: Linking each claim to its source so users can verify.
+RAG Evaluation :: Measuring retrieval and answer quality separately on a labelled question set.
+Retrieval Precision and Recall :: Precision is the share of retrieved passages that are relevant; recall is the share of relevant passages retrieved.
+Faithfulness and Context Relevance :: Faithfulness checks the answer is supported by the context; context relevance checks the context fits the question.
+RAG Performance Optimisation :: Tuning chunking, embeddings, hybrid search, reranking, caching and prompts for quality, speed and cost.
+Production RAG Monitoring :: Tracking retrieval quality, unanswered questions, latency, cost and freshness in live use.

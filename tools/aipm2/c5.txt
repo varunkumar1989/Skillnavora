@@ -1,0 +1,36 @@
+@S|25|End-to-End Practical Capstone Projects|Twelve portfolio projects. Each must include the full deliverable checklist below, so the work reads like a real product case.
+Build an E-commerce Product Strategy. :: Define target shoppers, positioning, growth levers (search, recommendations, checkout) and a prioritised roadmap with metrics.
+Design a Fintech Payment Product. :: Cover onboarding and KYC, payment flow, fraud and risk controls, compliance, reliability targets and merchant or consumer value.
+Build a Product Analytics Dashboard. :: Choose a north star and input metrics, define events, build funnel and retention views, and document how each metric drives a decision.
+Create a Customer Onboarding Optimisation Plan. :: Map the activation journey, find drop-offs from data, propose experiments and set success targets.
+Develop an AI Customer Support Assistant. :: Scope intents, knowledge sources, escalation to humans, quality and safety evaluation, and deflection and satisfaction metrics.
+Design a RAG-Based Enterprise Knowledge Assistant. :: Specify sources, permissions, chunking and retrieval design, citation behaviour, evaluation set and monitoring.
+Build an AI Document Intelligence Product. :: Extract and validate fields from documents, handle low-confidence cases with review, and measure accuracy and time saved.
+Design an AI Recommendation Engine. :: Choose signals and approach, cold-start handling, diversity and fairness, offline and online evaluation, and business metrics.
+Create an AI Customer Complaint Management System. :: Classify, route and summarise complaints, set priorities and SLAs, include human review and compliance tracking.
+Build a Multi-Agent Business Automation Workflow. :: Define agent roles, tools, permissions, hand-offs, approval points, failure handling and cost limits.
+Develop an AI Sales Assistant. :: Support prospecting, call preparation and follow-up with CRM grounding, guardrails and pipeline-impact metrics.
+Create an AI-Powered Product Analytics Assistant. :: Let users ask data questions in natural language with safe SQL generation, verification and clear lineage of answers.
+@S|26|Interview Preparation and Career Readiness|Preparing for traditional PM and AI PM interviews, with practice, portfolio and skill-gap work. The full question bank is in the Interview guide on this site.
+Product Management Interview Fundamentals :: Know the loop: screens, product sense, execution, analytics, technical, strategy and behavioural rounds.
+Associate Product Manager Interviews :: Emphasise structured thinking, curiosity, user empathy and learning ability over experience.
+Product Manager Interviews :: Show end-to-end ownership, prioritisation, metrics and influence with examples.
+Product Owner Interviews :: Show backlog management, story writing, Scrum fluency and stakeholder handling.
+Product Analyst Interviews :: Expect SQL, metrics definition, experiment analysis and data storytelling.
+AI Product Manager Interviews :: Expect AI fundamentals, evaluation, cost and risk trade-offs, and product sense for AI features.
+Product Sense Interviews :: Structure: user, problem, solutions, prioritise, metrics.
+Product Design Interviews :: Design a product for a user group, with flows, trade-offs and validation.
+Product Strategy Interviews :: Market analysis, positioning, moats, and a recommendation with risks.
+Technical Product Interviews :: Explain systems, APIs and trade-offs clearly and discuss feasibility.
+AI/ML Technical Interviews :: Explain model types, metrics, LLM concepts, prompting, RAG and fine-tuning choices.
+RAG and Agentic AI Interviews :: Design a RAG or agent system, discuss evaluation, failure modes, permissions and cost.
+Product Analytics Interviews :: Define metrics, diagnose a drop, design an experiment and read a funnel.
+Product Case Studies :: Practise end-to-end cases from problem framing to rollout and measurement.
+Business Case Interviews :: Estimate market size, profitability and ROI with clear assumptions.
+Behavioural Interviews :: Prepare STAR stories on conflict, failure, influence and leadership, each with a number.
+Stakeholder Management Interviews :: Show how you handle disagreement, ambiguity and competing priorities.
+Product Execution Interviews :: Show how you plan launches, handle risks and debug a metric drop.
+Product Leadership Interviews :: Show vision, team building, strategy and organisational influence.
+Resume and Portfolio Development :: Quantified outcomes, clear scope, and 2-3 capstone case studies with artefacts.
+Mock Interviews :: Timed practice with feedback on structure, clarity and depth, recorded where possible.
+Job Description-Based Skill Gap Analysis :: Compare a target job's requirements with your skills and build a learning plan; see the industry research page for skill frequencies.

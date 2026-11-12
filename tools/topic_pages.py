@@ -15,6 +15,8 @@ from html import escape as E
 TOPICS = [
     ("programme-pm", "AI Product Management", "AI Product Management", "Foundations and product",
      ["sec-pm"], ["learn-pm"], "Product management"),
+    ("programme-pm2", "AI Product Management 2", "AI Product Management 2", "Foundations and product",
+     [], [], "Product management (detailed course)"),
     ("programme-genai", "GenAI Launchpad", "GenAI Launchpad (resources for GenAI)", "Foundations and product",
      ["sec-genai"], ["learn-genai"], "GenAI"),
     ("programme-data", "AI for Data Engineers (Data Science & AI)", "AI for Data Engineers (Data Science & AI)", "Data and engineering",
@@ -37,6 +39,7 @@ TOPICS = [
 
 # One line per programme for the cards (Learning platform index and Free resources)
 DESC = {"programme-pm": "PM Master Handbook, PRD and BRD templates, interview prep and PM learning sites.",
+        "programme-pm2": "The detailed 26-subject AI PM course: 600 topics from PM fundamentals to RAG, agents, evals and AI product leadership.",
         "programme-genai": "The GenAI Launchpad handbook, prompting, agents, AI tools and GenAI learning sites.",
         "programme-data": "Every Data Science & AI lesson: Excel, SQL, Python, Power BI, ML and data tools.",
         "programme-ai-engineer": "The AI engineer path: foundations, LLM apps, RAG, agents, evals and interviews.",
@@ -89,6 +92,11 @@ def build(page, uhero, out, source=None):
     built = {}
     for slug, title, short, group, c_ids, t_ids, kicker in TOPICS:
         content_parts, tool_parts = [], []
+        if slug == "programme-pm2":  # standalone detailed course, built from tools/aipm2 (not copied from resources.html)
+            import aipm2_page
+            built[slug] = {"title": title, "short": short, "group": group, "kicker": kicker,
+                           "content": aipm2_page.content(), "tools": aipm2_page.tools()}
+            continue
         for cid in c_ids:
             el = _block(soup, cid)
             if el is None:

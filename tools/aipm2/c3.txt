@@ -1,0 +1,189 @@
+@S|15|Agentic AI and Autonomous AI Systems|How AI agents plan, use tools and act, and how to run them safely and reliably in production.
+Introduction to Agentic AI :: Systems where a model pursues a goal over several steps by planning, calling tools and reacting to results.
+AI Agents vs Chatbots :: A chatbot replies to messages; an agent takes actions toward a goal.
+AI Agents vs Traditional Automation :: Automation follows fixed rules; agents handle variable inputs and decide the next step, with less predictability.
+Agent Architecture :: A model, instructions, tools, memory, a control loop and guardrails.
+Single-Agent Systems :: One agent with a set of tools handles the task; simpler to build and debug.
+Multi-Agent Systems :: Several specialised agents coordinate, useful for separable roles but costlier and harder to control.
+Agent Planning :: Deciding the sequence of steps to reach a goal, revising as results arrive.
+Reasoning and Task Decomposition :: Breaking a goal into smaller sub-tasks the agent can complete and verify.
+Tool Calling :: The agent selects and invokes tools such as search, databases, code and APIs.
+Function Calling :: Structured model output naming a function and arguments, executed by your code.
+Agent Memory :: Information kept so the agent can use past steps, facts and preferences.
+Short-Term and Long-Term Memory :: Short-term lives in the current context; long-term is stored externally and retrieved when needed.
+State Management :: Tracking progress, inputs and results across steps so runs can resume and be audited.
+Agent Orchestration :: Coordinating agents, tools and steps, including routing, ordering and error paths.
+Workflow Orchestration :: Defining fixed or conditional flows around model calls for predictable behaviour.
+Agent Communication :: How agents exchange messages and shared state, including protocols such as MCP for tools and A2A for agents.
+Human-in-the-Loop :: Humans approve, edit or take over at defined checkpoints.
+Autonomous Execution :: Agents act without per-step approval, appropriate only for low-risk, reversible tasks.
+Agent Permissions :: Least-privilege access to tools and data, scoped per task and revocable.
+Agent Error Handling :: Detecting tool failures, bad outputs and loops, and responding safely.
+Retry and Recovery Mechanisms :: Retries with backoff, fallbacks, checkpoints and idempotent actions so failures do not cause harm.
+Agent Evaluation :: Measuring task success, steps, cost and safety on realistic scenarios.
+Agent Observability :: Traces of every model call, tool call and decision for debugging and audit.
+Agent Security :: Defending against prompt injection, data exfiltration, excessive permissions and malicious tools.
+Agent Governance :: Policies for what agents may do, approval rules, logging, ownership and incident response.
+LangChain :: A framework for building LLM applications with chains, tools and retrievers.
+LangGraph :: A library for stateful, graph-based agent workflows with loops and human checkpoints.
+CrewAI :: A framework for teams of role-based agents collaborating on tasks.
+LlamaIndex :: A framework centred on data ingestion, indexing and retrieval for LLM apps.
+OpenAI Agents SDK :: OpenAI's SDK for building agents with tools, handoffs and guardrails.
+Microsoft Agent Framework :: Microsoft's framework for building and orchestrating agents, evolved from Semantic Kernel and AutoGen.
+Google Agent Development Kit :: Google's open-source kit for building and deploying agents, integrated with Gemini and Vertex AI.
+Production Agentic Systems :: Reliable agents need evals, limits on steps and spend, observability, permissions, human review and rollback.
+@S|16|AI Product Architecture and Development|How AI features are built, served and operated, and how a PM makes build, buy and partner decisions.
+AI Product Architecture Fundamentals :: The layers of an AI product: data, models, orchestration, application, monitoring and governance.
+AI Application Architecture :: How the interface, backend, model calls, data stores and tools fit together.
+LLM Application Architecture :: Prompt assembly, retrieval, model call, tool execution, validation and response handling.
+Model Integration :: Connecting models to the product through APIs or SDKs, with timeouts, retries and fallbacks.
+AI APIs :: Hosted endpoints for models, speech, vision and embeddings, billed per use.
+Model Hosting :: Running models on a provider's servers or your own infrastructure.
+Model Serving :: Systems that load models and answer requests efficiently with batching and scaling.
+Inference Endpoints :: Network endpoints that return predictions or generations on request.
+GPU Fundamentals :: Parallel processors used to train and run models; memory size and availability drive cost and capacity.
+AI Data Pipelines :: Automated flows that collect, clean, label and deliver data for training, retrieval and monitoring.
+ETL and ELT :: Extract-transform-load transforms before loading; ELT loads first and transforms in the warehouse.
+AI Application Databases :: Operational stores for users, sessions, prompts, outputs and feedback.
+Vector Database Integration :: Embedding content, indexing it and querying by similarity within the application.
+AI Orchestration Layers :: Code or frameworks that sequence model calls, retrieval and tools.
+Microservices for AI :: Separating model, retrieval and business services so each scales and deploys independently.
+Cloud AI Infrastructure :: Managed platforms for training, hosting and monitoring models, such as Bedrock, Azure AI Foundry and Vertex AI.
+AI Application Scalability :: Handling rising load with queues, caching, rate limits, batching and autoscaling.
+Model Deployment :: Releasing a model or prompt change to production with testing, staged rollout and rollback.
+Model Versioning :: Recording model, prompt and data versions so results are reproducible and regressions traceable.
+MLOps :: Practices for training, deploying, monitoring and retraining machine-learning models reliably.
+LLMOps :: MLOps adapted to LLM apps: prompt and eval management, tracing, cost control and guardrails.
+CI/CD for AI :: Automated tests and eval gates that run on every change to code, prompts or models.
+AI System Monitoring :: Tracking quality, latency, errors, cost, drift and safety signals in production.
+AI Application Reliability :: Keeping the product working despite model outages and variance, via fallbacks, timeouts and degraded modes.
+Production AI Architecture :: A complete design including security, observability, evaluation, cost controls and operational runbooks.
+Build vs Buy vs Partner Decisions :: Build where it differentiates you; buy for commodity capability; partner for speed or expertise. Weigh cost, control, time and risk.
+@S|17|AI Product Evaluation, Testing and Observability|How to know whether an AI product is good, safe and staying good over time.
+Traditional Software Testing vs AI Testing :: Traditional tests expect exact outputs; AI outputs vary, so you score quality statistically on many cases.
+AI Product Evaluation Fundamentals :: Define what good means for users, build test sets, pick metrics and set a launch bar.
+Offline Evaluation :: Scoring a model or prompt on a fixed dataset before release.
+Online Evaluation :: Measuring real behaviour after release through experiments and user signals.
+Human Evaluation :: Reviewers rate outputs against a rubric; the gold standard but slow and costly.
+Automated Evaluation :: Programmatic checks and model-based scoring that run quickly at scale.
+LLM-as-a-Judge :: Using a model to grade outputs against a rubric; validate its agreement with human labels first.
+Golden Datasets :: Curated, trusted examples with expected answers that anchor evaluation.
+Evaluation Datasets :: Representative collections of inputs, including hard and adversarial cases, versioned and refreshed.
+Benchmarking :: Comparing models or versions on shared tasks; treat public benchmarks as a hint and test on your own data.
+Accuracy and Relevance :: Whether the answer is correct and addresses the question.
+Faithfulness :: Whether claims are supported by the provided sources.
+Hallucination Measurement :: The rate of unsupported or false statements, tracked on a fixed test set.
+Retrieval Evaluation :: Checking whether the right passages are found, using precision, recall and ranking metrics.
+Agent Success Rate :: The share of tasks an agent completes correctly end to end.
+Task Completion Rate :: The share of user tasks finished, with or without assistance.
+Safety Evaluation :: Testing for harmful, unsafe or policy-violating outputs.
+Toxicity and Bias Testing :: Measuring offensive output and unequal treatment across groups.
+Robustness Testing :: Checking behaviour under typos, paraphrases, noise and adversarial inputs.
+Regression Testing :: Re-running the evaluation suite after every change to catch quality drops.
+AI Red Teaming :: Deliberately attacking the system to find failures before attackers or users do.
+A/B Testing for AI :: Comparing model or prompt variants on users, with quality, cost and safety guardrails.
+Model Latency :: Response time measured at median and tail percentiles against a target.
+Throughput :: Requests handled per second under load.
+Cost per Request :: Total model and infrastructure cost divided by requests; track per successful task as well.
+Token Consumption :: Input and output tokens used, a driver of cost and latency.
+AI Observability :: Logs, traces and metrics that explain what the system did and why.
+Production Monitoring :: Dashboards and alerts on quality, errors, latency, cost and safety in live traffic.
+Model Drift :: Performance changes as data, users or models change over time.
+Continuous Evaluation :: Ongoing scoring of live samples and test suites so quality is tracked, not assumed.
+@S|18|Responsible AI, Safety and Governance|Managing the ethical, legal and security risks of AI products so they can be launched and trusted.
+Responsible AI Fundamentals :: Principles of fairness, reliability, safety, privacy, transparency, accountability and inclusiveness.
+AI Ethics :: Weighing benefits and harms to people and society when designing and deploying AI.
+Data Privacy :: Respecting what personal data is collected, how it is used and who sees it.
+Data Protection :: Technical and organisational safeguards such as encryption, access control, retention limits and minimisation.
+GDPR :: The EU regulation giving people rights over personal data and imposing duties on organisations processing it.
+India's Digital Personal Data Protection Act :: India's 2023 law on processing digital personal data, based on consent and notice, with obligations for data fiduciaries; confirm current rules with counsel.
+AI Security :: Protecting models, data, prompts and tools from misuse and attack.
+Data Leakage :: Sensitive information exposed through prompts, outputs, logs or training data.
+Prompt Injection :: Malicious text that tries to override instructions or trigger unwanted actions, including through retrieved content.
+Jailbreak Risks :: Prompts designed to bypass safety rules; test regularly and layer defences.
+AI Bias :: Systematic unfairness from skewed data, labels or design.
+Fairness :: Ensuring outcomes are equitable across groups, measured with agreed metrics.
+Explainability :: Giving understandable reasons for outputs, especially for high-stakes decisions.
+Transparency :: Being clear about when AI is used, its limits and how data is handled.
+Human Oversight :: Meaningful human review, override and accountability for important decisions.
+AI Guardrails :: Input and output filters, policy checks and permission limits that constrain behaviour.
+Content Moderation :: Detecting and handling harmful or disallowed content from users and models.
+Access Control :: Limiting who and what can reach data, tools and models, based on role and need.
+AI Governance :: Policies, roles, review processes and standards for responsible AI across the organisation.
+AI Risk Management :: Identifying, rating and mitigating AI risks, using frameworks such as NIST AI RMF.
+Enterprise AI Governance :: Central oversight of AI use cases, vendors, data and approvals across a large organisation.
+Regulatory Compliance :: Meeting laws and standards that apply to your market and use case, such as the EU AI Act, GDPR and sector rules.
+AI Incident Management :: Detecting, triaging, fixing and learning from AI failures, with communication and post-incident review.
+Responsible AI Product Launch :: A checklist before launch covering risks, testing, approvals, user disclosure, monitoring and rollback.
+@S|19|AI Product UX and Human-AI Interaction|Designing AI experiences people trust, understand and can correct.
+AI-First Product Design :: Designing around what AI can do well, with fallbacks for what it cannot.
+Conversational UX :: Natural dialogue patterns with clear scope, suggestions and recovery from misunderstanding.
+AI Chat Interfaces :: Layouts and controls for chat: streaming, history, attachments, citations and actions.
+Copilot Experiences :: AI embedded in a workflow that suggests and assists while the user stays in charge.
+AI-Assisted Workflows :: Steps in a task where AI drafts, classifies or automates, with review points.
+Human-AI Collaboration :: Dividing work so each does what they do best, with clear hand-offs.
+Trust and Transparency :: Showing sources, reasoning summaries and limits so users calibrate trust.
+Communicating AI Uncertainty :: Conveying confidence honestly through wording, indicators and prompts to verify.
+AI Error Recovery :: Letting users undo, edit, regenerate and report wrong outputs easily.
+Human Approval Workflows :: Requiring user confirmation before consequential actions.
+AI Personalisation :: Adapting content and behaviour to the user, with consent and control.
+Multimodal UX :: Combining text, voice, image and video input and output coherently.
+AI Onboarding :: Setting expectations, showing example prompts and guiding first success.
+AI Feature Adoption :: Helping users discover, try and keep using AI features, measured by repeat use.
+AI Accessibility :: Making AI experiences usable with assistive technology, including voice, captions and plain language.
+Feedback Loops :: Collecting ratings, edits and corrections and feeding them into evaluation and improvement.
+AI User Experience Evaluation :: Testing usefulness, trust, effort and satisfaction with real users and metrics.
+@S|20|AI Product Strategy and Monetisation|Finding AI opportunities, deciding how to build them, and making them commercially sound.
+Identifying AI Product Opportunities :: Look for frequent, costly tasks involving language, patterns or judgement where partial automation helps.
+AI Opportunity Assessment :: Scoring a use case on value, feasibility, data readiness, risk and cost before committing.
+AI Product-Market Fit :: Evidence that users rely on the AI feature for real outcomes, seen in repeat use and willingness to pay.
+Build vs Buy vs Partner :: Decide by differentiation, speed, cost, control and data sensitivity.
+AI Business Models :: Seat-based, usage-based, outcome-based, add-on and platform models, each with different margins and risks.
+AI Product Pricing :: Price to value delivered while covering variable inference cost, with tiers and limits.
+Usage-Based Pricing :: Charging by tokens, requests, tasks or outcomes, matching revenue to cost.
+Subscription Monetisation :: Fixed plans with usage allowances, simple to buy but sensitive to heavy users.
+Enterprise AI Monetisation :: Contracts, platform fees, integrations and services for large customers, often with security reviews.
+AI Unit Economics :: Margin per user or task after inference, data, support and infrastructure costs.
+Inference Cost Management :: Reducing cost via smaller models, caching, shorter prompts, batching and routing.
+Token Economics :: Understanding price per million tokens and how prompt design and volume change cost.
+AI ROI Calculation :: Benefit (time saved, revenue gained, cost avoided) minus total cost, over the cost.
+Total Cost of Ownership :: All costs over time: models, infrastructure, data, people, governance and maintenance.
+AI Product Differentiation :: Advantages from proprietary data, workflow integration, evaluation quality, distribution and trust.
+AI Competitive Positioning :: Defining where you win against general-purpose assistants and rival tools.
+AI Product GTM :: Positioning, pricing, proof points, pilots and enablement for launching AI products.
+Enterprise AI Adoption :: Moving from pilot to production through change management, integration and governance.
+AI Customer Retention :: Keeping customers through reliability, improving quality, integration and shown outcomes.
+AI Product Scaling :: Growing usage while controlling cost, quality, latency and risk.
+@S|21|AI Product Tools and Ecosystem|The tools a modern AI PM should recognise and know when to use. Tool features change quickly, so always check the official site.
+ChatGPT :: OpenAI's assistant for writing, analysis, coding and research, with custom GPTs and tools.
+Claude :: Anthropic's assistant and API, known for long documents, writing and coding, with projects and tool use.
+Gemini :: Google's multimodal assistant and models, integrated with Workspace and Google Cloud.
+Perplexity :: An answer engine that searches the web and cites sources.
+NotebookLM :: Google's tool for questioning and summarising your own uploaded sources.
+Cursor :: An AI code editor that edits code across a project with a chat and agent mode.
+Lovable :: A prompt-to-app builder for quickly generating web apps with a backend.
+Replit :: A browser-based development environment with an AI agent that builds and hosts apps.
+Bolt :: A browser tool that generates and runs full-stack web apps from prompts.
+n8n :: An open-source workflow automation tool with AI and agent nodes.
+Make :: A visual automation platform connecting apps through scenarios.
+Zapier :: No-code automation linking thousands of apps through triggers and actions.
+LangChain :: Framework for LLM applications, tools and retrievers.
+LangGraph :: Graph-based orchestration for stateful agents.
+LlamaIndex :: Framework for data ingestion, indexing and retrieval.
+CrewAI :: Multi-agent framework with role-based teams.
+Pinecone :: Managed vector database.
+Weaviate :: Open-source vector database with hybrid search.
+Chroma :: Lightweight open-source vector store.
+Postman :: API testing and documentation tool.
+GitHub :: Code hosting, pull requests, issues and automation.
+Figma :: Collaborative interface design and prototyping.
+Jira :: Issue and sprint tracking.
+Linear :: Fast, minimal issue tracking for product and engineering teams.
+Notion :: Workspace for docs, wikis and lightweight databases, with built-in AI.
+Mixpanel :: Event-based product analytics.
+Amplitude :: Product analytics with cohorts, journeys and experiments.
+LangSmith :: Tracing, evaluation and monitoring for LLM applications.
+Arize Phoenix :: Open-source observability and evaluation for LLM apps.
+MLflow :: Open-source platform for experiment tracking, model registry and deployment.
+Cloud AI Platforms :: Managed AI services: Amazon Bedrock, Azure AI Foundry and Google Vertex AI.
+AI Evaluation Platforms :: Tools that manage test sets, scoring and regression checks for LLM apps, such as LangSmith, Braintrust and Arize.
