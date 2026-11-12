@@ -46,8 +46,8 @@ def build():
     body = CSS + f"""
 <div class="lb-steps"><div><b>1 · Run</b><span>Press Run. Code runs in your browser, no sign-up.</span></div><div><b>2 · Watch</b><span>See the real result the code gives.</span></div><div><b>3 · Decide</b><span>Is it right? Spot the trap, get a hint, see the fix.</span></div></div>
 <div class="lb-segs" role="tablist">
-  <button type="button" role="tab" class="lb-seg" data-seg="data">AI for Data Engineers<small>Excel, SQL, Power BI, Tableau, Python, ML · {n['data']} challenges</small></button>
   <button type="button" role="tab" class="lb-seg" data-seg="pm">AI Product Management<small>Real PM interview scenarios · {n['pm']} challenges</small></button>
+  <button type="button" role="tab" class="lb-seg" data-seg="data">AI for Data Engineers<small>Excel, SQL, Power BI, Tableau, Python, ML · {n['data']} challenges</small></button>
   <button type="button" role="tab" class="lb-seg" data-seg="genai">GenAI Launchpad<small>Real-life AI scenarios + prompt checker · {n['genai']} challenges</small></button>
 </div>
 <div class="lb-bar"><div id="lb-chips" style="display:flex;flex-wrap:wrap;gap:8px"></div><select id="lb-level" aria-label="Level"><option value="All">All levels</option><option>Basic</option><option>Intermediate</option><option>Advanced</option></select></div>

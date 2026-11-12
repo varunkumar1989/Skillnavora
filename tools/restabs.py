@@ -494,7 +494,7 @@ def _drop_repeats(html_s, exclude):
 
 def build(pm_html, cfg, scope=None, exclude=None):
     """Free resources: five tabs. Programme content lives on the Learning platform; this page links to it once."""
-    tabs = [("programmes", "Programmes"), ("tools", "Tools & Learning Sites"), ("context", "Context Engineering"), ("evals", "Evals"), ("rag", "LLMs & RAG")]
+    tabs = [("programmes", "Programmes"), ("tools", "Tools & Learning Sites"), ("rag", "LLMs & RAG"), ("context", "Context Engineering"), ("evals", "Evals")]
     pre, attr, cls = ("lr-", "data-rtab", "rpanel") if scope else ("", "data-tab", "panel")
     bar = f'<div class="tabs" role="tablist" id="{pre}res-tabs" aria-label="Free resources">' + "".join(f'<button role="tab" id="{pre}t-{k}" aria-controls="{pre}p-{k}" {attr}="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
     panels = {"programmes": programmes_tab(), "tools": tools_tab(), "context": context_tab(), "evals": evals_tab(), "rag": rag_tab()}

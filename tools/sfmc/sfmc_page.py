@@ -70,7 +70,7 @@ pre{background:#1e1b2e;color:#f1eeff;border-radius:10px;padding:10px 12px;overfl
 table.tl{width:100%;border-collapse:collapse;font-size:14px}table.tl th,table.tl td{border:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}
 .prog{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 12px}.prog .pct{font-weight:700}
 </style>"""
-    tabs = [("content", "Programme Content"), ("other", "Other Programmes"), ("tools", "Tools & Learning Links")]
+    tabs = [("content", "Programme Content"), ("other", "Other Programmes"), ("tools", "Learning Tools & Links")]
     bar = '<div class="sf-tabs" role="tablist" id="sf-bar">' + "".join(f'<button role="tab" data-sf="{k}" aria-selected="{"true" if i == 0 else "false"}">{E(n)}</button>' for i, (k, n) in enumerate(tabs)) + "</div>"
     mods = "".join(module_block(n, t, lvl, s, tp) for n, t, lvl, s, tp in MODULES)
     labs = '<details class="mod"><summary><span class="mn">Module 25</span> Practical labs and real-world scenarios</summary><p class="meta">Twenty labs. Labs marked "account" need a provisioned Marketing Cloud account; others are simulated or paper practice.</p><table class="tl"><tr><th>Lab</th><th>Title</th><th>Requirement</th></tr>' + "".join(f"<tr><td>{E(c)}</td><td>{E(n)}</td><td>{'Account needed' if k=='account' else 'Simulated / paper'}</td></tr>" for c, n, k in LABS) + '</table></details>'

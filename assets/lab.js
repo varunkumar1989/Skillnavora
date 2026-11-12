@@ -6,7 +6,7 @@
   const $ = id => document.getElementById(id);
   const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const LVL = { Basic: 1, Intermediate: 2, Advanced: 3 };
-  let seg = "data", sec = "All", lvl = "All", current = null;
+  let seg = "pm", sec = "All", lvl = "All", current = null;
 
   /* ---------- engines ---------- */
   let sqlP = null, pyP = null;
