@@ -327,10 +327,10 @@ PS_ITEMS = [('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8
             ('<circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5"/>', "Practise real-world interview questions", "Practise from our bank of real interview questions on product sense, metrics, strategy, RCA and guesstimates."),
             ('<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 13l2 2 4-4"/>', "Referrals to hiring companies", "When you're job-ready, we refer you to open roles through our network of product leaders and hiring managers.")]
 PLACE_S = f"""<section class="place-s" id="placement"><div class="wrap">
-  <h2 class="sec-h" style="max-width:20ch">1 Year Placement Support to Prepare and Apply for Roles</h2>
-  <p class="sub" style="margin-bottom:34px">Clear the cut-off marks in your capstone project to get access to 1 year of placement support.</p>
+  <h2 class="sec-h" style="max-width:20ch">1 Year Assistance to Prepare and Apply for Roles</h2>
+  <p class="sub" style="margin-bottom:34px">Clear the cut-off marks in your capstone project to get access to 1 year of assistance.</p>
   <div class="pgrid">{"".join(f'<div class="pitem"><span class="pico">{SVG(ic)}</span><h3>{E(t)}</h3><p>{E(d)}</p></div>' for ic, t, d in PS_ITEMS)}</div>
-  <p class="meta" style="margin:26px 0 0;font-size:12.5px">Placement support helps you prepare and apply. It is not a job guarantee.</p>
+  <p class="meta" style="margin:26px 0 0;font-size:12.5px">Assistance helps you prepare and apply. It is not a job guarantee.</p>
 </div></section>"""
 REFER_S = """<section class="refer-s"><div class="wrap"><div class="refer-band">
   <div><div class="kicker">Refer &amp; earn</div><h2 class="sec-h">Know someone who should be here?</h2><p class="sub" style="margin:0">Refer a friend to a SkillNavora program, or a candidate to one of our hiring partners, and earn a reward when it works out.</p></div>
