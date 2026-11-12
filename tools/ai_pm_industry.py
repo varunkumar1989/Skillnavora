@@ -3,7 +3,9 @@
 Built from the research files so every number matches the data. Requirements come from search summaries;
 the page says so, and lists what could not be verified. Adds to the AI PM programme; no existing chapter changes.
 """
-import csv, html, os
+import csv, html, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ai_pm_interview
 E = html.escape
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGE = "ai-pm-industry-research.html"
@@ -58,6 +60,7 @@ def build(page, uhero, out):
 <li><b>Communicate:</b> release notes for users and support, and a status note for stakeholders.</li></ol>
 <p><b>Practice:</b> write a one-page release plan for a change in a product you use, including the rollout stages, the metrics you would watch and the rollback trigger.</p>
 </div>
+{ai_pm_interview.section()}
 <h2 class="sec-h ap-sec">Job records</h2>
 {_table(["ID","Company","Title as listed","Location","Role family","Requirements stated (summary)","Source","Evidence"], job_rows)}
 </div></section>"""
