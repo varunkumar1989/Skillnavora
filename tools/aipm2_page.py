@@ -119,6 +119,8 @@ q.addEventListener('input',run)})();</script>"""
           f'Each topic has a short meaning and a detailed explanation. The original <a href="#a2-original">AI Product Management</a> content from this site follows the curriculum, unchanged.</div>'
         + f'<div class="a2-kpi"><div><b>{len(SUBJECTS)}</b>subjects</div><div><b>{N_TOPICS}</b>topics</div><div><b>12</b>capstone projects</div><div><b>{len(extras.OUTCOMES)}</b>outcomes</div></div>'
         + f'<div class="hb-acts" style="margin:0 0 18px">{guide_btn}<a class="btn btn-line btn-sm" href="{SITE_HANDBOOK}aipm2/AIPM2-Complete-Course.pdf" target="_blank" rel="noopener">Complete course PDF (163 pages) ↗</a><a class="btn btn-line btn-sm" href="ai-pm-industry-research.html#interview-guide">Interview guide</a><a class="btn btn-line btn-sm" href="programme-pm.html">Original AI PM programme</a></div>'
+        + '<h2 class="sec-h">Chapter PDFs</h2><p class="meta" style="margin:-4px 0 12px">Each chapter as a printable PDF with its explanations, practice exercise, self-check and the original AI PM content.</p>'
+        + '<div class="grid g3">' + "".join(f'<a class="card" href="{SITE_HANDBOOK}aipm2/{E(aipm2.pdf_name(s["n"], s["title"]))}" target="_blank" rel="noopener" style="display:block;text-decoration:none"><span class="ftag">Chapter {s["n"]:02d} · PDF</span><h3 style="margin:6px 0 2px;font-size:15px">{E(s["title"])}</h3><span class="go">Open PDF ↗</span></a>' for s in SUBJECTS) + '</div>'
         + '<h2 class="sec-h">1. Course curriculum</h2>'
         + f'<p class="meta" style="margin:-4px 0 12px">{E(extras.TITLE)}: {E(extras.SUBTITLE)}.</p>'
         + f'<div class="a2-ph">{phases}</div>'
