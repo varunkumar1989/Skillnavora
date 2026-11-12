@@ -156,7 +156,56 @@
 </ul>
 <p><b>Design rules:</b> use nouns, not actions (<code>/orders</code>, not <code>/createOrder</code>), keep collection names plural, and let the method carry the action.</p>
 
-<h2 class="sec-h" style="margin-top:34px">6. Query parameters: filtering and sorting</h2>
+<h2 class="sec-h" style="margin-top:34px">6. Parameters: where the information goes</h2>
+<p class="sub">A parameter is a piece of information the request passes to the API. Each kind of parameter has its own place in the request, and each answers a different question.</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:15px;min-width:520px">
+<tr><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd">Kind</th><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd">Where it sits</th><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd">Question it answers</th><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd">Example</th></tr>
+<tr><td style="padding:8px"><b>Path</b></td><td style="padding:8px">In the URL path, between slashes</td><td style="padding:8px">Which specific record?</td><td style="padding:8px"><code>/orders/123</code></td></tr>
+<tr><td style="padding:8px"><b>Query</b></td><td style="padding:8px">After the <code>?</code></td><td style="padding:8px">How should the results be filtered, sorted or paged?</td><td style="padding:8px"><code>?status=shipped</code></td></tr>
+<tr><td style="padding:8px"><b>Header</b></td><td style="padding:8px">In the request headers</td><td style="padding:8px">Who is asking, and in what format?</td><td style="padding:8px"><code>Authorization: Bearer …</code></td></tr>
+<tr><td style="padding:8px"><b>Body</b></td><td style="padding:8px">In the JSON body</td><td style="padding:8px">What data should be created or changed?</td><td style="padding:8px"><code>{"quantity": 2}</code></td></tr>
+</table></div>
+
+<h3 style="margin-top:26px">Path parameters identify one record</h3>
+<p>A path parameter is a value inside the URL path that points at one resource. Read the request from left to right:</p>
+<pre style="background:#0f1020;color:#e8e8f0;padding:14px 16px;border-radius:10px;overflow-x:auto;font-size:14px;line-height:1.55;max-width:100%">GET /orders/123</pre>
+<div class="card" style="margin:14px 0;padding:14px 16px">
+<ul style="margin:0">
+<li><b>GET</b> is the action: read.</li>
+<li><b>/orders</b> identifies the resource type: the collection of orders.</li>
+<li><b>123</b> identifies the specific order: the path parameter.</li>
+</ul>
+</div>
+<p>The same pattern works for other resources:</p>
+<ul>
+<li><code>GET /customers/456</code>: one customer</li>
+<li><code>GET /products/789</code>: one product</li>
+<li><code>GET /shipments/12345</code>: one shipment, so you can check its status</li>
+</ul>
+
+<h3 style="margin-top:22px">Business use cases</h3>
+<ul>
+<li>Retrieve a customer's profile</li>
+<li>View a specific order</li>
+<li>Check the status of a shipment</li>
+<li>Retrieve a particular product</li>
+</ul>
+
+<h3 style="margin-top:22px">Common mistakes with path parameters</h3>
+<ul>
+<li><b>Wrong or missing ID.</b> The API returns <code>404 Not Found</code>. Check that the app passes the right ID, for example a shipment number instead of an order number.</li>
+<li><b>Changing the type.</b> If the API expects a number, <code>/orders/abc</code> will fail. Check the documentation for each ID type.</li>
+<li><b>Guessable IDs without access checks.</b> If the ID is simply 1, 2, 3, a user can try other numbers and read someone else's order. The server must check that the logged-in user is allowed to see the record, even when the ID is valid. This is a common security bug, and the answer is an access check on every request.</li>
+</ul>
+
+<div class="card" style="border-left:4px solid #6C4CF5;padding:14px 16px;margin:18px 0">
+<b>PM takeaway:</b> path parameters answer one question: <i>which specific record are we working with?</i> When you write a requirement, name the ID that identifies the record, and state who may read it.
+</div>
+
+<h3 style="margin-top:22px">Path or query? A quick test</h3>
+<p>Ask whether the value names a specific thing or only narrows a list. <code>/orders/123</code> names one order, so it is a path parameter. <code>/orders?status=shipped</code> narrows the list of orders, so it is a query parameter. Both can appear in one request: <code>GET /customers/456/orders?status=paid</code> means "paid orders for customer 456".</p>
+
+<h2 class="sec-h" style="margin-top:34px">7. Query parameters: filtering and sorting</h2>
 <p class="sub">Query parameters follow the <code>?</code>. They are <code>name=value</code> pairs joined by <code>&amp;</code>. They narrow or order the results, and do not change the method.</p>
 <pre style="background:#0f1020;color:#e8e8f0;padding:14px 16px;border-radius:10px;overflow-x:auto;font-size:14px;line-height:1.55;max-width:100%">GET /orders?status=shipped&amp;sort=-created_at&amp;limit=20&amp;page=2</pre>
 <ul>
@@ -167,7 +216,7 @@
 </ul>
 <p>Spaces are encoded, so "New Delhi" becomes <code>New%20Delhi</code> in the address.</p>
 
-<h2 class="sec-h" style="margin-top:34px">7. JSON: the format of the instructions</h2>
+<h2 class="sec-h" style="margin-top:34px">8. JSON: the format of the instructions</h2>
 <p class="sub">JSON (JavaScript Object Notation) is the text format most APIs use for data. Four rules cover most cases:</p>
 <ul>
 <li><b>Objects</b> go in <code>{ }</code> and hold name and value pairs.</li>
@@ -178,31 +227,34 @@
 <pre style="background:#0f1020;color:#e8e8f0;padding:14px 16px;border-radius:10px;overflow-x:auto;font-size:14px;line-height:1.55;max-width:100%">{<br>  "customerId": 123,<br>  "productId": 456,<br>  "quantity": 2,<br>  "amount": 1500<br>}</pre>
 <p>If <code>quantity</code> were sent as <code>"two"</code>, the API would reply <code>400 Bad Request</code>. The reply is JSON too, so the app can read the order ID and show it to the user.</p>
 
-<h2 class="sec-h" style="margin-top:34px">8. Key takeaways</h2>
+<h2 class="sec-h" style="margin-top:34px">9. Key takeaways</h2>
 <div class="card" style="padding:16px 20px"><ul style="margin:0">
 <li>An API is a set of rules for asking another program for something.</li>
 <li>GET reads, POST creates, PUT replaces, PATCH changes some fields, DELETE removes.</li>
 <li>Status codes tell you who has to act: 2xx success, 4xx the request or access, 5xx the server.</li>
-<li>Endpoints are nouns in a clear hierarchy. Query parameters filter and sort.</li>
+<li>Endpoints are nouns in a clear hierarchy. Path parameters name one record; query parameters filter and sort.</li>
 <li>JSON bodies are instructions the server checks before it acts.</li>
 <li>Always ask: what happens if the request is repeated, and does the server check prices and permissions itself?</li>
 </ul></div>
 
-<h2 class="sec-h" style="margin-top:34px">9. Practice exercise</h2>
+<h2 class="sec-h" style="margin-top:34px">10. Practice exercise</h2>
 <div class="card" style="padding:16px 20px">
 <ol>
 <li>Write the request for a customer changing only their phone number. Choose the method and endpoint, and write the body.</li>
 <li>A user reports "I can see my order but cannot cancel it" and the app shows an error. List three status codes that could explain it, and what each one tells the engineer.</li>
 <li>Your payment step times out and the user taps Pay again. What can go wrong? Name the safeguard you would specify.</li>
+<li>Write the request to show a customer's paid orders from last month. Mark which part is a path parameter and which parts are query parameters.</li>
 </ol>
-<p class="note">Check your answers against sections 3, 4 and the payment steps in section 2.</p>
+<p class="note">Check your answers against sections 2, 3, 4, 6 and the payment steps in section 2.</p>
 </div>
 
-<h2 class="sec-h" style="margin-top:34px">10. Quick check</h2>
+<h2 class="sec-h" style="margin-top:34px">11. Quick check</h2>
 <div class="card" style="padding:16px 20px">
 <p><b>1. Which method should you use to update a customer's phone number only?</b><br>PATCH, because it changes selected fields. PUT would replace the whole record.</p>
 <p><b>2. A request returns 401. What is the most likely cause?</b><br>The user is not logged in, or the login has expired. It is not a problem with the data.</p>
-<p><b>3. Why should the server, not the app, set the order price?</b><br>The app can be changed by the user, so the server must recalculate the price from the product and quantity.</p>
+<p><b>3. In <code>GET /shipments/12345</code>, which part is the path parameter?</b><br>12345. It identifies the one shipment. <code>/shipments</code> names the resource type.</p>
+<p><b>4. Why must the server check access even when the ID is valid?</b><br>Because a user can guess or change IDs. A valid ID does not prove the user is allowed to see that record.</p>
+<p><b>5. Why should the server, not the app, set the order price?</b><br>The app can be changed by the user, so the server must recalculate the price from the product and quantity.</p>
 </div>
 
 <p class="foot" style="margin-top:34px;font-size:13px;color:#7a7a8c">Examples are simplified for learning. Real APIs differ in names, limits and error formats. Always read the documentation of the API you use.</p>
