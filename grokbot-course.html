@@ -2031,7 +2031,7 @@ Browser ◄──────────── {answer} ───────�
 </code></pre>
 <h3>Pillar 3: SOP</h3>
 <ol>
-<li>Run <code>GROK_MOCK=1 python3 web_chat.py</code> and open <a href="http://localhost:8000" target="_blank" rel="noopener">localhost:8000 ↗</a>.</li>
+<li>Run <code>GROK_MOCK=1 python3 web_chat.py</code> and open <code>http://localhost:8000</code> on your own computer (this address works only locally).</li>
 <li>Send messages; each browser gets its own session through an <code>HttpOnly</code> cookie.</li>
 <li>Send more than 10 messages in a minute: you get "Too many messages" (HTTP 429).</li>
 <li>View the page source: the API key is not there (a test checks this).</li>

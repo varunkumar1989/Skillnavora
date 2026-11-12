@@ -51,7 +51,7 @@ Browser ◄──────────── {answer} ───────�
 ```
 
 ### Pillar 3: SOP
-1. Run `GROK_MOCK=1 python3 web_chat.py` and open <http://localhost:8000>.
+1. Run `GROK_MOCK=1 python3 web_chat.py` and open `http://localhost:8000` on your own computer (this address works only locally).
 2. Send messages; each browser gets its own session through an `HttpOnly` cookie.
 3. Send more than 10 messages in a minute: you get "Too many messages" (HTTP 429).
 4. View the page source: the API key is not there (a test checks this).
