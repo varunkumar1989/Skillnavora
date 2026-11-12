@@ -153,11 +153,11 @@ def academy_tabs(body):
                 + plain_card("public-speaking.html#ps-tabs-guide", "Complete Public Speaking Guide", "The complete guide: confidence, structure, storytelling, slides, Q&A, video and a 30-day plan.", "Read the guide", "Guide")
                 + '</div>')
     return CSS + body + tabgroup("academy-tabs", [
+        ("tools", "Tool Tutorials", tools),
         ("models", "AI Models & Agents", models),
-        ("grokbot", "Grokbot", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + grokbot_page.tab_card(icon_svg=ico(10)) + "</div></div>"),
         ("context", "Context & Evals", context),
         ("lovable", "Lovable", lovable),
-        ("tools", "Tool Tutorials", tools),
+        ("grokbot", "Grokbot", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + grokbot_page.tab_card(icon_svg=ico(10)) + "</div></div>"),
         ("speaking", "Public Speaking", speaking),
     ], "AI course sections")
 
