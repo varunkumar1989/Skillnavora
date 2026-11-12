@@ -1,7 +1,7 @@
 // n8n "Code" node (JavaScript, "Run Once for All Items"). Free: no AI model needed.
 // Works after any of these triggers (it looks for the message itself):
 //   - "WhatsApp Trigger"            (WhatsApp Business Cloud)  -> messages[0].text.body
-//   - "Webhook" named "Messenger Webhook" (Facebook Messenger / Instagram) -> entry[0].messaging[0].message.text
+//   - "Webhook" named "Messenger Webhook" (Facebook Messenger and Instagram DMs) -> entry[0].messaging[0].message.text
 //   - "Telegram Trigger"            (Telegram bot)              -> message.text, chat.id
 //   - "When chat message received"  (n8n test chat)            -> chatInput
 // Input items: the knowledge rows from the HTTP Request node
@@ -15,8 +15,13 @@ function pick(j) {
   if (wa) return { text: wa.text?.body || wa.button?.text || wa.interactive?.button_reply?.title || "", to: wa.from, channel: "whatsapp" };
   const tg = j.message?.chat ? j.message : (j.edited_message?.chat ? j.edited_message : null);
   if (tg) return { text: tg.text || tg.caption || "", to: tg.chat.id, channel: "telegram" };
-  const fb = (j.body || j).entry?.[0]?.messaging?.[0];
-  if (fb) return { text: fb.message?.text || fb.postback?.title || "", to: fb.sender?.id, channel: "messenger" };
+  const b = j.body || j;
+  const fb = b.entry?.[0]?.messaging?.[0];
+  if (fb) {
+    // Ignore the page's own messages (echoes), delivery and read receipts: no reply, no loop.
+    if (fb.message?.is_echo || (!fb.message?.text && !fb.postback)) return { skip: true };
+    return { text: fb.message?.text || fb.postback?.title || "", to: fb.sender?.id, channel: b.object === "instagram" ? "instagram" : "messenger" };
+  }
   const t = j.chatInput ?? j.message ?? j.text;
   if (typeof t === "string") return { text: t, to: j.sessionId || null, channel: "chat" };
   return null;
@@ -24,6 +29,7 @@ function pick(j) {
 const hasNodes = typeof $ === "function";
 const incoming = (hasNodes && (pick(fromNode("Telegram Trigger")) || pick(fromNode("WhatsApp Trigger")) || pick(fromNode("Messenger Webhook")) || pick(fromNode("When chat message received"))))
   || pick($input.first().json) || { text: "", to: null, channel: "chat" };
+if (incoming.skip || !String(incoming.text || "").trim()) return [];
 const message = String(incoming.text || "").toLowerCase().trim();
 const rows = $input.all().map(i => i.json).filter(r => r.question && r.answer);
 
@@ -45,8 +51,27 @@ const ranked = rows.filter(r => r.topic !== "Fallback").map(r => ({ r, s: score(
 const best = ranked[0];
 const fallback = rows.find(r => r.topic === "Fallback");
 
+async function findContent() {
+  let content = [];
+  try {
+    if (this && this.helpers && this.helpers.httpRequest) {
+      content = await this.helpers.httpRequest({ url: "https://www.skillnavora.in/assets/content_index.json", json: true });
+    }
+  } catch (e) { content = []; }
+  const cw = new Set([...msgWords].filter(w => !FILLER.has(w)));
+  return (Array.isArray(content) ? content : []).map(c => {
+    let n = 0; words(c.title).forEach(w => { if (cw.has(w)) n += 3; }); words(c.desc).forEach(w => { if (cw.has(w)) n += 1; });
+    return { c, n };
+  }).filter(x => x.n >= 3).sort((a, b) => b.n - a.n).slice(0, 3).map(x => x.c);
+}
+const listReply = hits => "Here is where to find it:\n" + hits.map(c => `• ${c.title} (${c.type})\n${c.link}`).join("\n");
+const askedWhere = /\b(where|find|pdf|pdfs|file|files|download|handbook|notes|template|link)\b/.test(message);
+const firstHits = askedWhere ? await findContent.call(this) : [];
+
 let reply, matched = null;
-if (greeting && (!best || best.s < 3)) {
+if (firstHits.length) {
+  reply = listReply(firstHits); matched = "content: " + firstHits[0].title;
+} else if (greeting && (!best || best.s < 3)) {
   reply = "Hi! I can answer questions about SkillNavora programmes, fees, free courses, careers and where to find any lesson or PDF. What would you like to know?";
 } else if (best && best.s >= 3) {
   const r = best.r; matched = r.question;
@@ -55,19 +80,9 @@ if (greeting && (!best || best.s < 3)) {
   if (r.link) reply += "\n" + r.link;
 } else {
   // Not in the Q&A: look for the page, lesson or PDF that covers the topic.
-  let content = [];
-  try {
-    if (this && this.helpers && this.helpers.httpRequest) {
-      content = await this.helpers.httpRequest({ url: "https://www.skillnavora.in/assets/content_index.json", json: true });
-    }
-  } catch (e) { content = []; }
-  const cw = new Set([...msgWords].filter(w => !FILLER.has(w)));
-  const hits = (Array.isArray(content) ? content : []).map(c => {
-    let n = 0; words(c.title).forEach(w => { if (cw.has(w)) n += 3; }); words(c.desc).forEach(w => { if (cw.has(w)) n += 1; });
-    return { c, n };
-  }).filter(x => x.n >= 3).sort((a, b) => b.n - a.n).slice(0, 3).map(x => x.c);
+  const hits = await findContent.call(this);
   if (hits.length) {
-    reply = "Here is where to find it:\n" + hits.map(c => `• ${c.title} (${c.type})\n${c.link}`).join("\n");
+    reply = listReply(hits);
     matched = "content: " + hits[0].title;
   } else {
     reply = fallback ? fallback.answer + (fallback.link ? "\n" + fallback.link : "") : "Sorry, I don't have that information yet.";

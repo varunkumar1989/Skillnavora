@@ -341,6 +341,10 @@ ${T.map(([h, i, n, s]) => `<a class="t" href="${R + h}"><span>${i}</span><span><
   async function answer(q) {
     const msg = String(q).toLowerCase().trim();
     await ensure();
+    if (/\b(where|find|pdf|pdfs|file|files|download|handbook|notes|template|link)\b/.test(msg)) {
+      const first = bestContent(msg);
+      if (first.length) { show([{ text: "Here is where to find it:" }, { links: first }]); return true; }
+    }
     const r = bestQA(msg);
     if (r) {
       const parts = [{ text: r.answer }];

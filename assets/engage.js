@@ -306,6 +306,15 @@
       if (/^(hi|hey|hello|hii+|namaste|good (morning|afternoon|evening))\b/.test(msg)) {
         return { text: "Hi! I can answer questions about our programmes, fees, free courses, careers and contact details. Try one of the buttons below, or ask your question." };
       }
+      const where = async () => {
+        let content = [];
+        try { if (!window.__snContent) window.__snContent = await fetch(R + "assets/content_index.json").then(r => r.json()); content = window.__snContent; } catch { content = []; }
+        const mw = new Set(wordsOf(msg).filter(w => !FILLER.has(w)));
+        return content.map(c => { let n = 0; wordsOf(c.title).forEach(w => { if (mw.has(w)) n += 3; }); wordsOf(c.desc || "").forEach(w => { if (mw.has(w)) n += 1; }); return { c, n }; })
+          .filter(x => x.n >= 3).sort((a, b) => b.n - a.n).slice(0, 3).map(x => x.c);
+      };
+      const listOf = hits => ({ text: "Here is where to find it:\n" + hits.map(h => "- " + h.title + " (" + h.type + "): " + h.link).join("\n") });
+      if (/\b(where|find|pdf|pdfs|file|files|download|handbook|notes|template|link)\b/.test(msg)) { const first = await where(); if (first.length) return listOf(first); }
       try { if (!KB) KB = await fetch(R + "assets/knowledge_qa.json").then(r => r.json()); } catch { KB = []; }
       let top = null, sc = 0;
       KB.forEach(r => { if (r.topic === "Fallback") return; const v = scoreRow(r, msg); if (v > sc) { sc = v; top = r; } });
@@ -314,12 +323,8 @@
         if (top.confirm) text += "\n\nWe are confirming this detail. Our team will reply with the latest information.";
         return { text, link: top.link, linkText: "Open the page" };
       }
-      let content = [];
-      try { if (!window.__snContent) window.__snContent = await fetch(R + "assets/content_index.json").then(r => r.json()); content = window.__snContent; } catch { content = []; }
-      const mw = new Set(wordsOf(msg).filter(w => !FILLER.has(w)));
-      const hits = content.map(c => { let n = 0; wordsOf(c.title).forEach(w => { if (mw.has(w)) n += 3; }); wordsOf(c.desc || "").forEach(w => { if (mw.has(w)) n += 1; }); return { c, n }; })
-        .filter(x => x.n >= 3).sort((a, b) => b.n - a.n).slice(0, 3).map(x => x.c);
-      if (hits.length) return { text: "Here is where to find it:\n" + hits.map(h => "- " + h.title + " (" + h.type + "): " + h.link).join("\n") };
+      const hits = await where();
+      if (hits.length) return listOf(hits);
       return { text: "I don't have that information yet. Our team is happy to help. Use the links below, or ask your question on WhatsApp.", link: "" };
     }
     let busy = false;

@@ -54,3 +54,23 @@ Test locally: `node whatsapp-agent/n8n/test_match.js`.
 4. Add a **Code** node. Paste in `match_answer.js` and set the mode to "Run Once for All Items".
 5. Add a **Telegram → Send Message** node: Chat ID `{{ $json.to }}`, Text `{{ $json.reply }}`. Under Additional Fields, turn **Append n8n Attribution** off.
 6. **Activate** the workflow. Your public link is `https://t.me/<your_bot_username>`. Telegram needs a public HTTPS address for n8n: n8n Cloud provides one.
+
+## Instagram DMs and Facebook Messenger: import-ready workflow
+File: `n8n/messenger_instagram_workflow.json`. In n8n, choose **Workflows → Import from File**. One workflow handles both Messenger and Instagram.
+
+Before you start you need: a Facebook Page, an Instagram **Professional** account (Business or Creator) linked to that Page, and a Meta developer account.
+
+1. **Meta app:** at developers.facebook.com, go to My Apps → Create app → Business. Add the **Messenger** product, then **Instagram** (choose "API setup with Facebook login").
+2. **Page token:** in Messenger → Settings → Access tokens, add your Page and choose **Generate token**.
+   - In n8n: open **Send reply**, then Credential → **Header Auth**.
+   - Name: `Authorization`. Value: `Bearer <token>`.
+   - Paste the token only into n8n.
+3. **Webhook:** in n8n, open **Messenger Webhook**, copy the **Production URL**, and activate the workflow.
+   - In Meta, under Messenger → Settings → Webhooks, paste the URL as the Callback URL.
+   - Verify token: `skillnavora-verify` (change it in both places if you like).
+   - Choose **Verify and save**, then subscribe the Page to `messages` and `messaging_postbacks`.
+   - Do the same for Instagram (Webhooks → Instagram → `messages`).
+4. **Test** by sending a DM from a different account (an admin or tester of the app). Until Meta approves the app, only people with a role in the app get replies.
+5. **Go live:** in App Review, request `pages_messaging` (Messenger) and `instagram_manage_messages` (Instagram), and switch the app to **Live**.
+
+The workflow ignores the Page's own messages and read receipts, so it never replies to itself. Replies are limited to 990 characters, within Instagram's 1,000-character limit.

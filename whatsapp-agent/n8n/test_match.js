@@ -9,7 +9,12 @@ const ctx = { helpers: { httpRequest: async () => content } };
 const wa = q => ({ messaging_product: "whatsapp", contacts: [{ wa_id: "919800000000" }], messages: [{ from: "919800000000", type: "text", text: { body: q } }] });
 const fb = q => ({ body: { object: "page", entry: [{ messaging: [{ sender: { id: "12345" }, message: { text: q } }] }] } });
 const tg = q => ({ update_id: 1, message: { message_id: 5, from: { id: 777 }, chat: { id: 777, type: "private" }, text: q } });
+const ig = q => ({ body: { object: "instagram", entry: [{ messaging: [{ sender: { id: "IG42" }, message: { text: q } }] }] } });
+const echo = { body: { object: "page", entry: [{ messaging: [{ sender: { id: "PAGE" }, message: { text: "our own reply", is_echo: true } }] }] } };
 const cases = [
+  ["instagram", ig("fees for data engineer")],
+  ["instagram", ig("where can I find the genai handbook pdf")],
+  ["echo (no reply expected)", echo],
   ["telegram", tg("/start")],
   ["telegram", tg("what is the fee for genai course")],
   ["telegram", tg("SQL lesson pdf")],
@@ -26,7 +31,9 @@ const cases = [
     const input = [{ json: msg }, ...rows.map(r => ({ json: r }))];
     const run = new Function("$input", "return (async()=>{" + src + "})()");
     const $input = { first: () => input[0], all: () => input };
-    const out = (await run.call(ctx, $input))[0].json;
+    const res = await run.call(ctx, $input);
+    if (!res.length) { console.log(`[${kind}] no reply (ignored)\n`); continue; }
+    const out = res[0].json;
     console.log(`[${kind}] to=${out.to} channel=${out.channel} score=${out.score} matched=${out.matched_question}\n  ${out.reply.replace(/\n/g, " / ").slice(0, 170)}\n`);
   }
 })();
