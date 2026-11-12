@@ -1,5 +1,5 @@
 """HTML for the AI Product Management 2 chapter PDFs and artifact pages, built from aipm2_content."""
-import html
+import html, os
 from aipm2_content import CHAPTERS, SITE, E, slug, self_check, related
 from aipm2_guide import PRACTICE
 from aipm2 import extras
@@ -18,12 +18,51 @@ table{width:100%;border-collapse:collapse;font-size:9.2pt;margin:6px 0}th,td{bor
 .box{background:#eefaf7;border:1px solid #bfe9df;border-radius:8px;padding:8px 12px;margin:10px 0;page-break-inside:avoid}
 .ex{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:8px 12px;margin:10px 0;page-break-inside:avoid}
 ol,ul{margin:4px 0;padding-left:20px}li{margin:2px 0}.foot{font-size:8pt;color:#7a8791;margin-top:12px}
-a{color:#0b5d52}"""
+a{color:#0b5d52}
+.chap a{margin-right:10px}.chap .hb-h,.chap h3{margin-top:12px}.chap ul li{margin:3px 0}
+"""
+
+SITE_ROOT = "https://www.skillnavora.in/"
+
+_ORIG = None
+
+def orig_html():
+    """The original AI Product Management content (programme-pm.html, panel pp-content), cleaned for print and artifacts:
+    scripts and hidden tabs removed, relative links made absolute so they still work outside the site."""
+    global _ORIG
+    if _ORIG is not None:
+        return _ORIG
+    from bs4 import BeautifulSoup
+    src = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "programme-pm.html")
+    soup = BeautifulSoup(open(src, encoding="utf-8").read(), "html.parser")
+    panel = soup.find(id="pp-content")
+    for x in panel.find_all(["script", "style", "button"]):
+        x.decompose()
+    for x in panel.find_all(attrs={"hidden": True}):
+        x.decompose()
+    for a in panel.find_all("a", href=True):
+        h = a["href"]
+        if h.startswith("#"):
+            a["href"] = SITE_ROOT + "programme-pm.html" + h
+        elif not h.startswith(("http", "mailto:", "tel:")):
+            a["href"] = SITE_ROOT + h.lstrip("./")
+        a["target"] = "_blank"; a["rel"] = "noopener"
+    for a in panel.find_all("a"):
+        if a.get("data-gate") is not None: del a["data-gate"]
+    _ORIG = "".join(str(c) for c in panel.contents)
+    return _ORIG
+
+ORIG = None
+
+def original_section():
+    return ('<section class="chap" id="orig"><span class="lvl">Original content</span><h2>Original AI Product Management content</h2>'
+            '<p class="goal">The AI Product Management programme already on SkillNavora, included unchanged so the full course is in one place.</p>'
+            + orig_html() + '</section>')
 
 def _meta(s):
     return f"Chapter {s['n']:02d} of {len(CHAPTERS)} · {len(s['topics'])} topics"
 
-def chapter_html(s, with_cover=True):
+def chapter_html(s, with_cover=True, with_original=True):
     """One chapter as a block of HTML (no document wrapper)."""
     topics = "".join(
         f'<div class="topic"><h3>{E(name)}</h3><p class="m">{E(short)}</p><p class="d">{E(detail)}</p></div>'
@@ -41,7 +80,8 @@ def chapter_html(s, with_cover=True):
             f'<div class="ex"><b>Practice exercise:</b> {E(PRACTICE[s["n"]])}</div>'
             f'<div class="box"><b>Self-check</b><ol>{checks}</ol></div>'
             f'<h3>Related SkillNavora material</h3><ul>{rel}</ul>'
-            f'<p class="foot">© SkillNavora · skillnavora.in · Facts and tools change; check official sites before relying on a figure.</p></section>')
+            f'<p class="foot">© SkillNavora · skillnavora.in · Facts and tools change; check official sites before relying on a figure.</p></section>'
+            + (original_section() if with_original else ""))
 
 def document(title, body):
     return (f'<!doctype html><html><head><meta charset="utf-8"><title>{E(title)}</title><style>{PDF_CSS}</style></head><body>{body}</body></html>')
@@ -86,6 +126,7 @@ table{{width:100%;border-collapse:collapse;font-size:14px;background:var(--surfa
 .ex{{background:var(--practice);border:1px solid var(--practice-line);border-radius:10px;padding:14px 16px}}
 .card{{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px}}
 ol,ul{{padding-left:20px}}li{{margin:6px 0}}li span{{color:var(--muted);font-size:14px}}
+.orig h2,.orig h3{{margin:14px 0 6px;font-size:18px}}.orig p{{margin:6px 0}}.orig ul,.orig ol{{margin:6px 0}}.orig li{{margin:4px 0}}.orig table{{display:block;overflow-x:auto}}.orig td,.orig th{{font-size:13.5px}}.orig a{{margin-right:10px;display:inline-block;margin-bottom:4px}}
 a{{color:var(--accent)}}.dl{{display:inline-block;margin:8px 0 0;padding:9px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}}
 </style>
 <div class="wrap">
@@ -97,6 +138,7 @@ a{{color:var(--accent)}}.dl{{display:inline-block;margin:8px 0 0;padding:9px 14p
 <button role="tab" aria-selected="false" aria-controls="p-terms" id="b-terms" data-p="terms">Summary of terms</button>
 <button role="tab" aria-selected="false" aria-controls="p-practice" id="b-practice" data-p="practice">Practice</button>
 <button role="tab" aria-selected="false" aria-controls="p-check" id="b-check" data-p="check">Self-check</button>
+<button role="tab" aria-selected="false" aria-controls="p-orig" id="b-orig" data-p="orig">Original AI PM content</button>
 <button role="tab" aria-selected="false" aria-controls="p-more" id="b-more" data-p="more">Download and links</button>
 </div>
 <section class="panel" id="p-topics" role="tabpanel" aria-labelledby="b-topics">
@@ -105,6 +147,7 @@ a{{color:var(--accent)}}.dl{{display:inline-block;margin:8px 0 0;padding:9px 14p
 <section class="panel" id="p-terms" role="tabpanel" aria-labelledby="b-terms" hidden><table><tr><th>Term</th><th>Meaning</th></tr>{terms}</table></section>
 <section class="panel" id="p-practice" role="tabpanel" aria-labelledby="b-practice" hidden><div class="ex"><b>Practice exercise</b><p>{html.escape(PRACTICE[s['n']])}</p></div></section>
 <section class="panel" id="p-check" role="tabpanel" aria-labelledby="b-check" hidden><div class="card"><b>Self-check</b><ol>{checks}</ol></div></section>
+<section class="panel" id="p-orig" role="tabpanel" aria-labelledby="b-orig" hidden><div class="orig">{orig_html()}</div></section>
 <section class="panel" id="p-more" role="tabpanel" aria-labelledby="b-more" hidden>
 <div class="card"><b>Full chapter PDF</b><p class="lead">Print-ready, with every topic, the term summary, the practice exercise and the self-check.</p><a class="dl" href="{pdf}" target="_blank" rel="noopener">Open the chapter PDF ↗</a></div>
 <div class="card"><b>Related SkillNavora material</b><ul>{rel}</ul></div></section>

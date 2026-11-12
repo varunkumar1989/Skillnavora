@@ -20,7 +20,7 @@ def main(out):
         open(p, "w", encoding="utf-8").write(H.document(f"AI PM 2 · {s['title']}", H.chapter_html(s)))
         jobs.append({"src": p, "pdf": name + ".pdf"})
         open(os.path.join(adir, name + ".html"), "w", encoding="utf-8").write(H.artifact_page(s))
-    body = H.contents_page() + "".join(H.chapter_html(s) for s in CHAPTERS)
+    body = H.contents_page() + "".join(H.chapter_html(s, with_original=False) for s in CHAPTERS) + H.original_section()
     full = os.path.join(hdir, "AIPM2-Complete-Course.html")
     open(full, "w", encoding="utf-8").write(H.document("AI PM 2 · Complete course", body))
     jobs.append({"src": full, "pdf": "AIPM2-Complete-Course.pdf"})
