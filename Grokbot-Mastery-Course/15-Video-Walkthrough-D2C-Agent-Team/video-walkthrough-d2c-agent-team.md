@@ -264,7 +264,7 @@ Every term the transcript uses for a key idea, with a short definition and an ex
 
 | Claim in the transcript | Our status |
 |---|---|
-| Grok Bot is included only from the Premium plan, minimum $30 a month | **[Transcript, Check]** plans and prices change; see Module 4 |
+| Grok Bot is included only from the SuperGrok plan (the transcript says Premium), minimum $30 a month | **[Transcript, Check]** plans and prices change; see Module 4 |
 | The 500,000-token context window, and the comparison with other models' window sizes | **[Transcript]** model names and limits change; see Module 3 and the official model page |
 | Four reasoning levels for Grok 4.7 | **[Transcript, Check]** confirm in the app |
 | X search is built in at no extra cost | **[Transcript, Check]** confirm the plan terms |

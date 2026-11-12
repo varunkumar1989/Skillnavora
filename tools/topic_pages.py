@@ -163,7 +163,7 @@ function show(k,push){if(['content','other','tools'].indexOf(k)<0)k='content';if
 tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.pt,true);try{history.replaceState(null,'','#'+t.dataset.pt)}catch(e){}})});
 if(bb)bb.addEventListener('click',function(){var prev=stack.pop();if(prev){show(prev,false);try{history.replaceState(null,'','#'+prev)}catch(e){}}});
 function fromHash(push){show((location.hash||'#content').slice(1),push)}window.addEventListener('hashchange',function(){fromHash(true)});fromHash(false)})();</script>""")
-        page(f"{slug}.html", f"{title} · SkillNavora",
+        page(f"{slug}.html", f"{title}: free resources · SkillNavora",
              f"{short}: programme content, other programmes, and learning tools and links, on one page.", body, slug + ".html")
 
     # Index: every topic, grouped

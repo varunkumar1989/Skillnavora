@@ -73,10 +73,10 @@ const COURSES = [
     page: "program/ai-product-management.html",
     name: "AI-First Product Management",
     short: "Learn the skills, tools and AI workflows to solve real product problems, build a portfolio with 25+ case studies and crack your next PM interview.",
-    tagline: "The end-to-end program to become a confident, job-ready AI product manager",
+    tagline: "The end-to-end program to become a confident, skilled AI product manager",
     badge: "Flagship",
     cohort: "Inaugural cohort", start: "", deadline: "",
-    fee: "$2,000", feeINR: "₹1,74,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and the job assistance program.",
+    fee: "$2,000", feeINR: "₹1,74,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and career guidance.",
     earlyBird: "",
     pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "8–10 hours a week",
@@ -115,7 +115,7 @@ const COURSES = [
       { title: "Web automation: webhooks, triggers and Playwright MCP", topics: ["Webhooks: receive events securely (signatures, idempotency, retries)", "Triggers: schedules (cron), events, polling and manual", "Browser automation with Playwright; Playwright MCP with Claude", "Other platforms: Selenium, Puppeteer, Browser Use, Stagehand, Apify, n8n, Zapier, Make, RPA"] },
       { title: "Advanced AI product management", topics: ["AI product strategy: moats, data flywheels, build vs buy vs partner", "Designing AI experiences (AI UX) and pricing AI products", "ML products for PMs, AI governance and responsible AI", "Platform & API product management, product operations, multimodal AI"] },
       { title: "Capstone, mock tests and interview preparation", topics: ["Capstone: build and pitch your own AI product", "Weekly mock tests", "Product sense, metrics, strategy, RCA and behavioural rounds", "1:1 mock interviews with feedback"] },
-      { title: "Job assistance program", topics: ["Resume and LinkedIn makeover", "Portfolio of 25+ case studies", "Referrals and job-search strategy", "Offer negotiation and salary discussions"] }
+      { title: "Career guidance", topics: ["Resume and LinkedIn makeover", "Portfolio of 25+ case studies", "Job-search strategy", "Offer negotiation and salary discussions"] }
     ],
     projects: ["25+ real-world case studies across fintech, e-commerce, SaaS and consumer apps", "AI feature PRD with metrics and guardrails", "Eval plan and golden dataset for an AI feature", "Your own product website, built with Claude Code and launched live", "Clickable Figma prototype tested with real users", "End-to-end capstone product"],
     toolGroups: [
@@ -135,9 +135,9 @@ const COURSES = [
     short: "Learn SQL, Python, data modelling, pipelines, Spark, Airflow and the cloud, then build the data and AI pipelines that power modern products.",
     tagline: "Build reliable data pipelines and the data foundation for AI",
     badge: "Flagship",
-    cohort: "", start: "", deadline: "", fee: "$1,500", feeINR: "₹1,30,000", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and job assistance.", earlyBird: "", pay: "",
+    cohort: "", start: "", deadline: "", fee: "$1,500", feeINR: "₹1,30,000", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and career guidance.", earlyBird: "", pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "10–12 hours a week",
-    highlights: ["Real-world projects", "Capstone project", "Mock interviews", "Job assistance"],
+    highlights: ["Real-world projects", "Capstone project", "Mock interviews", "Career guidance"],
     outcomes: ["Write advanced SQL and production-quality Python for data", "Design data models and warehouses (star schema, lakehouse)",
                "Build batch and streaming pipelines with Spark, Airflow, dbt and Kafka", "Run data on the cloud with Snowflake, BigQuery or Databricks",
                "Build AI data pipelines: embeddings, vector databases and RAG", "Ship a portfolio-grade end-to-end data platform"],
@@ -152,7 +152,7 @@ const COURSES = [
       { title: "Cloud data platforms", topics: ["AWS, GCP and Azure data services", "Snowflake, BigQuery and Databricks", "Cost, security and access control"] },
       { title: "Data quality and governance", topics: ["Data tests and contracts", "Lineage and observability", "Privacy and compliance"] },
       { title: "AI for data engineers", topics: ["Embeddings and vector databases", "RAG and LLM data pipelines", "AI-assisted coding with Claude Code"] },
-      { title: "Capstone, interviews and job assistance", topics: ["End-to-end data platform capstone", "SQL, Python and system design mock interviews", "Resume, portfolio and referrals"] }
+      { title: "Capstone, interviews and career guidance", topics: ["End-to-end data platform capstone", "SQL, Python and system design mock interviews", "Resume and portfolio reviews"] }
     ],
     audience: [
       { title: "Students and freshers", text: "Learn SQL, Python and pipelines with real projects, and aim for data engineer and analytics engineer roles." },
@@ -244,24 +244,24 @@ const MOAT = [
   { title: "Monthly 1:1 with a CEO or Head of Product", text: "Every month, a 1:1 counselling session with a CEO or Head of Product to review your progress, portfolio and career plan." },
   { title: "25+ real-world case studies", text: "Work on real problems from fintech, e-commerce, SaaS and consumer apps, so you graduate with a portfolio, not just a certificate." },
   { title: "Build and launch your own product", text: "Use Claude, Claude Code, Figma and Lovable to build and launch a real website and AI prototype that recruiters can try." },
-  { title: "Job-ready, not just course-complete", text: "Capstone, weekly mock tests, 1:1 mock interviews and a job assistance program until you're ready to apply." }
+  { title: "Interview-ready, not just course-complete", text: "Capstone, weekly mock tests, 1:1 mock interviews and career guidance until you're ready to apply." }
 ];
 
 /* ---- Why join: comparison table ---- */
 const COMPARE = [
-  { what: "Curriculum depth", sub: "What you'll actually learn", others: "Basics, interview prep and a few AI tools", us: "Job-ready depth in every track: AI product management, data engineering (SQL, Airflow, Spark, cloud) and generative AI, all hands-on with Claude and Claude Code" },
+  { what: "Curriculum depth", sub: "What you'll actually learn", others: "Basics, interview prep and a few AI tools", us: "Real depth in every track: AI product management, data engineering (SQL, Airflow, Spark, cloud) and generative AI, all hands-on with Claude and Claude Code" },
   { what: "Hands-on projects", sub: "A portfolio you can show", others: "Often one capstone", us: "Real-world case studies and projects in every module, plus a capstone you can demo: a live product, a data platform or an AI automation" },
   { what: "Leadership access", sub: "Who guides your career", others: "Program mentors only", us: "Monthly 1:1 counselling with an industry leader to review your progress, portfolio and career plan" },
   { what: "1:1 mentorship", sub: "Personal guidance and feedback", others: "Limited, or extra cost", us: "1:1 mentorship, assignment feedback and mock interviews included" },
   { what: "AI skills", sub: "Future-proof for every role", others: "Mostly concepts", us: "Hands-on AI in every program: prompting, AI assistants, RAG, agents, AI data pipelines and automation" },
   { what: "Interview preparation", sub: "Getting the offer", others: "A few sessions", us: "Role-specific mock tests, 1:1 mock interviews and question banks for PM, data engineering and AI roles" },
-  { what: "Placement support", sub: "Getting your next role", others: "A basic job board", us: "1 year of placement support: resume, LinkedIn, portfolio, referrals and job-search help" },
+  { what: "Assistance", sub: "Preparing to apply", others: "A basic job board", us: "1 year of assistance: resume, LinkedIn, portfolio and job-search guidance. Not a job guarantee." },
   { what: "Schedule flexibility", sub: "For working professionals", others: "Fixed schedule", us: "Weekend live classes, recordings in the LMS and help to catch up" }
 ];
 
-/* ---- Job assistance program and interview preparation ---- */
+/* ---- Career guidance and interview preparation ---- */
 const JOB_ASSIST = {
-  program: ["Resume and LinkedIn makeover with 1:1 reviews", "Portfolio of 25+ case studies, capstone and your live product", "Referrals through our network when you're job-ready", "Job-search strategy: target roles, companies and outreach", "Offer evaluation and salary negotiation guidance"],
+  program: ["Resume and LinkedIn makeover with 1:1 reviews", "Portfolio of 25+ case studies, capstone and your live product", "Job-search strategy: target roles, companies and outreach", "Offer evaluation and salary negotiation guidance"],
   interview: ["Weekly mock tests on product sense, metrics and strategy", "1:1 mock interviews with detailed feedback", "Question bank: product design, RCA, guesstimates, metrics, behavioural", "AI PM and system design rounds for PMs", "Practice with AI between sessions"]
 };
 
@@ -276,7 +276,7 @@ const SUPPORT = [
   { title: "Resume optimisation", text: "1:1 resume and LinkedIn reviews that show the right transferable skills." },
   { title: "Build your portfolio", text: "25+ real-world case studies, a capstone and your own live product." },
   { title: "Intensive interview prep", text: "Weekly mock tests, a question bank and 1:1 mock interviews." },
-  { title: "Job assistance program", text: "Referrals, job-search strategy and offer guidance when you're job-ready." }
+  { title: "Career guidance", text: "Job-search strategy and offer guidance when you're ready to apply." }
 ];
 
 /* ---- FAQs. category: Program, Schedule, Fees or Career ---- */
@@ -289,7 +289,7 @@ const FAQS = [
   { c: "Program", q: "Can I ask instructors and mentors questions directly?", a: "Yes, during live classes, in 1:1 mentorship, and through the LMS. You also get a monthly 1:1 session with a CEO or Head of Product." },
   { c: "Schedule", q: "What are the timings and schedule?", a: "Live classes run on weekends. Exact timings are shared before each cohort starts; talk to a counsellor for the current schedule." },
   { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $2,000, AI-First Data Engineer is $1,500 and GenAI Launchpad is $1,000. Eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options." },
-  { c: "Career", q: "Do you help with jobs?", a: "Yes, through the job assistance program: resume and LinkedIn reviews, portfolio, intensive interview preparation and referrals through our network. No one can honestly guarantee a job, but we work with you until you're job-ready." },
+  { c: "Career", q: "Do you help with jobs?", a: "We offer career guidance, not job placement: resume and LinkedIn reviews, portfolio feedback and intensive interview preparation. We do not guarantee a job or interviews." },
   { c: "Career", q: "Will I get a certificate?", a: "Yes, you get a certificate when you complete the program and capstone." },
   { c: "Career", q: "I have more questions. Where can I ask?", a: "Ask our AI assistant, message us on WhatsApp, or book a free counselling session." }
 ];

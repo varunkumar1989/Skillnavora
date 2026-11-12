@@ -1663,3 +1663,13 @@ img.lg-dark{display:none}
 }
 
 .top .brand img.lg{height:38px!important}
+
+/* Phones: fewer floating buttons over the content, and footer links large enough to tap.
+   Refer & earn stays available in the page and the menu, so its floating button is hidden here. */
+@media (max-width:600px){
+  .refab{display:none!important}
+  .wa{transform:scale(.86);transform-origin:100% 100%}
+  #askai-tab{transform:scale(.9);transform-origin:0 100%}
+  .cols li a{display:inline-block;padding:6px 0;min-height:32px}
+  .meta > a{display:inline-block;padding:4px 0}
+}

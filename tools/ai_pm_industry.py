@@ -9,6 +9,9 @@ import ai_pm_interview
 E = html.escape
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGE = "ai-pm-industry-research.html"
+# job postings whose source link returned "page not found" when re-checked (the record stays; the dead link is not shown)
+CLOSED = {"J05", "J14", "J17", "J18", "J19", "J20", "J22"}
+CLOSED_CHECKED = "12 Nov 2026"
 
 def _read(name):
     with open(os.path.join(ROOT, "research", name), encoding="utf-8") as f:
@@ -37,7 +40,7 @@ def build(page, uhero, out):
                     f'<a href="{E(c["official_url"])}" target="_blank" rel="noopener">Official page ↗</a>'] for c in courses]
     skill_rows = [[E(s["skill"]), E(s["records_mentioning"]), E(s["share_of_records_with_requirements"])] for s in skills]
     job_rows = [[E(j["id"]), E(j["company"]), E(j["job_title"]), E(j["location"] or "not shown"), E(j["role_family"]),
-                 E(j["requirements_stated"]), f'<a href="{E(j["source_url"])}" target="_blank" rel="noopener">Source ↗</a>', E(j["evidence_level"].split(" - ")[0])]
+                 E(j["requirements_stated"]), (f'<span class="meta">Posting closed (checked {CLOSED_CHECKED})</span>' if j["id"] in CLOSED else f'<a href="{E(j["source_url"])}" target="_blank" rel="noopener">Source ↗</a>'), E(j["evidence_level"].split(" - ")[0])]
                 for j in jobs]
     body = f"""{css}
 <section style="padding-top:28px"><div class="wrap">

@@ -223,7 +223,7 @@ def fde_box():
     stages = "".join(btn(f"Stage {n}: {t}", rd(f"FDE-Stage-{n}-{w}.pdf"), new=False) for n, w, t in FDE_STAGES)
     mods = "".join(btn(f"Module {n}", rd(f"FDE-Module-{n:02d}.pdf"), new=False) for n in range(1, 15))
     return ('<div class="card" style="margin:14px 0 6px;border:2px solid var(--brand,#6C4CF5)"><div class="kicker">FDE handbook</div>'
-            '<h3 style="margin:6px 0 4px;font-size:19px">From Non-Coder to Enterprise AI Builder: Learn, Build, Deploy, Get Hired and Launch Your AI Business.</h3>'
+            '<h3 style="margin:6px 0 4px;font-size:19px">From Non-Coder to Enterprise AI Builder: Learn, Build, Deploy and Launch Your AI Business.</h3>'
             '<p class="meta" style="margin:0 0 10px">Four career tracks, a seven-stage roadmap, 14 modules with every topic explained, three industry projects, a 48-tool directory and interview, demo, agency and sales preparation.</p>'
             f'<div class="hb-acts" style="margin:0 0 10px">{top}</div><p class="meta" style="margin:6px 0 6px"><b>Stage handbooks</b></p><div class="hb-acts" style="margin:0 0 10px">{stages}</div>'
             f'<p class="meta" style="margin:6px 0 6px"><b>Module handbooks</b></p><div class="hb-acts">{mods}</div></div>')
@@ -272,13 +272,15 @@ def course_card():
     L7 = [(n + " " + tt, _P7[n]) for n, tt in _T7]
     ch.append(("7", "YouTube Marketing", "Ready", lessons(L7, _f7), btn("Open Chapter 7 (PDF)", rd(_f7, 1), True, gate=False, new=False) + btn("YouTube planner ↗", "https://claude.ai/artifact/WYKuirtew4pDecTFwfkDKS", gate=False)))
     rest = ["Facebook marketing", "Twitter (X) marketing", "Quora marketing", "Google Ads", "Google Analytics", "Instagram marketing", "Pinterest marketing", "LinkedIn marketing", "Facebook ads", "App marketing", "Old content", "Conclusion"]
-    for i, t in enumerate(rest, 8):
-        ch.append((str(i), t, "Coming soon", "", ""))
+    # chapters still being written: one compact card listing them, instead of an empty card for each
+    upcoming = ('<div class="card" style="min-width:0"><div class="kicker">Chapters 8 to ' + str(7 + len(rest)) + ' · Coming next</div>'
+                '<h3 class="h3s">Being written</h3><ol start="8" style="margin:6px 0 0;padding-left:22px;columns:2;column-gap:18px">'
+                + "".join(f"<li>{E(t)}</li>" for t in rest) + '</ol><p class="meta" style="margin-top:8px">Each one will appear here with its PDF and lessons.</p></div>')
     cards = "".join(
         f'<div class="card" style="min-width:0"><div class="kicker">Chapter {n} · {E(st)}</div><h3 class="h3s">{E(t)}</h3>'
         + (f'{lst}<div class="hb-acts" style="margin-top:10px">{acts}</div>' if lst else '<p class="meta">Being written. It will appear here with its PDF and lessons.</p>')
         + '</div>'
-        for n, t, st, lst, acts in ch)
+        for n, t, st, lst, acts in ch) + upcoming
     return ('<h3 class="h3s hb-h" style="margin-top:22px">The Complete Digital Marketing Course</h3>'
             '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By Varun, for SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 to 7 are ready now. Each lesson link opens the right page of its PDF.</p>'
             '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))">' + cards + '</div>')

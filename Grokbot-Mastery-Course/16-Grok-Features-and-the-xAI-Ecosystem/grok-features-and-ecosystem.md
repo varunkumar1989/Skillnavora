@@ -8,7 +8,7 @@
 
 ## Chapter 16.0 The map: what xAI offers
 
-The transcript describes xAI as the company behind an ecosystem of products **[Transcript]**:
+The transcript describes xAI as the company behind an ecosystem of products **[Transcript]**. Since February 2026, xAI has been owned by SpaceX, and in May 2026 it was reported to be folded into SpaceX as its AI division; Grok continues as a product **[Third-party, check]**:
 
 | Product | What it is (plain words) | Closest equivalent named in the transcript | Chapter |
 |---|---|---|---|
@@ -86,7 +86,7 @@ The transcript describes xAI as the company behind an ecosystem of products **[T
 **What it is [Transcript]:** Grok Bot is the agentic platform. You create bots that run jobs for you; bots can use connected apps, run on schedules, and coordinate with other bots. The full method is in Chapter 15 and Modules 7–8.
 
 **Key facts from the transcript [Transcript, Check]:**
-- Grok Bot is included in the **Premium plan and above**; the transcript says the minimum is **$30 a month**.
+- Grok Bot is included in the **SuperGrok plan and above** (the transcript calls it the Premium plan); the minimum is **$30 a month**.
 - A bot has details, library and a virtual computer. Under details you find **routines**.
 - Bots can have their own email address, created once.
 

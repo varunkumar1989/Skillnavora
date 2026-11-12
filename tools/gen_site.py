@@ -277,7 +277,7 @@ STEPS = """<div class="steps">
   <div class="step"><h3>Talk to a counsellor</h3><p>A free call to understand your background and pick the right program.</p></div>
   <div class="step"><h3>Learn live</h3><p>Live classes with instructors, recordings in your LMS and weekly assignments.</p></div>
   <div class="step"><h3>Build your portfolio</h3><p>Projects, a capstone and feedback on every submission.</p></div>
-  <div class="step"><h3>Get job-ready</h3><p>Resume reviews, mock interviews and referrals through our network.</p></div>
+  <div class="step"><h3>Get interview-ready</h3><p>Resume reviews, mock interviews and career guidance.</p></div>
 </div>"""
 
 TESTI = """<section id="testimonials" class="tint" hidden><div class="wrap center"><div class="kicker">Reviews</div><h2 class="sec-h">What our learners say</h2><div class="grid g3" id="testimonials-list" style="text-align:left;margin-top:30px"></div></div></section>"""
@@ -287,8 +287,8 @@ AUD = lambda cls="": sec("Who is this for", "Built for where you are today", "Wh
 MOAT_S = lambda cls="", course="PM course": sec("Our moat", "What makes SkillNavora different", f"The things you won't find together in a typical {course}.", '<div class="moat" id="moat"></div>', cls=cls)
 CMP_S = lambda cls="": sec("What's included", "Everything you get with SkillNavora", "", '<div class="cmp table-wrap" id="compare"></div>', cls=cls)
 TOOLS_S = lambda h="Every tool a modern PM needs", cls="", sub="Hands-on with the tools product teams use every day, from Jira and Figma to Claude and Claude Code.": sec("Tools you'll master", h, sub, '<div class="tgroups" id="toolgroups"></div>', cls=cls)
-JA_S = lambda cls="": sec("Get job-ready", "Job assistance program and intensive interview preparation", "Capstone, mock tests and interview preparation, so you finish the program ready to apply.", '''<div class="ja">
-  <div class="card dark"><h3>Job assistance program</h3><ul class="checks" id="ja-program" style="margin-top:14px"></ul></div>
+JA_S = lambda cls="": sec("Get interview-ready", "Career guidance and intensive interview preparation", "Capstone, mock tests and interview preparation, so you finish the program ready to apply.", '''<div class="ja">
+  <div class="card dark"><h3>Career guidance</h3><ul class="checks" id="ja-program" style="margin-top:14px"></ul></div>
   <div class="card"><h3>Intensive interview preparation</h3><ul class="checks" id="ja-interview" style="margin-top:14px"></ul></div></div>''', cls=cls)
 MENTORS_S = '<section id="mentors" hidden><div class="wrap center"><div class="kicker">Mentors</div><h2 class="sec-h">Learn from practising product leaders</h2><p class="sub">Mentors and guest speakers who build products every day.</p><div class="mentors" id="mentors-list" style="text-align:left"></div></div></section>'
 REVIEWS_S = '<section id="home-reviews" class="tint" hidden><div class="wrap"><div class="center"><div class="kicker">Testimonials and reviews</div><h2 class="sec-h">Careers that changed, <span class="g">in their own words.</span></h2></div><div class="reviews" id="home-reviews-list" style="margin-top:30px"></div><p class="center"><a class="btn btn-line btn-sm" href="{R}reviews.html">All reviews →</a></p></div></section>'
@@ -325,7 +325,7 @@ MARQUEE_S = f"""<section class="logos-s" aria-label="Skills"><div class="wrap"><
 PS_ITEMS = [('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/>', "Resume review", "Perfect your resume with detailed feedback from mentors, so you don't miss out on getting shortlisted for your dream role."),
             ('<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>', "1:1 mock interviews with mentors", "Crack interviews at top tech companies by practising with industry professionals and getting honest feedback."),
             ('<circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5"/>', "Practise real-world interview questions", "Practise from our bank of real interview questions on product sense, metrics, strategy, RCA and guesstimates."),
-            ('<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 13l2 2 4-4"/>', "Referrals to hiring companies", "When you're job-ready, we refer you to open roles through our network of product leaders and hiring managers.")]
+            ('<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 13l2 2 4-4"/>', "Career guidance sessions", "Guidance on your resume, portfolio and how to approach applications. We do not place candidates or guarantee jobs.")]
 PLACE_S = f"""<section class="place-s" id="placement"><div class="wrap">
   <h2 class="sec-h" style="max-width:20ch">1 Year Assistance to Prepare and Apply for Roles</h2>
   <p class="sub" style="margin-bottom:34px">Clear the cut-off marks in your capstone project to get access to 1 year of assistance.</p>
@@ -347,11 +347,11 @@ STATS_S = '<section class="stats-band" id="stats" hidden><div class="wrap"><div 
 up_cards = "".join(f'<a class="card tool" href="{p}"><div class="ico{" g" if i % 2 else ""}">{SVG(ic)}</div><h3>{E(n)}</h3><p>{E(s)}</p><span class="go">Start free →</span></a>' for i, (p, n, s, ic) in enumerate(x for x in UPSKILL if x[0]))
 home = f"""<div class="hero split"><div class="wrap"><div>
   <a class="pill" id="announce" href="programs.html" hidden><i></i><b></b> →</a>
-  <h1>Become a confident, <span class="g">job-ready</span> AI&#8209;first professional</h1>
-  <p class="lead">Live, hands-on programs in product management, data engineering and generative AI. Work on 25+ real-world case studies, build your own AI product, and get job assistance until you're ready to apply.</p>
+  <h1>Become a confident, <span class="g">skilled</span> AI&#8209;first professional</h1>
+  <p class="lead">Live, hands-on programs in product management, data engineering and generative AI. Work on 25+ real-world case studies, build your own AI product, and get career guidance until you're ready to apply.</p>
   <div class="acts"><a class="btn btn-primary" data-enroll="ai-pm" href="apply.html">Apply now →</a><a class="btn btn-ghost" data-counsel href="#counselling">Join a free counselling session</a></div>
-  <div class="hl"><span>25+ real-world case studies</span><span>Capstone and mock tests</span><span>Monthly 1:1 with a CEO or Head of Product</span><span>Job assistance program</span></div>
-  <div class="quick"><span>Quick links →</span><a href="#programs">Programs</a><a href="#who">Who it's for</a><a href="#why">Why us</a><a href="#tools">Tools</a><a href="#jobready">Job assistance</a><a href="#faqs">FAQs</a></div>
+  <div class="hl"><span>25+ real-world case studies</span><span>Capstone and mock tests</span><span>Monthly 1:1 with a CEO or Head of Product</span><span>Career guidance</span></div>
+  <div class="quick"><span>Quick links →</span><a href="#programs">Programs</a><a href="#who">Who it's for</a><a href="#why">Why us</a><a href="#tools">Tools</a><a href="#jobready">Career guidance</a><a href="#faqs">FAQs</a></div>
   </div>
   <div class="hero-form card" id="lead">
     <h3>Book a free live class and counselling session</h3>
@@ -401,7 +401,7 @@ home = f"""<div class="hero split"><div class="wrap"><div>
 {band("Not sure which program fits you?", "Book a free 1:1 counselling session. We'll look at your background and goals and suggest the right path.", '<a class="btn btn-primary" data-counsel href="#counselling">Book free counselling</a><a class="btn btn-ghost" data-wa="Hi SkillNavora!" href="#">Chat on WhatsApp</a>')}
 """
 page("index.html", "SkillNavora · AI-first programs in product, data engineering and GenAI",
-     "Live AI-first programs in product management, data engineering and generative AI: 25+ real-world case studies, capstone, mock tests, job assistance and monthly 1:1s with a CEO or Head of Product.", home, "index.html", sticky=True)
+     "Live AI-first programs in product management, data engineering and generative AI: 25+ real-world case studies, capstone, mock tests, career guidance and monthly 1:1s with a CEO or Head of Product.", home, "index.html", sticky=True)
 
 HB_CORE = [("01","Fundamentals","Fundamentals of Product Management"),("02","Strategy","Product Strategy and Strategic Thinking"),("03","Discovery","Problem Discovery and Market Research"),("04","Prioritization","Problem Framing and Prioritization"),("05","UX-Design","UX and Design Collaboration"),("06","Communication","Effective Communication and Stakeholder Management"),("07","Analytics","Product Analytics and Metrics"),("08","Growth","Product Launch, Growth, and Monetization"),("09","Tech-System-Design","Tech 101 and System Design for PMs"),("10","LLM-RAG","LLMs, RAGs, and AI Foundations"),("11","Vibe-Coding","Vibe Coding for Product Managers"),("12","Agentic-AI","Agentic AI and AI Systems")]
 HB_AI = [("13","AI-Tools-Landscape","AI Tools Landscape and Your Starter Stack"),("14","Claude-Daily-Work","Claude for Daily PM Work"),("15","Claude-Code","Claude Code: Basic to Advanced"),("16","Lovable","Lovable: Basic to Advanced"),("17","Replit-and-App-Builders","Replit and Other AI App Builders"),("18","Figma","Figma and AI Design Tools"),("19","Notion-and-PRD-Tools","Notion, PRD Tools and AI Documentation"),("20","Automation","Automation with Zapier, Make and n8n"),("21","Business-Chatbots","AI Chatbots for Business"),("22","Voice-Agents","Voice Agents for Businesses"),("23","Learning-Paths","Learning Paths, Courses and Communities")]
@@ -460,7 +460,7 @@ CLASSROWS = '<a class="hb-row" href="classes/week-06-effective-communication.htm
 HB_PANEL = f'''    <div class="panel" id="p-handbook" hidden>
       <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Product Management Master Handbook</h2>
         <p class="meta" style="margin:0 0 14px">23 modules, 620+ pages: the 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep. Created by Varun Kumar.</p>
-        <div class="hb-acts"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 23 MB) ↗</a></div></div></div>
+        <div class="hb-acts"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 25 MB) ↗</a></div></div></div>
       <h3 class="h3s hb-h">Product Core modules</h3><div class="hb-list">{_hb_mods(HB_CORE)}</div>
       <h3 class="h3s hb-h">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div><h3 class="h3s hb-h">Business AI Stack (chapters 24 to 31)</h3><div class="hb-list">{_hb_mods(HB_BIZ)}</div><h3 class="h3s hb-h">Complete AI tool guides (15)</h3><div class="hb-list">{"".join(f'<a class="hb-row" href="handbook/Guide-{n}-{f}.pdf" target="_blank" rel="noopener"><span class="hb-n">{int(n)}</span><span>{E(t)}</span><small>PDF ↗</small></a>' for n, f, t in HB_GUIDES)}</div><p class="meta"><a href="handbook/Complete-AI-Tools-Guides.pdf" target="_blank" rel="noopener">Complete AI tool guides (one PDF, 30 pages) ↗</a></p><p class="meta"><a href="handbook/Business-AI-Stack-Handbook.pdf" target="_blank" rel="noopener">Complete Business AI Stack handbook (PDF) ↗</a></p>
       <h3 class="h3s hb-h">Libraries</h3><div class="hb-list">{HB_LIBROWS}</div>
@@ -565,7 +565,7 @@ for cid, path, name, short, _ in PROGRAMS:
   <div class="acts"><a class="btn btn-primary" data-enroll="{cid}" href="../apply.html?program={cid}">Enroll now →</a><a class="btn btn-ghost" data-counsel="{cid}" href="#counselling">Join a counselling session</a></div>
   <p class="fine" id="p-fine"></p>
   <div class="hl" id="p-hl"></div>
-  <div class="quick"><span>Quick links →</span><a href="#curriculum">Curriculum</a><a href="#tools">Tools</a><a href="#instructor">Instructor</a><a href="#jobready">Job assistance</a><a href="#fees">Fees</a><a href="#faqs">FAQs</a></div>
+  <div class="quick"><span>Quick links →</span><a href="#curriculum">Curriculum</a><a href="#tools">Tools</a><a href="#instructor">Instructor</a><a href="#jobready">Career guidance</a><a href="#fees">Fees</a><a href="#faqs">FAQs</a></div>
   </div>
   <aside class="glance" aria-label="Program at a glance"><div class="glance-cover" id="p-cover"></div>
     <ul class="glance-list" id="p-glance"></ul>
@@ -596,7 +596,7 @@ for cid, path, name, short, _ in PROGRAMS:
 {sec("FAQs", "Got questions? We have answers.", "Everything you need to know before joining.", FAQ_BLOCK, cls="tint", center=True, sid="faqs")}
 {band("Ready to start?", "Apply for the next cohort, or talk to a counsellor first. It's free.", f'<a class="btn btn-primary" data-enroll="{cid}" href="../apply.html?program={cid}">Enroll now →</a><a class="btn btn-ghost" data-counsel="{cid}" href="#counselling">Talk to counsellor</a>')}
 """
-    page(path, f"{name} · SkillNavora", f"{name}: {short}. Curriculum, tools, case studies, fees, job assistance and FAQs.", body, path, attrs=f' data-course="{cid}"', sticky=True)
+    page(path, f"{name} · SkillNavora", f"{name}: {short}. Curriculum, tools, case studies, fees, career guidance and FAQs.", body, path, attrs=f' data-course="{cid}"', sticky=True)
 
 # ================================================================ UPSKILL PAGES
 def uhero(k, h, lead):
@@ -693,7 +693,7 @@ RES_PANEL = f'''    <div class="panel" id="p-resources" hidden>
         <p class="meta" style="margin:0">Every AI and product tool with its official website, the complete PM Master Handbook, interview practice, the PM frameworks cheat sheet, a PRD template and hand-picked free courses.</p></div></div>
       <h3 class="h3s hb-h">AI and product tools</h3><div class="tgroups" id="res-tools"></div>
       <h3 class="h3s hb-h">PM Master Handbook by Varun Kumar</h3><p class="meta" style="margin:-4px 0 12px">23 modules and 620+ pages: 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep.</p>
-      <div class="hb-acts" style="margin-bottom:14px"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 23 MB) ↗</a></div>
+      <div class="hb-acts" style="margin-bottom:14px"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 25 MB) ↗</a></div>
       <h3 class="h3s hb-h" style="font-size:16px">Product Core modules</h3><div class="hb-list">{_hb_mods(HB_CORE)}</div>
       <h3 class="h3s hb-h" style="font-size:16px">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div><h3 class="h3s hb-h" style="font-size:16px">Business AI Stack (chapters 24 to 31)</h3><div class="hb-list">{_hb_mods(HB_BIZ)}</div><h3 class="h3s hb-h">Complete AI tool guides (15)</h3><div class="hb-list">{"".join(f'<a class="hb-row" href="handbook/Guide-{n}-{f}.pdf" target="_blank" rel="noopener"><span class="hb-n">{int(n)}</span><span>{E(t)}</span><small>PDF ↗</small></a>' for n, f, t in HB_GUIDES)}</div><p class="meta"><a href="handbook/Complete-AI-Tools-Guides.pdf" target="_blank" rel="noopener">Complete AI tool guides (one PDF, 30 pages) ↗</a></p>
       <h3 class="h3s hb-h" style="font-size:16px">Libraries</h3><div class="hb-list">{HB_LIBROWS}</div>
@@ -767,7 +767,7 @@ for _gp, _tid in GUIDE_TRACK.items():
         _body = _body.replace('<section style="padding-top:24px"', _dm + '<section style="padding-top:24px"', 1)
     if _gp == "guides/fde.html":
         # Programme tagline under the heading, then the FDE handbook block (interactive artifact + 23 PDFs) above the guide.
-        _body = _body.replace("</h1>", '</h1><p class="lead" style="font-weight:700;margin-bottom:6px">From Non-Coder to Enterprise AI Builder: Learn, Build, Deploy, Get Hired and Launch Your AI Business.</p>', 1)
+        _body = _body.replace("</h1>", '</h1><p class="lead" style="font-weight:700;margin-bottom:6px">From Non-Coder to Enterprise AI Builder: Learn, Build, Deploy and Launch Your AI Business.</p>', 1)
         _fde = '<section style="padding-top:24px"><div class="wrap">' + restabs.fde_box().replace('href="read.html', 'href="../read.html') + '</div></section>'
         _body = _body.replace('<section style="padding-top:24px"', _fde + '<section style="padding-top:24px"', 1)
     page(_gp, f"{_t['name']} complete guide · SkillNavora", _t["desc"], _body, _gp)
@@ -931,7 +931,7 @@ WHY_US = [
     ("Free handbooks you can keep", "A 620-page PM Master Handbook, a 1,200+ page Data Science & AI handbook and a GenAI Launchpad handbook, with a PDF for every lesson, free for every registered learner."),
     ("Learn by doing", "Real outputs from runnable code, datasets, Excel workbooks, Power BI and Tableau case studies, n8n and Figma projects and a capstone in every track, so you finish with proof of work."),
     ("Practice that tells you why", "Practice tests with hints and worked solutions, 100 top interview questions for each career path, mock interviews with AI feedback and real product challenges."),
-    ("Portfolio and job support", "Resume and LinkedIn reviews, portfolio projects on GitHub and Tableau Public, a curated job board, referrals and interview preparation until you are job-ready."),
+    ("Portfolio and career guidance", "Resume and LinkedIn reviews, portfolio projects on GitHub and Tableau Public, a curated job board and interview preparation until you are ready to apply."),
     ("Small live cohorts", "Live classes with doubt-clearing, recordings in the LMS, assignments with feedback and a community of peers from product, data and engineering."),
     ("Built for Indian careers", "Examples in rupees, Indian companies and datasets, salary and offer guidance for the Indian market, and classes timed for working professionals."),
 ]
@@ -1225,7 +1225,7 @@ jobs = f"""<div class="hero"><div class="wrap jobs-head"><div class="kicker">Job
   </div>
   <div style="margin-top:28px">{restabs.portals_html()}</div>
 </div></section>
-{band("Want to be job-ready for these roles?", "Our job assistance program helps with your resume, portfolio, interview preparation and referrals.", '<a class="btn btn-primary" href="programs.html">Explore programs →</a><a class="btn btn-ghost" data-counsel href="#counselling">Talk to a counsellor</a>')}"""
+{band("Want to prepare for these roles?", "Our career guidance helps with your resume, portfolio and interview preparation.", '<a class="btn btn-primary" href="programs.html">Explore programs →</a><a class="btn btn-ghost" data-counsel href="#counselling">Talk to a counsellor</a>')}"""
 FREELANCE_JOBS_SEC = """<section id="freelance" style="padding-top:8px"><div class="wrap"><div class="kicker">Freelancing and part-time work</div><h2 class="sec-h">Earn while you learn: freelance and part-time options</h2>
 <p class="meta" style="max-width:72ch">These are ways to earn alongside your studies or work. Income is never guaranteed. Every option depends on your skills, effort and the terms you agree in writing. Read the terms before you start.</p>
 <div class="grid g3" style="margin-top:18px">
@@ -1294,7 +1294,7 @@ mentor = uhero("Become a mentor", 'Mentor the next generation of <span class="g"
 page("mentor.html", "Become a mentor · SkillNavora", "Mentor learners at SkillNavora: 1:1 mentorship, mock interviews, guest sessions and capstone reviews.", mentor, "mentor.html")
 
 C_LIFE = '''<div class="grid g4">
-  <div class="card"><h3>Learners first</h3><p>Every decision starts with what helps a learner get better and get hired.</p></div>
+  <div class="card"><h3>Learners first</h3><p>Every decision starts with what helps a learner get better at their work.</p></div>
   <div class="card"><h3>Learn by doing</h3><p>We use the AI tools we teach, every day, and share what works.</p></div>
   <div class="card"><h3>Ownership</h3><p>Small team, real responsibility from week one.</p></div>
   <div class="card"><h3>Remote friendly</h3><p>Work with us online, with flexible hours for most roles.</p></div></div>'''
@@ -1479,7 +1479,7 @@ refer = uhero("Refer & earn", 'Refer and <span class="g">earn rewards</span>', "
 </div></section>"""
 page("refer.html", "Refer & earn · SkillNavora", "Refer learners or candidates to SkillNavora and earn a reward.", refer, "refer.html")
 
-hire = uhero("Hire from SkillNavora", 'Hire <span class="g">job-ready</span> talent', "Product managers, data engineers and AI professionals trained on real projects. Tell us what you need and we'll share matching profiles.") + f"""
+hire = uhero("Hire from SkillNavora", 'Hire <span class="g">skilled</span> talent', "Product managers, data engineers and AI professionals trained on real projects. Tell us what you need and we'll share matching profiles.") + f"""
 <section><div class="wrap"><div class="grid g3">
   <div class="card"><h3>Pre-screened profiles</h3><p>Learners with portfolios, capstone projects and mock-interview feedback.</p></div>
   <div class="card"><h3>No hiring fee</h3><p>We help our learners find great roles. There's no fee for companies to hire them.</p></div>
@@ -1489,7 +1489,7 @@ hire = uhero("Hire from SkillNavora", 'Hire <span class="g">job-ready</span> tal
     <ul class="checks"><li>Product managers and APMs</li><li>Data engineers and analysts</li><li>GenAI and automation roles</li><li>Interns and freshers</li></ul></div>
   {HIRE_FORM}
 </div></section>"""
-page("hire.html", "Hire from SkillNavora", "Hire job-ready product, data engineering and AI talent from SkillNavora. No hiring fee.", hire, "hire.html")
+page("hire.html", "Hire from SkillNavora", "Hire skilled product, data engineering and AI talent from SkillNavora. No hiring fee.", hire, "hire.html")
 
 rv = uhero("Testimonials and reviews", 'Careers that changed, <span class="g">in their own words.</span>', "Real stories from SkillNavora learners.") + """
 <section><div class="wrap"><div class="reviews" id="reviews-wall"></div></div></section>
