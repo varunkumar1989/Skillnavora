@@ -148,15 +148,16 @@ def academy_tabs(body):
     tools = _grid([plain_card("tools.html", "Tool Tutorials", "Every tool we teach: a free official tutorial, the official site and our lesson.", "Open tool tutorials", "Tutorials"),
                    plain_card("web-automation.html", "Web Automation & Playwright MCP", "Webhooks and browser automation with Playwright MCP.", "Open the course", "Automation"),
                    plain_card("ai-skills-map.html", "AI Skills Map", "Every AI skill and where to learn it.", "Open the map", "Map")])
-    speaking = ('<section style="padding-top:28px"><div class="wrap"><h2 class="sec-h" style="font-size:24px">Public speaking</h2><p class="sub" style="max-width:760px">Practice and the complete guide in one place.</p></div>'
+    speaking = ('<div class="wrap" style="padding-top:20px"><h2 class="sec-h" style="font-size:24px">Public speaking</h2><p class="sub" style="max-width:760px">Practice and the complete guide in one place.</p></div>'
                 + _grid([plain_card("public-speaking.html", "Public Speaking Practice", "Speak on a topic you did not expect, free speech, shadowing and everyday English, with AI feedback.", "Open practice", "Practice"),
-                         plain_card("public-speaking.html#ps-tabs-guide", "Complete Public Speaking Guide", "The complete guide: confidence, structure, storytelling, slides, Q&A, video and a 30-day plan.", "Read the guide", "Guide")]) + '</section>')
-    return body + speaking + tabgroup("academy-tabs", [
+                         plain_card("public-speaking.html#ps-tabs-guide", "Complete Public Speaking Guide", "The complete guide: confidence, structure, storytelling, slides, Q&A, video and a 30-day plan.", "Read the guide", "Guide")]) + '</div>')
+    return CSS + body + tabgroup("academy-tabs", [
         ("models", "AI Models & Agents", models),
         ("grokbot", "Grokbot", '<div class="wrap"><div class="ai-cards" style="padding-top:20px">' + grokbot_page.tab_card(icon_svg=ico(10)) + "</div></div>"),
         ("context", "Context & Evals", context),
         ("lovable", "Lovable", lovable),
         ("tools", "Tool Tutorials", tools),
+        ("speaking", "Public Speaking", speaking),
     ], "AI course sections")
 
 def ico(i):
