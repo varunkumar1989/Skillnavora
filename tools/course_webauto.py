@@ -7,6 +7,7 @@ COURSE = {
  "intro": "The modern web-automation stack in one course: webhooks, triggers (schedules, events, polling), browser automation with Playwright, the Playwright MCP that lets Claude and other AI assistants drive a real browser, and every major alternative: Selenium, Puppeteer, Cypress, Chrome DevTools MCP, Browser Use, Stagehand, Skyvern, Browserbase, Apify, n8n, Zapier, Make, Pipedream, RPA and AI browsers.",
  "oneline": "Webhooks tell your system the moment something happens; triggers decide when automations run; browser automation does the clicking when there's no API; and the Playwright MCP lets an AI assistant like Claude use a real browser for you. Together they're the most-used web automation stack in 2026.",
  "top_html": __import__("webhook_keys").section(),
+ "pdf_top": __import__("webhook_keys").section(pdf=True),
  "tutor_q": "Explain webhooks, triggers and the Playwright MCP with a simple example",
  "extra_btn": '<a class="btn btn-line" href="ai-builder-tools.html">AI Builder Tools course</a>',
  "cheat_title": "Platform cheat sheet",

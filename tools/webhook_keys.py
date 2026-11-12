@@ -41,12 +41,15 @@ FAQ = [
     ("Why does the receiving tool say 'signature not valid'?", "The message did not carry the correct stamp. Check that the signing secret in the receiving tool matches the one in the sending service, with no extra spaces."),
 ]
 
-def section():
+def section(pdf=False):
     steps = "".join(f"<li><b>{E(t)}</b><br>{E(d)}</li>" for t, d in STEPS)
     rules = "".join(f"<li>{E(r)}</li>" for r in KEY_RULES)
     leak = "".join(f"<li>{E(r)}</li>" for r in LEAK)
     gloss = "".join(f"<tr><td><b>{E(a)}</b></td><td>{E(b)}</td></tr>" for a, b in GLOSSARY)
-    faq = "".join(f"<details class='card' style='padding:12px 16px;margin:8px 0'><summary style='cursor:pointer;font-weight:700'>{E(q)}</summary><p style='margin:8px 0 0'>{E(a)}</p></details>" for q, a in FAQ)
+    if pdf:  # printed copy: answers are always visible (closed accordions would hide them in print)
+        faq = "".join(f"<p><b>{E(q)}</b><br>{E(a)}</p>" for q, a in FAQ)
+    else:
+        faq = "".join(f"<details class='card' style='padding:12px 16px;margin:8px 0'><summary style='cursor:pointer;font-weight:700'>{E(q)}</summary><p style='margin:8px 0 0'>{E(a)}</p></details>" for q, a in FAQ)
     return f"""<section id="wh-start" style="padding-top:8px"><div class="wrap">
 <div class="card" style="border:2px solid #6C4CF5;padding:22px 24px;margin:0 0 26px">
 <div class="kicker">Start here · no coding needed</div>

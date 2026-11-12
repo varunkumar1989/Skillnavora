@@ -26,6 +26,11 @@ def _classes(C):
                    f'<div class="take"><b>Key takeaways</b><ul>' + "".join(f"<li>{E(t)}</li>" for t in take) + f'</ul></div><div class="ex"><b>Practice exercise:</b> {E(ex)}</div></section>')
     return "".join(out)
 
+def _pdf_top(C):
+    """Optional section printed right after the cover (for example the plain-language webhook section)."""
+    t = C.get("pdf_top", "")
+    return f'<section class="class"><span class="lvl" style="background:#0f8f7c">Start here</span>{t}</section>' if t else ""
+
 def pdf_html(C):
     toc = "".join(f'<tr><td>Class {i}</td><td><b>{E(t)}</b></td><td>{LEVEL[lv][0]}</td></tr>' for i, (lv, t, *_) in enumerate(C["classes"], 1))
     cheat = "".join(f"<tr><td><b>{E(a)}</b></td><td>{E(b)}</td></tr>" for a, b in C["cheat"])
@@ -34,7 +39,7 @@ def pdf_html(C):
     links = "".join(f'<li><a href="{E(u)}" target="_blank" rel="noopener">{E(n)} ↗</a></li>' for n, u in C["links"])
     return f"""<!doctype html><html><head><meta charset="utf-8"><title>{E(C['title'])} · SkillNavora</title><style>{PDF_CSS}</style></head><body>
 <div class="cover"><div class="k">{E(C['kicker'])}</div><h1>{E(C['title'])}</h1><p>{E(C['intro'])}</p><p class="small" style="color:#9fb6b1">Edition 2026 · skillnavora.in</p></div>
-<h2>How to use this guide</h2><p>Each class has goals, concepts with Indian examples, key takeaways and a practice exercise, from basic to advanced. Finish with the final project to build something you can show in interviews.</p>
+{_pdf_top(C)}<h2>How to use this guide</h2><p>Each class has goals, concepts with Indian examples, key takeaways and a practice exercise, from basic to advanced. Finish with the final project to build something you can show in interviews.</p>
 <table class="toc"><tr><th></th><th>Class</th><th>Level</th></tr>{toc}<tr><td></td><td><b>Toolkit:</b> templates, {E(C['cheat_title']).lower()}, glossary, {len(C['qa'])} interview questions, further reading</td><td></td></tr></table>
 {_classes(C)}
 <section class="class"><span class="lvl" style="background:#0b5d52">Toolkit</span><h2>Templates</h2>{C['templates_html']}</section>
