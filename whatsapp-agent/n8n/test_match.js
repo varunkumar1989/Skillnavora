@@ -8,7 +8,11 @@ const src = fs.readFileSync(path.join(__dirname, "match_answer.js"), "utf8");
 const ctx = { helpers: { httpRequest: async () => content } };
 const wa = q => ({ messaging_product: "whatsapp", contacts: [{ wa_id: "919800000000" }], messages: [{ from: "919800000000", type: "text", text: { body: q } }] });
 const fb = q => ({ body: { object: "page", entry: [{ messaging: [{ sender: { id: "12345" }, message: { text: q } }] }] } });
+const tg = q => ({ update_id: 1, message: { message_id: 5, from: { id: 777 }, chat: { id: 777, type: "private" }, text: q } });
 const cases = [
+  ["telegram", tg("/start")],
+  ["telegram", tg("what is the fee for genai course")],
+  ["telegram", tg("SQL lesson pdf")],
   ["chat", { chatInput: "what is the fee for ai product management" }],
   ["whatsapp", wa("hey")],
   ["whatsapp", wa("how much does the data engineer course cost")],

@@ -2,6 +2,7 @@
 // Works after any of these triggers (it looks for the message itself):
 //   - "WhatsApp Trigger"            (WhatsApp Business Cloud)  -> messages[0].text.body
 //   - "Webhook" named "Messenger Webhook" (Facebook Messenger / Instagram) -> entry[0].messaging[0].message.text
+//   - "Telegram Trigger"            (Telegram bot)              -> message.text, chat.id
 //   - "When chat message received"  (n8n test chat)            -> chatInput
 // Input items: the knowledge rows from the HTTP Request node
 //   (GET https://www.skillnavora.in/assets/knowledge_qa.json) or from the Google Sheet.
@@ -12,6 +13,8 @@ function pick(j) {
   if (!j) return null;
   const wa = j.messages?.[0] || j.body?.entry?.[0]?.changes?.[0]?.value?.messages?.[0];
   if (wa) return { text: wa.text?.body || wa.button?.text || wa.interactive?.button_reply?.title || "", to: wa.from, channel: "whatsapp" };
+  const tg = j.message?.chat ? j.message : (j.edited_message?.chat ? j.edited_message : null);
+  if (tg) return { text: tg.text || tg.caption || "", to: tg.chat.id, channel: "telegram" };
   const fb = (j.body || j).entry?.[0]?.messaging?.[0];
   if (fb) return { text: fb.message?.text || fb.postback?.title || "", to: fb.sender?.id, channel: "messenger" };
   const t = j.chatInput ?? j.message ?? j.text;
@@ -19,7 +22,7 @@ function pick(j) {
   return null;
 }
 const hasNodes = typeof $ === "function";
-const incoming = (hasNodes && (pick(fromNode("WhatsApp Trigger")) || pick(fromNode("Messenger Webhook")) || pick(fromNode("When chat message received"))))
+const incoming = (hasNodes && (pick(fromNode("Telegram Trigger")) || pick(fromNode("WhatsApp Trigger")) || pick(fromNode("Messenger Webhook")) || pick(fromNode("When chat message received"))))
   || pick($input.first().json) || { text: "", to: null, channel: "chat" };
 const message = String(incoming.text || "").toLowerCase().trim();
 const rows = $input.all().map(i => i.json).filter(r => r.question && r.answer);
@@ -37,7 +40,7 @@ function score(row) {
   return s;
 }
 
-const greeting = /^(hi|hey|hello|hii+|namaste|good (morning|afternoon|evening))\b/.test(message);
+const greeting = /^(\/start|hi|hey|hello|hii+|namaste|good (morning|afternoon|evening))\b/.test(message);
 const ranked = rows.filter(r => r.topic !== "Fallback").map(r => ({ r, s: score(r) })).sort((a, b) => b.s - a.s);
 const best = ranked[0];
 const fallback = rows.find(r => r.topic === "Fallback");

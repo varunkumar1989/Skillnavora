@@ -46,3 +46,11 @@ WhatsApp Trigger ─► HTTP Request (GET https://www.skillnavora.in/assets/know
    - Body: `{"recipient":{"id":"{{ $json.to }}"},"messaging_type":"RESPONSE","message":{"text":"{{ $json.reply }}"}}`
 
 Test locally: `node whatsapp-agent/n8n/test_match.js`.
+
+## Telegram bot (free, about 10 minutes)
+1. In Telegram, open **@BotFather** and send `/newbot`. Choose a name and a username ending in `bot`. BotFather replies with a **token**. Paste the token only into n8n, never into a chat.
+2. In n8n, add a **Telegram Trigger** node (keep the name "Telegram Trigger"). Create a Telegram credential with the token and set Updates to `message`.
+3. Add an **HTTP Request** node (GET https://www.skillnavora.in/assets/knowledge_qa.json).
+4. Add a **Code** node. Paste in `match_answer.js` and set the mode to "Run Once for All Items".
+5. Add a **Telegram → Send Message** node: Chat ID `{{ $json.to }}`, Text `{{ $json.reply }}`. Under Additional Fields, turn **Append n8n Attribution** off.
+6. **Activate** the workflow. Your public link is `https://t.me/<your_bot_username>`. Telegram needs a public HTTPS address for n8n: n8n Cloud provides one.
