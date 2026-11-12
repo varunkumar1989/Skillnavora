@@ -16,7 +16,7 @@ TOPICS = [
     ("programme-pm", "AI Product Management", "AI Product Management", "Foundations and product",
      ["sec-pm"], ["learn-pm"], "Product management"),
     ("programme-pm2", "AI Product Management 2", "AI Product Management 2", "Foundations and product",
-     [], [], "Product management (detailed course)"),
+     ["sec-pm"], ["learn-pm"], "Product management (detailed course)"),
     ("programme-genai", "GenAI Launchpad", "GenAI Launchpad (resources for GenAI)", "Foundations and product",
      ["sec-genai"], ["learn-genai"], "GenAI"),
     ("programme-data", "AI for Data Engineers (Data Science & AI)", "AI for Data Engineers (Data Science & AI)", "Data and engineering",
@@ -92,11 +92,6 @@ def build(page, uhero, out, source=None):
     built = {}
     for slug, title, short, group, c_ids, t_ids, kicker in TOPICS:
         content_parts, tool_parts = [], []
-        if slug == "programme-pm2":  # standalone detailed course, built from tools/aipm2 (not copied from resources.html)
-            import aipm2_page
-            built[slug] = {"title": title, "short": short, "group": group, "kicker": kicker,
-                           "content": aipm2_page.content(), "tools": aipm2_page.tools()}
-            continue
         for cid in c_ids:
             el = _block(soup, cid)
             if el is None:
@@ -131,7 +126,18 @@ def build(page, uhero, out, source=None):
     for d in built.values():
         d["content"], d["tools"] = fix(d["content"]), fix(d["tools"])
 
-    order = [t[0] for t in TOPICS]
+    # AI Product Management 2: the new detailed curriculum goes on top, the original AI PM content (copied above) below it
+    import aipm2_page
+    d2 = built["programme-pm2"]
+    d2["content"] = (aipm2_page.content()
+                     + '<div id="a2-original" style="scroll-margin-top:90px;padding-top:30px"><h2 class="sec-h">Original AI Product Management content</h2>'
+                       '<p class="meta" style="margin:-4px 0 12px">The content of the AI Product Management programme on this site, unchanged, so you can compare it with the detailed curriculum above.</p></div>'
+                     + d2["content"])
+    d2["tools"] = aipm2_page.tools() + d2["tools"]
+
+    # AI Product Management 2 is listed only under Free Resources, so it stays out of the index, hub and cross-links
+    FREE_RESOURCES_ONLY = {"programme-pm2"}
+    order = [t[0] for t in TOPICS if t[0] not in FREE_RESOURCES_ONLY]
     for i, (slug, title, short, group, c_ids, t_ids, kicker) in enumerate(TOPICS):
         d = built[slug]
         others = [s for s in order if s != slug]
@@ -163,7 +169,7 @@ function fromHash(push){show((location.hash||'#content').slice(1),push)}window.a
     # Index: every topic, grouped
     cards = ""
     for g in GROUP_ORDER:
-        items = [t for t in TOPICS if t[3] == g]
+        items = [t for t in TOPICS if t[3] == g and t[0] not in FREE_RESOURCES_ONLY]
         if not items: continue
         cards += f'<h2 class="sec-h" style="margin:26px 0 12px">{E(g)}</h2><div class="grid g3">'
         for slug, title, short, group, *_ in items:
@@ -193,6 +199,7 @@ function fromHash(push){show((location.hash||'#content').slice(1),push)}window.a
     # Tools hub: all tools and learning links, grouped by programme
     sections = ""
     for slug, title, short, group, *_ in TOPICS:
+        if slug in FREE_RESOURCES_ONLY: continue
         d = built[slug]
         n = len(set(re.findall(r'href="(https?://[^"]+)"', d["tools"])))
         sections += (f'<a class="card" href="{slug}.html#tools" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px"><span class="ftag">{E(group)}</span>'

@@ -9,7 +9,7 @@ import aipm2
 from aipm2 import extras
 E = html.escape
 SITE_HANDBOOK = "handbook/"
-SUBJECTS = aipm2.load()
+SUBJECTS = aipm2.load_detailed()
 N_TOPICS = sum(len(s["topics"]) for s in SUBJECTS)
 GUIDE_URL = "https://claude.ai/artifact/PLACEHOLDER"   # replaced by the published artifact link (see GUIDE_LINK_FILE)
 _LINK_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "aipm2", "guide_url.txt")
@@ -89,11 +89,11 @@ CSS = """<style>
 .a2-tp li b::before{content:counter(t) ". ";opacity:.55;font-weight:600}.a2-tp li span{display:block;opacity:.85;font-size:14.5px;margin-top:2px}
 .a2-ph{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}.a2-ph a{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;text-decoration:none;background:var(--surface)}
 .a2-chk{columns:2;column-gap:28px;padding-left:18px}@media(max-width:640px){.a2-chk{columns:1}}
-.a2-ex{display:block;text-decoration:none}.a2-ex .sj{font-size:12px;opacity:.7}
+.a2-ex{display:block;text-decoration:none}.a2-tp p.det{margin:6px 0 0;font-size:14.5px;opacity:.9}.a2-ex .sj{font-size:12px;opacity:.7}
 </style>"""
 
 def _subject(s, open_=False):
-    items = "".join(f"<li data-t=\"{E((n + ' ' + t).lower(), quote=True)}\"><b>{E(n)}</b><span>{E(t)}</span></li>" for n, t in s["topics"])
+    items = "".join(f"<li data-t=\"{E((n + ' ' + t + ' ' + d).lower(), quote=True)}\"><b>{E(n)}</b><span>{E(t)}</span><p class=\"det\">{E(d)}</p></li>" for n, t, d in s["topics"])
     extra = ""
     if s["n"] == 25:
         extra = ("<h4 style=\"margin:14px 0 6px\">Every capstone must include</h4><ul class=\"a2-chk\">" + "".join(f"<li>{E(x)}</li>" for x in extras.CAPSTONE_CHECKLIST) + "</ul>")
@@ -102,7 +102,7 @@ def _subject(s, open_=False):
     return (f'<details class="a2-sub" id="a2-s{s["n"]:02d}"{" open" if open_ else ""}><summary><span class="n">SUBJECT {s["n"]:02d}</span>{E(s["title"])}'
             f'<span class="c">{len(s["topics"])} topics</span></summary><div class="a2-body"><p class="ov">{E(s["overview"])}</p><ol class="a2-tp" style="list-style:none">{items}</ol>{extra}{dl}</div></details>')
 
-def content():
+def content_head():
     g = guide_url()
     guide_btn = (f'<a class="btn btn-primary btn-sm" href="{E(g)}" target="_blank" rel="noopener" data-nogate>Open the complete guide ↗</a>' if g else "")
     phases = "".join(f'<a href="#a2-s{ns[0]:02d}">{E(name)}: {ns[0]}-{ns[-1]}</a>' for name, ns in extras.PHASES)
@@ -116,8 +116,7 @@ var o=document.getElementById('a2-count');if(o)o.textContent=v?shown+' matching 
 q.addEventListener('input',run)})();</script>"""
     return (CSS
         + f'<div class="a2-note"><b>Detailed AI PM course.</b> The full {len(SUBJECTS)}-subject, {N_TOPICS}-topic curriculum, from product management fundamentals to generative AI, LLMs and agentic AI product leadership. '
-          f'It sits next to the original <a href="programme-pm.html">AI Product Management</a> programme, which is unchanged, so you can compare the two. '
-          f'Section 3 maps your existing SkillNavora AI PM material onto these subjects.</div>'
+          f'Each topic has a short meaning and a detailed explanation. The original <a href="#a2-original">AI Product Management</a> content from this site follows the curriculum, unchanged.</div>'
         + f'<div class="a2-kpi"><div><b>{len(SUBJECTS)}</b>subjects</div><div><b>{N_TOPICS}</b>topics</div><div><b>12</b>capstone projects</div><div><b>{len(extras.OUTCOMES)}</b>outcomes</div></div>'
         + f'<div class="hb-acts" style="margin:0 0 18px">{guide_btn}<a class="btn btn-line btn-sm" href="{SITE_HANDBOOK}aipm2/AIPM2-Complete-Course.pdf" target="_blank" rel="noopener">Complete course PDF (163 pages) ↗</a><a class="btn btn-line btn-sm" href="ai-pm-industry-research.html#interview-guide">Interview guide</a><a class="btn btn-line btn-sm" href="programme-pm.html">Original AI PM programme</a></div>'
         + '<h2 class="sec-h">1. Course curriculum</h2>'
@@ -130,6 +129,9 @@ q.addEventListener('input',run)})();</script>"""
         + '<h2 class="sec-h" style="margin-top:30px">3. Your existing AI PM material, mapped to this course</h2>'
         + '<p class="meta" style="margin:-4px 0 12px">Everything already on SkillNavora that supports these subjects. Nothing here was changed.</p>'
         + f'<div class="grid g3">{existing}</div>' + js)
+
+def content():
+    return content_head()
 
 def tools():
     cards = "".join(f'<a class="card" href="{E(u)}" target="_blank" rel="noopener" style="display:block;text-decoration:none"><span class="ftag">Tool</span>'
