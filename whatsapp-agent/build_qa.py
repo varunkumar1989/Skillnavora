@@ -121,3 +121,26 @@ site_rows = [{k: r[k] for k in ("id", "topic", "keywords", "question", "answer",
 with open(os.path.join(ROOT, "assets", "knowledge_qa.json"), "w", encoding="utf-8") as f:
     json.dump(site_rows, f, ensure_ascii=False, separators=(",", ":"))
 print("rows:", len(rows), "| topics:", sorted({r["topic"] for r in rows}))
+# Content index: every public page, free lesson and PDF, so the Ask AI panel can point to the right place for any topic
+import glob, urllib.parse
+content = []
+for e in json.load(open(os.path.join(ROOT, "assets", "search-index.json"), encoding="utf-8")):
+    content.append({"title": clean(e["t"]), "desc": clean(e.get("d", "")), "link": BASE + e["u"], "type": "Page"})
+for t in cat["tracks"]:
+    for l in t["lessons"]:
+        content.append({"title": clean(l["title"]), "desc": f"Free lesson, {t['name']}", "link": f"{BASE}/data-science/{l['page']}", "type": "Lesson"})
+        content.append({"title": clean(l["title"]) + " (PDF)", "desc": f"PDF of the free lesson, {t['name']}", "link": f"{BASE}/data-science/{l['pdf_path']}", "type": "PDF"})
+seen = set()
+for path in sorted(glob.glob(os.path.join(ROOT, "**", "*.pdf"), recursive=True)):
+    rel = os.path.relpath(path, ROOT).replace(os.sep, "/")
+    if rel.startswith(("node_modules/", ".git/", "data-science/pdf/")):   # lesson PDFs are already listed above
+        continue
+    name = os.path.splitext(os.path.basename(rel))[0].replace("-", " ").replace("_", " ")
+    if name in seen:
+        continue
+    seen.add(name)
+    content.append({"title": name, "desc": "PDF in " + os.path.dirname(rel).replace("/", " / ") if os.path.dirname(rel) else "PDF", "link": BASE + "/" + urllib.parse.quote(rel), "type": "PDF"})
+with open(os.path.join(ROOT, "assets", "content_index.json"), "w", encoding="utf-8") as f:
+    json.dump(content, f, ensure_ascii=False, separators=(",", ":"))
+print("content index:", len(content), "entries")
+

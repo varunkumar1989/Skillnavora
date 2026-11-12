@@ -300,6 +300,7 @@
     function scoreRow(r, msg) { let n = 0;
       String(r.keywords || "").split(/[,|]/).map(p => p.trim().toLowerCase()).filter(p => p.length >= 3).forEach(p => { if (msg.indexOf(p) > -1) n += 3; });
       const mw = new Set(wordsOf(msg)); wordsOf(r.question || "").forEach(w => { if (mw.has(w)) n += 1; }); return n; }
+    const FILLER = new Set(['tell','about','what','where','which','when','how','does','with','from','this','that','have','there','give','show','find','info','information','please','want','need','know','can','you','your','the','and','for','are','was','topic','explain','any','all','more','some','should','would','could','will','its','them','they','lesson','course','page']);
     async function answerFromKnowledge(q) {
       const msg = String(q).toLowerCase().trim();
       if (/^(hi|hey|hello|hii+|namaste|good (morning|afternoon|evening))\b/.test(msg)) {
@@ -313,6 +314,12 @@
         if (top.confirm) text += "\n\nWe are confirming this detail. Our team will reply with the latest information.";
         return { text, link: top.link, linkText: "Open the page" };
       }
+      let content = [];
+      try { if (!window.__snContent) window.__snContent = await fetch(R + "assets/content_index.json").then(r => r.json()); content = window.__snContent; } catch { content = []; }
+      const mw = new Set(wordsOf(msg).filter(w => !FILLER.has(w)));
+      const hits = content.map(c => { let n = 0; wordsOf(c.title).forEach(w => { if (mw.has(w)) n += 3; }); wordsOf(c.desc || "").forEach(w => { if (mw.has(w)) n += 1; }); return { c, n }; })
+        .filter(x => x.n >= 3).sort((a, b) => b.n - a.n).slice(0, 3).map(x => x.c);
+      if (hits.length) return { text: "Here is where to find it:\n" + hits.map(h => "- " + h.title + " (" + h.type + "): " + h.link).join("\n") };
       return { text: "I don't have that information yet. Our team is happy to help. Use the links below, or ask your question on WhatsApp.", link: "" };
     }
     let busy = false;
