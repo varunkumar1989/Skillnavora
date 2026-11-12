@@ -1,21 +1,28 @@
-// Test the matcher outside n8n: node n8n/test_match.js
+// Test the matcher outside n8n: node whatsapp-agent/n8n/test_match.js
 const fs = require("fs");
 const path = require("path");
-const rows = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "knowledge_qa.json"), "utf8"));
+const root = path.join(__dirname, "..", "..");
+const rows = JSON.parse(fs.readFileSync(path.join(root, "assets", "knowledge_qa.json"), "utf8"));
+const content = JSON.parse(fs.readFileSync(path.join(root, "assets", "content_index.json"), "utf8"));
 const src = fs.readFileSync(path.join(__dirname, "match_answer.js"), "utf8");
-const questions = [
-  "what is the fee for ai product management",
-  "how much does the data engineer course cost",
-  "do you guarantee a job",
-  "is there a free excel course",
-  "how long is the genai course",
-  "why should i join skillnavora",
-  "how can i contact you on whatsapp",
-  "tell me about dinosaurs",
+const ctx = { helpers: { httpRequest: async () => content } };
+const wa = q => ({ messaging_product: "whatsapp", contacts: [{ wa_id: "919800000000" }], messages: [{ from: "919800000000", type: "text", text: { body: q } }] });
+const fb = q => ({ body: { object: "page", entry: [{ messaging: [{ sender: { id: "12345" }, message: { text: q } }] }] } });
+const cases = [
+  ["chat", { chatInput: "what is the fee for ai product management" }],
+  ["whatsapp", wa("hey")],
+  ["whatsapp", wa("how much does the data engineer course cost")],
+  ["whatsapp", wa("where is the PRD template")],
+  ["messenger", fb("do you guarantee a job")],
+  ["messenger", fb("prompt injection")],
+  ["whatsapp", wa("tell me about dinosaurs")],
 ];
-for (const q of questions) {
-  const input = [{ json: { message: q } }, ...rows.map(r => ({ json: r }))];
-  const run = new Function("$input", "return (async()=>{" + src + "})()");
-  const $input = { first: () => input[0], all: () => input };
-  run($input).then(out => console.log(`Q: ${q}\n  score ${out[0].json.score} | matched: ${out[0].json.matched_question}\n  A: ${out[0].json.reply.split("\n")[0].slice(0, 160)}\n`));
-}
+(async () => {
+  for (const [kind, msg] of cases) {
+    const input = [{ json: msg }, ...rows.map(r => ({ json: r }))];
+    const run = new Function("$input", "return (async()=>{" + src + "})()");
+    const $input = { first: () => input[0], all: () => input };
+    const out = (await run.call(ctx, $input))[0].json;
+    console.log(`[${kind}] to=${out.to} channel=${out.channel} score=${out.score} matched=${out.matched_question}\n  ${out.reply.replace(/\n/g, " / ").slice(0, 170)}\n`);
+  }
+})();
