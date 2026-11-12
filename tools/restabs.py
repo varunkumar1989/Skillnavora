@@ -6,6 +6,8 @@ import learnsites
 DS_SITE = "/data-science/"      # where the built Data Science & AI handbook is hosted
 DS_REPO = "https://github.com/varunkumar1989/data-science-and-ai"
 CATALOG = "/home/user/data-science-and-ai/course/catalog.json"
+if not os.path.exists(CATALOG):  # no source checkout (e.g. a fresh clone): use the published copy in this repo
+    CATALOG = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data-science", "catalog.json")
 
 
 def ext(label, desc, url, tag=None):
