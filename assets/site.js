@@ -289,7 +289,9 @@
   const bg = document.createElement("div"); bg.id = "askai-bg";
   const box = document.createElement("aside"); box.id = "askai"; box.setAttribute("aria-label", "AI Studio");
   box.innerHTML = `<button class="x" type="button" aria-label="Close">×</button><div><div class="kicker" style="font-size:12px">AI Studio · Free</div><h2>Ask AI</h2></div>
-<form><textarea maxlength="2000" placeholder="Ask anything: SQL, PRDs, GenAI, English, careers… or about this page" aria-label="Your question"></textarea><button class="btn btn-primary btn-sm" type="submit">Ask the AI Tutor →</button></form>
+<div id="askai-quick" style="display:flex;flex-wrap:wrap;gap:6px"><button class="btn btn-line btn-sm" type="button" data-q="What is the fee for AI-First Product Management?">Fee: AI PM</button><button class="btn btn-line btn-sm" type="button" data-q="What is the fee for AI-First Data Engineer?">Fee: Data Eng</button><button class="btn btn-line btn-sm" type="button" data-q="What free courses and resources are there?">Free courses</button><button class="btn btn-line btn-sm" type="button" data-q="Why should I join SkillNavora?">Why join?</button><button class="btn btn-line btn-sm" type="button" data-q="Do you guarantee a job or placement?">Jobs?</button><button class="btn btn-line btn-sm" type="button" data-q="How can I contact SkillNavora?">Contact</button></div>
+<div id="askai-ans" role="status" aria-live="polite" hidden style="border:1px solid var(--line,#e1e6f0);border-radius:12px;padding:12px;background:var(--bg,#f5f7fc);font-size:14.5px;line-height:1.55"></div>
+<form><textarea maxlength="2000" placeholder="Ask about fees, programmes, free courses, careers… or anything else" aria-label="Your question"></textarea><button class="btn btn-primary btn-sm" type="submit">Get answer →</button></form>
 ${T.map(([h, i, n, s]) => `<a class="t" href="${R + h}"><span>${i}</span><span><b>${n}</b><small>${s}</small></span></a>`).join("")}`;
   document.body.append(tab, bg, box);
   const set = o => { box.classList.toggle("open", o); bg.classList.toggle("open", o); tab.setAttribute("aria-expanded", o); if (o) setTimeout(() => box.querySelector("textarea").focus(), 60); };
@@ -300,4 +302,52 @@ ${T.map(([h, i, n, s]) => `<a class="t" href="${R + h}"><span>${i}</span><span><
     const u = new URL(R + "ai-tutor.html", location.href); if (q) u.searchParams.set("q", q); if (path && !/ai-tutor/.test(path)) u.searchParams.set("page", "/" + location.pathname.replace(/^\/+/, ""));
     location.href = u.href; });
   ta.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); box.querySelector("form").requestSubmit(); } });
+
+  /* Instant answers from the same knowledge base the WhatsApp agent uses (assets/knowledge_qa.json). */
+  let KB = null;
+  const ans = box.querySelector("#askai-ans");
+  const words = t => String(t).toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 2);
+  function score(row, msg) {
+    let n = 0;
+    String(row.keywords || "").split(/[,|]/).map(p => p.trim().toLowerCase()).filter(p => p.length >= 3).forEach(p => { if (msg.indexOf(p) > -1) n += 3; });
+    const mw = new Set(words(msg));
+    words(row.question || "").forEach(w => { if (mw.has(w)) n += 1; });
+    return n;
+  }
+  function best(msg) {
+    let top = null, s = 0;
+    KB.forEach(r => { if (r.topic === "Fallback") return; const v = score(r, msg); if (v > s) { s = v; top = r; } });
+    return s >= 3 ? top : null;
+  }
+  function show(html_parts) {
+    ans.hidden = false; ans.innerHTML = "";
+    html_parts.forEach(part => {
+      if (part.link) { const a = document.createElement("a"); a.href = part.link; a.target = "_blank"; a.rel = "noopener"; a.textContent = part.text; a.style.display = "block"; a.style.marginTop = "6px"; ans.appendChild(a); }
+      else { const p = document.createElement("p"); p.style.margin = "0 0 6px"; p.textContent = part.text; ans.appendChild(p); }
+    });
+  }
+  function answer(q) {
+    const msg = String(q).toLowerCase().trim();
+    const load = KB ? Promise.resolve(KB) : fetch(R + "assets/knowledge_qa.json").then(r => r.json()).then(j => (KB = j));
+    load.then(() => {
+      const r = best(msg);
+      if (!r) return false;
+      const parts = [{ text: r.answer }];
+      if (r.confirm) parts.push({ text: "We are confirming this detail. A counsellor will reply with the latest information." });
+      if (r.link) parts.push({ text: "Open the page", link: r.link });
+      show(parts);
+      return true;
+    }).catch(() => show([{ text: "Sorry, the quick answers are unavailable right now. Please use the AI Tutor below." }]));
+  }
+  box.querySelectorAll("#askai-quick [data-q]").forEach(b => b.addEventListener("click", () => { ta.value = b.dataset.q; answer(b.dataset.q); }));
+
+  const originalSubmit = box.querySelector("form");
+  originalSubmit.addEventListener("submit", e => {
+    const q = ta.value.trim();
+    if (!q) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    fetch(R + "assets/knowledge_qa.json").then(r => r.json()).then(j => { KB = j; const r = best(q.toLowerCase()); if (r) { answer(q); } else {
+      const u = new URL(R + "ai-tutor.html", location.href); u.searchParams.set("q", q); location.href = u.href; } }).catch(() => { location.href = new URL(R + "ai-tutor.html", location.href).href; });
+  }, true);
 })();

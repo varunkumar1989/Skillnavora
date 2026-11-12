@@ -1,0 +1,106 @@
+"""Flat question-and-answer list for n8n: one row per question, generated from the website's data (assets/config.js and the course catalogue).
+Run: python3 whatsapp-agent/build_qa.py   -> writes knowledge_qa.csv and knowledge_qa.json next to this file."""
+import csv, json, os, re, subprocess, html
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(HERE, "..")
+BASE = "https://www.skillnavora.in"
+JS = r"""const fs=require('fs');const src=fs.readFileSync(process.argv[1],'utf8');
+const names=["SITE","COURSES","FAQS","OFFERS","JOB_ASSIST","MOAT","COMPARE","SUPPORT","REFERRAL","STATS"];
+const d=new Function(src+';return {'+names.map(n=>n+':(typeof '+n+'!=="undefined"?'+n+':null)').join(',')+'};')();
+process.stdout.write(JSON.stringify(d));"""
+cfg = json.loads(subprocess.run(["node", "-e", JS, os.path.join(ROOT, "assets", "config.js")], capture_output=True, text=True, check=True).stdout)
+cat = json.load(open(os.path.join(ROOT, "data-science", "catalog.json"), encoding="utf-8"))
+clean = lambda s: re.sub(r"\s+", " ", html.unescape(str(s))).strip()
+
+rows = []
+def add(topic, keywords, question, answer, link, confirm=""):
+    rows.append({"id": len(rows) + 1, "topic": topic, "keywords": keywords, "question": question,
+                 "answer": clean(answer), "link": link, "confirm": confirm})
+
+page = {"ai-pm": f"{BASE}/program/ai-product-management.html", "ai-de": f"{BASE}/program/ai-data-engineering.html",
+        "genai-launchpad": f"{BASE}/program/genai-launchpad.html"}
+short = {"ai-pm": "AI PM|product management|AI product manager|PM course", "ai-de": "data engineer|data engineering|AI data",
+         "genai-launchpad": "GenAI|genai launchpad|generative AI|AI launchpad"}
+
+# Programmes: fee, length, format, what is included, highlights, cohort
+for c in cfg["COURSES"]:
+    k, u = c["id"], page.get(c["id"], BASE)
+    n = c["name"]
+    add("Fees", f"fee,fees,price,cost,how much,rupees,dollars,{short[k]}", f"What is the fee for {n}?",
+        f"{n} costs {c['fee']} (about {c['feeINR']} in INR) as listed on the website. {c['feeNote']}", u, "CONFIRM: fee and INR amount before each cohort" if k == "ai-pm" else "")
+    add("Programme", f"duration,how long,weeks,{short[k]}", f"How long is the {n} programme?",
+        f"{n} runs for {c['duration']}. Format: {c['format']}.", u)
+    add("Programme", f"learn,syllabus,curriculum,what will I learn,{short[k]}", f"What will I learn in {n}?",
+        f"{c['tagline']}. Highlights: {'; '.join(c['highlights'])}.", u)
+    add("Fees", f"included,what is included,fee includes,{short[k]}", f"What is included in the {n} fee?", c["feeNote"], u)
+    add("Schedule", f"start date,cohort,when does it start,batch,{short[k]}", f"When does the {n} cohort start?",
+        "Start dates are not published on the website yet. A counsellor will share the next cohort date.", u, "CONFIRM: no cohort date published")
+
+# Offers and scholarships
+for o in cfg["OFFERS"]["items"]:
+    add("Offers", "scholarship,discount,offer,student,concession,reduced fee,free seat",
+        f"Is there a {o['title'].lower()}?", f"{o['title']}: {o['text']} ({o.get('pct','')}).", f"{BASE}/programs.html",
+        "CONFIRM: owner must confirm eligibility and seat limits" if "100" in o.get("pct", "") or "scholarship" in o["title"].lower() else "")
+add("Offers", "early bird,early,discount date", "Is there early-bird pricing?", "No early-bird pricing is published on the website right now.", f"{BASE}/programs.html")
+add("Offers", "refund,money back", "Can I get a refund?", "Please ask a counsellor for the refund policy for your programme before you pay.", f"{BASE}/refund.html", "CONFIRM: refund rules to be checked against refund.html")
+
+# Why join
+add("Why join", "why join,why skillnavora,why should I join,benefit,reason", "Why should I join SkillNavora?",
+    " ".join(f"{m['title']}: {m['text']}" for m in cfg["MOAT"]), f"{BASE}/programs.html")
+for cmp in cfg["COMPARE"]:
+    add("Why join", f"compare,difference,better,{cmp['what'].lower()}", f"How is SkillNavora different on {cmp['what'].lower()}?",
+        f"SkillNavora: {cmp.get('us','')}. Typical alternatives: {cmp.get('others','')}.", f"{BASE}/programs.html")
+add("Who it is for", "who is this for,eligible,student,fresher,working,career switch,salary hike",
+    "Who is this programme for?", " ".join(f"{x}" for x in ["Students and freshers: build PM skills and a portfolio before your first job.",
+    "Working professionals: learn on weekends with live classes and recordings.",
+    "Career switchers: move into product from engineering, design, sales, operations or consulting.",
+    "Salary hike and promotion: grow into senior PM and AI PM roles with stronger skills."]), f"{BASE}/programs.html")
+
+# Career
+add("Career", "job,placement,placed,guarantee,job guarantee,will I get a job,salary", "Do you guarantee a job or placement?",
+    "No. SkillNavora offers career guidance, not job placement, and no job, interview or salary is guaranteed.", f"{BASE}/programs.html")
+add("Career", "resume,linkedin,career guidance,job search", "What career support is included?",
+    "Program: " + " ".join(cfg["JOB_ASSIST"]["program"]) + " Interview prep: " + " ".join(cfg["JOB_ASSIST"]["interview"]), f"{BASE}/programs.html")
+add("Career", "interview,mock test,mock interview,question bank", "How do you prepare me for interviews?",
+    " ".join(cfg["JOB_ASSIST"]["interview"]), f"{BASE}/practice-hub.html")
+add("Career", "referral,refer,reward,refer a friend", "How does the referral reward work?", cfg["REFERRAL"]["terms"], f"{BASE}/refer.html", "CONFIRM: reward amounts are not published")
+
+# FAQ (every FAQ from the website)
+for f in cfg["FAQS"]:
+    add("FAQ", f"{f['c'].lower()},{f['q'].lower()}", f["q"], f["a"], f"{BASE}/programs.html")
+
+# Free courses and lessons
+for t in cat["tracks"]:
+    lessons = len(t["lessons"])
+    add("Free courses", f"free,free course,free lesson,{t['name'].lower()},{t['id']}", f"Is there a free {t['name']} course?",
+        f"Yes. {t['name']} has {lessons} free lessons, each with a read-online page and a PDF. {clean(t.get('desc',''))}",
+        f"{BASE}/data-science/index.html")
+add("Free courses", "free,free course,free resources,free tools,without paying", "What free courses and resources are there?",
+    "Free data-science and AI lessons (" + str(sum(len(t['lessons']) for t in cat['tracks'])) + " lessons across " + str(len(cat['tracks'])) +
+    " tracks), free PM handbook PDFs, a free AI tutor, practice tests, and free live workshops. Ask us for the link you need.", f"{BASE}/learning-platform.html")
+add("Free courses", "free live,workshop,webinar,event", "Are there free live sessions?", "Yes. See the events page for upcoming free live sessions and their dates.", f"{BASE}/events.html", "CONFIRM: dates change, check the events page")
+
+# Contact
+s = cfg["SITE"]
+add("Contact", "contact,whatsapp,phone,call,email,talk to someone,counselling,counseling",
+    "How can I contact SkillNavora?", f"WhatsApp: +{s['whatsapp']}. Email: {s['email']}. You can also book a free counselling session on the website.",
+    f"https://wa.me/{s['whatsapp']}")
+add("Contact", "address,office,location", "Where is SkillNavora located?", "The office address is not published on the website yet.", f"{BASE}/contact.html", "CONFIRM: address not set")
+add("Contact", "social,instagram,youtube,linkedin,twitter,facebook", "What are your social media links?",
+    f"Instagram: {s['instagram']}. YouTube: {s['youtube']}. LinkedIn: {s['linkedin']}. X: {s['twitter']}. Facebook: {s['facebook']}.", BASE)
+
+# Fallback
+add("Fallback", "", "Anything else", "I don't have that information yet. I can connect you with a counsellor on WhatsApp, or you can ask on the website.",
+    f"{BASE}/contact.html", "")
+
+with open(os.path.join(HERE, "knowledge_qa.csv"), "w", newline="", encoding="utf-8") as f:
+    w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+    w.writeheader(); w.writerows(rows)
+with open(os.path.join(HERE, "knowledge_qa.json"), "w", encoding="utf-8") as f:
+    json.dump(rows, f, ensure_ascii=False, indent=1)
+# Same answers for the website's Ask AI panel (loaded on demand, no AI call needed for these)
+site_rows = [{k: r[k] for k in ("id", "topic", "keywords", "question", "answer", "link", "confirm")} for r in rows]
+with open(os.path.join(ROOT, "assets", "knowledge_qa.json"), "w", encoding="utf-8") as f:
+    json.dump(site_rows, f, ensure_ascii=False, separators=(",", ":"))
+print("rows:", len(rows), "| topics:", sorted({r["topic"] for r in rows}))
