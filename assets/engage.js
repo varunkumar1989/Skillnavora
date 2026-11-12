@@ -293,6 +293,28 @@
       (typeof FAQS !== "undefined" ? FAQS : []).forEach(f => { const qq = f.q.toLowerCase(), aa = f.a.toLowerCase();
         const n = w.reduce((t, x) => t + (qq.includes(x) ? 3 : 0) + (aa.includes(x) ? 1 : 0), 0); if (n > score) { score = n; best = f; } });
       return best && score >= 2 ? best.a : null; };
+    /* Free answers: the same knowledge file the Ask AI panel and the WhatsApp agent use. No paid AI needed. */
+    let KB = null;
+    const normW = w => (w.length > 3 && w.endsWith("s") && !w.endsWith("ss") ? w.slice(0, -1) : w);
+    const wordsOf = t => String(t).toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 2).map(normW);
+    function scoreRow(r, msg) { let n = 0;
+      String(r.keywords || "").split(/[,|]/).map(p => p.trim().toLowerCase()).filter(p => p.length >= 3).forEach(p => { if (msg.indexOf(p) > -1) n += 3; });
+      const mw = new Set(wordsOf(msg)); wordsOf(r.question || "").forEach(w => { if (mw.has(w)) n += 1; }); return n; }
+    async function answerFromKnowledge(q) {
+      const msg = String(q).toLowerCase().trim();
+      if (/^(hi|hey|hello|hii+|namaste|good (morning|afternoon|evening))\b/.test(msg)) {
+        return { text: "Hi! I can answer questions about our programmes, fees, free courses, careers and contact details. Try one of the buttons below, or ask your question." };
+      }
+      try { if (!KB) KB = await fetch(R + "assets/knowledge_qa.json").then(r => r.json()); } catch { KB = []; }
+      let top = null, sc = 0;
+      KB.forEach(r => { if (r.topic === "Fallback") return; const v = scoreRow(r, msg); if (v > sc) { sc = v; top = r; } });
+      if (top && sc >= 3) {
+        let text = top.answer;
+        if (top.confirm) text += "\n\nWe are confirming this detail. Our team will reply with the latest information.";
+        return { text, link: top.link, linkText: "Open the page" };
+      }
+      return { text: "I don't have that information yet. Our team is happy to help. Use the links below, or ask your question on WhatsApp.", link: "" };
+    }
     let busy = false;
     async function send(text) {
       text = text.trim(); if (!text || busy) return; busy = true; inp.value = "";
@@ -305,7 +327,13 @@
       } catch {}
       typing.remove();
       if (reply) { add("assistant", reply); hist.push({ role: "assistant", content: reply.slice(0, 4000) }); }
-      else { hist.pop(); const f = local(text); add("assistant", f ? f + "\n\nFor anything else, our team is happy to help:" : "I can't answer that right now. Our team is happy to help:"); helpLinks(); }
+      else {
+        hist.pop();
+        const ans = await answerFromKnowledge(text);
+        add("assistant", ans.text);
+        if (ans.link) add("assistant", "Open the page: " + ans.link);
+        helpLinks();
+      }
       store.sset("chat", JSON.stringify(hist)); busy = false; inp.focus();
     }
     fab.addEventListener("click", () => { box.classList.add("open"); fab.hidden = true; if (!body.children.length) start(); inp.focus(); });
