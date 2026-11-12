@@ -7,7 +7,8 @@
 const message = String(($input.first().json.message ?? $input.first().json.text ?? "")).toLowerCase().trim();
 const rows = $input.all().map(i => i.json).filter(r => r.question && r.answer);
 
-const words = s => s.toLowerCase().split(/[^a-z0-9₹$]+/).filter(w => w.length > 2);
+const norm = w => (w.length > 3 && w.endsWith("s") && !w.endsWith("ss") ? w.slice(0, -1) : w);
+const words = s => s.toLowerCase().split(/[^a-z0-9₹$]+/).filter(w => w.length > 2).map(norm);
 const msgWords = new Set(words(message));
 
 function score(row) {

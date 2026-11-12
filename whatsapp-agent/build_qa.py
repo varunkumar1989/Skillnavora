@@ -37,6 +37,23 @@ for c in cfg["COURSES"]:
     add("Schedule", f"start date,cohort,when does it start,batch,{short[k]}", f"When does the {n} cohort start?",
         "Start dates are not published on the website yet. A counsellor will share the next cohort date.", u, "CONFIRM: no cohort date published")
 
+# Overviews: broad questions such as "what does this programme offer" (placed before the detailed rows)
+for c in cfg["COURSES"]:
+    k, u = c["id"], page.get(c["id"], BASE)
+    n = c["name"]
+    add("Overview", f"offer,offers,offering,what does,what do i get,overview,benefit,what is in,{short[k]}",
+        f"What does the {n} programme offer?",
+        f"{n}: {c['tagline']}. Duration {c['duration']}, {c['format'].lower()}. Fee {c['fee']} (about {c['feeINR']} in INR), which includes {c['feeNote'].replace('Includes ', '').rstrip('.')}. Highlights: {'; '.join(c['highlights'])}.", u)
+add("Overview", "about skillnavora,what is skillnavora,who are you,what do you offer,overview", "What does SkillNavora offer?",
+    f"{cfg['SITE']['name']} runs live, AI-first programmes in product management, data engineering and generative AI, with recordings, hands-on projects, capstones, mock tests and career guidance (not job placement). Several free resources are also available: lessons, PDFs, practice tests and free workshops.", BASE)
+add("Instructors", "instructor,instructors,teacher,teachers,trainer,faculty,mentor,mentors,who teaches,who will teach",
+    "Who teaches the programmes and who are the mentors?",
+    "Live classes are taught by instructors, and you can ask them questions during live classes, in 1:1 mentorship, and through the learning system. The AI-First Product Management programme includes a monthly 1:1 counselling session with a CEO or Head of Product.", f"{BASE}/programs.html",
+    "CONFIRM: owner to confirm the instructor and mentor line-up before listing names")
+
+add("Certificate", "certificate,certificates,certification,completion,diploma,proof of completion", "Do I get a certificate?",
+    "Yes. You get a certificate when you complete the programme and the capstone.", f"{BASE}/programs.html")
+
 # Offers and scholarships
 for o in cfg["OFFERS"]["items"]:
     add("Offers", "scholarship,discount,offer,student,concession,reduced fee,free seat",

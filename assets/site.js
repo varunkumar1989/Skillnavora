@@ -306,7 +306,8 @@ ${T.map(([h, i, n, s]) => `<a class="t" href="${R + h}"><span>${i}</span><span><
   /* Instant answers from the same knowledge base the WhatsApp agent uses (assets/knowledge_qa.json). */
   let KB = null;
   const ans = box.querySelector("#askai-ans");
-  const words = t => String(t).toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 2);
+  const norm = w => (w.length > 3 && w.endsWith("s") && !w.endsWith("ss") ? w.slice(0, -1) : w);
+  const words = t => String(t).toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 2).map(norm);
   function score(row, msg) {
     let n = 0;
     String(row.keywords || "").split(/[,|]/).map(p => p.trim().toLowerCase()).filter(p => p.length >= 3).forEach(p => { if (msg.indexOf(p) > -1) n += 3; });
