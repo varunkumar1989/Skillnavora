@@ -42,6 +42,7 @@
 | 3 | 3.3 | The Data-Insight-Question (DIQ) outreach script and Loom hooks | 24:45–26:14 |
 | 4 | 4.1 | The agency versus full-time hire cost arbitrage frame | 28:22–29:09 |
 | 4 | 4.2 | Running frictionless problem-led discovery calls | 29:09–30:00 |
+| 5 | 5.1–5.7 | Making money with AI and sub-agents: services, build plan, safety rules and a practice project | Not in the video (added from the course outline) |
 | – | Capstone | Sprint: a sample prospect landing page and a 50-contact campaign | – |
 
 Chapter 2.2 is not in the outline you supplied; the video covers it (offer, samples and booking link), so it has been added to keep the Module 2 sequence complete.
@@ -511,6 +512,87 @@ Chapter 2.2 is not in the outline you supplied; the video covers it (offer, samp
 
 ---
 
+## Module 5: Making Money with AI and Sub-Agents
+
+**Who this is for:** people who already have one of the services from Modules 1 to 4, or a skill they want to sell, and want to deliver it faster with AI agents.
+
+**Time:** about 2 hours to read and plan, then one weekend to build the pilot.
+
+### 5.1 The idea in one picture
+
+A **main agent** takes the client's request, breaks it into parts, and hands each part to a **sub-agent** that does one job well. The main agent then checks the results and sends a draft to you. You stay responsible for the final work.
+
+```
+Client request
+   |
+Main agent (plans, tracks the job, decides what to check)
+   |-- Research sub-agent  -> facts, prospects, sources
+   |-- Draft sub-agent     -> first version of the deliverable
+   |-- Check sub-agent     -> looks for missing facts, unsupported claims, broken links
+   |
+You review and approve  ->  delivered to the client
+```
+
+**Why this helps:** each sub-agent gets a small, clear task, so it makes fewer mistakes than one agent asked to do everything. The check step catches errors before a client sees them. **[General]**
+
+### 5.2 Three terms, in plain words
+
+- **Agent:** an AI that works toward a goal, using tools such as a browser, a spreadsheet or an email draft.
+- **Sub-agent:** a small agent with one job, started by a main agent. It returns its result to the main agent.
+- **Human-in-the-loop:** a point where a person must approve before the work moves on. Use it before anything is sent, paid or published. **[General]**
+
+### 5.3 Services you can sell with this setup
+
+| Service | What the agents do | What you check |
+|---|---|---|
+| Prospect research list | Finds companies that match an ideal-customer profile, with a source for each signal | Every source link opens and supports the signal |
+| Content repurposing | Turns one long video or article into posts, a newsletter and a short script | Facts, tone and client approval |
+| Weekly report automation | Collects numbers from a spreadsheet, drafts the report and flags unusual changes | Numbers reconcile with the source |
+| Admin and inbox triage | Sorts enquiries, drafts replies and creates tasks | Nothing is sent without approval |
+| Landing page for a prospect | Drafts the copy and layout from the prospect's public information | Claims are true and labelled as a sample if not for a live client |
+
+Start with one service, and only one, until you have delivered it three times.
+
+### 5.4 A simple build plan
+
+1. **Write the job card.** One sentence for the client's goal, the inputs you need, and the output format.
+2. **Do the job by hand once.** Write down each step and each decision. This becomes the agent's instructions.
+3. **Split the steps.** Give each sub-agent one step, with its own instructions and one example of good output.
+4. **Add the check step.** Make it look for missing sources, unsupported numbers and promises you cannot keep.
+5. **Add the approval step.** Nothing leaves your desk until you approve it.
+6. **Run three real jobs.** Track time spent, errors found and the client's feedback.
+7. **Adjust the instructions, then price the service.** Use what you learned to set a fixed price for the next client.
+
+Tools you can use for the agent steps: an AI assistant with sub-agent support (for example Claude Code), a workflow tool such as n8n or Make, and a spreadsheet for tracking. Check each tool's current features and pricing before you commit. **[Check]**
+
+### 5.5 Safety and honesty rules (non-negotiable)
+
+- **Never let an agent send messages, pay invoices or publish content on its own.** A person approves every outgoing action.
+- **Never invent client results, testimonials or prices.** Label samples as samples.
+- **Keep client data private.** Remove personal data before it reaches any tool you have not checked for privacy terms.
+- **Tell clients when AI does part of the work, if your contract or their policy requires it.** **[General]**
+- **Do not promise income figures.** Earnings depend on your skill, market and effort. **[General]**
+
+### 5.6 Practice project (one weekend)
+
+Build a **prospect research pack** for one ideal customer profile:
+1. A main agent receives the profile and a list of 10 target companies.
+2. A research sub-agent collects one verified public signal per company, with a source link.
+3. A check sub-agent flags any signal without a working source.
+4. You review the list and remove weak items.
+5. Deliver a one-page summary and the 10 verified rows.
+
+**Success test:** every row has a source that opens, and you can explain each signal in one sentence.
+
+### 5.7 Checklist before you start selling
+
+- [ ] One service chosen, with a clear client outcome
+- [ ] Steps written down and split between sub-agents
+- [ ] Check step and human approval step in place
+- [ ] Three test jobs completed and reviewed
+- [ ] Privacy and disclosure rules written into your client terms
+- [ ] Price set from your time and the client's alternative (see Module 4) **[Check]**
+
 ## Capstone Sprint: Prospect Landing Page and 50-Contact Campaign
 
 **Duration:** one weekend to build, then 30 days of outreach.
@@ -592,8 +674,9 @@ Chapter 2.2 is not in the outline you supplied; the video covers it (offer, samp
 | **Trigger** | A specific event that makes outreach timely. |
 | **Unit economics** | The revenue and cost of delivering one unit of service. |
 | **Variation (ad)** | A version of an ad tested alongside others. |
-
----
+| **Sub-agent** | A small AI agent with one job, started by a main agent that uses its result. |
+| **Main agent** | The agent that plans a job, hands out sub-tasks and checks the results. |
+| **Human-in-the-loop** | A step where a person approves before anything is sent, paid or published. |
 
 ## Learning tools and links
 
