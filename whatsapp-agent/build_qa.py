@@ -120,6 +120,12 @@ add("Contact", "address,office,location", "Where is SkillNavora located?", "The 
 add("Contact", "social,instagram,youtube,linkedin,twitter,facebook", "What are your social media links?",
     f"Instagram: {s['instagram']}. YouTube: {s['youtube']}. LinkedIn: {s['linkedin']}. X: {s['twitter']}. Facebook: {s['facebook']}.", BASE)
 
+# Vaitis free AI library
+add("Free courses", "vaitis,b100x,ai tools,ai tool,tools list,ai library,which ai tool,best ai tools,free ai tools,ai tools for,prompts,workflows,step by step guide,guides",
+    "Where can I find AI tools, prompts and step-by-step AI guides?",
+    "Vaitis (B100x with AI) is SkillNavora's free AI library: 763 AI tools in 26 categories with pricing, plus 25 step-by-step guides with ready-to-copy prompts and commands (AI sales agent, Instagram manager, resume panel, scraping dashboards, free AI routers and more). Sign up free once to open it.",
+    f"{BASE}/vaitis.html")
+
 # Small talk: thanks and goodbye
 add("Thanks", "thanks,thank you,thank u,thankyou,thx,ty,ok thanks,okay thanks,bye,goodbye,see you",
     "Thank you", "You're welcome! 😊 If anything else comes up, just message here. You can also book a free counselling call whenever you're ready.", f"{BASE}/contact.html")

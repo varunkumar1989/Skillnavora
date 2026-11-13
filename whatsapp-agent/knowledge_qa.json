@@ -694,6 +694,15 @@
  },
  {
   "id": 78,
+  "topic": "Free courses",
+  "keywords": "vaitis,b100x,ai tools,ai tool,tools list,ai library,which ai tool,best ai tools,free ai tools,ai tools for,prompts,workflows,step by step guide,guides",
+  "question": "Where can I find AI tools, prompts and step-by-step AI guides?",
+  "answer": "Vaitis (B100x with AI) is SkillNavora's free AI library: 763 AI tools in 26 categories with pricing, plus 25 step-by-step guides with ready-to-copy prompts and commands (AI sales agent, Instagram manager, resume panel, scraping dashboards, free AI routers and more). Sign up free once to open it.",
+  "link": "https://www.skillnavora.in/vaitis.html",
+  "confirm": ""
+ },
+ {
+  "id": 79,
   "topic": "Thanks",
   "keywords": "thanks,thank you,thank u,thankyou,thx,ty,ok thanks,okay thanks,bye,goodbye,see you",
   "question": "Thank you",
@@ -702,7 +711,7 @@
   "confirm": ""
  },
  {
-  "id": 79,
+  "id": 80,
   "topic": "Fallback",
   "keywords": "",
   "question": "Anything else",

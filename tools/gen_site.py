@@ -182,6 +182,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
                + item("ai.html", "AI Studio", "AI tutor, PRD writer, speaking coach and practice, free", aipages.AI_NAV[0][3])
                + item("ai-academy.html", "AI Courses", "Every AI skills course: models and agents, Grokbot, context and evals, Lovable, tool tutorials", aipages.AI_NAV[1][3])
                + item("resources.html", "Free Resources", "Programmes, tools, context engineering, evals, LLMs and RAG", _RI)
+               + item("vaitis.html", "Vaitis AI Library", "B100x with AI: 763 AI tools and 25 step-by-step guides, free", '<path d="M4 19.5V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14.5"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20V17H6.5A2.5 2.5 0 0 0 4 19.5z"/><path d="M9 7h6M9 11h4"/>')
                + item("practice-hub.html", "Interview Prep", "Interview questions, practice tests and quizzes", _PR_IC)
                + item(*U["events.html"]))
     on = lambda group: " on" if active in group else ""
@@ -1421,6 +1422,10 @@ import apis_lesson as _apis
 page("apis-for-pms.html", "APIs for Product Managers: requests, methods, status codes and JSON · SkillNavora",
      "A plain-language lesson on APIs for product managers: what an API is, HTTP methods, status codes, endpoints, query parameters and JSON, with a worked order example and practice.",
      uhero("Foundations · Technical", 'APIs for <span class="g">Product Managers</span>', "How requests, methods, status codes, endpoints and JSON fit together, using an order as the running example. No coding needed.") + _apis.body(), "programme-pm.html")
+import vaitis_page as _vx
+page("vaitis.html", "Vaitis: B100x with AI, the free AI library · SkillNavora",
+     "Vaitis by SkillNavora: a free AI library with 25 step-by-step guides (prompts, commands and links) and 763 AI tools in 26 categories with pricing. Sign up free to open it.",
+     '<link rel="stylesheet" href="{r}assets/vaitis.css">'.replace("{r}", "") + _vx.body(), "vaitis.html", scripts='<script src="{r}assets/vaitis.js"></script>')
 page("ai-models-guide.html", "AI Models and Platforms: the complete guide · SkillNavora", "The complete guide to AI models and platforms: LLM basics, tokens and context, the Grok family (including Grok Bot, image generation and coding), ChatGPT, Claude, Gemini, Lovable and app builders, and how to choose.", _gs.body("AI-Models-and-Agents-Guide/ai-models-guide.md", "Model names, features, limits and prices change often. Check each one on the official page before you rely on it.", title="AI Models and Platforms"), "ai-academy.html")
 page("ai-agents-guide.html", "How AI Agents Work: single agents, multi-agent systems, context and evals · SkillNavora", "How AI agents work step by step, how people build them at three levels, how multi-agent systems are organised, and how context engineering and evals keep them reliable.", _gs.body("AI-Models-and-Agents-Guide/ai-agents-guide.md", "Agent products change quickly. The patterns in this guide are stable; check product features on their official pages.", title="How AI Agents Work"), "ai-academy.html")
 page("make-money-course.html", "Make Money with AI: from zero to your first paying client · SkillNavora", "A part-time guide to finding, pitching and closing a first AI service client: offer selection, a credibility stack, signal-based outreach, discovery calls, a capstone and a glossary.", _mm.body(), "learning-platform.html")

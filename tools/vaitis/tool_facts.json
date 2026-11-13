@@ -1,0 +1,7632 @@
+[
+{
+"id": "10web",
+"name": "10Web",
+"category": "No-Code & App Builders",
+"tag": "AI WordPress builder",
+"pricing": "Free plan available",
+"url": "https://10web.io",
+"domain": "10web.io",
+"free": "freemium"
+},
+{
+"id": "1of10",
+"name": "1of10",
+"category": "Marketing & Sales",
+"tag": "YouTube thumbnails",
+"pricing": "Paid plans",
+"url": "https://1of10.com",
+"domain": "1of10.com",
+"free": "paid"
+},
+{
+"id": "a2e-ai-videos",
+"name": "A2E AI Videos",
+"category": "Video Generation",
+"tag": "Avatars and lip sync",
+"pricing": "Free plan available",
+"url": "https://video.a2e.ai",
+"domain": "video.a2e.ai",
+"free": "freemium"
+},
+{
+"id": "adalo",
+"name": "Adalo",
+"category": "No-Code & App Builders",
+"tag": "No-code mobile apps",
+"pricing": "Free plan available",
+"url": "https://adalo.com",
+"domain": "adalo.com",
+"free": "freemium"
+},
+{
+"id": "adapt",
+"name": "Adapt",
+"category": "AI Agents & Automation",
+"tag": "AI agent in Slack",
+"pricing": "Free plan available",
+"url": "https://adapt.com/",
+"domain": "adapt.com",
+"free": "freemium"
+},
+{
+"id": "adcreative-ai",
+"name": "AdCreative.ai",
+"category": "Advertising",
+"tag": "Ad creatives",
+"pricing": "Paid plans",
+"url": "https://adcreative.ai",
+"domain": "adcreative.ai",
+"free": "paid"
+},
+{
+"id": "adgpt",
+"name": "AdGPT",
+"category": "Advertising",
+"tag": "Campaigns from a link",
+"pricing": "Paid plans",
+"url": "https://adgpt.com",
+"domain": "adgpt.com",
+"free": "paid"
+},
+{
+"id": "adobe-express",
+"name": "Adobe Express",
+"category": "Design & Creative",
+"tag": "Quick designs",
+"pricing": "Free plan available",
+"url": "https://adobe.com",
+"domain": "adobe.com",
+"free": "freemium"
+},
+{
+"id": "adobe-firefly-ai-background-remover",
+"name": "Adobe Firefly AI Background Remover",
+"category": "Image Editing",
+"tag": "Background removal",
+"pricing": "Free plan available",
+"url": "https://www.adobe.com/products/firefly/features/remove-background.html",
+"domain": "adobe.com",
+"free": "freemium"
+},
+{
+"id": "adobe-podcast",
+"name": "Adobe Podcast",
+"category": "Audio, Voice & Music",
+"tag": "Studio-quality audio",
+"pricing": "Free plan available",
+"url": "https://podcast.adobe.com",
+"domain": "podcast.adobe.com",
+"free": "freemium"
+},
+{
+"id": "adsturbo",
+"name": "AdsTurbo",
+"category": "Advertising",
+"tag": "AI video ads",
+"pricing": "Paid plans",
+"url": "https://adsturbo.ai/",
+"domain": "adsturbo.ai",
+"free": "paid"
+},
+{
+"id": "agent-opus",
+"name": "Agent Opus",
+"category": "Video Generation",
+"tag": "Prompt to finished video",
+"pricing": "Free plan available",
+"url": "https://agent.opus.pro",
+"domain": "agent.opus.pro",
+"free": "freemium"
+},
+{
+"id": "agentik",
+"name": "Agentik",
+"category": "AI Agents & Automation",
+"tag": "Tools for AI assistants",
+"pricing": "Free plan available",
+"url": "https://www.agentik.cc/",
+"domain": "agentik.cc",
+"free": "freemium"
+},
+{
+"id": "ai-aware",
+"name": "AI Aware",
+"category": "AI Detection & Humanisers",
+"tag": "Multi-format AI detection",
+"pricing": "Free plan available",
+"url": "https://aiaware.io/",
+"domain": "aiaware.io",
+"free": "freemium"
+},
+{
+"id": "ai-baby-generator",
+"name": "AI Baby Generator",
+"category": "Image Generation",
+"tag": "Baby face predictor",
+"pricing": "Paid plans",
+"url": "https://aibabygenerator.ai/",
+"domain": "aibabygenerator.ai",
+"free": "paid"
+},
+{
+"id": "ai-detector",
+"name": "AI Detector",
+"category": "AI Detection & Humanisers",
+"tag": "AI text checker",
+"pricing": "Free plan available",
+"url": "https://edubrain.ai/ai-detector/",
+"domain": "edubrain.ai",
+"free": "freemium"
+},
+{
+"id": "ai-detector-pro",
+"name": "AI Detector Pro",
+"category": "AI Detection & Humanisers",
+"tag": "AI content detector",
+"pricing": "Free",
+"url": "https://moxby.com",
+"domain": "moxby.com",
+"free": "free"
+},
+{
+"id": "ai-fiesta",
+"name": "AI Fiesta",
+"category": "Chatbots & Assistants",
+"tag": "Many models, one chat",
+"pricing": "Paid plans",
+"url": "https://aifiesta.ai",
+"domain": "aifiesta.ai",
+"free": "paid"
+},
+{
+"id": "ai-flashcard-maker",
+"name": "AI Flashcard Maker",
+"category": "Education & Learning",
+"tag": "Flashcards from content",
+"pricing": "Free plan available",
+"url": "https://coursebox.ai",
+"domain": "coursebox.ai",
+"free": "freemium"
+},
+{
+"id": "ai-lawyer",
+"name": "AI Lawyer",
+"category": "Productivity & Notes",
+"tag": "Legal help",
+"pricing": "Paid plans",
+"url": "https://ailawyer.pro",
+"domain": "ailawyer.pro",
+"free": "paid"
+},
+{
+"id": "ai-logo-maker",
+"name": "AI Logo Maker",
+"category": "Design & Creative",
+"tag": "Free logos",
+"pricing": "Free",
+"url": "https://logomaker.design/",
+"domain": "logomaker.design",
+"free": "free"
+},
+{
+"id": "ai-overview-optimizer",
+"name": "AI Overview Optimizer",
+"category": "SEO & AI Search",
+"tag": "Get cited by AI search",
+"pricing": "Free plan available",
+"url": "https://overviewoptimizer.com/",
+"domain": "overviewoptimizer.com",
+"free": "freemium"
+},
+{
+"id": "ai-quiz-generator",
+"name": "AI Quiz Generator",
+"category": "Education & Learning",
+"tag": "Quizzes from content",
+"pricing": "Free plan available",
+"url": "https://coursebox.ai",
+"domain": "coursebox.ai",
+"free": "freemium"
+},
+{
+"id": "ai-room-planner",
+"name": "AI Room Planner",
+"category": "Design & Creative",
+"tag": "Interior design ideas",
+"pricing": "Free",
+"url": "https://airoomplanner.com/",
+"domain": "airoomplanner.com",
+"free": "free"
+},
+{
+"id": "ai-search-watcher",
+"name": "AI Search Watcher",
+"category": "SEO & AI Search",
+"tag": "AI search tracking",
+"pricing": "Paid plans",
+"url": "https://mangools.com",
+"domain": "mangools.com",
+"free": "paid"
+},
+{
+"id": "ai-song-creator",
+"name": "AI Song Creator",
+"category": "Audio, Voice & Music",
+"tag": "Long AI songs",
+"pricing": "Free plan available",
+"url": "https://aisongcreator.app",
+"domain": "aisongcreator.app",
+"free": "freemium"
+},
+{
+"id": "ai-song-maker",
+"name": "AI Song Maker",
+"category": "Audio, Voice & Music",
+"tag": "Songs with vocals",
+"pricing": "Free plan available",
+"url": "https://www.aisongmaker.io/",
+"domain": "aisongmaker.io",
+"free": "freemium"
+},
+{
+"id": "ai-training-video-generator",
+"name": "Ai Training Video Generator",
+"category": "Video Generation",
+"tag": "Training videos",
+"pricing": "Free plan available",
+"url": "https://coursebox.ai",
+"domain": "coursebox.ai",
+"free": "freemium"
+},
+{
+"id": "ai-video-summarizer",
+"name": "AI Video Summarizer",
+"category": "Meetings & Transcription",
+"tag": "Video summaries",
+"pricing": "Free",
+"url": "https://aivideosummarizer.io/",
+"domain": "aivideosummarizer.io",
+"free": "free"
+},
+{
+"id": "ai-voice-detector",
+"name": "AI Voice Detector",
+"category": "AI Detection & Humanisers",
+"tag": "Fake voice detection",
+"pricing": "Paid plans",
+"url": "https://aivoicedetector.com/",
+"domain": "aivoicedetector.com",
+"free": "paid"
+},
+{
+"id": "ai-website-builder",
+"name": "AI website builder",
+"category": "No-Code & App Builders",
+"tag": "Website builder",
+"pricing": "Paid plans",
+"url": "https://hostinger.com",
+"domain": "hostinger.com",
+"free": "paid"
+},
+{
+"id": "aiapply",
+"name": "aiApply",
+"category": "Careers & Recruiting",
+"tag": "Job search on autopilot",
+"pricing": "Free plan available",
+"url": "https://aiapply.co",
+"domain": "aiapply.co",
+"free": "freemium"
+},
+{
+"id": "aiassistworks",
+"name": "AiAssistWorks",
+"category": "Productivity & Notes",
+"tag": "AI in Google Workspace",
+"pricing": "Free plan available",
+"url": "https://aiassistworks.com",
+"domain": "aiassistworks.com",
+"free": "freemium"
+},
+{
+"id": "aicarousels",
+"name": "aiCarousels",
+"category": "Writing & Copywriting",
+"tag": "Carousel posts",
+"pricing": "Paid plans",
+"url": "https://aicarousels.com",
+"domain": "aicarousels.com",
+"free": "paid"
+},
+{
+"id": "aimey",
+"name": "AIMEY",
+"category": "Advertising",
+"tag": "Google Ads agent",
+"pricing": "Paid plans",
+"url": "https://aimey.bot",
+"domain": "aimey.bot",
+"free": "paid"
+},
+{
+"id": "aimreply",
+"name": "AimReply",
+"category": "Marketing & Sales",
+"tag": "Email replies",
+"pricing": "Paid plans",
+"url": "https://aimreply.com/",
+"domain": "aimreply.com",
+"free": "paid"
+},
+{
+"id": "aiprm",
+"name": "AIPRM",
+"category": "SEO & AI Search",
+"tag": "Prompt library for SEO",
+"pricing": "Free",
+"url": "https://www.aiprm.com/",
+"domain": "aiprm.com",
+"free": "free"
+},
+{
+"id": "airbrush-image-enhancer",
+"name": "Airbrush Image Enhancer",
+"category": "Image Editing",
+"tag": "Photo enhancer",
+"pricing": "Free plan available",
+"url": "https://airbrush.com/image-enhancer",
+"domain": "airbrush.com",
+"free": "freemium"
+},
+{
+"id": "aircall",
+"name": "Aircall",
+"category": "AI Agents & Automation",
+"tag": "AI phone system",
+"pricing": "Paid plans",
+"url": "https://aircall.io",
+"domain": "aircall.io",
+"free": "paid"
+},
+{
+"id": "aircube",
+"name": "AirCube",
+"category": "Coding & Development",
+"tag": "Media generation API",
+"pricing": "Paid plans",
+"url": "https://aircube.ai",
+"domain": "aircube.ai",
+"free": "paid"
+},
+{
+"id": "airmusic",
+"name": "AirMusic",
+"category": "Audio, Voice & Music",
+"tag": "Music generator",
+"pricing": "Free plan available",
+"url": "https://airmusic.ai/",
+"domain": "airmusic.ai",
+"free": "freemium"
+},
+{
+"id": "aiseo",
+"name": "AISEO",
+"category": "Writing & Copywriting",
+"tag": "SEO writing",
+"pricing": "Paid plans",
+"url": "https://genjutsu.si",
+"domain": "genjutsu.si",
+"free": "paid"
+},
+{
+"id": "aiwriter",
+"name": "AIWriter",
+"category": "Writing & Copywriting",
+"tag": "Creative writing",
+"pricing": "Free plan available",
+"url": "https://aiwriter.ai",
+"domain": "aiwriter.ai",
+"free": "freemium"
+},
+{
+"id": "aizolo",
+"name": "AiZolo",
+"category": "Productivity & Notes",
+"tag": "All-in-one AI subscription",
+"pricing": "Free plan available",
+"url": "https://aizolo.com/",
+"domain": "aizolo.com",
+"free": "freemium"
+},
+{
+"id": "akool-ai",
+"name": "AKOOL AI",
+"category": "Video Generation",
+"tag": "Avatars and translation",
+"pricing": "Free plan available",
+"url": "https://akool.com",
+"domain": "akool.com",
+"free": "freemium"
+},
+{
+"id": "alphana",
+"name": "Alphana",
+"category": "Marketing & Sales",
+"tag": "Repurpose content",
+"pricing": "Paid plans",
+"url": "https://visuals.fm",
+"domain": "visuals.fm",
+"free": "paid"
+},
+{
+"id": "anara",
+"name": "Anara",
+"category": "Education & Learning",
+"tag": "Research workspace",
+"pricing": "Free plan available",
+"url": "https://anara.com",
+"domain": "anara.com",
+"free": "freemium"
+},
+{
+"id": "angie",
+"name": "Angie",
+"category": "AI Agents & Automation",
+"tag": "WordPress automation",
+"pricing": "Free plan available",
+"url": "https://be.elementor.com/visit/",
+"domain": "be.elementor.com",
+"free": "freemium"
+},
+{
+"id": "animegenius",
+"name": "AnimeGenius",
+"category": "Image Generation",
+"tag": "Anime art",
+"pricing": "Free plan available",
+"url": "https://animegenius.live3d.io",
+"domain": "animegenius.live3d.io",
+"free": "freemium"
+},
+{
+"id": "ankidecks",
+"name": "AnkiDecks",
+"category": "Education & Learning",
+"tag": "Anki flashcards",
+"pricing": "Free plan available",
+"url": "https://anki-decks.com",
+"domain": "anki-decks.com",
+"free": "freemium"
+},
+{
+"id": "antigravity-cli",
+"name": "Antigravity CLI",
+"category": "Coding & Development",
+"tag": "Google’s coding agent",
+"pricing": "Free plan available",
+"url": "https://antigravity.google/product/antigravity-cli",
+"domain": "antigravity.google",
+"free": "freemium"
+},
+{
+"id": "anybiz",
+"name": "Anybiz",
+"category": "AI Agents & Automation",
+"tag": "AI sales reps",
+"pricing": "Paid plans",
+"url": "https://anybiz.io",
+"domain": "anybiz.io",
+"free": "paid"
+},
+{
+"id": "apeuni",
+"name": "APEUni",
+"category": "Education & Learning",
+"tag": "PTE exam practice",
+"pricing": "Free plan available",
+"url": "https://www.apeuni.com/",
+"domain": "apeuni.com",
+"free": "freemium"
+},
+{
+"id": "apify",
+"name": "Apify",
+"category": "Productivity & Notes",
+"tag": "Web data scraping",
+"pricing": "Free plan available",
+"url": "https://apify.com",
+"domain": "apify.com",
+"free": "freemium"
+},
+{
+"id": "apollo",
+"name": "Apollo",
+"category": "Marketing & Sales",
+"tag": "B2B prospecting",
+"pricing": "Free plan available",
+"url": "https://apollo.io",
+"domain": "apollo.io",
+"free": "freemium"
+},
+{
+"id": "appwizzy",
+"name": "AppWizzy",
+"category": "Coding & Development",
+"tag": "Full-stack app builder",
+"pricing": "Free plan available",
+"url": "https://appwizzy.com/",
+"domain": "appwizzy.com",
+"free": "freemium"
+},
+{
+"id": "aragon",
+"name": "Aragon",
+"category": "Social Media",
+"tag": "AI headshots",
+"pricing": "Paid plans",
+"url": "https://aragon.ai",
+"domain": "aragon.ai",
+"free": "paid"
+},
+{
+"id": "arcads",
+"name": "Arcads",
+"category": "Advertising",
+"tag": "UGC video ads",
+"pricing": "Free plan available",
+"url": "https://arcads.ai",
+"domain": "arcads.ai",
+"free": "freemium"
+},
+{
+"id": "arobis-ai-visibility-checker",
+"name": "Arobis AI Visibility Checker",
+"category": "SEO & AI Search",
+"tag": "AI visibility score",
+"pricing": "Free",
+"url": "https://tools.arobis.ai/ai-visibility-checker",
+"domain": "tools.arobis.ai",
+"free": "free"
+},
+{
+"id": "artflow",
+"name": "Artflow",
+"category": "Image Generation",
+"tag": "Your own digital actor",
+"pricing": "Free plan available",
+"url": "https://app.artflow.ai/",
+"domain": "app.artflow.ai",
+"free": "freemium"
+},
+{
+"id": "articos",
+"name": "Articos",
+"category": "Data & Analytics",
+"tag": "Synthetic user research",
+"pricing": "Free plan available",
+"url": "https://www.articos.com/",
+"domain": "articos.com",
+"free": "freemium"
+},
+{
+"id": "artlist",
+"name": "Artlist",
+"category": "Video Generation",
+"tag": "Stock plus AI",
+"pricing": "Free plan available",
+"url": "https://artlist.io",
+"domain": "artlist.io",
+"free": "freemium"
+},
+{
+"id": "artsmart-ai",
+"name": "Artsmart AI",
+"category": "Image Generation",
+"tag": "Image generator",
+"pricing": "Paid plans",
+"url": "https://artsmart.ai",
+"domain": "artsmart.ai",
+"free": "paid"
+},
+{
+"id": "artta-ai",
+"name": "Artta AI",
+"category": "Video Generation",
+"tag": "Creative dashboard",
+"pricing": "Free plan available",
+"url": "https://artta.ai/",
+"domain": "artta.ai",
+"free": "freemium"
+},
+{
+"id": "askairank",
+"name": "AskAiRank",
+"category": "SEO & AI Search",
+"tag": "AI mention tracking",
+"pricing": "Paid plans",
+"url": "https://askairank.com",
+"domain": "askairank.com",
+"free": "paid"
+},
+{
+"id": "askli",
+"name": "AskLi",
+"category": "Chatbots & Assistants",
+"tag": "Support chatbot",
+"pricing": "Free plan available",
+"url": "https://askli.co",
+"domain": "askli.co",
+"free": "freemium"
+},
+{
+"id": "asktutor",
+"name": "AskTutor",
+"category": "Education & Learning",
+"tag": "Step-by-step tutor",
+"pricing": "Free plan available",
+"url": "https://asktutor.ai/",
+"domain": "asktutor.ai",
+"free": "freemium"
+},
+{
+"id": "askyura",
+"name": "AskYura",
+"category": "AI Agents & Automation",
+"tag": "Agents that take action",
+"pricing": "Free plan available",
+"url": "https://askyura.com/",
+"domain": "askyura.com",
+"free": "freemium"
+},
+{
+"id": "atera-it-autopilot",
+"name": "Atera IT Autopilot",
+"category": "AI Agents & Automation",
+"tag": "IT helpdesk agent",
+"pricing": "Paid plans",
+"url": "https://www.atera.com/ai/autopilot/",
+"domain": "atera.com",
+"free": "paid"
+},
+{
+"id": "atomic-mail",
+"name": "Atomic Mail",
+"category": "Productivity & Notes",
+"tag": "Private email with AI",
+"pricing": "Free plan available",
+"url": "https://atomicmail.io/",
+"domain": "atomicmail.io",
+"free": "freemium"
+},
+{
+"id": "atoms",
+"name": "Atoms",
+"category": "No-Code & App Builders",
+"tag": "Apps from a description",
+"pricing": "Free plan available",
+"url": "https://atoms.dev/",
+"domain": "atoms.dev",
+"free": "freemium"
+},
+{
+"id": "atracker",
+"name": "Atracker",
+"category": "Advertising",
+"tag": "Ad campaign tracking",
+"pricing": "Paid plans",
+"url": "https://atracker.io/",
+"domain": "atracker.io",
+"free": "paid"
+},
+{
+"id": "audo",
+"name": "Audo",
+"category": "Audio, Voice & Music",
+"tag": "Audio clean-up",
+"pricing": "Free plan available",
+"url": "https://audo.ai/",
+"domain": "audo.ai",
+"free": "freemium"
+},
+{
+"id": "aura-ai",
+"name": "Aura AI",
+"category": "Image Generation",
+"tag": "Images, video and avatars",
+"pricing": "Paid plans",
+"url": "https://auraai.app",
+"domain": "auraai.app",
+"free": "paid"
+},
+{
+"id": "autoshorts",
+"name": "AutoShorts",
+"category": "Video Generation",
+"tag": "Faceless videos",
+"pricing": "Paid plans",
+"url": "https://autoshorts.ai",
+"domain": "autoshorts.ai",
+"free": "paid"
+},
+{
+"id": "b12",
+"name": "B12",
+"category": "No-Code & App Builders",
+"tag": "Websites for services",
+"pricing": "Free plan available",
+"url": "https://b12.io",
+"domain": "b12.io",
+"free": "freemium"
+},
+{
+"id": "banana-prompts",
+"name": "Banana Prompts",
+"category": "Image Generation",
+"tag": "Prompt library",
+"pricing": "Paid plans",
+"url": "https://bananaprompts.com/",
+"domain": "bananaprompts.com",
+"free": "paid"
+},
+{
+"id": "bannerbear",
+"name": "Bannerbear",
+"category": "Social Media",
+"tag": "Automated graphics",
+"pricing": "Paid plans",
+"url": "https://bannerbear.com",
+"domain": "bannerbear.com",
+"free": "paid"
+},
+{
+"id": "base44",
+"name": "BASE44",
+"category": "No-Code & App Builders",
+"tag": "Apps in plain English",
+"pricing": "Free plan available",
+"url": "https://base44.com",
+"domain": "base44.com",
+"free": "freemium"
+},
+{
+"id": "batchtable",
+"name": "BatchTable",
+"category": "AI Agents & Automation",
+"tag": "Image metadata",
+"pricing": "Paid plans",
+"url": "https://www.batchtable.com/",
+"domain": "batchtable.com",
+"free": "paid"
+},
+{
+"id": "beautiful-ai",
+"name": "Beautiful.ai",
+"category": "Presentations & Slides",
+"tag": "Smart slides",
+"pricing": "Paid plans",
+"url": "https://www.beautiful.ai/",
+"domain": "beautiful.ai",
+"free": "paid"
+},
+{
+"id": "beautyplus-ai-image-enhancer",
+"name": "BeautyPlus AI Image Enhancer",
+"category": "Image Editing",
+"tag": "Photo upscaler",
+"pricing": "Free plan available",
+"url": "https://www.beautyplus.com/image-enhancer",
+"domain": "beautyplus.com",
+"free": "freemium"
+},
+{
+"id": "beehiiv",
+"name": "beehiiv",
+"category": "Marketing & Sales",
+"tag": "Newsletter platform",
+"pricing": "Free plan available",
+"url": "https://beehiiv.com",
+"domain": "beehiiv.com",
+"free": "freemium"
+},
+{
+"id": "befreed",
+"name": "BeFreed",
+"category": "Education & Learning",
+"tag": "Audio learning",
+"pricing": "Paid plans",
+"url": "https://www.befreed.ai/",
+"domain": "befreed.ai",
+"free": "paid"
+},
+{
+"id": "betterpic",
+"name": "BetterPic",
+"category": "Image Generation",
+"tag": "Professional headshots",
+"pricing": "Paid plans",
+"url": "https://www.betterpic.io",
+"domain": "betterpic.io",
+"free": "paid"
+},
+{
+"id": "biread",
+"name": "Biread",
+"category": "Education & Learning",
+"tag": "Language learning",
+"pricing": "Free plan available",
+"url": "https://chromewebstore.google.com/detail/biread-website%E2%80%99s-parallel/mkbkgdiaaofcpbaicmdfbhmagihlmpef",
+"domain": "chromewebstore.google.com",
+"free": "freemium"
+},
+{
+"id": "bit-flows",
+"name": "Bit Flows",
+"category": "AI Agents & Automation",
+"tag": "WordPress AI agents",
+"pricing": "Free plan available",
+"url": "https://bit-flows.com",
+"domain": "bit-flows.com",
+"free": "freemium"
+},
+{
+"id": "bitterbot-ai",
+"name": "Bitterbot AI",
+"category": "Chatbots & Assistants",
+"tag": "Autonomous agent",
+"pricing": "Free",
+"url": "https://bitterbot.ai/",
+"domain": "bitterbot.ai",
+"free": "free"
+},
+{
+"id": "blabbyai",
+"name": "BlabbyAI",
+"category": "Productivity & Notes",
+"tag": "Voice typing",
+"pricing": "Free plan available",
+"url": "https://www.blabby.ai/",
+"domain": "blabby.ai",
+"free": "freemium"
+},
+{
+"id": "blackbox-ai",
+"name": "Blackbox AI",
+"category": "Coding & Development",
+"tag": "Coding assistant",
+"pricing": "Paid plans",
+"url": "https://www.blackbox.ai/",
+"domain": "blackbox.ai",
+"free": "paid"
+},
+{
+"id": "blaze",
+"name": "Blaze",
+"category": "Marketing & Sales",
+"tag": "Small business marketing",
+"pricing": "Paid plans",
+"url": "https://blaze.ai",
+"domain": "blaze.ai",
+"free": "paid"
+},
+{
+"id": "blitz-rocket",
+"name": "Blitz Rocket",
+"category": "Marketing & Sales",
+"tag": "Contests and referrals",
+"pricing": "Free plan available",
+"url": "https://blitzrocket.com",
+"domain": "blitzrocket.com",
+"free": "freemium"
+},
+{
+"id": "blotato",
+"name": "Blotato",
+"category": "Social Media",
+"tag": "Content to social posts",
+"pricing": "Paid plans",
+"url": "https://blotato.com",
+"domain": "blotato.com",
+"free": "paid"
+},
+{
+"id": "bookscribi",
+"name": "BookScribi",
+"category": "Writing & Copywriting",
+"tag": "Books with AI",
+"pricing": "Free plan available",
+"url": "https://bookscribi.com/",
+"domain": "bookscribi.com",
+"free": "freemium"
+},
+{
+"id": "botpenguin",
+"name": "BotPenguin",
+"category": "Chatbots & Assistants",
+"tag": "No-code chatbots",
+"pricing": "Free plan available",
+"url": "https://botpenguin.com/",
+"domain": "botpenguin.com",
+"free": "freemium"
+},
+{
+"id": "brain-fm",
+"name": "Brain FM",
+"category": "Productivity & Notes",
+"tag": "Focus music",
+"pricing": "Paid plans",
+"url": "https://brain.fm",
+"domain": "brain.fm",
+"free": "paid"
+},
+{
+"id": "brand-butler",
+"name": "Brand Butler",
+"category": "Marketing & Sales",
+"tag": "AI branding team",
+"pricing": "Paid plans",
+"url": "https://brandbutler.ai",
+"domain": "brandbutler.ai",
+"free": "paid"
+},
+{
+"id": "brand24",
+"name": "Brand24",
+"category": "Social Media",
+"tag": "Brand monitoring",
+"pricing": "Paid plans",
+"url": "https://brand24.com",
+"domain": "brand24.com",
+"free": "paid"
+},
+{
+"id": "brilliant-directories",
+"name": "Brilliant Directories",
+"category": "No-Code & App Builders",
+"tag": "Directory websites",
+"pricing": "Paid plans",
+"url": "https://brilliantdirectories.com",
+"domain": "brilliantdirectories.com",
+"free": "paid"
+},
+{
+"id": "browse-ai",
+"name": "Browse AI",
+"category": "AI Agents & Automation",
+"tag": "No-code scraping",
+"pricing": "Free plan available",
+"url": "https://browse.ai",
+"domain": "browse.ai",
+"free": "freemium"
+},
+{
+"id": "brushless-ai",
+"name": "Brushless AI",
+"category": "Design & Creative",
+"tag": "Vector illustrations",
+"pricing": "Free plan available",
+"url": "https://www.brushless.ai/",
+"domain": "brushless.ai",
+"free": "freemium"
+},
+{
+"id": "bubble-ai",
+"name": "Bubble AI",
+"category": "No-Code & App Builders",
+"tag": "No-code web apps",
+"pricing": "Free plan available",
+"url": "https://bubble.io",
+"domain": "bubble.io",
+"free": "freemium"
+},
+{
+"id": "buzz",
+"name": "Buzz",
+"category": "AI Agents & Automation",
+"tag": "Agents in your workspace",
+"pricing": "Free",
+"url": "https://buzz.xyz/",
+"domain": "buzz.xyz",
+"free": "free"
+},
+{
+"id": "caimera",
+"name": "Caimera",
+"category": "Image Editing",
+"tag": "AI fashion models",
+"pricing": "Paid plans",
+"url": "https://www.caimera.ai/",
+"domain": "caimera.ai",
+"free": "paid"
+},
+{
+"id": "call24",
+"name": "Call24",
+"category": "AI Agents & Automation",
+"tag": "AI answering service",
+"pricing": "Paid plans",
+"url": "https://call24.us/",
+"domain": "call24.us",
+"free": "paid"
+},
+{
+"id": "camclo-ai",
+"name": "CamClo AI",
+"category": "E-commerce",
+"tag": "Fashion product visuals",
+"pricing": "Paid plans",
+"url": "https://camclo3d.com/",
+"domain": "camclo3d.com",
+"free": "paid"
+},
+{
+"id": "capcut",
+"name": "CapCut",
+"category": "Video Editing & Clips",
+"tag": "Video editor",
+"pricing": "Free plan available",
+"url": "https://capcut.com",
+"domain": "capcut.com",
+"free": "freemium"
+},
+{
+"id": "castmagic",
+"name": "Castmagic",
+"category": "Audio, Voice & Music",
+"tag": "Podcast repurposing",
+"pricing": "Paid plans",
+"url": "https://castmagic.io",
+"domain": "castmagic.io",
+"free": "paid"
+},
+{
+"id": "chai-ai",
+"name": "Chai AI",
+"category": "Chatbots & Assistants",
+"tag": "Character chat",
+"pricing": "Free plan available",
+"url": "https://www.chai-ai.com/",
+"domain": "chai-ai.com",
+"free": "freemium"
+},
+{
+"id": "chance-ai",
+"name": "Chance AI",
+"category": "Education & Learning",
+"tag": "Visual search",
+"pricing": "Free",
+"url": "https://www.chance.vision/",
+"domain": "chance.vision",
+"free": "free"
+},
+{
+"id": "chatcomparison-ai",
+"name": "ChatComparison.ai",
+"category": "Chatbots & Assistants",
+"tag": "Compare AI models",
+"pricing": "Free plan available",
+"url": "https://www.chatcomparison.ai/",
+"domain": "chatcomparison.ai",
+"free": "freemium"
+},
+{
+"id": "chattee",
+"name": "Chattee",
+"category": "No-Code & App Builders",
+"tag": "Web app builder",
+"pricing": "Paid plans",
+"url": "https://chattee.ai/",
+"domain": "chattee.ai",
+"free": "paid"
+},
+{
+"id": "cheatlayer",
+"name": "Cheatlayer",
+"category": "Productivity & Notes",
+"tag": "Business automation",
+"pricing": "Paid plans",
+"url": "https://cheatlayer.com",
+"domain": "cheatlayer.com",
+"free": "paid"
+},
+{
+"id": "circle",
+"name": "Circle",
+"category": "AI Agents & Automation",
+"tag": "Community platform",
+"pricing": "Paid plans",
+"url": "https://circle.so",
+"domain": "circle.so",
+"free": "paid"
+},
+{
+"id": "claimresolver",
+"name": "ClaimResolver",
+"category": "Productivity & Notes",
+"tag": "Dispute organiser",
+"pricing": "Free plan available",
+"url": "https://claimresolver.ai/",
+"domain": "claimresolver.ai",
+"free": "freemium"
+},
+{
+"id": "cleanvoice",
+"name": "Cleanvoice",
+"category": "Audio, Voice & Music",
+"tag": "Podcast editing",
+"pricing": "Paid plans",
+"url": "https://cleanvoice.ai/",
+"domain": "cleanvoice.ai",
+"free": "paid"
+},
+{
+"id": "clearcrm",
+"name": "ClearCRM",
+"category": "AI Agents & Automation",
+"tag": "Small business CRM",
+"pricing": "Free plan available",
+"url": "https://clearcrm.com",
+"domain": "clearcrm.com",
+"free": "freemium"
+},
+{
+"id": "clickrank",
+"name": "ClickRank",
+"category": "SEO & AI Search",
+"tag": "Automated SEO",
+"pricing": "Paid plans",
+"url": "https://clickrank.ai",
+"domain": "clickrank.ai",
+"free": "paid"
+},
+{
+"id": "clickup",
+"name": "ClickUp",
+"category": "Productivity & Notes",
+"tag": "Work management",
+"pricing": "Free plan available",
+"url": "https://clickup.com",
+"domain": "clickup.com",
+"free": "freemium"
+},
+{
+"id": "clico",
+"name": "Clico",
+"category": "Productivity & Notes",
+"tag": "AI in any text box",
+"pricing": "Free",
+"url": "https://tryclico.com",
+"domain": "tryclico.com",
+"free": "free"
+},
+{
+"id": "clideo",
+"name": "Clideo",
+"category": "Video Editing & Clips",
+"tag": "Online video tools",
+"pricing": "Free plan available",
+"url": "https://clideo.com/",
+"domain": "clideo.com",
+"free": "freemium"
+},
+{
+"id": "cline",
+"name": "Cline",
+"category": "Coding & Development",
+"tag": "Open-source coding agent",
+"pricing": "Free plan available",
+"url": "https://cline.bot/",
+"domain": "cline.bot",
+"free": "freemium"
+},
+{
+"id": "clipbuddy",
+"name": "ClipBuddy",
+"category": "Video Editing & Clips",
+"tag": "Clips from long videos",
+"pricing": "Paid plans",
+"url": "https://clipbuddy.io",
+"domain": "clipbuddy.io",
+"free": "paid"
+},
+{
+"id": "clipflare",
+"name": "ClipFlare",
+"category": "Video Editing & Clips",
+"tag": "Viral clips",
+"pricing": "Free plan available",
+"url": "https://clipflare.ai",
+"domain": "clipflare.ai",
+"free": "freemium"
+},
+{
+"id": "cliptalk",
+"name": "Cliptalk",
+"category": "Video Generation",
+"tag": "Script to video",
+"pricing": "Free plan available",
+"url": "https://www.cliptalk.pro",
+"domain": "cliptalk.pro",
+"free": "freemium"
+},
+{
+"id": "clockk",
+"name": "Clockk",
+"category": "Productivity & Notes",
+"tag": "Automatic time tracking",
+"pricing": "Paid plans",
+"url": "https://clockk.com/",
+"domain": "clockk.com",
+"free": "paid"
+},
+{
+"id": "cloneviral",
+"name": "CloneViral",
+"category": "Video Generation",
+"tag": "Text to full video",
+"pricing": "Paid plans",
+"url": "https://cloneviral.ai",
+"domain": "cloneviral.ai",
+"free": "paid"
+},
+{
+"id": "coach-call-ai",
+"name": "Coach Call AI",
+"category": "Productivity & Notes",
+"tag": "AI accountability coach",
+"pricing": "Paid plans",
+"url": "https://coachcall.ai/",
+"domain": "coachcall.ai",
+"free": "paid"
+},
+{
+"id": "coachvox",
+"name": "CoachVox",
+"category": "Marketing & Sales",
+"tag": "AI version of you",
+"pricing": "Free plan available",
+"url": "https://coachvox.ai",
+"domain": "coachvox.ai",
+"free": "freemium"
+},
+{
+"id": "coda-ai",
+"name": "Coda AI",
+"category": "Productivity & Notes",
+"tag": "Docs with AI",
+"pricing": "Free plan available",
+"url": "https://coda.io",
+"domain": "coda.io",
+"free": "freemium"
+},
+{
+"id": "codedesign",
+"name": "CodeDesign",
+"category": "No-Code & App Builders",
+"tag": "AI website builder",
+"pricing": "Free plan available",
+"url": "https://codedesign.ai",
+"domain": "codedesign.ai",
+"free": "freemium"
+},
+{
+"id": "coldiq",
+"name": "ColdIQ",
+"category": "Marketing & Sales",
+"tag": "Sales data for agents",
+"pricing": "Free plan available",
+"url": "https://coldiq.com/",
+"domain": "coldiq.com",
+"free": "freemium"
+},
+{
+"id": "columns-ai",
+"name": "Columns AI",
+"category": "Data & Analytics",
+"tag": "Data to reports",
+"pricing": "Free plan available",
+"url": "https://columns.ai",
+"domain": "columns.ai",
+"free": "freemium"
+},
+{
+"id": "cometapi",
+"name": "CometAPI",
+"category": "Coding & Development",
+"tag": "One API, many models",
+"pricing": "Free plan available",
+"url": "https://www.cometapi.com/",
+"domain": "cometapi.com",
+"free": "freemium"
+},
+{
+"id": "companyclaw",
+"name": "CompanyClaw",
+"category": "AI Agents & Automation",
+"tag": "AI operations assistant",
+"pricing": "Paid plans",
+"url": "https://companyclaw.ai",
+"domain": "companyclaw.ai",
+"free": "paid"
+},
+{
+"id": "contentbot",
+"name": "ContentBot",
+"category": "Writing & Copywriting",
+"tag": "Blog writing",
+"pricing": "Paid plans",
+"url": "https://contentbot.ai",
+"domain": "contentbot.ai",
+"free": "paid"
+},
+{
+"id": "contentstudio-ai",
+"name": "ContentStudio AI",
+"category": "Social Media",
+"tag": "Social media suite",
+"pricing": "Paid plans",
+"url": "https://contentstudio.io",
+"domain": "contentstudio.io",
+"free": "paid"
+},
+{
+"id": "context-dev",
+"name": "Context.dev",
+"category": "Coding & Development",
+"tag": "Web data for agents",
+"pricing": "Free plan available",
+"url": "https://context.dev",
+"domain": "context.dev",
+"free": "freemium"
+},
+{
+"id": "controltheroom",
+"name": "ControlTheRoom",
+"category": "Marketing & Sales",
+"tag": "Sales meeting prep",
+"pricing": "Paid plans",
+"url": "https://controltheroom.ai/",
+"domain": "controltheroom.ai",
+"free": "paid"
+},
+{
+"id": "copyspace",
+"name": "CopySpace",
+"category": "Writing & Copywriting",
+"tag": "Marketing copy",
+"pricing": "Paid plans",
+"url": "https://copyspace.ai",
+"domain": "copyspace.ai",
+"free": "paid"
+},
+{
+"id": "cortex",
+"name": "Cortex",
+"category": "SEO & AI Search",
+"tag": "Search and ads optimisation",
+"pricing": "Paid plans",
+"url": "https://www.capconvert.com/cortex",
+"domain": "capconvert.com",
+"free": "paid"
+},
+{
+"id": "cosupport-ai",
+"name": "CoSupport AI",
+"category": "AI Agents & Automation",
+"tag": "Support automation",
+"pricing": "Paid plans",
+"url": "https://cosupport.ai/",
+"domain": "cosupport.ai",
+"free": "paid"
+},
+{
+"id": "cotester",
+"name": "CoTester",
+"category": "AI Agents & Automation",
+"tag": "AI software testing",
+"pricing": "Paid plans",
+"url": "https://testgrid.io/cotester",
+"domain": "testgrid.io",
+"free": "paid"
+},
+{
+"id": "counterforce-health",
+"name": "Counterforce Health",
+"category": "AI Agents & Automation",
+"tag": "Insurance appeals",
+"pricing": "Free",
+"url": "https://www.counterforcehealth.org/",
+"domain": "counterforcehealth.org",
+"free": "free"
+},
+{
+"id": "courseai",
+"name": "CourseAI",
+"category": "Marketing & Sales",
+"tag": "Course creation",
+"pricing": "Free plan available",
+"url": "https://courseai.com",
+"domain": "courseai.com",
+"free": "freemium"
+},
+{
+"id": "coursebox-ai",
+"name": "Coursebox AI",
+"category": "Education & Learning",
+"tag": "Online courses",
+"pricing": "Free plan available",
+"url": "https://coursebox.ai",
+"domain": "coursebox.ai",
+"free": "freemium"
+},
+{
+"id": "coursebox-ai-tutor",
+"name": "Coursebox AI Tutor",
+"category": "Education & Learning",
+"tag": "Course chatbot",
+"pricing": "Free plan available",
+"url": "https://coursebox.ai",
+"domain": "coursebox.ai",
+"free": "freemium"
+},
+{
+"id": "cracked",
+"name": "Cracked",
+"category": "AI Agents & Automation",
+"tag": "Tool access for agents",
+"pricing": "Free plan available",
+"url": "https://cracked.ai",
+"domain": "cracked.ai",
+"free": "freemium"
+},
+{
+"id": "craiyon",
+"name": "Craiyon",
+"category": "Image Generation",
+"tag": "Free image generator",
+"pricing": "Free plan available",
+"url": "https://www.craiyon.com/",
+"domain": "craiyon.com",
+"free": "freemium"
+},
+{
+"id": "crayo",
+"name": "Crayo",
+"category": "Video Generation",
+"tag": "Short-form videos",
+"pricing": "Paid plans",
+"url": "https://crayo.ai",
+"domain": "crayo.ai",
+"free": "paid"
+},
+{
+"id": "creaitor",
+"name": "Creaitor",
+"category": "Writing & Copywriting",
+"tag": "Writing assistant",
+"pricing": "Paid plans",
+"url": "https://creaitor.ai",
+"domain": "creaitor.ai",
+"free": "paid"
+},
+{
+"id": "creao",
+"name": "CREAO",
+"category": "AI Agents & Automation",
+"tag": "Reusable AI agents",
+"pricing": "Free plan available",
+"url": "https://creao.ai",
+"domain": "creao.ai",
+"free": "freemium"
+},
+{
+"id": "creatify",
+"name": "Creatify",
+"category": "Advertising",
+"tag": "Video ads from a link",
+"pricing": "Free plan available",
+"url": "https://creatify.ai",
+"domain": "creatify.ai",
+"free": "freemium"
+},
+{
+"id": "creatok",
+"name": "CreatOK",
+"category": "Video Generation",
+"tag": "TikTok Shop videos",
+"pricing": "Free plan available",
+"url": "https://www.creatok.ai/",
+"domain": "creatok.ai",
+"free": "freemium"
+},
+{
+"id": "crisp",
+"name": "Crisp",
+"category": "Chatbots & Assistants",
+"tag": "Customer messaging",
+"pricing": "Free plan available",
+"url": "https://crisp.chat",
+"domain": "crisp.chat",
+"free": "freemium"
+},
+{
+"id": "cuppa",
+"name": "Cuppa",
+"category": "Writing & Copywriting",
+"tag": "Long-form SEO content",
+"pricing": "Paid plans",
+"url": "https://cuppa.ai",
+"domain": "cuppa.ai",
+"free": "paid"
+},
+{
+"id": "customgpt",
+"name": "CustomGPT",
+"category": "Chatbots & Assistants",
+"tag": "Chatbot on your data",
+"pricing": "Free plan available",
+"url": "https://customgpt.ai",
+"domain": "customgpt.ai",
+"free": "freemium"
+},
+{
+"id": "d-id",
+"name": "D-ID",
+"category": "Video Generation",
+"tag": "Talking avatars",
+"pricing": "Free plan available",
+"url": "https://www.d-id.com/",
+"domain": "d-id.com",
+"free": "freemium"
+},
+{
+"id": "dante",
+"name": "Dante",
+"category": "Chatbots & Assistants",
+"tag": "Custom chatbot",
+"pricing": "Free plan available",
+"url": "https://dante-ai.com/",
+"domain": "dante-ai.com",
+"free": "freemium"
+},
+{
+"id": "deblank",
+"name": "Deblank",
+"category": "Design & Creative",
+"tag": "Colour and fonts",
+"pricing": "Free",
+"url": "https://deblank.com",
+"domain": "deblank.com",
+"free": "free"
+},
+{
+"id": "deciphr",
+"name": "Deciphr",
+"category": "Audio, Voice & Music",
+"tag": "Content repurposing",
+"pricing": "Free plan available",
+"url": "https://www.deciphr.ai/",
+"domain": "deciphr.ai",
+"free": "freemium"
+},
+{
+"id": "decksy-ai",
+"name": "Decksy AI",
+"category": "Presentations & Slides",
+"tag": "PowerPoint decks",
+"pricing": "Free plan available",
+"url": "https://decksyai.com/",
+"domain": "decksyai.com",
+"free": "freemium"
+},
+{
+"id": "decktopus",
+"name": "Decktopus",
+"category": "Presentations & Slides",
+"tag": "Branded presentations",
+"pricing": "Paid plans",
+"url": "https://decktopus.com",
+"domain": "decktopus.com",
+"free": "paid"
+},
+{
+"id": "deepseek",
+"name": "DeepSeek",
+"category": "Chatbots & Assistants",
+"tag": "Open AI models",
+"pricing": "Free plan available",
+"url": "https://www.deepseek.com/",
+"domain": "deepseek.com",
+"free": "freemium"
+},
+{
+"id": "demand-letter",
+"name": "Demand Letter",
+"category": "Productivity & Notes",
+"tag": "Demand letters",
+"pricing": "Free plan available",
+"url": "https://demandletter.ai/",
+"domain": "demandletter.ai",
+"free": "freemium"
+},
+{
+"id": "describely",
+"name": "Describely",
+"category": "E-commerce",
+"tag": "Product descriptions",
+"pricing": "Free plan available",
+"url": "https://describely.ai",
+"domain": "describely.ai",
+"free": "freemium"
+},
+{
+"id": "descriptionwise",
+"name": "DescriptionWise",
+"category": "Writing & Copywriting",
+"tag": "Ecommerce copy",
+"pricing": "Free plan available",
+"url": "https://descriptionwise.ai/",
+"domain": "descriptionwise.ai",
+"free": "freemium"
+},
+{
+"id": "designrr",
+"name": "Designrr",
+"category": "Marketing & Sales",
+"tag": "eBooks and lead magnets",
+"pricing": "Paid plans",
+"url": "https://go4.designrr.io",
+"domain": "go4.designrr.io",
+"free": "paid"
+},
+{
+"id": "designs-ai",
+"name": "Designs.ai",
+"category": "AI Agents & Automation",
+"tag": "Creative agents",
+"pricing": "Paid plans",
+"url": "https://designs.ai/en",
+"domain": "designs.ai",
+"free": "paid"
+},
+{
+"id": "det-practice",
+"name": "DET Practice",
+"category": "Education & Learning",
+"tag": "Duolingo English Test",
+"pricing": "Paid plans",
+"url": "https://detpractice.com",
+"domain": "detpractice.com",
+"free": "paid"
+},
+{
+"id": "devi-ai",
+"name": "Devi AI",
+"category": "Marketing & Sales",
+"tag": "Social lead finder",
+"pricing": "Paid plans",
+"url": "https://ddevi.com",
+"domain": "ddevi.com",
+"free": "paid"
+},
+{
+"id": "devs-ai",
+"name": "Devs.ai",
+"category": "AI Agents & Automation",
+"tag": "Enterprise AI apps",
+"pricing": "Free plan available",
+"url": "https://devs.ai",
+"domain": "devs.ai",
+"free": "freemium"
+},
+{
+"id": "dfirst",
+"name": "DFIRST",
+"category": "Marketing & Sales",
+"tag": "AI marketing workspace",
+"pricing": "Free plan available",
+"url": "https://dfirst.ai",
+"domain": "dfirst.ai",
+"free": "freemium"
+},
+{
+"id": "diagrimo",
+"name": "Diagrimo",
+"category": "Productivity & Notes",
+"tag": "Text to diagrams",
+"pricing": "Free plan available",
+"url": "https://www.tenorshare.ai/diagrimo.html",
+"domain": "tenorshare.ai",
+"free": "freemium"
+},
+{
+"id": "dify",
+"name": "Dify",
+"category": "No-Code & App Builders",
+"tag": "Build AI apps visually",
+"pricing": "Free plan available",
+"url": "https://dify.ai/",
+"domain": "dify.ai",
+"free": "freemium"
+},
+{
+"id": "digits",
+"name": "Digits",
+"category": "Finance & Accounting",
+"tag": "AI accounting",
+"pricing": "Paid plans",
+"url": "https://digits.com/",
+"domain": "digits.com",
+"free": "paid"
+},
+{
+"id": "dimeadozen",
+"name": "DimeADozen",
+"category": "Data & Analytics",
+"tag": "Startup validation",
+"pricing": "Free plan available",
+"url": "https://dimeadozen.ai",
+"domain": "dimeadozen.ai",
+"free": "freemium"
+},
+{
+"id": "distribb",
+"name": "Distribb",
+"category": "SEO & AI Search",
+"tag": "SEO content engine",
+"pricing": "Paid plans",
+"url": "https://distribb.io",
+"domain": "distribb.io",
+"free": "paid"
+},
+{
+"id": "divi",
+"name": "Divi",
+"category": "No-Code & App Builders",
+"tag": "WordPress builder",
+"pricing": "Paid plans",
+"url": "https://elegantthemes.com",
+"domain": "elegantthemes.com",
+"free": "paid"
+},
+{
+"id": "divi-ai",
+"name": "Divi AI",
+"category": "Marketing & Sales",
+"tag": "AI for Divi sites",
+"pricing": "Paid plans",
+"url": "https://elegantthemes.com",
+"domain": "elegantthemes.com",
+"free": "paid"
+},
+{
+"id": "do-it-free",
+"name": "Do It Free",
+"category": "Education & Learning",
+"tag": "Free learning paths",
+"pricing": "Free",
+"url": "https://doitfree.ai",
+"domain": "doitfree.ai",
+"free": "free"
+},
+{
+"id": "dorik",
+"name": "Dorik",
+"category": "No-Code & App Builders",
+"tag": "No-code websites",
+"pricing": "Free plan available",
+"url": "https://dorik.com",
+"domain": "dorik.com",
+"free": "freemium"
+},
+{
+"id": "dreamlux-ai",
+"name": "Dreamlux AI",
+"category": "Video Generation",
+"tag": "Fun video effects",
+"pricing": "Free",
+"url": "https://dreamlux.ai",
+"domain": "dreamlux.ai",
+"free": "free"
+},
+{
+"id": "dropio-ai",
+"name": "Dropio.ai",
+"category": "E-commerce",
+"tag": "Dropshipping toolkit",
+"pricing": "Free plan available",
+"url": "https://dropio.ai/",
+"domain": "dropio.ai",
+"free": "freemium"
+},
+{
+"id": "dropmagic",
+"name": "Dropmagic",
+"category": "No-Code & App Builders",
+"tag": "Shopify store builder",
+"pricing": "Free plan available",
+"url": "https://dropmagic.ai",
+"domain": "dropmagic.ai",
+"free": "freemium"
+},
+{
+"id": "dubtab",
+"name": "DubTab",
+"category": "Translation",
+"tag": "Live translation",
+"pricing": "Paid plans",
+"url": "https://dubtab.com/",
+"domain": "dubtab.com",
+"free": "paid"
+},
+{
+"id": "dume-ai",
+"name": "Dume AI",
+"category": "Productivity & Notes",
+"tag": "Work tools in one chat",
+"pricing": "Free plan available",
+"url": "https://dume.ai",
+"domain": "dume.ai",
+"free": "freemium"
+},
+{
+"id": "durable",
+"name": "Durable",
+"category": "No-Code & App Builders",
+"tag": "Websites for local businesses",
+"pricing": "Free plan available",
+"url": "https://durable.com/",
+"domain": "durable.com",
+"free": "freemium"
+},
+{
+"id": "dzine",
+"name": "Dzine",
+"category": "Image Editing",
+"tag": "Image and video studio",
+"pricing": "Free plan available",
+"url": "https://dzine.ai",
+"domain": "dzine.ai",
+"free": "freemium"
+},
+{
+"id": "eagle",
+"name": "Eagle",
+"category": "Productivity & Notes",
+"tag": "Asset manager",
+"pricing": "Free plan available",
+"url": "https://eagle.cool/",
+"domain": "eagle.cool",
+"free": "freemium"
+},
+{
+"id": "easy-mcp-ai",
+"name": "Easy MCP AI",
+"category": "AI Agents & Automation",
+"tag": "WordPress for AI assistants",
+"pricing": "Free",
+"url": "https://easymcpai.com/",
+"domain": "easymcpai.com",
+"free": "free"
+},
+{
+"id": "easy-peasy",
+"name": "Easy Peasy",
+"category": "Writing & Copywriting",
+"tag": "Content and images",
+"pricing": "Free plan available",
+"url": "https://easy-peasy.ai",
+"domain": "easy-peasy.ai",
+"free": "freemium"
+},
+{
+"id": "echotik",
+"name": "EchoTik",
+"category": "Social Media",
+"tag": "TikTok Shop analytics",
+"pricing": "Free plan available",
+"url": "https://echotik.live/en",
+"domain": "echotik.live",
+"free": "freemium"
+},
+{
+"id": "eclipse-ai",
+"name": "Eclipse AI",
+"category": "Productivity & Notes",
+"tag": "Customer insights",
+"pricing": "Paid plans",
+"url": "https://eclipse-ai.com/",
+"domain": "eclipse-ai.com",
+"free": "paid"
+},
+{
+"id": "eddie-ai",
+"name": "Eddie AI",
+"category": "Video Editing & Clips",
+"tag": "AI assistant editor",
+"pricing": "Free plan available",
+"url": "https://www.heyeddie.ai",
+"domain": "heyeddie.ai",
+"free": "freemium"
+},
+{
+"id": "eden",
+"name": "Eden",
+"category": "Productivity & Notes",
+"tag": "Research workspace",
+"pricing": "Free plan available",
+"url": "https://eden.so",
+"domain": "eden.so",
+"free": "freemium"
+},
+{
+"id": "ego-lite",
+"name": "ego lite",
+"category": "AI Agents & Automation",
+"tag": "Browser for agents",
+"pricing": "Free",
+"url": "https://lite.ego.app/",
+"domain": "lite.ego.app",
+"free": "free"
+},
+{
+"id": "elai",
+"name": "Elai",
+"category": "Video Generation",
+"tag": "Avatar videos",
+"pricing": "Free plan available",
+"url": "https://elai.io",
+"domain": "elai.io",
+"free": "freemium"
+},
+{
+"id": "elementor-ai",
+"name": "Elementor AI",
+"category": "No-Code & App Builders",
+"tag": "AI for Elementor",
+"pricing": "Free plan available",
+"url": "https://elementor.com",
+"domain": "elementor.com",
+"free": "freemium"
+},
+{
+"id": "elephas",
+"name": "Elephas",
+"category": "Writing & Copywriting",
+"tag": "Mac writing assistant",
+"pricing": "Paid plans",
+"url": "https://kambanthemaker.gumroad.com",
+"domain": "kambanthemaker.gumroad.com",
+"free": "paid"
+},
+{
+"id": "emergent",
+"name": "Emergent",
+"category": "No-Code & App Builders",
+"tag": "Apps from prompts",
+"pricing": "Free plan available",
+"url": "https://app.emergent.sh",
+"domain": "app.emergent.sh",
+"free": "freemium"
+},
+{
+"id": "emochi",
+"name": "Emochi",
+"category": "Chatbots & Assistants",
+"tag": "Anime character chat",
+"pricing": "Free plan available",
+"url": "https://emochi.com/",
+"domain": "emochi.com",
+"free": "freemium"
+},
+{
+"id": "endless-vn",
+"name": "Endless VN",
+"category": "Image Generation",
+"tag": "AI visual novel",
+"pricing": "Free plan available",
+"url": "https://endlessvn.io/",
+"domain": "endlessvn.io",
+"free": "freemium"
+},
+{
+"id": "eney",
+"name": "Eney",
+"category": "AI Agents & Automation",
+"tag": "Mac assistant",
+"pricing": "Paid plans",
+"url": "https://macpaw.com",
+"domain": "macpaw.com",
+"free": "paid"
+},
+{
+"id": "enrich-labs",
+"name": "Enrich Labs",
+"category": "Marketing & Sales",
+"tag": "AI marketing agent",
+"pricing": "Paid plans",
+"url": "https://agent.enrichlabs.ai",
+"domain": "agent.enrichlabs.ai",
+"free": "paid"
+},
+{
+"id": "envato-labs",
+"name": "Envato Labs",
+"category": "Image Generation",
+"tag": "AI for Envato members",
+"pricing": "Free plan available",
+"url": "https://elements.envato.com",
+"domain": "elements.envato.com",
+"free": "freemium"
+},
+{
+"id": "eskilled-ai-course-creator",
+"name": "eSkilled AI Course Creator",
+"category": "Education & Learning",
+"tag": "Course builder",
+"pricing": "Paid plans",
+"url": "https://aicoursecreator.eskilled.io/",
+"domain": "aicoursecreator.eskilled.io",
+"free": "paid"
+},
+{
+"id": "estimatic-ai",
+"name": "Estimatic AI",
+"category": "Productivity & Notes",
+"tag": "Construction estimates",
+"pricing": "Free plan available",
+"url": "https://contractorplus.app/ai-estimating-software/",
+"domain": "contractorplus.app",
+"free": "freemium"
+},
+{
+"id": "exolyt",
+"name": "Exolyt",
+"category": "Social Media",
+"tag": "TikTok analytics",
+"pricing": "Paid plans",
+"url": "https://exolyt.com",
+"domain": "exolyt.com",
+"free": "paid"
+},
+{
+"id": "ezier",
+"name": "Ezier",
+"category": "Image Generation",
+"tag": "Image and video studio",
+"pricing": "Free plan available",
+"url": "https://ezier.ai/",
+"domain": "ezier.ai",
+"free": "freemium"
+},
+{
+"id": "ezmaker-ai",
+"name": "EzMaker AI",
+"category": "Image Editing",
+"tag": "Free photo editor",
+"pricing": "Free",
+"url": "https://ezmaker.ai/",
+"domain": "ezmaker.ai",
+"free": "free"
+},
+{
+"id": "face-swap-ai",
+"name": "Face Swap AI",
+"category": "Image Generation",
+"tag": "Face swap",
+"pricing": "Free plan available",
+"url": "https://faceswapai.online/",
+"domain": "faceswapai.online",
+"free": "freemium"
+},
+{
+"id": "facy-photo-face-swap",
+"name": "Facy Photo Face Swap",
+"category": "Image Editing",
+"tag": "Photo face swap",
+"pricing": "Free plan available",
+"url": "https://facy.ai/photo-face-swap",
+"domain": "facy.ai",
+"free": "freemium"
+},
+{
+"id": "fal-agent",
+"name": "fal Agent",
+"category": "AI Agents & Automation",
+"tag": "Creative project agent",
+"pricing": "Paid plans",
+"url": "https://fal.ai/agent",
+"domain": "fal.ai",
+"free": "paid"
+},
+{
+"id": "fastlane",
+"name": "Fastlane",
+"category": "Social Media",
+"tag": "Short-form social content",
+"pricing": "Free plan available",
+"url": "https://usefastlane.ai",
+"domain": "usefastlane.ai",
+"free": "freemium"
+},
+{
+"id": "feathery",
+"name": "Feathery",
+"category": "AI Agents & Automation",
+"tag": "Forms and workflows",
+"pricing": "Free plan available",
+"url": "https://www.feathery.io/",
+"domain": "feathery.io",
+"free": "freemium"
+},
+{
+"id": "fellow",
+"name": "Fellow",
+"category": "Productivity & Notes",
+"tag": "Meeting notes",
+"pricing": "Free plan available",
+"url": "https://fellow.app/",
+"domain": "fellow.app",
+"free": "freemium"
+},
+{
+"id": "fight-health-insurance",
+"name": "Fight Health Insurance",
+"category": "Productivity & Notes",
+"tag": "Health insurance appeals",
+"pricing": "Free",
+"url": "https://www.fighthealthinsurance.com/",
+"domain": "fighthealthinsurance.com",
+"free": "free"
+},
+{
+"id": "fin",
+"name": "Fin",
+"category": "AI Agents & Automation",
+"tag": "AI support agent",
+"pricing": "Paid plans",
+"url": "https://fin.ai/",
+"domain": "fin.ai",
+"free": "paid"
+},
+{
+"id": "final-round-ai",
+"name": "Final Round AI",
+"category": "Careers & Recruiting",
+"tag": "Interview prep",
+"pricing": "Free plan available",
+"url": "https://www.finalroundai.com/",
+"domain": "finalroundai.com",
+"free": "freemium"
+},
+{
+"id": "financial-fitness-passport",
+"name": "Financial Fitness Passport",
+"category": "Finance & Accounting",
+"tag": "Personal finance coach",
+"pricing": "Free plan available",
+"url": "https://financialfitnesspassport.com/",
+"domain": "financialfitnesspassport.com",
+"free": "freemium"
+},
+{
+"id": "finevoice",
+"name": "FineVoice",
+"category": "Audio, Voice & Music",
+"tag": "Voices and sound effects",
+"pricing": "Free plan available",
+"url": "https://finevoice.ai/",
+"domain": "finevoice.ai",
+"free": "freemium"
+},
+{
+"id": "fireply",
+"name": "Fireply",
+"category": "Social Media",
+"tag": "X reply assistant",
+"pricing": "Paid plans",
+"url": "https://fireply.ai",
+"domain": "fireply.ai",
+"free": "paid"
+},
+{
+"id": "fish-audio",
+"name": "Fish Audio",
+"category": "Audio, Voice & Music",
+"tag": "Expressive speech",
+"pricing": "Free plan available",
+"url": "https://fish.audio",
+"domain": "fish.audio",
+"free": "freemium"
+},
+{
+"id": "flexclip",
+"name": "FlexClip",
+"category": "Video Editing & Clips",
+"tag": "Online video maker",
+"pricing": "Free plan available",
+"url": "https://flexclip.com",
+"domain": "flexclip.com",
+"free": "freemium"
+},
+{
+"id": "fliki-ai",
+"name": "Fliki AI",
+"category": "Video Generation",
+"tag": "Text to video",
+"pricing": "Free plan available",
+"url": "https://fliki.ai",
+"domain": "fliki.ai",
+"free": "freemium"
+},
+{
+"id": "floor-plan-ai",
+"name": "Floor Plan AI",
+"category": "Design & Creative",
+"tag": "Floor plan generator",
+"pricing": "Free plan available",
+"url": "https://floorplanai.net/",
+"domain": "floorplanai.net",
+"free": "freemium"
+},
+{
+"id": "floor-plan-maker",
+"name": "Floor Plan Maker",
+"category": "Design & Creative",
+"tag": "Furnished floor plans",
+"pricing": "Free",
+"url": "https://floorplanmaker.ai/floor-plan-rendering/",
+"domain": "floorplanmaker.ai",
+"free": "free"
+},
+{
+"id": "flowchartai-image-to-excel",
+"name": "FlowChartAI Image to Excel",
+"category": "Productivity & Notes",
+"tag": "Image to Excel",
+"pricing": "Free plan available",
+"url": "https://www.flowchartai.tech/image-to-excel",
+"domain": "flowchartai.tech",
+"free": "freemium"
+},
+{
+"id": "flowith",
+"name": "Flowith",
+"category": "Chatbots & Assistants",
+"tag": "Visual AI canvas",
+"pricing": null,
+"url": "https://flowith.io",
+"domain": "flowith.io",
+"free": ""
+},
+{
+"id": "focusee",
+"name": "FocuSee",
+"category": "Productivity & Notes",
+"tag": "Polished screen recordings",
+"pricing": "Free plan available",
+"url": "https://focusee.imobie.com/",
+"domain": "focusee.imobie.com",
+"free": "freemium"
+},
+{
+"id": "followr",
+"name": "Followr",
+"category": "Social Media",
+"tag": "Social media management",
+"pricing": "Free plan available",
+"url": "https://followr.ai",
+"domain": "followr.ai",
+"free": "freemium"
+},
+{
+"id": "fotor",
+"name": "Fotor",
+"category": "Image Editing",
+"tag": "Online photo editor",
+"pricing": "Free plan available",
+"url": "https://www.fotor.com/",
+"domain": "fotor.com",
+"free": "freemium"
+},
+{
+"id": "foxit",
+"name": "Foxit",
+"category": "Productivity & Notes",
+"tag": "PDF tools with AI",
+"pricing": "Free plan available",
+"url": "https://foxit.com",
+"domain": "foxit.com",
+"free": "freemium"
+},
+{
+"id": "foxyapps",
+"name": "FoxyApps",
+"category": "No-Code & App Builders",
+"tag": "Sell AI tools",
+"pricing": "Free plan available",
+"url": "https://foxyapps.com",
+"domain": "foxyapps.com",
+"free": "freemium"
+},
+{
+"id": "freebeat",
+"name": "Freebeat",
+"category": "Video Generation",
+"tag": "Music videos",
+"pricing": "Free plan available",
+"url": "https://freebeat.ai/",
+"domain": "freebeat.ai",
+"free": "freemium"
+},
+{
+"id": "freeflo",
+"name": "Freeflo",
+"category": "Chatbots & Assistants",
+"tag": "Image style prompts",
+"pricing": "Free",
+"url": "https://elements.envato.com",
+"domain": "elements.envato.com",
+"free": "free"
+},
+{
+"id": "friend2chat",
+"name": "Friend2Chat",
+"category": "Chatbots & Assistants",
+"tag": "AI companions",
+"pricing": "Free plan available",
+"url": "https://friend2chat.com/",
+"domain": "friend2chat.com",
+"free": "freemium"
+},
+{
+"id": "funy-ai",
+"name": "Funy AI",
+"category": "Video Generation",
+"tag": "Free creative studio",
+"pricing": "Free plan available",
+"url": "https://funy.ai/",
+"domain": "funy.ai",
+"free": "freemium"
+},
+{
+"id": "fylm-ai",
+"name": "fylm.ai",
+"category": "Image Editing",
+"tag": "AI colour grading",
+"pricing": "Free plan available",
+"url": "https://fylm.ai",
+"domain": "fylm.ai",
+"free": "freemium"
+},
+{
+"id": "fyxer",
+"name": "Fyxer",
+"category": "Productivity & Notes",
+"tag": "Inbox assistant",
+"pricing": "Free plan available",
+"url": "https://fyxer.com",
+"domain": "fyxer.com",
+"free": "freemium"
+},
+{
+"id": "galcode",
+"name": "Galcode",
+"category": "Marketing & Sales",
+"tag": "AI sales calls",
+"pricing": "Free plan available",
+"url": "https://www.galcode.ai/",
+"domain": "galcode.ai",
+"free": "freemium"
+},
+{
+"id": "ganttpro-ai-gantt-chart-maker",
+"name": "GanttPRO AI Gantt Chart Maker",
+"category": "Productivity & Notes",
+"tag": "Gantt charts",
+"pricing": "Free plan available",
+"url": "https://ganttpro.com/free-ai-gantt-chart-maker/",
+"domain": "ganttpro.com",
+"free": "freemium"
+},
+{
+"id": "gatsbi",
+"name": "Gatsbi",
+"category": "Productivity & Notes",
+"tag": "Academic writing",
+"pricing": "Paid plans",
+"url": "https://www.gatsbi.com",
+"domain": "gatsbi.com",
+"free": "paid"
+},
+{
+"id": "gemini-notebook",
+"name": "Gemini Notebook",
+"category": "Productivity & Notes",
+"tag": "Your sources, explained",
+"pricing": "Free plan available",
+"url": "https://notebook.google/",
+"domain": "notebook.google",
+"free": "freemium"
+},
+{
+"id": "genspark",
+"name": "Genspark",
+"category": "AI Agents & Automation",
+"tag": "Super agent",
+"pricing": "Free plan available",
+"url": "https://genspark.ai",
+"domain": "genspark.ai",
+"free": "freemium"
+},
+{
+"id": "getgenie",
+"name": "GetGenie",
+"category": "SEO & AI Search",
+"tag": "SEO in WordPress",
+"pricing": "Free plan available",
+"url": "https://getgenie.ai",
+"domain": "getgenie.ai",
+"free": "freemium"
+},
+{
+"id": "getresponse",
+"name": "GetResponse",
+"category": "Marketing & Sales",
+"tag": "Email marketing",
+"pricing": "Free plan available",
+"url": "https://getresponse.com",
+"domain": "getresponse.com",
+"free": "freemium"
+},
+{
+"id": "getsolved",
+"name": "Getsolved",
+"category": "AI Detection & Humanisers",
+"tag": "Writing checker",
+"pricing": "Free plan available",
+"url": "https://getsolved.ai/",
+"domain": "getsolved.ai",
+"free": "freemium"
+},
+{
+"id": "ghost-writer",
+"name": "Ghost Writer",
+"category": "Writing & Copywriting",
+"tag": "Write like the classics",
+"pricing": "Free plan available",
+"url": "https://www.ghostthewriter.com/",
+"domain": "ghostthewriter.com",
+"free": "freemium"
+},
+{
+"id": "gitmind",
+"name": "GitMind",
+"category": "Productivity & Notes",
+"tag": "Mind maps from anything",
+"pricing": "Free plan available",
+"url": "https://gitmind.com",
+"domain": "gitmind.com",
+"free": "freemium"
+},
+{
+"id": "gizmo",
+"name": "Gizmo",
+"category": "Education & Learning",
+"tag": "Gamified revision",
+"pricing": "Free plan available",
+"url": "https://gizmo.ai/",
+"domain": "gizmo.ai",
+"free": "freemium"
+},
+{
+"id": "glasp",
+"name": "Glasp",
+"category": "Productivity & Notes",
+"tag": "Highlights and summaries",
+"pricing": "Free plan available",
+"url": "https://glasp.co/ai-writing",
+"domain": "glasp.co",
+"free": "freemium"
+},
+{
+"id": "gling",
+"name": "Gling",
+"category": "Video Editing & Clips",
+"tag": "Auto-trim footage",
+"pricing": "Paid plans",
+"url": "https://gling.ai",
+"domain": "gling.ai",
+"free": "paid"
+},
+{
+"id": "globalgpt",
+"name": "GlobalGPT",
+"category": "Chatbots & Assistants",
+"tag": "Many models, one plan",
+"pricing": "Paid plans",
+"url": "https://glbgpt.com",
+"domain": "glbgpt.com",
+"free": "paid"
+},
+{
+"id": "gojiberry",
+"name": "GojiBerry",
+"category": "Marketing & Sales",
+"tag": "B2B prospecting",
+"pricing": "Paid plans",
+"url": "https://gojiberry.ai",
+"domain": "gojiberry.ai",
+"free": "paid"
+},
+{
+"id": "google-ai-studio",
+"name": "Google AI Studio",
+"category": "Coding & Development",
+"tag": "Build with Gemini",
+"pricing": "Free plan available",
+"url": "https://aistudio.google.com/",
+"domain": "aistudio.google.com",
+"free": "freemium"
+},
+{
+"id": "google-flow",
+"name": "Google Flow",
+"category": "Video Generation",
+"tag": "AI filmmaking",
+"pricing": "Free plan available",
+"url": "https://flow.google.com/",
+"domain": "flow.google.com",
+"free": "freemium"
+},
+{
+"id": "google-pics",
+"name": "Google Pics",
+"category": "Image Editing",
+"tag": "Image editing with Gemini",
+"pricing": "Paid plans",
+"url": "https://workspace.google.com/products/pics/",
+"domain": "workspace.google.com",
+"free": "paid"
+},
+{
+"id": "google-workspace",
+"name": "Google Workspace",
+"category": "Productivity & Notes",
+"tag": "AI in Google apps",
+"pricing": "Paid plans",
+"url": "https://referworkspace.app.goo.gl",
+"domain": "referworkspace.app.goo.gl",
+"free": "paid"
+},
+{
+"id": "goose",
+"name": "goose",
+"category": "AI Agents & Automation",
+"tag": "Open-source agent",
+"pricing": "Free",
+"url": "https://goose-docs.ai/",
+"domain": "goose-docs.ai",
+"free": "free"
+},
+{
+"id": "govly",
+"name": "Govly",
+"category": "Data & Analytics",
+"tag": "Government contracts",
+"pricing": "Free plan available",
+"url": "https://www.govly.com/",
+"domain": "govly.com",
+"free": "freemium"
+},
+{
+"id": "gpt-for-work",
+"name": "GPT for Work",
+"category": "Productivity & Notes",
+"tag": "AI in spreadsheets",
+"pricing": "Free plan available",
+"url": "https://gptforwork.com/",
+"domain": "gptforwork.com",
+"free": "freemium"
+},
+{
+"id": "gpt-zero",
+"name": "GPT zero",
+"category": "AI Detection & Humanisers",
+"tag": "AI writing detector",
+"pricing": "Free plan available",
+"url": "https://gptzero.me",
+"domain": "gptzero.me",
+"free": "freemium"
+},
+{
+"id": "gptinf",
+"name": "GPTinf",
+"category": "AI Detection & Humanisers",
+"tag": "AI text humaniser",
+"pricing": "Paid plans",
+"url": "https://gptinf.com",
+"domain": "gptinf.com",
+"free": "paid"
+},
+{
+"id": "gptmelo",
+"name": "GPTMelo",
+"category": "SEO & AI Search",
+"tag": "AI search visibility",
+"pricing": "Free plan available",
+"url": "https://gptmelo.com",
+"domain": "gptmelo.com",
+"free": "freemium"
+},
+{
+"id": "granola",
+"name": "Granola",
+"category": "Productivity & Notes",
+"tag": "Meeting notes, no bot",
+"pricing": "Free plan available",
+"url": "https://granola.ai",
+"domain": "granola.ai",
+"free": "freemium"
+},
+{
+"id": "groas",
+"name": "Groas",
+"category": "Advertising",
+"tag": "Search ads automation",
+"pricing": "Paid plans",
+"url": "https://www.groas.com/",
+"domain": "groas.com",
+"free": "paid"
+},
+{
+"id": "guidejar",
+"name": "Guidejar",
+"category": "Productivity & Notes",
+"tag": "Guides and SOPs",
+"pricing": "Free plan available",
+"url": "https://guidejar.com",
+"domain": "guidejar.com",
+"free": "freemium"
+},
+{
+"id": "guideless",
+"name": "Guideless",
+"category": "Productivity & Notes",
+"tag": "Video guides",
+"pricing": "Free plan available",
+"url": "https://guideless.ai",
+"domain": "guideless.ai",
+"free": "freemium"
+},
+{
+"id": "hailuo-ai",
+"name": "Hailuo AI",
+"category": "Video Generation",
+"tag": "Video generation",
+"pricing": "Free plan available",
+"url": "https://hailuoai.video",
+"domain": "hailuoai.video",
+"free": "freemium"
+},
+{
+"id": "handoff",
+"name": "Handoff",
+"category": "AI Agents & Automation",
+"tag": "Contractor estimates",
+"pricing": "Paid plans",
+"url": "https://www.handoff.ai/",
+"domain": "handoff.ai",
+"free": "paid"
+},
+{
+"id": "happyscribe",
+"name": "HappyScribe",
+"category": "Meetings & Transcription",
+"tag": "Transcription and subtitles",
+"pricing": "Free plan available",
+"url": "https://happyscribe.com",
+"domain": "happyscribe.com",
+"free": "freemium"
+},
+{
+"id": "harpa-ai",
+"name": "Harpa AI",
+"category": "AI Agents & Automation",
+"tag": "Browser AI assistant",
+"pricing": "Free plan available",
+"url": "https://harpa.ai",
+"domain": "harpa.ai",
+"free": "freemium"
+},
+{
+"id": "headshotpro",
+"name": "HeadshotPro",
+"category": "Image Editing",
+"tag": "Professional headshots",
+"pricing": "Paid plans",
+"url": "https://headshotpro.com",
+"domain": "headshotpro.com",
+"free": "paid"
+},
+{
+"id": "hebbia",
+"name": "Hebbia",
+"category": "Data & Analytics",
+"tag": "Document analysis for finance",
+"pricing": "Paid plans",
+"url": "https://www.hebbia.com/",
+"domain": "hebbia.com",
+"free": "paid"
+},
+{
+"id": "heights-ai",
+"name": "HEIGHTS AI",
+"category": "Education & Learning",
+"tag": "Course creation copilot",
+"pricing": "Paid plans",
+"url": "https://heightsplatform.com",
+"domain": "heightsplatform.com",
+"free": "paid"
+},
+{
+"id": "helpcrunch",
+"name": "HelpCrunch",
+"category": "Chatbots & Assistants",
+"tag": "Customer support suite",
+"pricing": "Paid plans",
+"url": "https://helpcrunch.com",
+"domain": "helpcrunch.com",
+"free": "paid"
+},
+{
+"id": "hermes-agent",
+"name": "Hermes Agent",
+"category": "AI Agents & Automation",
+"tag": "Self-learning agent",
+"pricing": "Free",
+"url": "https://hermes-agent.nousresearch.com/",
+"domain": "hermes-agent.nousresearch.com",
+"free": "free"
+},
+{
+"id": "hexofy",
+"name": "Hexofy",
+"category": "AI Agents & Automation",
+"tag": "One-click scraping",
+"pricing": "Free plan available",
+"url": "https://hexofy.com",
+"domain": "hexofy.com",
+"free": "freemium"
+},
+{
+"id": "hexomatic",
+"name": "Hexomatic",
+"category": "AI Agents & Automation",
+"tag": "Scraping and automation",
+"pricing": "Paid plans",
+"url": "https://hexomatic.com",
+"domain": "hexomatic.com",
+"free": "paid"
+},
+{
+"id": "hexometer",
+"name": "Hexometer",
+"category": "AI Agents & Automation",
+"tag": "Website monitoring",
+"pricing": "Paid plans",
+"url": "https://orion.hexowatch.com",
+"domain": "orion.hexowatch.com",
+"free": "paid"
+},
+{
+"id": "hexowatch",
+"name": "Hexowatch",
+"category": "AI Agents & Automation",
+"tag": "Change monitoring",
+"pricing": "Paid plans",
+"url": "https://hexowatch.com",
+"domain": "hexowatch.com",
+"free": "paid"
+},
+{
+"id": "heyfish-ai",
+"name": "HeyFish AI",
+"category": "Video Generation",
+"tag": "UGC ads with avatars",
+"pricing": "Paid plans",
+"url": "https://heyfish.ai/",
+"domain": "heyfish.ai",
+"free": "paid"
+},
+{
+"id": "heyy",
+"name": "Heyy",
+"category": "Chatbots & Assistants",
+"tag": "WhatsApp and DM automation",
+"pricing": "Paid plans",
+"url": "https://heyy.io",
+"domain": "heyy.io",
+"free": "paid"
+},
+{
+"id": "hi3d",
+"name": "Hi3D",
+"category": "Design & Creative",
+"tag": "Image to 3D",
+"pricing": "Free plan available",
+"url": "https://hi3d.ai",
+"domain": "hi3d.ai",
+"free": "freemium"
+},
+{
+"id": "hiclip",
+"name": "HiClip",
+"category": "Video Editing & Clips",
+"tag": "Short clips",
+"pricing": "Free plan available",
+"url": "https://app.hiclip.ai/",
+"domain": "app.hiclip.ai",
+"free": "freemium"
+},
+{
+"id": "higgsfield",
+"name": "Higgsfield",
+"category": "Video Generation",
+"tag": "Cinematic AI video",
+"pricing": "Free plan available",
+"url": "https://higgsfield.ai",
+"domain": "higgsfield.ai",
+"free": "freemium"
+},
+{
+"id": "hiver",
+"name": "Hiver",
+"category": "Productivity & Notes",
+"tag": "Support inbox",
+"pricing": "Free plan available",
+"url": "https://hiver.referralrock.com",
+"domain": "hiver.referralrock.com",
+"free": "freemium"
+},
+{
+"id": "hix-ai",
+"name": "HIX AI",
+"category": "AI Agents & Automation",
+"tag": "All-in-one AI workspace",
+"pricing": "Free plan available",
+"url": "https://hix.ai",
+"domain": "hix.ai",
+"free": "freemium"
+},
+{
+"id": "hix-bypass",
+"name": "HIX Bypass",
+"category": "AI Detection & Humanisers",
+"tag": "AI text humaniser",
+"pricing": "Paid plans",
+"url": "https://hixbypass.com/",
+"domain": "hixbypass.com",
+"free": "paid"
+},
+{
+"id": "hol-guard",
+"name": "HOL Guard",
+"category": "Coding & Development",
+"tag": "Coding agent security",
+"pricing": "Free plan available",
+"url": "https://hol.org",
+"domain": "hol.org",
+"free": "freemium"
+},
+{
+"id": "holo",
+"name": "Holo",
+"category": "Marketing & Sales",
+"tag": "On-brand marketing content",
+"pricing": "Paid plans",
+"url": "https://tryholo.ai",
+"domain": "tryholo.ai",
+"free": "paid"
+},
+{
+"id": "hooked-ai",
+"name": "Hooked AI",
+"category": "Video Generation",
+"tag": "Short-form video ads",
+"pricing": "Paid plans",
+"url": "https://www.hooked.so/",
+"domain": "hooked.so",
+"free": "paid"
+},
+{
+"id": "hooksounds-ai-studio",
+"name": "HookSounds AI Studio",
+"category": "Audio, Voice & Music",
+"tag": "Music for your video",
+"pricing": "Paid plans",
+"url": "https://hooksounds.com",
+"domain": "hooksounds.com",
+"free": "paid"
+},
+{
+"id": "hoppycopy",
+"name": "HoppyCopy",
+"category": "Marketing & Sales",
+"tag": "Email copywriting",
+"pricing": "Paid plans",
+"url": "https://hoppycopy.co",
+"domain": "hoppycopy.co",
+"free": "paid"
+},
+{
+"id": "hostinger-horizons",
+"name": "Hostinger Horizons",
+"category": "No-Code & App Builders",
+"tag": "No-code web apps",
+"pricing": "Free plan available",
+"url": "https://hostinger.com",
+"domain": "hostinger.com",
+"free": "freemium"
+},
+{
+"id": "hostinger-openclaw-hosting",
+"name": "Hostinger OpenClaw Hosting",
+"category": "AI Agents & Automation",
+"tag": "OpenClaw hosting",
+"pricing": "Paid plans",
+"url": "https://hostinger.com",
+"domain": "hostinger.com",
+"free": "paid"
+},
+{
+"id": "hot-reach-ai",
+"name": "Hot Reach AI",
+"category": "Writing & Copywriting",
+"tag": "Cold email openers",
+"pricing": "Paid plans",
+"url": "https://hotreachai.com/",
+"domain": "hotreachai.com",
+"free": "paid"
+},
+{
+"id": "hotpot",
+"name": "Hotpot",
+"category": "Image Generation",
+"tag": "Image toolkit",
+"pricing": "Free plan available",
+"url": "https://hotpot.ai/",
+"domain": "hotpot.ai",
+"free": "freemium"
+},
+{
+"id": "hubfluence",
+"name": "Hubfluence",
+"category": "Marketing & Sales",
+"tag": "TikTok Shop creators",
+"pricing": "Paid plans",
+"url": "https://hubfluence.io",
+"domain": "hubfluence.io",
+"free": "paid"
+},
+{
+"id": "hubspot-ai",
+"name": "Hubspot AI",
+"category": "Marketing & Sales",
+"tag": "CRM with AI",
+"pricing": "Free plan available",
+"url": "https://hubspot.com",
+"domain": "hubspot.com",
+"free": "freemium"
+},
+{
+"id": "humanflow",
+"name": "HumanFlow",
+"category": "Careers & Recruiting",
+"tag": "Hiring for startups",
+"pricing": "Free plan available",
+"url": "https://humanflow.app/",
+"domain": "humanflow.app",
+"free": "freemium"
+},
+{
+"id": "humanize-ai",
+"name": "Humanize AI",
+"category": "Writing & Copywriting",
+"tag": "AI text humaniser",
+"pricing": "Free plan available",
+"url": "https://humanize.ai/",
+"domain": "humanize.ai",
+"free": "freemium"
+},
+{
+"id": "hynote",
+"name": "HyNote",
+"category": "Productivity & Notes",
+"tag": "Notes from anything",
+"pricing": "Free plan available",
+"url": "https://hynote.ai",
+"domain": "hynote.ai",
+"free": "freemium"
+},
+{
+"id": "hypeauditor",
+"name": "HypeAuditor",
+"category": "Marketing & Sales",
+"tag": "Influencer marketing",
+"pricing": "Free plan available",
+"url": "https://hypeauditor.com",
+"domain": "hypeauditor.com",
+"free": "freemium"
+},
+{
+"id": "hypefury",
+"name": "Hypefury",
+"category": "Social Media",
+"tag": "Social scheduling",
+"pricing": "Paid plans",
+"url": "https://hypefury.com/",
+"domain": "hypefury.com",
+"free": "paid"
+},
+{
+"id": "hypernatural",
+"name": "Hypernatural",
+"category": "Video Generation",
+"tag": "Short videos from scripts",
+"pricing": "Free plan available",
+"url": "https://hypernatural.ai",
+"domain": "hypernatural.ai",
+"free": "freemium"
+},
+{
+"id": "hyrax",
+"name": "Hyrax",
+"category": "Coding & Development",
+"tag": "Automatic code fixes",
+"pricing": "Free plan available",
+"url": "https://hyrax.dev/",
+"domain": "hyrax.dev",
+"free": "freemium"
+},
+{
+"id": "i10x",
+"name": "i10x",
+"category": "Productivity & Notes",
+"tag": "Models and task agents",
+"pricing": "Free plan available",
+"url": "https://i10x.ai",
+"domain": "i10x.ai",
+"free": "freemium"
+},
+{
+"id": "icon",
+"name": "Icon",
+"category": "Advertising",
+"tag": "Ad creative at scale",
+"pricing": "Paid plans",
+"url": "https://icon.com/",
+"domain": "icon.com",
+"free": "paid"
+},
+{
+"id": "idoli",
+"name": "Idoli",
+"category": "Image Generation",
+"tag": "Consistent AI characters",
+"pricing": "Paid plans",
+"url": "https://idoli.ai",
+"domain": "idoli.ai",
+"free": "paid"
+},
+{
+"id": "idox-ai-guardrail",
+"name": "iDox.ai Guardrail",
+"category": "AI Agents & Automation",
+"tag": "AI data protection",
+"pricing": "Paid plans",
+"url": "https://www.idox.ai/products/guardrail",
+"domain": "idox.ai",
+"free": "paid"
+},
+{
+"id": "image-translator",
+"name": "Image Translator",
+"category": "Translation",
+"tag": "Translate images",
+"pricing": "Free",
+"url": "https://imagetranslator.com/",
+"domain": "imagetranslator.com",
+"free": "free"
+},
+{
+"id": "imini-ai",
+"name": "imini AI",
+"category": "AI Agents & Automation",
+"tag": "Multi-model agent",
+"pricing": "Free plan available",
+"url": "https://imini.com/",
+"domain": "imini.com",
+"free": "freemium"
+},
+{
+"id": "indzu-social",
+"name": "Indzu Social",
+"category": "Social Media",
+"tag": "Social media manager",
+"pricing": "Free plan available",
+"url": "https://indzu.com",
+"domain": "indzu.com",
+"free": "freemium"
+},
+{
+"id": "influencer-hero",
+"name": "Influencer Hero",
+"category": "Marketing & Sales",
+"tag": "Influencer outreach",
+"pricing": "Paid plans",
+"url": "https://influencer-hero.com",
+"domain": "influencer-hero.com",
+"free": "paid"
+},
+{
+"id": "inkle",
+"name": "Inkle",
+"category": "Finance & Accounting",
+"tag": "Startup accounting",
+"pricing": "Free plan available",
+"url": "https://www.inkle.ai/ai-bookkeeper",
+"domain": "inkle.ai",
+"free": "freemium"
+},
+{
+"id": "inlinks",
+"name": "InLinks",
+"category": "SEO & AI Search",
+"tag": "Entity-based SEO",
+"pricing": "Free plan available",
+"url": "https://inlinks.com",
+"domain": "inlinks.com",
+"free": "freemium"
+},
+{
+"id": "instawp",
+"name": "InstaWP",
+"category": "Coding & Development",
+"tag": "WordPress for AI agents",
+"pricing": "Paid plans",
+"url": "https://app.instawp.io",
+"domain": "app.instawp.io",
+"free": "paid"
+},
+{
+"id": "instinct",
+"name": "Instinct",
+"category": "AI Agents & Automation",
+"tag": "Personal assistant by text",
+"pricing": null,
+"url": "https://instinct.com/",
+"domain": "instinct.com",
+"free": ""
+},
+{
+"id": "invideo",
+"name": "InVideo",
+"category": "Video Generation",
+"tag": "AI video creation",
+"pricing": "Free plan available",
+"url": "https://invideo.io",
+"domain": "invideo.io",
+"free": "freemium"
+},
+{
+"id": "isfake-ai",
+"name": "isFake.ai",
+"category": "AI Detection & Humanisers",
+"tag": "Deepfake detection",
+"pricing": "Free plan available",
+"url": "https://isfake.ai/",
+"domain": "isfake.ai",
+"free": "freemium"
+},
+{
+"id": "ispring-cloud-ai",
+"name": "iSpring Cloud AI",
+"category": "Education & Learning",
+"tag": "Course websites",
+"pricing": "Paid plans",
+"url": "https://www.ispringsolutions.com/ispring-page",
+"domain": "ispringsolutions.com",
+"free": "paid"
+},
+{
+"id": "jobber-ai-receptionist",
+"name": "Jobber AI Receptionist",
+"category": "AI Agents & Automation",
+"tag": "AI receptionist",
+"pricing": "Paid plans",
+"url": "https://www.getjobber.com/features/ai-receptionist/",
+"domain": "getjobber.com",
+"free": "paid"
+},
+{
+"id": "jobwinner",
+"name": "JobWinner",
+"category": "Careers & Recruiting",
+"tag": "Job applications",
+"pricing": "Paid plans",
+"url": "https://jobwinner.ai",
+"domain": "jobwinner.ai",
+"free": "paid"
+},
+{
+"id": "joggai",
+"name": "JoggAI",
+"category": "Video Generation",
+"tag": "Product video ads",
+"pricing": "Free plan available",
+"url": "https://jogg.ai",
+"domain": "jogg.ai",
+"free": "freemium"
+},
+{
+"id": "jules",
+"name": "Jules",
+"category": "Coding & Development",
+"tag": "Google coding agent",
+"pricing": "Free plan available",
+"url": "https://jules.google/",
+"domain": "jules.google",
+"free": "freemium"
+},
+{
+"id": "jupid",
+"name": "Jupid",
+"category": "Finance & Accounting",
+"tag": "Taxes for freelancers",
+"pricing": "Free plan available",
+"url": "https://jupid.com/",
+"domain": "jupid.com",
+"free": "freemium"
+},
+{
+"id": "jupitrr",
+"name": "Jupitrr",
+"category": "Video Generation",
+"tag": "B-roll finder",
+"pricing": "Free plan available",
+"url": "https://jupitrr.com",
+"domain": "jupitrr.com",
+"free": "freemium"
+},
+{
+"id": "just-build-things",
+"name": "just build things",
+"category": "Productivity & Notes",
+"tag": "700+ tools in one place",
+"pricing": "Free plan available",
+"url": "https://justbuildthings.com/",
+"domain": "justbuildthings.com",
+"free": "freemium"
+},
+{
+"id": "karavideo",
+"name": "KaraVideo",
+"category": "Video Generation",
+"tag": "Multi-engine video",
+"pricing": "Free plan available",
+"url": "https://karavideo.ai/",
+"domain": "karavideo.ai",
+"free": "freemium"
+},
+{
+"id": "keyapi-ai",
+"name": "Keyapi.ai",
+"category": "Marketing & Sales",
+"tag": "Social data API",
+"pricing": "Free plan available",
+"url": "https://www.keyapi.ai/",
+"domain": "keyapi.ai",
+"free": "freemium"
+},
+{
+"id": "keyword-insights",
+"name": "Keyword Insights",
+"category": "Marketing & Sales",
+"tag": "Keyword research",
+"pricing": "Paid plans",
+"url": "https://keywordinsights.ai",
+"domain": "keywordinsights.ai",
+"free": "paid"
+},
+{
+"id": "keywords-everywhere",
+"name": "Keywords Everywhere",
+"category": "SEO & AI Search",
+"tag": "Keyword data in your browser",
+"pricing": "Free plan available",
+"url": "https://keywordseverywhere.com",
+"domain": "keywordseverywhere.com",
+"free": "freemium"
+},
+{
+"id": "keywordspeopleuse",
+"name": "KeywordsPeopleUse",
+"category": "SEO & AI Search",
+"tag": "Search questions",
+"pricing": "Free plan available",
+"url": "https://keywordspeopleuse.com",
+"domain": "keywordspeopleuse.com",
+"free": "freemium"
+},
+{
+"id": "kie",
+"name": "KIE",
+"category": "Coding & Development",
+"tag": "Media model API",
+"pricing": "Free plan available",
+"url": "https://kie.ai",
+"domain": "kie.ai",
+"free": "freemium"
+},
+{
+"id": "kilo",
+"name": "Kilo",
+"category": "Coding & Development",
+"tag": "Open-source coding agent",
+"pricing": "Free plan available",
+"url": "https://kilo.ai/",
+"domain": "kilo.ai",
+"free": "freemium"
+},
+{
+"id": "kimi",
+"name": "Kimi",
+"category": "Productivity & Notes",
+"tag": "AI workspace",
+"pricing": "Free plan available",
+"url": "https://kimi-bot.com",
+"domain": "kimi-bot.com",
+"free": "freemium"
+},
+{
+"id": "kimi-browser-extension",
+"name": "Kimi Browser Extension",
+"category": "AI Agents & Automation",
+"tag": "Browser agent",
+"pricing": "Free plan available",
+"url": "https://www.kimi.ai/products/kimi-browser-extension",
+"domain": "kimi.ai",
+"free": "freemium"
+},
+{
+"id": "kindredmind",
+"name": "KindredMind",
+"category": "Chatbots & Assistants",
+"tag": "Dementia care companion",
+"pricing": "Paid plans",
+"url": "https://kindredmind.care/",
+"domain": "kindredmind.care",
+"free": "paid"
+},
+{
+"id": "kinetik",
+"name": "Kinetik",
+"category": "Social Media",
+"tag": "Creator assistant",
+"pricing": "Free plan available",
+"url": "https://kineto.app/kinetik",
+"domain": "kineto.app",
+"free": "freemium"
+},
+{
+"id": "klaai",
+"name": "Klaai",
+"category": "Finance & Accounting",
+"tag": "Bookkeeping drafts",
+"pricing": "Free plan available",
+"url": "https://klaai.co/",
+"domain": "klaai.co",
+"free": "freemium"
+},
+{
+"id": "klap",
+"name": "Klap",
+"category": "Video Editing & Clips",
+"tag": "Long video to clips",
+"pricing": "Paid plans",
+"url": "https://klap.app",
+"domain": "klap.app",
+"free": "paid"
+},
+{
+"id": "klaylab",
+"name": "Klaylab",
+"category": "Advertising",
+"tag": "UGC production",
+"pricing": "Free plan available",
+"url": "https://klaylab.com",
+"domain": "klaylab.com",
+"free": "freemium"
+},
+{
+"id": "koala-ai",
+"name": "Koala AI",
+"category": "Writing & Copywriting",
+"tag": "SEO articles",
+"pricing": "Free plan available",
+"url": "https://koala.sh",
+"domain": "koala.sh",
+"free": "freemium"
+},
+{
+"id": "krea",
+"name": "Krea",
+"category": "Image Generation",
+"tag": "Real-time creative suite",
+"pricing": "Free plan available",
+"url": "https://www.krea.ai/",
+"domain": "krea.ai",
+"free": "freemium"
+},
+{
+"id": "krisp",
+"name": "Krisp",
+"category": "Productivity & Notes",
+"tag": "Noise cancellation",
+"pricing": "Free plan available",
+"url": "https://krisp.ai",
+"domain": "krisp.ai",
+"free": "freemium"
+},
+{
+"id": "kuberns",
+"name": "Kuberns",
+"category": "Coding & Development",
+"tag": "One-click deployment",
+"pricing": "Free plan available",
+"url": "https://kuberns.com/",
+"domain": "kuberns.com",
+"free": "freemium"
+},
+{
+"id": "lalal-ai",
+"name": "Lalal AI",
+"category": "Audio, Voice & Music",
+"tag": "Stem separation",
+"pricing": "Free plan available",
+"url": "https://lalal.ai",
+"domain": "lalal.ai",
+"free": "freemium"
+},
+{
+"id": "lalals",
+"name": "Lalals",
+"category": "Audio, Voice & Music",
+"tag": "AI audio studio",
+"pricing": "Free plan available",
+"url": "https://lalals.com/",
+"domain": "lalals.com",
+"free": "freemium"
+},
+{
+"id": "landinghero-ai",
+"name": "LandingHero AI",
+"category": "AI Agents & Automation",
+"tag": "Instant websites",
+"pricing": "Free plan available",
+"url": "https://www.landinghero.ai/",
+"domain": "landinghero.ai",
+"free": "freemium"
+},
+{
+"id": "landr",
+"name": "LANDR",
+"category": "Audio, Voice & Music",
+"tag": "AI mastering",
+"pricing": "Paid plans",
+"url": "https://join.landr.com",
+"domain": "join.landr.com",
+"free": "paid"
+},
+{
+"id": "lately",
+"name": "Lately",
+"category": "Social Media",
+"tag": "Social posts from long content",
+"pricing": "Paid plans",
+"url": "https://www.lately.ai/",
+"domain": "lately.ai",
+"free": "paid"
+},
+{
+"id": "le-chat",
+"name": "Le Chat",
+"category": "Chatbots & Assistants",
+"tag": "Mistral’s assistant",
+"pricing": "Free plan available",
+"url": "https://chat.mistral.ai/",
+"domain": "chat.mistral.ai",
+"free": "freemium"
+},
+{
+"id": "learnworlds-ai",
+"name": "LearnWorlds AI",
+"category": "Education & Learning",
+"tag": "Course platform",
+"pricing": "Paid plans",
+"url": "https://learnworlds.com",
+"domain": "learnworlds.com",
+"free": "paid"
+},
+{
+"id": "legitt-ai",
+"name": "Legitt AI",
+"category": "Productivity & Notes",
+"tag": "Contract management",
+"pricing": "Free plan available",
+"url": "https://legittai.com/",
+"domain": "legittai.com",
+"free": "freemium"
+},
+{
+"id": "leonardo-ai",
+"name": "Leonardo AI",
+"category": "Image Generation",
+"tag": "Image and video generation",
+"pricing": "Free plan available",
+"url": "https://app.leonardo.ai",
+"domain": "app.leonardo.ai",
+"free": "freemium"
+},
+{
+"id": "lesson-plan-generator",
+"name": "Lesson Plan Generator",
+"category": "Education & Learning",
+"tag": "Lesson plans",
+"pricing": "Free plan available",
+"url": "https://lessonplangenerator.com/",
+"domain": "lessonplangenerator.com",
+"free": "freemium"
+},
+{
+"id": "letterly",
+"name": "Letterly",
+"category": "Productivity & Notes",
+"tag": "Voice to text",
+"pricing": "Paid plans",
+"url": "https://letterly.app",
+"domain": "letterly.app",
+"free": "paid"
+},
+{
+"id": "libertify",
+"name": "Libertify",
+"category": "Video Generation",
+"tag": "Interactive document videos",
+"pricing": "Free plan available",
+"url": "https://libertify.com/",
+"domain": "libertify.com",
+"free": "freemium"
+},
+{
+"id": "liminary",
+"name": "Liminary",
+"category": "Data & Analytics",
+"tag": "Knowledge assistant",
+"pricing": "Free",
+"url": "https://liminary.io/",
+"domain": "liminary.io",
+"free": "free"
+},
+{
+"id": "lindy",
+"name": "Lindy",
+"category": "AI Agents & Automation",
+"tag": "No-code AI agents",
+"pricing": "Free plan available",
+"url": "https://www.lindy.ai/",
+"domain": "lindy.ai",
+"free": "freemium"
+},
+{
+"id": "link-whisper-ai",
+"name": "Link Whisper AI",
+"category": "SEO & AI Search",
+"tag": "Internal linking",
+"pricing": "Free plan available",
+"url": "https://linkwhisper.com",
+"domain": "linkwhisper.com",
+"free": "freemium"
+},
+{
+"id": "literaliq",
+"name": "LiteralIQ",
+"category": "Chatbots & Assistants",
+"tag": "Read between the lines",
+"pricing": "Free plan available",
+"url": "https://www.literaliq.com/",
+"domain": "literaliq.com",
+"free": "freemium"
+},
+{
+"id": "live3d-ai-image-editor",
+"name": "Live3D AI Image Editor",
+"category": "Image Editing",
+"tag": "Edit photos with words",
+"pricing": "Free",
+"url": "https://live3d.io",
+"domain": "live3d.io",
+"free": "free"
+},
+{
+"id": "llmclicks",
+"name": "LLMClicks",
+"category": "SEO & AI Search",
+"tag": "AI search visibility",
+"pricing": "Free plan available",
+"url": "https://app.llmclicks.ai",
+"domain": "app.llmclicks.ai",
+"free": "freemium"
+},
+{
+"id": "lm-studio",
+"name": "LM Studio",
+"category": "Chatbots & Assistants",
+"tag": "Run models locally",
+"pricing": "Free",
+"url": "https://lmstudio.ai/",
+"domain": "lmstudio.ai",
+"free": "free"
+},
+{
+"id": "localbanana",
+"name": "LocalBanana",
+"category": "Image Generation",
+"tag": "Prompt manager",
+"pricing": "Paid plans",
+"url": "https://www.localbanana.io/",
+"domain": "localbanana.io",
+"free": "paid"
+},
+{
+"id": "logo-ai",
+"name": "Logo AI",
+"category": "Design & Creative",
+"tag": "Logos and brand kits",
+"pricing": "Paid plans",
+"url": "https://www.logoai.com/",
+"domain": "logoai.com",
+"free": "paid"
+},
+{
+"id": "looka",
+"name": "Looka",
+"category": "Design & Creative",
+"tag": "Logo design",
+"pricing": "Paid plans",
+"url": "https://looka.com",
+"domain": "looka.com",
+"free": "paid"
+},
+{
+"id": "loopa",
+"name": "Loopa",
+"category": "AI Agents & Automation",
+"tag": "Agent workspace",
+"pricing": "Free plan available",
+"url": "https://www.loopa.im/",
+"domain": "loopa.im",
+"free": "freemium"
+},
+{
+"id": "loova",
+"name": "Loova",
+"category": "Video Generation",
+"tag": "Video on a canvas",
+"pricing": "Paid plans",
+"url": "https://loova.ai/",
+"domain": "loova.ai",
+"free": "paid"
+},
+{
+"id": "lorka-ai",
+"name": "Lorka AI",
+"category": "Productivity & Notes",
+"tag": "Models in one subscription",
+"pricing": "Paid plans",
+"url": "https://www.lorka.ai/",
+"domain": "lorka.ai",
+"free": "paid"
+},
+{
+"id": "lovedbyai",
+"name": "LovedByAI",
+"category": "SEO & AI Search",
+"tag": "AI search for WordPress",
+"pricing": "Free plan available",
+"url": "https://lovedby.ai",
+"domain": "lovedby.ai",
+"free": "freemium"
+},
+{
+"id": "lovo",
+"name": "Lovo",
+"category": "Audio, Voice & Music",
+"tag": "AI voiceovers",
+"pricing": "Free plan available",
+"url": "https://lovo.ai",
+"domain": "lovo.ai",
+"free": "freemium"
+},
+{
+"id": "lucent-chat",
+"name": "Lucent Chat",
+"category": "Video Generation",
+"tag": "Visual content by chat",
+"pricing": "Free plan available",
+"url": "https://uselucent.com/",
+"domain": "uselucent.com",
+"free": "freemium"
+},
+{
+"id": "lucrovox",
+"name": "LucroVox",
+"category": "AI Agents & Automation",
+"tag": "AI phone agent",
+"pricing": "Paid plans",
+"url": "https://lucrovox.com",
+"domain": "lucrovox.com",
+"free": "paid"
+},
+{
+"id": "luma-ai",
+"name": "Luma AI",
+"category": "Video Generation",
+"tag": "Cinematic video generation",
+"pricing": "Free plan available",
+"url": "https://lumalabs.ai/",
+"domain": "lumalabs.ai",
+"free": "freemium"
+},
+{
+"id": "luminar-neo",
+"name": "Luminar Neo",
+"category": "Image Editing",
+"tag": "Desktop photo editor",
+"pricing": "Paid plans",
+"url": "https://skylum.com",
+"domain": "skylum.com",
+"free": "paid"
+},
+{
+"id": "luna",
+"name": "Luna",
+"category": "Writing & Copywriting",
+"tag": "Personalised outreach",
+"pricing": "Paid plans",
+"url": "https://getluna.dev",
+"domain": "getluna.dev",
+"free": "paid"
+},
+{
+"id": "lunacy-by-icons8",
+"name": "Lunacy by Icons8",
+"category": "Design & Creative",
+"tag": "Free UI design app",
+"pricing": "Free plan available",
+"url": "https://icons8.com",
+"domain": "icons8.com",
+"free": "freemium"
+},
+{
+"id": "lynote",
+"name": "Lynote",
+"category": "AI Detection & Humanisers",
+"tag": "Writing and study tools",
+"pricing": "Free plan available",
+"url": "https://lynote.ai/",
+"domain": "lynote.ai",
+"free": "freemium"
+},
+{
+"id": "lyro-by-tidio",
+"name": "Lyro by Tidio",
+"category": "Chatbots & Assistants",
+"tag": "Support chatbot",
+"pricing": "Paid plans",
+"url": "https://tidio.com",
+"domain": "tidio.com",
+"free": "paid"
+},
+{
+"id": "madgicx",
+"name": "Madgicx",
+"category": "Advertising",
+"tag": "Meta ads automation",
+"pricing": "Paid plans",
+"url": "https://madgicx.com/",
+"domain": "madgicx.com",
+"free": "paid"
+},
+{
+"id": "magai",
+"name": "Magai",
+"category": "Productivity & Notes",
+"tag": "Many models, one app",
+"pricing": "Paid plans",
+"url": "https://magai.co",
+"domain": "magai.co",
+"free": "paid"
+},
+{
+"id": "magic-hour",
+"name": "Magic Hour",
+"category": "Video Editing & Clips",
+"tag": "Video effects",
+"pricing": "Paid plans",
+"url": "https://magichour.ai",
+"domain": "magichour.ai",
+"free": "paid"
+},
+{
+"id": "magica",
+"name": "Magica",
+"category": "AI Agents & Automation",
+"tag": "All-in-one agent",
+"pricing": "Free plan available",
+"url": "https://magica.com",
+"domain": "magica.com",
+"free": "freemium"
+},
+{
+"id": "magicschool",
+"name": "MagicSchool",
+"category": "Education & Learning",
+"tag": "AI for teachers",
+"pricing": "Free plan available",
+"url": "https://www.magicschool.ai/",
+"domain": "magicschool.ai",
+"free": "freemium"
+},
+{
+"id": "make",
+"name": "Make",
+"category": "AI Agents & Automation",
+"tag": "Visual automation",
+"pricing": "Free plan available",
+"url": "https://make.com",
+"domain": "make.com",
+"free": "freemium"
+},
+{
+"id": "makebestmusic",
+"name": "MakeBestMusic",
+"category": "Audio, Voice & Music",
+"tag": "Music production",
+"pricing": "Free plan available",
+"url": "https://makebestmusic.com/",
+"domain": "makebestmusic.com",
+"free": "freemium"
+},
+{
+"id": "makeforms",
+"name": "MakeForms",
+"category": "No-Code & App Builders",
+"tag": "Smart forms",
+"pricing": "Free plan available",
+"url": "https://makeforms.io",
+"domain": "makeforms.io",
+"free": "freemium"
+},
+{
+"id": "makeugc",
+"name": "MakeUGC",
+"category": "Video Editing & Clips",
+"tag": "UGC ads with avatars",
+"pricing": "Paid plans",
+"url": "https://makeugc.ai",
+"domain": "makeugc.ai",
+"free": "paid"
+},
+{
+"id": "manatal",
+"name": "Manatal",
+"category": "Careers & Recruiting",
+"tag": "Recruitment software",
+"pricing": "Paid plans",
+"url": "https://manatal.com",
+"domain": "manatal.com",
+"free": "paid"
+},
+{
+"id": "manus",
+"name": "Manus",
+"category": "AI Agents & Automation",
+"tag": "General AI agent",
+"pricing": "Free plan available",
+"url": "https://manus.im",
+"domain": "manus.im",
+"free": "freemium"
+},
+{
+"id": "manychat-ai",
+"name": "Manychat AI",
+"category": "Chatbots & Assistants",
+"tag": "DM automation",
+"pricing": "Paid plans",
+"url": "https://manychat.com",
+"domain": "manychat.com",
+"free": "paid"
+},
+{
+"id": "marblism",
+"name": "Marblism",
+"category": "AI Agents & Automation",
+"tag": "AI employees",
+"pricing": "Paid plans",
+"url": "https://marblism.com",
+"domain": "marblism.com",
+"free": "paid"
+},
+{
+"id": "marketing-megaprompts",
+"name": "Marketing Megaprompts",
+"category": "Marketing & Sales",
+"tag": "Marketing prompts",
+"pricing": "Paid plans",
+"url": "https://makerbox.lemonsqueezy.com",
+"domain": "makerbox.lemonsqueezy.com",
+"free": "paid"
+},
+{
+"id": "marky",
+"name": "Marky",
+"category": "Social Media",
+"tag": "Social media assistant",
+"pricing": "Free plan available",
+"url": "https://mymarky.ai",
+"domain": "mymarky.ai",
+"free": "freemium"
+},
+{
+"id": "mavic-ai",
+"name": "Mavic AI",
+"category": "Social Media",
+"tag": "AI brand marketer",
+"pricing": "Free plan available",
+"url": "https://mavic.ai",
+"domain": "mavic.ai",
+"free": "freemium"
+},
+{
+"id": "maxai",
+"name": "MaxAI",
+"category": "Productivity & Notes",
+"tag": "AI browser sidebar",
+"pricing": "Free plan available",
+"url": "https://www.maxai.co/",
+"domain": "maxai.co",
+"free": "freemium"
+},
+{
+"id": "media-io",
+"name": "Media.io",
+"category": "Video Generation",
+"tag": "Creative toolkit",
+"pricing": "Free plan available",
+"url": "https://www.media.io/",
+"domain": "media.io",
+"free": "freemium"
+},
+{
+"id": "meetgeek",
+"name": "MeetGeek",
+"category": "Productivity & Notes",
+"tag": "Meeting assistant",
+"pricing": "Free plan available",
+"url": "https://meetgeek.ai",
+"domain": "meetgeek.ai",
+"free": "freemium"
+},
+{
+"id": "merlin",
+"name": "Merlin",
+"category": "Chatbots & Assistants",
+"tag": "Browser assistant",
+"pricing": "Paid plans",
+"url": "https://www.getmerlin.in",
+"domain": "getmerlin.in",
+"free": "paid"
+},
+{
+"id": "meshy",
+"name": "Meshy",
+"category": "Design & Creative",
+"tag": "Text to 3D",
+"pricing": "Free plan available",
+"url": "https://www.meshy.ai/",
+"domain": "meshy.ai",
+"free": "freemium"
+},
+{
+"id": "miapi",
+"name": "MIAPI",
+"category": "Coding & Development",
+"tag": "Search answers API",
+"pricing": "Free plan available",
+"url": "https://miapi.uk/",
+"domain": "miapi.uk",
+"free": "freemium"
+},
+{
+"id": "micmonster",
+"name": "MicMonster",
+"category": "Audio, Voice & Music",
+"tag": "Script to voiceover",
+"pricing": "Free plan available",
+"url": "https://micmonster.com",
+"domain": "micmonster.com",
+"free": "freemium"
+},
+{
+"id": "mimicpc",
+"name": "MimicPC",
+"category": "Image Generation",
+"tag": "Cloud AI apps",
+"pricing": "Free plan available",
+"url": "https://www.mimicpc.com/",
+"domain": "mimicpc.com",
+"free": "freemium"
+},
+{
+"id": "mindpal",
+"name": "MindPal",
+"category": "Chatbots & Assistants",
+"tag": "Custom AI agents",
+"pricing": "Paid plans",
+"url": "https://mindpal.space/",
+"domain": "mindpal.space",
+"free": "paid"
+},
+{
+"id": "mindstudio",
+"name": "MindStudio",
+"category": "AI Agents & Automation",
+"tag": "No-code agent builder",
+"pricing": "Free plan available",
+"url": "https://www.mindstudio.ai/",
+"domain": "mindstudio.ai",
+"free": "freemium"
+},
+{
+"id": "mintly",
+"name": "Mintly",
+"category": "Advertising",
+"tag": "Product ads",
+"pricing": "Free plan available",
+"url": "https://usemintly.com",
+"domain": "usemintly.com",
+"free": "freemium"
+},
+{
+"id": "miro",
+"name": "Miro",
+"category": "Productivity & Notes",
+"tag": "Visual collaboration",
+"pricing": "Free plan available",
+"url": "https://miro.com:443",
+"domain": "miro.com",
+"free": "freemium"
+},
+{
+"id": "mistral-ai",
+"name": "Mistral AI",
+"category": "Chatbots & Assistants",
+"tag": "Open models from France",
+"pricing": "Free plan available",
+"url": "https://mistral.ai/",
+"domain": "mistral.ai",
+"free": "freemium"
+},
+{
+"id": "mixo",
+"name": "Mixo",
+"category": "No-Code & App Builders",
+"tag": "Instant websites",
+"pricing": "Free plan available",
+"url": "https://mixo.io",
+"domain": "mixo.io",
+"free": "freemium"
+},
+{
+"id": "mixtranslate",
+"name": "MixTranslate",
+"category": "Translation",
+"tag": "Compare translations",
+"pricing": "Free plan available",
+"url": "https://mixtranslate.com/",
+"domain": "mixtranslate.com",
+"free": "freemium"
+},
+{
+"id": "moises",
+"name": "Moises",
+"category": "Audio, Voice & Music",
+"tag": "Music practice",
+"pricing": "Free plan available",
+"url": "https://moises.ai/",
+"domain": "moises.ai",
+"free": "freemium"
+},
+{
+"id": "monic-ai",
+"name": "Monic AI",
+"category": "Education & Learning",
+"tag": "Study assistant",
+"pricing": "Free plan available",
+"url": "https://monic.ai/",
+"domain": "monic.ai",
+"free": "freemium"
+},
+{
+"id": "monica",
+"name": "Monica",
+"category": "Productivity & Notes",
+"tag": "Browser AI assistant",
+"pricing": "Free plan available",
+"url": "https://monica.im/",
+"domain": "monica.im",
+"free": "freemium"
+},
+{
+"id": "monid",
+"name": "Monid",
+"category": "AI Agents & Automation",
+"tag": "Tools for agents",
+"pricing": "Paid plans",
+"url": "https://monid.ai",
+"domain": "monid.ai",
+"free": "paid"
+},
+{
+"id": "moonbeam",
+"name": "Moonbeam",
+"category": "Writing & Copywriting",
+"tag": "Long-form writing",
+"pricing": "Free plan available",
+"url": "https://gomoonbeam.com",
+"domain": "gomoonbeam.com",
+"free": "freemium"
+},
+{
+"id": "mosachat-ai",
+"name": "MosaChat-AI",
+"category": "Education & Learning",
+"tag": "Language tutor",
+"pricing": "Free plan available",
+"url": "https://academy.mosalingua.com",
+"domain": "academy.mosalingua.com",
+"free": "freemium"
+},
+{
+"id": "movealerts-ai",
+"name": "MoveAlerts.ai",
+"category": "Finance & Accounting",
+"tag": "Market news alerts",
+"pricing": "Free plan available",
+"url": "https://www.movealerts.ai/",
+"domain": "movealerts.ai",
+"free": "freemium"
+},
+{
+"id": "mozify",
+"name": "Mozify",
+"category": "Advertising",
+"tag": "Ad production",
+"pricing": "Paid plans",
+"url": "https://mozify.ai",
+"domain": "mozify.ai",
+"free": "paid"
+},
+{
+"id": "mubert",
+"name": "Mubert",
+"category": "Audio, Voice & Music",
+"tag": "Royalty-free music",
+"pricing": "Free plan available",
+"url": "https://mubert.com/",
+"domain": "mubert.com",
+"free": "freemium"
+},
+{
+"id": "mulerun",
+"name": "MuleRun",
+"category": "AI Agents & Automation",
+"tag": "Agent marketplace",
+"pricing": "Free plan available",
+"url": "https://mulerun.com",
+"domain": "mulerun.com",
+"free": "freemium"
+},
+{
+"id": "munch-studio",
+"name": "Munch Studio",
+"category": "Social Media",
+"tag": "Automated social manager",
+"pricing": "Free plan available",
+"url": "https://www.munchstudio.com/",
+"domain": "munchstudio.com",
+"free": "freemium"
+},
+{
+"id": "mureka-ai",
+"name": "Mureka AI",
+"category": "Audio, Voice & Music",
+"tag": "Songs with vocals",
+"pricing": "Free plan available",
+"url": "https://mureka.ai",
+"domain": "mureka.ai",
+"free": "freemium"
+},
+{
+"id": "murf",
+"name": "Murf",
+"category": "Audio, Voice & Music",
+"tag": "AI voice generator",
+"pricing": "Free plan available",
+"url": "https://murf.ai",
+"domain": "murf.ai",
+"free": "freemium"
+},
+{
+"id": "muse-from-meta",
+"name": "Muse from Meta",
+"category": "AI Agents & Automation",
+"tag": "Meta’s assistant",
+"pricing": "Free plan available",
+"url": "https://ai.meta.com/muse/",
+"domain": "ai.meta.com",
+"free": "freemium"
+},
+{
+"id": "n8n",
+"name": "n8n",
+"category": "AI Agents & Automation",
+"tag": "Workflow automation",
+"pricing": "Free plan available",
+"url": "https://n8n.io",
+"domain": "n8n.io",
+"free": "freemium"
+},
+{
+"id": "nano-imagine",
+"name": "Nano Imagine",
+"category": "Image Generation",
+"tag": "Fast image generation",
+"pricing": "Free plan available",
+"url": "https://nanoimagine.art/",
+"domain": "nanoimagine.art",
+"free": "freemium"
+},
+{
+"id": "nekton-ai",
+"name": "Nekton AI",
+"category": "Marketing & Sales",
+"tag": "Plain-English automation",
+"pricing": "Free plan available",
+"url": "https://nekton.ai",
+"domain": "nekton.ai",
+"free": "freemium"
+},
+{
+"id": "netlify",
+"name": "Netlify",
+"category": "Coding & Development",
+"tag": "Web deployment",
+"pricing": "Free plan available",
+"url": "https://netlify.com",
+"domain": "netlify.com",
+"free": "freemium"
+},
+{
+"id": "netus-ai",
+"name": "Netus AI",
+"category": "Writing & Copywriting",
+"tag": "Paraphrasing tool",
+"pricing": "Free plan available",
+"url": "https://netus.ai/",
+"domain": "netus.ai",
+"free": "freemium"
+},
+{
+"id": "neural-love",
+"name": "Neural Love",
+"category": "Image Generation",
+"tag": "Free media tools",
+"pricing": "Free plan available",
+"url": "https://neural.love",
+"domain": "neural.love",
+"free": "freemium"
+},
+{
+"id": "neuraltext",
+"name": "NeuralText",
+"category": "SEO & AI Search",
+"tag": "SEO content planning",
+"pricing": "Paid plans",
+"url": "https://neuraltext.com/",
+"domain": "neuraltext.com",
+"free": "paid"
+},
+{
+"id": "nexscope",
+"name": "Nexscope",
+"category": "E-commerce",
+"tag": "Ecommerce agents",
+"pricing": "Paid plans",
+"url": "https://nexscope.ai",
+"domain": "nexscope.ai",
+"free": "paid"
+},
+{
+"id": "niche-traffic-kit",
+"name": "Niche Traffic Kit",
+"category": "Social Media",
+"tag": "Traffic for niche sites",
+"pricing": "Free plan available",
+"url": "https://nichetraffickit.com",
+"domain": "nichetraffickit.com",
+"free": "freemium"
+},
+{
+"id": "nightwatch-ai-tracking",
+"name": "Nightwatch AI Tracking",
+"category": "SEO & AI Search",
+"tag": "AI search tracking",
+"pricing": "Paid plans",
+"url": "https://nightwatch.io",
+"domain": "nightwatch.io",
+"free": "paid"
+},
+{
+"id": "noimosai",
+"name": "NoimosAI",
+"category": "Marketing & Sales",
+"tag": "Marketing agents",
+"pricing": "Paid plans",
+"url": "https://noimosai.com/en",
+"domain": "noimosai.com",
+"free": "paid"
+},
+{
+"id": "nora-ai",
+"name": "Nora AI",
+"category": "Careers & Recruiting",
+"tag": "Mock interviews",
+"pricing": "Paid plans",
+"url": "https://interview.norahq.com/",
+"domain": "interview.norahq.com",
+"free": "paid"
+},
+{
+"id": "notegpt",
+"name": "NoteGPT",
+"category": "Education & Learning",
+"tag": "Notes from any media",
+"pricing": "Free plan available",
+"url": "https://notegpt.io/",
+"domain": "notegpt.io",
+"free": "freemium"
+},
+{
+"id": "nouswise",
+"name": "Nouswise",
+"category": "Productivity & Notes",
+"tag": "Answers from your docs",
+"pricing": "Free plan available",
+"url": "https://nouswise.com",
+"domain": "nouswise.com",
+"free": "freemium"
+},
+{
+"id": "novamira",
+"name": "Novamira",
+"category": "Coding & Development",
+"tag": "WordPress agent access",
+"pricing": "Free plan available",
+"url": "https://novamira.ai",
+"domain": "novamira.ai",
+"free": "freemium"
+},
+{
+"id": "novelai",
+"name": "NovelAI",
+"category": "Image Generation",
+"tag": "Stories and anime art",
+"pricing": "Paid plans",
+"url": "https://novelai.net/",
+"domain": "novelai.net",
+"free": "paid"
+},
+{
+"id": "novita-ai",
+"name": "Novita AI",
+"category": "Coding & Development",
+"tag": "AI infrastructure",
+"pricing": "Paid plans",
+"url": "https://novita.ai",
+"domain": "novita.ai",
+"free": "paid"
+},
+{
+"id": "numerous-ai",
+"name": "Numerous AI",
+"category": "Productivity & Notes",
+"tag": "AI in spreadsheets",
+"pricing": "Paid plans",
+"url": "https://numerous.ai",
+"domain": "numerous.ai",
+"free": "paid"
+},
+{
+"id": "oakgen",
+"name": "OakGen",
+"category": "Chatbots & Assistants",
+"tag": "200+ models",
+"pricing": "Free plan available",
+"url": "https://oakgen.ai",
+"domain": "oakgen.ai",
+"free": "freemium"
+},
+{
+"id": "okkslides",
+"name": "okkslides",
+"category": "Presentations & Slides",
+"tag": "PowerPoint generator",
+"pricing": "Free plan available",
+"url": "https://www.okkslides.com",
+"domain": "okkslides.com",
+"free": "freemium"
+},
+{
+"id": "ollama",
+"name": "Ollama",
+"category": "Coding & Development",
+"tag": "Local models",
+"pricing": "Free plan available",
+"url": "https://ollama.com/",
+"domain": "ollama.com",
+"free": "freemium"
+},
+{
+"id": "omnia",
+"name": "Omnia",
+"category": "SEO & AI Search",
+"tag": "AI visibility tracking",
+"pricing": "Paid plans",
+"url": "https://useomnia.com",
+"domain": "useomnia.com",
+"free": "paid"
+},
+{
+"id": "omnibox",
+"name": "OmniBox",
+"category": "Productivity & Notes",
+"tag": "Personal knowledge base",
+"pricing": "Free plan available",
+"url": "https://www.omnibox.pro/",
+"domain": "omnibox.pro",
+"free": "freemium"
+},
+{
+"id": "omnivoice",
+"name": "OmniVoice",
+"category": "Audio, Voice & Music",
+"tag": "Voices in 600+ languages",
+"pricing": "Free plan available",
+"url": "https://omnivoice.app/",
+"domain": "omnivoice.app",
+"free": "freemium"
+},
+{
+"id": "one-click-human",
+"name": "One Click Human",
+"category": "SEO & AI Search",
+"tag": "AI text humaniser",
+"pricing": "Free plan available",
+"url": "https://oneclickhuman.com/",
+"domain": "oneclickhuman.com",
+"free": "freemium"
+},
+{
+"id": "oniichan",
+"name": "Oniichan",
+"category": "Image Generation",
+"tag": "Manga creator",
+"pricing": "Free plan available",
+"url": "https://www.oniichan.app/",
+"domain": "oniichan.app",
+"free": "freemium"
+},
+{
+"id": "opal44",
+"name": "Opal44",
+"category": "Data & Analytics",
+"tag": "Analytics explained",
+"pricing": "Free plan available",
+"url": "https://opal44.com",
+"domain": "opal44.com",
+"free": "freemium"
+},
+{
+"id": "openai-codex",
+"name": "OpenAI Codex",
+"category": "Coding & Development",
+"tag": "OpenAI coding agent",
+"pricing": "Free plan available",
+"url": "https://openai.com/codex/",
+"domain": "openai.com",
+"free": "freemium"
+},
+{
+"id": "openai-dots",
+"name": "OpenAI Dots",
+"category": "AI Agents & Automation",
+"tag": "Agent inside ChatGPT",
+"pricing": "Paid plans",
+"url": "https://chatgpt.com/features/dots/",
+"domain": "chatgpt.com",
+"free": "paid"
+},
+{
+"id": "openart",
+"name": "OpenArt",
+"category": "Image Generation",
+"tag": "Creative AI suite",
+"pricing": "Free plan available",
+"url": "https://openart.ai",
+"domain": "openart.ai",
+"free": "freemium"
+},
+{
+"id": "opencode",
+"name": "OpenCode",
+"category": "Coding & Development",
+"tag": "Open-source coding agent",
+"pricing": "Free plan available",
+"url": "https://opencode.ai/",
+"domain": "opencode.ai",
+"free": "freemium"
+},
+{
+"id": "openrouter",
+"name": "OpenRouter",
+"category": "Coding & Development",
+"tag": "One API for all models",
+"pricing": "Free plan available",
+"url": "https://openrouter.ai/",
+"domain": "openrouter.ai",
+"free": "freemium"
+},
+{
+"id": "opusclip",
+"name": "OpusClip",
+"category": "Video Editing & Clips",
+"tag": "Long videos to clips",
+"pricing": "Free plan available",
+"url": "https://opus.pro",
+"domain": "opus.pro",
+"free": "freemium"
+},
+{
+"id": "orca",
+"name": "Orca",
+"category": "Coding & Development",
+"tag": "Parallel coding agents",
+"pricing": "Free",
+"url": "https://www.onorca.dev/",
+"domain": "onorca.dev",
+"free": "free"
+},
+{
+"id": "oreate-ai",
+"name": "Oreate AI",
+"category": "Productivity & Notes",
+"tag": "All-in-one workspace",
+"pricing": "Free plan available",
+"url": "https://www.oreateai.com/",
+"domain": "oreateai.com",
+"free": "freemium"
+},
+{
+"id": "originality-ai",
+"name": "Originality AI",
+"category": "AI Detection & Humanisers",
+"tag": "AI and plagiarism checks",
+"pricing": "Free plan available",
+"url": "https://originality.ai/",
+"domain": "originality.ai",
+"free": "freemium"
+},
+{
+"id": "orwellix",
+"name": "Orwellix",
+"category": "Writing & Copywriting",
+"tag": "Writing platform",
+"pricing": "Paid plans",
+"url": "https://orwellix.com",
+"domain": "orwellix.com",
+"free": "paid"
+},
+{
+"id": "outfit-finder",
+"name": "Outfit Finder",
+"category": "Chatbots & Assistants",
+"tag": "Shop the look",
+"pricing": "Free plan available",
+"url": "https://poe.com/Outfit-Finder",
+"domain": "poe.com",
+"free": "freemium"
+},
+{
+"id": "outgrow",
+"name": "OutGrow",
+"category": "Marketing & Sales",
+"tag": "Interactive content",
+"pricing": "Free plan available",
+"url": "https://outgrow.co",
+"domain": "outgrow.co",
+"free": "freemium"
+},
+{
+"id": "overmode",
+"name": "Overmode",
+"category": "E-commerce",
+"tag": "Fashion analysis",
+"pricing": "Free",
+"url": "https://overmode.com/",
+"domain": "overmode.com",
+"free": "free"
+},
+{
+"id": "pagergpt",
+"name": "PagerGPT",
+"category": "AI Agents & Automation",
+"tag": "Agents that take action",
+"pricing": "Free plan available",
+"url": "https://pagergpt.ai",
+"domain": "pagergpt.ai",
+"free": "freemium"
+},
+{
+"id": "palabra-ai",
+"name": "Palabra.ai",
+"category": "Translation",
+"tag": "Live speech translation",
+"pricing": "Paid plans",
+"url": "https://www.palabra.ai/",
+"domain": "palabra.ai",
+"free": "paid"
+},
+{
+"id": "pangram",
+"name": "Pangram",
+"category": "AI Detection & Humanisers",
+"tag": "AI detection",
+"pricing": "Free plan available",
+"url": "https://pangram.com",
+"domain": "pangram.com",
+"free": "freemium"
+},
+{
+"id": "panzoe",
+"name": "Panzoe",
+"category": "Productivity & Notes",
+"tag": "Personal AI assistant",
+"pricing": "Free plan available",
+"url": "https://panzoe.ai/",
+"domain": "panzoe.ai",
+"free": "freemium"
+},
+{
+"id": "paragraph-ai",
+"name": "Paragraph AI",
+"category": "Writing & Copywriting",
+"tag": "Writing assistant",
+"pricing": "Free plan available",
+"url": "https://paragraphai.com",
+"domain": "paragraphai.com",
+"free": "freemium"
+},
+{
+"id": "parliant",
+"name": "Parliant",
+"category": "Data & Analytics",
+"tag": "Conversational surveys",
+"pricing": "Free plan available",
+"url": "https://www.parliant.ai/",
+"domain": "parliant.ai",
+"free": "freemium"
+},
+{
+"id": "pdf-ai",
+"name": "PDF ai",
+"category": "Productivity & Notes",
+"tag": "Chat with PDFs",
+"pricing": "Paid plans",
+"url": "https://pdf.ai",
+"domain": "pdf.ai",
+"free": "paid"
+},
+{
+"id": "pdf-flex",
+"name": "PDF Flex",
+"category": "Productivity & Notes",
+"tag": "PDF summaries",
+"pricing": "Free",
+"url": "https://pdfflex.com/ai-chat-with-pdf",
+"domain": "pdfflex.com",
+"free": "free"
+},
+{
+"id": "pdf-translator",
+"name": "PDF Translator",
+"category": "Translation",
+"tag": "Translate PDFs",
+"pricing": "Free",
+"url": "https://pdftranslator.org/",
+"domain": "pdftranslator.org",
+"free": "free"
+},
+{
+"id": "pexo",
+"name": "Pexo",
+"category": "Video Generation",
+"tag": "Video agent",
+"pricing": "Free plan available",
+"url": "https://pexo.ai",
+"domain": "pexo.ai",
+"free": "freemium"
+},
+{
+"id": "photiu-ai",
+"name": "Photiu AI",
+"category": "Image Editing",
+"tag": "Photo clean-up",
+"pricing": "Free plan available",
+"url": "https://www.photiu.ai/",
+"domain": "photiu.ai",
+"free": "freemium"
+},
+{
+"id": "photocat-ai-image-extender",
+"name": "PhotoCat AI Image Extender",
+"category": "Image Editing",
+"tag": "Extend images",
+"pricing": "Free plan available",
+"url": "https://photocat.com/image-extender/",
+"domain": "photocat.com",
+"free": "freemium"
+},
+{
+"id": "photoshop-generative-ai",
+"name": "Photoshop Generative AI",
+"category": "Design & Creative",
+"tag": "Generative Fill",
+"pricing": "Paid plans",
+"url": "https://adobe.com",
+"domain": "adobe.com",
+"free": "paid"
+},
+{
+"id": "phrasly",
+"name": "Phrasly",
+"category": "Writing & Copywriting",
+"tag": "AI text humaniser",
+"pricing": "Free plan available",
+"url": "https://phrasly.ai",
+"domain": "phrasly.ai",
+"free": "freemium"
+},
+{
+"id": "pictory",
+"name": "Pictory",
+"category": "Video Generation",
+"tag": "Video from any content",
+"pricing": "Paid plans",
+"url": "https://pictory.ai",
+"domain": "pictory.ai",
+"free": "paid"
+},
+{
+"id": "pika",
+"name": "Pika",
+"category": "Video Generation",
+"tag": "Social video effects",
+"pricing": "Free plan available",
+"url": "https://pika.art/",
+"domain": "pika.art",
+"free": "freemium"
+},
+{
+"id": "pine-ai",
+"name": "Pine AI",
+"category": "AI Agents & Automation",
+"tag": "Customer service agent",
+"pricing": "Paid plans",
+"url": "https://www.19pine.ai/",
+"domain": "19pine.ai",
+"free": "paid"
+},
+{
+"id": "pippit-ai",
+"name": "Pippit AI",
+"category": "Video Generation",
+"tag": "Ecommerce content",
+"pricing": "Free plan available",
+"url": "https://www.pippit.ai/",
+"domain": "pippit.ai",
+"free": "freemium"
+},
+{
+"id": "pixley-ai",
+"name": "Pixley AI",
+"category": "Education & Learning",
+"tag": "Cartoons from kids’ drawings",
+"pricing": "Free plan available",
+"url": "https://pixleyai.com/",
+"domain": "pixleyai.com",
+"free": "freemium"
+},
+{
+"id": "pixmax-ai",
+"name": "Pixmax AI",
+"category": "Video Generation",
+"tag": "Campaign canvas",
+"pricing": "Paid plans",
+"url": "https://www.pixmax.ai/",
+"domain": "pixmax.ai",
+"free": "paid"
+},
+{
+"id": "pixnova-ai",
+"name": "Pixnova AI",
+"category": "Image Generation",
+"tag": "Free photo tools",
+"pricing": "Free",
+"url": "https://pixnova.ai/",
+"domain": "pixnova.ai",
+"free": "free"
+},
+{
+"id": "pixverse",
+"name": "PixVerse",
+"category": "Video Generation",
+"tag": "AI video studio",
+"pricing": "Free plan available",
+"url": "https://app.pixverse.ai",
+"domain": "app.pixverse.ai",
+"free": "freemium"
+},
+{
+"id": "plagiashield",
+"name": "Plagiashield",
+"category": "AI Detection & Humanisers",
+"tag": "Content theft monitoring",
+"pricing": "Paid plans",
+"url": "https://www.plagiashield.com",
+"domain": "plagiashield.com",
+"free": "paid"
+},
+{
+"id": "play-ht",
+"name": "Play.ht",
+"category": "Audio, Voice & Music",
+"tag": "Text to speech",
+"pricing": "Paid plans",
+"url": "https://play.ht",
+"domain": "play.ht",
+"free": "paid"
+},
+{
+"id": "playground-ai",
+"name": "Playground AI",
+"category": "Design & Creative",
+"tag": "Design generator",
+"pricing": "Free plan available",
+"url": "https://playgroundai.com/",
+"domain": "playgroundai.com",
+"free": "freemium"
+},
+{
+"id": "podstash",
+"name": "PodStash",
+"category": "Audio, Voice & Music",
+"tag": "Articles to audio",
+"pricing": "Paid plans",
+"url": "https://podstash.ai/",
+"domain": "podstash.ai",
+"free": "paid"
+},
+{
+"id": "poe",
+"name": "Poe",
+"category": "Chatbots & Assistants",
+"tag": "Hundreds of models",
+"pricing": "Free plan available",
+"url": "https://poe.com/",
+"domain": "poe.com",
+"free": "freemium"
+},
+{
+"id": "polybuzz",
+"name": "PolyBuzz",
+"category": "Chatbots & Assistants",
+"tag": "Character chat",
+"pricing": "Free plan available",
+"url": "https://www.polybuzz.ai/",
+"domain": "polybuzz.ai",
+"free": "freemium"
+},
+{
+"id": "popai",
+"name": "PopAi",
+"category": "Presentations & Slides",
+"tag": "Presentations and PDFs",
+"pricing": "Free plan available",
+"url": "https://popai.pro",
+"domain": "popai.pro",
+"free": "freemium"
+},
+{
+"id": "postermywall",
+"name": "PosterMyWall",
+"category": "Design & Creative",
+"tag": "Marketing design",
+"pricing": "Free plan available",
+"url": "https://www.postermywall.com/",
+"domain": "postermywall.com",
+"free": "freemium"
+},
+{
+"id": "postwise",
+"name": "Postwise",
+"category": "Social Media",
+"tag": "X and LinkedIn posts",
+"pricing": "Paid plans",
+"url": "https://postwise.ai",
+"domain": "postwise.ai",
+"free": "paid"
+},
+{
+"id": "postwizard-ai",
+"name": "PostWizard AI",
+"category": "Social Media",
+"tag": "X posts and threads",
+"pricing": "Free plan available",
+"url": "https://postwizard.ai/",
+"domain": "postwizard.ai",
+"free": "freemium"
+},
+{
+"id": "ppspy",
+"name": "PPSPY",
+"category": "Data & Analytics",
+"tag": "Shopify product research",
+"pricing": "Free plan available",
+"url": "https://ppspy.com",
+"domain": "ppspy.com",
+"free": "freemium"
+},
+{
+"id": "praktika",
+"name": "Praktika",
+"category": "Education & Learning",
+"tag": "Speaking practice",
+"pricing": "Free plan available",
+"url": "https://try.praktika.ai",
+"domain": "try.praktika.ai",
+"free": "freemium"
+},
+{
+"id": "presenti",
+"name": "Presenti",
+"category": "Presentations & Slides",
+"tag": "Slides from files",
+"pricing": "Free plan available",
+"url": "https://presenti.ai",
+"domain": "presenti.ai",
+"free": "freemium"
+},
+{
+"id": "process-ai",
+"name": "Process AI",
+"category": "Productivity & Notes",
+"tag": "Process management",
+"pricing": "Free plan available",
+"url": "https://process.st",
+"domain": "process.st",
+"free": "freemium"
+},
+{
+"id": "profile-pic-maker",
+"name": "Profile Pic Maker",
+"category": "Image Generation",
+"tag": "Profile pictures",
+"pricing": "Free plan available",
+"url": "https://pfpmaker.com/",
+"domain": "pfpmaker.com",
+"free": "freemium"
+},
+{
+"id": "profile-picture-ai",
+"name": "Profile Picture AI",
+"category": "Social Media",
+"tag": "AI profile photos",
+"pricing": "Paid plans",
+"url": "https://profilepicture.ai",
+"domain": "profilepicture.ai",
+"free": "paid"
+},
+{
+"id": "profilepro",
+"name": "ProfilePro",
+"category": "SEO & AI Search",
+"tag": "Google Business Profile",
+"pricing": "Free plan available",
+"url": "https://merchynt.com/profilepro",
+"domain": "merchynt.com",
+"free": "freemium"
+},
+{
+"id": "promptbuilder",
+"name": "PromptBuilder",
+"category": "Chatbots & Assistants",
+"tag": "Better prompts",
+"pricing": "Free plan available",
+"url": "https://promptbuilder.cc/",
+"domain": "promptbuilder.cc",
+"free": "freemium"
+},
+{
+"id": "promptimize-ai",
+"name": "Promptimize AI",
+"category": "Chatbots & Assistants",
+"tag": "One-click prompt upgrade",
+"pricing": "Free plan available",
+"url": "https://promptimizeai.com",
+"domain": "promptimizeai.com",
+"free": "freemium"
+},
+{
+"id": "promptlayer",
+"name": "PromptLayer",
+"category": "Writing & Copywriting",
+"tag": "Prompt management",
+"pricing": "Free",
+"url": "https://promptlayer.com/",
+"domain": "promptlayer.com",
+"free": "free"
+},
+{
+"id": "proofwrite-guest-post-checker",
+"name": "ProofWrite Guest Post Checker",
+"category": "SEO & AI Search",
+"tag": "Guest post grader",
+"pricing": "Free",
+"url": "https://proofwrite.io",
+"domain": "proofwrite.io",
+"free": "free"
+},
+{
+"id": "prophotos",
+"name": "ProPhotos",
+"category": "Image Generation",
+"tag": "Professional headshots",
+"pricing": "Paid plans",
+"url": "https://prophotos.ai",
+"domain": "prophotos.ai",
+"free": "paid"
+},
+{
+"id": "prospero-ai",
+"name": "Prospero.ai",
+"category": "Finance & Accounting",
+"tag": "Stock ideas",
+"pricing": "Free plan available",
+"url": "https://www.prospero.ai/",
+"domain": "prospero.ai",
+"free": "freemium"
+},
+{
+"id": "prowritingaid",
+"name": "ProWritingAid",
+"category": "Writing & Copywriting",
+"tag": "Writing improvement",
+"pricing": "Free plan available",
+"url": "https://prowritingaid.com",
+"domain": "prowritingaid.com",
+"free": "freemium"
+},
+{
+"id": "puppetry",
+"name": "Puppetry",
+"category": "Video Generation",
+"tag": "Talking head videos",
+"pricing": "Free plan available",
+"url": "https://puppetry.com",
+"domain": "puppetry.com",
+"free": "freemium"
+},
+{
+"id": "puzzle",
+"name": "Puzzle",
+"category": "Finance & Accounting",
+"tag": "Startup accounting",
+"pricing": "Paid plans",
+"url": "https://puzzle.io/",
+"domain": "puzzle.io",
+"free": "paid"
+},
+{
+"id": "pxz-ai",
+"name": "PXZ AI",
+"category": "Image Generation",
+"tag": "Image and video creator",
+"pricing": "Free plan available",
+"url": "https://pxz.ai/",
+"domain": "pxz.ai",
+"free": "freemium"
+},
+{
+"id": "qodex",
+"name": "Qodex",
+"category": "AI Agents & Automation",
+"tag": "API testing",
+"pricing": "Free plan available",
+"url": "https://qodex.ai/",
+"domain": "qodex.ai",
+"free": "freemium"
+},
+{
+"id": "qr-galaxy",
+"name": "QR Galaxy",
+"category": "Design & Creative",
+"tag": "Artistic QR codes",
+"pricing": "Paid plans",
+"url": "https://www.qr-galaxy.com/",
+"domain": "qr-galaxy.com",
+"free": "paid"
+},
+{
+"id": "quetext",
+"name": "Quetext",
+"category": "AI Detection & Humanisers",
+"tag": "Plagiarism and AI checks",
+"pricing": "Free plan available",
+"url": "https://quetext.com",
+"domain": "quetext.com",
+"free": "freemium"
+},
+{
+"id": "quickads",
+"name": "Quickads",
+"category": "Advertising",
+"tag": "Ad research and creation",
+"pricing": "Paid plans",
+"url": "https://quickads.ai",
+"domain": "quickads.ai",
+"free": "paid"
+},
+{
+"id": "quickbooks",
+"name": "QuickBooks",
+"category": "Finance & Accounting",
+"tag": "Small business accounting",
+"pricing": "Paid plans",
+"url": "https://quickbooks.intuit.com",
+"domain": "quickbooks.intuit.com",
+"free": "paid"
+},
+{
+"id": "quickmagic",
+"name": "QuickMagic",
+"category": "Video Generation",
+"tag": "Video to motion capture",
+"pricing": "Free plan available",
+"url": "https://www.quickmagic.ai/",
+"domain": "quickmagic.ai",
+"free": "freemium"
+},
+{
+"id": "quillbot",
+"name": "QuillBot",
+"category": "Writing & Copywriting",
+"tag": "Paraphrasing and grammar",
+"pricing": "Free plan available",
+"url": "https://quillbot.com",
+"domain": "quillbot.com",
+"free": "freemium"
+},
+{
+"id": "quoteiq",
+"name": "QuoteIQ",
+"category": "AI Agents & Automation",
+"tag": "Contractor software",
+"pricing": "Paid plans",
+"url": "https://myquoteiq.com/",
+"domain": "myquoteiq.com",
+"free": "paid"
+},
+{
+"id": "rankiq",
+"name": "RankIQ",
+"category": "SEO & AI Search",
+"tag": "SEO for bloggers",
+"pricing": "Paid plans",
+"url": "https://rankiq.com",
+"domain": "rankiq.com",
+"free": "paid"
+},
+{
+"id": "rankprompt",
+"name": "RankPrompt",
+"category": "SEO & AI Search",
+"tag": "AI mention tracking",
+"pricing": "Free plan available",
+"url": "https://rankprompt.com",
+"domain": "rankprompt.com",
+"free": "freemium"
+},
+{
+"id": "read-aloud-reader",
+"name": "Read Aloud Reader",
+"category": "Audio, Voice & Music",
+"tag": "Text to audio",
+"pricing": "Free plan available",
+"url": "https://readaloudreader.com/",
+"domain": "readaloudreader.com",
+"free": "freemium"
+},
+{
+"id": "reccloud",
+"name": "RecCloud",
+"category": "Meetings & Transcription",
+"tag": "Transcripts and dubbing",
+"pricing": "Free plan available",
+"url": "https://reccloud.com",
+"domain": "reccloud.com",
+"free": "freemium"
+},
+{
+"id": "redreach",
+"name": "Redreach",
+"category": "Marketing & Sales",
+"tag": "Reddit lead finder",
+"pricing": "Paid plans",
+"url": "https://redreach.ai/",
+"domain": "redreach.ai",
+"free": "paid"
+},
+{
+"id": "reelfork",
+"name": "ReelFork",
+"category": "Video Generation",
+"tag": "Interactive videos",
+"pricing": "Free plan available",
+"url": "https://reelfork.com",
+"domain": "reelfork.com",
+"free": "freemium"
+},
+{
+"id": "reelio",
+"name": "Reelio",
+"category": "Video Generation",
+"tag": "Faceless videos",
+"pricing": "Free plan available",
+"url": "https://reelio.ai",
+"domain": "reelio.ai",
+"free": "freemium"
+},
+{
+"id": "reflect",
+"name": "Reflect",
+"category": "Productivity & Notes",
+"tag": "Networked notes",
+"pricing": "Paid plans",
+"url": "https://reflect.app/",
+"domain": "reflect.app",
+"free": "paid"
+},
+{
+"id": "refont-ai",
+"name": "Refont AI",
+"category": "Design & Creative",
+"tag": "Signatures and calligraphy",
+"pricing": "Free",
+"url": "https://refont.ai/",
+"domain": "refont.ai",
+"free": "free"
+},
+{
+"id": "rehearsenow",
+"name": "RehearseNow",
+"category": "Productivity & Notes",
+"tag": "Line rehearsal",
+"pricing": "Paid plans",
+"url": "https://rehearsenow.ai/",
+"domain": "rehearsenow.ai",
+"free": "paid"
+},
+{
+"id": "reimaginehome",
+"name": "REimagineHome",
+"category": "Design & Creative",
+"tag": "Virtual staging",
+"pricing": "Free plan available",
+"url": "https://reimaginehome.ai",
+"domain": "reimaginehome.ai",
+"free": "freemium"
+},
+{
+"id": "rekomi",
+"name": "Rekomi",
+"category": "Marketing & Sales",
+"tag": "Affiliate management",
+"pricing": "Paid plans",
+"url": "https://rekomi.com",
+"domain": "rekomi.com",
+"free": "paid"
+},
+{
+"id": "relay",
+"name": "Relay",
+"category": "AI Agents & Automation",
+"tag": "Team automation",
+"pricing": "Free plan available",
+"url": "https://relay.app",
+"domain": "relay.app",
+"free": "freemium"
+},
+{
+"id": "relevance-ai",
+"name": "Relevance AI",
+"category": "AI Agents & Automation",
+"tag": "Sales agents",
+"pricing": "Free plan available",
+"url": "https://relevanceai.com/",
+"domain": "relevanceai.com",
+"free": "freemium"
+},
+{
+"id": "remove-bg",
+"name": "Remove BG",
+"category": "Image Editing",
+"tag": "Background removal",
+"pricing": "Free plan available",
+"url": "https://remove.bg",
+"domain": "remove.bg",
+"free": "freemium"
+},
+{
+"id": "renderlion",
+"name": "RenderLion",
+"category": "Video Generation",
+"tag": "Content to clips",
+"pricing": "Free plan available",
+"url": "https://www.renderlion.com/",
+"domain": "renderlion.com",
+"free": "freemium"
+},
+{
+"id": "renoise-ai",
+"name": "Renoise AI",
+"category": "Video Generation",
+"tag": "Creative agent",
+"pricing": "Paid plans",
+"url": "https://renoise.ai/",
+"domain": "renoise.ai",
+"free": "paid"
+},
+{
+"id": "repliq",
+"name": "RepliQ",
+"category": "Marketing & Sales",
+"tag": "Personalised outreach videos",
+"pricing": "Paid plans",
+"url": "https://repliq.co",
+"domain": "repliq.co",
+"free": "paid"
+},
+{
+"id": "research-studio",
+"name": "Research Studio",
+"category": "Productivity & Notes",
+"tag": "User research analysis",
+"pricing": "Free plan available",
+"url": "https://researchstudio.ai/",
+"domain": "researchstudio.ai",
+"free": "freemium"
+},
+{
+"id": "respan",
+"name": "Respan",
+"category": "AI Agents & Automation",
+"tag": "Agent monitoring",
+"pricing": "Free plan available",
+"url": "https://respan.ai/",
+"domain": "respan.ai",
+"free": "freemium"
+},
+{
+"id": "respira-for-wordpress",
+"name": "Respira for WordPress",
+"category": "AI Agents & Automation",
+"tag": "Safe WordPress edits",
+"pricing": "Paid plans",
+"url": "https://respira.press",
+"domain": "respira.press",
+"free": "paid"
+},
+{
+"id": "resumecoach",
+"name": "ResumeCoach",
+"category": "Careers & Recruiting",
+"tag": "Resume builder",
+"pricing": "Free plan available",
+"url": "https://www.resumecoach.com/",
+"domain": "resumecoach.com",
+"free": "freemium"
+},
+{
+"id": "revid",
+"name": "Revid",
+"category": "Video Generation",
+"tag": "Short AI videos",
+"pricing": "Free plan available",
+"url": "https://revid.me/",
+"domain": "revid.me",
+"free": "freemium"
+},
+{
+"id": "rewarx-studio",
+"name": "Rewarx Studio",
+"category": "Image Editing",
+"tag": "Product photography",
+"pricing": "Free plan available",
+"url": "https://rewarx.com",
+"domain": "rewarx.com",
+"free": "freemium"
+},
+{
+"id": "rezi",
+"name": "Rezi",
+"category": "Productivity & Notes",
+"tag": "ATS resume builder",
+"pricing": "Free plan available",
+"url": "https://www.rezi.ai/",
+"domain": "rezi.ai",
+"free": "freemium"
+},
+{
+"id": "rival",
+"name": "Rival",
+"category": "AI Agents & Automation",
+"tag": "Agent marketplace",
+"pricing": "Free plan available",
+"url": "https://cortexone.rival.io",
+"domain": "cortexone.rival.io",
+"free": "freemium"
+},
+{
+"id": "riverside-audio-transcription",
+"name": "Riverside Audio Transcription",
+"category": "Audio, Voice & Music",
+"tag": "Free transcription",
+"pricing": "Free",
+"url": "https://riverside.com",
+"domain": "riverside.com",
+"free": "free"
+},
+{
+"id": "robylon-ai",
+"name": "Robylon AI",
+"category": "AI Agents & Automation",
+"tag": "Support automation",
+"pricing": "Free plan available",
+"url": "https://www.robylon.ai/",
+"domain": "robylon.ai",
+"free": "freemium"
+},
+{
+"id": "rsw-sora-2-ai-studio",
+"name": "RSW Sora 2 AI Studio",
+"category": "Video Generation",
+"tag": "Sora 2 videos",
+"pricing": "Free plan available",
+"url": "https://www.removesorawatermark.online/sora2-video",
+"domain": "removesorawatermark.online",
+"free": "freemium"
+},
+{
+"id": "rtila",
+"name": "RTILA",
+"category": "AI Agents & Automation",
+"tag": "Desktop scraping studio",
+"pricing": "Free plan available",
+"url": "https://rtila.com/",
+"domain": "rtila.com",
+"free": "freemium"
+},
+{
+"id": "runable",
+"name": "Runable",
+"category": "AI Agents & Automation",
+"tag": "Do-it-all agent",
+"pricing": "Free plan available",
+"url": "https://runable.com",
+"domain": "runable.com",
+"free": "freemium"
+},
+{
+"id": "ryla",
+"name": "Ryla",
+"category": "Image Generation",
+"tag": "Virtual influencers",
+"pricing": "Free plan available",
+"url": "https://ryla.ai",
+"domain": "ryla.ai",
+"free": "freemium"
+},
+{
+"id": "sanebox",
+"name": "Sanebox",
+"category": "Productivity & Notes",
+"tag": "Inbox filtering",
+"pricing": "Paid plans",
+"url": "https://sanebox.com",
+"domain": "sanebox.com",
+"free": "paid"
+},
+{
+"id": "saveto-ai",
+"name": "Saveto AI",
+"category": "Meetings & Transcription",
+"tag": "Free transcription",
+"pricing": "Free plan available",
+"url": "https://saveto.ai/",
+"domain": "saveto.ai",
+"free": "freemium"
+},
+{
+"id": "schemawriter-ai",
+"name": "SchemaWriter.ai",
+"category": "SEO & AI Search",
+"tag": "Schema markup",
+"pricing": "Paid plans",
+"url": "https://schemawriter.ai/",
+"domain": "schemawriter.ai",
+"free": "paid"
+},
+{
+"id": "scrapethemap",
+"name": "ScrapeTheMap",
+"category": "Marketing & Sales",
+"tag": "Maps lead scraper",
+"pricing": "Paid plans",
+"url": "https://scrapethemap.com",
+"domain": "scrapethemap.com",
+"free": "paid"
+},
+{
+"id": "scribe",
+"name": "Scribe",
+"category": "Productivity & Notes",
+"tag": "Step-by-step guides",
+"pricing": "Free plan available",
+"url": "https://scribehow.com",
+"domain": "scribehow.com",
+"free": "freemium"
+},
+{
+"id": "scribelyn",
+"name": "Scribelyn",
+"category": "Meetings & Transcription",
+"tag": "Recordings to content",
+"pricing": "Free plan available",
+"url": "https://scribelyn.com",
+"domain": "scribelyn.com",
+"free": "freemium"
+},
+{
+"id": "seamless-ai",
+"name": "Seamless.AI",
+"category": "Marketing & Sales",
+"tag": "Contact data",
+"pricing": "Free plan available",
+"url": "https://seamless.ai:443",
+"domain": "seamless.ai",
+"free": "freemium"
+},
+{
+"id": "secta-labs",
+"name": "Secta Labs",
+"category": "Image Editing",
+"tag": "AI headshots",
+"pricing": "Paid plans",
+"url": "https://secta.ai",
+"domain": "secta.ai",
+"free": "paid"
+},
+{
+"id": "segwise",
+"name": "Segwise",
+"category": "Advertising",
+"tag": "Ad creative analytics",
+"pricing": "Paid plans",
+"url": "https://segwise.ai/",
+"domain": "segwise.ai",
+"free": "paid"
+},
+{
+"id": "semrush",
+"name": "Semrush",
+"category": "SEO & AI Search",
+"tag": "All-in-one SEO",
+"pricing": "Free plan available",
+"url": "https://semrush.com",
+"domain": "semrush.com",
+"free": "freemium"
+},
+{
+"id": "semrush-content-toolkit",
+"name": "Semrush Content Toolkit",
+"category": "Writing & Copywriting",
+"tag": "SEO content",
+"pricing": "Paid plans",
+"url": "https://semrush.com",
+"domain": "semrush.com",
+"free": "paid"
+},
+{
+"id": "sendx",
+"name": "SendX",
+"category": "Marketing & Sales",
+"tag": "Email marketing",
+"pricing": "Paid plans",
+"url": "https://sendx.io",
+"domain": "sendx.io",
+"free": "paid"
+},
+{
+"id": "seo-bot",
+"name": "SEO Bot",
+"category": "SEO & AI Search",
+"tag": "Autopilot SEO",
+"pricing": "Paid plans",
+"url": "https://seobotai.com",
+"domain": "seobotai.com",
+"free": "paid"
+},
+{
+"id": "seo-gpt",
+"name": "SEO GPT",
+"category": "SEO & AI Search",
+"tag": "SEO titles and copy",
+"pricing": "Free plan available",
+"url": "https://seovendor.co",
+"domain": "seovendor.co",
+"free": "freemium"
+},
+{
+"id": "seobility",
+"name": "Seobility",
+"category": "SEO & AI Search",
+"tag": "SEO data for assistants",
+"pricing": "Free plan available",
+"url": "https://seobility.net",
+"domain": "seobility.net",
+"free": "freemium"
+},
+{
+"id": "seomatic",
+"name": "SEOmatic",
+"category": "SEO & AI Search",
+"tag": "Programmatic SEO",
+"pricing": "Paid plans",
+"url": "https://seomatic.ai/",
+"domain": "seomatic.ai",
+"free": "paid"
+},
+{
+"id": "seopress",
+"name": "SEOPress",
+"category": "SEO & AI Search",
+"tag": "WordPress SEO plugin",
+"pricing": "Paid plans",
+"url": "https://seopress.org",
+"domain": "seopress.org",
+"free": "paid"
+},
+{
+"id": "sharp-api",
+"name": "Sharp API",
+"category": "Coding & Development",
+"tag": "AI API for developers",
+"pricing": "Free plan available",
+"url": "https://sharpapi.com",
+"domain": "sharpapi.com",
+"free": "freemium"
+},
+{
+"id": "shoorts",
+"name": "Shoorts",
+"category": "Video Generation",
+"tag": "Vertical video production",
+"pricing": "Free plan available",
+"url": "https://shoorts.ai",
+"domain": "shoorts.ai",
+"free": "freemium"
+},
+{
+"id": "shopos",
+"name": "ShopOS",
+"category": "AI Agents & Automation",
+"tag": "AI ecommerce team",
+"pricing": "Free plan available",
+"url": "https://shopos.ai/",
+"domain": "shopos.ai",
+"free": "freemium"
+},
+{
+"id": "short-ai",
+"name": "Short AI",
+"category": "Video Editing & Clips",
+"tag": "Faceless clips",
+"pricing": "Free plan available",
+"url": "https://short.ai",
+"domain": "short.ai",
+"free": "freemium"
+},
+{
+"id": "shortpixel",
+"name": "ShortPixel",
+"category": "Image Editing",
+"tag": "Image compression",
+"pricing": "Free plan available",
+"url": "https://shortpixel.com",
+"domain": "shortpixel.com",
+"free": "freemium"
+},
+{
+"id": "sider-ai",
+"name": "Sider AI",
+"category": "Chatbots & Assistants",
+"tag": "Browser sidebar",
+"pricing": "Free plan available",
+"url": "https://sider.ai/",
+"domain": "sider.ai",
+"free": "freemium"
+},
+{
+"id": "simple-phones",
+"name": "Simple Phones",
+"category": "Productivity & Notes",
+"tag": "AI phone agent",
+"pricing": "Paid plans",
+"url": "https://simplephones.ai",
+"domain": "simplephones.ai",
+"free": "paid"
+},
+{
+"id": "simplified",
+"name": "Simplified",
+"category": "Writing & Copywriting",
+"tag": "Marketing writer",
+"pricing": "Free plan available",
+"url": "https://simplified.com",
+"domain": "simplified.com",
+"free": "freemium"
+},
+{
+"id": "singify",
+"name": "Singify",
+"category": "Video Generation",
+"tag": "Singing photos",
+"pricing": "Free plan available",
+"url": "https://singify.co/",
+"domain": "singify.co",
+"free": "freemium"
+},
+{
+"id": "sista-ai",
+"name": "Sista AI",
+"category": "AI Agents & Automation",
+"tag": "AI employee teams",
+"pricing": "Paid plans",
+"url": "https://work.sista.ai/en/",
+"domain": "work.sista.ai",
+"free": "paid"
+},
+{
+"id": "sistava",
+"name": "Sistava",
+"category": "AI Agents & Automation",
+"tag": "AI employees",
+"pricing": "Free plan available",
+"url": "https://sistava.com/",
+"domain": "sistava.com",
+"free": "freemium"
+},
+{
+"id": "sitepaige",
+"name": "Sitepaige",
+"category": "No-Code & App Builders",
+"tag": "Full websites from text",
+"pricing": "Free plan available",
+"url": "https://sitepaige.com",
+"domain": "sitepaige.com",
+"free": "freemium"
+},
+{
+"id": "sitespeakai",
+"name": "SiteSpeakAI",
+"category": "Chatbots & Assistants",
+"tag": "Website chatbot",
+"pricing": "Paid plans",
+"url": "https://sitespeak.ai",
+"domain": "sitespeak.ai",
+"free": "paid"
+},
+{
+"id": "sketch-to",
+"name": "Sketch To",
+"category": "Image Editing",
+"tag": "Sketches and photos",
+"pricing": "Free plan available",
+"url": "https://www.sketchto.com/",
+"domain": "sketchto.com",
+"free": "freemium"
+},
+{
+"id": "skybox-lab",
+"name": "Skybox Lab",
+"category": "Image Generation",
+"tag": "360° worlds",
+"pricing": "Free",
+"url": "https://www.blockadelabs.com/",
+"domain": "blockadelabs.com",
+"free": "free"
+},
+{
+"id": "slidesai",
+"name": "SlidesAI",
+"category": "Presentations & Slides",
+"tag": "Google Slides decks",
+"pricing": "Free plan available",
+"url": "https://www.slidesai.io/",
+"domain": "slidesai.io",
+"free": "freemium"
+},
+{
+"id": "smith-ai",
+"name": "Smith.ai",
+"category": "AI Agents & Automation",
+"tag": "AI and live receptionists",
+"pricing": "Free plan available",
+"url": "https://smith.ai/",
+"domain": "smith.ai",
+"free": "freemium"
+},
+{
+"id": "socialbee",
+"name": "SocialBee",
+"category": "Social Media",
+"tag": "Social post generator",
+"pricing": "Paid plans",
+"url": "https://socialbee.com",
+"domain": "socialbee.com",
+"free": "paid"
+},
+{
+"id": "softr-ai",
+"name": "Softr AI",
+"category": "No-Code & App Builders",
+"tag": "Apps from your data",
+"pricing": "Free plan available",
+"url": "https://softr.io",
+"domain": "softr.io",
+"free": "freemium"
+},
+{
+"id": "softsync",
+"name": "SoftSync",
+"category": "AI Agents & Automation",
+"tag": "AI CRM",
+"pricing": "Paid plans",
+"url": "https://softsync.ai",
+"domain": "softsync.ai",
+"free": "paid"
+},
+{
+"id": "solvea",
+"name": "Solvea",
+"category": "AI Agents & Automation",
+"tag": "AI receptionist",
+"pricing": "Free plan available",
+"url": "https://solvea.cx/",
+"domain": "solvea.cx",
+"free": "freemium"
+},
+{
+"id": "sora",
+"name": "Sora",
+"category": "Video Generation",
+"tag": "OpenAI video",
+"pricing": "Free plan available",
+"url": "https://openai.com/index/sora-2/",
+"domain": "openai.com",
+"free": "freemium"
+},
+{
+"id": "sorank",
+"name": "Sorank",
+"category": "SEO & AI Search",
+"tag": "Google and AI search",
+"pricing": "Paid plans",
+"url": "https://www.sorank.com/",
+"domain": "sorank.com",
+"free": "paid"
+},
+{
+"id": "soundraw",
+"name": "Soundraw",
+"category": "Audio, Voice & Music",
+"tag": "Royalty-free music",
+"pricing": "Free plan available",
+"url": "https://soundraw.io",
+"domain": "soundraw.io",
+"free": "freemium"
+},
+{
+"id": "soundverse",
+"name": "Soundverse",
+"category": "Audio, Voice & Music",
+"tag": "Music generator",
+"pricing": "Free plan available",
+"url": "https://soundverse.ai",
+"domain": "soundverse.ai",
+"free": "freemium"
+},
+{
+"id": "speak-ai",
+"name": "Speak AI",
+"category": "Meetings & Transcription",
+"tag": "Conversation insights",
+"pricing": "Free plan available",
+"url": "https://speakai.co",
+"domain": "speakai.co",
+"free": "freemium"
+},
+{
+"id": "spectra",
+"name": "Spectra",
+"category": "No-Code & App Builders",
+"tag": "WordPress page builder",
+"pricing": "Free plan available",
+"url": "https://wpspectra.com",
+"domain": "wpspectra.com",
+"free": "freemium"
+},
+{
+"id": "speechify",
+"name": "Speechify",
+"category": "Audio, Voice & Music",
+"tag": "Text to speech",
+"pricing": "Free plan available",
+"url": "https://speechify.com",
+"domain": "speechify.com",
+"free": "freemium"
+},
+{
+"id": "spikes-studio",
+"name": "Spikes Studio",
+"category": "Video Generation",
+"tag": "Highlights to shorts",
+"pricing": "Free plan available",
+"url": "https://spikes.studio",
+"domain": "spikes.studio",
+"free": "freemium"
+},
+{
+"id": "spotscribe",
+"name": "SpotScribe",
+"category": "Meetings & Transcription",
+"tag": "Podcast transcripts",
+"pricing": "Free plan available",
+"url": "https://spotscribe.io/",
+"domain": "spotscribe.io",
+"free": "freemium"
+},
+{
+"id": "squirrly-seo",
+"name": "Squirrly SEO",
+"category": "SEO & AI Search",
+"tag": "WordPress SEO and GEO",
+"pricing": "Free plan available",
+"url": "https://plugin.squirrly.co",
+"domain": "plugin.squirrly.co",
+"free": "freemium"
+},
+{
+"id": "stable-commerce",
+"name": "Stable Commerce",
+"category": "AI Agents & Automation",
+"tag": "Ecommerce agents",
+"pricing": "Paid plans",
+"url": "https://stablecommerce.ai",
+"domain": "stablecommerce.ai",
+"free": "paid"
+},
+{
+"id": "stealthgpt",
+"name": "StealthGPT",
+"category": "AI Detection & Humanisers",
+"tag": "AI humaniser",
+"pricing": "Paid plans",
+"url": "https://stealthgpt.ai",
+"domain": "stealthgpt.ai",
+"free": "paid"
+},
+{
+"id": "sterling-coworker",
+"name": "Sterling CoWorker",
+"category": "AI Agents & Automation",
+"tag": "Coworker in Slack",
+"pricing": "Free plan available",
+"url": "https://sterlingcoworker.com",
+"domain": "sterlingcoworker.com",
+"free": "freemium"
+},
+{
+"id": "steve-ai",
+"name": "Steve AI",
+"category": "Video Generation",
+"tag": "Video creation",
+"pricing": "Free plan available",
+"url": "https://www.steve.ai/",
+"domain": "steve.ai",
+"free": "freemium"
+},
+{
+"id": "stivio",
+"name": "Stivio",
+"category": "Video Generation",
+"tag": "Photo to video",
+"pricing": "Free plan available",
+"url": "https://stivio.ai/",
+"domain": "stivio.ai",
+"free": "freemium"
+},
+{
+"id": "strawberry",
+"name": "Strawberry",
+"category": "AI Agents & Automation",
+"tag": "AI browser",
+"pricing": "Free plan available",
+"url": "https://strawberrybrowser.com/signup",
+"domain": "strawberrybrowser.com",
+"free": "freemium"
+},
+{
+"id": "submagic",
+"name": "Submagic",
+"category": "Video Editing & Clips",
+"tag": "Captions for shorts",
+"pricing": "Free plan available",
+"url": "https://submagic.co",
+"domain": "submagic.co",
+"free": "freemium"
+},
+{
+"id": "subscribr",
+"name": "Subscribr",
+"category": "Writing & Copywriting",
+"tag": "YouTube scripts",
+"pricing": "Free plan available",
+"url": "https://subscribr.ai",
+"domain": "subscribr.ai",
+"free": "freemium"
+},
+{
+"id": "sudowrite",
+"name": "Sudowrite",
+"category": "Writing & Copywriting",
+"tag": "Fiction writing",
+"pricing": "Paid plans",
+"url": "https://sudowrite.com",
+"domain": "sudowrite.com",
+"free": "paid"
+},
+{
+"id": "supadev",
+"name": "Supadev",
+"category": "Coding & Development",
+"tag": "Docs for AI coding",
+"pricing": "Paid plans",
+"url": "https://www.supadev.so/",
+"domain": "supadev.so",
+"free": "paid"
+},
+{
+"id": "super",
+"name": "Super",
+"category": "Productivity & Notes",
+"tag": "Notion to website",
+"pricing": "Free plan available",
+"url": "https://super.so",
+"domain": "super.so",
+"free": "freemium"
+},
+{
+"id": "superbot",
+"name": "Superbot",
+"category": "AI Agents & Automation",
+"tag": "Connect your AI accounts",
+"pricing": "Free plan available",
+"url": "https://superbot.gg/",
+"domain": "superbot.gg",
+"free": "freemium"
+},
+{
+"id": "supercut",
+"name": "Supercut",
+"category": "Video Editing & Clips",
+"tag": "Async video updates",
+"pricing": "Paid plans",
+"url": "https://supercut.ai",
+"domain": "supercut.ai",
+"free": "paid"
+},
+{
+"id": "supermachine",
+"name": "SUPERMACHINE",
+"category": "Image Generation",
+"tag": "Image generator",
+"pricing": "Paid plans",
+"url": "https://supermachine.art/",
+"domain": "supermachine.art",
+"free": "paid"
+},
+{
+"id": "supernormal",
+"name": "Supernormal",
+"category": "Productivity & Notes",
+"tag": "Meeting notes, no bot",
+"pricing": "Free plan available",
+"url": "https://www.supernormal.com/",
+"domain": "supernormal.com",
+"free": "freemium"
+},
+{
+"id": "superscale-ai",
+"name": "Superscale AI",
+"category": "Advertising",
+"tag": "Ad campaigns from a link",
+"pricing": "Free plan available",
+"url": "https://superscale.ai/",
+"domain": "superscale.ai",
+"free": "freemium"
+},
+{
+"id": "superscribe",
+"name": "Superscribe",
+"category": "Productivity & Notes",
+"tag": "Call transcripts",
+"pricing": "Free plan available",
+"url": "https://superscribe.io/",
+"domain": "superscribe.io",
+"free": "freemium"
+},
+{
+"id": "surfn",
+"name": "Surfn",
+"category": "Marketing & Sales",
+"tag": "AI link-in-bio",
+"pricing": "Free plan available",
+"url": "https://surfn.ai",
+"domain": "surfn.ai",
+"free": "freemium"
+},
+{
+"id": "syllaby",
+"name": "Syllaby",
+"category": "Video Editing & Clips",
+"tag": "Faceless video workflow",
+"pricing": "Paid plans",
+"url": "https://syllaby.io",
+"domain": "syllaby.io",
+"free": "paid"
+},
+{
+"id": "synthesia",
+"name": "Synthesia",
+"category": "Video Generation",
+"tag": "AI presenter videos",
+"pricing": "Paid plans",
+"url": "https://synthesia.io",
+"domain": "synthesia.io",
+"free": "paid"
+},
+{
+"id": "syntopia",
+"name": "Syntopia",
+"category": "Marketing & Sales",
+"tag": "AI live commerce",
+"pricing": "Free plan available",
+"url": "https://syntopia.ai",
+"domain": "syntopia.ai",
+"free": "freemium"
+},
+{
+"id": "sysarchitect",
+"name": "Sysarchitect",
+"category": "No-Code & App Builders",
+"tag": "Apps from decisions",
+"pricing": "Free plan available",
+"url": "https://www.sysarchitect.ai/",
+"domain": "sysarchitect.ai",
+"free": "freemium"
+},
+{
+"id": "t-shirt-design-ai",
+"name": "T-Shirt Design AI",
+"category": "Design & Creative",
+"tag": "T-shirt graphics",
+"pricing": "Free plan available",
+"url": "https://tshirtdesignai.com/",
+"domain": "tshirtdesignai.com",
+"free": "freemium"
+},
+{
+"id": "tabnine",
+"name": "Tabnine",
+"category": "Coding & Development",
+"tag": "Private coding assistant",
+"pricing": "Paid plans",
+"url": "https://www.tabnine.com/platform/",
+"domain": "tabnine.com",
+"free": "paid"
+},
+{
+"id": "talkio",
+"name": "Talkio",
+"category": "Education & Learning",
+"tag": "Speaking practice",
+"pricing": "Paid plans",
+"url": "https://talkio.ai",
+"domain": "talkio.ai",
+"free": "paid"
+},
+{
+"id": "talkpal",
+"name": "TalkPal",
+"category": "Education & Learning",
+"tag": "Language conversation",
+"pricing": "Free plan available",
+"url": "https://talkpal.ai",
+"domain": "talkpal.ai",
+"free": "freemium"
+},
+{
+"id": "taskade",
+"name": "Taskade",
+"category": "Productivity & Notes",
+"tag": "Workflows and apps",
+"pricing": "Paid plans",
+"url": "https://taskade.com",
+"domain": "taskade.com",
+"free": "paid"
+},
+{
+"id": "taxgpt",
+"name": "TaxGPT",
+"category": "Data & Analytics",
+"tag": "Tax research",
+"pricing": "Paid plans",
+"url": "https://www.taxgpt.com/",
+"domain": "taxgpt.com",
+"free": "paid"
+},
+{
+"id": "taxmcp",
+"name": "TaxMCP",
+"category": "Finance & Accounting",
+"tag": "Tax law for assistants",
+"pricing": "Free plan available",
+"url": "https://taxmcp.io/",
+"domain": "taxmcp.io",
+"free": "freemium"
+},
+{
+"id": "teachermatic",
+"name": "TeacherMatic",
+"category": "Education & Learning",
+"tag": "Teacher toolkit",
+"pricing": "Free plan available",
+"url": "https://teachermatic.com",
+"domain": "teachermatic.com",
+"free": "freemium"
+},
+{
+"id": "teamai",
+"name": "TeamAI",
+"category": "AI Agents & Automation",
+"tag": "AI for teams",
+"pricing": "Paid plans",
+"url": "https://teamai.com/",
+"domain": "teamai.com",
+"free": "paid"
+},
+{
+"id": "terabox-ai",
+"name": "TeraBox AI",
+"category": "Productivity & Notes",
+"tag": "AI workspace with storage",
+"pricing": "Free plan available",
+"url": "https://www.terabox.com/ai/index",
+"domain": "terabox.com",
+"free": "freemium"
+},
+{
+"id": "text-cortex",
+"name": "Text Cortex",
+"category": "Writing & Copywriting",
+"tag": "Browser writing assistant",
+"pricing": "Free plan available",
+"url": "https://textcortex.com",
+"domain": "textcortex.com",
+"free": "freemium"
+},
+{
+"id": "text-ai",
+"name": "text.ai",
+"category": "Chatbots & Assistants",
+"tag": "AI in group chats",
+"pricing": "Free plan available",
+"url": "https://www.text.ai",
+"domain": "text.ai",
+"free": "freemium"
+},
+{
+"id": "thumbnailcreator",
+"name": "ThumbnailCreator",
+"category": "Image Generation",
+"tag": "YouTube thumbnails",
+"pricing": "Paid plans",
+"url": "https://www.thumbnailcreator.com/",
+"domain": "thumbnailcreator.com",
+"free": "paid"
+},
+{
+"id": "thunderbit",
+"name": "Thunderbit",
+"category": "AI Agents & Automation",
+"tag": "Web data to tables",
+"pricing": "Free plan available",
+"url": "https://thunderbit.com/",
+"domain": "thunderbit.com",
+"free": "freemium"
+},
+{
+"id": "ticnote-cloud",
+"name": "TicNote Cloud",
+"category": "Productivity & Notes",
+"tag": "Meeting notes, no bot",
+"pricing": "Free plan available",
+"url": "https://ticnote.com",
+"domain": "ticnote.com",
+"free": "freemium"
+},
+{
+"id": "tiktok",
+"name": "TikTok",
+"category": "Advertising",
+"tag": "TikTok ad tools",
+"pricing": "Free plan available",
+"url": "https://getstarted.tiktok.com",
+"domain": "getstarted.tiktok.com",
+"free": "freemium"
+},
+{
+"id": "tl-dv",
+"name": "tl;dv",
+"category": "Meetings & Transcription",
+"tag": "Meeting recorder",
+"pricing": "Free plan available",
+"url": "https://tldv.io",
+"domain": "tldv.io",
+"free": "freemium"
+},
+{
+"id": "topview-ai",
+"name": "Topview AI",
+"category": "Video Generation",
+"tag": "Product marketing videos",
+"pricing": "Free plan available",
+"url": "https://www.topview.ai/",
+"domain": "topview.ai",
+"free": "freemium"
+},
+{
+"id": "tradeos-ai",
+"name": "TradeOS AI",
+"category": "Finance & Accounting",
+"tag": "Trading research",
+"pricing": "Free plan available",
+"url": "https://ai.tradeos.xyz/",
+"domain": "ai.tradeos.xyz",
+"free": "freemium"
+},
+{
+"id": "trainn",
+"name": "Trainn",
+"category": "Education & Learning",
+"tag": "Customer training videos",
+"pricing": "Paid plans",
+"url": "https://trainn.co/",
+"domain": "trainn.co",
+"free": "paid"
+},
+{
+"id": "transcribe-video-ai",
+"name": "Transcribe Video AI",
+"category": "Meetings & Transcription",
+"tag": "Video transcription",
+"pricing": "Free",
+"url": "https://transcribe-video.ai/",
+"domain": "transcribe-video.ai",
+"free": "free"
+},
+{
+"id": "transor",
+"name": "Transor",
+"category": "Translation",
+"tag": "Translate videos, images, PDFs",
+"pricing": "Free plan available",
+"url": "https://transor.ai/",
+"domain": "transor.ai",
+"free": "freemium"
+},
+{
+"id": "treg",
+"name": "Treg",
+"category": "AI Agents & Automation",
+"tag": "Tool access for agents",
+"pricing": "Free plan available",
+"url": "https://treg.to/",
+"domain": "treg.to",
+"free": "freemium"
+},
+{
+"id": "trinka-ai",
+"name": "Trinka AI",
+"category": "Productivity & Notes",
+"tag": "Academic grammar",
+"pricing": "Free plan available",
+"url": "https://www.trinka.ai/",
+"domain": "trinka.ai",
+"free": "freemium"
+},
+{
+"id": "tripo-ai",
+"name": "Tripo AI",
+"category": "Image Generation",
+"tag": "Text and image to 3D",
+"pricing": "Free plan available",
+"url": "https://studio.tripo3d.ai",
+"domain": "studio.tripo3d.ai",
+"free": "freemium"
+},
+{
+"id": "trupeer",
+"name": "Trupeer",
+"category": "Productivity & Notes",
+"tag": "Product walkthroughs",
+"pricing": "Free plan available",
+"url": "https://trupeer.ai",
+"domain": "trupeer.ai",
+"free": "freemium"
+},
+{
+"id": "tryopenclaw",
+"name": "TryOpenClaw",
+"category": "Careers & Recruiting",
+"tag": "Hosted HR agent",
+"pricing": "Paid plans",
+"url": "https://www.tryopenclaw.ai/",
+"domain": "tryopenclaw.ai",
+"free": "paid"
+},
+{
+"id": "tubebuddy",
+"name": "TubeBuddy",
+"category": "Video Generation",
+"tag": "YouTube Shorts finder",
+"pricing": "Free plan available",
+"url": "https://tubebuddy.com",
+"domain": "tubebuddy.com",
+"free": "freemium"
+},
+{
+"id": "turncage",
+"name": "TurnCage",
+"category": "No-Code & App Builders",
+"tag": "Small business websites",
+"pricing": "Paid plans",
+"url": "https://turncage.com/",
+"domain": "turncage.com",
+"free": "paid"
+},
+{
+"id": "tweet-hunter",
+"name": "Tweet Hunter",
+"category": "Social Media",
+"tag": "Grow on X",
+"pricing": "Paid plans",
+"url": "https://tweethunter.io",
+"domain": "tweethunter.io",
+"free": "paid"
+},
+{
+"id": "two-minute-reports",
+"name": "Two Minute Reports",
+"category": "Data & Analytics",
+"tag": "Marketing dashboards",
+"pricing": "Paid plans",
+"url": "https://twominutereports.com",
+"domain": "twominutereports.com",
+"free": "paid"
+},
+{
+"id": "typeform",
+"name": "Typeform",
+"category": "No-Code & App Builders",
+"tag": "Forms and surveys",
+"pricing": "Free plan available",
+"url": "https://typeform.com",
+"domain": "typeform.com",
+"free": "freemium"
+},
+{
+"id": "typefully",
+"name": "Typefully",
+"category": "Social Media",
+"tag": "Writing for X",
+"pricing": "Free plan available",
+"url": "https://typefully.com",
+"domain": "typefully.com",
+"free": "freemium"
+},
+{
+"id": "typesafe-ai",
+"name": "TypeSafe AI",
+"category": "Coding & Development",
+"tag": "Scoring model API",
+"pricing": "Paid plans",
+"url": "https://typesafe.ai/",
+"domain": "typesafe.ai",
+"free": "paid"
+},
+{
+"id": "typing-mind",
+"name": "Typing Mind",
+"category": "Chatbots & Assistants",
+"tag": "Better chat interface",
+"pricing": "Paid plans",
+"url": "https://typingmind.com",
+"domain": "typingmind.com",
+"free": "paid"
+},
+{
+"id": "typli",
+"name": "Typli",
+"category": "Writing & Copywriting",
+"tag": "High-volume writing",
+"pricing": "Paid plans",
+"url": "https://typli.ai",
+"domain": "typli.ai",
+"free": "paid"
+},
+{
+"id": "uichemy",
+"name": "UiChemy",
+"category": "No-Code & App Builders",
+"tag": "Designs to WordPress",
+"pricing": "Free plan available",
+"url": "https://uichemy.com",
+"domain": "uichemy.com",
+"free": "freemium"
+},
+{
+"id": "uizard",
+"name": "Uizard",
+"category": "Design & Creative",
+"tag": "UI mockups",
+"pricing": "Free plan available",
+"url": "https://uizard.io/",
+"domain": "uizard.io",
+"free": "freemium"
+},
+{
+"id": "uncanny-automator",
+"name": "Uncanny Automator",
+"category": "AI Agents & Automation",
+"tag": "WordPress automation",
+"pricing": "Free plan available",
+"url": "https://automatorplugin.com",
+"domain": "automatorplugin.com",
+"free": "freemium"
+},
+{
+"id": "undetectable-ai",
+"name": "Undetectable AI",
+"category": "AI Detection & Humanisers",
+"tag": "Detection and humaniser",
+"pricing": "Free plan available",
+"url": "https://undetectable.ai/",
+"domain": "undetectable.ai",
+"free": "freemium"
+},
+{
+"id": "uplup",
+"name": "Uplup",
+"category": "Marketing & Sales",
+"tag": "Giveaways and contests",
+"pricing": "Paid plans",
+"url": "https://uplup.com",
+"domain": "uplup.com",
+"free": "paid"
+},
+{
+"id": "upmetrics",
+"name": "Upmetrics",
+"category": "Data & Analytics",
+"tag": "Business plans",
+"pricing": "Paid plans",
+"url": "https://upmetrics.co",
+"domain": "upmetrics.co",
+"free": "paid"
+},
+{
+"id": "user-evaluation",
+"name": "User Evaluation",
+"category": "Marketing & Sales",
+"tag": "Consumer research",
+"pricing": "Paid plans",
+"url": "https://userevaluation.cello.so",
+"domain": "userevaluation.cello.so",
+"free": "paid"
+},
+{
+"id": "v0-by-vercel",
+"name": "v0 by Vercel",
+"category": "Coding & Development",
+"tag": "UI from prompts",
+"pricing": "Free plan available",
+"url": "https://v0.app/",
+"domain": "v0.app",
+"free": "freemium"
+},
+{
+"id": "v2fun",
+"name": "V2Fun",
+"category": "Design & Creative",
+"tag": "Video to 3D",
+"pricing": "Free plan available",
+"url": "https://v2fun.ai",
+"domain": "v2fun.ai",
+"free": "freemium"
+},
+{
+"id": "vecteezy-ai",
+"name": "Vecteezy AI",
+"category": "Image Generation",
+"tag": "Smart image search",
+"pricing": "Free plan available",
+"url": "https://vecteezy.com",
+"domain": "vecteezy.com",
+"free": "freemium"
+},
+{
+"id": "veed-ai-video",
+"name": "VEED AI Video",
+"category": "Video Generation",
+"tag": "Online video editor",
+"pricing": "Free plan available",
+"url": "https://veed.io",
+"domain": "veed.io",
+"free": "freemium"
+},
+{
+"id": "vexub",
+"name": "Vexub",
+"category": "Video Generation",
+"tag": "Faceless shorts at scale",
+"pricing": "Paid plans",
+"url": "https://vexub.com",
+"domain": "vexub.com",
+"free": "paid"
+},
+{
+"id": "vibedream-ai",
+"name": "VibeDream AI",
+"category": "No-Code & App Builders",
+"tag": "SaaS from a prompt",
+"pricing": "Paid plans",
+"url": "https://www.vibedream.ai",
+"domain": "vibedream.ai",
+"free": "paid"
+},
+{
+"id": "vidai",
+"name": "VidAI",
+"category": "Video Generation",
+"tag": "Topic to video",
+"pricing": "Paid plans",
+"url": "https://vid.ai",
+"domain": "vid.ai",
+"free": "paid"
+},
+{
+"id": "vidalgo",
+"name": "Vidalgo",
+"category": "Video Generation",
+"tag": "TikTok video automation",
+"pricing": "Paid plans",
+"url": "https://vidalgo.tech",
+"domain": "vidalgo.tech",
+"free": "paid"
+},
+{
+"id": "video-transcription-ai",
+"name": "Video Transcription AI",
+"category": "Meetings & Transcription",
+"tag": "Video to text",
+"pricing": "Free",
+"url": "https://videotranscription.ai/",
+"domain": "videotranscription.ai",
+"free": "free"
+},
+{
+"id": "videogen",
+"name": "VideoGen",
+"category": "Video Generation",
+"tag": "Business videos",
+"pricing": "Paid plans",
+"url": "https://videogen.io",
+"domain": "videogen.io",
+"free": "paid"
+},
+{
+"id": "videoideas-ai",
+"name": "VideoIdeas.ai",
+"category": "Marketing & Sales",
+"tag": "YouTube ideas and scripts",
+"pricing": "Paid plans",
+"url": "https://www.videoideas.ai/",
+"domain": "videoideas.ai",
+"free": "paid"
+},
+{
+"id": "videoweb-ai",
+"name": "VideoWeb AI",
+"category": "Video Generation",
+"tag": "Video, image and music",
+"pricing": "Free plan available",
+"url": "https://videoweb.ai",
+"domain": "videoweb.ai",
+"free": "freemium"
+},
+{
+"id": "vidmage-ai",
+"name": "VidMage AI",
+"category": "Video Generation",
+"tag": "Face swap and more",
+"pricing": "Free plan available",
+"url": "https://vidmage.ai/",
+"domain": "vidmage.ai",
+"free": "freemium"
+},
+{
+"id": "vidnoz",
+"name": "Vidnoz",
+"category": "Video Generation",
+"tag": "Avatar videos",
+"pricing": "Free plan available",
+"url": "https://www.vidnoz.com/",
+"domain": "vidnoz.com",
+"free": "freemium"
+},
+{
+"id": "vidpexai",
+"name": "VidpexAI",
+"category": "Video Generation",
+"tag": "All-in-one video",
+"pricing": "Free plan available",
+"url": "https://www.vidpexai.com/",
+"domain": "vidpexai.com",
+"free": "freemium"
+},
+{
+"id": "vidu",
+"name": "Vidu",
+"category": "Video Generation",
+"tag": "Short video generation",
+"pricing": "Free plan available",
+"url": "https://vidu.com",
+"domain": "vidu.com",
+"free": "freemium"
+},
+{
+"id": "viral-ai-video-maker",
+"name": "Viral Ai Video Maker",
+"category": "Video Generation",
+"tag": "Prompt to short video",
+"pricing": "Paid plans",
+"url": "https://veo3video.me/",
+"domain": "veo3video.me",
+"free": "paid"
+},
+{
+"id": "viralkey",
+"name": "ViralKey",
+"category": "Video Generation",
+"tag": "AI music videos",
+"pricing": "Paid plans",
+"url": "https://viralkey.ai/",
+"domain": "viralkey.ai",
+"free": "paid"
+},
+{
+"id": "visme-ai",
+"name": "Visme AI",
+"category": "Design & Creative",
+"tag": "Presentations and graphics",
+"pricing": "Free plan available",
+"url": "https://visme.co",
+"domain": "visme.co",
+"free": "freemium"
+},
+{
+"id": "visro-ai",
+"name": "Visro AI",
+"category": "Image Editing",
+"tag": "Face swap",
+"pricing": "Free",
+"url": "https://visro.ai/",
+"domain": "visro.ai",
+"free": "free"
+},
+{
+"id": "vista-social",
+"name": "Vista Social",
+"category": "Social Media",
+"tag": "Social media management",
+"pricing": "Paid plans",
+"url": "https://vistasocial.com",
+"domain": "vistasocial.com",
+"free": "paid"
+},
+{
+"id": "visual-field-test",
+"name": "Visual Field Test",
+"category": "Health",
+"tag": "Vision screening",
+"pricing": "Free plan available",
+"url": "https://visualfieldtest.com/",
+"domain": "visualfieldtest.com",
+"free": "freemium"
+},
+{
+"id": "vivgrid",
+"name": "Vivgrid",
+"category": "AI Agents & Automation",
+"tag": "Agent infrastructure",
+"pricing": "Free plan available",
+"url": "https://www.vivgrid.com/",
+"domain": "vivgrid.com",
+"free": "freemium"
+},
+{
+"id": "voice-ai",
+"name": "Voice.ai",
+"category": "Audio, Voice & Music",
+"tag": "Real-time voice changer",
+"pricing": "Free plan available",
+"url": "https://voice.ai/",
+"domain": "voice.ai",
+"free": "freemium"
+},
+{
+"id": "voiceaiwrapper",
+"name": "VoiceAIWrapper",
+"category": "Audio, Voice & Music",
+"tag": "White-label voice AI",
+"pricing": "Paid plans",
+"url": "https://voiceaiwrapper.com/",
+"domain": "voiceaiwrapper.com",
+"free": "paid"
+},
+{
+"id": "voiceappear",
+"name": "VoiceAppear",
+"category": "Productivity & Notes",
+"tag": "Dictation",
+"pricing": "Free plan available",
+"url": "https://voiceappear.de/",
+"domain": "voiceappear.de",
+"free": "freemium"
+},
+{
+"id": "voluum",
+"name": "Voluum",
+"category": "Marketing & Sales",
+"tag": "Ad tracking",
+"pricing": "Paid plans",
+"url": "https://voluum.com",
+"domain": "voluum.com",
+"free": "paid"
+},
+{
+"id": "walter-writes",
+"name": "Walter Writes",
+"category": "AI Detection & Humanisers",
+"tag": "AI text humaniser",
+"pricing": "Free plan available",
+"url": "https://walterwrites.ai/",
+"domain": "walterwrites.ai",
+"free": "freemium"
+},
+{
+"id": "watermelon",
+"name": "Watermelon",
+"category": "Chatbots & Assistants",
+"tag": "Customer service chatbot",
+"pricing": "Paid plans",
+"url": "https://watermelon.ai/",
+"domain": "watermelon.ai",
+"free": "paid"
+},
+{
+"id": "wavel-ai",
+"name": "Wavel AI",
+"category": "Audio, Voice & Music",
+"tag": "Voiceovers and dubbing",
+"pricing": "Free plan available",
+"url": "https://wavel.ai/",
+"domain": "wavel.ai",
+"free": "freemium"
+},
+{
+"id": "wavespeed",
+"name": "WaveSpeed",
+"category": "Video Generation",
+"tag": "Generation API",
+"pricing": "Paid plans",
+"url": "https://wavespeed.ai",
+"domain": "wavespeed.ai",
+"free": "paid"
+},
+{
+"id": "wayinvideo",
+"name": "WayinVideo",
+"category": "Video Editing & Clips",
+"tag": "Long videos to clips",
+"pricing": "Free plan available",
+"url": "https://wayin.ai/",
+"domain": "wayin.ai",
+"free": "freemium"
+},
+{
+"id": "weav",
+"name": "Weav",
+"category": "AI Agents & Automation",
+"tag": "Support agents",
+"pricing": "Free plan available",
+"url": "https://weav.com",
+"domain": "weav.com",
+"free": "freemium"
+},
+{
+"id": "weavely",
+"name": "Weavely",
+"category": "Marketing & Sales",
+"tag": "Forms from prompts",
+"pricing": "Free plan available",
+"url": "https://www.weavely.ai/",
+"domain": "weavely.ai",
+"free": "freemium"
+},
+{
+"id": "webscraping-ai",
+"name": "WebScraping AI",
+"category": "AI Agents & Automation",
+"tag": "Scraping API",
+"pricing": "Free plan available",
+"url": "https://webscraping.ai",
+"domain": "webscraping.ai",
+"free": "freemium"
+},
+{
+"id": "webwave",
+"name": "WebWave",
+"category": "Marketing & Sales",
+"tag": "Website builder",
+"pricing": "Free plan available",
+"url": "https://webwave.me",
+"domain": "webwave.me",
+"free": "freemium"
+},
+{
+"id": "wegic",
+"name": "Wegic",
+"category": "No-Code & App Builders",
+"tag": "Websites through chat",
+"pricing": "Paid plans",
+"url": "https://wegic.ai",
+"domain": "wegic.ai",
+"free": "paid"
+},
+{
+"id": "wellows",
+"name": "Wellows",
+"category": "SEO & AI Search",
+"tag": "AI citation tracking",
+"pricing": "Paid plans",
+"url": "https://wellows.com/",
+"domain": "wellows.com",
+"free": "paid"
+},
+{
+"id": "whatsapp-ai-sales-copilot",
+"name": "WhatsApp AI Sales Copilot",
+"category": "Marketing & Sales",
+"tag": "WhatsApp sales copilot",
+"pricing": "Paid plans",
+"url": "https://wabot.wadesk.io/",
+"domain": "wabot.wadesk.io",
+"free": "paid"
+},
+{
+"id": "whatsapp-chatbot",
+"name": "WhatsApp Chatbot",
+"category": "AI Agents & Automation",
+"tag": "WhatsApp chatbot",
+"pricing": "Free plan available",
+"url": "https://wadesk.io/whatsapp-chatbot",
+"domain": "wadesk.io",
+"free": "freemium"
+},
+{
+"id": "whatsapp-crm",
+"name": "WhatsApp CRM",
+"category": "Marketing & Sales",
+"tag": "WhatsApp CRM",
+"pricing": "Free plan available",
+"url": "https://wadesk.io/whatsapp-crm",
+"domain": "wadesk.io",
+"free": "freemium"
+},
+{
+"id": "whatsapp-warmup-tool",
+"name": "WhatsApp Warmup Tool",
+"category": "AI Agents & Automation",
+"tag": "WhatsApp account warm-up",
+"pricing": "Paid plans",
+"url": "https://warmer.wadesk.io/",
+"domain": "warmer.wadesk.io",
+"free": "paid"
+},
+{
+"id": "whisperweb",
+"name": "WhisperWeb",
+"category": "Meetings & Transcription",
+"tag": "Private transcription",
+"pricing": "Free",
+"url": "https://whisperweb.site/",
+"domain": "whisperweb.site",
+"free": "free"
+},
+{
+"id": "windsorai",
+"name": "WindsorAI",
+"category": "Data & Analytics",
+"tag": "Marketing data connector",
+"pricing": "Free plan available",
+"url": "https://windsor.ai",
+"domain": "windsor.ai",
+"free": "freemium"
+},
+{
+"id": "windsurf",
+"name": "Windsurf",
+"category": "Coding & Development",
+"tag": "AI code editor",
+"pricing": "Free plan available",
+"url": "https://windsurf.com/",
+"domain": "windsurf.com",
+"free": "freemium"
+},
+{
+"id": "winston-ai",
+"name": "Winston ai",
+"category": "AI Detection & Humanisers",
+"tag": "AI and plagiarism detector",
+"pricing": "Free plan available",
+"url": "https://gowinston.ai",
+"domain": "gowinston.ai",
+"free": "freemium"
+},
+{
+"id": "wispr-flow",
+"name": "Wispr Flow",
+"category": "Productivity & Notes",
+"tag": "Voice dictation",
+"pricing": "Free plan available",
+"url": "https://wisprflow.ai",
+"domain": "wisprflow.ai",
+"free": "freemium"
+},
+{
+"id": "wistia-remix",
+"name": "Wistia Remix",
+"category": "Video Editing & Clips",
+"tag": "Edit video by chat",
+"pricing": "Free plan available",
+"url": "https://wistia.com/remix",
+"domain": "wistia.com",
+"free": "freemium"
+},
+{
+"id": "wizishop",
+"name": "WiziShop",
+"category": "No-Code & App Builders",
+"tag": "Ecommerce store builder",
+"pricing": "Paid plans",
+"url": "https://wizishop.com",
+"domain": "wizishop.com",
+"free": "paid"
+},
+{
+"id": "wonderplan",
+"name": "Wonderplan",
+"category": "Productivity & Notes",
+"tag": "Travel itineraries",
+"pricing": "Free",
+"url": "https://wonderplan.ai",
+"domain": "wonderplan.ai",
+"free": "free"
+},
+{
+"id": "wondershare-filmora",
+"name": "Wondershare Filmora",
+"category": "Video Editing & Clips",
+"tag": "Video editor",
+"pricing": "Free plan available",
+"url": "https://filmora.wondershare.com",
+"domain": "filmora.wondershare.com",
+"free": "freemium"
+},
+{
+"id": "wondershare-virbo",
+"name": "Wondershare Virbo",
+"category": "Video Generation",
+"tag": "Avatar videos",
+"pricing": "Paid plans",
+"url": "https://virbo.wondershare.com",
+"domain": "virbo.wondershare.com",
+"free": "paid"
+},
+{
+"id": "wondershare-virtulook",
+"name": "Wondershare VirtuLook",
+"category": "Design & Creative",
+"tag": "Virtual product photos",
+"pricing": "Paid plans",
+"url": "https://virtulook.wondershare.com",
+"domain": "virtulook.wondershare.com",
+"free": "paid"
+},
+{
+"id": "writers-brew",
+"name": "Writers brew",
+"category": "Writing & Copywriting",
+"tag": "Writing assistant",
+"pricing": "Paid plans",
+"url": "https://writersbrew.app",
+"domain": "writersbrew.app",
+"free": "paid"
+},
+{
+"id": "writesonic",
+"name": "Writesonic",
+"category": "Writing & Copywriting",
+"tag": "On-brand writing",
+"pricing": "Paid plans",
+"url": "https://writesonic.com",
+"domain": "writesonic.com",
+"free": "paid"
+},
+{
+"id": "xero-ai",
+"name": "Xero AI",
+"category": "AI Agents & Automation",
+"tag": "Accounting with AI",
+"pricing": "Paid plans",
+"url": "https://xero.com",
+"domain": "xero.com",
+"free": "paid"
+},
+{
+"id": "yorph-ai",
+"name": "Yorph AI",
+"category": "Data & Analytics",
+"tag": "No-code data analysis",
+"pricing": "Free plan available",
+"url": "https://yorph.ai",
+"domain": "yorph.ai",
+"free": "freemium"
+},
+{
+"id": "youware",
+"name": "YouWare",
+"category": "Coding & Development",
+"tag": "Vibe coding",
+"pricing": "Free plan available",
+"url": "https://www.youware.com/",
+"domain": "youware.com",
+"free": "freemium"
+},
+{
+"id": "z-ai",
+"name": "Z.ai",
+"category": "Chatbots & Assistants",
+"tag": "GLM chat and coding",
+"pricing": "Free plan available",
+"url": "https://chat.z.ai/",
+"domain": "chat.z.ai",
+"free": "freemium"
+},
+{
+"id": "zentask",
+"name": "Zentask",
+"category": "SEO & AI Search",
+"tag": "Content and SEO helper",
+"pricing": "Paid plans",
+"url": "https://zentask.ai/",
+"domain": "zentask.ai",
+"free": "paid"
+},
+{
+"id": "zigpoll",
+"name": "Zigpoll",
+"category": "Marketing & Sales",
+"tag": "Customer surveys",
+"pricing": "Free plan available",
+"url": "https://app.zigpoll.com",
+"domain": "app.zigpoll.com",
+"free": "freemium"
+},
+{
+"id": "chatgpt",
+"name": "ChatGPT",
+"category": "Chatbots & Assistants",
+"tag": "All-purpose assistant",
+"pricing": "Free / $20 Plus / $200 Pro",
+"url": "https://chatgpt.com",
+"domain": "chatgpt.com",
+"free": "freemium"
+},
+{
+"id": "claude",
+"name": "Claude",
+"category": "Chatbots & Assistants",
+"tag": "Writing and coding",
+"pricing": "Free / $20 Pro / $100 Max",
+"url": "https://claude.ai",
+"domain": "claude.ai",
+"free": "freemium"
+},
+{
+"id": "gemini",
+"name": "Gemini",
+"category": "Chatbots & Assistants",
+"tag": "Google ecosystem",
+"pricing": "Free / $20 AI Pro / $250 Ultra",
+"url": "https://gemini.google.com",
+"domain": "gemini.google.com",
+"free": "freemium"
+},
+{
+"id": "grok",
+"name": "Grok",
+"category": "Chatbots & Assistants",
+"tag": "Real-time + X",
+"pricing": "Free / $30 Premium / $300 Heavy",
+"url": "https://grok.com",
+"domain": "grok.com",
+"free": "freemium"
+},
+{
+"id": "microsoft-copilot",
+"name": "Microsoft Copilot",
+"category": "Chatbots & Assistants",
+"tag": "Office workflows",
+"pricing": "Free / $20 Pro / $30 M365",
+"url": "https://copilot.microsoft.com",
+"domain": "copilot.microsoft.com",
+"free": "freemium"
+},
+{
+"id": "perplexity",
+"name": "Perplexity",
+"category": "Chatbots & Assistants",
+"tag": "Search with sources",
+"pricing": "Free / $20 Pro / $200 Max",
+"url": "https://www.perplexity.ai",
+"domain": "perplexity.ai",
+"free": "freemium"
+},
+{
+"id": "elicit",
+"name": "Elicit",
+"category": "Education & Learning",
+"tag": "Research papers",
+"pricing": "Free plan available",
+"url": "https://elicit.com",
+"domain": "elicit.com",
+"free": "freemium"
+},
+{
+"id": "consensus",
+"name": "Consensus",
+"category": "Education & Learning",
+"tag": "Evidence search",
+"pricing": "Free plan available",
+"url": "https://consensus.app",
+"domain": "consensus.app",
+"free": "freemium"
+},
+{
+"id": "grammarly",
+"name": "Grammarly",
+"category": "Writing & Copywriting",
+"tag": "Editing everywhere",
+"pricing": "Free plan available",
+"url": "https://www.grammarly.com",
+"domain": "grammarly.com",
+"free": "freemium"
+},
+{
+"id": "jasper",
+"name": "Jasper",
+"category": "Writing & Copywriting",
+"tag": "Marketing copy",
+"pricing": "Paid plans",
+"url": "https://www.jasper.ai",
+"domain": "jasper.ai",
+"free": "paid"
+},
+{
+"id": "midjourney",
+"name": "Midjourney",
+"category": "Image Generation",
+"tag": "Artistic images",
+"pricing": "Paid plans",
+"url": "https://www.midjourney.com",
+"domain": "midjourney.com",
+"free": "paid"
+},
+{
+"id": "ideogram",
+"name": "Ideogram",
+"category": "Image Generation",
+"tag": "Text in images",
+"pricing": "Free plan available",
+"url": "https://ideogram.ai",
+"domain": "ideogram.ai",
+"free": "freemium"
+},
+{
+"id": "adobe-firefly",
+"name": "Adobe Firefly",
+"category": "Image Generation",
+"tag": "Built into Adobe",
+"pricing": "Free plan available",
+"url": "https://firefly.adobe.com",
+"domain": "firefly.adobe.com",
+"free": "freemium"
+},
+{
+"id": "runway",
+"name": "Runway",
+"category": "Video Generation",
+"tag": "Creative video",
+"pricing": "Free plan available",
+"url": "https://runwayml.com",
+"domain": "runwayml.com",
+"free": "freemium"
+},
+{
+"id": "kling-ai",
+"name": "Kling AI",
+"category": "Video Generation",
+"tag": "Realistic motion",
+"pricing": "Free plan available",
+"url": "https://klingai.com",
+"domain": "klingai.com",
+"free": "freemium"
+},
+{
+"id": "heygen",
+"name": "HeyGen",
+"category": "Video Generation",
+"tag": "AI avatars",
+"pricing": "Free plan available",
+"url": "https://www.heygen.com",
+"domain": "heygen.com",
+"free": "freemium"
+},
+{
+"id": "elevenlabs",
+"name": "ElevenLabs",
+"category": "Audio, Voice & Music",
+"tag": "Voice and dubbing",
+"pricing": "Free plan available",
+"url": "https://elevenlabs.io",
+"domain": "elevenlabs.io",
+"free": "freemium"
+},
+{
+"id": "suno",
+"name": "Suno",
+"category": "Audio, Voice & Music",
+"tag": "Songs from prompts",
+"pricing": "Free plan available",
+"url": "https://suno.com",
+"domain": "suno.com",
+"free": "freemium"
+},
+{
+"id": "descript",
+"name": "Descript",
+"category": "Audio, Voice & Music",
+"tag": "Edit by text",
+"pricing": "Free plan available",
+"url": "https://www.descript.com",
+"domain": "descript.com",
+"free": "freemium"
+},
+{
+"id": "gamma",
+"name": "Gamma",
+"category": "Presentations & Slides",
+"tag": "Decks from prompts",
+"pricing": "Free plan available",
+"url": "https://gamma.app",
+"domain": "gamma.app",
+"free": "freemium"
+},
+{
+"id": "cursor",
+"name": "Cursor",
+"category": "Coding & Development",
+"tag": "AI code editor",
+"pricing": "Free plan available",
+"url": "https://cursor.com",
+"domain": "cursor.com",
+"free": "freemium"
+},
+{
+"id": "claude-code",
+"name": "Claude Code",
+"category": "Coding & Development",
+"tag": "Agentic coding",
+"pricing": "Included with Claude Pro and Max",
+"url": "https://www.anthropic.com/claude-code",
+"domain": "anthropic.com",
+"free": "paid"
+},
+{
+"id": "github-copilot",
+"name": "GitHub Copilot",
+"category": "Coding & Development",
+"tag": "Pair programmer",
+"pricing": "Free plan available",
+"url": "https://github.com/features/copilot",
+"domain": "github.com",
+"free": "freemium"
+},
+{
+"id": "lovable",
+"name": "Lovable",
+"category": "No-Code & App Builders",
+"tag": "Apps from prompts",
+"pricing": "Free plan available",
+"url": "https://lovable.dev",
+"domain": "lovable.dev",
+"free": "freemium"
+},
+{
+"id": "bolt",
+"name": "Bolt",
+"category": "No-Code & App Builders",
+"tag": "Build in the browser",
+"pricing": "Free plan available",
+"url": "https://bolt.new",
+"domain": "bolt.new",
+"free": "freemium"
+},
+{
+"id": "replit",
+"name": "Replit",
+"category": "No-Code & App Builders",
+"tag": "Build and host",
+"pricing": "Free plan available",
+"url": "https://replit.com",
+"domain": "replit.com",
+"free": "freemium"
+},
+{
+"id": "otter",
+"name": "Otter",
+"category": "Meetings & Transcription",
+"tag": "Live transcripts",
+"pricing": "Free plan available",
+"url": "https://otter.ai",
+"domain": "otter.ai",
+"free": "freemium"
+},
+{
+"id": "fireflies",
+"name": "Fireflies",
+"category": "Meetings & Transcription",
+"tag": "Searchable meetings",
+"pricing": "Free plan available",
+"url": "https://fireflies.ai",
+"domain": "fireflies.ai",
+"free": "freemium"
+},
+{
+"id": "canva",
+"name": "Canva",
+"category": "Design & Creative",
+"tag": "Design for everyone",
+"pricing": "Free plan available",
+"url": "https://www.canva.com",
+"domain": "canva.com",
+"free": "freemium"
+},
+{
+"id": "figma",
+"name": "Figma",
+"category": "Design & Creative",
+"tag": "Interface design",
+"pricing": "Free plan available",
+"url": "https://www.figma.com",
+"domain": "figma.com",
+"free": "freemium"
+},
+{
+"id": "notion",
+"name": "Notion",
+"category": "Productivity & Notes",
+"tag": "Workspace with AI",
+"pricing": "Free plan available",
+"url": "https://www.notion.so",
+"domain": "notion.so",
+"free": "freemium"
+}
+]
