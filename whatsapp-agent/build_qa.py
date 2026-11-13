@@ -129,7 +129,7 @@ for e in json.load(open(os.path.join(ROOT, "assets", "search-index.json"), encod
 for t in cat["tracks"]:
     for l in t["lessons"]:
         content.append({"title": clean(l["title"]), "desc": f"Free lesson, {t['name']}", "link": f"{BASE}/data-science/{l['page']}", "type": "Lesson"})
-        content.append({"title": clean(l["title"]) + " (PDF)", "desc": f"PDF of the free lesson, {t['name']}", "link": f"{BASE}/data-science/{l['pdf_path']}", "type": "PDF"})
+        content.append({"title": clean(l["title"]), "desc": f"PDF of the free lesson, {t['name']}", "link": f"{BASE}/data-science/{l['pdf_path']}", "type": "PDF"})
 seen = set()
 for path in sorted(glob.glob(os.path.join(ROOT, "**", "*.pdf"), recursive=True)):
     rel = os.path.relpath(path, ROOT).replace(os.sep, "/")

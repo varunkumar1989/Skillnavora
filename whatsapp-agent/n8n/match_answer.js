@@ -60,7 +60,7 @@ async function findContent() {
   } catch (e) { content = []; }
   const cw = new Set([...msgWords].filter(w => !FILLER.has(w)));
   return (Array.isArray(content) ? content : []).map(c => {
-    let n = 0; words(c.title).forEach(w => { if (cw.has(w)) n += 3; }); words(c.desc).forEach(w => { if (cw.has(w)) n += 1; });
+    let n = 0; new Set(words(c.title)).forEach(w => { if (cw.has(w)) n += 3; }); new Set(words(c.desc)).forEach(w => { if (cw.has(w)) n += 1; });
     return { c, n };
   }).filter(x => x.n >= 3).sort((a, b) => b.n - a.n).slice(0, 3).map(x => x.c);
 }

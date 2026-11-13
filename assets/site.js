@@ -318,7 +318,7 @@ ${T.map(([h, i, n, s]) => `<a class="t" href="${R + h}"><span>${i}</span><span><
   const FILLER = new Set(['tell','about','what','where','which','when','how','does','with','from','this','that','have','there','give','show','find','info','information','please','want','need','know','know','can','you','your','the','and','for','are','was','about','topic','explain','any','all','more','some','should','would','could','will','its','them','they','lesson','course','page']);
   function bestContent(msg) {
     const mw = new Set(words(msg).filter(w => !FILLER.has(w)));
-    return CONTENT.map(c => { let n = 0; words(c.title).forEach(w => { if (mw.has(w)) n += 3; }); words(c.desc).forEach(w => { if (mw.has(w)) n += 1; }); return { c, n }; })
+    return CONTENT.map(c => { let n = 0; new Set(words(c.title)).forEach(w => { if (mw.has(w)) n += 3; }); new Set(words(c.desc)).forEach(w => { if (mw.has(w)) n += 1; }); return { c, n }; })
       .filter(x => x.n >= 3).sort((a, b) => b.n - a.n).slice(0, 3).map(x => x.c);
   }
   function show(parts) {

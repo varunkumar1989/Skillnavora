@@ -310,7 +310,7 @@
         let content = [];
         try { if (!window.__snContent) window.__snContent = await fetch(R + "assets/content_index.json").then(r => r.json()); content = window.__snContent; } catch { content = []; }
         const mw = new Set(wordsOf(msg).filter(w => !FILLER.has(w)));
-        return content.map(c => { let n = 0; wordsOf(c.title).forEach(w => { if (mw.has(w)) n += 3; }); wordsOf(c.desc || "").forEach(w => { if (mw.has(w)) n += 1; }); return { c, n }; })
+        return content.map(c => { let n = 0; new Set(wordsOf(c.title)).forEach(w => { if (mw.has(w)) n += 3; }); new Set(wordsOf(c.desc || "")).forEach(w => { if (mw.has(w)) n += 1; }); return { c, n }; })
           .filter(x => x.n >= 3).sort((a, b) => b.n - a.n).slice(0, 3).map(x => x.c);
       };
       const listOf = hits => ({ text: "Here is where to find it:\n" + hits.map(h => "- " + h.title + " (" + h.type + "): " + h.link).join("\n") });
