@@ -320,7 +320,7 @@
       KB.forEach(r => { if (r.topic === "Fallback") return; const v = scoreRow(r, msg); if (v > sc) { sc = v; top = r; } });
       if (top && sc >= 3) {
         let text = top.answer;
-        if (top.confirm) text += "\n\nWe are confirming this detail. Our team will reply with the latest information.";
+        if (top.confirm) text += "\n\n(A counsellor will confirm the latest details before you enrol.)";
         return { text, link: top.link, linkText: "Open the page" };
       }
       const hits = await where();

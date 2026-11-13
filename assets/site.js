@@ -348,7 +348,7 @@ ${T.map(([h, i, n, s]) => `<a class="t" href="${R + h}"><span>${i}</span><span><
     const r = bestQA(msg);
     if (r) {
       const parts = [{ text: r.answer }];
-      if (r.confirm) parts.push({ text: "We are confirming this detail. A counsellor will reply with the latest information." });
+      if (r.confirm) parts.push({ text: "(A counsellor will confirm the latest details before you enrol.)" });
       if (r.link) parts.push({ text: "Open the page", link: r.link });
       show(parts);
       return true;

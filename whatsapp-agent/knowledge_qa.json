@@ -2,6 +2,33 @@
  {
   "id": 1,
   "topic": "Fees",
+  "keywords": "fee,fees,price,cost,how much,pricing,charges",
+  "question": "What are the fees for the programmes?",
+  "answer": "Here are our programme fees: AI-First Product Management: $2,000 (about ₹1,74,000). AI-First Data Engineer: $1,500 (about ₹1,30,000). GenAI Launchpad: $1,000 (about ₹87,000). Which one are you interested in? I can share what it includes.",
+  "link": "https://www.skillnavora.in/programs.html",
+  "confirm": "CONFIRM: fee and INR amount before each cohort"
+ },
+ {
+  "id": 2,
+  "topic": "Who it is for",
+  "keywords": "who is it for,who is this for,right for me,suitable,suit me,fit for me,am i eligible,eligible,eligibility,background,can i join,good for me,data engineer|data engineering|AI data",
+  "question": "Who is AI-First Data Engineer for?",
+  "answer": "AI-First Data Engineer is a good fit for: Students and freshers: Learn SQL, Python and pipelines with real projects, and aim for data engineer and analytics engineer roles. Working professionals: Learn on weekends alongside your job, with live classes, recordings and flexible schedules. Career switchers: Move into data engineering from software, testing, support, analytics or any technical role. Salary hike and promotion: Grow into senior data engineer and data platform roles with stronger skills, a portfolio and interview preparation. Tell me a little about your background and I can point you to the right next step.",
+  "link": "https://www.skillnavora.in/program/ai-data-engineering.html",
+  "confirm": ""
+ },
+ {
+  "id": 3,
+  "topic": "Who it is for",
+  "keywords": "who is it for,who is this for,right for me,suitable,suit me,fit for me,am i eligible,eligible,eligibility,background,can i join,good for me,GenAI|genai launchpad|generative AI|AI launchpad",
+  "question": "Who is GenAI Launchpad for?",
+  "answer": "GenAI Launchpad is a good fit for: Students and freshers: Learn the AI tools employers expect and build projects you can show, with no coding needed. Working professionals: Save hours every week with AI assistants and automations, on weekends alongside your job. Business owners: Build chatbots, voice agents and automations that help your business serve customers. Career switchers: Add practical AI skills that make you stand out in any role or industry. Tell me a little about your background and I can point you to the right next step.",
+  "link": "https://www.skillnavora.in/program/genai-launchpad.html",
+  "confirm": ""
+ },
+ {
+  "id": 4,
+  "topic": "Fees",
   "keywords": "fee,fees,price,cost,how much,rupees,dollars,AI PM|product management|AI product manager|PM course",
   "question": "What is the fee for AI-First Product Management?",
   "answer": "AI-First Product Management costs $2,000 (about ₹1,74,000 in INR) as listed on the website. Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and career guidance.",
@@ -9,7 +36,7 @@
   "confirm": "CONFIRM: fee and INR amount before each cohort"
  },
  {
-  "id": 2,
+  "id": 5,
   "topic": "Programme",
   "keywords": "duration,how long,weeks,AI PM|product management|AI product manager|PM course",
   "question": "How long is the AI-First Product Management programme?",
@@ -18,7 +45,7 @@
   "confirm": ""
  },
  {
-  "id": 3,
+  "id": 6,
   "topic": "Programme",
   "keywords": "learn,syllabus,curriculum,what will I learn,AI PM|product management|AI product manager|PM course",
   "question": "What will I learn in AI-First Product Management?",
@@ -27,7 +54,7 @@
   "confirm": ""
  },
  {
-  "id": 4,
+  "id": 7,
   "topic": "Fees",
   "keywords": "included,what is included,fee includes,AI PM|product management|AI product manager|PM course",
   "question": "What is included in the AI-First Product Management fee?",
@@ -36,7 +63,7 @@
   "confirm": ""
  },
  {
-  "id": 5,
+  "id": 8,
   "topic": "Schedule",
   "keywords": "start date,cohort,when does it start,batch,AI PM|product management|AI product manager|PM course",
   "question": "When does the AI-First Product Management cohort start?",
@@ -45,7 +72,7 @@
   "confirm": "CONFIRM: no cohort date published"
  },
  {
-  "id": 6,
+  "id": 9,
   "topic": "Fees",
   "keywords": "fee,fees,price,cost,how much,rupees,dollars,data engineer|data engineering|AI data",
   "question": "What is the fee for AI-First Data Engineer?",
@@ -54,7 +81,7 @@
   "confirm": ""
  },
  {
-  "id": 7,
+  "id": 10,
   "topic": "Programme",
   "keywords": "duration,how long,weeks,data engineer|data engineering|AI data",
   "question": "How long is the AI-First Data Engineer programme?",
@@ -63,7 +90,7 @@
   "confirm": ""
  },
  {
-  "id": 8,
+  "id": 11,
   "topic": "Programme",
   "keywords": "learn,syllabus,curriculum,what will I learn,data engineer|data engineering|AI data",
   "question": "What will I learn in AI-First Data Engineer?",
@@ -72,7 +99,7 @@
   "confirm": ""
  },
  {
-  "id": 9,
+  "id": 12,
   "topic": "Fees",
   "keywords": "included,what is included,fee includes,data engineer|data engineering|AI data",
   "question": "What is included in the AI-First Data Engineer fee?",
@@ -81,7 +108,7 @@
   "confirm": ""
  },
  {
-  "id": 10,
+  "id": 13,
   "topic": "Schedule",
   "keywords": "start date,cohort,when does it start,batch,data engineer|data engineering|AI data",
   "question": "When does the AI-First Data Engineer cohort start?",
@@ -90,7 +117,7 @@
   "confirm": "CONFIRM: no cohort date published"
  },
  {
-  "id": 11,
+  "id": 14,
   "topic": "Fees",
   "keywords": "fee,fees,price,cost,how much,rupees,dollars,GenAI|genai launchpad|generative AI|AI launchpad",
   "question": "What is the fee for GenAI Launchpad?",
@@ -99,7 +126,7 @@
   "confirm": ""
  },
  {
-  "id": 12,
+  "id": 15,
   "topic": "Programme",
   "keywords": "duration,how long,weeks,GenAI|genai launchpad|generative AI|AI launchpad",
   "question": "How long is the GenAI Launchpad programme?",
@@ -108,7 +135,7 @@
   "confirm": ""
  },
  {
-  "id": 13,
+  "id": 16,
   "topic": "Programme",
   "keywords": "learn,syllabus,curriculum,what will I learn,GenAI|genai launchpad|generative AI|AI launchpad",
   "question": "What will I learn in GenAI Launchpad?",
@@ -117,7 +144,7 @@
   "confirm": ""
  },
  {
-  "id": 14,
+  "id": 17,
   "topic": "Fees",
   "keywords": "included,what is included,fee includes,GenAI|genai launchpad|generative AI|AI launchpad",
   "question": "What is included in the GenAI Launchpad fee?",
@@ -126,7 +153,7 @@
   "confirm": ""
  },
  {
-  "id": 15,
+  "id": 18,
   "topic": "Schedule",
   "keywords": "start date,cohort,when does it start,batch,GenAI|genai launchpad|generative AI|AI launchpad",
   "question": "When does the GenAI Launchpad cohort start?",
@@ -135,7 +162,7 @@
   "confirm": "CONFIRM: no cohort date published"
  },
  {
-  "id": 16,
+  "id": 19,
   "topic": "Overview",
   "keywords": "offer,offers,offering,what does,what do i get,overview,benefit,what is in,AI PM|product management|AI product manager|PM course",
   "question": "What does the AI-First Product Management programme offer?",
@@ -144,7 +171,7 @@
   "confirm": ""
  },
  {
-  "id": 17,
+  "id": 20,
   "topic": "Overview",
   "keywords": "offer,offers,offering,what does,what do i get,overview,benefit,what is in,data engineer|data engineering|AI data",
   "question": "What does the AI-First Data Engineer programme offer?",
@@ -153,7 +180,7 @@
   "confirm": ""
  },
  {
-  "id": 18,
+  "id": 21,
   "topic": "Overview",
   "keywords": "offer,offers,offering,what does,what do i get,overview,benefit,what is in,GenAI|genai launchpad|generative AI|AI launchpad",
   "question": "What does the GenAI Launchpad programme offer?",
@@ -162,7 +189,7 @@
   "confirm": ""
  },
  {
-  "id": 19,
+  "id": 22,
   "topic": "Overview",
   "keywords": "about skillnavora,what is skillnavora,who are you,what do you offer,overview",
   "question": "What does SkillNavora offer?",
@@ -171,7 +198,7 @@
   "confirm": ""
  },
  {
-  "id": 20,
+  "id": 23,
   "topic": "Instructors",
   "keywords": "instructor,instructors,teacher,teachers,trainer,faculty,mentor,mentors,who teaches,who will teach",
   "question": "Who teaches the programmes and who are the mentors?",
@@ -180,7 +207,7 @@
   "confirm": "CONFIRM: owner to confirm the instructor and mentor line-up before listing names"
  },
  {
-  "id": 21,
+  "id": 24,
   "topic": "Certificate",
   "keywords": "certificate,certificates,certification,completion,diploma,proof of completion",
   "question": "Do I get a certificate?",
@@ -189,7 +216,7 @@
   "confirm": ""
  },
  {
-  "id": 22,
+  "id": 25,
   "topic": "Offers",
   "keywords": "scholarship,discount,offer,student,concession,reduced fee,free seat",
   "question": "Is there a merit scholarship?",
@@ -198,7 +225,7 @@
   "confirm": "CONFIRM: owner must confirm eligibility and seat limits"
  },
  {
-  "id": 23,
+  "id": 26,
   "topic": "Offers",
   "keywords": "scholarship,discount,offer,student,concession,reduced fee,free seat",
   "question": "Is there a students and freshers?",
@@ -207,7 +234,7 @@
   "confirm": ""
  },
  {
-  "id": 24,
+  "id": 27,
   "topic": "Offers",
   "keywords": "scholarship,discount,offer,student,concession,reduced fee,free seat",
   "question": "Is there a flexible payment plans?",
@@ -216,7 +243,7 @@
   "confirm": ""
  },
  {
-  "id": 25,
+  "id": 28,
   "topic": "Offers",
   "keywords": "early bird,early,discount date",
   "question": "Is there early-bird pricing?",
@@ -225,7 +252,7 @@
   "confirm": ""
  },
  {
-  "id": 26,
+  "id": 29,
   "topic": "Offers",
   "keywords": "refund,money back",
   "question": "Can I get a refund?",
@@ -234,7 +261,7 @@
   "confirm": "CONFIRM: refund rules to be checked against refund.html"
  },
  {
-  "id": 27,
+  "id": 30,
   "topic": "Why join",
   "keywords": "why join,why skillnavora,why should I join,benefit,reason",
   "question": "Why should I join SkillNavora?",
@@ -243,7 +270,7 @@
   "confirm": ""
  },
  {
-  "id": 28,
+  "id": 31,
   "topic": "Why join",
   "keywords": "compare,difference,better,curriculum depth",
   "question": "How is SkillNavora different on curriculum depth?",
@@ -252,7 +279,7 @@
   "confirm": ""
  },
  {
-  "id": 29,
+  "id": 32,
   "topic": "Why join",
   "keywords": "compare,difference,better,hands-on projects",
   "question": "How is SkillNavora different on hands-on projects?",
@@ -261,7 +288,7 @@
   "confirm": ""
  },
  {
-  "id": 30,
+  "id": 33,
   "topic": "Why join",
   "keywords": "compare,difference,better,leadership access",
   "question": "How is SkillNavora different on leadership access?",
@@ -270,7 +297,7 @@
   "confirm": ""
  },
  {
-  "id": 31,
+  "id": 34,
   "topic": "Why join",
   "keywords": "compare,difference,better,1:1 mentorship",
   "question": "How is SkillNavora different on 1:1 mentorship?",
@@ -279,7 +306,7 @@
   "confirm": ""
  },
  {
-  "id": 32,
+  "id": 35,
   "topic": "Why join",
   "keywords": "compare,difference,better,ai skills",
   "question": "How is SkillNavora different on ai skills?",
@@ -288,7 +315,7 @@
   "confirm": ""
  },
  {
-  "id": 33,
+  "id": 36,
   "topic": "Why join",
   "keywords": "compare,difference,better,interview preparation",
   "question": "How is SkillNavora different on interview preparation?",
@@ -297,7 +324,7 @@
   "confirm": ""
  },
  {
-  "id": 34,
+  "id": 37,
   "topic": "Why join",
   "keywords": "compare,difference,better,assistance",
   "question": "How is SkillNavora different on assistance?",
@@ -306,7 +333,7 @@
   "confirm": ""
  },
  {
-  "id": 35,
+  "id": 38,
   "topic": "Why join",
   "keywords": "compare,difference,better,schedule flexibility",
   "question": "How is SkillNavora different on schedule flexibility?",
@@ -315,16 +342,16 @@
   "confirm": ""
  },
  {
-  "id": 36,
+  "id": 39,
   "topic": "Who it is for",
-  "keywords": "who is this for,eligible,student,fresher,working,career switch,salary hike",
+  "keywords": "who is this for,eligible,student,fresher,working,career switch,salary hike,right for me,suitable,background,can i join,AI PM|product management|AI product manager|PM course",
   "question": "Who is this programme for?",
-  "answer": "Students and freshers: build PM skills and a portfolio before your first job. Working professionals: learn on weekends with live classes and recordings. Career switchers: move into product from engineering, design, sales, operations or consulting. Salary hike and promotion: grow into senior PM and AI PM roles with stronger skills.",
+  "answer": "AI-First Product Management is a good fit for: Students and freshers: build PM skills and a portfolio before your first job. Working professionals: learn on weekends with live classes and recordings. Career switchers: move into product from engineering, design, sales, operations or consulting. Salary hike and promotion: grow into senior PM and AI PM roles with stronger skills.",
   "link": "https://www.skillnavora.in/programs.html",
   "confirm": ""
  },
  {
-  "id": 37,
+  "id": 40,
   "topic": "Career",
   "keywords": "job,placement,placed,guarantee,job guarantee,will I get a job,salary",
   "question": "Do you guarantee a job or placement?",
@@ -333,7 +360,7 @@
   "confirm": ""
  },
  {
-  "id": 38,
+  "id": 41,
   "topic": "Career",
   "keywords": "resume,linkedin,career guidance,job search",
   "question": "What career support is included?",
@@ -342,7 +369,7 @@
   "confirm": ""
  },
  {
-  "id": 39,
+  "id": 42,
   "topic": "Career",
   "keywords": "interview,mock test,mock interview,question bank",
   "question": "How do you prepare me for interviews?",
@@ -351,7 +378,7 @@
   "confirm": ""
  },
  {
-  "id": 40,
+  "id": 43,
   "topic": "Career",
   "keywords": "referral,refer,reward,refer a friend",
   "question": "How does the referral reward work?",
@@ -360,7 +387,7 @@
   "confirm": "CONFIRM: reward amounts are not published"
  },
  {
-  "id": 41,
+  "id": 44,
   "topic": "FAQ",
   "keywords": "program,how is the program delivered?",
   "question": "How is the program delivered?",
@@ -369,7 +396,7 @@
   "confirm": ""
  },
  {
-  "id": 42,
+  "id": 45,
   "topic": "FAQ",
   "keywords": "program,what if i can't attend a live session? do i get recordings?",
   "question": "What if I can't attend a live session? Do I get recordings?",
@@ -378,7 +405,7 @@
   "confirm": ""
  },
  {
-  "id": 43,
+  "id": 46,
   "topic": "FAQ",
   "keywords": "program,can i do this alongside a full-time job?",
   "question": "Can I do this alongside a full-time job?",
@@ -387,7 +414,7 @@
   "confirm": ""
  },
  {
-  "id": 44,
+  "id": 47,
   "topic": "FAQ",
   "keywords": "program,i'm a student or fresher. can this program help me?",
   "question": "I'm a student or fresher. Can this program help me?",
@@ -396,7 +423,7 @@
   "confirm": ""
  },
  {
-  "id": 45,
+  "id": 48,
   "topic": "FAQ",
   "keywords": "program,which tools will i learn?",
   "question": "Which tools will I learn?",
@@ -405,7 +432,7 @@
   "confirm": ""
  },
  {
-  "id": 46,
+  "id": 49,
   "topic": "FAQ",
   "keywords": "program,can i ask instructors and mentors questions directly?",
   "question": "Can I ask instructors and mentors questions directly?",
@@ -414,7 +441,7 @@
   "confirm": ""
  },
  {
-  "id": 47,
+  "id": 50,
   "topic": "FAQ",
   "keywords": "schedule,what are the timings and schedule?",
   "question": "What are the timings and schedule?",
@@ -423,7 +450,7 @@
   "confirm": ""
  },
  {
-  "id": 48,
+  "id": 51,
   "topic": "FAQ",
   "keywords": "fees,what are the fees?",
   "question": "What are the fees?",
@@ -432,7 +459,7 @@
   "confirm": ""
  },
  {
-  "id": 49,
+  "id": 52,
   "topic": "FAQ",
   "keywords": "career,do you help with jobs?",
   "question": "Do you help with jobs?",
@@ -441,7 +468,7 @@
   "confirm": ""
  },
  {
-  "id": 50,
+  "id": 53,
   "topic": "FAQ",
   "keywords": "career,will i get a certificate?",
   "question": "Will I get a certificate?",
@@ -450,7 +477,7 @@
   "confirm": ""
  },
  {
-  "id": 51,
+  "id": 54,
   "topic": "FAQ",
   "keywords": "career,i have more questions. where can i ask?",
   "question": "I have more questions. Where can I ask?",
@@ -459,7 +486,7 @@
   "confirm": ""
  },
  {
-  "id": 52,
+  "id": 55,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,advanced excel,excel",
   "question": "Is there a free Advanced Excel course?",
@@ -468,7 +495,7 @@
   "confirm": ""
  },
  {
-  "id": 53,
+  "id": 56,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,sql for data analysis,sql",
   "question": "Is there a free SQL for Data Analysis course?",
@@ -477,7 +504,7 @@
   "confirm": ""
  },
  {
-  "id": 54,
+  "id": 57,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,power bi,powerbi",
   "question": "Is there a free Power BI course?",
@@ -486,7 +513,7 @@
   "confirm": ""
  },
  {
-  "id": 55,
+  "id": 58,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,tableau,tableau",
   "question": "Is there a free Tableau course?",
@@ -495,7 +522,7 @@
   "confirm": ""
  },
  {
-  "id": 56,
+  "id": 59,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,ai for data analysis,ai-analytics",
   "question": "Is there a free AI for Data Analysis course?",
@@ -504,7 +531,7 @@
   "confirm": ""
  },
  {
-  "id": 57,
+  "id": 60,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,python for data science,python",
   "question": "Is there a free Python for Data Science course?",
@@ -513,7 +540,7 @@
   "confirm": ""
  },
  {
-  "id": 58,
+  "id": 61,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,statistics & machine learning,ml",
   "question": "Is there a free Statistics & Machine Learning course?",
@@ -522,7 +549,7 @@
   "confirm": ""
  },
  {
-  "id": 59,
+  "id": 62,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,generative ai & agentic ai,genai",
   "question": "Is there a free Generative AI & Agentic AI course?",
@@ -531,7 +558,7 @@
   "confirm": ""
  },
  {
-  "id": 60,
+  "id": 63,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,ai agents, mcp & apis for pms and bas,agents",
   "question": "Is there a free AI Agents, MCP & APIs for PMs and BAs course?",
@@ -540,7 +567,7 @@
   "confirm": ""
  },
  {
-  "id": 61,
+  "id": 64,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,ai & no-code tools lab,tools",
   "question": "Is there a free AI & No-Code Tools Lab course?",
@@ -549,7 +576,7 @@
   "confirm": ""
  },
  {
-  "id": 62,
+  "id": 65,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,capstone, portfolio & interviews,career",
   "question": "Is there a free Capstone, Portfolio & Interviews course?",
@@ -558,7 +585,7 @@
   "confirm": ""
  },
  {
-  "id": 63,
+  "id": 66,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,salesforce marketing cloud (sfmc),sfmc",
   "question": "Is there a free Salesforce Marketing Cloud (SFMC) course?",
@@ -567,7 +594,7 @@
   "confirm": ""
  },
  {
-  "id": 64,
+  "id": 67,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,digital marketing,marketing",
   "question": "Is there a free Digital Marketing course?",
@@ -576,7 +603,7 @@
   "confirm": ""
  },
  {
-  "id": 65,
+  "id": 68,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,content creation,content",
   "question": "Is there a free Content Creation course?",
@@ -585,7 +612,7 @@
   "confirm": ""
  },
  {
-  "id": 66,
+  "id": 69,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,forward deployed engineer (fde),fde",
   "question": "Is there a free Forward Deployed Engineer (FDE) course?",
@@ -594,7 +621,7 @@
   "confirm": ""
  },
  {
-  "id": 67,
+  "id": 70,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,public speaking,speaking",
   "question": "Is there a free Public Speaking course?",
@@ -603,7 +630,7 @@
   "confirm": ""
  },
  {
-  "id": 68,
+  "id": 71,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,data engineering & cloud,data-engineering",
   "question": "Is there a free Data Engineering & Cloud course?",
@@ -612,7 +639,7 @@
   "confirm": ""
  },
  {
-  "id": 69,
+  "id": 72,
   "topic": "Free courses",
   "keywords": "free,free course,free lesson,governance, privacy & business consulting,governance",
   "question": "Is there a free Governance, Privacy & Business Consulting course?",
@@ -621,7 +648,7 @@
   "confirm": ""
  },
  {
-  "id": 70,
+  "id": 73,
   "topic": "Free courses",
   "keywords": "free,free course,free resources,free tools,without paying",
   "question": "What free courses and resources are there?",
@@ -630,7 +657,7 @@
   "confirm": ""
  },
  {
-  "id": 71,
+  "id": 74,
   "topic": "Free courses",
   "keywords": "free live,workshop,webinar,event",
   "question": "Are there free live sessions?",
@@ -639,7 +666,7 @@
   "confirm": "CONFIRM: dates change, check the events page"
  },
  {
-  "id": 72,
+  "id": 75,
   "topic": "Contact",
   "keywords": "contact,whatsapp,phone,call,email,talk to someone,counselling,counseling",
   "question": "How can I contact SkillNavora?",
@@ -648,7 +675,7 @@
   "confirm": ""
  },
  {
-  "id": 73,
+  "id": 76,
   "topic": "Contact",
   "keywords": "address,office,location",
   "question": "Where is SkillNavora located?",
@@ -657,7 +684,7 @@
   "confirm": "CONFIRM: address not set"
  },
  {
-  "id": 74,
+  "id": 77,
   "topic": "Contact",
   "keywords": "social,instagram,youtube,linkedin,twitter,facebook",
   "question": "What are your social media links?",
@@ -666,7 +693,16 @@
   "confirm": ""
  },
  {
-  "id": 75,
+  "id": 78,
+  "topic": "Thanks",
+  "keywords": "thanks,thank you,thank u,thankyou,thx,ty,ok thanks,okay thanks,bye,goodbye,see you",
+  "question": "Thank you",
+  "answer": "You're welcome! 😊 If anything else comes up, just message here. You can also book a free counselling call whenever you're ready.",
+  "link": "https://www.skillnavora.in/contact.html",
+  "confirm": ""
+ },
+ {
+  "id": 79,
   "topic": "Fallback",
   "keywords": "",
   "question": "Anything else",

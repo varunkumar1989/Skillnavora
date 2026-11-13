@@ -23,6 +23,19 @@ page = {"ai-pm": f"{BASE}/program/ai-product-management.html", "ai-de": f"{BASE}
 short = {"ai-pm": "AI PM|product management|AI product manager|PM course", "ai-de": "data engineer|data engineering|AI data",
          "genai-launchpad": "GenAI|genai launchpad|generative AI|AI launchpad"}
 
+# All fees at once, for "what is the fee?" without a programme name (placed first so it wins ties)
+add("Fees", "fee,fees,price,cost,how much,pricing,charges", "What are the fees for the programmes?",
+    "Here are our programme fees: " + " ".join(f"{c['name']}: {c['fee']} (about {c['feeINR']})." for c in cfg["COURSES"]) + " Which one are you interested in? I can share what it includes.",
+    f"{BASE}/programs.html", "CONFIRM: fee and INR amount before each cohort")
+
+# Who each programme is for ("is this right for me?")
+for c in cfg["COURSES"]:
+    k, u = c["id"], page.get(c["id"], BASE)
+    aud = c.get("audience") or []
+    if aud:
+        add("Who it is for", f"who is it for,who is this for,right for me,suitable,suit me,fit for me,am i eligible,eligible,eligibility,background,can i join,good for me,{short[k]}",
+            f"Who is {c['name']} for?", f"{c['name']} is a good fit for: " + " ".join(f"{a['title']}: {a['text']}" for a in aud) + " Tell me a little about your background and I can point you to the right next step.", u)
+
 # Programmes: fee, length, format, what is included, highlights, cohort
 for c in cfg["COURSES"]:
     k, u = c["id"], page.get(c["id"], BASE)
@@ -68,8 +81,8 @@ add("Why join", "why join,why skillnavora,why should I join,benefit,reason", "Wh
 for cmp in cfg["COMPARE"]:
     add("Why join", f"compare,difference,better,{cmp['what'].lower()}", f"How is SkillNavora different on {cmp['what'].lower()}?",
         f"SkillNavora: {cmp.get('us','')}. Typical alternatives: {cmp.get('others','')}.", f"{BASE}/programs.html")
-add("Who it is for", "who is this for,eligible,student,fresher,working,career switch,salary hike",
-    "Who is this programme for?", " ".join(f"{x}" for x in ["Students and freshers: build PM skills and a portfolio before your first job.",
+add("Who it is for", "who is this for,eligible,student,fresher,working,career switch,salary hike,right for me,suitable,background,can i join," + short["ai-pm"],
+    "Who is this programme for?", "AI-First Product Management is a good fit for: " + " ".join(f"{x}" for x in ["Students and freshers: build PM skills and a portfolio before your first job.",
     "Working professionals: learn on weekends with live classes and recordings.",
     "Career switchers: move into product from engineering, design, sales, operations or consulting.",
     "Salary hike and promotion: grow into senior PM and AI PM roles with stronger skills."]), f"{BASE}/programs.html")
@@ -106,6 +119,10 @@ add("Contact", "contact,whatsapp,phone,call,email,talk to someone,counselling,co
 add("Contact", "address,office,location", "Where is SkillNavora located?", "The office address is not published on the website yet.", f"{BASE}/contact.html", "CONFIRM: address not set")
 add("Contact", "social,instagram,youtube,linkedin,twitter,facebook", "What are your social media links?",
     f"Instagram: {s['instagram']}. YouTube: {s['youtube']}. LinkedIn: {s['linkedin']}. X: {s['twitter']}. Facebook: {s['facebook']}.", BASE)
+
+# Small talk: thanks and goodbye
+add("Thanks", "thanks,thank you,thank u,thankyou,thx,ty,ok thanks,okay thanks,bye,goodbye,see you",
+    "Thank you", "You're welcome! 😊 If anything else comes up, just message here. You can also book a free counselling call whenever you're ready.", f"{BASE}/contact.html")
 
 # Fallback
 add("Fallback", "", "Anything else", "I don't have that information yet. Message us on Instagram and someone from our team will reply to you directly.",

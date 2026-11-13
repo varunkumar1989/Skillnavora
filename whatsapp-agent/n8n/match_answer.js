@@ -12,9 +12,9 @@ function fromNode(name) { try { return $(name).first().json; } catch (e) { retur
 function pick(j) {
   if (!j) return null;
   const wa = j.messages?.[0] || j.body?.entry?.[0]?.changes?.[0]?.value?.messages?.[0];
-  if (wa) return { text: wa.text?.body || wa.button?.text || wa.interactive?.button_reply?.title || "", to: wa.from, channel: "whatsapp" };
+  if (wa) return { text: wa.text?.body || wa.button?.text || wa.interactive?.button_reply?.title || "", to: wa.from, channel: "whatsapp", name: (j.contacts || j.body?.entry?.[0]?.changes?.[0]?.value?.contacts)?.[0]?.profile?.name || "" };
   const tg = j.message?.chat ? j.message : (j.edited_message?.chat ? j.edited_message : null);
-  if (tg) return { text: tg.text || tg.caption || "", to: tg.chat.id, channel: "telegram" };
+  if (tg) return { text: tg.text || tg.caption || "", to: tg.chat.id, channel: "telegram", name: tg.from?.first_name || "" };
   const b = j.body || j;
   const fb = b.entry?.[0]?.messaging?.[0];
   if (fb) {
@@ -72,11 +72,12 @@ let reply, matched = null, needsAi = false;
 if (firstHits.length) {
   reply = listReply(firstHits); matched = "content: " + firstHits[0].title;
 } else if (greeting && (!best || best.s < 3)) {
-  reply = "Hi! I can answer questions about SkillNavora programmes, fees, free courses, careers and where to find any lesson or PDF. What would you like to know?";
+  const first = String(incoming.name || "").trim().split(/\s+/)[0];
+  reply = `Hi${first ? " " + first : ""}! 👋 Welcome to SkillNavora. I can help with our programmes, fees, free courses and where to find any lesson or PDF. What would you like to know?`;
 } else if (best && best.s >= 3) {
   const r = best.r; matched = r.question;
   reply = r.answer;
-  if (r.confirm && String(r.confirm).trim()) reply += "\n\nWe are confirming this detail. A counsellor will reply with the latest information.";
+  if (r.confirm && String(r.confirm).trim()) reply += "\n\n(A counsellor will confirm the latest details before you enrol.)";
   if (r.link) reply += "\n" + r.link;
 } else {
   // Not in the Q&A: look for the page, lesson or PDF that covers the topic.
