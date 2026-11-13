@@ -68,7 +68,7 @@ const listReply = hits => "Here is where to find it:\n" + hits.map(c => `• ${c
 const askedWhere = /\b(where|find|pdf|pdfs|file|files|download|handbook|notes|template|link)\b/.test(message);
 const firstHits = askedWhere ? await findContent.call(this) : [];
 
-let reply, matched = null;
+let reply, matched = null, needsAi = false;
 if (firstHits.length) {
   reply = listReply(firstHits); matched = "content: " + firstHits[0].title;
 } else if (greeting && (!best || best.s < 3)) {
@@ -85,6 +85,7 @@ if (firstHits.length) {
     reply = listReply(hits);
     matched = "content: " + hits[0].title;
   } else {
+    needsAi = true; // nothing found: the "with AI" workflow asks Grok or Claude, the free one sends this fallback
     if (incoming.channel === "instagram" || incoming.channel === "messenger") {
       reply = "Thanks for your question! Someone from our team will reply to you here shortly.";
     } else {
@@ -93,4 +94,7 @@ if (firstHits.length) {
   }
 }
 
-return [{ json: { reply, to: incoming.to, channel: incoming.channel, matched_question: matched, score: best ? best.s : 0 } }];
+// Facts for the optional AI step: every Q&A row as plain text (the AI must answer only from these).
+const aiContext = rows.filter(r => r.topic !== "Fallback").map(r => `Q: ${r.question}\nA: ${r.answer}${r.link ? " (" + r.link + ")" : ""}`).join("\n\n");
+
+return [{ json: { reply, to: incoming.to, channel: incoming.channel, question: incoming.text, needs_ai: needsAi, ai_context: aiContext, matched_question: matched, score: best ? best.s : 0 } }];

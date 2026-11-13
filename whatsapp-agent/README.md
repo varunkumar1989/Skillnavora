@@ -74,3 +74,20 @@ Before you start you need: a Facebook Page, an Instagram **Professional** accoun
 5. **Go live:** in App Review, request `pages_messaging` (Messenger) and `instagram_manage_messages` (Instagram), and switch the app to **Live**.
 
 The workflow ignores the Page's own messages and read receipts, so it never replies to itself. Replies are limited to 990 characters, within Instagram's 1,000-character limit.
+
+## WhatsApp auto-reply: import-ready workflows
+- `n8n/whatsapp_free_workflow.json`: WhatsApp Trigger → Get knowledge → Find answer → Send WhatsApp reply. Free, no AI.
+- `n8n/whatsapp_ai_workflow.json`: the same, plus an AI step. When the knowledge file has no answer, it asks **Grok** (xAI) and answers only from your facts. A ready **Claude** node sits beside it; reconnect to it if you prefer Claude. If the AI call fails, the free fallback reply is sent.
+
+Setup:
+1. **Meta app:** at developers.facebook.com/apps, create an app with use case **Other**, type **Business**. Add **WhatsApp**. Under WhatsApp → API Setup, copy the **Phone number ID** and add your own phone as a test recipient.
+2. **Import:** in n8n, choose Workflows → Import from File.
+3. **WhatsApp Trigger credential:** the app's **App ID** and **App Secret** (App settings → Basic).
+4. **Send WhatsApp reply:**
+   - Credential: an access token plus your Business Account ID. Use a permanent System User token from Business settings.
+   - Paste your Phone number ID in place of `PASTE_YOUR_PHONE_NUMBER_ID`.
+5. **AI version only** (Header Auth credentials):
+   - Grok: name `Authorization`, value `Bearer <xAI key>` (from console.x.ai). Check the model name.
+   - Claude: name `x-api-key`, value `<Anthropic key>`.
+   - Both APIs are paid per use.
+6. **Activate** the workflow, then send a WhatsApp message to the test number.
