@@ -1638,6 +1638,8 @@ print("\n".join(urls))
 
 import gate_inject
 print("PM handbook pages with gate:", gate_inject.inject())
+import studio_inject
+print("Lesson and handbook pages with AI Studio:", studio_inject.inject())
 # In-site reader page, and the post-processing that opens documents in the site and external links in a new tab
 READER_BODY = """<section class="rd-top"><div class="wrap rd-bar">
   <a class="btn btn-line btn-sm" id="rd-back" href="resources.html">← Back</a>
