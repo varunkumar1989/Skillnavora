@@ -122,3 +122,52 @@
 @media (max-width:960px){.vx-jump{display:inline-flex}}
 .vx,.vx *,.vx *::before,.vx *::after{box-sizing:border-box}
 @media (max-width:600px){.vx-search{min-width:0;width:100%}}
+/* ---------- Illustrations (theme-aware SVG) ---------- */
+.vx-fig{margin:14px 0 6px;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:18px;padding:14px 12px 10px}
+.vx-fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.vx-fig svg{display:block;width:100%;min-width:560px;height:auto}
+.vx-fig figcaption{font-size:13px;color:var(--mu);text-align:center;margin-top:8px;font-weight:600}
+.fg-card{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.fg-hub{fill:var(--brand);stroke:none}
+.fg-t{fill:var(--ink);font:700 14px var(--body)}
+.fg-t-on{fill:var(--on-brand);font:700 14px var(--body)}
+.fg-s{fill:var(--mu);font:400 12px var(--body)}
+.fg-s-on{fill:var(--on-brand);opacity:.88;font:400 12px var(--body)}
+.fg-ico{font-size:20px}
+.fg-arrow{stroke:var(--mu);stroke-width:2;fill:none;opacity:.8}
+.fg-head{fill:var(--mu)}
+.fg-warn{stroke:#d97706;opacity:1}.fg-lab-warn{fill:#b45309!important}
+.fg-ok{stroke:#16a34a;opacity:1}
+.fg-okbox{fill:color-mix(in srgb,#16a34a 12%,var(--surface));stroke:#16a34a;stroke-width:1.5}
+.fg-warnbox{fill:color-mix(in srgb,#f59e0b 12%,var(--surface));stroke:#d97706}
+.fg-loop{stroke:var(--brand);opacity:.9}
+.fg-lab{fill:var(--mu);font:600 11.5px var(--body)}
+.fg-cap{fill:var(--brand-ink);font:800 11.5px var(--body);letter-spacing:.1em;text-transform:uppercase}
+/* ---------- Covers and banners ---------- */
+.vx-gcard{padding:0;overflow:hidden;transition:transform .18s,box-shadow .18s}
+.vx-gcard:hover{transform:translateY(-3px);box-shadow:0 10px 30px color-mix(in srgb,var(--ink) 12%,transparent)}
+.vx-gcard>*:not(.vx-cover){margin-left:18px;margin-right:18px}
+.vx-gcard>.vx-more{margin-bottom:18px}
+.vx-cover{position:relative;height:96px;display:flex;align-items:flex-end;justify-content:space-between;padding:12px 16px;color:#fff;
+  background:radial-gradient(120px 80px at 85% 20%,rgba(255,255,255,.28),transparent 70%),linear-gradient(135deg,hsl(var(--h) 78% 52%),hsl(calc(var(--h) + 45) 74% 44%))}
+.vx-cover .vx-emo{position:absolute;right:14px;top:8px;font-size:40px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}
+.vx-cover b{font:800 12px var(--body);letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.22);padding:3px 8px;border-radius:99px}
+.vx-cover small{font:600 12px var(--body);background:rgba(255,255,255,.2);padding:3px 8px;border-radius:99px}
+.vx-gcard .vx-card-top{margin-top:14px}
+.vx-banner{position:relative;border-radius:22px;padding:26px 24px;color:#fff;overflow:hidden;margin-bottom:16px;
+  background:radial-gradient(300px 200px at 90% 10%,rgba(255,255,255,.25),transparent 70%),linear-gradient(135deg,hsl(var(--h) 78% 50%),hsl(calc(var(--h) + 50) 72% 40%))}
+.vx-banner .vx-emo{position:absolute;right:22px;top:14px;font-size:72px;opacity:.95;filter:drop-shadow(0 6px 16px rgba(0,0,0,.25))}
+.vx-banner .vx-cat{color:#fff;opacity:.9}
+.vx-banner h2{color:#fff;margin:8px 90px 8px 0;font-size:clamp(24px,3.4vw,36px);line-height:1.15;text-wrap:balance}
+.vx-banner .vx-lead{color:rgba(255,255,255,.92);font-size:17px;max-width:70ch}
+.vx-banner .vx-save{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.45);color:#fff}
+.vx-chipsrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.vx-chipsrow span{font:600 13px var(--body);background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:4px 10px;border-radius:99px}
+.vx-n{background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 60%,#0ea5b7))}
+@media (max-width:600px){.vx-banner{padding:20px 16px}.vx-banner .vx-emo{font-size:48px;right:12px}.vx-banner h2{margin-right:56px}}
+.vx-emo{pointer-events:none}
+.vx-banner .vx-emo{top:auto;bottom:10px}
+.vx-banner .vx-card-top{position:relative;z-index:1}
+.vx-cover,.vx-cover:hover{text-decoration:none}
+.vx-fig-hint{display:none;font-size:12px;color:var(--mu);text-align:center;margin:0 0 6px}
+@media (max-width:640px){.vx-fig-hint{display:block}}

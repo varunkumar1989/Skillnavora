@@ -71,8 +71,14 @@
   const tile = name => { const h = [...name].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7) % 360; return `<span class="vx-tile" style="--h:${h}" aria-hidden="true">${esc(name.replace(/[^A-Za-z0-9]/g, "").slice(0, 1).toUpperCase() || "•")}</span>`; };
   const star = (k, label) => `<button type="button" class="vx-save${isSaved(k) ? " on" : ""}" data-save="${esc(k)}" aria-pressed="${isSaved(k)}" aria-label="Save ${esc(label)}" title="Save">${isSaved(k) ? "★" : "☆"}</button>`;
 
+  const THEME = { "Career and Jobs": [210, "💼"], "Marketing": [330, "📣"], "Sales": [150, "🤝"], "Vibe Coding": [265, "🧑‍💻"], "Content Creation": [15, "🎬"],
+    "Business and Startups": [35, "🚀"], "AI Agents": [190, "🤖"], "Research": [175, "🌍"], "AI Tools": [245, "🧰"], "Automation": [125, "⚙️"],
+    "Prompting": [290, "🪄"], "Data and Analytics": [200, "📊"], "Video Generation": [350, "🎞️"] };
+  const theme = c => THEME[c] || [230, "✨"];
+  const stepCount = g => g.steps.filter(s => /^Step \d+:/.test(s)).length;
   function guideCard(g) {
-    return `<article class="vx-card vx-gcard"><div class="vx-card-top"><span class="vx-cat">${esc(g.cat)}</span>${star("g:" + g.id, g.title)}</div>
+    const [h, emo] = theme(g.cat);
+    return `<article class="vx-card vx-gcard"><a class="vx-cover" href="#g-${esc(g.id)}" style="--h:${h}" aria-hidden="true" tabindex="-1"><span class="vx-emo">${emo}</span><b>Guide ${esc(g.id)}</b><small>${stepCount(g)} steps</small></a><div class="vx-card-top"><span class="vx-cat">${esc(g.cat)}</span>${star("g:" + g.id, g.title)}</div>
       <h3><a href="#g-${esc(g.id)}">${esc(g.title)}</a></h3><p>${esc(g.summary)}</p>
       <div class="vx-meta"><span>⏱ ${esc(g.time)}</span><span>📶 ${esc(g.level)}</span></div>
       <a class="vx-more" href="#g-${esc(g.id)}">Open step-by-step guide →</a></article>`;
@@ -99,8 +105,9 @@
     const links = g.links.map(l => `<li><a href="${esc(safeUrl(l.url))}" target="_blank" rel="noopener nofollow">${esc(l.label)} ↗</a></li>`).join("");
     const i = GUIDES.indexOf(g), nx = GUIDES[(i + 1) % GUIDES.length];
     view.innerHTML = `<div class="vx-guide"><a class="vx-back" href="#guides">← All guides</a>
-      <header class="vx-ghead"><div class="vx-card-top"><span class="vx-cat">${esc(g.cat)} · Guide ${esc(g.id)}</span>${star("g:" + g.id, g.title)}</div>
+      <header class="vx-ghead"><div class="vx-banner" style="--h:${theme(g.cat)[0]}"><span class="vx-emo" aria-hidden="true">${theme(g.cat)[1]}</span><div class="vx-card-top"><span class="vx-cat">${esc(g.cat)} · Guide ${esc(g.id)}</span>${star("g:" + g.id, g.title)}</div>
         <h2>${esc(g.title)}</h2><p class="vx-lead">${esc(g.summary)}</p>
+        <div class="vx-chipsrow"><span>🪜 ${stepCount(g)} steps</span><span>🖼️ ${(g.html.match(/<svg/g) || []).length} illustration${(g.html.match(/<svg/g) || []).length === 1 ? "" : "s"}</span><span>📋 ${(g.html.match(/vx-copy/g) || []).length} copy-ready blocks</span></div></div>
         <div class="vx-facts"><div><small>Time</small><b>${esc(g.time)}</b></div><div><small>Cost</small><b>${esc(g.cost)}</b></div><div><small>Level</small><b>${esc(g.level)}</b></div></div></header>
       <div class="vx-glayout"><aside class="vx-toc"><b>In this guide</b><ol>${toc}</ol>${links ? `<b>Tools and links</b><ul class="vx-links">${links}</ul>` : ""}</aside>
       <div class="vx-gbody">${g.html}${tl ? `<div class="vx-used"><b>Tools from the library used here:</b> ${tl}</div>` : ""}

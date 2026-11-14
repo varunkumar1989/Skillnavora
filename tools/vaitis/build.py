@@ -10,7 +10,9 @@ Outputs (assets/vaitis/):
 
 Run: python3 tools/vaitis/build.py   (gen_site.py runs it too)
 """
-import glob, hashlib, html, json, os, re
+import glob, hashlib, html, json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import figures
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -87,6 +89,14 @@ def render(md):
     while i < len(lines):
         ln = lines[i]
         m = re.match(r"^```(\w+)\s*(.*)$", ln)
+        if m and m.group(1) == "figure":
+            flush(); i += 1
+            while i < len(lines) and not lines[i].startswith("```"): i += 1
+            i += 1
+            fig = figures.render(m.group(2).strip())
+            if not fig: raise SystemExit("unknown figure: " + m.group(2))
+            out.append(fig)
+            continue
         if m:
             flush(); kind, label = m.group(1), m.group(2).strip()
             body = []; i += 1
@@ -103,7 +113,7 @@ def render(md):
             if steps: out.append("</section>")
             title = ln[3:].strip(); steps.append(title)
             sm = re.match(r"^Step (\d+):\s*(.*)$", title)
-            badge = sm.group(1) if sm else ("✓" if title.lower().startswith(("what you need", "what it is")) else "+")
+            badge = sm.group(1) if sm else ("✓" if title.lower().startswith(("what you need", "what it is")) else ("◎" if title.lower().startswith("how it works") else "+"))
             shown = sm.group(2) if sm else title
             cls = "vx-step" + ("" if sm else " vx-aside")
             out.append(f'<section class="{cls}" id="s{len(steps)}"><h3><span class="vx-n">{E(badge)}</span>{inline(shown)}</h3>')
