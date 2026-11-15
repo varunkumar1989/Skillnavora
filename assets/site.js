@@ -27,7 +27,7 @@
   const nav = $("nav"), burger = $("burger");
   // The open phone menu fills the screen below the header.
   const fit = () => { if (nav.classList.contains("open")) nav.style.height = Math.max(200, innerHeight - nav.parentNode.closest(".top").getBoundingClientRect().bottom) + "px"; };
-  if (burger) burger.addEventListener("click", () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); document.body.style.overflow = o ? "hidden" : ""; nav.style.height = ""; fit(); });
+  if (burger) burger.addEventListener("click", () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); document.body.style.overflow = o ? "hidden" : ""; document.body.classList.toggle("menu-open", o); nav.style.height = ""; fit(); });
   addEventListener("resize", fit);
   const hoverMode = matchMedia("(hover: hover) and (min-width: 1021px)").matches;
   let lastScroll = 0; addEventListener("scroll", () => { lastScroll = Date.now(); }, { passive: true });
@@ -58,6 +58,8 @@
     if (open) { sub.setAttribute("data-sub-open", ""); b.setAttribute("aria-expanded", "true"); }
   }));
   document.addEventListener("keydown", e => { if (e.key === "Escape") document.querySelectorAll(".dd[data-open]").forEach(x => x.removeAttribute("data-open")); });
+  // On phones the menu groups start open, so every option is visible without a tap. A tap still folds a group.
+  if (matchMedia("(max-width: 1020px)").matches) document.querySelectorAll(".dd-sub").forEach(sub => { sub.setAttribute("data-sub-open", ""); sub.firstElementChild.setAttribute("aria-expanded", "true"); });
 
   /* ---- "Log in" becomes "My learning" when signed in ---- */
   const nl = $("nav-login");
