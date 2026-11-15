@@ -370,6 +370,32 @@ def data_tools():
             + grid([(n, d, u, t) for n, d, u, t in DATA_TOOLS]))
 
 
+def topic_tabs(gid, kicker, title, intro, tabs):
+    """Click-to-read topics: one tab per topic, its panel below. tabs = [(key, label, kicker, heading, html, buttons)].
+    #<gid>-<key> in the address opens that tab."""
+    btns = "".join(f'<button type="button" role="tab" id="{gid}-t-{k}" aria-controls="{gid}-{k}" aria-selected="{str(i == 0).lower()}" data-tt="{k}">{lbl}</button>'
+                   for i, (k, lbl, *_r) in enumerate(tabs))
+    panels = "".join(
+        f'<div class="tt-panel" role="tabpanel" id="{gid}-{k}" aria-labelledby="{gid}-t-{k}" data-tp="{k}"{"" if i == 0 else " hidden"}>'
+        f'<div class="kicker">{kick}</div><h3 style="margin:6px 0 8px;font-size:20px">{head}</h3>{body}'
+        f'<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">'
+        + "".join(f'<a class="btn {"btn-primary" if j == 0 else "btn-line"} btn-sm" href="{u}">{t}</a>' for j, (t, u) in enumerate(b)) + '</div></div>'
+        for i, (k, lbl, kick, head, body, b) in enumerate(tabs))
+    css = ('<style>.tt{margin:30px 0 8px}.tt-bar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}'
+           '.tt-bar button{font:600 14px var(--body);padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}'
+           '.tt-bar button[aria-selected=true]{background:var(--brand);border-color:var(--brand);color:#fff}'
+           '.tt-bar button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}'
+           '.tt-panel{margin-top:14px;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}'
+           '.tt-panel p{margin:0 0 10px;line-height:1.65;max-width:75ch}.tt-panel ul{margin:0 0 10px 20px;line-height:1.65;max-width:75ch}</style>')
+    js = ("<script>(function(){var g=document.getElementById('" + gid + "');if(!g)return;"
+          "var bs=g.querySelectorAll('[data-tt]'),ps=g.querySelectorAll('[data-tp]');"
+          "function show(k){bs.forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.tt===k))});ps.forEach(function(p){p.hidden=p.dataset.tp!==k});}"
+          "bs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.tt);try{history.replaceState(null,'','#" + gid + "-'+b.dataset.tt)}catch(e){}})});"
+          "var m=location.hash.slice(1),pre='" + gid + "-';if(m.indexOf(pre)===0&&g.querySelector('[data-tt=\"'+m.slice(pre.length)+'\"]'))show(m.slice(pre.length));})();</script>")
+    return (css + f'<section class="tt" id="{gid}" aria-label="{E(title)}"><div class="kicker">{kicker}</div><h2 class="sec-h" style="margin:6px 0 6px">{title}</h2>'
+            f'<p style="margin:0;color:var(--mu)">{intro}</p><div class="tt-bar" role="tablist" aria-label="{E(title)}">{btns}</div>{panels}</section>' + js)
+
+
 def source_html(pm_html, cfg):
     """Every programme block the Learning platform pages are built from (not published as its own page)."""
     feat = lambda kick, h, p, btns: (f'<div class="card" style="margin:0 0 22px;border:2px solid var(--brand,#6C4CF5);background:linear-gradient(135deg,rgba(108,76,245,.07),rgba(34,211,238,.07))">'
@@ -386,7 +412,19 @@ def source_html(pm_html, cfg):
     ctx_box = feat("Context window", "Context window: what a model can see at once",
                    "The context window is the most tokens a model can consider in one request. It covers your prompt, any documents you paste, the conversation so far and the reply. Anything outside it is invisible to the model. For PMs: a longer window fits more material but costs more and can slow responses; put the most important facts near the instructions; use retrieval (RAG) rather than pasting whole libraries; and test answers on long inputs, where quality can drop.",
                    [("Context engineering course", "context-engineering.html"), ("Context windows in the AI PM 2 course", "programme-pm2.html#a2-s12"), ("Tokens and context in the Grokbot course", "grokbot-course.html")])
-    return ('<div id="sec-pm">' + quick("pm") + prd_box + ctx_box + pm_html + '</div><div id="sec-genai">' + quick("genai") + genai_tab(cfg) + '</div><div id="sec-data">' + quick("data") + ds_tab(cfg) + ba_box + ds_extras_box + '</div>'
+    pm_topics = topic_tabs("pm-topics", "PM topics", "Read a topic", "Short explainers on the topics PMs ask about most. Pick a tab to read it, then open the full guide or tool.", [
+        ("prd", "PRD documents", "PRD documents", "PRD library: template, framing guide and 120 PRD ideas",
+         '<p>A product requirements document (PRD) says what you are building, for whom and why, and how you will know it worked. Strong PRDs start from the problem and the evidence, state the goal as a metric, list what is in and out of scope, and set acceptance criteria the team can test.</p>'
+         '<p>The PRD library shows how top PMs frame a PRD, gives you a free template, and turns any of 120 ideas across 15 industries into a full PRD with AI.</p>',
+         [("Open the PRD library", "prd-library.html"), ("✨ AI PRD Writer", "prd-writer.html"), ("PRD template (Word)", "handbook/templates/SkillNavora_PRD_Template.doc"), ("AI Evals for PMs", "ai-evals.html")]),
+        ("context", "Context window &amp; engineering", "Context window", "Context window and context engineering",
+         '<p>The context window is the most tokens a model can consider in one request. It covers your prompt, any documents you paste, the conversation so far and the reply. Anything outside it is invisible to the model.</p>'
+         '<p><b>Context engineering</b> is deciding what goes into that window: the instructions, the facts the model needs (often retrieved from your documents), the tools it can call and what it should remember. Good context beats a longer prompt.</p>'
+         '<ul><li>A longer window fits more material but costs more and can slow responses.</li><li>Put the most important facts near the instructions.</li>'
+         '<li>Use retrieval (RAG) rather than pasting whole libraries.</li><li>Test answers on long inputs, where quality can drop.</li></ul>',
+         [("Context engineering course", "context-engineering.html"), ("Context windows in the AI PM 2 course", "programme-pm2.html#a2-s12"), ("Tokens and context in the Grokbot course", "grokbot-course.html")]),
+    ])
+    return ('<div id="sec-pm">' + quick("pm") + pm_html + pm_topics + '</div><div id="sec-genai">' + quick("genai") + genai_tab(cfg) + '</div><div id="sec-data">' + quick("data") + ds_tab(cfg) + ba_box + ds_extras_box + '</div>'
             + other_tab("dm") + '<div id="sec-ai">' + ai_tab() + '</div><div id="sec-data-tools">' + data_tools() + '</div>' + other_tab("rest") + learnsites.tab("", keys=("pm", "data", "genai", "build")))  # the groups the Learning platform uses
 
 
