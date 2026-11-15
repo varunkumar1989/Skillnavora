@@ -260,6 +260,7 @@
     a.email_verified ? vchip("✓ Email verified", true) : "",
     a.phone_verified ? vchip("✓ Phone verified", true) : "",
     !a.email_verified && !a.phone_verified ? vchip("Not verified") : "",
+    a.email && access.has(String(a.email).toLowerCase()) ? vchip("✓ Access approved", true) : "",
     window.SNphone && a.phone && !SNphone("", a.phone).ok ? '<span class="chip" style="background:#FEE2E2;color:#991B1B">Number looks invalid: check before calling</span> ' : ""
   ].join("");
   function applications() {
@@ -273,9 +274,9 @@
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">
         <a class="btn btn-primary btn-sm" href="tel:${esc(tel(a.phone))}">Call ${esc(a.phone)}</a>
         <a class="btn btn-line btn-sm" href="https://wa.me/${esc(tel(a.phone).replace(/^\+/, "").replace(/^(\d{10})$/, "91$1"))}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        ${a.email ? `<a class="btn btn-line btn-sm" href="mailto:${esc(a.email)}">Email</a>` : ""}
+        ${a.email ? `<a class="btn btn-line btn-sm" href="mailto:${esc(a.email)}">Email</a><a class="btn btn-line btn-sm" href="https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(a.email)}&su=${encodeURIComponent("SkillNavora")}" target="_blank" rel="noopener noreferrer">Gmail</a>` : ""}
         ${a.kind === "resource" && a.email ? (access.has(String(a.email).toLowerCase())
-          ? `<a class="btn btn-line btn-sm" href="https://wa.me/${esc(tel(a.phone).replace(/^\+/, "").replace(/^(\d{10})$/, "91$1"))}?text=${encodeURIComponent(accessMsg(a))}" target="_blank" rel="noopener noreferrer">Tell them on WhatsApp</a><a class="btn btn-line btn-sm" href="mailto:${esc(a.email)}?subject=${encodeURIComponent("Your SkillNavora access is approved")}&amp;body=${encodeURIComponent(accessMsg(a))}">Email them</a><button class="btn btn-ghost btn-sm" type="button" data-revoke="${esc(a.email)}">Approved · remove access</button>`
+          ? `<a class="btn btn-line btn-sm" href="https://wa.me/${esc(tel(a.phone).replace(/^\+/, "").replace(/^(\d{10})$/, "91$1"))}?text=${encodeURIComponent(accessMsg(a))}" target="_blank" rel="noopener noreferrer">Tell them on WhatsApp</a><a class="btn btn-line btn-sm" href="mailto:${esc(a.email)}?subject=${encodeURIComponent("Your SkillNavora access is approved")}&amp;body=${encodeURIComponent(accessMsg(a))}">Email them</a><button class="btn btn-line btn-sm" type="button" data-revoke="${esc(a.email)}">Remove access</button>`
           : `<button class="btn btn-primary btn-sm" type="button" data-grant="${esc(a.email)}" data-name="${esc(a.first_name || "")}">Approve PDF and members access</button>`) : ""}
         ${a.linkedin ? `<a class="btn btn-line btn-sm" href="${safeUrl(/^https?:/i.test(a.linkedin) ? a.linkedin : "https://" + a.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>` : ""}
         <select data-appstatus="${a.id}" style="width:auto;margin-left:auto" aria-label="Status">${Object.entries(APP).map(([v, [t]]) => `<option value="${v}"${a.status === v ? " selected" : ""}>${t}</option>`).join("")}</select></div></div>`).join("") : '<p class="empty">No applications here yet.</p>';
