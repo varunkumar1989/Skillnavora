@@ -20926,7 +20926,7 @@ var init_sdk = __esm({
   }
 });
 
-// tools/ai.src.js
+// ai.src.js
 init_sdk();
 var json = (body, status2 = 200) => new Response(JSON.stringify(body), { status: status2, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 var COMMON = `You work inside skillnavora.in, an Indian learning platform for AI product management, data engineering (Excel, SQL, Python, Power BI, Tableau, statistics, machine learning), generative AI and agents, plus SFMC, digital marketing, content creation, forward-deployed engineering and public speaking.
@@ -20945,7 +20945,9 @@ ${COMMON}
 How to answer:
 - Teach: explain the idea simply, then give a short worked example (formula, SQL, Python, framework or real product case), then one common mistake to avoid.
 - Keep answers focused: usually 120-350 words. Use Markdown: short paragraphs, "-" bullets, **bold** for key terms, fenced code blocks for code. No tables wider than 4 columns.
-- End with "\u{1F4D8} Learn more:" and 1-3 links to the most relevant SkillNavora lessons from the COURSE INDEX, written as Markdown links with the exact paths given there (they start with /). Only use paths from the index; if nothing fits, skip this line.
+- Facts about SkillNavora (courses, fees, dates, offers, contact, policies) come only from the FACTS given below. If a fact is not there, say a counsellor will share it and suggest a free counselling call. Never invent fees, dates, names or placement numbers.
+- Study questions (any subject: product management, metrics, data, SQL, Python, statistics, machine learning, AI, marketing, careers) are answered from general knowledge, so every study question gets a full answer.
+- End with "\u{1F4D8} Study it here:" and 1-3 Markdown links copied exactly from STUDY LINKS (the exact URLs). Never invent a URL. If STUDY LINKS is empty, point to https://www.skillnavora.in/learning-platform.html instead.
 - If the learner shares the page they are on (PAGE CONTEXT), use it first.
 - For interview questions, show how a strong candidate would structure the answer.`
   },
@@ -21079,6 +21081,70 @@ async function courseIndex(request, env) {
   const res = await env.ASSETS.fetch(new URL("/assets/ai-index.txt", request.url));
   cachedIndex = { text: res.ok ? await res.text() : "", at: Date.now() };
   return cachedIndex.text;
+}
+var STOP = new Set("the a an is are of to for and or in on at what how do does i my we you your can which who when where it this that be with please tell me about am".split(" "));
+var toks = (s) => String(s || "").toLowerCase().replace(/\b([a-z0-9])-([a-z]+)/g, "$1$2").split(/[^a-z0-9₹$]+/).filter((w) => w.length > 1 && !STOP.has(w)).map((w) => w.length > 3 && w.endsWith("s") && !w.endsWith("ss") ? w.slice(0, -1) : w);
+var GENERIC = /* @__PURE__ */ new Set(["what", "why", "how", "explain", "meaning", "mean", "define", "definition", "example", "learn", "study", "guide", "free", "pdf", "page", "lesson", "course", "basic", "basics", "advanced", "introduction", "intro", "complete", "skillnavora", "handbook", "module"]);
+var grounding = { qa: null, idx: null, at: 0 };
+async function loadGrounding(request, env) {
+  if (grounding.qa && Date.now() - grounding.at < 10 * 60 * 1e3) return grounding;
+  const get = async (p) => {
+    try {
+      const r = await env.ASSETS.fetch(new URL(p, request.url));
+      return r.ok ? await r.json() : [];
+    } catch {
+      return [];
+    }
+  };
+  const [qa, topics, content] = await Promise.all([get("/assets/knowledge_qa.json"), get("/assets/topic_index.json"), get("/assets/content_index.json")]);
+  grounding = { qa: Array.isArray(qa) ? qa : [], idx: [...Array.isArray(topics) ? topics : [], ...Array.isArray(content) ? content : []], at: Date.now() };
+  return grounding;
+}
+function groundFacts(qa, text, n = 8) {
+  const q = String(text || "").toLowerCase(), qw = new Set(toks(text));
+  const usable = qa.filter((r) => r && r.question && r.answer && r.topic !== "Fallback");
+  const scored = usable.map((r) => {
+    let s = 0;
+    for (const k of String(r.keywords || "").split(/[,|]/).map((x) => x.trim().toLowerCase()).filter((x) => x.length >= 3)) if (q.includes(k)) s += 3;
+    for (const w of new Set(toks(r.question + " " + r.topic))) if (qw.has(w)) s += 1;
+    return { r, s };
+  }).filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, n).map((x) => x.r);
+  return scored.map((r) => `Q: ${r.question}
+A: ${r.answer}${r.link ? " (" + r.link + ")" : ""}${r.confirm ? " [a counsellor confirms this]" : ""}`).join("\n\n");
+}
+function studyLinks(idx, text, n = 3) {
+  const qw = [...new Set(toks(text))].filter((w) => !GENERIC.has(w));
+  if (!qw.length) return "";
+  const phrase = qw.join(" "), scored = [];
+  for (const c of idx || []) {
+    if (!c || !c.title || !c.link) continue;
+    const tw = new Set(toks(c.title)), dw = new Set(toks(c.desc));
+    let hit = 0, inTitle = 0, s = 0;
+    for (const w of qw) {
+      if (tw.has(w)) {
+        s += 3;
+        hit++;
+        inTitle++;
+      } else if (dw.has(w)) {
+        s += 1;
+        hit++;
+      }
+    }
+    if (!inTitle) continue;
+    if (qw.length > 1 && String(c.title).toLowerCase().includes(phrase)) s += 4;
+    s += hit / qw.length * 3 + (c.type === "Section" ? 1 : c.type === "Lesson" ? 0.5 : 0);
+    scored.push({ c, s, hit });
+  }
+  const need = qw.length >= 2 ? 2 : 1;
+  let pool = scored.filter((x) => x.hit >= need);
+  if (!pool.length) pool = scored;
+  const seen = /* @__PURE__ */ new Set();
+  return pool.sort((a, b) => b.s - a.s).filter((x) => {
+    const k = x.c.link.split("#")[0] + "|" + x.c.title;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  }).slice(0, n).map((x) => `- ${x.c.title} (${x.c.desc}): ${x.c.link}`).join("\n");
 }
 async function pageContext(request, env, path4) {
   if (typeof path4 !== "string" || !/^\/[a-z0-9\/._-]{1,200}$/i.test(path4) || path4.includes("..")) return "";
@@ -21279,6 +21345,11 @@ async function answer(request, env) {
     if (idx) system.push({ type: "text", text: "COURSE INDEX (title | path | topics):\n" + idx, cache_control: { type: "ephemeral" } });
     const ctx2 = await pageContext(request, env, body.page);
     if (ctx2) system.push({ type: "text", text: "PAGE CONTEXT (" + body.page + "):\n" + ctx2 });
+    const last = (messages[messages.length - 1] || {}).content || "";
+    const g = await loadGrounding(request, env);
+    const facts = groundFacts(g.qa, last) || "(none matched)";
+    const links = studyLinks(g.idx, last) || studyLinks(g.idx, messages.map((m) => m.content).join(" ")) || "(none matched; use https://www.skillnavora.in/learning-platform.html)";
+    system.push({ type: "text", text: "FACTS (SkillNavora courses, fees, offers, contact):\n" + facts + "\n\nSTUDY LINKS (exact sections to study):\n" + links });
   }
   const ctx = { system, sysText: system.map((b) => b.text).join("\n\n"), messages: messages.map((m) => ({ role: m.role, content: m.content })), max: mode.max, effort: mode.effort };
   const errors = [];
