@@ -25,13 +25,42 @@ const json = (o, status = 200) => new Response(JSON.stringify(o), { status, head
 
 // The Data Science handbook site (GitHub Pages / Netlify) also asks for details before opening files
 const ALLOWED = [/^https:\/\/(www\.)?skillnavora\.in$/, /^https:\/\/skillnavora\.pages\.dev$/, /^https:\/\/[a-z0-9-]+\.github\.io$/, /^https:\/\/[a-z0-9-]+\.netlify\.app$/];
-const cors = request => { const o = request.headers.get("origin") || ""; return ALLOWED.some(r => r.test(o)) ? { "access-control-allow-origin": o, "access-control-allow-methods": "POST, OPTIONS", "access-control-allow-headers": "content-type", vary: "origin" } : {}; };
+const cors = request => { const o = request.headers.get("origin") || ""; return ALLOWED.some(r => r.test(o)) ? { "access-control-allow-origin": o, "access-control-allow-methods": "POST, OPTIONS", "access-control-allow-headers": "content-type, authorization", vary: "origin" } : {}; };
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 export async function onRequestPost(ctx) {
   const res = await handle(ctx);
   const h = new Headers(res.headers); for (const [k, v] of Object.entries(cors(ctx.request))) h.set(k, v);
   return new Response(res.body, { status: res.status, headers: h });
 }
+// Phone rules (same as SNphone in assets/site.js): returns "+<code> <number>" or null.
+const PHONE_RULES = { "91": [/^[6-9]\d{9}$/, 10], "971": [/^5\d{8}$/, 9], "1": [/^[2-9]\d{9}$/, 10], "44": [/^7\d{9}$/, 10], "65": [/^[89]\d{7}$/, 8], "61": [/^4\d{8}$/, 9] };
+export function cleanPhone(raw) {
+  let s = String(raw || "").trim(), code = "";
+  const m = s.match(/^\+(\d{1,3})[\s-]+(.*)$/);
+  if (m) { code = m[1]; s = m[2]; }
+  else if (/^\+/.test(s)) { const g = s.replace(/\D/g, ""); code = Object.keys(PHONE_RULES).sort((a, b) => b.length - a.length).find(k => g.startsWith(k)) || g.slice(0, 2); s = g.slice(code.length); }
+  else code = "91";
+  let d = s.replace(/\D/g, "");
+  const r = PHONE_RULES[code];
+  if (r && d.length === r[1] + code.length && d.startsWith(code)) d = d.slice(code.length);
+  if (code === "91" && d.length === 11 && d[0] === "0") d = d.slice(1);
+  if (r ? !r[0].test(d) : !/^\d{6,14}$/.test(d)) return null;
+  if (/^(\d)\1+$/.test(d) || "01234567890123456789".includes(d) || "98765432109876543210".includes(d)) return null;
+  return "+" + code + " " + d;
+}
+
+async function emailVerified(request, email, env) {
+  const bearer = (request.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+  if (!bearer) return false;
+  try {
+    const base = (env.SUPABASE_URL || SUPABASE_URL).replace(/\/$/, "");
+    const r = await fetch(base + "/auth/v1/user", { headers: { apikey: env.SUPABASE_KEY || SUPABASE_KEY, authorization: "Bearer " + bearer } });
+    if (!r.ok) return false;
+    const u = await r.json();
+    return !!(u && u.email && u.email_confirmed_at && u.email.toLowerCase() === String(email).toLowerCase());
+  } catch { return false; }
+}
+
 async function handle({ request, env }) {
   if (!allowed(request.headers.get("cf-connecting-ip") || "anon")) return json({ ok: false, error: "limit" }, 429);
   let body;
@@ -41,8 +70,14 @@ async function handle({ request, env }) {
     const v = body[k];
     if (v != null && v !== "") row[k] = String(v).slice(0, max).trim();
   }
-  if (!row.first_name || !row.phone || !/^[0-9+ ()-]{7,20}$/.test(row.phone)) return json({ ok: false, error: "invalid" }, 400);
+  if (row.message) row.message = row.message.replace(/^\s*\[email verified\]\s*/i, ""); // only the server may say this
+  if (!row.first_name || !/\p{L}.*\p{L}/u.test(row.first_name)) return json({ ok: false, error: "invalid_name" }, 400);
+  const ph = cleanPhone(row.phone);
+  if (!ph) return json({ ok: false, error: "invalid_phone" }, 400);
+  row.phone = ph;
   if (row.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(row.email)) delete row.email;
+  // Email verified? Only when the request carries a sign-in for this same email and that email is confirmed.
+  const verified = row.email ? await emailVerified(request, row.email, env) : false;
   if (row.message && (row.message.match(/https?:\/\//g) || []).length > 3) return json({ ok: false, error: "invalid" }, 400);
   if (row.course_id && !/^[a-z0-9-]{1,40}$/.test(row.course_id)) delete row.course_id;
   row.kind = LABEL[row.kind] ? row.kind : "application";
@@ -52,7 +87,13 @@ async function handle({ request, env }) {
   const insert = r => fetch(base + "/rest/v1/applications", { method: "POST",
     headers: { apikey: key, ...(key.startsWith("sb_") ? {} : { Authorization: "Bearer " + key }), "content-type": "application/json", prefer: "return=minimal" },
     body: JSON.stringify(r) }).then(x => x.ok).catch(() => false);
-  let saved = await insert(row);
+  const svc = env.SUPABASE_SERVICE_KEY;
+  const insertVerified = r => fetch(base + "/rest/v1/applications", { method: "POST",
+    headers: { apikey: svc, ...(svc && svc.includes(".") ? { Authorization: "Bearer " + svc } : {}), "content-type": "application/json", prefer: "return=minimal" },
+    body: JSON.stringify({ ...r, email_verified: true }) }).then(x => x.ok).catch(() => false);
+  let saved = verified && svc ? await insertVerified(row) : false;
+  if (!saved && verified) row.message = ("[Email verified] " + (row.message || "")).slice(0, 2000);
+  if (!saved) saved = await insert(row);
   if (!saved && !BASE_KINDS.includes(row.kind)) {
     saved = await insert({ ...row, kind: "counselling", message: ("[" + LABEL[row.kind] + "] " + (row.message || "")).slice(0, 2000) });
   }
@@ -62,7 +103,7 @@ async function handle({ request, env }) {
     "New SkillNavora " + LABEL[row.kind].toLowerCase(),
     "Name: " + [row.first_name, row.last_name].filter(Boolean).join(" "),
     "Phone: " + row.phone,
-    row.email && "Email: " + row.email,
+    row.email && "Email: " + row.email + (verified ? " (verified)" : " (not verified)"),
     row.course_id && "Program: " + row.course_id,
     row.role && "Role: " + row.role,
     row.experience && "Experience: " + row.experience,

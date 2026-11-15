@@ -28,9 +28,9 @@ const SN = (function () {
       const { data: adm } = await client.rpc("is_admin");
       if (adm) localStorage.setItem("sn_admin", JSON.stringify({ t: Date.now(), email: data.session.user.email || "" }));
       else localStorage.removeItem("sn_admin");
-      // Access pass for paid files (admins get every file). Refreshed at most every 6 hours.
+      // Access pass for paid files and the Members library (admins get everything). Refreshed at most every 30 minutes.
       const last = +(localStorage.getItem("sn_pass_t") || 0);
-      if (Date.now() - last > 6 * 3600e3) {
+      if (Date.now() - last > 30 * 60e3) {
         const r = await fetch("/api/pdf-access", { method: "POST", headers: { authorization: "Bearer " + data.session.access_token } });
         if (r.ok || r.status === 403) localStorage.setItem("sn_pass_t", String(Date.now()));
       }

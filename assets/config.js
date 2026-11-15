@@ -53,6 +53,7 @@ const TOPBAR = {
 const AUTH = {
   supabaseUrl: "https://rnncabqtcxxivuyjwoja.supabase.co",
   supabaseKey: "sb_publishable_9sKPYxU3MHQfNT43n3d95A_bVLZi7BP",
+  verifyEmail: true,   // the details form emails a 6-digit code before unlocking resources; false turns the check off
   google: true,
   phone: false,
   whatsapp: false

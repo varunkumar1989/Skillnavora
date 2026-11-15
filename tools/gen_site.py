@@ -1657,7 +1657,7 @@ ACCESS_BODY = """<section class="sn-search"><div class="wrap" style="max-width:6
   <button class="btn btn-line" id="acc-check" type="button" hidden style="margin-bottom:14px">Check my access</button>
   <form id="acc-req" hidden style="display:grid;gap:10px;max-width:420px">
     <label>Full name<input name="name" maxlength="80" required></label>
-    <label>Phone number<input name="phone" maxlength="20" inputmode="tel" required></label>
+    <label>Mobile number<span class="phone"><select name="cc" aria-label="Country code"><option value="+91">🇮🇳 +91</option><option value="+971">🇦🇪 +971</option><option value="+1">🇺🇸 +1</option><option value="+44">🇬🇧 +44</option><option value="+65">🇸🇬 +65</option><option value="+61">🇦🇺 +61</option></select><input name="phone" maxlength="15" inputmode="tel" autocomplete="tel-national" placeholder="98765 43210" required></span></label>
     <label>Why do you need the files?<input name="reason" maxlength="300" required></label>
     <button class="btn btn-primary" type="submit">Request access</button>
   </form>

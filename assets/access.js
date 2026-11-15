@@ -42,14 +42,16 @@
     $("acc-req").addEventListener("submit", async e => {
       e.preventDefault();
       const f = e.target, v = n => f.elements[n].value.trim();
-      if (!v("name")) return say("Please enter your name.", true);
-      if (v("phone").replace(/\D/g, "").length < 7) return say("Please enter a valid phone number.", true);
+      if (!/\p{L}.*\p{L}/u.test(v("name"))) return say("Please enter your name.", true);
+      const cc = f.elements.cc ? f.elements.cc.value : "91";
+      const ph = window.SNphone ? window.SNphone(cc, v("phone")) : { ok: v("phone").replace(/\D/g, "").length >= 10, value: v("phone") };
+      if (!ph.ok) return say(ph.msg || "Please enter a valid 10-digit mobile number.", true);
       if (v("reason").length < 5) return say("Please tell us briefly why you need the files.", true);
       const b = f.querySelector("button[type=submit]"); b.disabled = true;
-      const row = { kind: "resource", first_name: v("name"), email: s.user.email, phone: v("phone"),
+      const row = { kind: "resource", first_name: v("name"), email: s.user.email, phone: ph.value,
         message: ("[PDF access request] " + v("reason") + " | Page: " + next).slice(0, 1900), source: "access-request" };
       try {
-        const r = await fetch(root + "api/lead", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(row) });
+        const r = await fetch(root + "api/lead", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + s.access_token }, body: JSON.stringify(row) });
         const j = await r.json();
         if (!j.ok) throw new Error("not saved");
         say("Request sent. You will get the files by email, or within 24 hours once the owner approves.");

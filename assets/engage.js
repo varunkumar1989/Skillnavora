@@ -17,10 +17,11 @@
     store.sset("src", (utm || ref || "direct").slice(0, 200)); })();
 
   /* ---------- Save a lead: Supabase (if set up) and/or Web3Forms email ---------- */
-  async function saveLead(row) {
+  async function saveLead(row, token) {
     row = { ...row, source: store.sget("src") || null };
     // The site's /api/lead function saves the lead and notifies the team by email/WhatsApp.
-    try { const r = await fetch(R + "api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(row) });
+    // With a sign-in token from the email check, the server marks the lead "Email verified".
+    try { const r = await fetch(R + "api/lead", { method: "POST", headers: { "Content-Type": "application/json", ...(token ? { Authorization: "Bearer " + token } : {}) }, body: JSON.stringify(row) });
       if (r.ok && (await r.json()).ok) return true; } catch {}
     if (row.kind === "contact") row = { ...row, kind: "counselling", message: "[Contact form] " + (row.message || "") };
     let saved = false;
@@ -41,7 +42,7 @@
     }
     return saved;
   }
-  window.SNsaveLead = r => saveLead(r);
+  window.SNsaveLead = (r, token) => saveLead(r, token);
   const summary = row => Object.entries({ Program: (C.find(c => c.id === row.course_id) || {}).name, Name: [row.first_name, row.last_name].filter(Boolean).join(" "), Phone: row.phone, Email: row.email, LinkedIn: row.linkedin, Experience: row.experience, Role: row.role, "Preferred time": row.preferred_time, Message: row.message }).filter(([, v]) => v).map(([k, v]) => k + ": " + v).join("\n");
 
   /* ---------- Top announcement bar ---------- */
@@ -92,9 +93,9 @@
     const miss = need.find(([n]) => val(n) === undefined);
     if (miss) return ok($("mc-err"), "error", "Please choose " + miss[1] + ".");
     if (step < STEPS) return goStep(step + 1);
-    const phone = (cf.cc.value + " " + cf.phone.value.trim()).trim();
+    let phone = (cf.cc.value + " " + cf.phone.value.trim()).trim();
     if (!cf.name.value.trim()) return ok($("mc-err"), "error", "Please enter your name.");
-    if (!/^[0-9+ ()-]{7,20}$/.test(phone) || cf.phone.value.replace(/\D/g, "").length < 7) return ok($("mc-err"), "error", "Please enter a valid phone number.");
+    const cph = window.SNphone(cf.cc.value, cf.phone.value); if (!cph.ok) return ok($("mc-err"), "error", cph.msg); phone = cph.value;
     const row = { kind: "counselling", course_id: val("course") || null, first_name: cf.name.value.trim(), phone, email: cf.email.value.trim() || null,
       experience: val("exp"), role: val("qual"), message: "Graduation year: " + val("grad"), preferred_time: cf.time.value };
     const b = $("mc-next"); b.disabled = true; b.textContent = "Booking…";
@@ -119,10 +120,10 @@
     }
     lf.addEventListener("submit", async e => {
       e.preventDefault();
-      const phone = (lf.cc.value + " " + lf.phone.value.trim()).trim();
+      let phone = (lf.cc.value + " " + lf.phone.value.trim()).trim();
       if (!lf.name.value.trim()) return ok($("lead-err"), "error", "Please enter your name.");
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(lf.email.value.trim())) return ok($("lead-err"), "error", "Please enter a valid email.");
-      if (!/^[0-9+ ()-]{7,20}$/.test(phone) || lf.phone.value.replace(/\D/g, "").length < 7) return ok($("lead-err"), "error", "Please enter a valid phone number.");
+      const lph = window.SNphone(lf.cc.value, lf.phone.value); if (!lph.ok) return ok($("lead-err"), "error", lph.msg); phone = lph.value;
       const row = { kind: "counselling", course_id: (lf.querySelector("input[name=course]:checked") || {}).value || null, first_name: lf.name.value.trim(), email: lf.email.value.trim(), phone,
         message: "Free live class + counselling (home page)." + (lf.wa.checked ? " OK to send WhatsApp updates." : " No WhatsApp updates.") };
       const b = lf.querySelector("button[type=submit]"); b.disabled = true; b.textContent = "Booking…";
@@ -167,8 +168,8 @@
     af.addEventListener("submit", async e => {
       e.preventDefault();
       if (!af.querySelector("input[name=exp]:checked")) return ok($("apply-msg"), "error", "Please choose your experience.");
-      const phone = (af.cc.value + " " + af.phone.value.trim()).trim();
-      if (!/^[0-9+ ()-]{7,20}$/.test(phone)) return ok($("apply-msg"), "error", "Please enter a valid contact number.");
+      let phone = (af.cc.value + " " + af.phone.value.trim()).trim();
+      const aph = window.SNphone(af.cc.value, af.phone.value); if (!aph.ok) return ok($("apply-msg"), "error", aph.msg); phone = aph.value;
       const li = af.linkedin.value.trim();
       const row = { kind: "application", course_id: af.course.value, first_name: af.first.value.trim(), last_name: af.last.value.trim(), email: af.email.value.trim(), phone,
         linkedin: li || null, experience: af.querySelector("input[name=exp]:checked").value, role: af.role.value, message: af.why.value.trim() || null };
@@ -208,10 +209,10 @@
     f.addEventListener("submit", async e => {
       e.preventDefault();
       const v = n => (f.elements[n] ? f.elements[n].value : "").trim(), has = n => !!f.elements[n];
-      const phone = (f.cc.value + " " + v("phone")).trim();
+      let phone = (f.cc.value + " " + v("phone")).trim();
       if (!v("name")) return ok(msg, "error", "Please enter your name.");
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("email"))) return ok(msg, "error", "Please enter a valid email.");
-      if (!/^[0-9+ ()-]{7,20}$/.test(phone) || v("phone").replace(/\D/g, "").length < 7) return ok(msg, "error", "Please enter a valid contact number.");
+      const oph = window.SNphone(f.cc ? f.cc.value : "", v("phone")); if (!oph.ok) return ok(msg, "error", oph.msg); phone = oph.value;
       if (has("linkedin") && f.elements.linkedin.required && !/^https?:\/\/\S+$/i.test(v("linkedin"))) return ok(msg, "error", "Please add your LinkedIn profile URL (starting with https://).");
       if ((has("role") && f.elements.role.required && !v("role")) || (has("experience") && f.elements.experience.required && !v("experience"))) return ok(msg, "error", "Please choose an option in each list.");
       if (f.elements.consent && !f.elements.consent.checked) return ok(msg, "error", "Please tick the box to agree to publishing your review.");

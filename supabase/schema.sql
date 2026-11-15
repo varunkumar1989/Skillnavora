@@ -453,3 +453,53 @@ create policy "read own or admin" on public.purchases for select to authenticate
 drop policy if exists "admin marks refunds" on public.purchases;
 create policy "admin marks refunds" on public.purchases for update to authenticated
   using (public.is_admin()) with check (public.is_admin());
+
+-- ---------- PDF and website access approvals (Admin panel -> Applications -> Approve PDF access) ----------
+-- An approved email gets every PDF, handbook and the Members library after its owner signs in with that email.
+-- (Was supabase/pdf_access.sql; it is part of this file now, so one run sets up everything.)
+create table if not exists public.pdf_access (
+  email       text primary key check (email ~* '^[^@\s]+@[^@\s]+\.[^@\s]+$' and length(email) <= 200),
+  name        text check (length(name) <= 120),
+  approved_by text default (auth.jwt() ->> 'email') check (length(approved_by) <= 200),
+  approved_at timestamptz not null default now()
+);
+
+alter table public.pdf_access enable row level security;
+
+-- Each signed-in person can see only their own approval (lower-case email match).
+drop policy if exists "own approval" on public.pdf_access;
+create policy "own approval" on public.pdf_access
+  for select to authenticated
+  using (lower(email) = lower(auth.jwt() ->> 'email'));
+
+-- Admins can add, change and remove approvals.
+drop policy if exists "admins manage approvals" on public.pdf_access;
+create policy "admins manage approvals" on public.pdf_access
+  for all to authenticated
+  using (public.is_admin())
+  with check (public.is_admin());
+
+grant select, insert, update, delete on public.pdf_access to authenticated;
+-- anon (signed-out visitors) gets nothing from this table.
+revoke all on public.pdf_access from anon;
+
+-- ---------- Lead quality: verified emails and real phone numbers ----------
+-- email_verified is set only by the server (functions/api/lead.js) when the visitor confirmed their email with a code.
+-- Signed-out visitors cannot set it: it is not in the insert grant for applications.
+alter table public.applications add column if not exists email_verified boolean not null default false;
+-- New phone numbers must look like "+<country code> <number>" (Indian mobiles: 10 digits starting 6-9).
+-- NOT VALID: rows saved before this rule are kept as they are.
+create or replace function public.valid_phone(p text) returns boolean language sql immutable as $$
+  select p is null or (p ~ '^\+[0-9]{1,3} [0-9]{6,14}$' and (p !~ '^\+91 ' or p ~ '^\+91 [6-9][0-9]{9}$') and p !~ '([0-9])\1{9}');
+$$;
+-- Checked on new rows only, so older leads with a bad number can still be updated (for example their status).
+alter table public.applications drop constraint if exists applications_phone_valid;
+create or replace function public.check_new_phone() returns trigger language plpgsql as $$
+begin
+  if not public.valid_phone(new.phone) then
+    raise exception 'invalid phone number' using errcode = '23514';
+  end if;
+  return new;
+end $$;
+drop trigger if exists applications_phone_valid on public.applications;
+create trigger applications_phone_valid before insert on public.applications for each row execute function public.check_new_phone();

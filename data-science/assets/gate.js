@@ -4,6 +4,20 @@
    This is visitor tracking, not security: files stay reachable by direct link. */
 (function () {
   const KEY = "sn_access", API = "https://www.skillnavora.in/api/lead";
+  // Phone check (same rules as the main site's SNphone and the server): country code + the right number of digits.
+  const PHONE_RULES = { "91": [/^[6-9]\d{9}$/, 10, "a 10-digit Indian mobile number starting with 6, 7, 8 or 9"], "971": [/^5\d{8}$/, 9, "a 9-digit UAE mobile number starting with 5"],
+    "1": [/^[2-9]\d{9}$/, 10, "a 10-digit US or Canada number"], "44": [/^7\d{9}$/, 10, "a 10-digit UK mobile number starting with 7"],
+    "65": [/^[89]\d{7}$/, 8, "an 8-digit Singapore mobile number starting with 8 or 9"], "61": [/^4\d{8}$/, 9, "a 9-digit Australian mobile number starting with 4"] };
+  const phoneCheck = (cc, raw) => {
+    const code = String(cc || "+91").replace(/\D/g, ""), r = PHONE_RULES[code]; let d = String(raw || "").replace(/\D/g, "");
+    if (r && d.length === r[1] + code.length && d.startsWith(code)) d = d.slice(code.length);
+    if (code === "91" && d.length === 11 && d[0] === "0") d = d.slice(1);
+    if (r ? !r[0].test(d) : !/^\d{6,14}$/.test(d)) return { ok: false, msg: "Please enter " + (r ? r[2] : "a valid phone number") + "." };
+    if (/^(\d)\1+$/.test(d) || "01234567890123456789".includes(d) || "98765432109876543210".includes(d)) return { ok: false, msg: "Please enter your own phone number, not an example number." };
+    return { ok: true, value: "+" + code + " " + d };
+  };
+  const loadJs = src => new Promise((ok, bad) => { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = () => bad(new Error("We could not load the email check. Please refresh the page.")); document.head.appendChild(s); });
+
   const FILE = /\.(pdf|xlsx|xls|csv|zip|pptx|docx|ipynb)(?:[?#]|$)/i;
   const get = k => { try { return localStorage.getItem(k); } catch { return null; } };
   const set = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
@@ -60,7 +74,7 @@
         m.textContent = "";
         const row = { kind: "resource", first_name: v("name"), email: v("email"), role: "GitHub access request", source: "github-request",
           message: ("[GitHub access request] GitHub user: " + v("gh") + " | Repo: " + ghBox.dataset.repo + " | Reason: " + v("why") + " | Page: " + location.pathname).slice(0, 1900) };
-        try { await fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(row), keepalive: true }); } catch {}
+        try { await fetch(API, { method: "POST", headers: { "content-type": "application/json", ...(tok ? { authorization: "Bearer " + tok } : {}) }, body: JSON.stringify(row), keepalive: true }); } catch {}
         f.reset(); ghBox.hidden = true;
         const d = document.createElement("div"); d.textContent = "Request sent. You will get access once the owner approves it."; d.setAttribute("style", "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#17142E;color:#fff;padding:10px 16px;border-radius:10px;font:600 14px system-ui,sans-serif"); document.body.appendChild(d); setTimeout(() => d.remove(), 4000);
       });
@@ -112,17 +126,30 @@
     const f = modal.querySelector("form"), err = modal.querySelector(".err");
     f.addEventListener("submit", async e => {
       e.preventDefault();
-      const v = n => f.elements[n].value.trim(), phone = (f.elements.cc.value + " " + v("phone")).trim();
+      const v = n => f.elements[n].value.trim();
       const say = t => (err.textContent = t);
-      if (!v("name")) return say("Please enter your name.");
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("email"))) return say("Please enter a valid email.");
-      if (v("phone").replace(/\D/g, "").length < 7) return say("Please enter a valid phone number.");
+      if (!/\p{L}.*\p{L}/u.test(v("name"))) return say("Please enter your full name.");
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v("email"))) return say("Please enter a valid email.");
+      const ph = phoneCheck(f.elements.cc.value, v("phone"));
+      if (!ph.ok) return say(ph.msg);
+      const phone = ph.value;
       if (!v("role")) return say("Please choose who you are.");
       if (!f.elements.consent.checked) return say("Please tick the box to continue.");
-      say(""); const b = f.querySelector("button.go"); b.disabled = true; b.textContent = "Unlocking…";
+      say(""); const b = f.querySelector("button.go"); b.disabled = true;
+      // On skillnavora.in, confirm the email with a one-time code first (same check as the main site).
+      let tok = null;
+      if (/(^|\.)skillnavora\.in$/.test(location.hostname)) {
+        b.textContent = "Sending a code to your email…";
+        try {
+          if (typeof AUTH === "undefined") await loadJs("/assets/config.js");
+          if (!window.SNverify) await loadJs("/assets/verify.js");
+          if (typeof AUTH === "undefined" || AUTH.verifyEmail !== false) tok = (await window.SNverify.ensure(v("email"), v("name"))).token;
+        } catch (er) { b.disabled = false; b.textContent = "Unlock access"; return say(er && er.cancelled ? "Please confirm your email with the code to unlock the files." : (er && er.message) || "We could not check your email. Please try again."); }
+      }
+      b.textContent = "Unlocking…";
       const row = { kind: "resource", first_name: v("name"), email: v("email"), phone, role: v("role"), source: "data-science-handbook",
         message: ("[Resource access] Data Science & AI handbook | " + (pending ? pending.label : "") + " | Page: " + location.pathname).slice(0, 1900) };
-      try { await fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(row), keepalive: true }); } catch {}
+      try { await fetch(API, { method: "POST", headers: { "content-type": "application/json", ...(tok ? { authorization: "Bearer " + tok } : {}) }, body: JSON.stringify(row), keepalive: true }); } catch {}
       set(KEY, JSON.stringify({ t: Date.now(), n: v("name").split(" ")[0] }));
       b.disabled = false; b.textContent = "Unlock access"; close();
       window.dispatchEvent(new Event("sn-access"));

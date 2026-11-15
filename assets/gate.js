@@ -17,6 +17,7 @@
     return FILE.test(u.pathname) || DIR.test(u.pathname) ? u.pathname : "";
   };
   const canOpen = async path => { try { const r = await fetch(path, { method: "HEAD", redirect: "manual", credentials: "same-origin", cache: "no-store" }); return r.type !== "opaqueredirect" && r.status < 300; } catch { return true; } };
+  const loadScript = src => new Promise((ok, bad) => { const sc = document.createElement("script"); sc.src = src; sc.onload = ok; sc.onerror = () => bad(new Error("We could not load the email check. Please refresh the page.")); document.head.appendChild(sc); });
   const toBuy = path => { location.href = ROOT() + "buy.html?for=" + encodeURIComponent(path); };
   const LEAD_API = (window.SNsite && window.SNsite.R ? window.SNsite.R : "") + "api/lead";
   const get = k => { try { return localStorage.getItem(k); } catch { return null; } }, set = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
@@ -142,17 +143,31 @@
     const say = t => { msg.className = "notice error"; msg.textContent = t; msg.hidden = !t; };
     f.addEventListener("submit", async e => {
       e.preventDefault();
-      const v = n => f.elements[n].value.trim(), phone = (f.elements.cc.value + " " + v("phone")).trim();
-      if (!v("name")) return say("Please enter your name.");
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("email"))) return say("Please enter a valid email.");
-      if (!/^[0-9+ ()-]{7,20}$/.test(phone) || v("phone").replace(/\D/g, "").length < 7) return say("Please enter a valid phone number.");
+      const v = n => f.elements[n].value.trim();
+      if (!/\p{L}.*\p{L}/u.test(v("name"))) return say("Please enter your full name.");
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v("email"))) return say("Please enter a valid email.");
+      const ph = window.SNphone ? window.SNphone(f.elements.cc.value, v("phone")) : { ok: v("phone").replace(/\D/g, "").length >= 7, value: (f.elements.cc.value + " " + v("phone")).trim(), msg: "Please enter a valid phone number." };
+      if (!ph.ok) return say(ph.msg);
       if (!v("role")) return say("Please choose who you are.");
       if (!f.elements.consent.checked) return say("Please tick the box to continue.");
       say("");
-      const b = f.querySelector("button[type=submit]"), t = b.textContent; b.disabled = true; b.textContent = "Unlocking…";
-      const row = { kind: "resource", first_name: v("name"), email: v("email"), phone, role: v("role"),
+      const b = f.querySelector("button[type=submit]"), t = b.textContent; b.disabled = true;
+      // Confirm the email with a one-time code before unlocking (switch: AUTH.verifyEmail in assets/config.js).
+      let tok = null;
+      if (typeof AUTH === "undefined" || AUTH.verifyEmail !== false) {
+        b.textContent = "Sending a code to your email…";
+        try {
+          if (!window.SNverify) await loadScript(ROOT() + "assets/verify.js");
+          tok = (await window.SNverify.ensure(v("email"), v("name"))).token;
+        } catch (err) {
+          b.disabled = false; b.textContent = t;
+          return say(err && err.cancelled ? "Please confirm your email with the code to unlock the resources." : (err && err.message) || "We could not check your email. Please try again.");
+        }
+      }
+      b.textContent = "Unlocking…";
+      const row = { kind: "resource", first_name: v("name"), email: v("email"), phone: ph.value, role: v("role"),
         message: ("[Resource access] " + (pending ? pending.label : "") + (v("interest") ? " | Interested in: " + v("interest") : "") + " | Page: " + location.pathname).slice(0, 1900) };
-      try { if (window.SNsaveLead) await window.SNsaveLead(row); } catch {}
+      try { if (window.SNsaveLead) await window.SNsaveLead(row, tok); } catch {}
       set(KEY, JSON.stringify({ t: Date.now(), n: v("name").split(" ")[0] }));
       b.disabled = false; b.textContent = t; f.reset(); modal.classList.remove("open");
       toast("Access unlocked. Thank you!");

@@ -35,7 +35,9 @@
     const problems = [];
     if (!String(d.name || "").trim()) problems.push("your name");
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(d.email || "").trim())) problems.push("a valid email");
-    if (phone.length < 6 || phone.length > 14) problems.push("a valid phone number");
+    const dial = (sel.selectedOptions[0] && sel.selectedOptions[0].dataset.dial) || "";
+    const vph = window.SNphone ? window.SNphone(dial, String(d.phone || "")) : { ok: phone.length >= 6 && phone.length <= 14, value: dial + phone };
+    if (!vph.ok) problems.push(window.SNphone && dial ? vph.msg.replace(/^Please enter /, "").replace(/\.$/, "") : "a valid phone number");
     if (!d.coding) problems.push("whether you know coding");
     if (!d.role) problems.push("what describes you");
     if (!d.experience) problems.push("your years of experience");
@@ -46,7 +48,7 @@
     const country = sel.selectedOptions[0] ? sel.selectedOptions[0].textContent : "";
     const row = {
       kind: "resource", first_name: parts[0], last_name: parts.slice(1).join(" "), email: String(d.email).trim(),
-      phone: ((sel.selectedOptions[0] && sel.selectedOptions[0].dataset.dial) || "") + phone, role: d.role, experience: d.experience,
+      phone: vph.value, role: d.role, experience: d.experience,
       message: `Vaitis AI library sign-up. Knows coding: ${d.coding}. Country: ${country}. Email updates: ${d.updates ? "yes" : "no"}. Newsletter: ${d.newsletter ? "yes" : "no"}.`,
       source: "vaitis.html"
     };

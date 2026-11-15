@@ -252,28 +252,30 @@
     accessLoaded = true; accessOk = !error;
     access = new Set(error ? [] : (data || []).map(r => String(r.email).toLowerCase()));
   }
+  // The message an approved person gets: approval works once they sign in with the approved email.
+  const accessMsg = a => `Hi ${a.first_name || ""}, your SkillNavora access is approved. Sign in at https://www.skillnavora.in/login.html with ${a.email} to open the handbooks, PDFs and the Members library. If a file still asks for access, open https://www.skillnavora.in/access.html and press "Check my access".`;
   function applications() {
     if (!accessLoaded) return loadAccess().then(applications);
     const k = $("app-kind").value, st = $("app-status").value;
     const rows = apps.filter(a => (k === "all" || a.kind === k) && (st === "all" || a.status === st));
     const tel = p => String(p || "").replace(/[^0-9+]/g, "");
     $("app-list").innerHTML = rows.length ? rows.map(a => `<div class="item"><div class="item-h"><b>${esc([a.first_name, a.last_name].filter(Boolean).join(" "))} · ${({ counselling: "Counselling call", mentor: "Mentor application", career: "Careers application", contact: "Contact form", referral: "Referral", hire: "Hiring enquiry", resource: "Resource access" })[a.kind] || "Application"}</b><span class="chip ${APP[a.status][1]}">${APP[a.status][0]}</span></div>
-      <div class="meta">${esc(cname(a.course_id) || "Program not chosen")} · ${date(a.created_at)}${a.preferred_time ? " · Prefers " + esc(a.preferred_time) : ""}${a.source ? " · Source: " + esc(a.source) : ""}</div>
+      <div class="meta">${a.email_verified ? '<span class="chip" style="background:#DCFCE7;color:#166534">✓ Email verified</span> ' : '<span class="chip">Email not verified</span> '}${esc(cname(a.course_id) || "Program not chosen")} · ${date(a.created_at)}${a.preferred_time ? " · Prefers " + esc(a.preferred_time) : ""}${a.source ? " · Source: " + esc(a.source) : ""}</div>
       <p>${[a.experience && "Experience: " + a.experience, a.role && "Role: " + a.role].filter(Boolean).map(esc).join(" · ")}${a.message ? "\n" + esc(a.message) : ""}</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center">
         <a class="btn btn-primary btn-sm" href="tel:${esc(tel(a.phone))}">Call ${esc(a.phone)}</a>
         <a class="btn btn-line btn-sm" href="https://wa.me/${esc(tel(a.phone).replace(/^\+/, "").replace(/^(\d{10})$/, "91$1"))}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         ${a.email ? `<a class="btn btn-line btn-sm" href="mailto:${esc(a.email)}">Email</a>` : ""}
         ${a.kind === "resource" && a.email ? (access.has(String(a.email).toLowerCase())
-          ? `<button class="btn btn-ghost btn-sm" type="button" data-revoke="${esc(a.email)}">Approved · remove access</button>`
-          : `<button class="btn btn-primary btn-sm" type="button" data-grant="${esc(a.email)}" data-name="${esc(a.first_name || "")}">Approve PDF access</button>`) : ""}
+          ? `<a class="btn btn-line btn-sm" href="https://wa.me/${esc(tel(a.phone).replace(/^\+/, "").replace(/^(\d{10})$/, "91$1"))}?text=${encodeURIComponent(accessMsg(a))}" target="_blank" rel="noopener noreferrer">Tell them on WhatsApp</a><a class="btn btn-line btn-sm" href="mailto:${esc(a.email)}?subject=${encodeURIComponent("Your SkillNavora access is approved")}&amp;body=${encodeURIComponent(accessMsg(a))}">Email them</a><button class="btn btn-ghost btn-sm" type="button" data-revoke="${esc(a.email)}">Approved · remove access</button>`
+          : `<button class="btn btn-primary btn-sm" type="button" data-grant="${esc(a.email)}" data-name="${esc(a.first_name || "")}">Approve PDF and members access</button>`) : ""}
         ${a.linkedin ? `<a class="btn btn-line btn-sm" href="${safeUrl(/^https?:/i.test(a.linkedin) ? a.linkedin : "https://" + a.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>` : ""}
         <select data-appstatus="${a.id}" style="width:auto;margin-left:auto" aria-label="Status">${Object.entries(APP).map(([v, [t]]) => `<option value="${v}"${a.status === v ? " selected" : ""}>${t}</option>`).join("")}</select></div></div>`).join("") : '<p class="empty">No applications here yet.</p>';
   }
   ["app-kind", "app-status"].forEach(id => $(id).addEventListener("change", applications));
   $("app-list").addEventListener("click", async e => {
     const b = e.target.closest("[data-grant],[data-revoke]"); if (!b) return;
-    if (!accessOk) return notice(msg, "error", "Approvals are not set up yet. Run supabase/pdf_access.sql in Supabase, then reload.");
+    if (!accessOk) return notice(msg, "error", "Approvals need the newest database update: in Supabase open SQL Editor, paste all of supabase/schema.sql, press Run, then reload this page.");
     const grant = b.hasAttribute("data-grant"), email = String(b.dataset.grant || b.dataset.revoke).toLowerCase();
     b.disabled = true;
     const res = grant
@@ -282,7 +284,7 @@
     if (res.error) { b.disabled = false; return notice(msg, "error", errText(res.error)); }
     if (grant) access.add(email); else access.delete(email);
     applications();
-    notice(msg, "ok", grant ? "Approved: " + email + ". They get the PDFs and handbooks on their next visit." : "Access removed for " + email + ".");
+    notice(msg, "ok", grant ? "Approved: " + email + ". They get every PDF, handbook and the Members library once they sign in with this email. Use Tell them on WhatsApp or Email them to let them know." : "Access removed for " + email + ".");
   });
   $("app-list").addEventListener("change", async e => { const id = e.target.dataset.appstatus; if (!id) return;
     const { error } = await client.from("applications").update({ status: e.target.value }).eq("id", id);

@@ -381,3 +381,27 @@ ${T.map(([h, i, n, s]) => `<a class="t" href="${R + h}"><span>${i}</span><span><
     answer(q).then(ok => { if (!ok) noAnswer(q); }).catch(() => noAnswer(q));
   }, true);
 })();
+
+/* Phone numbers on every form: SNphone(countryCode, typedNumber) -> { ok, value, msg }.
+   value is the clean number to save, for example "+91 9876543210". The same rules run on the server
+   (functions/api/lead.js), so a form that skips this check is still refused there. */
+window.SNphone = (function () {
+  const RULES = { "91": [/^[6-9]\d{9}$/, 10, "a 10-digit Indian mobile number starting with 6, 7, 8 or 9"],
+                  "971": [/^5\d{8}$/, 9, "a 9-digit UAE mobile number starting with 5"],
+                  "1": [/^[2-9]\d{9}$/, 10, "a 10-digit US or Canada number"],
+                  "44": [/^7\d{9}$/, 10, "a 10-digit UK mobile number starting with 7"],
+                  "65": [/^[89]\d{7}$/, 8, "an 8-digit Singapore mobile number starting with 8 or 9"],
+                  "61": [/^4\d{8}$/, 9, "a 9-digit Australian mobile number starting with 4"] };
+  const fake = d => /^(\d)\1+$/.test(d) || "01234567890123456789".includes(d) || "98765432109876543210".includes(d);
+  return function (cc, raw) {
+    let code = String(cc || "").replace(/\D/g, ""), d = String(raw || "").trim();
+    if (!code) { const m = d.match(/^\+(\d{1,3})[\s-]*(.*)$/); if (m && RULES[m[1]]) { code = m[1]; d = m[2]; } else if (/^\+/.test(d)) { const g = d.replace(/\D/g, ""); code = g.slice(0, g.length > 11 ? 3 : 2); d = g.slice(code.length); } else code = "91"; }
+    d = d.replace(/\D/g, "");
+    const r = RULES[code];
+    if (r && d.length === r[1] + code.length && d.startsWith(code)) d = d.slice(code.length);   // typed with the country code
+    if (code === "91" && d.length === 11 && d[0] === "0") d = d.slice(1);                        // typed with a leading 0
+    if (r ? !r[0].test(d) : !/^\d{6,14}$/.test(d)) return { ok: false, msg: "Please enter " + (r ? r[2] : "a valid phone number with its country code") + "." };
+    if (fake(d)) return { ok: false, msg: "Please enter your own phone number, not an example number." };
+    return { ok: true, value: "+" + code + " " + d };
+  };
+})();
