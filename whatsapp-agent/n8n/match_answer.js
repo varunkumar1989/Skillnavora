@@ -38,12 +38,15 @@ const words = s => String(s || "").toLowerCase().split(/[^a-z0-9₹$]+/).filter(
 const FILLER = new Set(["tell", "about", "what", "where", "which", "when", "how", "doe", "does", "with", "from", "this", "that", "have", "there", "give", "show", "find", "info", "information", "please", "want", "need", "know", "can", "you", "your", "the", "and", "for", "are", "was", "topic", "explain", "any", "all", "more", "some", "should", "would", "could", "will", "its", "them", "they", "lesson", "course", "page"]);
 const msgWords = new Set(words(message));
 
+const bare = t => String(t || "").toLowerCase().replace(/[^a-z0-9₹$ ]+/g, " ").replace(/\s+/g, " ").trim();
 function score(row) {
   let s = 0;
   const phrases = String(row.keywords || "").split(/[,|]/).map(p => p.trim().toLowerCase()).filter(Boolean);
   for (const p of phrases) if (p.length >= 3 && message.includes(p)) s += 3;
-  for (const w of words(row.question)) if (msgWords.has(w)) s += 1;
-  return s;
+  const qw = [...new Set(words(row.question))].filter(w => !FILLER.has(w));
+  let hit = 0; for (const w of qw) if (msgWords.has(w)) { s += 1; hit++; }
+  if (bare(row.question) === bare(message)) s += 10;            // the exact question
+  return s + (qw.length ? hit / qw.length : 0);                 // tie-break: the question the message covers best
 }
 
 const greeting = /^(\/start|hi|hey|hello|hii+|namaste|good (morning|afternoon|evening))\b/.test(message);

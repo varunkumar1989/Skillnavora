@@ -50,6 +50,35 @@ for c in cfg["COURSES"]:
     add("Schedule", f"start date,cohort,when does it start,batch,{short[k]}", f"When does the {n} cohort start?",
         "Start dates are not published on the website yet. A counsellor will share the next cohort date.", u, "CONFIRM: no cohort date published")
 
+# Other programmes on the website (Programs menu -> Other programs). Fees are the owner's quoted prices; they are not
+# shown on the website, so each fee answer is flagged for a counsellor to confirm.
+OTHER = [
+    ("sfmc", "Salesforce Marketing Cloud (SFMC)", "sfmc,salesforce,marketing cloud,email studio,journey builder",
+     "Salesforce Marketing Cloud training, from Email Studio to Journey Builder.", "guides/sfmc.html", "$699", "₹69,999"),
+    ("dm", "Digital Marketing", "digital marketing,seo,ads,social media marketing,email marketing,google ads,meta ads",
+     "Digital marketing end to end: SEO, ads, social media, email and analytics.", "guides/digital-marketing.html", "$599", "₹59,999"),
+    ("cc", "Content Creation", "content creation,content creator,creator,youtube,writing,video",
+     "Content creation: strategy, writing, video, design and AI tools for creators.", "guides/content-creation.html", "", ""),
+    ("fde", "Forward Deployed Engineer (FDE)", "fde,forward deployed,forward deployed engineer,solutions engineer,ai deployment",
+     "The Forward Deployed Engineer role: working with customers, deploying AI and building integrations.", "guides/fde.html", "$1,099", "₹1,09,999"),
+    ("ps", "Public Speaking", "public speaking,speaking,communication,presentation,confidence,stage fear",
+     "Speak with confidence in talks, meetings, interviews and on video.", "guides/public-speaking.html", "$499", "₹50,000"),
+]
+for k, n, kw, desc, path, usd, inr in OTHER:
+    u = f"{BASE}/{path}"
+    add("Programme", f"{kw},course,program,programme,about,learn,syllabus", f"What is the {n} course?",
+        f"{desc} The full course outline and free lessons are on its page.", u)
+    if usd:
+        add("Fees", f"fee,fees,price,cost,how much,{kw}", f"What is the fee for {n}?",
+            f"{n} costs {usd} (about {inr} in INR).", u, "CONFIRM: owner-quoted fee, not shown on the website")
+
+add("Programme", "courses,programs,programmes,what courses,which courses,all courses,course list,list of courses,what do you teach,options",
+    "Which courses does SkillNavora offer?",
+    "Main programmes: " + "; ".join(f"{c['name']} ({c['duration']})" for c in cfg["COURSES"]) +
+    ". Other courses: " + "; ".join(n for _, n, *_ in OTHER) +
+    ". Plus free lessons in Excel, SQL, Power BI, Tableau, Python, statistics and ML, GenAI and agents. Tell me which one interests you.",
+    f"{BASE}/programs.html")
+
 # Overviews: broad questions such as "what does this programme offer" (placed before the detailed rows)
 for c in cfg["COURSES"]:
     k, u = c["id"], page.get(c["id"], BASE)
@@ -137,7 +166,7 @@ add("Thanks", "thanks,thank you,thank u,thankyou,thx,ty,ok thanks,okay thanks,by
     "Thank you", "You're welcome! 😊 If anything else comes up, just message here. You can also book a free counselling call whenever you're ready.", f"{BASE}/contact.html")
 
 # Fallback
-add("Fallback", "", "Anything else", "I don't have that information yet. Message us on Instagram and someone from our team will reply to you directly.",
+add("Fallback", "", "Anything else", "I don't have that answer yet. Someone from our team will reply to you here shortly. You can also book a free counselling call on the website.",
     "https://ig.me/m/skillnavora", "")
 
 with open(os.path.join(HERE, "knowledge_qa.csv"), "w", newline="", encoding="utf-8") as f:
