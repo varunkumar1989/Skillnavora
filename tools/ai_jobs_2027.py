@@ -17,21 +17,21 @@ ROLES = [
      "projects": ["A PRD for an AI feature with an evaluation plan", "A clickable prototype built with a no-code AI builder", "A teardown of an AI product: what works, what to fix, how to measure"],
      "sprint": ["Finish the AI PM 2 foundations and the APIs lesson", "Write 2 PRDs from the PRD library ideas, each with metrics and evals", "Take the PM practice test and the AI product sense questions"],
      "y2027": ["Apply to APM, PM and AI PM roles with your 2 PRDs and teardown", "Learn evals and agent design deeply", "Lead one real AI feature at work or in a freelance project"],
-     "links": [("AI Product Management 2 (free course)", "programme-pm2.html"), ("APIs for PMs", "apis-for-pms.html"), ("PRD library", "prd-library.html"), ("AI Evals", "ai-evals.html"), ("AI PM job research", "ai-pm-industry-research.html"), ("PM interview questions", "questions.html#pm")]},
+     "links": [("AI Product Management 2 (free course)", "programme-pm2.html"), ("APIs for PMs", "apis-for-pms.html"), ("PRD library", "prd-library.html"), ("AI Evals", "ai-evals.html"), ("AI PM job research", "ai-pm-industry-research.html"), ("PM interview questions", "questions.html#pm"), ("AI Master Course: weeks 1, 5 and 6", "ai-master-course.html#week-6")]},
     {"id": "aieng", "icon": "🛠️", "name": "AI Engineer (LLM apps)", "hue": 215,
      "what": "Builds products on top of AI models: chat and search over documents (RAG), agents that use tools, evaluations, and the cost and speed work to run them.",
      "skills": ["Python and APIs", "Embeddings and vector search", "RAG pipelines", "Agents, tool calling and MCP", "Evals and monitoring", "Cost, latency and deployment"],
      "projects": ["A RAG chatbot over real documents, with an evaluation set", "An agent that uses 2 or 3 tools to finish a task", "A deployed app with logging, rate limits and a cost report"],
      "sprint": ["Python for Data Science lessons 1 to 10", "Generative AI & Agentic AI track", "Build a small RAG app on free AI (FreeLLMAPI guide)"],
      "y2027": ["Ship 2 deployed projects on GitHub with READMEs", "Learn agent orchestration and MCP servers", "Apply to AI engineer, LLM engineer and applied AI roles"],
-     "links": [("AI Engineer programme", "programme-ai-engineer.html"), ("Python track", "data-science/index.html#t-python"), ("GenAI & Agentic AI track", "data-science/index.html#t-genai"), ("How AI agents work", "ai-agents-guide.html"), ("Context engineering", "context-engineering.html"), ("Free AI for coding (guide 25)", "vaitis.html#g-025")]},
+     "links": [("AI Engineer programme", "programme-ai-engineer.html"), ("Python track", "data-science/index.html#t-python"), ("GenAI & Agentic AI track", "data-science/index.html#t-genai"), ("How AI agents work", "ai-agents-guide.html"), ("Context engineering", "context-engineering.html"), ("Free AI for coding (guide 25)", "vaitis.html#g-025"), ("AI Master Course: weeks 1 to 4", "ai-master-course.html#week-1")]},
     {"id": "data", "icon": "📊", "name": "Data Analyst with AI", "hue": 195,
      "what": "Answers business questions with data, using SQL, spreadsheets and dashboards, and uses AI to clean data, write queries faster and explain findings.",
      "skills": ["SQL", "Advanced Excel", "Power BI or Tableau", "Python basics", "AI-assisted analysis", "Data storytelling"],
      "projects": ["A sales dashboard built with SQL and Power BI", "An AI-assisted analysis notebook with a clear recommendation", "A one-page business case from a public dataset"],
      "sprint": ["SQL for Data Analysis lessons 1 to 12", "Power BI track", "AI for Data Analysis lessons"],
      "y2027": ["Publish 3 dashboards with short write-ups", "Add Python and statistics", "Apply to data analyst, BI analyst and business analyst roles"],
-     "links": [("SQL track", "data-science/index.html#t-sql"), ("Excel track", "data-science/index.html#t-excel"), ("Power BI track", "data-science/index.html#t-powerbi"), ("AI for Data Analysis", "data-science/index.html#t-ai-analytics"), ("Live dashboard from a folder (guide 18)", "vaitis.html#g-018"), ("Practice tests", "tests.html")]},
+     "links": [("SQL track", "data-science/index.html#t-sql"), ("Excel track", "data-science/index.html#t-excel"), ("Power BI track", "data-science/index.html#t-powerbi"), ("AI for Data Analysis", "data-science/index.html#t-ai-analytics"), ("Live dashboard from a folder (guide 18)", "vaitis.html#g-018"), ("Practice tests", "tests.html"), ("AI Master Course: week 4 evaluation", "ai-master-course.html#week-4")]},
     {"id": "de", "icon": "🔧", "name": "Data Engineer for AI", "hue": 160,
      "what": "Builds the pipelines and warehouses that feed analytics and AI, including the document and vector pipelines behind RAG.",
      "skills": ["SQL and Python", "Pipelines and orchestration (Airflow, dbt)", "Cloud warehouses (Snowflake, BigQuery, Databricks)", "Spark and streaming", "Data quality and governance", "Embedding and vector pipelines"],
@@ -45,21 +45,21 @@ ROLES = [
      "projects": ["A working integration between an AI model and a business tool", "A recorded 5-minute customer demo", "A solution design document for a real company problem"],
      "sprint": ["Forward Deployed Engineer lesson", "Webhooks and automation lessons", "Practise a demo with the Speaking Coach"],
      "y2027": ["Build 2 customer-style integrations", "Practise discovery calls and demos every week", "Apply to FDE, solutions engineer and AI deployment roles"],
-     "links": [("Forward Deployed Engineer", "programme-fde.html"), ("Webhooks and automation", "web-automation.html"), ("AI builder tools", "ai-builder-tools.html"), ("Speaking Coach", "speaking-coach.html")]},
+     "links": [("Forward Deployed Engineer", "programme-fde.html"), ("Webhooks and automation", "web-automation.html"), ("AI builder tools", "ai-builder-tools.html"), ("Speaking Coach", "speaking-coach.html"), ("AI Master Course: week 2 RAG", "ai-master-course.html#week-2")]},
     {"id": "auto", "icon": "⚙️", "name": "AI Automation Specialist", "hue": 135,
      "what": "Connects apps with AI to remove repetitive work: chatbots, lead follow-up, document processing and reports, often with n8n, Zapier or Make.",
      "skills": ["n8n, Zapier or Make", "Webhooks and APIs", "AI agents and prompts", "WhatsApp and Instagram bots", "Browser automation", "Pricing and scoping client work"],
      "projects": ["A WhatsApp or Instagram auto-reply bot", "A lead-follow-up automation", "A scraping-to-dashboard workflow for a small business"],
      "sprint": ["Webhooks, triggers and Playwright lesson", "Browser automation guide", "Build the SkillNavora-style chatbot from the Vaitis guides"],
      "y2027": ["Get 2 or 3 small paid projects or freelance clients", "Package one automation as a repeatable service", "Apply to automation, RevOps and AI operations roles"],
-     "links": [("Webhooks and automation", "web-automation.html"), ("Browser automation", "browser-automation.html"), ("Scrape into a dashboard (guide 14)", "vaitis.html#g-014"), ("AI sales agent (guide 3)", "vaitis.html#g-003"), ("Make money with AI", "make-money-course.html")]},
+     "links": [("Webhooks and automation", "web-automation.html"), ("Browser automation", "browser-automation.html"), ("Scrape into a dashboard (guide 14)", "vaitis.html#g-014"), ("AI sales agent (guide 3)", "vaitis.html#g-003"), ("Make money with AI", "make-money-course.html"), ("AI Master Course: week 5 project", "ai-master-course.html#week-5")]},
     {"id": "gov", "icon": "🛡️", "name": "AI Governance & Responsible AI", "hue": 350,
      "what": "Helps companies use AI safely and legally: risk reviews, policies, data privacy, fairness and evaluation of AI systems.",
      "skills": ["AI risk and policy frameworks", "Data privacy law basics", "Evaluating AI systems", "Documentation and audits", "Stakeholder communication", "Business consulting"],
      "projects": ["An AI use policy for a small company", "A risk assessment of a real AI feature", "An evaluation report for a chatbot"],
      "sprint": ["AI governance guide", "Governance, Privacy & Business Consulting track", "AI Evals guide"],
      "y2027": ["Write 2 case studies on AI risk", "Learn the main regulations in your target market", "Apply to AI governance, risk and compliance roles"],
-     "links": [("AI governance", "ai-governance.html"), ("Governance track", "data-science/index.html#t-governance"), ("AI Evals", "ai-evals.html")]},
+     "links": [("AI governance", "ai-governance.html"), ("Governance track", "data-science/index.html#t-governance"), ("AI Evals", "ai-evals.html"), ("AI Master Course: week 4", "ai-master-course.html#week-4")]},
 ]
 
 WEEKS = [
@@ -236,6 +236,10 @@ def body():
   {panels}
 </div></section>
 
+<section class="aj-sec" id="course"><div class="wrap"><div class="aj-cta">
+  <div><div class="kicker">Step-by-step course</div><h2>AI Master Course: the full six-week path</h2><p class="aj-sub" style="margin:0">Python and APIs, RAG, agents and MCP, evaluation, a deployed capstone, then AI PM and interview practice. Every subject links to the lessons you need.</p></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary" href="ai-master-course.html">Open the course</a><a class="btn btn-line" href="handbook/AI-Master-Course-Handbook.pdf" download>Handbook PDF</a></div>
+</div></div></section>
 <section class="aj-sec" id="sprint"><div class="wrap">
   <div class="kicker">Step 2</div><h2>The 7-week sprint to 31 December 2026</h2>
   <p class="aj-sub">About 60 to 90 minutes a day. Tick tasks as you finish them; your progress is saved in this browser.</p>
