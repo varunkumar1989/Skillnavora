@@ -14,6 +14,8 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(ROOT, "tools", "vaitis"))
 import content as C
 import figures as F
+import deep as D
+import figs2 as F2
 
 E = lambda s: html.escape(str(s), quote=True)
 EX = os.path.join(HERE, "examples")
@@ -150,6 +152,8 @@ def subject_html(s):
     h.append('<h3>3. How it works</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in s["how"]) + "</ul>")
     if s.get("figure"):
         h.append(figure(s["figure"]))
+    for key in D.EXTRA_FIG.get(s["n"], []):
+        h.append('<div class="fig">' + F2.render(key) + '</div>')
     if s.get("example"):
         src, out = run_example(s["example"])
         h.append(f'<h3>4. Practical implementation</h3><p class="small">File: <code>tools/aihandbook/examples/{E(s["example"])}</code></p>')
@@ -160,12 +164,15 @@ def subject_html(s):
     else:
         h.append('<h3>4. Practical implementation</h3><p>Work through the steps above and keep the result in your portfolio repository.</p>')
         h.append('<h3>5. Code explained</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in s["explain"]) + "</ul>")
+    h.append('<h3>5b. Deep dive</h3>' + "".join(f"<p>{E(x)}</p>" for x in D.DEEP.get(s["n"], [])))
     h.append(f'<h3>6. Testing</h3><p>{E(s["test"])}</p>')
     h.append('<h3>7. Troubleshooting</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in s["troubleshoot"]) + "</ul>")
     h.append('<h3>8. AI Product Manager perspective</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in s["pm"]) + "</ul>")
     h.append(f'<h3>9. Assignment</h3><p>{E(s["assignment"])}</p>')
     h.append('<h3>10. Interview preparation</h3>' + "".join(f'<p><b>Q: {E(q)}</b><br>{E(a)}</p>' for q, a in s["interview"]))
-    h.append('<h3>11. Where to learn more on SkillNavora</h3><ul>' + "".join(f'<li>{E(l)}: <span class="small">{E(u)}</span></li>' for l, u in (links + links_extra(s))) + "</ul>")
+    site = links + links_extra(s)
+    h.append('<h3>11. Pointers</h3><h4>On SkillNavora (free)</h4><ul>' + "".join(f'<li>{E(l)}: <span class="small">{E(u)}</span></li>' for l, u in site) + '</ul>'
+             + '<h4>Official documentation (check the live page before use)</h4><ul>' + "".join(f'<li>{E(l)}: <span class="small">{E(u)}</span></li>' for l, u in D.OFFICIAL.get(s["n"], [])) + '</ul>')
     return "\n".join(h)
 
 

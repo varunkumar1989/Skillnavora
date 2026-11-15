@@ -58,7 +58,8 @@ def body():
   <h1>From beginner to <span class="g">AI application builder</span> and AI PM</h1>
   <p class="lead">A six-week practical programme: Python and APIs, RAG and vector databases, agents and MCP, evaluation and LLMOps, one deployed capstone, then AI product management and interview practice. Every subject has a plain-English explanation, real code with real outputs, a product perspective, an assignment and interview questions.</p>
   <div class="amc-btns">
-    <a class="btn btn-primary" href="handbook/AI-Master-Course-Handbook.pdf" download>Download the handbook (PDF, 69 pages)</a>
+    <a class="btn btn-primary" href="ai-master-course-handbook.html">Open the clickable handbook</a>
+    <a class="btn btn-line" href="handbook/AI-Master-Course-Handbook.pdf" download>Full handbook PDF (93 pages)</a>
     <a class="btn btn-line" href="ai-jobs-2027.html">Back to the AI Jobs 2027 roadmap</a>
   </div>
   <p class="amc-note">Study commitment: 2 to 3 hours a day, 6 days a week, 1 revision day (about 72 to 108 hours). This is a learning plan, not a job guarantee.</p>
@@ -69,7 +70,20 @@ def body():
   <div class="amc-weeks">{"".join(weeks)}</div>
 </div></section>
 <section class="amc-sec"><div class="wrap">
-  <div class="kicker">Structure</div><h2>Curriculum by tier</h2>
+  <div class="kicker">PDFs</div><h2>Download the PDFs</h2>
+  <p class="amc-note">One PDF per week, plus the interview bank and the AI PM toolkit. Each PDF has its own pointers and glossary.</p>
+  <div class="amc-tiers">
+    <div><b>Full handbook</b><a href="handbook/AI-Master-Course-Handbook.pdf" download>AI-Master-Course-Handbook.pdf</a></div>
+    <div><b>Week 1: Python, APIs, LLM</b><a href="handbook/AI-Master-Course-Week-1-Python-APIs-LLM.pdf" download>Download</a></div>
+    <div><b>Week 2: RAG and vector DB</b><a href="handbook/AI-Master-Course-Week-2-RAG-Embeddings-Vector-DB.pdf" download>Download</a></div>
+    <div><b>Week 3: Agents, tools, MCP</b><a href="handbook/AI-Master-Course-Week-3-Agents-Tools-MCP.pdf" download>Download</a></div>
+    <div><b>Week 4: Evaluation and LLMOps</b><a href="handbook/AI-Master-Course-Week-4-Evaluation-LLMOps.pdf" download>Download</a></div>
+    <div><b>Week 5: End-to-end project</b><a href="handbook/AI-Master-Course-Week-5-End-to-End-Project.pdf" download>Download</a></div>
+    <div><b>Week 6: AI PM and interviews</b><a href="handbook/AI-Master-Course-Week-6-AI-PM-Interviews.pdf" download>Download</a></div>
+    <div><b>Interview bank</b><a href="handbook/AI-Master-Course-Interview-Bank.pdf" download>Download</a></div>
+    <div><b>AI PM toolkit</b><a href="handbook/AI-Master-Course-PM-Toolkit.pdf" download>Download</a></div>
+  </div>
+  <h2 style="margin-top:22px">Curriculum by tier</h2>
   <div class="amc-tiers">{tiers}</div>
   <p class="amc-note">Optional specialisation (advanced LLMs, advanced RAG, LangGraph agents, production AI, AI product leadership) is in Part I of the handbook and is not required to finish the programme.</p>
 </div></section>
