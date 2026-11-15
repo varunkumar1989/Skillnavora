@@ -148,12 +148,16 @@ def academy_tabs(body):
     tools = _grid([plain_card("tools.html", "Tool Tutorials", "Every tool we teach: a free official tutorial, the official site and our lesson.", "Open tool tutorials", "Tutorials"),
                    plain_card("web-automation.html", "Web Automation & Playwright MCP", "Webhooks and browser automation with Playwright MCP.", "Open the course", "Automation"),
                    plain_card("ai-skills-map.html", "AI Skills Map", "Every AI skill and where to learn it.", "Open the map", "Map")])
+    vaitis = _grid([plain_card("vaitis.html", "Vaitis AI Library", "B100x with AI: 763 AI tools in 26 categories and 25 step-by-step guides, free after sign-up.", "Open the library", "Library"),
+                    plain_card("vaitis.html#guides", "25 step-by-step AI guides", "Prompts, commands and links for real tasks, from research and writing to building a RAG app.", "Browse the guides", "Guides"),
+                    plain_card("vaitis.html#tools", "763 AI tools with pricing", "Every tool by category, with what it does, free or paid, and the official link.", "Browse the tools", "Tools")])
     speaking = ('<div class="ai-cards" style="padding:0;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;width:100%">'
                 + plain_card("public-speaking.html", "Public Speaking Practice", "Speak on a topic you did not expect, free speech, shadowing and everyday English, with AI feedback.", "Open practice", "Practice")
                 + plain_card("public-speaking.html#ps-tabs-guide", "Complete Public Speaking Guide", "The complete guide: confidence, structure, storytelling, slides, Q&A, video and a 30-day plan.", "Read the guide", "Guide")
                 + '</div>')
     return CSS + body + tabgroup("academy-tabs", [
         ("tools", "Tool Tutorials", tools),
+        ("vaitis", "Vaitis AI Library", vaitis),
         ("models", "AI Models & Agents", models),
         ("context", "Context & Evals", context),
         ("lovable", "Lovable", lovable),
