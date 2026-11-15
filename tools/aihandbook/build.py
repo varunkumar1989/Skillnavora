@@ -1,3 +1,4 @@
+import csv
 """Builds the AI Master Course handbook: HTML (for the artifact) and PDF (for the website).
 
 Run:  python3 tools/aihandbook/build.py
@@ -336,14 +337,15 @@ def build_html():
     return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Master Course Handbook</title><style>{CSS}</style></head><body>{body}</body></html>'
 
 
-SKILL_ROWS = [
-    ("Experience-level bar (years)", 19, "50%"), ("SQL", 6, "16%"), ("Experimentation / A/B testing", 5, "13%"),
-    ("Requirements / user stories / acceptance criteria", 4, "11%"), ("Product roadmap & strategy", 3, "8%"),
-    ("Stakeholder & cross-functional work", 3, "8%"), ("Analytics dashboards / product metrics", 3, "8%"),
-    ("Agent frameworks (LangChain, LangGraph, AutoGen, CrewAI, n8n)", 3, "8%"), ("APIs (REST, OAuth/SAML)", 2, "5%"),
-    ("ML / AI model lifecycle", 2, "5%"), ("System architecture / data pipelines", 2, "5%"), ("AI tool proficiency", 1, "3%"),
-    ("Regulatory / governance knowledge", 1, "3%"), ("Shipping 0-to-1 AI products", 1, "3%"),
-]
+def _load_skill_rows():
+    """Skill counts come from research/part3_skill_matrix.csv (generated), so the handbook and the CSV always agree."""
+    path = os.path.join(HERE, "..", "..", "research", "part3_skill_matrix.csv")
+    with open(path, encoding="utf-8") as f:
+        rows = list(csv.reader(f))[1:]
+    return [(r[0], int(r[1]), r[3]) for r in rows[:14]]
+
+
+SKILL_ROWS = _load_skill_rows()
 
 
 def render_pdf(html_path, pdf_path):

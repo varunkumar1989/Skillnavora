@@ -496,9 +496,10 @@ TOOLS = [
 
 ADVANCED_NOTE = "Advanced topics are optional and do not block completion of the six-week programme."
 
-SKILL_NOTE = ("Evidence limits: the research file lists 46 job records. Only one full posting was opened; "
-              "the other 45 are search summaries with limited requirement text. Treat the skill counts as directional "
-              "and re-check each role against the full posting before relying on it.")
+SKILL_NOTE = ("Evidence limits: the research file lists 46 job records. Four full postings were opened and read "
+              "(Databricks, Meesho, Jio, HSBC); 42 are search summaries. Of the 46, 38 show some requirement text. "
+              "Most postings could not be opened from the research environment (blocked, moved or gated), so the skill counts "
+              "are directional. Re-check each role against its full posting before relying on it.")
 
 
 # Volume 2 additions: 70 more technical and 34 more AI PM questions (total 100 and 50).
