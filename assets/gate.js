@@ -4,6 +4,8 @@
    it asks once per browser and remembers the answer. */
 (function () {
   const KEY = "sn_access", FILE = /\.(pdf|xlsx|xls|csv|zip|pptx|docx)(?:[?#]|$)/i, DIR = /\/(handbook|classes|brochures|data-handbook)\//i;
+  // In-site reader pages (read.html?doc=...pdf) show a document too, so they are gated the same way.
+  const READ_DOC = /[?&]doc=[^&]*\.(pdf|xlsx|xls|csv|zip|pptx|docx)(?:&|$)/i;
   const LEAD_API = (window.SNsite && window.SNsite.R ? window.SNsite.R : "") + "api/lead";
   const get = k => { try { return localStorage.getItem(k); } catch { return null; } }, set = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
   // Arriving from skillnavora.in with details already given (the handbook site is on another address)
@@ -25,6 +27,7 @@
     if (/(^|\.)claude\.ai$/i.test(u.hostname) && /^\/artifact/.test(u.pathname)) return true;
     // Full class content (interactive academy) opens only after details are given; links from inside the academy page itself are fine.
     if (u.hostname === location.hostname && /\/ai-academy-interactive\.html$/.test(u.pathname) && u.pathname !== location.pathname) return true;
+    if (u.hostname === location.hostname && /\/read\.html$/.test(u.pathname) && READ_DOC.test(u.search)) return true;
     return u.hostname === location.hostname && (FILE.test(u.pathname) || DIR.test(u.pathname));
   };
   const labelOf = a => (a.dataset.gateLabel || a.textContent || a.getAttribute("href") || "").replace(/\s+/g, " ").replace(/[↗→]/g, "").trim().slice(0, 90);
@@ -120,7 +123,8 @@
     document.body.appendChild(modal);
     const base = document.body.dataset.root || "";
     modal.querySelectorAll("a[href='privacy.html']").forEach(a => a.setAttribute("href", base + "privacy.html"));
-    modal.addEventListener("click", e => { if (e.target === modal || e.target.closest("[data-gate-close]")) modal.classList.remove("open"); });
+    const closeGate = () => { modal.classList.remove("open"); if (modal.dataset.readerGate && !has()) location.href = (document.body.dataset.root || "") + "index.html"; };
+    modal.addEventListener("click", e => { if (e.target === modal || e.target.closest("[data-gate-close]")) closeGate(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape") modal.classList.remove("open"); });
     const f = modal.querySelector("#f-gate"), msg = modal.querySelector("#gate-msg");
     const say = t => { msg.className = "notice error"; msg.textContent = t; msg.hidden = !t; };
@@ -141,6 +145,7 @@
       b.disabled = false; b.textContent = t; f.reset(); modal.classList.remove("open");
       toast("Access unlocked. Thank you!");
       window.dispatchEvent(new Event("sn-access"));
+      if (pending && modal.dataset.readerGate) { pending = null; modal.dataset.readerGate = ""; return; }
       if (pending) { const p = pending; pending = null; pending0 = p.label; if (p.href) go(p.href, p.blank); }
     });
   };
@@ -154,6 +159,13 @@
     modal.classList.add("open"); setTimeout(() => modal.querySelector("input[name=name]").focus(), 30);
   };
 
+  // Opening a document directly (a bookmark, a shared link, typing the address) asks for details first too.
+  // Closing the form without giving details sends the visitor back, so the document is not left open.
+  if (/\/read\.html$/.test(location.pathname) && READ_DOC.test(location.search) && !isAdmin() && !has()) {
+    const label = decodeURIComponent((location.search.match(/doc=([^&]+)/) || [])[1] || "").split("/").pop().replace(/\.pdf$/i, "").replace(/[-_]+/g, " ");
+    const fake = { href: location.href, target: "", dataset: {}, textContent: label, getAttribute: () => location.href };
+    document.addEventListener("DOMContentLoaded", () => { ask(fake); modal.dataset.readerGate = "1"; });
+  }
   document.addEventListener("click", e => {
     if (e.defaultPrevented || e.button > 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
     const a = e.target.closest("a"); if (!a || !gated(a)) return;
