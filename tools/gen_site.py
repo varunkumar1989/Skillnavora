@@ -181,7 +181,6 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     up_menu = (item("learning-platform.html", "Learning Platform", "One page per programme: content, related programmes, tools and links", '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>')
                + item("ai.html", "AI Studio", "AI tutor, PRD writer, speaking coach and practice, free", aipages.AI_NAV[0][3])
                + item("ai-academy.html", "AI Courses", "Every AI skills course: models and agents, Grokbot, context and evals, Lovable, tool tutorials", aipages.AI_NAV[1][3])
-               + item("vaitis.html", "Vaitis AI Library", "B100x with AI: 763 AI tools and 25 step-by-step guides, free", '<path d="M4 19.5V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14.5"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20V17H6.5A2.5 2.5 0 0 0 4 19.5z"/><path d="M9 7h6M9 11h4"/>')
                + item("resources.html", "Free Resources", "Programmes, tools, context engineering, evals, LLMs and RAG", _RI)
                + item("practice-hub.html", "Interview Prep", "Interview questions, practice tests and quizzes", _PR_IC)
                + item(*U["events.html"]))
