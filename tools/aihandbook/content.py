@@ -30,27 +30,27 @@ COVERAGE = {
     3: ("Covered", [("How Large Language Models Work", "data-science/lessons/genai-01-how-large-language-models-work-tokens-embeddings-transformer.html"), ("Neural Networks and Deep Learning", "data-science/lessons/ml-26-neural-networks-and-deep-learning-from-a-neuron-to-transform.html")]),
     4: ("Covered", [("Calling LLM APIs from Python", "data-science/lessons/genai-03-calling-llm-apis-from-python-messages-streaming-structured-o.html"), ("Prompt & Context Engineering", "context-engineering.html")]),
     5: ("Covered", [("AIPM2 14: RAG (PDF)", "handbook/aipm2/AIPM2-14-Retrieval-Augmented-Generation-RAG.pdf"), ("GenAI track", "data-science/index.html#t-genai")]),
-    6: ("Partial", [("Vector databases (PDF)", "handbook/mf/lessons/ai-and-automation/02.2-vector-databases-pinecone-chromadb-and-weaviate.pdf")]),
+    6: ("Covered", [("NEW lesson: Chunking: how to split documents for RAG", "ai-lesson-chunking.html")] + [("Vector databases (PDF)", "handbook/mf/lessons/ai-and-automation/02.2-vector-databases-pinecone-chromadb-and-weaviate.pdf")]),
     7: ("Covered", [("Embeddings and Vector Search", "data-science/lessons/genai-04-embeddings-and-vector-search-meaning-as-numbers-similarity-a.html")]),
-    8: ("Gap", [("Build a RAG app with the free AI tools (guide 25)", "vaitis.html#g-025")]),
+    8: ("Covered", [("NEW lesson: Build: the PDF chatbot, end to end", "ai-lesson-pdf-chatbot.html")] + [("Build a RAG app with the free AI tools (guide 25)", "vaitis.html#g-025")]),
     9: ("Covered", [("AI Agents and Agentic AI", "data-science/lessons/genai-07-ai-agents-and-agentic-ai-loops-planning-memory-multi-agent-s.html"), ("How AI Agents Work", "ai-agents-guide.html")]),
     10: ("Covered", [("Tool Use and Function Calling", "data-science/lessons/genai-06-tool-use-and-function-calling-letting-llms-query-data-call-a.html")]),
     11: ("Covered", [("Model Context Protocol (MCP)", "data-science/lessons/genai-08-model-context-protocol-mcp-connecting-ai-assistants-to-your.html"), ("Web automation and Playwright MCP", "web-automation.html")]),
     12: ("Partial", [("Agent Frameworks: LangGraph, CrewAI, AutoGen", "data-science/lessons/agents-10-agent-frameworks-langgraph-crewai-and-autogen.html"), ("Agent Orchestration & Monitoring", "agent-orchestration.html")]),
     13: ("Covered", [("Evaluating LLM Applications and Guardrails", "data-science/lessons/genai-09-evaluating-llm-applications-and-building-guardrails-test-set.html"), ("AI Evals for Product Managers", "ai-evals.html")]),
-    14: ("Partial", [("AI Governance & Responsible AI", "ai-governance.html")]),
-    15: ("Partial", [("Building and Shipping a GenAI App", "data-science/lessons/genai-12-building-and-shipping-a-genai-app-architecture-streamlit-fas.html")]),
-    16: ("Partial", [("Agent Orchestration & Monitoring", "agent-orchestration.html"), ("Customising models: prompting vs RAG vs fine-tuning", "data-science/lessons/genai-10-customising-models-prompting-vs-rag-vs-fine-tuning-lora-dist.html")]),
+    14: ("Covered", [("NEW lesson: Hallucinations and guardrails", "ai-lesson-hallucinations-guardrails.html")] + [("AI Governance & Responsible AI", "ai-governance.html")]),
+    15: ("Covered", [("NEW lesson: Latency and cost", "ai-lesson-latency-cost.html")] + [("Building and Shipping a GenAI App", "data-science/lessons/genai-12-building-and-shipping-a-genai-app-architecture-streamlit-fas.html")]),
+    16: ("Covered", [("NEW lesson: LLMOps and monitoring", "ai-lesson-llmops-monitoring.html")] + [("Agent Orchestration & Monitoring", "agent-orchestration.html"), ("Customising models: prompting vs RAG vs fine-tuning", "data-science/lessons/genai-10-customising-models-prompting-vs-rag-vs-fine-tuning-lora-dist.html")]),
     17: ("Covered", [("AI PM Toolkit", "pm-toolkit.html"), ("AI Product Strategy", "ai-product-strategy.html")]),
     18: ("Partial", [("AI Engineer: The Complete Path", "ai-engineer.html")]),
     19: ("Covered", [("AI PRD Writer", "prd-writer.html"), ("PRD library (120 ideas)", "prd-library.html")]),
-    20: ("Partial", [("Deployment and DevOps (lesson track)", "data-science/index.html#t-data-engineering")]),
+    20: ("Covered", [("NEW lesson: Deploying with FastAPI and Docker", "ai-lesson-fastapi-docker.html")] + [("Deployment and DevOps (lesson track)", "data-science/index.html#t-data-engineering")]),
     21: ("Covered", [("AI Product Strategy", "ai-product-strategy.html"), ("AI Governance & Responsible AI", "ai-governance.html")]),
     22: ("Partial", [("AI PM Toolkit (metrics)", "pm-toolkit.html"), ("AI Evals for PMs", "ai-evals.html")]),
     23: ("Partial", [("AI Engineer: The Complete Path", "ai-engineer.html"), ("Agent Orchestration", "agent-orchestration.html")]),
     24: ("Covered", [("Top 100 interview questions", "questions.html"), ("Practice tests", "tests.html")]),
-    25: ("Covered", [("AI PM interview questions", "questions.html#aips"), ("AI PM industry research", "ai-pm-industry-research.html")]),
-    26: ("Partial", [("AI mock interview", "practice.html"), ("Speaking Coach", "speaking-coach.html")]),
+    25: ("Covered", [("AI PM interview questions", "ai-master-course-practice.html#bank"), ("AI PM industry research", "ai-pm-industry-research.html")]),
+    26: ("Covered", [("NEW lesson: Mock interviews and system design cases", "ai-lesson-mock-interviews.html")] + [("AI mock interview", "practice.html"), ("Speaking Coach", "speaking-coach.html")]),
 }
 
 # Each subject: understand (analogy), why, how (steps), figure key, example file, explain, test, troubleshoot, pm, assignment, interview (Q, A)
@@ -378,7 +378,7 @@ SUBJECTS = [
   "pm": ["Your answer style is the product. Clear reasoning in front of a panel is as important as the content."],
   "assignment": "Write answers to 10 AI PM questions from Part H, each using your capstone as the example.",
   "interview": [("How would you decide whether to build or buy an AI capability?", "Compare time to value, cost over three years, data privacy, differentiation and the team's ability to maintain it, then pilot with a measurable test.")],
-  "links": [("AI PM interview questions", "questions.html#aips"), ("AI PM industry research", "ai-pm-industry-research.html")]},
+  "links": [("AI PM interview questions", "ai-master-course-practice.html#bank"), ("AI PM industry research", "ai-pm-industry-research.html")]},
 
  {"n": 26, "week": 6, "title": "Mock interviews (three rounds)",
   "understand": "A mock interview is a rehearsal with feedback. You answer, a reviewer scores you, and you answer again.",
@@ -499,3 +499,9 @@ ADVANCED_NOTE = "Advanced topics are optional and do not block completion of the
 SKILL_NOTE = ("Evidence limits: the research file lists 46 job records. Only one full posting was opened; "
               "the other 45 are search summaries with limited requirement text. Treat the skill counts as directional "
               "and re-check each role against the full posting before relying on it.")
+
+
+# Volume 2 additions: 70 more technical and 34 more AI PM questions (total 100 and 50).
+import volume2 as _practice  # noqa: E402  (kept at the bottom so the base lists exist first)
+TECH_BANK = TECH_BANK + _practice.TECH_MORE
+PM_BANK = PM_BANK + _practice.PM_MORE

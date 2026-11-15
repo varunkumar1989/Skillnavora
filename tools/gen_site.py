@@ -1424,9 +1424,16 @@ page("apis-for-pms.html", "APIs for Product Managers: requests, methods, status 
      "A plain-language lesson on APIs for product managers: what an API is, HTTP methods, status codes, endpoints, query parameters and JSON, with a worked order example and practice.",
      uhero("Foundations · Technical", 'APIs for <span class="g">Product Managers</span>', "How requests, methods, status codes, endpoints and JSON fit together, using an order as the running example. No coding needed.") + _apis.body(), "programme-pm.html")
 import aihandbook_page as _amc
+import ai_lessons_page as _alp
+import ai_practice_page as _app
 page("ai-master-course.html", "AI Master Course: beginner to AI builder and AI PM · SkillNavora",
      "A six-week AI master course: Python and APIs, RAG, agents and MCP, evaluation and LLMOps, a deployed capstone, then AI product management and interviews. Free handbook PDF.",
-     _amc.body(), "ai-master-course.html")
+     _amc.body() + _alp.hub_section(), "ai-master-course.html")
+for _l in _alp.L.LESSONS:
+    _t = _l["title"]
+    page(_alp.path(_l), f"{_t} · AI Master Course · SkillNavora", _l["lead"][:155], _alp.lesson_body(_l), "ai-master-course.html")
+_pt, _pd = _app.page_meta()
+page("ai-master-course-practice.html", _pt, _pd, _app.body(), "ai-master-course.html")
 import ai_jobs_2027 as _aj
 page("ai-jobs-2027.html", "AI Jobs 2027: your roadmap · SkillNavora",
      "A free roadmap to AI jobs in 2027: choose one of seven AI roles, follow a 7-week sprint to the end of 2026 with a saved checklist, then a quarter-by-quarter plan for 2027, all linked to free SkillNavora lessons.",

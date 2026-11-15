@@ -250,7 +250,7 @@ def build_html():
                  '<li><b>FastAPI and Docker</b> (Subjects 15, 20, advanced D): mentioned in one or two pages only.</li>'
                  '<li><b>LangGraph and multi-agent orchestration</b> (Subject 12): one framework comparison lesson.</li>'
                  '<li><b>LLMOps and monitoring</b> (Subject 16): partly in Agent Orchestration &amp; Monitoring.</li>'
-                 '<li><b>Mock-interview rounds and system design cases</b> (Subjects 23, 26): the interview bank exists; the structured rounds are new.</li></ul>'
+                 '<li><b>Mock-interview rounds and system design cases</b> (Subjects 23, 26): now covered by the mock-interview lesson with nine cases and model answers.</li></ul>'
                  '<h3>Skill gaps from the research file</h3>'
                  f'<div class="box warn"><b>{E(C.SKILL_NOTE)}</b></div>'
                  '<p>Skills mentioned most often in the research file, with the number of records that name them:</p>'
@@ -313,7 +313,7 @@ def build_html():
     tech_rows = "".join(f"<tr><td>{i+1}</td><td>{E(a)}</td><td>{E(q)}</td><td>{E(b)}</td></tr>" for i, (a, q, b) in enumerate(C.TECH_BANK))
     pm_rows = "".join(f"<tr><td>{i+1}</td><td>{E(a)}</td><td>{E(q)}</td><td>{E(b)}</td></tr>" for i, (a, q, b) in enumerate(C.PM_BANK))
     parts.append('<section class="pb"><div class="kicker">Part H</div><h2 id="x8">Interview bank (volume 1)</h2>'
-                 f'<p>This volume contains {len(C.TECH_BANK)} technical and {len(C.PM_BANK)} AI product management questions with short model answers. The full set of 100 technical and 50 AI PM questions, plus system design cases with model answers, is planned for volume 2.</p>'
+                 f'<p>This volume contains {len(C.TECH_BANK)} technical and {len(C.PM_BANK)} AI product management questions with short model answers. The full set is 100 technical and 50 AI PM questions; the nine system design cases with model answers are on the mock-interview page.</p>'
                  '<h3>H1. Technical questions</h3><table><thead><tr><th>#</th><th>Area</th><th>Question</th><th>Model answer</th></tr></thead><tbody>' + tech_rows + '</tbody></table>'
                  '<h3>H2. AI product management questions</h3><table><thead><tr><th>#</th><th>Area</th><th>Question</th><th>Model answer</th></tr></thead><tbody>' + pm_rows + '</tbody></table></section>')
     # Part I
