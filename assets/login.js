@@ -4,7 +4,7 @@
   const { client, $, notice, setupMessage, errText } = SN;
   const msg = $("auth-msg"), params = new URLSearchParams(location.search);
   const want = params.get("next") || "";
-  const safeNext = /^(lms|admin|teach|buy)\.html(\?[^#<>"']*)?$/.test(want) ? want : "";
+  const safeNext = /^(lms|admin|teach|buy|access)\.html(\?[^#<>"']*)?$/.test(want) ? want : "";
   const A = typeof AUTH !== "undefined" ? AUTH : {};
   const say = (k, t) => notice(msg, k, t);
   const adminMode = params.get("role") === "admin";

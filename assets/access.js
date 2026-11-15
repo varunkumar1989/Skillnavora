@@ -32,7 +32,7 @@
       // Open only when the pass really covers it (admin or all-access), so the visitor is not sent back here in a loop.
       if (r.ok && (j.admin || (j.products || []).includes("all-access"))) { say("Access approved. Opening…"); location.href = next; return; }
       if (r.ok && /\.(pdf|xlsx|xls|csv|zip|pptx|docx|ipynb)$/i.test(next)) { location.href = "/buy.html?for=" + encodeURIComponent(next); return; }
-      if (r.ok || r.status === 403) say("Your request is not approved yet. You will get the files by email, or within 24 hours once approved.", false);
+      if (r.ok || r.status === 403) say("You are signed in as " + s.user.email + ". Your request is not approved yet for this email. Sign in with the email you gave in the request form (you may have used a different Google account), or wait for the owner's approval.", false);
       else if (r.status === 401) say("Please sign in again.", true);
       else say("We could not check your access right now. Please try again.", true);
     };
