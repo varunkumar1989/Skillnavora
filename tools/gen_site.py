@@ -212,7 +212,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
   <nav class="nav" id="nav" aria-label="Main">
     <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC training, digital marketing, FDE and public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_MAIN + [("other-programs.html", "All other programs", "Content creation and every other program, with reading", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>'), ("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
     <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html', 'learning-platform.html', 'practice-hub.html', 'ai.html', 'ai-academy.html'])}"><button type="button" aria-expanded="false">Upskill for Free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
-    <div class="dd{on(['jobs.html', 'careers.html', 'mentor.html', 'hire.html'])}"><button type="button" aria-expanded="false">Jobs &amp; Careers {CHEV}</button><div class="dd-menu">
+    <div class="dd{on(['jobs.html', 'careers.html', 'mentor.html', 'hire.html', 'ai-jobs-2027.html'])}"><button type="button" aria-expanded="false">Jobs &amp; Careers {CHEV}</button><div class="dd-menu">
+      <a href="{r}ai-jobs-2027.html"{cur('ai-jobs-2027.html')}><span class="dd-ico">{SVG('<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/><path d="M15 8h5v5"/>')}</span><span><b>AI Jobs 2027 roadmap</b><small>7-week sprint, role tracks and a 2027 plan</small></span></a>
       <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>All job portals, alerts and openings</small></span></a>
       <a href="{r}mentor.html"{cur('mentor.html')}><span class="dd-ico">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><span><b>Become a mentor</b><small>Guide learners, run sessions and mock interviews</small></span></a>
       <a href="{r}careers.html"{cur('careers.html')}><span class="dd-ico">{SVG('<path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>')}</span><span><b>Career with SkillNavora</b><small>Open roles and how to join our team</small></span></a>
@@ -1422,6 +1423,10 @@ import apis_lesson as _apis
 page("apis-for-pms.html", "APIs for Product Managers: requests, methods, status codes and JSON · SkillNavora",
      "A plain-language lesson on APIs for product managers: what an API is, HTTP methods, status codes, endpoints, query parameters and JSON, with a worked order example and practice.",
      uhero("Foundations · Technical", 'APIs for <span class="g">Product Managers</span>', "How requests, methods, status codes, endpoints and JSON fit together, using an order as the running example. No coding needed.") + _apis.body(), "programme-pm.html")
+import ai_jobs_2027 as _aj
+page("ai-jobs-2027.html", "AI Jobs 2027: your roadmap · SkillNavora",
+     "A free roadmap to AI jobs in 2027: choose one of seven AI roles, follow a 7-week sprint to the end of 2026 with a saved checklist, then a quarter-by-quarter plan for 2027, all linked to free SkillNavora lessons.",
+     _aj.body(), "ai-jobs-2027.html")
 import vaitis_page as _vx
 page("vaitis.html", "Vaitis: B100x with AI, the free AI library · SkillNavora",
      "Vaitis by SkillNavora: a free AI library with 25 step-by-step guides (prompts, commands and links) and 763 AI tools in 26 categories with pricing. Sign up free to open it.",

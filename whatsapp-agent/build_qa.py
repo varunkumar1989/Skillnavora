@@ -120,6 +120,12 @@ add("Contact", "address,office,location", "Where is SkillNavora located?", "The 
 add("Contact", "social,instagram,youtube,linkedin,twitter,facebook", "What are your social media links?",
     f"Instagram: {s['instagram']}. YouTube: {s['youtube']}. LinkedIn: {s['linkedin']}. X: {s['twitter']}. Facebook: {s['facebook']}.", BASE)
 
+# AI jobs 2027 roadmap
+add("Career", "roadmap,ai jobs,ai job,2027,prepare for ai,how to get an ai job,career in ai,switch to ai,ai career,which ai role",
+    "How do I prepare for AI jobs in 2027?",
+    "Use the free AI Jobs 2027 roadmap: pick one of seven AI roles (AI product manager, AI engineer, data analyst with AI, data engineer, forward deployed engineer, AI automation specialist, AI governance), follow the 7-week sprint to 31 December 2026 with a saved checklist, then the quarter-by-quarter plan for 2027. Every step links to free SkillNavora lessons.",
+    f"{BASE}/ai-jobs-2027.html")
+
 # Vaitis free AI library
 add("Free courses", "vaitis,b100x,ai tools,ai tool,tools list,ai library,which ai tool,best ai tools,free ai tools,ai tools for,prompts,workflows,step by step guide,guides",
     "Where can I find AI tools, prompts and step-by-step AI guides?",

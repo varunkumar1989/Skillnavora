@@ -694,6 +694,15 @@
  },
  {
   "id": 78,
+  "topic": "Career",
+  "keywords": "roadmap,ai jobs,ai job,2027,prepare for ai,how to get an ai job,career in ai,switch to ai,ai career,which ai role",
+  "question": "How do I prepare for AI jobs in 2027?",
+  "answer": "Use the free AI Jobs 2027 roadmap: pick one of seven AI roles (AI product manager, AI engineer, data analyst with AI, data engineer, forward deployed engineer, AI automation specialist, AI governance), follow the 7-week sprint to 31 December 2026 with a saved checklist, then the quarter-by-quarter plan for 2027. Every step links to free SkillNavora lessons.",
+  "link": "https://www.skillnavora.in/ai-jobs-2027.html",
+  "confirm": ""
+ },
+ {
+  "id": 79,
   "topic": "Free courses",
   "keywords": "vaitis,b100x,ai tools,ai tool,tools list,ai library,which ai tool,best ai tools,free ai tools,ai tools for,prompts,workflows,step by step guide,guides",
   "question": "Where can I find AI tools, prompts and step-by-step AI guides?",
@@ -702,7 +711,7 @@
   "confirm": ""
  },
  {
-  "id": 79,
+  "id": 80,
   "topic": "Thanks",
   "keywords": "thanks,thank you,thank u,thankyou,thx,ty,ok thanks,okay thanks,bye,goodbye,see you",
   "question": "Thank you",
@@ -711,7 +720,7 @@
   "confirm": ""
  },
  {
-  "id": 80,
+  "id": 81,
   "topic": "Fallback",
   "keywords": "",
   "question": "Anything else",
