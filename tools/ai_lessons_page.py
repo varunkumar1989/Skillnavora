@@ -47,6 +47,7 @@ CSS = """
 .al-case ol{margin:6px 0 0;padding-left:20px}
 .al-case li{margin:4px 0}
 .al-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px;margin-top:10px}
+.al-nav .btn{white-space:normal;max-width:100%;text-align:left;height:auto;line-height:1.35}
 .al-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
 .al-card{border:1px solid var(--line);border-radius:var(--r);padding:16px;background:var(--surface);text-decoration:none;color:inherit;display:block;box-shadow:var(--shadow)}
 .al-card b{display:block;font-size:16.5px;margin:4px 0}

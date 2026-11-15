@@ -554,10 +554,11 @@ _UP_PROG = {
               ("resources.html#genai", "Resources for GenAI", "GenAI handbook, AI tools and free courses"),
               ("questions.html#genai", "GenAI interview questions", "LLMs, RAG, agents, MCP and AI tools, with answers")),
 }
+_UP_EXTRA = {"ai-de": [("ml-class-guide.html", "Machine learning class guide", "Every class mapped to lessons, plus companion lessons with code")]}
 def UP_SECTION(cid):
     what, teach, prog_res, qs = _UP_PROG.get(cid, _UP_PROG["ai-pm"])
     R = lambda h: '../' + h  # program pages live in program/
-    free = "".join(f'<li><a href="{R(h)}"><b>{E(n)}</b><small>{E(sm)}</small></a></li>' for h, n, sm in [prog_res] + _UP_COMMON)
+    free = "".join(f'<li><a href="{R(h)}"><b>{E(n)}</b><small>{E(sm)}</small></a></li>' for h, n, sm in [prog_res] + _UP_EXTRA.get(cid, []) + _UP_COMMON)
     qlist = f'<li><a href="{R(qs[0])}"><b>{E(qs[1])}</b><small>{E(qs[2])}</small></a></li>'
     return (f'<section id="upskill" class="tint"><div class="wrap"><div class="kicker">Upskill for free</div>'
             f'<h2 class="sec-h">Start learning before you enrol</h2>'
@@ -1434,6 +1435,9 @@ for _l in _alp.L.LESSONS:
     page(_alp.path(_l), f"{_t} · AI Master Course · SkillNavora", _l["lead"][:155], _alp.lesson_body(_l), "ai-master-course.html")
 _pt, _pd = _app.page_meta()
 page("ai-master-course-practice.html", _pt, _pd, _app.body(), "ai-master-course.html")
+import ml_guide_page as _mlg
+for _p, _t, _d, _b in _mlg.pages():
+    page(_p, _t, _d, _b, "learning-platform.html")
 import ai_jobs_2027 as _aj
 page("ai-jobs-2027.html", "AI Jobs 2027: your roadmap · SkillNavora",
      "A free roadmap to AI jobs in 2027: choose one of seven AI roles, follow a 7-week sprint to the end of 2026 with a saved checklist, then a quarter-by-quarter plan for 2027, all linked to free SkillNavora lessons.",

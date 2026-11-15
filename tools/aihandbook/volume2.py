@@ -16,7 +16,6 @@ TECH_MORE = [
  ("LLM", "What is a transformer, in one sentence?", "A neural network design that uses attention to weigh how much every token in the input matters to every other token, which lets it model long-range context."),
  ("LLM", "What is attention?", "A mechanism that lets the model look at all earlier tokens and decide which ones matter most for predicting the next token."),
  ("LLM", "Why do longer prompts cost more and run slower?", "You pay per input token, and the model must process every token before answering. Output tokens are generated one at a time, so long answers are slower still."),
- ("LLM", "What is a system prompt for?", "Standing instructions: role, rules, tone, format and what to refuse. It applies to the whole conversation and is the right place for policy."),
  ("LLM", "What is a reasoning (thinking) model and when is it worth it?", "A model that works through a problem internally before answering. Worth it for multi-step maths, code and planning; wasteful for simple lookups and short answers."),
  ("LLM", "What is effort (or reasoning budget) in modern model APIs?", "A setting that controls how much the model thinks and how thorough its answer is. Higher effort can improve hard tasks at the cost of latency and tokens."),
  ("LLM", "What is a knowledge cut-off?", "The date after which the model has no training data. Anything newer must come from retrieval or tools."),
