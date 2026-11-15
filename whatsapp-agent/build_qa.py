@@ -202,3 +202,30 @@ with open(os.path.join(ROOT, "assets", "content_index.json"), "w", encoding="utf
     json.dump(content, f, ensure_ascii=False, separators=(",", ":"))
 print("content index:", len(content), "entries")
 
+# Topic index: every section heading (with its anchor) on the study pages, so the website chat can link straight to
+# the part of a lesson or handbook that teaches a topic (for example "north star metric" -> PM handbook module 7).
+STUDY_GLOBS = ["handbooks/pm/*.html", "data-science/lessons/*.html", "guides/*.html", "ai-lesson-*.html", "ml-guide-*.html",
+               "ai-master-course-handbook.html", "ai-academy-interactive.html", "programme-pm.html", "context-engineering.html",
+               "evals.html", "llms-rag.html", "ml-products.html", "platform-api-pm.html", "product-design-for-pms.html",
+               "agent-orchestration.html", "prd-library.html", "pm-toolkit.html", "questions.html", "data-science-extras.html"]
+HEAD = re.compile(r'<h([23])[^>]*\bid="([^"]+)"[^>]*>(.*?)</h\1>', re.S)
+topics, tseen = [], set()
+for g in STUDY_GLOBS:
+    for path in sorted(glob.glob(os.path.join(ROOT, g))):
+        rel = os.path.relpath(path, ROOT).replace(os.sep, "/")
+        page = open(path, encoding="utf-8", errors="ignore").read()
+        m = re.search(r"<title>(.*?)</title>", page, re.S)
+        ptitle = clean(re.sub(r"\s*·\s*SkillNavora.*$", "", m.group(1))) if m else rel
+        for _, hid, htext in HEAD.findall(page):
+            t = clean(re.sub(r"<[^>]+>", " ", htext))
+            if len(t) < 4 or len(t) > 140:
+                continue
+            key = (t.lower(), rel)
+            if key in tseen:
+                continue
+            tseen.add(key)
+            topics.append({"title": t, "desc": ptitle, "link": f"{BASE}/{rel}#{hid}", "type": "Section"})
+with open(os.path.join(ROOT, "assets", "topic_index.json"), "w", encoding="utf-8") as f:
+    json.dump(topics, f, ensure_ascii=False, separators=(",", ":"))
+print("topic index:", len(topics), "sections")
+

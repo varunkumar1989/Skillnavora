@@ -1690,3 +1690,6 @@ body:has(.modal.open) .wa,body:has(.modal.open) #askai-tab,body:has(.modal.open)
 /* Labels inside a dropdown that group its options (Jobs & Careers: For learners, For employers, Work with us) */
 .dd-h{margin:12px 12px 4px;font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--h-mu,rgba(255,255,255,.55))}
 .dd-h:first-child{margin-top:4px}
+
+/* Chat: study links inside assistant replies */
+.msg-a a{color:var(--brand-ink,#4C1D95);text-decoration:underline;word-break:break-all}

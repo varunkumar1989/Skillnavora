@@ -273,13 +273,22 @@
     const fab = $("chat-fab"), box = $("chat"), body = $("chat-b"), inp = $("chat-in");
     fab.hidden = false;
     let hist = []; try { hist = JSON.parse(store.sget("chat") || "[]"); } catch {}
-    const add = (role, text, cls = "") => { const d = document.createElement("div"); d.className = (role === "user" ? "msg-u" : "msg-a") + (cls ? " " + cls : ""); d.textContent = text; body.appendChild(d); body.scrollTop = body.scrollHeight; return d; };
+    // Assistant replies: links to skillnavora.in become clickable (built as elements, never as HTML).
+    const SITE_URL = /https:\/\/(?:www\.)?skillnavora\.in\/[^\s)<>"']*[^\s)<>"'.,;:!?]/g;
+    const fillText = (d, text) => {
+      let last = 0; String(text).replace(SITE_URL, (u, i) => {
+        if (i > last) d.appendChild(document.createTextNode(text.slice(last, i)));
+        const a = document.createElement("a"); a.href = u; a.textContent = u.replace(/^https:\/\/(www\.)?/, ""); a.target = "_blank"; a.rel = "noopener"; d.appendChild(a);
+        last = i + u.length; return u; });
+      if (last < text.length) d.appendChild(document.createTextNode(text.slice(last)));
+    };
+    const add = (role, text, cls = "") => { const d = document.createElement("div"); d.className = (role === "user" ? "msg-u" : "msg-a") + (cls ? " " + cls : ""); if (role === "user") d.textContent = text; else fillText(d, String(text)); body.appendChild(d); body.scrollTop = body.scrollHeight; return d; };
     const helpLinks = () => { const d = document.createElement("div"); d.className = "sugg";
       d.innerHTML = `<button type="button" data-open-counsel>Book a free counselling call</button><a class="btn btn-wa btn-sm" href="${esc(waLink("Hi SkillNavora, I have a question."))}" target="_blank" rel="noopener">${WA_SVG} WhatsApp us</a>`; body.appendChild(d); };
-    const SUG = ["What's the fee for the PM program?", "Who is the PM program for?", "Which tools will I learn?", "Do you help with jobs?", "What makes SkillNavora different?"];
+    const SUG = ["What is a North Star metric?", "What's the fee for the PM program?", "Explain SQL joins", "Which courses do you offer?", "Do you help with jobs?"];
     function start() {
       body.innerHTML = "";
-      add("assistant", "Hi! I'm the SkillNavora assistant. Ask me anything about our programs, fees, tools, schedule or career support.");
+      add("assistant", "Hi! I'm the SkillNavora assistant. Ask me any study question (product management, data, SQL, AI and more) and I'll explain it and link the lesson to study. I can also help with our programs, fees and career support.");
       { const a = document.createElement("a"); a.className = "chat-tutor"; a.href = R + "ai-tutor.html"; a.textContent = "📚 Study question (SQL, PM, GenAI, English)? Ask the AI Tutor →"; body.appendChild(a); }
       if (!hist.length) { const s = document.createElement("div"); s.className = "sugg"; s.innerHTML = SUG.map(q => `<button type="button">${esc(q)}</button>`).join(""); body.appendChild(s);
         s.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { s.remove(); send(b.textContent); } }); }
