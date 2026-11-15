@@ -1686,3 +1686,7 @@ img.lg-dark{display:none}
 body.menu-open .wa,body.menu-open #askai-tab,body.menu-open .sticky,body.menu-open #askai,body.menu-open #askai-bg{display:none!important}
 /* While a pop-up (for example the details form) is open, the floating buttons step aside */
 body:has(.modal.open) .wa,body:has(.modal.open) #askai-tab,body:has(.modal.open) #askai{display:none!important}
+
+/* Labels inside a dropdown that group its options (Jobs & Careers: For learners, For employers, Work with us) */
+.dd-h{margin:12px 12px 4px;font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--h-mu,rgba(255,255,255,.55))}
+.dd-h:first-child{margin-top:4px}

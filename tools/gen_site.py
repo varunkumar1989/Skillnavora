@@ -173,7 +173,18 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     sub = lambda n, sm, ic, items: (f'<div class="dd-sub"><button type="button" class="dd-subt" aria-expanded="false"><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span>{RARR}</button>'
                                     f'<div class="dd-subm">{"".join(item(*x) for x in items)}</div></div>')
     other_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>' for p, n, sm, ic in OTHER_PROGRAMS)
-    about_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>' for p, n, sm, ic in ABOUT)
+    about_menu = "".join(f'<a href="{r}{p}"{cur(p)}><span class="dd-ico">{SVG(ic)}</span><span><b>{E(n)}</b><small>{E(sm)}</small></span></a>' for p, n, sm, ic in ABOUT if p in ("about.html", "about.html#team", "reviews.html", "contact.html"))
+    _AB = {p: (n, sm, ic) for p, n, sm, ic in ABOUT}
+    dd_head = lambda t: '<p class="dd-h">' + E(t) + '</p>'
+    # Jobs & Careers, in three labelled groups
+    jobs_menu = (dd_head("For learners")
+                 + item("ai-jobs-2027.html", "AI Jobs 2027 roadmap", "7-week sprint, role tracks and a 2027 plan", '<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/><path d="M15 8h5v5"/>')
+                 + item("jobs.html", "Job board", "All job portals, alerts and openings", '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')
+                 + dd_head("For employers")
+                 + item("hire.html", "Hire from SkillNavora", "Pre-trained product, data and AI talent", '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>')
+                 + dd_head("Work with us")
+                 + item("careers.html", *_AB["careers.html"])
+                 + item("mentor.html", *_AB["mentor.html"]))
     U = {p: (p, n, sm, ic) for p, n, sm, ic in UPSKILL if p}
     Q = lambda h, n, sm: ("questions.html#" + h, n, sm, U["questions.html"][3])
     _RI = U["resources.html"][3]
@@ -223,14 +234,10 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
   <nav class="nav" id="nav" aria-label="Main">
     <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC training, digital marketing, FDE and public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_MAIN + [("other-programs.html", "All other programs", "Content creation and every other program, with reading", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>'), ("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
     <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html', 'learning-platform.html', 'practice-hub.html', 'ai.html', 'ai-academy.html', 'handbooks/index.html', 'members.html', 'buy.html'])}"><button type="button" aria-expanded="false">Upskill for Free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
-    <div class="dd{on(['jobs.html', 'hire.html', 'ai-jobs-2027.html'])}"><button type="button" aria-expanded="false">Jobs &amp; Careers {CHEV}</button><div class="dd-menu">
-      <a href="{r}ai-jobs-2027.html"{cur('ai-jobs-2027.html')}><span class="dd-ico">{SVG('<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/><path d="M15 8h5v5"/>')}</span><span><b>AI Jobs 2027 roadmap</b><small>7-week sprint, role tracks and a 2027 plan</small></span></a>
-      <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>All job portals, alerts and openings</small></span></a>
-      <a href="{r}hire.html"{cur('hire.html')}><span class="dd-ico">{SVG('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>')}</span><span><b>Hire from SkillNavora</b><small>Is your company hiring? Get in touch</small></span></a>
-    </div></div>
+    <div class="dd{on(['jobs.html', 'hire.html', 'ai-jobs-2027.html', 'careers.html', 'mentor.html'])}"><button type="button" aria-expanded="false">Jobs &amp; Careers {CHEV}</button><div class="dd-menu">{jobs_menu}</div></div>
     <a href="{r}blogs.html"{cur('blogs.html')}>Blogs</a>
     <a href="#" data-community hidden>Community</a>
-    <div class="dd{on(['about.html', 'reviews.html', 'contact.html', 'careers.html', 'mentor.html'] + (['blogs.html'] if path.startswith('blog/') else []))}"><button type="button" aria-expanded="false">About Us {CHEV}</button><div class="dd-menu">{about_menu}</div></div>
+    <div class="dd{on(['about.html', 'reviews.html', 'contact.html'] + (['blogs.html'] if path.startswith('blog/') else []))}"><button type="button" aria-expanded="false">About Us {CHEV}</button><div class="dd-menu">{about_menu}</div></div>
   </nav>
   <div class="tools">
     <a class="icon-btn search-btn" href="{r}search.html" aria-label="Search the site" title="Search">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>')}</a>
@@ -250,8 +257,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
       <p>AI-first programs in product management, data engineering and generative AI, with live classes, an LMS and career support.</p>
       <div class="follow"><h4>Follow us</h4><div id="social" class="soc"></div></div></div>
     <div><h4>Programs</h4><ul>{''.join(f'<li><a href="{r}{p}" data-course-name="{cid}">{E(n)}</a></li>' for cid, p, n, *_ in PROGRAMS)}<li><a href="{r}programs.html">All programs and FAQs</a></li></ul></div>
-    <div><h4>Upskill for free</h4><ul>{''.join(f'<li><a href="{r}{p}">{E(n)}</a></li>' for p, n, *_ in UPSKILL if p)}<li><a href="{r}blogs.html">Blogs</a></li><li><a href="{r}refer.html">Refer &amp; earn</a></li><li><a href="{r}hire.html">Hire from us</a></li><li><a href="{r}jobs.html">Job board</a></li><li><a href="{r}business.html">For business</a></li></ul></div>
-    <div><h4>Contact us</h4><ul id="fcontact"></ul><ul style="margin-top:14px"><li><a href="{r}mentor.html">Become a mentor</a></li><li><a href="{r}careers.html">Careers</a></li><li><a href="{r}login.html">Member login</a></li><li><a href="{r}privacy.html">Privacy policy</a></li><li><a href="{r}terms.html">Terms and conditions</a></li><li><a href="{r}refund.html">Cancellation and refund policy</a></li></ul></div>
+    <div><h4>Upskill for free</h4><ul>{''.join(f'<li><a href="{r}{p}">{E(n)}</a></li>' for p, n, *_ in UPSKILL if p)}<li><a href="{r}blogs.html">Blogs</a></li><li><a href="{r}refer.html">Refer &amp; earn</a></li><li><a href="{r}hire.html">Hire from us</a></li><li><a href="{r}jobs.html">Job board</a></li><li><a href="{r}business.html">For business</a></li><li><a href="{r}careers.html">Careers at SkillNavora</a></li><li><a href="{r}mentor.html">Become a mentor</a></li></ul></div>
+    <div><h4>Contact us</h4><ul id="fcontact"></ul><ul style="margin-top:14px"><li><a href="{r}login.html">Member login</a></li><li><a href="{r}privacy.html">Privacy policy</a></li><li><a href="{r}terms.html">Terms and conditions</a></li><li><a href="{r}refund.html">Cancellation and refund policy</a></li></ul></div>
   </div>
   <div class="base"><span>© <span id="yr"></span> SkillNavora. All rights reserved.</span><span class="madeby">Made with care in India</span></div>
 </div></footer>""" if footer else ""
