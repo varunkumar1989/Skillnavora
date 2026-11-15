@@ -1696,7 +1696,7 @@ page("buy.html", "Buy handbooks and PDFs · SkillNavora", "Buy SkillNavora handb
 
 import members_page as _mb
 page("members.html", "Members library · SkillNavora", "Interactive handbooks and workshops for SkillNavora members.", _mb.body(), "members.html", noindex=True)
-page("access.html", "Handbook and PDF access · SkillNavora", "Request access to the handbook PDFs, workbooks and practice files. Course content is open to everyone.", ACCESS_BODY, None, '<script src="{r}assets/access.js"></script>', noindex=True)
+page("access.html", "Handbook and PDF access · SkillNavora", "Request access to the handbook PDFs, workbooks and practice files. Course content is open to everyone.", ACCESS_BODY, None, SB + '<script src="{r}assets/access.js"></script>', noindex=True)
 
 # ================================================================ cleanup + SEO
 for old in ["blog.html", "case-studies.html", "mentoring.html", "assets/dashboard.js"]:

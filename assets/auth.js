@@ -82,3 +82,5 @@ const SN = (function () {
 
   return { client, problem, $, esc, safeUrl, date, notice, setupMessage, session, profile, signOut, errText };
 })();
+
+window.SN = SN; // so other scripts on the page (access.js, verify.js) can use it
