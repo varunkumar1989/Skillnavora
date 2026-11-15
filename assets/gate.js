@@ -27,7 +27,7 @@
     if (/(^|\.)claude\.ai$/i.test(u.hostname) && /^\/artifact/.test(u.pathname)) return true;
     // Full class content (interactive academy) opens only after details are given; links from inside the academy page itself are fine.
     if (u.hostname === location.hostname && /\/ai-academy-interactive\.html$/.test(u.pathname) && u.pathname !== location.pathname) return true;
-    if (u.hostname === location.hostname && /\/read\.html$/.test(u.pathname) && READ_DOC.test(u.search)) return true;
+    if (u.hostname === location.hostname && /\/read(\.html)?$/.test(u.pathname) && READ_DOC.test(u.search)) return true;
     return u.hostname === location.hostname && (FILE.test(u.pathname) || DIR.test(u.pathname));
   };
   const labelOf = a => (a.dataset.gateLabel || a.textContent || a.getAttribute("href") || "").replace(/\s+/g, " ").replace(/[↗→]/g, "").trim().slice(0, 90);
@@ -161,7 +161,7 @@
 
   // Opening a document directly (a bookmark, a shared link, typing the address) asks for details first too.
   // Closing the form without giving details sends the visitor back, so the document is not left open.
-  if (/\/read\.html$/.test(location.pathname) && READ_DOC.test(location.search) && !isAdmin() && !has()) {
+  if (/\/read(\.html)?$/.test(location.pathname) && READ_DOC.test(location.search) && !isAdmin() && !has()) {
     const label = decodeURIComponent((location.search.match(/doc=([^&]+)/) || [])[1] || "").split("/").pop().replace(/\.pdf$/i, "").replace(/[-_]+/g, " ");
     const fake = { href: location.href, target: "", dataset: {}, textContent: label, getAttribute: () => location.href };
     document.addEventListener("DOMContentLoaded", () => { ask(fake); modal.dataset.readerGate = "1"; });
