@@ -216,6 +216,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(title)}</title>
 <meta name="description" content="{E(short_desc(desc))}">
+<meta name="facebook-domain-verification" content="ybd1dlqexjq4xj7a0y3waspphihzjj">
 {'<meta name="robots" content="noindex">' if noindex else f'<link rel="canonical" href="{canon}">'}
 <meta property="og:type" content="website"><meta property="og:site_name" content="SkillNavora">
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">
