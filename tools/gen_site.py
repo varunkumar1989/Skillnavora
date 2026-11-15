@@ -1462,9 +1462,14 @@ page("careers.html", "Careers · SkillNavora", "Join SkillNavora: roles in teach
 import json as _json
 POSTS = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "blogposts.json")))
 os.makedirs(os.path.join(OUT, "blog"), exist_ok=True)
-_pcards = "".join(f"""<a class="card post" href="blog/{p['slug']}.html"><span class="ftag">Product management</span><h3>{E(p['title'])}</h3><p>{E(p['desc'])}</p><div class="fmeta"><span>Varun Kumar</span><span>{p['mins']} min read</span></div><span class="go">Read article →</span></a>""" for p in POSTS)
+def _post_card(p):
+    return f"""<a class="card post" href="blog/{p['slug']}.html"><span class="ftag">{E(p.get('tag', 'Product management'))}</span><h3>{E(p['title'])}</h3><p>{E(p['desc'])}</p><div class="fmeta"><span>Varun Kumar</span><span>{p['mins']} min read</span></div><span class="go">Read article →</span></a>"""
+_sections = {}
+for _p in POSTS:
+    _sections.setdefault(_p.get('section', 'Product management guides'), []).append(_p)
+_pcards = "".join(f'<div style="margin-top:{0 if _i == 0 else 40}px"><div class="kicker">{E(name)}</div><div class="grid g3" style="margin-top:14px">{"".join(_post_card(p) for p in items)}</div></div>' for _i, (name, items) in enumerate(_sections.items()))
 blogs = uhero("Blogs", 'Insights for <span class="g">AI-first careers</span>', "Practical guides on product management, AI tools and getting hired, by the SkillNavora team.") + f"""
-<section style="padding-top:36px"><div class="wrap"><div class="grid g3">{_pcards}</div></div></section>""" + band("Want to go deeper?", "Get the free 620-page PM Master Handbook, or join a live program.", '<a class="btn btn-primary" href="resources.html">Free resources →</a><a class="btn btn-ghost" href="programs.html">Explore programs</a>')
+<section style="padding-top:36px"><div class="wrap">{_pcards}</div></section>""" + band("Want to go deeper?", "Get the free 620-page PM Master Handbook, or join a live program.", '<a class="btn btn-primary" href="resources.html">Free resources →</a><a class="btn btn-ghost" href="programs.html">Explore programs</a>')
 page("blogs.html", "Blogs · SkillNavora", "Guides on product management, AI tools and PM interviews from SkillNavora.", blogs, "blogs.html")
 for i, p in enumerate(POSTS):
     nxt = POSTS[(i + 1) % len(POSTS)]
