@@ -12,7 +12,7 @@ const SITE = {
   phone: "919211315006",          // with or without 91 in front
   whatsapp: "919211315006",
   address: "",                    // e.g. "Bengaluru, Karnataka, India" (shown in the footer)
-  linkedin: "https://www.linkedin.com/in/skillnavora",
+  linkedin: "https://www.linkedin.com/company/skillnavora",
   founderLinkedin: "https://www.linkedin.com/in/varun-pm01",   // instructor section
   instagram: "https://www.instagram.com/skillnavora/",
   instagramDM: "https://ig.me/m/skillnavora",   // opens a direct message to the Instagram account (AI Studio and chat fallback)
