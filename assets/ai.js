@@ -297,7 +297,7 @@
   if (kind === "pm") {
     const DATA = JSON.parse($("pt-data").textContent), f = $("pt-form"), out = $("pt-out"), acts = $("pt-acts"), rev = $("pt-rev");
     let cap = null, hist = [], doc = "", busy = false;
-    const step = n => [1, 2, 3].forEach(i => $("pt-s" + i).classList.toggle("on", i <= n));
+    const step = n => [1, 2, 3].forEach(i => { const el = $("pt-s" + i); if (el) el.classList.toggle("on", i <= n); });
     function open(c, push) {
       if (!DATA[c]) return; cap = c; const D = DATA[c];
       $("pt-name").textContent = D.name; $("pt-desc").textContent = D.desc;
