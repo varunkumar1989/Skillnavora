@@ -58,7 +58,8 @@ def body():
   <h1>From beginner to <span class="g">AI application builder</span> and AI PM</h1>
   <p class="lead">A six-week practical programme: Python and APIs, RAG and vector databases, agents and MCP, evaluation and LLMOps, one deployed capstone, then AI product management and interview practice. Every subject has a plain-English explanation, real code with real outputs, a product perspective, an assignment and interview questions.</p>
   <div class="amc-btns">
-    <a class="btn btn-primary" href="ai-master-course-handbook.html">Open the clickable handbook</a>
+    <a class="btn btn-primary" href="buy.html?for=%2Fai-master-course-handbook">Buy the complete course: ₹20,930</a>
+    <a class="btn btn-line" href="ai-master-course-handbook.html">Open the clickable handbook</a>
     <a class="btn btn-line" href="handbook/AI-Master-Course-Handbook.pdf" download>Full handbook PDF</a>
     <a class="btn btn-line" href="ai-jobs-2027.html">Back to the AI Jobs 2027 roadmap</a>
   </div>

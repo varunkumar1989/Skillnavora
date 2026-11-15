@@ -58,7 +58,7 @@
     <div class="tabs" role="tablist">
       <button role="tab" data-tab="overview">Overview</button><button role="tab" data-tab="students">Students</button><button role="tab" data-tab="enrol">Enrolments</button><button role="tab" data-tab="materials">Course materials</button>
       <button role="tab" data-tab="subs">Submissions<span class="n" id="n-subs" hidden></span></button><button role="tab" data-tab="events">Events</button>
-      <button role="tab" data-tab="apps">Applications<span class="n" id="n-apps" hidden></span></button><button role="tab" data-tab="reqs">Requests<span class="n" id="n-reqs" hidden></span></button><button role="tab" data-tab="jobs">Job board</button><button role="tab" data-tab="news">Announcements</button><button role="tab" data-tab="teachers">Teachers</button><button role="tab" data-tab="admins">Admins</button><button role="tab" data-tab="health">Site check</button>
+      <button role="tab" data-tab="apps">Applications<span class="n" id="n-apps" hidden></span></button><button role="tab" data-tab="reqs">Requests<span class="n" id="n-reqs" hidden></span></button><button role="tab" data-tab="jobs">Job board</button><button role="tab" data-tab="news">Announcements</button><button role="tab" data-tab="pays">Payments</button><button role="tab" data-tab="teachers">Teachers</button><button role="tab" data-tab="admins">Admins</button><button role="tab" data-tab="health">Site check</button>
     </div>
     <div class="panel" id="p-overview">
       <div class="statrow"><div class="card stat"><small>Students</small><b id="o-students">0</b></div><div class="card stat"><small>Enrolments</small><b id="o-enr">0</b></div><div class="card stat"><small>Awaiting review</small><b id="o-waiting">0</b></div><div class="card stat"><small>Open requests</small><b id="o-open">0</b></div><div class="card stat"><small>New applications</small><b id="o-apps">0</b></div></div>
@@ -95,6 +95,9 @@
     <div class="panel" id="p-admins" hidden><div class="dgrid"><div class="card"><h3 class="h3s">Give or remove admin access</h3><p class="meta" style="margin:-6px 0 14px">Admins can see every student's details and work.</p>
       <form id="f-role" class="form"><label>Their account email<input name="email" type="email" required></label><label>Make them<select name="role"><option value="mentor">Mentor (teaches courses)</option><option value="admin">Admin</option><option value="student">Student</option></select></label><button class="btn btn-primary" type="submit">Save</button><p id="role-msg" class="notice" hidden role="status"></p></form></div>
       <div><h3 class="h3s">Current admins</h3><div class="list" id="adm-list"></div></div></div></div>
+    <div class="panel" id="p-pays" hidden><div class="card"><h3 class="h3s">Payments</h3>
+      <p class="meta" style="margin:-6px 0 14px">Every paid handbook and PDF. Refunds are made in the Razorpay dashboard; they show here automatically once the webhook is set up, or mark one by hand.</p>
+      <div class="dgrid" id="pay-sum"></div><div class="list" id="pay-list" style="margin-top:14px"></div><p id="pay-msg" class="notice" hidden role="status"></p></div></div>
     <div class="panel" id="p-teachers" hidden><div class="dgrid"><div class="card"><h3 class="h3s"><a href="teach.html">Assign a mentor to a course</a></h3>
       <p class="meta" style="margin:-6px 0 14px">First make the person a mentor (Admins tab). Then assign them here. A mentor sees and manages only the courses assigned to them, at <a href="teach.html">teach.html</a>.</p>
       <form id="f-assign" class="form"><label>Mentor's account email<input name="email" type="email" required></label><label>Course<select name="course" data-courses required></select></label>
@@ -124,6 +127,6 @@
 
 
 <script src="assets/config.js?v=1456e7f7"></script>
-<script src="assets/site.js?v=7e8f55d8"></script><script src="assets/content.js?v=fa8bf9f0"></script><script src="assets/vendor/supabase-2.117.3.js"></script><script src="assets/auth.js?v=3783237d"></script><script src="assets/admin.js?v=5f089666"></script><script src="assets/gate.js?v=6a91b185"></script>
+<script src="assets/site.js?v=7e8f55d8"></script><script src="assets/content.js?v=fa8bf9f0"></script><script src="assets/vendor/supabase-2.117.3.js"></script><script src="assets/auth.js?v=4927748f"></script><script src="assets/admin.js?v=791791b4"></script><script src="assets/gate.js?v=62037de8"></script>
 </body>
 </html>

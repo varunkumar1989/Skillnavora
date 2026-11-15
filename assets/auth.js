@@ -28,6 +28,12 @@ const SN = (function () {
       const { data: adm } = await client.rpc("is_admin");
       if (adm) localStorage.setItem("sn_admin", JSON.stringify({ t: Date.now(), email: data.session.user.email || "" }));
       else localStorage.removeItem("sn_admin");
+      // Access pass for paid files (admins get every file). Refreshed at most every 6 hours.
+      const last = +(localStorage.getItem("sn_pass_t") || 0);
+      if (Date.now() - last > 6 * 3600e3) {
+        const r = await fetch("/api/pdf-access", { method: "POST", headers: { authorization: "Bearer " + data.session.access_token } });
+        if (r.ok || r.status === 403) localStorage.setItem("sn_pass_t", String(Date.now()));
+      }
     } catch {}
   });
 
@@ -57,7 +63,8 @@ const SN = (function () {
   }
 
   async function signOut() {
-    try { localStorage.removeItem("sn_admin"); } catch {}
+    try { localStorage.removeItem("sn_admin"); localStorage.removeItem("sn_pass_t"); } catch {}
+    try { await fetch("/api/pdf-access", { method: "DELETE" }); } catch {}
     if (client) await client.auth.signOut();
     location.href = "login.html";
   }

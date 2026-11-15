@@ -77,6 +77,7 @@
     people = Object.fromEntries(p.map(x => [x.id, x]));
     paint();
     loadTeachers();
+    loadPayments();
   }
 
   function paint() {
@@ -181,6 +182,27 @@
     const { error } = await client.rpc("set_role", { target_email: f.email.value.trim(), new_role: f.role.value });
     const label = { admin: "an admin", mentor: "a mentor", student: "a student" }[f.role.value] || f.role.value;
     if (ok("role-msg", error, `Done. ${f.email.value.trim()} is now ${label}.`)) { f.reset(); load(); } });
+
+  /* ---------- Payments ---------- */
+  let catalog = null;
+  async function loadPayments() {
+    const box = $("pay-list"); if (!box) return;
+    if (!catalog) { try { catalog = await (await fetch("assets/products.json", { cache: "no-store" })).json(); } catch { catalog = { products: [] }; } }
+    const { data, error } = await client.from("purchases").select("*").order("created_at", { ascending: false }).limit(500);
+    if (error) { box.innerHTML = '<p class="meta">Payments need the newest database update: run supabase/schema.sql again (see supabase/README.md).</p>'; $("pay-sum").innerHTML = ""; return; }
+    const name = id => id.startsWith("file:") ? "Single PDF: " + id.slice(5).split("/").pop() : ((catalog.products.find(p => p.id === id) || {}).name || id);
+    const inr = p => "₹" + (p / 100).toLocaleString("en-IN");
+    const paid = data.filter(x => x.status === "paid");
+    $("pay-sum").innerHTML = `<div class="card"><b>${paid.length}</b><div class="meta">paid purchases</div></div><div class="card"><b>${inr(paid.reduce((t, x) => t + Number(x.amount_paise || 0), 0))}</b><div class="meta">revenue (before Razorpay fees)</div></div><div class="card"><b>${data.length - paid.length}</b><div class="meta">refunded</div></div>`;
+    box.innerHTML = data.length ? data.map(x => `<div class="item"><div class="item-h"><b>${esc(name(x.product_id))}</b><span class="chip ${x.status === "paid" ? "good" : "warn"}">${x.status === "paid" ? "Paid" : "Refunded"}</span></div>
+      <p class="meta">${esc(x.email)} · ${inr(x.amount_paise)} · ${date(x.created_at)} · ${esc(x.razorpay_payment_id || "")}</p>
+      ${x.status === "paid" ? `<button class="link-btn" type="button" data-refund="${x.id}">Mark as refunded</button>` : ""}</div>`).join("") : '<p class="meta">No payments yet.</p>';
+  }
+  document.addEventListener("click", async e => {
+    const b = e.target.closest("[data-refund]"); if (!b) return;
+    const { error } = await client.from("purchases").update({ status: "refunded" }).eq("id", b.dataset.refund);
+    if (error) notice($("pay-msg"), "error", errText(error)); else loadPayments();
+  });
 
   /* ---------- Teachers: mentors and their courses ---------- */
   let assigned = null;

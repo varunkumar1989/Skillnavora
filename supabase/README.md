@@ -29,6 +29,29 @@ Never paste the **secret** or **service_role** key anywhere on the website. The 
    ```
 3. Log in again: you'll land on the **Admin panel**. Add more admins from its **Admins** tab.
 
+## Paid handbooks and PDFs (Razorpay)
+Every PDF, workbook, dataset and interactive handbook can be locked so only buyers (and admins) open them. Prices are in `assets/products.json`; the buy page is `buy.html`. Nothing is locked until you switch it on in step 6.
+
+1. **Database:** run `supabase/schema.sql` again (it adds the `purchases` table and keeps your data).
+2. **Razorpay account:** sign up at razorpay.com and complete the business verification (KYC). Payouts to your bank need this.
+3. **Keys:** Razorpay Dashboard → Account & Settings → API keys → generate **Test mode** keys first.
+4. **Cloudflare secrets:** Workers & Pages → skillnavora → Settings → Variables and secrets → add, as **Secret**:
+   - `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET` (from step 3)
+   - `RAZORPAY_WEBHOOK_SECRET` (any long random text; also used in step 5)
+   - `SUPABASE_SERVICE_KEY` (Supabase → Project Settings → API keys → secret key; it stays on the server)
+   - `PDF_SECRET` (any long random text, if not set already)
+   Then redeploy (Deployments → latest → Retry), because new settings apply to the next deployment.
+5. **Webhook:** Razorpay Dashboard → Account & Settings → Webhooks → Add: URL `https://www.skillnavora.in/api/razorpay-webhook`, the secret from step 4, events `order.paid` and `refund.processed`. It records a purchase even if the buyer closes the tab, and marks refunds.
+6. **Test, then lock:** open `buy.html`, sign in and buy a single PDF with Razorpay's test UPI ID `success@razorpay` or a test card. Check **Admin panel → Payments**. When it works, add the text variable `PAYWALL` = `on` in Cloudflare and redeploy. Check in a private window that a PDF sends you to the buy page, and as admin that PDFs open after you sign in.
+7. **Go live:** replace the two Razorpay keys with **Live mode** keys and redeploy.
+
+Notes:
+- Admins open every file after signing in. Emails you approve under Applications → Resource access get the all-access pass free.
+- To change a price, edit `assets/products.json` (`inr` is what the buyer pays; `inr_list` is the crossed-out price).
+- Files in `research/` and `whatsapp-agent/` are admin-only while the lock is on; brochures stay free.
+- Interactive handbooks shared as Claude artifacts (claude.ai links) cannot be locked by the website: set each one to private from its Share menu, and use the on-site versions.
+- Ask your accountant about GST on digital sales and invoices; Razorpay can issue invoices.
+
 ## Mentors and teachers (run once; safe to repeat)
 Mentors can sign in, see only the courses assigned to them, add course materials, see their students, and review assignments for those courses. They cannot change roles, enrol students or see other courses.
 

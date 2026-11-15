@@ -6,6 +6,18 @@
   const KEY = "sn_access", FILE = /\.(pdf|xlsx|xls|csv|zip|pptx|docx)(?:[?#]|$)/i, DIR = /\/(handbook|classes|brochures|data-handbook)\//i;
   // In-site reader pages (read.html?doc=...pdf) show a document too, so they are gated the same way.
   const READ_DOC = /[?&]doc=[^&]*\.(pdf|xlsx|xls|csv|zip|pptx|docx)(?:&|$)/i;
+  // Paywall (set by the server for an hour while the PAYWALL setting is on): files need a purchase, so the free
+  // details form is skipped and the visitor goes to the buy page when a file is not theirs. The server checks every file.
+  const PAYWALL = /(?:^|;\s*)sn_pw=1(?:;|$)/.test(document.cookie);
+  const ROOT = () => (document.body && document.body.dataset.root) || "";
+  const fileOf = href => {
+    let u; try { u = new URL(href, location.href); } catch { return ""; }
+    if (u.origin !== location.origin) return "";
+    if (/\/read(\.html)?$/.test(u.pathname) && READ_DOC.test(u.search)) { const d = u.searchParams.get("doc") || ""; return d && !d.includes("..") ? "/" + d.replace(/^\/+/, "") : ""; }
+    return FILE.test(u.pathname) || DIR.test(u.pathname) ? u.pathname : "";
+  };
+  const canOpen = async path => { try { const r = await fetch(path, { method: "HEAD", redirect: "manual", credentials: "same-origin", cache: "no-store" }); return r.type !== "opaqueredirect" && r.status < 300; } catch { return true; } };
+  const toBuy = path => { location.href = ROOT() + "buy.html?for=" + encodeURIComponent(path); };
   const LEAD_API = (window.SNsite && window.SNsite.R ? window.SNsite.R : "") + "api/lead";
   const get = k => { try { return localStorage.getItem(k); } catch { return null; } }, set = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
   // Arriving from skillnavora.in with details already given (the handbook site is on another address)
@@ -161,7 +173,9 @@
 
   // Opening a document directly (a bookmark, a shared link, typing the address) asks for details first too.
   // Closing the form without giving details sends the visitor back, so the document is not left open.
-  if (/\/read(\.html)?$/.test(location.pathname) && READ_DOC.test(location.search) && !isAdmin() && !has()) {
+  if (PAYWALL && /\/read(\.html)?$/.test(location.pathname) && READ_DOC.test(location.search)) {
+    const f = fileOf(location.href); if (f) canOpen(f).then(ok => { if (!ok) location.replace(ROOT() + "buy.html?for=" + encodeURIComponent(f)); });
+  } else if (/\/read(\.html)?$/.test(location.pathname) && READ_DOC.test(location.search) && !isAdmin() && !has()) {
     const label = decodeURIComponent((location.search.match(/doc=([^&]+)/) || [])[1] || "").split("/").pop().replace(/\.pdf$/i, "").replace(/[-_]+/g, " ");
     const fake = { href: location.href, target: "", dataset: {}, textContent: label, getAttribute: () => location.href };
     document.addEventListener("DOMContentLoaded", () => { ask(fake); modal.dataset.readerGate = "1"; });
@@ -169,6 +183,16 @@
   document.addEventListener("click", e => {
     if (e.defaultPrevented || e.button > 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
     const a = e.target.closest("a"); if (!a || !gated(a)) return;
+    const paid = PAYWALL ? fileOf(a.href) : "";
+    if (paid) {
+      e.preventDefault();
+      canOpen(paid).then(ok => {
+        if (!ok) return toBuy(paid);
+        if (sameOriginPdf(a.href) && canInline()) return openPdf(a.href, labelOf(a));
+        if (a.target === "_blank") { const w = window.open(a.href, "_blank", "noopener"); if (!w) location.href = a.href; } else location.href = a.href;
+      });
+      return;
+    }
     if (has()) { if (/github\.io$|netlify\.app$/i.test(new URL(a.href, location.href).hostname)) { e.preventDefault(); go(a.href, a.target === "_blank"); } return; }
     e.preventDefault(); ask(a);
   }, true);

@@ -1140,7 +1140,7 @@ admin = f"""<div class="lms-head"><div class="wrap"><div><div class="kicker" sty
     <div class="tabs" role="tablist">
       <button role="tab" data-tab="overview">Overview</button><button role="tab" data-tab="students">Students</button><button role="tab" data-tab="enrol">Enrolments</button><button role="tab" data-tab="materials">Course materials</button>
       <button role="tab" data-tab="subs">Submissions<span class="n" id="n-subs" hidden></span></button><button role="tab" data-tab="events">Events</button>
-      <button role="tab" data-tab="apps">Applications<span class="n" id="n-apps" hidden></span></button><button role="tab" data-tab="reqs">Requests<span class="n" id="n-reqs" hidden></span></button><button role="tab" data-tab="jobs">Job board</button><button role="tab" data-tab="news">Announcements</button><button role="tab" data-tab="teachers">Teachers</button><button role="tab" data-tab="admins">Admins</button><button role="tab" data-tab="health">Site check</button>
+      <button role="tab" data-tab="apps">Applications<span class="n" id="n-apps" hidden></span></button><button role="tab" data-tab="reqs">Requests<span class="n" id="n-reqs" hidden></span></button><button role="tab" data-tab="jobs">Job board</button><button role="tab" data-tab="news">Announcements</button><button role="tab" data-tab="pays">Payments</button><button role="tab" data-tab="teachers">Teachers</button><button role="tab" data-tab="admins">Admins</button><button role="tab" data-tab="health">Site check</button>
     </div>
     <div class="panel" id="p-overview">
       <div class="statrow"><div class="card stat"><small>Students</small><b id="o-students">0</b></div><div class="card stat"><small>Enrolments</small><b id="o-enr">0</b></div><div class="card stat"><small>Awaiting review</small><b id="o-waiting">0</b></div><div class="card stat"><small>Open requests</small><b id="o-open">0</b></div><div class="card stat"><small>New applications</small><b id="o-apps">0</b></div></div>
@@ -1177,6 +1177,9 @@ admin = f"""<div class="lms-head"><div class="wrap"><div><div class="kicker" sty
     <div class="panel" id="p-admins" hidden><div class="dgrid"><div class="card"><h3 class="h3s">Give or remove admin access</h3><p class="meta" style="margin:-6px 0 14px">Admins can see every student's details and work.</p>
       <form id="f-role" class="form"><label>Their account email<input name="email" type="email" required></label><label>Make them<select name="role"><option value="mentor">Mentor (teaches courses)</option><option value="admin">Admin</option><option value="student">Student</option></select></label><button class="btn btn-primary" type="submit">Save</button><p id="role-msg" class="notice" hidden role="status"></p></form></div>
       <div><h3 class="h3s">Current admins</h3><div class="list" id="adm-list"></div></div></div></div>
+    <div class="panel" id="p-pays" hidden><div class="card"><h3 class="h3s">Payments</h3>
+      <p class="meta" style="margin:-6px 0 14px">Every paid handbook and PDF. Refunds are made in the Razorpay dashboard; they show here automatically once the webhook is set up, or mark one by hand.</p>
+      <div class="dgrid" id="pay-sum"></div><div class="list" id="pay-list" style="margin-top:14px"></div><p id="pay-msg" class="notice" hidden role="status"></p></div></div>
     <div class="panel" id="p-teachers" hidden><div class="dgrid"><div class="card"><h3 class="h3s">Assign a mentor to a course</h3>
       <p class="meta" style="margin:-6px 0 14px">First make the person a mentor (Admins tab). Then assign them here. A mentor sees and manages only the courses assigned to them, at <a href="teach.html">teach.html</a>.</p>
       <form id="f-assign" class="form"><label>Mentor's account email<input name="email" type="email" required></label><label>Course<select name="course" data-courses required></select></label>
@@ -1656,6 +1659,37 @@ ACCESS_BODY = """<section class="sn-search"><div class="wrap" style="max-width:6
   </form>
   <p class="notice" id="acc-msg" aria-live="polite" style="margin-top:14px"></p>
 </div></section>"""
+# ================================================================ buy handbooks and PDFs (paywall)
+BUY_BODY = """<style>
+.buy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;margin-top:18px}
+.buy-card{position:relative;display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--surface);box-shadow:var(--shadow);min-width:0}
+.buy-card h3{margin:0;font-size:18px}
+.buy-card p{margin:0;color:var(--mu);font-size:14.5px;line-height:1.55;flex:1}
+.buy-card.is-for{border-color:var(--brand);box-shadow:0 0 0 2px color-mix(in srgb,var(--brand) 35%,transparent)}
+.buy-tag{align-self:flex-start;font:700 11px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--brand-ink);background:var(--brand-soft);padding:3px 9px;border-radius:99px}
+.buy-price{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.buy-price b{font-size:24px}
+.buy-price s{color:var(--mu)}
+.buy-off{font:700 12px var(--body);color:#166534;background:#dcfce7;padding:2px 8px;border-radius:99px}
+.buy-usd{font-size:13px;color:var(--mu)}
+.buy-for{border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:var(--brand-soft);margin:16px 0}
+.buy-for h2{margin:0 0 6px;font-size:21px}
+.buy-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.buy-foot{margin-top:22px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+</style>
+<section class="sn-search"><div class="wrap" style="max-width:1100px">
+  <div class="kicker">Handbooks and PDFs</div><h1 class="sec-h" style="margin:6px 0 10px">Unlock the handbooks</h1>
+  <p style="max-width:68ch">Pay once and keep access to the handbook, its PDFs and its interactive version. Buy a complete handbook, a single PDF part for ₹4,999, or the all-access pass for everything on SkillNavora.</p>
+  <p class="meta" id="buy-who"></p>
+  <div class="buy-for" id="buy-for" hidden></div>
+  <p class="notice" id="buy-msg" hidden role="status" aria-live="polite"></p>
+  <div class="buy-grid" id="buy-grid"></div>
+  <div class="buy-foot"><button class="btn btn-line" id="buy-refresh" type="button">Already paid? Refresh my access</button>
+  <p class="meta" style="margin:0">Secure payment by Razorpay: UPI, cards, net banking and wallets. Prices are in Indian rupees; dollar amounts are for reference. See the <a href="refund.html">cancellation and refund policy</a>. Questions? <a href="contact.html">Contact us</a>.</p></div>
+</div></section>"""
+page("buy.html", "Buy handbooks and PDFs · SkillNavora", "Buy SkillNavora handbooks, single PDF parts or the all-access pass. Secure payment by Razorpay.", BUY_BODY, None,
+     SB + '<script type="module" src="{r}assets/buy.js"></script>', noindex=True)
+
 page("access.html", "Handbook and PDF access · SkillNavora", "Request access to the handbook PDFs, workbooks and practice files. Course content is open to everyone.", ACCESS_BODY, None, '<script src="{r}assets/access.js"></script>', noindex=True)
 
 # ================================================================ cleanup + SEO

@@ -1,0 +1,195 @@
+{
+ "about": "SkillNavora price list. Every PDF, workbook, dataset and interactive handbook is locked when the PAYWALL setting is on. A file belongs to the FIRST product whose 'files' pattern matches it. Patterns are paths from the site root: * matches within one folder, ** matches across folders. Prices: inr_list is the USD price x 100; inr is what the buyer pays after the discount. Change prices here only.",
+ "currency": "INR",
+ "single_pdf": {
+  "inr": 4999,
+  "usd": 59,
+  "note": "Any single PDF part that is not a complete handbook."
+ },
+ "exempt": [
+  "brochures/**"
+ ],
+ "private": [
+  "whatsapp-agent/**",
+  "research/**"
+ ],
+ "open_pages": [
+  "handbooks/pm/index.html"
+ ],
+ "bundle_only": [
+  "handbook/Complete-PM-Master-Handbook*.pdf",
+  "handbook/AI-Master-Course-Handbook.pdf",
+  "handbook/AI-Master-Course-Starter-Project.zip",
+  "handbook/ML-Class-Guide-Code.zip",
+  "data-science/pdf/*Complete*.pdf",
+  "data-science/files/**",
+  "data-science/datasets/**",
+  "handbooks/pm/downloads/**"
+ ],
+ "products": [
+  {
+   "id": "ai-master-course",
+   "name": "AI Master Course: complete",
+   "desc": "107-page handbook, six week-by-week PDFs, interview bank (100 technical, 50 AI PM), PM toolkit, the clickable handbook and the runnable starter project.",
+   "usd": 299,
+   "inr_list": 29900,
+   "discount_pct": 30,
+   "inr": 20930,
+   "files": [
+    "handbook/AI-Master-Course-*"
+   ],
+   "pages": [
+    "ai-master-course-handbook.html"
+   ]
+  },
+  {
+   "id": "pm-master-handbook",
+   "name": "PM Master Handbook: complete",
+   "desc": "The full PM Master Handbook with every module PDF, case study and framework libraries, templates and the interactive handbook.",
+   "usd": 499,
+   "inr_list": 49900,
+   "discount_pct": 40,
+   "inr": 29940,
+   "files": [
+    "handbook/Complete-PM-Master-Handbook*.pdf",
+    "handbook/Module-*.pdf",
+    "handbook/pm-extras/**",
+    "handbook/Case-Study-Library.pdf",
+    "handbook/Framework-Library.pdf",
+    "handbook/Practical-Projects.pdf",
+    "handbook/templates/**",
+    "handbook/classes/**",
+    "classes/**",
+    "handbooks/pm/**"
+   ],
+   "pages": [
+    "handbooks/pm/*.html"
+   ]
+  },
+  {
+   "id": "ai-pm-advanced",
+   "name": "AI Product Management: advanced handbook",
+   "desc": "The advanced AI PM series: chapters, templates and practice files.",
+   "usd": 199,
+   "inr_list": 19900,
+   "discount_pct": 30,
+   "inr": 13930,
+   "files": [
+    "handbook/aipm2/**",
+    "handbook/course-additions/**"
+   ],
+   "pages": []
+  },
+  {
+   "id": "data-science-ai",
+   "name": "Data Science & AI handbook: complete",
+   "desc": "Every lesson PDF across Excel, SQL, Power BI, Tableau, Python, statistics and ML, GenAI, agents and data engineering, plus workbooks and datasets.",
+   "usd": 299,
+   "inr_list": 29900,
+   "discount_pct": 30,
+   "inr": 20930,
+   "files": [
+    "data-science/pdf/**",
+    "data-science/files/**",
+    "data-science/datasets/**",
+    "handbook/data-science-extras/**"
+   ],
+   "pages": []
+  },
+  {
+   "id": "genai-launchpad",
+   "name": "GenAI Launchpad handbook",
+   "desc": "The GenAI Launchpad handbook and its chapter PDFs.",
+   "usd": 149,
+   "inr_list": 14900,
+   "discount_pct": 30,
+   "inr": 10430,
+   "files": [
+    "handbooks/genai/**"
+   ],
+   "pages": []
+  },
+  {
+   "id": "master-freelancing",
+   "name": "Master Freelancing: all departments",
+   "desc": "Every Master Freelancing textbook and lesson PDF, plus the Make Money with AI course.",
+   "usd": 199,
+   "inr_list": 19900,
+   "discount_pct": 30,
+   "inr": 13930,
+   "files": [
+    "handbook/mf/**",
+    "handbook/Master-Freelancing-*.pdf",
+    "handbook/Make-Money-with-AI-Course.pdf",
+    "handbook/Trading-Terminal-Handbook.pdf",
+    "Make-Money-AI-Course/**"
+   ],
+   "pages": []
+  },
+  {
+   "id": "sfmc",
+   "name": "Salesforce Marketing Cloud handbook",
+   "desc": "The SFMC training handbook, from Email Studio to Journey Builder.",
+   "usd": 149,
+   "inr_list": 14900,
+   "discount_pct": 30,
+   "inr": 10430,
+   "files": [
+    "handbook/sfmc/**"
+   ],
+   "pages": []
+  },
+  {
+   "id": "fde",
+   "name": "Forward Deployed Engineer handbook",
+   "desc": "The FDE handbook: customers, AI deployment and integrations.",
+   "usd": 149,
+   "inr_list": 14900,
+   "discount_pct": 30,
+   "inr": 10430,
+   "files": [
+    "handbook/fde/**"
+   ],
+   "pages": []
+  },
+  {
+   "id": "digital-marketing",
+   "name": "Digital Marketing course handbook",
+   "desc": "All seven digital marketing chapters: research, websites, email, copywriting, SEO and YouTube.",
+   "usd": 100,
+   "inr_list": 10000,
+   "discount_pct": 30,
+   "inr": 7000,
+   "files": [
+    "handbook/Skillnavora-*.pdf"
+   ],
+   "pages": []
+  },
+  {
+   "id": "ai-skills-library",
+   "name": "AI Skills Library",
+   "desc": "Every AI skills handbook and tool tutorial: prompting and context, evals, agents, AI strategy, AI UX, governance, automation tools and more, plus the full class content.",
+   "usd": 199,
+   "inr_list": 19900,
+   "discount_pct": 30,
+   "inr": 13930,
+   "files": [
+    "handbook/**"
+   ],
+   "pages": [
+    "ai-academy-interactive.html"
+   ]
+  },
+  {
+   "id": "all-access",
+   "name": "All-access pass",
+   "desc": "Every handbook, PDF, workbook, dataset and interactive handbook on SkillNavora, including new ones as they are added.",
+   "usd": 999,
+   "inr_list": 99900,
+   "discount_pct": 40,
+   "inr": 59940,
+   "files": [],
+   "pages": []
+  }
+ ]
+}

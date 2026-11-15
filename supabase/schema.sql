@@ -422,3 +422,34 @@ grant execute on function public.assign_instructor(text, text) to authenticated;
 drop policy if exists "instructor reads own students" on public.profiles;
 create policy "instructor reads own students" on public.profiles for select to authenticated
   using (exists (select 1 from public.enrollments e where e.user_id = profiles.id and public.is_instructor(e.course_id)));
+
+-- ---------- Purchases (paid handbooks and PDFs) ----------
+-- Written only by the server (functions/api/verify-payment.js and razorpay-webhook.js) with the secret key.
+-- Buyers can read their own purchases; admins can read all and mark a refund.
+-- product_id is a product from assets/products.json, or "file:<path>" for a single PDF.
+create table if not exists public.purchases (
+  id                   bigint generated always as identity primary key,
+  user_id              uuid references public.profiles (id) on delete set null,
+  email                text not null check (length(email) <= 320),
+  product_id           text not null check (length(product_id) between 1 and 300),
+  amount_paise         bigint not null check (amount_paise >= 0),
+  currency             text not null default 'INR' check (length(currency) <= 3),
+  razorpay_order_id    text check (length(razorpay_order_id) <= 60),
+  razorpay_payment_id  text unique check (length(razorpay_payment_id) <= 60),
+  status               text not null default 'paid' check (status in ('paid', 'refunded')),
+  created_at           timestamptz not null default now()
+);
+create index if not exists purchases_email_idx on public.purchases (lower(email));
+alter table public.purchases enable row level security;
+revoke all on public.purchases from anon, authenticated;
+grant select on public.purchases to authenticated;
+grant update (status) on public.purchases to authenticated;
+
+drop policy if exists "read own or admin" on public.purchases;
+create policy "read own or admin" on public.purchases for select to authenticated
+  using (user_id = auth.uid()
+         or lower(email) = lower((select p.email from public.profiles p where p.id = auth.uid()))
+         or public.is_admin());
+drop policy if exists "admin marks refunds" on public.purchases;
+create policy "admin marks refunds" on public.purchases for update to authenticated
+  using (public.is_admin()) with check (public.is_admin());
