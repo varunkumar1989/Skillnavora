@@ -94,6 +94,9 @@ async function buy(item, btn) {
     const rzp = new window.Razorpay({
       key: j.key, amount: j.amount, currency: j.currency, order_id: j.order_id, name: "SkillNavora", description: j.name,
       prefill: { email: j.email }, theme: { color: "#6C4CF5" },
+      // UPI only: the checkout shows just UPI (apps, QR code and UPI ID).
+      config: { display: { blocks: { upi: { name: "Pay with UPI", instruments: [{ method: "upi" }] } },
+                           sequence: ["block.upi"], preferences: { show_default_blocks: false } } },
       handler: async resp => {
         say("Confirming your payment…", "info");
         const v = await fetch("api/verify-payment", { method: "POST", headers: { authorization: "Bearer " + t, "content-type": "application/json" }, body: JSON.stringify(resp) });
@@ -105,7 +108,7 @@ async function buy(item, btn) {
       },
       modal: { ondismiss: () => say("Payment cancelled. You have not been charged.", "info") },
     });
-    rzp.on("payment.failed", e => say("The payment failed: " + ((e && e.error && e.error.description) || "please try another method.")));
+    rzp.on("payment.failed", e => say("The payment failed: " + ((e && e.error && e.error.description) || "please try again.")));
     rzp.open();
   } catch (e) { say(e.message || "Something went wrong. Please try again."); }
   finally { btn.disabled = false; btn.textContent = label; }
