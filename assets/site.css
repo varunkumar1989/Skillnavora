@@ -1677,3 +1677,7 @@ img.lg-dark{display:none}
 /* Instagram DM button (AI Studio / chat fallback) */
 .ig-dm{display:inline-block;padding:9px 14px;border-radius:10px;color:#fff!important;font-weight:600;text-decoration:none;background:linear-gradient(45deg,#f09433,#dc2743 50%,#bc1888)}
 .ig-dm:hover{filter:brightness(1.08)}
+
+/* Course fee: original price struck through, then the current fee */
+.feeline{margin:10px 0 0;font-size:16px;color:var(--ink)}
+.feeline s{color:var(--mu);font-weight:600;font-size:14px;margin-right:6px}

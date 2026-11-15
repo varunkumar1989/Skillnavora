@@ -4,7 +4,7 @@
   "topic": "Fees",
   "keywords": "fee,fees,price,cost,how much,pricing,charges",
   "question": "What are the fees for the programmes?",
-  "answer": "Here are our programme fees: AI-First Product Management: $2,000 (about ₹1,74,000). AI-First Data Engineer: $1,500 (about ₹1,30,000). GenAI Launchpad: $1,000 (about ₹87,000). Which one are you interested in? I can share what it includes.",
+  "answer": "Here are our programme fees: AI-First Product Management: $999 (about ₹99,999). AI-First Data Engineer: $899 (about ₹89,999). GenAI Launchpad: $799 (about ₹79,999). Which one are you interested in? I can share what it includes.",
   "link": "https://www.skillnavora.in/programs.html",
   "confirm": "CONFIRM: fee and INR amount before each cohort"
  },
@@ -31,7 +31,7 @@
   "topic": "Fees",
   "keywords": "fee,fees,price,cost,how much,rupees,dollars,AI PM|product management|AI product manager|PM course",
   "question": "What is the fee for AI-First Product Management?",
-  "answer": "AI-First Product Management costs $2,000 (about ₹1,74,000 in INR) as listed on the website. Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and career guidance.",
+  "answer": "AI-First Product Management costs $999 (about ₹99,999 in INR) as listed on the website. Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and career guidance.",
   "link": "https://www.skillnavora.in/program/ai-product-management.html",
   "confirm": "CONFIRM: fee and INR amount before each cohort"
  },
@@ -76,7 +76,7 @@
   "topic": "Fees",
   "keywords": "fee,fees,price,cost,how much,rupees,dollars,data engineer|data engineering|AI data",
   "question": "What is the fee for AI-First Data Engineer?",
-  "answer": "AI-First Data Engineer costs $1,500 (about ₹1,30,000 in INR) as listed on the website. Includes live classes, real-world projects, capstone, mock interviews and career guidance.",
+  "answer": "AI-First Data Engineer costs $899 (about ₹89,999 in INR) as listed on the website. Includes live classes, real-world projects, capstone, mock interviews and career guidance.",
   "link": "https://www.skillnavora.in/program/ai-data-engineering.html",
   "confirm": ""
  },
@@ -121,7 +121,7 @@
   "topic": "Fees",
   "keywords": "fee,fees,price,cost,how much,rupees,dollars,GenAI|genai launchpad|generative AI|AI launchpad",
   "question": "What is the fee for GenAI Launchpad?",
-  "answer": "GenAI Launchpad costs $1,000 (about ₹87,000 in INR) as listed on the website. Includes live classes, hands-on projects, a capstone and demo day.",
+  "answer": "GenAI Launchpad costs $799 (about ₹79,999 in INR) as listed on the website. Includes live classes, hands-on projects, a capstone and demo day.",
   "link": "https://www.skillnavora.in/program/genai-launchpad.html",
   "confirm": ""
  },
@@ -166,7 +166,7 @@
   "topic": "Overview",
   "keywords": "offer,offers,offering,what does,what do i get,overview,benefit,what is in,AI PM|product management|AI product manager|PM course",
   "question": "What does the AI-First Product Management programme offer?",
-  "answer": "AI-First Product Management: The end-to-end program to become a confident, skilled AI product manager. Duration 16 weeks, live online classes with recordings. Fee $2,000 (about ₹1,74,000 in INR), which includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and career guidance. Highlights: 25+ real-world case studies; Capstone project; Mock tests and interviews; Monthly 1:1 with a CEO or Head of Product.",
+  "answer": "AI-First Product Management: The end-to-end program to become a confident, skilled AI product manager. Duration 16 weeks, live online classes with recordings. Fee $999 (about ₹99,999 in INR), which includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and career guidance. Highlights: 25+ real-world case studies; Capstone project; Mock tests and interviews; Monthly 1:1 with a CEO or Head of Product.",
   "link": "https://www.skillnavora.in/program/ai-product-management.html",
   "confirm": ""
  },
@@ -175,7 +175,7 @@
   "topic": "Overview",
   "keywords": "offer,offers,offering,what does,what do i get,overview,benefit,what is in,data engineer|data engineering|AI data",
   "question": "What does the AI-First Data Engineer programme offer?",
-  "answer": "AI-First Data Engineer: Build reliable data pipelines and the data foundation for AI. Duration 16 weeks, live online classes with recordings. Fee $1,500 (about ₹1,30,000 in INR), which includes live classes, real-world projects, capstone, mock interviews and career guidance. Highlights: Real-world projects; Capstone project; Mock interviews; Career guidance.",
+  "answer": "AI-First Data Engineer: Build reliable data pipelines and the data foundation for AI. Duration 16 weeks, live online classes with recordings. Fee $899 (about ₹89,999 in INR), which includes live classes, real-world projects, capstone, mock interviews and career guidance. Highlights: Real-world projects; Capstone project; Mock interviews; Career guidance.",
   "link": "https://www.skillnavora.in/program/ai-data-engineering.html",
   "confirm": ""
  },
@@ -184,7 +184,7 @@
   "topic": "Overview",
   "keywords": "offer,offers,offering,what does,what do i get,overview,benefit,what is in,GenAI|genai launchpad|generative AI|AI launchpad",
   "question": "What does the GenAI Launchpad programme offer?",
-  "answer": "GenAI Launchpad: Go from AI-curious to AI-confident, with no coding needed. Duration 8 weeks, live online classes with recordings. Fee $1,000 (about ₹87,000 in INR), which includes live classes, hands-on projects, a capstone and demo day. Highlights: Hands-on projects; No coding needed; Capstone and demo day; Certificate.",
+  "answer": "GenAI Launchpad: Go from AI-curious to AI-confident, with no coding needed. Duration 8 weeks, live online classes with recordings. Fee $799 (about ₹79,999 in INR), which includes live classes, hands-on projects, a capstone and demo day. Highlights: Hands-on projects; No coding needed; Capstone and demo day; Certificate.",
   "link": "https://www.skillnavora.in/program/genai-launchpad.html",
   "confirm": ""
  },
@@ -454,7 +454,7 @@
   "topic": "FAQ",
   "keywords": "fees,what are the fees?",
   "question": "What are the fees?",
-  "answer": "AI-First Product Management is $2,000, AI-First Data Engineer is $1,500 and GenAI Launchpad is $1,000. Eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options.",
+  "answer": "AI-First Product Management is $999, AI-First Data Engineer is $899 and GenAI Launchpad is $799. Eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options.",
   "link": "https://www.skillnavora.in/programs.html",
   "confirm": ""
  },

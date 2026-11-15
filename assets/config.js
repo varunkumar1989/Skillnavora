@@ -64,8 +64,8 @@ const AUTH = {
    cohort:    e.g. "Cohort 1". start: e.g. "15 Jan 2027".
    deadline:  enrolment closing date-time, e.g. "2027-01-10T23:59:00+05:30".
               Shows a live countdown like "Enrolment closes in 2d : 4h".
-   fee:       e.g. "$2,000". Empty shows "Fees on request".
-   feeINR:    the rupee price shown next to it, e.g. "₹1,74,000" (approximate; update if your price differs).
+   fee:       e.g. "$999". Empty shows "Fees on request".
+   feeINR:    the rupee price shown next to it, e.g. "₹99,999" (approximate; update if your price differs).
    earlyBird: early-bird offer text. Empty hides it.
    pay:       payment link (Razorpay, Instamojo...), shown after someone applies.
    Everything below is a starting draft: edit it to match your program. */
@@ -78,7 +78,7 @@ const COURSES = [
     tagline: "The end-to-end program to become a confident, skilled AI product manager",
     badge: "Flagship",
     cohort: "Inaugural cohort", start: "", deadline: "",
-    fee: "$2,000", feeINR: "₹1,74,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and career guidance.",
+    fee: "$999", feeINR: "₹99,999", feeWas: "$2,000", feeWasINR: "₹1,74,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and career guidance.",
     earlyBird: "",
     pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "8–10 hours a week",
@@ -137,7 +137,7 @@ const COURSES = [
     short: "Learn SQL, Python, data modelling, pipelines, Spark, Airflow and the cloud, then build the data and AI pipelines that power modern products.",
     tagline: "Build reliable data pipelines and the data foundation for AI",
     badge: "Flagship",
-    cohort: "", start: "", deadline: "", fee: "$1,500", feeINR: "₹1,30,000", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and career guidance.", earlyBird: "", pay: "",
+    cohort: "", start: "", deadline: "", fee: "$899", feeINR: "₹89,999", feeWas: "$1,500", feeWasINR: "₹1,30,000", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and career guidance.", earlyBird: "", pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "10–12 hours a week",
     highlights: ["Real-world projects", "Capstone project", "Mock interviews", "Career guidance"],
     outcomes: ["Write advanced SQL and production-quality Python for data", "Design data models and warehouses (star schema, lakehouse)",
@@ -177,7 +177,7 @@ const COURSES = [
     short: "A beginner-friendly program to use generative AI at work: prompting, AI assistants, no-code apps, automations, chatbots and voice agents.",
     tagline: "Go from AI-curious to AI-confident, with no coding needed",
     badge: "Beginner friendly",
-    cohort: "", start: "", deadline: "", fee: "$1,000", feeINR: "₹87,000", feeNote: "Includes live classes, hands-on projects, a capstone and demo day.", earlyBird: "", pay: "",
+    cohort: "", start: "", deadline: "", fee: "$799", feeINR: "₹79,999", feeWas: "$1,000", feeWasINR: "₹87,000", feeNote: "Includes live classes, hands-on projects, a capstone and demo day.", earlyBird: "", pay: "",
     duration: "8 weeks", format: "Live online classes with recordings", effort: "5–6 hours a week",
     highlights: ["Hands-on projects", "No coding needed", "Capstone and demo day", "Certificate"],
     outcomes: ["Write prompts that get reliable results", "Use Claude daily for writing, research and analysis",
@@ -290,7 +290,7 @@ const FAQS = [
   { c: "Program", q: "Which tools will I learn?", a: "Delivery tools like Jira, Confluence, Asana and Notion; design tools like Figma and Miro; analytics like Mixpanel, Amplitude, GA4 and SQL; and AI tools including Claude, Claude Code, ChatGPT, Gemini, Lovable and n8n." },
   { c: "Program", q: "Can I ask instructors and mentors questions directly?", a: "Yes, during live classes, in 1:1 mentorship, and through the LMS. You also get a monthly 1:1 session with a CEO or Head of Product." },
   { c: "Schedule", q: "What are the timings and schedule?", a: "Live classes run on weekends. Exact timings are shared before each cohort starts; talk to a counsellor for the current schedule." },
-  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $2,000, AI-First Data Engineer is $1,500 and GenAI Launchpad is $1,000. Eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options." },
+  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $999, AI-First Data Engineer is $899 and GenAI Launchpad is $799. Eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options." },
   { c: "Career", q: "Do you help with jobs?", a: "We offer career guidance, not job placement: resume and LinkedIn reviews, portfolio feedback and intensive interview preparation. We do not guarantee a job or interviews." },
   { c: "Career", q: "Will I get a certificate?", a: "Yes, you get a certificate when you complete the program and capstone." },
   { c: "Career", q: "I have more questions. Where can I ask?", a: "Ask our AI assistant, message us on WhatsApp, or book a free counselling session." }

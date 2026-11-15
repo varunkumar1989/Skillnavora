@@ -98,6 +98,11 @@
   /* ---- Countdown ---- */
   const left = d => { const ms = new Date(d) - Date.now(); if (!(ms > 0)) return null; const s = Math.floor(ms / 1000);
     return Math.floor(s / 86400) + "d : " + Math.floor(s % 86400 / 3600) + "h : " + String(Math.floor(s % 3600 / 60)).padStart(2, "0") + "m : " + String(s % 60).padStart(2, "0") + "s"; };
+  // Fee text: the original price struck through (if set), then the current fee in USD and rupees.
+  function feeHtml(c) {
+    const was = c.feeWas ? `<s>${esc(c.feeWas)}${c.feeWasINR ? " (" + esc(c.feeWasINR) + ")" : ""}</s> ` : "";
+    return was + `<b>${esc(c.fee)}${c.feeINR ? " (" + esc(c.feeINR) + ")" : ""}</b>`;
+  }
   function strip(c) {
     if (c.deadline && left(c.deadline)) return `Enrolment closes in <span class="cd" data-deadline="${esc(c.deadline)}">${left(c.deadline)}</span>`;
     const eb = typeof OFFERS !== "undefined" && c.earlyBird && OFFERS.earlyBirdEnds;
@@ -142,7 +147,7 @@
     ${SNcover(i, c.name, c.badge)}
     <div class="strip"><span>${strip(c)}</span>${c.cohort ? `<span class="tag g">${esc(c.cohort)}</span>` : ""}</div>
     <div class="body"><h3>${esc(c.name)}</h3><p>${esc(c.short)}</p>
-      <div class="facts">${[c.duration, c.format, c.fee && (c.fee + (c.feeINR ? " (" + c.feeINR + ")" : ""))].filter(Boolean).map(f => `<span>${esc(f)}</span>`).join("")}</div>
+      <div class="facts">${[c.duration, c.format].filter(Boolean).map(f => `<span>${esc(f)}</span>`).join("")}</div>${c.fee ? `<p class="feeline">${feeHtml(c)}</p>` : ""}
       <div class="acts"><a class="btn btn-primary btn-sm" href="${R + esc(c.page)}">Learn more →</a><a class="btn btn-line btn-sm" href="${esc(enrollHref(c))}">Enroll now</a></div></div></article>`).join("");
 
   /* ---- Program menu (keeps names in sync with config) ---- */
@@ -201,7 +206,7 @@
     if ($("p-cover")) $("p-cover").innerHTML = SNcover(C.indexOf(P), P.name, P.badge);
     set("p-glance", [["Duration", P.duration], ["Format", P.format], ["Time needed", P.effort], ["Fee", P.fee && (P.fee + (P.feeINR ? " · " + P.feeINR : ""))], ["Next cohort", P.start || "Opening soon"]]
       .filter(x => x[1]).map(([k, v]) => `<li><small>${esc(k)}</small><b>${esc(v)}</b></li>`).join(""));
-    set("p-price", esc(P.fee || "Fees on request") + (P.feeINR ? `<small class="inr">${esc(P.feeINR)} approx. · EMI options available</small>` : ""));
+    set("p-price", (P.fee ? (P.feeWas ? `<s>${esc(P.feeWas)}${P.feeWasINR ? " (" + esc(P.feeWasINR) + ")" : ""}</s> ` : "") + esc(P.fee) : "Fees on request") + (P.feeINR ? `<small class="inr">${esc(P.feeINR)} approx. · EMI options available</small>` : ""));
     if (P.earlyBird && $("p-early")) { $("p-early").textContent = "🎉 " + P.earlyBird; $("p-early").hidden = false; }
     set("p-feenote", esc(P.feeNote || (P.fee ? "Talk to a counsellor about payment options." : "Fees are shared when enrolment opens. Talk to a counsellor for details.")));
     set("p-schedule", [["Cohort", P.cohort || "Next cohort"], ["Starts", P.start || "Opening soon"], ["Duration", P.duration], ["Format", P.format], ["Time needed", P.effort]].map(([k, v]) => `<li><span class="meta" style="min-width:110px;display:inline-block">${k}</span> <b>${esc(v || "—")}</b></li>`).join(""));

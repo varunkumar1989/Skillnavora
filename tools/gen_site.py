@@ -181,13 +181,20 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     # Option 2 (approved): Upskill for free has four flat items, no nested menus
     _PR_IC = U["questions.html"][3]
     # Upskill for free: learn (courses, programme pages, handbooks, members), then resources, tools, practice and events
-    up_menu = (item("ai-academy.html", "AI Courses", "Every AI skills course, plus the Vaitis AI library", aipages.AI_NAV[1][3])
-               + item("learning-platform.html", "Learning Platform", "One page per programme: content, tools and links", '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>')
-               + item("handbooks/index.html", "Handbooks & PDFs", "PM, Data Science & AI, DSA and GenAI handbooks", '<path d="M4 19.5V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14.5"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20V17H6.5A2.5 2.5 0 0 0 4 19.5z"/>')
-               + item("members.html", "Members library", "Interactive handbooks for members (access needed)", '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>')
-               + item("resources.html", "Free Resources", "Tools, context engineering, evals, LLMs and RAG", _RI)
-               + item("ai.html", "AI Studio", "AI tutor, PRD writer and speaking coach, free", aipages.AI_NAV[0][3])
-               + item("practice-hub.html", "Interview Prep", "Interview questions, practice tests and quizzes", _PR_IC)
+    _LOCK_IC = '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'
+    _BOOK_IC = '<path d="M4 19.5V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14.5"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20V17H6.5A2.5 2.5 0 0 0 4 19.5z"/>'
+    _LP_IC = '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>'
+    # Upskill for free (clean, five top items): AI Course (AI Studio inside), Learning Platform, Free Resources
+    # (Members library inside, Handbooks & PDFs under it), Interview Preparation, Events
+    up_menu = (sub("AI Course", "Courses and AI Studio tools, free", aipages.AI_NAV[1][3], [
+                   ("ai-academy.html", "All AI courses", "Every AI skills course, plus the Vaitis AI library", aipages.AI_NAV[1][3]),
+                   ("ai.html", "AI Studio", "AI tutor, PRD writer and speaking coach, free", aipages.AI_NAV[0][3])])
+               + item("learning-platform.html", "Learning Platform", "One page per programme: content, tools and links", _LP_IC)
+               + sub("Free Resources", "Tools, members library and handbooks", _RI, [
+                   ("resources.html", "All free resources", "Tools, context engineering, evals, LLMs and RAG", _RI),
+                   ("members.html", "Members library", "Interactive handbooks for members (access needed)", _LOCK_IC),
+                   ("handbooks/index.html", "Handbooks & PDFs", "Open to approved Members library members", _BOOK_IC)])
+               + item("practice-hub.html", "Interview Preparation", "Interview questions, practice tests and quizzes", _PR_IC)
                + item(*U["events.html"]))
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>

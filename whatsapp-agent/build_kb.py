@@ -155,7 +155,7 @@ conf = [
  ["Monthly 1:1 with a CEO or Head of Product", "Shown as a benefit. Confirm how often it happens and who runs it for each cohort."],
  ["25+ real-world case studies", "Shown as a benefit. The Case Study Library PDF lists 12 cases. Confirm how the 25+ is counted, or change the number."],
  ["Cohort start dates", "Not published for any programme. The agent should not invent dates."],
- ["INR fees", "Fees converted to rupees on the site (for example $2,000 = ₹1,74,000) imply different exchange rates. Confirm the INR amounts."],
+ ["INR fees", "Fees converted to rupees on the site (for example $999 = ₹99,999) imply different exchange rates. Confirm the INR amounts."],
  ["Counselling booking link and office address", "Not set in the site settings. The agent should not give a link or address until these are added."],
  ["Placement statistics", "Hidden on the site (config show = false). Do not use unless verified and published."],
 ]
