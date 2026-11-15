@@ -1,7 +1,7 @@
 // Renders the handbook HTML to an A4 PDF with the browser that ships with this environment.
 // Usage: node tools/aihandbook/render_pdf.js <input.html> <output.pdf>
 const { chromium } = require('playwright');
-const [, , input, output] = process.argv;
+const [, , input, output, mode] = process.argv;  // mode 'plain' = no header or footer
 (async () => {
   const exe = '/opt/pw-browsers/chromium';
   const launch = require('fs').existsSync(exe) ? { executablePath: exe, args: ['--no-sandbox'] } : {};
@@ -12,7 +12,7 @@ const [, , input, output] = process.argv;
   await p.pdf({
     path: output, format: 'A4', printBackground: true,
     margin: { top: '16mm', bottom: '18mm', left: '14mm', right: '14mm' },
-    displayHeaderFooter: true, headerTemplate: '<div></div>',
+    displayHeaderFooter: mode !== 'plain', headerTemplate: '<div></div>',
     footerTemplate: '<div style="font:8px Inter,sans-serif;color:#56607a;width:100%;text-align:center">AI Master Course Handbook · SkillNavora · page <span class="pageNumber"></span> of <span class="totalPages"></span></div>',
   });
   await b.close();
