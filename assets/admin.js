@@ -76,6 +76,7 @@
     let p; [p, enr, prog, subs, reqs, events, regs, mats, news, apps, jobs] = q.map(r => r.data || []);
     people = Object.fromEntries(p.map(x => [x.id, x]));
     paint();
+    loadTeachers();
   }
 
   function paint() {
@@ -178,7 +179,33 @@
   function admins() { $("adm-list").innerHTML = Object.values(people).filter(x => x.role === "admin").map(x => `<div class="item"><b>${esc(x.full_name || x.email)}</b> <span class="meta">${esc(x.email)}</span></div>`).join(""); }
   $("f-role").addEventListener("submit", async e => { e.preventDefault(); const f = e.target;
     const { error } = await client.rpc("set_role", { target_email: f.email.value.trim(), new_role: f.role.value });
-    if (ok("role-msg", error, `Done. ${f.email.value.trim()} is now ${f.role.value === "admin" ? "an admin" : "a student"}.`)) { f.reset(); load(); } });
+    const label = { admin: "an admin", mentor: "a mentor", student: "a student" }[f.role.value] || f.role.value;
+    if (ok("role-msg", error, `Done. ${f.email.value.trim()} is now ${label}.`)) { f.reset(); load(); } });
+
+  /* ---------- Teachers: mentors and their courses ---------- */
+  let assigned = null;
+  async function loadTeachers() {
+    const { data, error } = await client.from("course_instructors").select("*");
+    assigned = error ? null : (data || []);
+    teachers();
+  }
+  function teachers() {
+    const box = $("tch-list"), mentorBox = $("tch-mentors");
+    if (!box) return;
+    if (assigned === null) { box.innerHTML = '<p class="meta">Mentor assignments need the newest database update: run supabase/schema.sql again (see supabase/README.md).</p>'; mentorBox.innerHTML = ""; return; }
+    const mentors = Object.values(people).filter(x => x.role === "mentor");
+    mentorBox.innerHTML = mentors.length ? mentors.map(x => `<div class="item"><b>${esc(x.full_name || x.email)}</b> <span class="meta">${esc(x.email)}</span></div>`).join("") : '<p class="meta">No mentors yet. Make someone a mentor in the Admins tab.</p>';
+    box.innerHTML = assigned.length ? assigned.map(a => `<div class="item"><div class="item-h"><b>${esc(who(a.user_id))}</b> <span class="meta">${esc(cname(a.course_id))}</span></div><button class="link-btn" type="button" data-unassign="${esc(a.course_id)}|${esc(a.user_id)}">Remove from course</button></div>`).join("") : '<p class="meta">No mentors assigned to a course yet.</p>';
+  }
+  $("f-assign").addEventListener("submit", async e => { e.preventDefault(); const f = e.target;
+    const { error } = await client.rpc("assign_instructor", { target_email: f.email.value.trim(), course: f.course.value });
+    if (ok("assign-msg", error, `Done. ${f.email.value.trim()} now teaches ${cname(f.course.value)}.`)) { f.reset(); loadTeachers(); } });
+  document.addEventListener("click", async e => {
+    const b = e.target.closest("[data-unassign]"); if (!b) return;
+    const [cid, uid] = b.dataset.unassign.split("|");
+    const { error } = await client.from("course_instructors").delete().eq("course_id", cid).eq("user_id", uid);
+    if (error) notice($("assign-msg"), "error", errText(error)); else loadTeachers();
+  });
 
   /* ---------- Shared click actions ---------- */
   document.addEventListener("click", async e => {

@@ -21,7 +21,7 @@ create table if not exists public.profiles (
   phone       text,
   linkedin    text,
   goal        text,
-  role        text not null default 'student' check (role in ('student', 'admin')),
+  role        text not null default 'student' check (role in ('student', 'mentor', 'admin')),
   created_at  timestamptz not null default now()
 );
 
@@ -311,7 +311,7 @@ create or replace function public.set_role(target_email text, new_role text)
 returns void language plpgsql security definer set search_path = public as $$
 begin
   if not public.is_admin() then raise exception 'Only admins can change roles'; end if;
-  if new_role not in ('student', 'admin') then raise exception 'Role must be student or admin'; end if;
+  if new_role not in ('student', 'mentor', 'admin') then raise exception 'Role must be student, mentor or admin'; end if;
   if lower(target_email) = lower((select email from public.profiles where id = auth.uid())) and new_role <> 'admin' then
     raise exception 'You cannot remove your own admin access';
   end if;
@@ -343,3 +343,82 @@ revoke execute on function public.handle_new_user() from public, anon, authentic
 --
 -- After that, add other admins and enrol students from the Admin page.
 -- =====================================================================
+
+-- ---------- Mentors and teachers (added with the mentor role) ----------
+-- 1. Allow the mentor role
+alter table public.profiles drop constraint if exists profiles_role_check;
+alter table public.profiles add constraint profiles_role_check check (role in ('student', 'mentor', 'admin'));
+
+-- 2. Which mentor teaches which course
+create table if not exists public.course_instructors (
+  course_id   text not null check (course_id ~ '^[a-z0-9-]{1,40}$'),
+  user_id     uuid not null references public.profiles (id) on delete cascade,
+  created_at  timestamptz not null default now(),
+  primary key (course_id, user_id)
+);
+alter table public.course_instructors enable row level security;
+revoke all on public.course_instructors from anon, authenticated;
+grant select, insert, delete on public.course_instructors to authenticated;
+
+drop policy if exists "read own or admin" on public.course_instructors;
+create policy "read own or admin" on public.course_instructors for select to authenticated
+  using (user_id = auth.uid() or public.is_admin());
+drop policy if exists "admin insert" on public.course_instructors;
+create policy "admin insert" on public.course_instructors for insert to authenticated with check (public.is_admin());
+drop policy if exists "admin delete" on public.course_instructors;
+create policy "admin delete" on public.course_instructors for delete to authenticated using (public.is_admin());
+
+-- 3. Helper checks (admins count as instructors of every course)
+create or replace function public.is_instructor(c text)
+returns boolean language sql stable security definer set search_path = public as $$
+  select public.is_admin() or exists (
+    select 1 from public.course_instructors where course_id = c and user_id = auth.uid());
+$$;
+revoke execute on function public.is_instructor(text) from public, anon;
+grant execute on function public.is_instructor(text) to authenticated;
+
+-- 4. Rows mentors may see and change, course by course
+-- Materials: an instructor of the course can read, add, edit and remove its materials
+drop policy if exists "enrolled or admin read" on public.materials;
+drop policy if exists "enrolled, instructor or admin read" on public.materials;
+create policy "enrolled, instructor or admin read" on public.materials for select to authenticated
+  using (public.is_admin() or public.is_enrolled(course_id) or public.is_instructor(course_id));
+drop policy if exists "instructor insert" on public.materials;
+create policy "instructor insert" on public.materials for insert to authenticated with check (public.is_instructor(course_id));
+drop policy if exists "instructor update" on public.materials;
+create policy "instructor update" on public.materials for update to authenticated
+  using (public.is_instructor(course_id)) with check (public.is_instructor(course_id));
+drop policy if exists "instructor delete" on public.materials;
+create policy "instructor delete" on public.materials for delete to authenticated using (public.is_instructor(course_id));
+
+-- Enrolments: an instructor can see the students in their course (read only)
+drop policy if exists "read own or admin" on public.enrollments;
+create policy "read own, admin or instructor" on public.enrollments for select to authenticated
+  using (user_id = auth.uid() or public.is_admin() or public.is_instructor(course_id));
+
+-- Assignments: an instructor can read and review submissions for their course
+drop policy if exists "read own or admin" on public.submissions;
+create policy "read own, admin or instructor" on public.submissions for select to authenticated
+  using (user_id = auth.uid() or public.is_admin() or public.is_instructor(course_id));
+drop policy if exists "instructor review" on public.submissions;
+create policy "instructor review" on public.submissions for update to authenticated
+  using (public.is_instructor(course_id)) with check (public.is_instructor(course_id));
+
+
+-- 6. Assign a mentor to a course by email (admins only)
+create or replace function public.assign_instructor(target_email text, course text)
+returns void language plpgsql security definer set search_path = public as $$
+declare uid uuid;
+begin
+  if not public.is_admin() then raise exception 'Only admins can assign mentors'; end if;
+  select id into uid from public.profiles where lower(email) = lower(target_email);
+  if uid is null then raise exception 'No account with that email. Ask them to sign up first.'; end if;
+  insert into public.course_instructors (course_id, user_id) values (course, uid) on conflict do nothing;
+end $$;
+revoke execute on function public.assign_instructor(text, text) from public, anon;
+grant execute on function public.assign_instructor(text, text) to authenticated;
+
+-- Names and emails of students in a mentor's course (only those students, only for courses the mentor teaches)
+drop policy if exists "instructor reads own students" on public.profiles;
+create policy "instructor reads own students" on public.profiles for select to authenticated
+  using (exists (select 1 from public.enrollments e where e.user_id = profiles.id and public.is_instructor(e.course_id)));

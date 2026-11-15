@@ -1039,6 +1039,7 @@ login = login.replace('''      <form id="s-email" class="form"><form id="f-email
       <div id="s-choose" hidden><div class="choose">
         <a href="lms.html"><span class="ci">{SVG('<rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="14" y="13" width="7" height="8" rx="1.5"/>')}</span><b>My course dashboard</b><span>→</span></a>
         <a href="admin.html" id="go-admin" hidden><span class="ci">{SVG('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>')}</span><b>Admin panel</b><span>→</span></a>
+        <a href="teach.html" id="go-teach" hidden><span class="ci">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><b>Teaching dashboard</b><span>→</span></a>
         <a href="programs.html"><span class="ci">{SVG('<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>')}</span><b>Explore SkillNavora programs</b><span>→</span></a>
       </div></div>
       <div id="methods">
@@ -1140,7 +1141,7 @@ admin = f"""<div class="lms-head"><div class="wrap"><div><div class="kicker" sty
     <div class="tabs" role="tablist">
       <button role="tab" data-tab="overview">Overview</button><button role="tab" data-tab="students">Students</button><button role="tab" data-tab="enrol">Enrolments</button><button role="tab" data-tab="materials">Course materials</button>
       <button role="tab" data-tab="subs">Submissions<span class="n" id="n-subs" hidden></span></button><button role="tab" data-tab="events">Events</button>
-      <button role="tab" data-tab="apps">Applications<span class="n" id="n-apps" hidden></span></button><button role="tab" data-tab="reqs">Requests<span class="n" id="n-reqs" hidden></span></button><button role="tab" data-tab="jobs">Job board</button><button role="tab" data-tab="news">Announcements</button><button role="tab" data-tab="admins">Admins</button><button role="tab" data-tab="health">Site check</button>
+      <button role="tab" data-tab="apps">Applications<span class="n" id="n-apps" hidden></span></button><button role="tab" data-tab="reqs">Requests<span class="n" id="n-reqs" hidden></span></button><button role="tab" data-tab="jobs">Job board</button><button role="tab" data-tab="news">Announcements</button><button role="tab" data-tab="teachers">Teachers</button><button role="tab" data-tab="admins">Admins</button><button role="tab" data-tab="health">Site check</button>
     </div>
     <div class="panel" id="p-overview">
       <div class="statrow"><div class="card stat"><small>Students</small><b id="o-students">0</b></div><div class="card stat"><small>Enrolments</small><b id="o-enr">0</b></div><div class="card stat"><small>Awaiting review</small><b id="o-waiting">0</b></div><div class="card stat"><small>Open requests</small><b id="o-open">0</b></div><div class="card stat"><small>New applications</small><b id="o-apps">0</b></div></div>
@@ -1175,8 +1176,14 @@ admin = f"""<div class="lms-head"><div class="wrap"><div><div class="kicker" sty
     <div class="panel" id="p-reqs" hidden><div class="card"><label style="max-width:300px;margin-bottom:14px">Show<select id="req-filter"><option value="open">Open</option><option value="done">Done</option><option value="all">All</option></select></label><div class="list" id="req-list"></div></div></div>
     <div class="panel" id="p-news" hidden><div class="dgrid"><div class="card"><h3 class="h3s">Post an announcement</h3><form id="f-news" class="form"><label>Title<input name="title" required maxlength="200"></label><label>Message<textarea name="body" required maxlength="8000"></textarea></label><button class="btn btn-primary" type="submit">Post to all students</button><p id="news-msg" class="notice" hidden role="status"></p></form></div><div><h3 class="h3s">Posted</h3><div class="list" id="news-list"></div></div></div></div>
     <div class="panel" id="p-admins" hidden><div class="dgrid"><div class="card"><h3 class="h3s">Give or remove admin access</h3><p class="meta" style="margin:-6px 0 14px">Admins can see every student's details and work.</p>
-      <form id="f-role" class="form"><label>Their account email<input name="email" type="email" required></label><label>Make them<select name="role"><option value="admin">Admin</option><option value="student">Student (remove admin)</option></select></label><button class="btn btn-primary" type="submit">Save</button><p id="role-msg" class="notice" hidden role="status"></p></form></div>
+      <form id="f-role" class="form"><label>Their account email<input name="email" type="email" required></label><label>Make them<select name="role"><option value="mentor">Mentor (teaches courses)</option><option value="admin">Admin</option><option value="student">Student</option></select></label><button class="btn btn-primary" type="submit">Save</button><p id="role-msg" class="notice" hidden role="status"></p></form></div>
       <div><h3 class="h3s">Current admins</h3><div class="list" id="adm-list"></div></div></div></div>
+    <div class="panel" id="p-teachers" hidden><div class="dgrid"><div class="card"><h3 class="h3s">Assign a mentor to a course</h3>
+      <p class="meta" style="margin:-6px 0 14px">First make the person a mentor (Admins tab). Then assign them here. A mentor sees and manages only the courses assigned to them, at <a href="teach.html">teach.html</a>.</p>
+      <form id="f-assign" class="form"><label>Mentor's account email<input name="email" type="email" required></label><label>Course<select name="course" data-courses required></select></label>
+      <button class="btn btn-primary btn-sm" type="submit">Assign mentor</button><p id="assign-msg" class="notice" hidden role="status"></p></form></div>
+      <div class="card"><h3 class="h3s">Current assignments</h3><div class="list" id="tch-list"></div>
+      <h3 class="h3s" style="margin-top:18px">Mentors</h3><div class="list" id="tch-mentors"></div></div></div></div>
     <div class="panel" id="p-health" hidden><div class="card"><h3 class="h3s">Site check</h3>
       <p class="meta" style="margin:-6px 0 14px">Tests every page, handbook PDF, class file and form on skillnavora.in from your browser, and counts handbook visitors. While you are signed in as an admin, the visitor details form is skipped for you on every page, so your own visits are not counted. Visitors still fill it once.</p>
       <div class="acts" style="margin-bottom:14px"><button class="btn btn-primary btn-sm" type="button" id="hc-run">Run site check</button></div>

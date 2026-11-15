@@ -18,6 +18,9 @@
     if (safeNext) return location.replace(safeNext);
     const { data: admin } = await client.rpc("is_admin");
     $("go-admin").hidden = !admin;
+    // Mentors (teachers) get a link to their teaching dashboard. Their role is read from their own profile.
+    const me = await SN.session(), prof = me ? await SN.profile(me.user.id) : null;
+    const go = $("go-teach"); if (go) go.hidden = !(admin || (prof && prof.role === "mentor"));
     $("auth-title").textContent = "What are you looking for?"; $("auth-sub").hidden = true; $("switch").hidden = true;
     show("s-choose");
   }

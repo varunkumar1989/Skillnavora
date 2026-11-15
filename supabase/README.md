@@ -29,6 +29,16 @@ Never paste the **secret** or **service_role** key anywhere on the website. The 
    ```
 3. Log in again: you'll land on the **Admin panel**. Add more admins from its **Admins** tab.
 
+## Mentors and teachers (run once; safe to repeat)
+Mentors can sign in, see only the courses assigned to them, add course materials, see their students, and review assignments for those courses. They cannot change roles, enrol students or see other courses.
+
+1. In **SQL Editor → New query**, paste all of `supabase/schema.sql` and **Run**. It keeps your data. (The mentor rules are part of that file, so re-running it later is also safe.)
+2. In the website's **Admin panel → Admins**, make the mentor's account a mentor (they must sign up first).
+3. In **Admin panel → Teachers**, assign that mentor to a course.
+4. The mentor signs in and opens the **Teaching dashboard** (`teach.html`).
+
+Test it before you invite teachers: sign in as a mentor and check that only the assigned course appears.
+
 ## Update: mentor, careers and Data Engineering jobs (run once)
 The "Become a mentor" and "Careers" forms save into the same Applications list, and the Job board has a "Data Engineering" category. On a project set up before 24 October 2026, run this once in **SQL Editor → New query → Run** (safe to run again):
 
