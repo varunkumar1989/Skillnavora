@@ -10,6 +10,7 @@ import { checkToken, cookieFrom, passFrom } from "./api/pdf-access.js";
 import { classify, allowed } from "../assets/paywall-core.js";
 import catalog from "../assets/products.json";
 
+const MEMBERS = /^\/members(\.html)?$/;
 const PROTECTED = /\.(pdf|xlsx|xls|csv|zip|pptx|docx|ipynb)$/i;
 
 // Tells the page's script (assets/gate.js) that the paywall is on, so it checks access before opening a file
@@ -25,6 +26,17 @@ export async function onRequest(context) {
   const { request, env, next } = context;
   const url = new URL(request.url);
   if (url.pathname.startsWith("/api/") || url.pathname.startsWith("/assets/")) return next();
+
+  // Members library: always locked (whatever the PAYWALL setting). Admins, emails the owner approved and all-access
+  // buyers get in; everyone else is asked to sign in and request access. Fails closed without PDF_SECRET.
+  if (MEMBERS.test(url.pathname)) {
+    const pass = await passFrom(request, env);
+    if (pass && (pass.a || (pass.p || []).includes("all-access"))) {
+      const res = await next(); const out = new Response(res.body, res); out.headers.set("cache-control", "private, no-store"); return out;
+    }
+    const dest = new URL("/access.html", url); dest.searchParams.set("next", "/members.html");
+    return Response.redirect(dest.toString(), 302);
+  }
 
   if (env.PAYWALL === "on") {
     const info = classify(url.pathname, catalog);

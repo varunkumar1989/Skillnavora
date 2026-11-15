@@ -60,6 +60,8 @@ ABOUT = [("about.html", "About SkillNavora", "Our story, mission and team", '<ci
          ("about.html#team", "SkillNavora team", "Meet our founder and mentors", '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'),
          ("about.html#why-us", "Why us", "What makes SkillNavora different", '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/>'),
          ("reviews.html", "Reviews", "What learners say", '<path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>'),
+         ("mentor.html", "Become a mentor", "Guide learners, run sessions and mock interviews", '<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>'),
+         ("careers.html", "Careers at SkillNavora", "Open roles and how to join our team", '<path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>'),
          ("contact.html", "Contact us", "Talk to our team", '<path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/>')]
 UPSKILL = [("", "Practice & test yourself", "", ""),
            ("tests.html", "Practice tests", "W3Schools-style tests with hints and solutions", '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'),
@@ -178,10 +180,13 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
     _TOOLS_IC = '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.1-.6-.6-2.1z"/>'
     # Option 2 (approved): Upskill for free has four flat items, no nested menus
     _PR_IC = U["questions.html"][3]
-    up_menu = (item("learning-platform.html", "Learning Platform", "One page per programme: content, related programmes, tools and links", '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>')
-               + item("ai.html", "AI Studio", "AI tutor, PRD writer, speaking coach and practice, free", aipages.AI_NAV[0][3])
-               + item("ai-academy.html", "AI Courses", "Every AI skills course: models and agents, Grokbot, context and evals, Lovable, tool tutorials", aipages.AI_NAV[1][3])
-               + item("resources.html", "Free Resources", "Programmes, tools, context engineering, evals, LLMs and RAG", _RI)
+    # Upskill for free: learn (courses, programme pages, handbooks, members), then resources, tools, practice and events
+    up_menu = (item("ai-academy.html", "AI Courses", "Every AI skills course, plus the Vaitis AI library", aipages.AI_NAV[1][3])
+               + item("learning-platform.html", "Learning Platform", "One page per programme: content, tools and links", '<path d="M4 4h16v4H4zM4 12h7v8H4zM13 12h7v8h-7z"/>')
+               + item("handbooks/index.html", "Handbooks & PDFs", "PM, Data Science & AI, DSA and GenAI handbooks", '<path d="M4 19.5V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14.5"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20V17H6.5A2.5 2.5 0 0 0 4 19.5z"/>')
+               + item("members.html", "Members library", "Interactive handbooks for members (access needed)", '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>')
+               + item("resources.html", "Free Resources", "Tools, context engineering, evals, LLMs and RAG", _RI)
+               + item("ai.html", "AI Studio", "AI tutor, PRD writer and speaking coach, free", aipages.AI_NAV[0][3])
                + item("practice-hub.html", "Interview Prep", "Interview questions, practice tests and quizzes", _PR_IC)
                + item(*U["events.html"]))
     on = lambda group: " on" if active in group else ""
@@ -210,23 +215,22 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
   <a class="brand" href="{r}index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="{r}assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="{r}assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
   <nav class="nav" id="nav" aria-label="Main">
     <div class="dd{on([p for _, p, *_ in PROGRAMS] + ['programs.html', 'business.html'])}"><button type="button" aria-expanded="false">Programs {CHEV}</button><div class="dd-menu">{prog_menu}{sub("Other programs", "SFMC training, digital marketing, FDE and public speaking", '<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>', OTHER_MAIN + [("other-programs.html", "All other programs", "Content creation and every other program, with reading", '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/>'), ("programs.html", "All programs", "Compare programs, fees and FAQs", '<path d="M4 6h16M4 12h16M4 18h10"/>')])}<a href="{r}business.html"{cur('business.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>For business</b><small>AI training for teams and colleges</small></span></a></div></div>
-    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html', 'learning-platform.html', 'practice-hub.html', 'ai.html', 'ai-academy.html'])}"><button type="button" aria-expanded="false">Upskill for Free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
-    <div class="dd{on(['jobs.html', 'careers.html', 'mentor.html', 'hire.html', 'ai-jobs-2027.html'])}"><button type="button" aria-expanded="false">Jobs &amp; Careers {CHEV}</button><div class="dd-menu">
+    <div class="dd{on([p.split('#')[0] for p, *_ in UPSKILL if p] + ['study-library.html', 'master-freelancing.html', 'tools-and-resources.html', 'learning-platform.html', 'practice-hub.html', 'ai.html', 'ai-academy.html', 'handbooks/index.html', 'members.html', 'buy.html'])}"><button type="button" aria-expanded="false">Upskill for Free {CHEV}</button><div class="dd-menu">{up_menu}</div></div>
+    <div class="dd{on(['jobs.html', 'hire.html', 'ai-jobs-2027.html'])}"><button type="button" aria-expanded="false">Jobs &amp; Careers {CHEV}</button><div class="dd-menu">
       <a href="{r}ai-jobs-2027.html"{cur('ai-jobs-2027.html')}><span class="dd-ico">{SVG('<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/><path d="M15 8h5v5"/>')}</span><span><b>AI Jobs 2027 roadmap</b><small>7-week sprint, role tracks and a 2027 plan</small></span></a>
       <a href="{r}jobs.html"{cur('jobs.html')}><span class="dd-ico">{SVG('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>')}</span><span><b>Job board</b><small>All job portals, alerts and openings</small></span></a>
-      <a href="{r}mentor.html"{cur('mentor.html')}><span class="dd-ico">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><span><b>Become a mentor</b><small>Guide learners, run sessions and mock interviews</small></span></a>
-      <a href="{r}careers.html"{cur('careers.html')}><span class="dd-ico">{SVG('<path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>')}</span><span><b>Career with SkillNavora</b><small>Open roles and how to join our team</small></span></a>
       <a href="{r}hire.html"{cur('hire.html')}><span class="dd-ico">{SVG('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>')}</span><span><b>Hire from SkillNavora</b><small>Is your company hiring? Get in touch</small></span></a>
     </div></div>
     <a href="{r}blogs.html"{cur('blogs.html')}>Blogs</a>
     <a href="#" data-community hidden>Community</a>
-    <div class="dd{on(['about.html', 'reviews.html', 'blogs.html', 'contact.html'] + (['blogs.html'] if path.startswith('blog/') else []))}"><button type="button" aria-expanded="false">About Us {CHEV}</button><div class="dd-menu">{about_menu}</div></div>
+    <div class="dd{on(['about.html', 'reviews.html', 'contact.html', 'careers.html', 'mentor.html'] + (['blogs.html'] if path.startswith('blog/') else []))}"><button type="button" aria-expanded="false">About Us {CHEV}</button><div class="dd-menu">{about_menu}</div></div>
   </nav>
   <div class="tools">
     <a class="icon-btn search-btn" href="{r}search.html" aria-label="Search the site" title="Search">{SVG('<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>')}</a>
     <button class="icon-btn theme" type="button" aria-label="Switch light or dark mode">{SVG('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>').replace('<svg', '<svg class="sun"')}{SVG('<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>').replace('<svg', '<svg class="moon"')}</button>
     <div class="dd login-dd"><button type="button" class="btn-login" id="nav-login" aria-expanded="false"><span>Log in</span> {CHEV}</button><div class="dd-menu">
       <a href="{r}login.html" id="nav-student"><span class="dd-ico">{SVG('<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>')}</span><span><b>Student login</b><small>Your LMS, courses, handbook and resources</small></span></a>
+      <a href="{r}login.html?next=teach.html"><span class="dd-ico">{SVG('<path d="M2 3h20v14H2z"/><path d="M8 21h8M12 17v4"/>')}</span><span><b>Mentor login</b><small>Your courses, students and reviews</small></span></a>
       <a href="{r}login.html?role=admin&amp;next=admin.html"><span class="dd-ico">{SVG('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>')}</span><span><b>Admin login</b><small>For the SkillNavora team</small></span></a></div></div>
     <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">{SVG('<path d="M3 6h18M3 12h18M3 18h18"/>')}</button>
   </div>
@@ -1646,7 +1650,7 @@ with open(f"{OUT}/assets/search-index.json", "w") as f:
 # ================================================================ handbook and PDF access
 ACCESS_BODY = """<section class="sn-search"><div class="wrap" style="max-width:640px">
   <div class="kicker">Handbooks and PDFs</div><h1 class="sec-h" style="margin:6px 0 14px">Get access to the handbooks and PDFs</h1>
-  <p>The course content is open to everyone: the lessons, what each course teaches, and the topics you will learn. The handbook PDFs, workbooks and practice files need the owner's approval.</p>
+  <p>The course content is open to everyone: the lessons, what each course teaches, and the topics you will learn. The handbook PDFs, workbooks, practice files and the Members library (interactive handbooks) need the owner's approval.</p>
   <ol style="margin:12px 0 18px 20px;line-height:1.7"><li>Sign in with your email.</li><li>Request access with your name, phone and reason.</li><li>You get the files by email, or access within 24 hours once approved.</li></ol>
   <p class="meta" id="acc-who" style="margin:0 0 12px"></p>
   <p><a class="btn btn-primary" id="acc-signin" href="login.html" hidden>Sign in to request access</a></p>
@@ -1690,6 +1694,8 @@ BUY_BODY = """<style>
 page("buy.html", "Buy handbooks and PDFs · SkillNavora", "Buy SkillNavora handbooks, single PDF parts or the all-access pass. Secure payment by Razorpay.", BUY_BODY, None,
      SB + '<script type="module" src="{r}assets/buy.js"></script>', noindex=True)
 
+import members_page as _mb
+page("members.html", "Members library · SkillNavora", "Interactive handbooks and workshops for SkillNavora members.", _mb.body(), "members.html", noindex=True)
 page("access.html", "Handbook and PDF access · SkillNavora", "Request access to the handbook PDFs, workbooks and practice files. Course content is open to everyone.", ACCESS_BODY, None, '<script src="{r}assets/access.js"></script>', noindex=True)
 
 # ================================================================ cleanup + SEO
@@ -1724,3 +1730,4 @@ print("card titles linked (pages, cards):", cardlinks.run())
 
 import legacy_links
 print("legacy links rewritten:", legacy_links.run(OUT))
+print("artifact links moved into the members library:", _mb.run(OUT))

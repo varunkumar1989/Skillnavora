@@ -28,8 +28,11 @@
     // Approved already? Then the server sets the access cookie and we continue to the file.
     const check = async () => {
       const r = await fetch(root + "api/pdf-access", { method: "POST", headers: { authorization: "Bearer " + s.access_token } });
-      if (r.ok) { say("Access approved. Opening your file…"); location.href = next; return; }
-      if (r.status === 403) say("Your request is not approved yet. You will get the files by email, or within 24 hours once approved.", false);
+      const j = await r.json().catch(() => ({}));
+      // Open only when the pass really covers it (admin or all-access), so the visitor is not sent back here in a loop.
+      if (r.ok && (j.admin || (j.products || []).includes("all-access"))) { say("Access approved. Opening…"); location.href = next; return; }
+      if (r.ok && /\.(pdf|xlsx|xls|csv|zip|pptx|docx|ipynb)$/i.test(next)) { location.href = "/buy.html?for=" + encodeURIComponent(next); return; }
+      if (r.ok || r.status === 403) say("Your request is not approved yet. You will get the files by email, or within 24 hours once approved.", false);
       else if (r.status === 401) say("Please sign in again.", true);
       else say("We could not check your access right now. Please try again.", true);
     };
