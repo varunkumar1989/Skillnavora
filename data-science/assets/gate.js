@@ -139,11 +139,11 @@
       // On skillnavora.in, confirm the email with a one-time code first (same check as the main site).
       let tok = null;
       if (/(^|\.)skillnavora\.in$/.test(location.hostname)) {
-        b.textContent = "Sending a code to your email…";
+        b.textContent = "Sending a code…";
         try {
           if (typeof AUTH === "undefined") await loadJs("/assets/config.js");
           if (!window.SNverify) await loadJs("/assets/verify.js");
-          if (typeof AUTH === "undefined" || AUTH.verifyEmail !== false) tok = (await window.SNverify.ensure(v("email"), v("name"))).token;
+          if (typeof AUTH === "undefined" || AUTH.verifyEmail !== false) tok = (await window.SNverify.choose({ email: v("email"), phone, name: v("name") })).token;
         } catch (er) { b.disabled = false; b.textContent = "Unlock access"; return say(er && er.cancelled ? "Please confirm your email with the code to unlock the files." : (er && er.message) || "We could not check your email. Please try again."); }
       }
       b.textContent = "Unlocking…";

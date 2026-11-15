@@ -109,7 +109,7 @@ MODALS_HTML = f'''<div class="modal" id="m-counsel" role="dialog" aria-modal="tr
     <form id="f-counsel" novalidate>
       <div class="mstep" data-step="1">
         <fieldset><legend><span class="req">Select your highest qualification</span></legend><div class="radios">
-          {''.join(f'<label><input type="radio" name="qual" value="{q}"> {q}</label>' for q in ["12th", "Diploma", "Undergraduate", "Postgraduate"])}</div></fieldset>
+          {''.join(f'<label><input type="radio" name="qual" value="{q}"> {q}</label>' for q in ["12th", "Diploma", "Graduate", "Postgraduate"])}</div></fieldset>
         <fieldset><legend><span class="req">Select your graduation year</span></legend><div class="radios">
           {''.join(f'<label><input type="radio" name="grad" value="{q}"> {q}</label>' for q in ["Before 2015", "2015 – 2020", "2021 – 2025", "2026 or later", "Haven't joined college yet"])}</div></fieldset>
       </div>

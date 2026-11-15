@@ -49,16 +49,22 @@ export function cleanPhone(raw) {
   return "+" + code + " " + d;
 }
 
-async function emailVerified(request, email, env) {
+// Which details the signed-in person has confirmed with a code: their email and/or their phone number.
+async function verifiedBy(request, email, phone, env) {
+  const none = { email: false, phone: false };
   const bearer = (request.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
-  if (!bearer) return false;
+  if (!bearer) return none;
   try {
     const base = (env.SUPABASE_URL || SUPABASE_URL).replace(/\/$/, "");
     const r = await fetch(base + "/auth/v1/user", { headers: { apikey: env.SUPABASE_KEY || SUPABASE_KEY, authorization: "Bearer " + bearer } });
-    if (!r.ok) return false;
+    if (!r.ok) return none;
     const u = await r.json();
-    return !!(u && u.email && u.email_confirmed_at && u.email.toLowerCase() === String(email).toLowerCase());
-  } catch { return false; }
+    if (!u) return none;
+    const emailOk = !!(email && u.email && u.email_confirmed_at && u.email.toLowerCase() === String(email).toLowerCase());
+    const digits = x => String(x || "").replace(/\D/g, "");
+    const phoneOk = !!(phone && u.phone_confirmed_at && digits(u.phone) && digits(u.phone) === digits(phone));
+    return { email: emailOk, phone: phoneOk };
+  } catch { return none; }
 }
 
 async function handle({ request, env }) {
@@ -70,14 +76,15 @@ async function handle({ request, env }) {
     const v = body[k];
     if (v != null && v !== "") row[k] = String(v).slice(0, max).trim();
   }
-  if (row.message) row.message = row.message.replace(/^\s*\[email verified\]\s*/i, ""); // only the server may say this
+  if (row.message) row.message = row.message.replace(/^\s*\[(email|phone) verified\]\s*/i, ""); // only the server may say this
   if (!row.first_name || !/\p{L}.*\p{L}/u.test(row.first_name)) return json({ ok: false, error: "invalid_name" }, 400);
   const ph = cleanPhone(row.phone);
   if (!ph) return json({ ok: false, error: "invalid_phone" }, 400);
   row.phone = ph;
   if (row.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(row.email)) delete row.email;
-  // Email verified? Only when the request carries a sign-in for this same email and that email is confirmed.
-  const verified = row.email ? await emailVerified(request, row.email, env) : false;
+  // Verified? Only when the request carries a sign-in whose confirmed email or phone matches what was sent.
+  const who = await verifiedBy(request, row.email, row.phone, env);
+  const verified = who.email || who.phone;
   if (row.message && (row.message.match(/https?:\/\//g) || []).length > 3) return json({ ok: false, error: "invalid" }, 400);
   if (row.course_id && !/^[a-z0-9-]{1,40}$/.test(row.course_id)) delete row.course_id;
   row.kind = LABEL[row.kind] ? row.kind : "application";
@@ -90,9 +97,9 @@ async function handle({ request, env }) {
   const svc = env.SUPABASE_SERVICE_KEY;
   const insertVerified = r => fetch(base + "/rest/v1/applications", { method: "POST",
     headers: { apikey: svc, ...(svc && svc.includes(".") ? { Authorization: "Bearer " + svc } : {}), "content-type": "application/json", prefer: "return=minimal" },
-    body: JSON.stringify({ ...r, email_verified: true }) }).then(x => x.ok).catch(() => false);
+    body: JSON.stringify({ ...r, email_verified: who.email, phone_verified: who.phone }) }).then(x => x.ok).catch(() => false);
   let saved = verified && svc ? await insertVerified(row) : false;
-  if (!saved && verified) row.message = ("[Email verified] " + (row.message || "")).slice(0, 2000);
+  if (!saved && verified) row.message = ("[" + (who.email ? "Email" : "Phone") + " verified] " + (row.message || "")).slice(0, 2000);
   if (!saved) saved = await insert(row);
   if (!saved && !BASE_KINDS.includes(row.kind)) {
     saved = await insert({ ...row, kind: "counselling", message: ("[" + LABEL[row.kind] + "] " + (row.message || "")).slice(0, 2000) });
@@ -102,8 +109,8 @@ async function handle({ request, env }) {
   const lines = [
     "New SkillNavora " + LABEL[row.kind].toLowerCase(),
     "Name: " + [row.first_name, row.last_name].filter(Boolean).join(" "),
-    "Phone: " + row.phone,
-    row.email && "Email: " + row.email + (verified ? " (verified)" : " (not verified)"),
+    row.email && "Email: " + row.email + (who.email ? " (verified)" : " (not verified)"),
+    row.phone && "Phone: " + row.phone + (who.phone ? " (verified)" : " (not verified)"),
     row.course_id && "Program: " + row.course_id,
     row.role && "Role: " + row.role,
     row.experience && "Experience: " + row.experience,

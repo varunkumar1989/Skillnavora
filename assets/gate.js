@@ -152,16 +152,16 @@
       if (!f.elements.consent.checked) return say("Please tick the box to continue.");
       say("");
       const b = f.querySelector("button[type=submit]"), t = b.textContent; b.disabled = true;
-      // Confirm the email with a one-time code before unlocking (switch: AUTH.verifyEmail in assets/config.js).
+      // Confirm with a one-time code (email or text message) before unlocking (switch: AUTH.verifyEmail in assets/config.js).
       let tok = null;
       if (typeof AUTH === "undefined" || AUTH.verifyEmail !== false) {
-        b.textContent = "Sending a code to your email…";
+        b.textContent = "Sending a code…";
         try {
           if (!window.SNverify) await loadScript(ROOT() + "assets/verify.js");
-          tok = (await window.SNverify.ensure(v("email"), v("name"))).token;
+          tok = (await window.SNverify.choose({ email: v("email"), phone: ph.value, name: v("name") })).token;
         } catch (err) {
           b.disabled = false; b.textContent = t;
-          return say(err && err.cancelled ? "Please confirm your email with the code to unlock the resources." : (err && err.message) || "We could not check your email. Please try again.");
+          return say(err && err.cancelled ? "Please confirm with the code to unlock the resources." : (err && err.message) || "We could not check your details. Please try again.");
         }
       }
       b.textContent = "Unlocking…";

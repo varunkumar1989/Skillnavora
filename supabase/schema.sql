@@ -484,9 +484,10 @@ grant select, insert, update, delete on public.pdf_access to authenticated;
 revoke all on public.pdf_access from anon;
 
 -- ---------- Lead quality: verified emails and real phone numbers ----------
--- email_verified is set only by the server (functions/api/lead.js) when the visitor confirmed their email with a code.
+-- email_verified and phone_verified are set only by the server (functions/api/lead.js) when the visitor confirmed their email with a code.
 -- Signed-out visitors cannot set it: it is not in the insert grant for applications.
 alter table public.applications add column if not exists email_verified boolean not null default false;
+alter table public.applications add column if not exists phone_verified boolean not null default false;
 -- New phone numbers must look like "+<country code> <number>" (Indian mobiles: 10 digits starting 6-9).
 -- NOT VALID: rows saved before this rule are kept as they are.
 create or replace function public.valid_phone(p text) returns boolean language sql immutable as $$
