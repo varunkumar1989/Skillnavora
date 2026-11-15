@@ -1,0 +1,1664 @@
+{
+ "data-science/index.html": {
+  "title": "Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "Advanced Excel",
+    "level": "h2",
+    "text": "From the Excel window to dashboards: formatting, 100+ functions, lookups, pivot tables, advanced charts, Power Query, Power Pivot and AI in Excel."
+   },
+   {
+    "heading": "SQL for Data Analysis",
+    "level": "h2",
+    "text": "Relational databases, ER diagrams and keys, DDL/DML, filtering, aggregation, joins, set operators, subqueries, window functions, CTEs, views, procedures and performance."
+   },
+   {
+    "heading": "Power BI",
+    "level": "h2",
+    "text": "ETL with Power Query, star-schema modelling, DAX measures and time intelligence, interactive reports, case studies, publishing, security and Copilot."
+   },
+   {
+    "heading": "Tableau",
+    "level": "h2",
+    "text": "Tableau Public and Desktop: connecting data, dimensions and measures, every core chart, calculated fields, table calculations and LOD expressions, filters, parameters and sets, data modelling, dashboards, stories and publishing."
+   },
+   {
+    "heading": "AI for Data Analysis",
+    "level": "h2",
+    "text": "Generative AI for analysts: prompting, AI vs GenAI vs agentic AI, AI over SQL (Metabase, MinusX), Copilot and Gemini in Excel, and office agents."
+   },
+   {
+    "heading": "Python for Data Science",
+    "level": "h2",
+    "text": "Python from zero: data types, control flow, data structures, functions, OOP, files, NumPy, pandas, visualisation, dates, SQL connections, EDA and DSA for data roles."
+   },
+   {
+    "heading": "Statistics & Machine Learning",
+    "level": "h2",
+    "text": "Probability, CLT, hypothesis tests, the ML lifecycle, regression, classification, trees, ensembles, clustering, PCA, time series, NLP, deep learning basics, evaluation, explainability and deployment."
+   },
+   {
+    "heading": "Generative AI & Agentic AI",
+    "level": "h2",
+    "text": "How LLMs work, prompting, LLM APIs in Python, embeddings and vector search, RAG, tool use, agents, MCP, evaluation, guardrails, fine-tuning and responsible AI."
+   },
+   {
+    "heading": "AI Agents, MCP & APIs for PMs and BAs",
+    "level": "h2",
+    "text": "No-code track for PMs, BAs and senior PMs: APIs, MCP with Claude, how AI agents work and how to build them, connecting apps with n8n, Make, Zapier and Replit, a complete Claude Code tutorial, and voice agents and voice cloning."
+   },
+   {
+    "heading": "AI & No-Code Tools Lab",
+    "level": "h2",
+    "text": "Complete tutorials for the design and automation tools used across the programs: Figma (design systems, prototypes, Dev Mode, Figma Make) and n8n (workflows, APIs, AI agents, MCP)."
+   }
+  ]
+ },
+ "data-science/lessons/agents-01-apis-without-code-how-apps-talk-rest-json-authentication-web.html": {
+  "title": "APIs Without Code: How Apps Talk, REST, JSON, Authentication, Webhooks and Postman for PMs and BAs · Agents Lesson 1 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "What an API is",
+    "level": "h2",
+    "text": "An API (Application Programming Interface) is a contract that lets one app ask another for data or actions."
+   },
+   {
+    "heading": "The parts of a request",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "JSON: the language of APIs",
+    "level": "h2",
+    "text": "Read JSON like a tree: { } is an object (named fields), [ ] is a list."
+   },
+   {
+    "heading": "Authentication",
+    "level": "h2",
+    "text": "Keys belong in a secrets manager or the tool's credential store, never in documents, screenshots, chats or client-side code."
+   },
+   {
+    "heading": "Rate limits, pagination and idempotency",
+    "level": "h2",
+    "text": "Rate limits: e.g. 100 requests per minute; plan batches and back-off."
+   },
+   {
+    "heading": "Webhooks vs polling",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Try an API in Postman (no code)",
+    "level": "h2",
+    "text": "Install Postman (or use the web app) and create a free workspace."
+   },
+   {
+    "heading": "Writing the integration section of a PRD",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Summary",
+    "level": "h2",
+    "text": "An API call is a method + URL + headers + body; the answer is a status code + JSON."
+   },
+   {
+    "heading": "Learn more",
+    "level": "h2",
+    "text": ""
+   }
+  ]
+ },
+ "apis-for-pms.html": {
+  "title": "APIs for Product Managers: requests, methods, status codes and JSON",
+  "sections": [
+   {
+    "heading": "1. What an API is",
+    "level": "h2",
+    "text": "An API (Application Programming Interface) is a set of rules that lets one program ask another for something."
+   },
+   {
+    "heading": "2. Worked example: placing an order",
+    "level": "h2",
+    "text": "The user taps Place order. Here is what happens behind the screen."
+   },
+   {
+    "heading": "What the API needs before it will accept a request",
+    "level": "h3",
+    "text": "The exact endpoint and method (POST /orders)"
+   },
+   {
+    "heading": "How payment usually works",
+    "level": "h3",
+    "text": "The example above shows the order and its result, not every payment step."
+   },
+   {
+    "heading": "3. HTTP methods: what each one means",
+    "level": "h2",
+    "text": "A method says what to do with the thing named in the endpoint."
+   },
+   {
+    "heading": "4. Status codes: reading the first digit",
+    "level": "h2",
+    "text": "The first digit tells you who has to act."
+   },
+   {
+    "heading": "5. Endpoints: the address structure",
+    "level": "h2",
+    "text": "An endpoint is the specific address that performs an action."
+   },
+   {
+    "heading": "6. Parameters: where the information goes",
+    "level": "h2",
+    "text": "A parameter is a piece of information the request passes to the API."
+   },
+   {
+    "heading": "Path parameters identify one record",
+    "level": "h3",
+    "text": "A path parameter is a value inside the URL path that points at one resource."
+   },
+   {
+    "heading": "Common mistakes with path parameters",
+    "level": "h3",
+    "text": "Wrong or missing ID. The API returns 404 Not Found."
+   }
+  ]
+ },
+ "data-science/lessons/genai-01-how-large-language-models-work-tokens-embeddings-transformer.html": {
+  "title": "How Large Language Models Work: Tokens, Embeddings, Transformers and Training · GenAI & Agents Lesson 1 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "An LLM in one sentence",
+    "level": "h2",
+    "text": "A large language model is a neural network trained to predict the next token given the previous ones."
+   },
+   {
+    "heading": "Tokens",
+    "level": "h2",
+    "text": "Models do not read characters or whole words but tokens: frequent words, word pieces and punctuation."
+   },
+   {
+    "heading": "Next-token prediction and sampling",
+    "level": "h2",
+    "text": "The model outputs a probability for every token in its vocabulary."
+   },
+   {
+    "heading": "Embeddings and attention",
+    "level": "h2",
+    "text": "Every token ID is mapped to an embedding: a vector of hundreds or thousands of numbers."
+   },
+   {
+    "heading": "How models are trained",
+    "level": "h2",
+    "text": "Pre-training produces a base model that continues text but does not follow instructions well."
+   },
+   {
+    "heading": "Context windows and memory",
+    "level": "h2",
+    "text": "An LLM has no memory between API calls: everything it should know must be in the context window (system prompt + conversation + documents + tool results)."
+   },
+   {
+    "heading": "Hallucinations",
+    "level": "h2",
+    "text": "Because the model generates plausible continuations, it can state false facts fluently, especially about rare facts, recent events, numbers and citations."
+   },
+   {
+    "heading": "The 2026 model landscape",
+    "level": "h2",
+    "text": "Choosing a model: quality on your task (test it), cost per task, latency, context length, tool use, data privacy (cloud region, zero retention, self-hosting), and licence."
+   },
+   {
+    "heading": "Summary",
+    "level": "h2",
+    "text": "LLMs predict the next token; generation is a loop of predict, sample, append."
+   },
+   {
+    "heading": "Practise more online",
+    "level": "h2",
+    "text": "Free, trusted places to test yourself on this topic."
+   }
+  ]
+ },
+ "data-science/lessons/ml-26-neural-networks-and-deep-learning-from-a-neuron-to-transform.html": {
+  "title": "Neural Networks and Deep Learning: From a Neuron to Transformers · Stats & ML Lesson 26 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "A neuron",
+    "level": "h2",
+    "text": "An artificial neuron computes a weighted sum of its inputs plus a bias, then applies an activation function:"
+   },
+   {
+    "heading": "Activation functions",
+    "level": "h2",
+    "text": "Without non-linear activations, any stack of layers collapses into a single linear model."
+   },
+   {
+    "heading": "How networks learn: backpropagation",
+    "level": "h2",
+    "text": "Forward pass: compute predictions layer by layer."
+   },
+   {
+    "heading": "A network from scratch",
+    "level": "h3",
+    "text": "These 30 lines are the core of every deep-learning library; frameworks add automatic differentiation, GPUs, better optimisers and building blocks."
+   },
+   {
+    "heading": "MLPs in scikit-learn",
+    "level": "h2",
+    "text": "Neural networks win on unstructured data (images, text, audio)."
+   },
+   {
+    "heading": "Training practice",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Deep-learning architectures",
+    "level": "h2",
+    "text": "Transformers (Vaswani et al., 2017, \"Attention Is All You Need\") let every token look at every other token through self-attention, train in parallel on GPUs and scale to billions of parameters."
+   },
+   {
+    "heading": "PyTorch and Keras",
+    "level": "h2",
+    "text": "Free GPUs for practice: Google Colab and Kaggle notebooks."
+   },
+   {
+    "heading": "Summary",
+    "level": "h2",
+    "text": "A neuron = weighted sum + activation; layers of neurons with non-linear activations learn complex functions."
+   },
+   {
+    "heading": "Practise more online",
+    "level": "h2",
+    "text": "Free, trusted places to test yourself on this topic."
+   }
+  ]
+ },
+ "data-science/lessons/genai-03-calling-llm-apis-from-python-messages-streaming-structured-o.html": {
+  "title": "Calling LLM APIs from Python: Messages, Streaming, Structured Output, Costs and Reliability · GenAI & Agents Lesson 3 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "Setup",
+    "level": "h2",
+    "text": "Get a key from the provider console (console.anthropic.com, platform.openai.com, aistudio.google.com), set a monthly spend limit, and create separate keys for development and production."
+   },
+   {
+    "heading": "Your first request",
+    "level": "h2",
+    "text": "Older tutorials set temperature. Current Claude reasoning models manage sampling themselves (sending temperature to them returns an error); control depth and cost with output_config={\"effort\": \"low\" | \"medium\" | \"high\" | \"xhigh\" | \"max\"} instead."
+   },
+   {
+    "heading": "Practise offline: a simulated client",
+    "level": "h2",
+    "text": "Real calls need a key and cost money. To learn the shapes of requests and responses, this lesson uses a small simulator with the same interface."
+   },
+   {
+    "heading": "Multi-turn conversations",
+    "level": "h2",
+    "text": "The API is stateless: send the whole history every time."
+   },
+   {
+    "heading": "Streaming",
+    "level": "h2",
+    "text": "Stream tokens as they are generated so users see progress (and long requests avoid timeouts):"
+   },
+   {
+    "heading": "Structured output",
+    "level": "h2",
+    "text": "Ask for JSON that matches a schema; the SDK validates it for you."
+   },
+   {
+    "heading": "Reasoning effort",
+    "level": "h2",
+    "text": "Use low effort for simple, high-volume tasks (classification, extraction) and high for analysis, planning and code."
+   },
+   {
+    "heading": "Cost: measure, estimate, reduce",
+    "level": "h2",
+    "text": "Prices change: check the provider's pricing page before budgeting."
+   },
+   {
+    "heading": "Reliability: errors and retries",
+    "level": "h2",
+    "text": "The SDK already retries connection errors, 429 (rate limit) and 5xx errors twice with backoff."
+   },
+   {
+    "heading": "Large jobs: the Batch API",
+    "level": "h2",
+    "text": ""
+   }
+  ]
+ },
+ "context-engineering.html": {
+  "title": "Prompt & Context Engineering: free PDF, basic to advanced",
+  "sections": [
+   {
+    "heading": "Prompt & Context Engineering",
+    "level": "h2",
+    "text": "Make every AI request precise and evidence-based: clear instructions, the right context, structured outputs, task decomposition, long-context compression, reading documents and scans, citing sources and organising knowledge."
+   },
+   {
+    "heading": "In one line",
+    "level": "h2",
+    "text": "Prompt engineering is how you ask; context engineering is what the AI gets to see when it answers: your instructions, examples, documents, data, memory and tools."
+   },
+   {
+    "heading": "The 13 classes (click a class to read it in full)",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "From prompts to context",
+    "level": "h3",
+    "text": "See why the information you give the AI matters more than clever wording."
+   },
+   {
+    "heading": "Prompt patterns that work",
+    "level": "h3",
+    "text": "Use proven patterns: examples, step-by-step, roles, critique and iteration."
+   },
+   {
+    "heading": "Structured outputs: JSON, tables and fixed sections",
+    "level": "h3",
+    "text": "Get predictable output other tools and people can use directly."
+   },
+   {
+    "heading": "Task decomposition and chaining",
+    "level": "h3",
+    "text": "Break big jobs into steps the AI can do reliably."
+   },
+   {
+    "heading": "System prompts and standing instructions",
+    "level": "h3",
+    "text": "Write the instructions an assistant or AI feature follows on every request, so it behaves the same way every time."
+   },
+   {
+    "heading": "Retrieval: getting the right documents into context",
+    "level": "h3",
+    "text": "Understand how AI features find and insert the right passages (RAG), and what a PM decides about it."
+   },
+   {
+    "heading": "Long context: compression, summaries and memory",
+    "level": "h3",
+    "text": "Keep long projects accurate when chats and documents get large."
+   }
+  ]
+ },
+ "handbook/aipm2/AIPM2-14-Retrieval-Augmented-Generation-RAG.pdf": {
+  "title": "AIPM2 14 Retrieval Augmented Generation RAG",
+  "pages": 10,
+  "sections": [
+   {
+    "heading": "Opening of the PDF",
+    "level": "h2",
+    "text": "Chapter 14 of 26 · 29 topics · Edition 2026 · skillnavora.in SkillNavora · AI Product Management 2 · 1 / 10 "
+   }
+  ]
+ },
+ "handbook/mf/lessons/ai-and-automation/02.2-vector-databases-pinecone-chromadb-and-weaviate.pdf": {
+  "title": "02.2 vector databases pinecone chromadb and weaviate",
+  "pages": 2,
+  "sections": [
+   {
+    "heading": "Opening of the PDF",
+    "level": "h2",
+    "text": "MASTER FREELANCING LESSON GUIDE · DEPARTMENT 2 · AI AND AUTOMATION · AI INTEGRATION DEVELOPER Lesson 2.2: Vector databases: Pinecone, ChromaDB and Weaviate What you learn Embeddings."
+   },
+   {
+    "heading": "Opening of the PDF",
+    "level": "h2",
+    "text": "An embedding turns text into a list of numbers so similar meanings are near each other."
+   },
+   {
+    "heading": "Opening of the PDF",
+    "level": "h2",
+    "text": "Find the stored items closest to the question's embedding, often by cosine similarity (the code below shows the idea with tiny vectors)."
+   }
+  ]
+ },
+ "data-science/lessons/genai-04-embeddings-and-vector-search-meaning-as-numbers-similarity-a.html": {
+  "title": "Embeddings and Vector Search: Meaning as Numbers, Similarity and Vector Databases · GenAI & Agents Lesson 4 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "What is an embedding?",
+    "level": "h2",
+    "text": "An embedding is a list of numbers (a vector) that represents the meaning of a word, sentence, image or product."
+   },
+   {
+    "heading": "Learning word embeddings from scratch",
+    "level": "h2",
+    "text": "\"You shall know a word by the company it keeps\" (J."
+   },
+   {
+    "heading": "Cosine similarity",
+    "level": "h2",
+    "text": "1 = same direction (same meaning), 0 = unrelated, −1 = opposite."
+   },
+   {
+    "heading": "Document embeddings and semantic search",
+    "level": "h2",
+    "text": "A simple document vector: the TF-IDF-weighted average of its word vectors."
+   },
+   {
+    "heading": "Vector indexes: exact and approximate search",
+    "level": "h2",
+    "text": "Comparing a query with every vector (exact / brute-force search) is fine for thousands of items."
+   },
+   {
+    "heading": "Evaluate retrieval",
+    "level": "h2",
+    "text": "Create a small labelled set of queries with their relevant documents and measure recall@k (share of relevant documents found in the top k) and MRR (how high the first relevant result ranks)."
+   },
+   {
+    "heading": "Real embedding models",
+    "level": "h2",
+    "text": "Check the MTEB leaderboard for quality by task and language (multilingual models handle Hindi and other Indian languages), and test on your own queries."
+   },
+   {
+    "heading": "Vector stores",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Practical tips",
+    "level": "h2",
+    "text": "Chunk long documents (e.g. 300–800 tokens with some overlap, split on headings/paragraphs) before embedding (lesson 5)."
+   },
+   {
+    "heading": "Summary",
+    "level": "h2",
+    "text": "Embeddings map text (or images, products) to vectors where similar meanings are close."
+   }
+  ]
+ },
+ "vaitis.html": {
+  "title": "Vaitis: B100x with AI, the free AI library",
+  "sections": [
+   {
+    "heading": "What you'll get",
+    "level": "h2",
+    "text": "25 detailed walkthroughs with every command, prompt and link, written in plain English."
+   },
+   {
+    "heading": "Tell us a bit about you",
+    "level": "h2",
+    "text": "One quick form, then the whole library is yours."
+   },
+   {
+    "heading": "Have questions about the course unanswered?",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Talk to a counsellor",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "You're booked in!",
+    "level": "h3",
+    "text": "We'll call you at your preferred time. You can also message us on WhatsApp any time."
+   },
+   {
+    "heading": "Not sure if this is for you?",
+    "level": "h2",
+    "text": "Find out by connecting 1:1 with our team and ask any questions you have."
+   }
+  ]
+ },
+ "data-science/lessons/genai-07-ai-agents-and-agentic-ai-loops-planning-memory-multi-agent-s.html": {
+  "title": "AI Agents and Agentic AI: Loops, Planning, Memory, Multi-Agent Systems and When to Use Them · GenAI & Agents Lesson 7 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "AI, GenAI and agentic AI",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Workflows vs agents",
+    "level": "h2",
+    "text": "Workflow: your code decides the path (\"extract → classify → if complaint, draft reply\")."
+   },
+   {
+    "heading": "The agent loop",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "A runnable data-analysis agent",
+    "level": "h3",
+    "text": "The agent below answers business questions about the sales data."
+   },
+   {
+    "heading": "Planning, reflection and memory",
+    "level": "h2",
+    "text": "A simple automated critic catches an invented number (12.5) before the answer reaches a manager: verification beats trust."
+   },
+   {
+    "heading": "Multi-agent systems",
+    "level": "h2",
+    "text": "Multi-agent systems help when work splits into independent, context-heavy sub-tasks (research across many sources, many files)."
+   },
+   {
+    "heading": "Agent platforms in 2026",
+    "level": "h2",
+    "text": "Pick by: how much control you need, where it must run (your cloud vs hosted), language, observability and team skills."
+   },
+   {
+    "heading": "Guardrails and evaluation for agents",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Should this be an agent? A checklist",
+    "level": "h2",
+    "text": "Complexity: is the path hard to specify in advance?"
+   },
+   {
+    "heading": "Summary",
+    "level": "h2",
+    "text": "Agentic AI pursues goals through multi-step tool use; the model chooses the next action in a loop."
+   }
+  ]
+ },
+ "ai-agents-guide.html": {
+  "title": "How AI Agents Work: single agents, multi-agent systems, context and evals",
+  "sections": [
+   {
+    "heading": "Contents",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Read this first: labels",
+    "level": "h2",
+    "text": "Agent products change fast. Where this guide names a product, the feature is [Check]."
+   },
+   {
+    "heading": "Chapter 1: What an agent is",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "1.1 Three kinds of AI system [Fact]",
+    "level": "h3",
+    "text": "An agent is not defined by how smart the model is."
+   },
+   {
+    "heading": "1.2 The agentic system [Fact]",
+    "level": "h3",
+    "text": "An agentic system is a larger design that includes one or more agents, workflows, tools, memory, and people who approve or review."
+   },
+   {
+    "heading": "Chapter 2: How an agent works",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "2.1 The parts of an agent [Fact]",
+    "level": "h3",
+    "text": "Every agent has the same six parts, whatever tool builds it:"
+   },
+   {
+    "heading": "2.3 A worked example: one agent run [Fact]",
+    "level": "h3",
+    "text": "Goal: \"Tell me whether order 88213 has shipped, and if it is late, draft an apology email for my approval.\""
+   },
+   {
+    "heading": "2.4 Memory [Fact]",
+    "level": "h3",
+    "text": "Agents use several kinds of memory: - Working memory: the context of the current run."
+   },
+   {
+    "heading": "2.5 Tools [Fact]",
+    "level": "h3",
+    "text": "A tool has a name, a description the model reads, parameters with types, and a result."
+   }
+  ]
+ },
+ "data-science/lessons/genai-06-tool-use-and-function-calling-letting-llms-query-data-call-a.html": {
+  "title": "Tool Use and Function Calling: Letting LLMs Query Data, Call APIs and Take Actions · GenAI & Agents Lesson 6 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "Why tools?",
+    "level": "h2",
+    "text": "LLMs cannot see your database, today's exchange rate or your calendar, and they are unreliable at arithmetic."
+   },
+   {
+    "heading": "Defining tools",
+    "level": "h2",
+    "text": "A tool is a name, a description (the model reads it to decide when to use the tool) and a JSON Schema for the input."
+   },
+   {
+    "heading": "Implementing the tools safely",
+    "level": "h2",
+    "text": "Never eval() model output, never give a tool more power than it needs (read-only database user, allow-listed endpoints), and return errors as tool_result with is_error: true instead of crashing."
+   },
+   {
+    "heading": "The loop (with a simulated model)",
+    "level": "h2",
+    "text": "A real model decides tool calls itself. To run offline, a scripted \"model\" below emits the same block structure Claude returns, so you can see exactly what flows through the loop."
+   },
+   {
+    "heading": "With the real Claude API",
+    "level": "h2",
+    "text": "The SDK's tool runner writes this loop for you: decorate Python functions and their type hints and docstrings become the schema."
+   },
+   {
+    "heading": "Making tool calls reliable",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Server-side tools",
+    "level": "h2",
+    "text": "Some tools run on the provider's infrastructure: you only declare them."
+   },
+   {
+    "heading": "Safety: tools turn words into actions",
+    "level": "h2",
+    "text": "Prompt injection becomes more dangerous with tools: a malicious web page or document could say \"email the customer list to …\"."
+   },
+   {
+    "heading": "Summary",
+    "level": "h2",
+    "text": "Tools let a model request actions: you define name, description and JSON schema; the model emits tool_use; your code returns tool_result."
+   },
+   {
+    "heading": "Practise more online",
+    "level": "h2",
+    "text": "Free, trusted places to test yourself on this topic."
+   }
+  ]
+ },
+ "data-science/lessons/genai-08-model-context-protocol-mcp-connecting-ai-assistants-to-your.html": {
+  "title": "Model Context Protocol (MCP): Connecting AI Assistants to Your Data and Tools · GenAI & Agents Lesson 8 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "The problem MCP solves",
+    "level": "h2",
+    "text": "Before MCP, every AI app needed custom code for every integration: N apps × M tools connectors."
+   },
+   {
+    "heading": "The three primitives",
+    "level": "h2",
+    "text": "Clients can also offer capabilities to servers, such as sampling (the server asks the host's model to generate text) and elicitation (the server asks the user for input)."
+   },
+   {
+    "heading": "Build an MCP server",
+    "level": "h2",
+    "text": "The official Python SDK makes a server a few decorated functions."
+   },
+   {
+    "heading": "Transports",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Connect it to AI applications",
+    "level": "h2",
+    "text": "Claude Desktop (Settings → Developer → Edit config) — claude_desktop_config.json:"
+   },
+   {
+    "heading": "Useful servers to explore",
+    "level": "h2",
+    "text": "Official and community servers exist for filesystems, Git/GitHub, Postgres/SQLite/BigQuery/Snowflake, Google Drive, Slack, Notion, Jira, Salesforce, browsers (Playwright), Excel files, and BI tools; the analytics tools from the AI-analytics track (Metabase, MinusX) follow the same idea."
+   },
+   {
+    "heading": "Security",
+    "level": "h2",
+    "text": "Specific risks: tool poisoning (malicious instructions hidden in a tool's description), prompt injection through returned data (a web page or ticket telling the model to exfiltrate data), over-broad permissions and confused-deputy problems with shared credentials."
+   },
+   {
+    "heading": "MCP vs other integration styles",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Summary",
+    "level": "h2",
+    "text": "MCP is an open standard connecting AI hosts to tools and data through servers: build once, use in many assistants."
+   },
+   {
+    "heading": "Practise more online",
+    "level": "h2",
+    "text": "Free, trusted places to test yourself on this topic."
+   }
+  ]
+ },
+ "web-automation.html": {
+  "title": "Web Automation: Webhooks, Triggers & Playwright MCP: free PDF, basic to advanced",
+  "sections": [
+   {
+    "heading": "Web Automation: Webhooks, Triggers & Playwright MCP",
+    "level": "h2",
+    "text": "The modern web-automation stack in one course: webhooks, triggers (schedules, events, polling), browser automation with Playwright, the Playwright MCP that lets Claude and other AI assistants drive a real browser, and ev"
+   },
+   {
+    "heading": "In one line",
+    "level": "h2",
+    "text": "Webhooks tell your system the moment something happens; triggers decide when automations run; browser automation does the clicking when there's no API; and the Playwright MCP lets an AI assistant like Claude use a real browser for you."
+   },
+   {
+    "heading": "Webhook addresses and keys, in plain words",
+    "level": "h2",
+    "text": "A webhook is an automatic message from one app to another."
+   },
+   {
+    "heading": "What is a webhook, in one picture?",
+    "level": "h3",
+    "text": "Think of a shop bell. When a customer comes in, the bell rings and the shopkeeper knows at once."
+   },
+   {
+    "heading": "What is a webhook address?",
+    "level": "h3",
+    "text": "It is the address the message is sent to, like a letterbox address."
+   },
+   {
+    "heading": "How to set up a webhook (five steps)",
+    "level": "h3",
+    "text": "Pick the tool that will receive the messageFor example n8n, Make or Zapier."
+   },
+   {
+    "heading": "What is a key?",
+    "level": "h3",
+    "text": "A key is a long secret code. It works like a key card to an office: it proves your app may enter."
+   },
+   {
+    "heading": "What is a signing secret?",
+    "level": "h3",
+    "text": "Some services stamp every message with a secret code, like a wax seal."
+   },
+   {
+    "heading": "Safety rules for keys and addresses",
+    "level": "h3",
+    "text": "Never paste a key into a chat, email, shared document, screenshot or public post."
+   },
+   {
+    "heading": "If a key or address leaks",
+    "level": "h3",
+    "text": "Cancel the key in the app that gave it to you, then create a new one."
+   }
+  ]
+ },
+ "data-science/lessons/agents-10-agent-frameworks-langgraph-crewai-and-autogen.html": {
+  "title": "Agent Frameworks: LangGraph, CrewAI and AutoGen · Agents Lesson 10 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "Why frameworks exist",
+    "level": "h2",
+    "text": "An agent needs a loop (call the model, run a tool, check the result), memory of what has happened, a way to stop, and often retries and human approval."
+   },
+   {
+    "heading": "LangGraph: stateful agents as graphs",
+    "level": "h2",
+    "text": "LangGraph (part of the LangChain ecosystem) models an agent as a graph:"
+   },
+   {
+    "heading": "CrewAI: role-based agent teams",
+    "level": "h2",
+    "text": "CrewAI describes a team of agents, each with a role, a goal and a set of tasks."
+   },
+   {
+    "heading": "AutoGen: conversational multi-agent systems",
+    "level": "h2",
+    "text": "AutoGen (from Microsoft Research) models agents as participants in a conversation: they send messages to each other until the task is done, optionally with a human in the conversation."
+   },
+   {
+    "heading": "Comparing the three",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "How to choose",
+    "level": "h2",
+    "text": "Write the workflow as steps on paper. If the steps are fixed and need resume and approval, use a graph (LangGraph) or a plain workflow tool (n8n) instead of an agent."
+   },
+   {
+    "heading": "Practise more online",
+    "level": "h2",
+    "text": "Free, trusted places to test yourself on this topic."
+   }
+  ]
+ },
+ "agent-orchestration.html": {
+  "title": "Agent Orchestration & Monitoring: free PDF, basic to advanced",
+  "sections": [
+   {
+    "heading": "Agent Orchestration & Monitoring",
+    "level": "h2",
+    "text": "Run longer AI workflows reliably: workflow patterns, routing and model selection, parallel work, state and checkpoints, human-in-the-loop approvals, error recovery, multi-agent systems, scheduling and triggers, cost control, and production monitoring."
+   },
+   {
+    "heading": "In one line",
+    "level": "h2",
+    "text": "Orchestration is how AI steps, tools and people are connected into a workflow that runs reliably; monitoring is how you know it keeps working."
+   },
+   {
+    "heading": "The 13 classes (click a class to read it in full)",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Workflows vs agents: start simple",
+    "level": "h3",
+    "text": "Know when a fixed workflow is enough and when an agent is worth it."
+   },
+   {
+    "heading": "Core patterns: chaining, routing and parallelisation",
+    "level": "h3",
+    "text": "Use the three most common orchestration patterns."
+   },
+   {
+    "heading": "Designing a workflow: a worked example",
+    "level": "h3",
+    "text": "Turn a messy task into clear steps with inputs, outputs and checks, before you touch any tool."
+   },
+   {
+    "heading": "Orchestrator-workers and evaluator-optimizer",
+    "level": "h3",
+    "text": "Use the two most powerful agentic patterns safely."
+   },
+   {
+    "heading": "Designing tools for agents",
+    "level": "h3",
+    "text": "Give agents tools they can choose and use correctly, with limits that keep them safe."
+   },
+   {
+    "heading": "Choosing how to build: no-code, SDKs and frameworks",
+    "level": "h3",
+    "text": "Pick the simplest way to build a workflow or agent that will still meet your needs."
+   },
+   {
+    "heading": "Human-in-the-loop, approvals and error recovery",
+    "level": "h3",
+    "text": "Put people at the right points and recover from failures safely."
+   }
+  ]
+ },
+ "data-science/lessons/genai-09-evaluating-llm-applications-and-building-guardrails-test-set.html": {
+  "title": "Evaluating LLM Applications and Building Guardrails: Test Sets, LLM-as-Judge, Injection, PII and Safety · GenAI & Agents Lesson 9 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "Why evaluation is the core skill",
+    "level": "h2",
+    "text": "LLM outputs vary with wording, model version and input."
+   },
+   {
+    "heading": "Building the evaluation set",
+    "level": "h2",
+    "text": "Start with 30–100 labelled examples; grow it as you find failures."
+   },
+   {
+    "heading": "Metrics by task",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Field-level scoring for extraction",
+    "level": "h2",
+    "text": "Normalise before comparing (case, spaces, number formats)."
+   },
+   {
+    "heading": "LLM-as-judge",
+    "level": "h2",
+    "text": "For open-ended outputs, a strong model can grade answers against a rubric."
+   },
+   {
+    "heading": "Regression testing",
+    "level": "h2",
+    "text": "Run the suite automatically (CI) whenever a prompt, model, retrieval setting or tool changes."
+   },
+   {
+    "heading": "Guardrails",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Prompt-injection heuristics",
+    "level": "h3",
+    "text": "Heuristics catch obvious attacks only. Real defences are architectural: separate instructions from data (tags), keep secrets out of prompts, give tools least privilege, require approval for side effects, check outputs, and use model-based classifiers (e.g."
+   },
+   {
+    "heading": "PII detection and redaction (India)",
+    "level": "h3",
+    "text": "Redact before logging or sending data to third parties when not needed, and follow India's DPDP Act 2023 (purpose limitation, consent, data minimisation) and your provider's data-retention settings."
+   },
+   {
+    "heading": "Handling refusals and failures",
+    "level": "h3",
+    "text": "Models sometimes decline (safety) or fail (timeouts, invalid JSON)."
+   }
+  ]
+ },
+ "ai-evals.html": {
+  "title": "AI Evals for Product Managers: free PDF, basic to advanced",
+  "sections": [
+   {
+    "heading": "AI Evals for Product Managers",
+    "level": "h2",
+    "text": "How to measure, improve and safely launch AI features: success criteria, golden datasets, LLM-as-judge, error analysis, RAG and agent evals, safety and red-teaming, A/B tests and monitoring, tools, templates and 15 interview questions."
+   },
+   {
+    "heading": "What an eval is, in one line",
+    "level": "h2",
+    "text": "An eval is a repeatable test that measures how well an AI feature does its job on a fixed set of examples, with a clear way to score each answer."
+   },
+   {
+    "heading": "The 13 classes",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "What an eval is, and why PMs own it",
+    "level": "h3",
+    "text": "Understand evals as the unit test, the quality bar and the product spec for AI features."
+   },
+   {
+    "heading": "Defining success: criteria, rubrics and failure modes",
+    "level": "h3",
+    "text": "Turn a fuzzy goal ('helpful answers') into criteria anyone can score the same way."
+   },
+   {
+    "heading": "Building the eval dataset (golden set)",
+    "level": "h3",
+    "text": "Create a test set that represents real users, including the hard and risky cases."
+   },
+   {
+    "heading": "Grading methods: code, humans and LLM-as-judge",
+    "level": "h3",
+    "text": "Choose the cheapest grader that measures what matters, and know when to use humans."
+   },
+   {
+    "heading": "Metrics for common tasks: classification, extraction and summaries",
+    "level": "h3",
+    "text": "Pick the right number for the job, and calculate it correctly."
+   },
+   {
+    "heading": "Calibrating an LLM judge",
+    "level": "h3",
+    "text": "Make sure an AI grader agrees with your experts before you trust its scores."
+   },
+   {
+    "heading": "Comparing versions: regression tests and sample size",
+    "level": "h3",
+    "text": "Tell a real improvement from noise when you change a prompt, model or retrieval setting."
+   }
+  ]
+ },
+ "ai-governance.html": {
+  "title": "AI Governance & Responsible AI: free PDF, basic to advanced",
+  "sections": [
+   {
+    "heading": "AI Governance & Responsible AI",
+    "level": "h2",
+    "text": "Ship AI responsibly: principles and risks, regulations (EU AI Act, India's DPDP Act and AI guidelines, sector rules), AI risk and impact assessments, policies and documentation, and operating governance."
+   },
+   {
+    "heading": "In one line",
+    "level": "h2",
+    "text": "AI governance is the set of policies, reviews and controls that make sure AI is safe, fair, legal and accountable, so teams can ship faster with fewer surprises."
+   },
+   {
+    "heading": "The 13 classes (click a class to read it in full)",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Principles and risks",
+    "level": "h3",
+    "text": "Know the main responsible-AI principles and risks."
+   },
+   {
+    "heading": "Regulations to know",
+    "level": "h3",
+    "text": "Understand the main laws and frameworks at a PM level."
+   },
+   {
+    "heading": "Fairness, bias and explainability",
+    "level": "h3",
+    "text": "Test whether AI treats groups fairly and can explain itself."
+   },
+   {
+    "heading": "Privacy, security and AI-specific attacks",
+    "level": "h3",
+    "text": "Protect user data and the AI system itself."
+   },
+   {
+    "heading": "Operating governance",
+    "level": "h3",
+    "text": "Run governance without slowing teams down."
+   },
+   {
+    "heading": "Vendor due diligence, procurement and third-party AI",
+    "level": "h3",
+    "text": "Check AI suppliers before you rely on them."
+   },
+   {
+    "heading": "Case studies: three governance decisions",
+    "level": "h3",
+    "text": "Apply governance to practical situations (illustrative)."
+   }
+  ]
+ },
+ "data-science/lessons/genai-12-building-and-shipping-a-genai-app-architecture-streamlit-fas.html": {
+  "title": "Building and Shipping a GenAI App: Architecture, Streamlit/FastAPI, Cost, Observability and Responsible AI (Capstone) · GenAI & Agents Lesson 12 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "Reference architecture",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Capstone brief: NovaMart support assistant",
+    "level": "h2",
+    "text": "Answer customer questions from the policy handbook (RAG, lesson 5), look up order status with a tool (lesson 6), refuse out-of-scope or unsafe requests, hand over to a human when unsure, and measure quality (lesson 9)."
+   },
+   {
+    "heading": "Chat front end (Streamlit)",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "API back end (FastAPI)",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Cost and capacity planning",
+    "level": "h2",
+    "text": "Levers: route simple turns to small models, cache the stable system prompt and documents, retrieve fewer but better chunks, cap output length, summarise long histories, and batch offline jobs."
+   },
+   {
+    "heading": "Latency",
+    "level": "h2",
+    "text": "Stream responses so users see progress immediately; set timeouts and fallbacks for every external call."
+   },
+   {
+    "heading": "Observability and feedback",
+    "level": "h2",
+    "text": "Log every request with a trace: user/session (pseudonymised), prompt version, retrieved chunk ids, tool calls, model, tokens, latency, guardrail results, and user feedback."
+   },
+   {
+    "heading": "Deployment options",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Launch checklist",
+    "level": "h2",
+    "text": "Eval set passes target scores; regression suite in CI."
+   },
+   {
+    "heading": "Responsible AI governance",
+    "level": "h2",
+    "text": "Be transparent that users are talking to AI; keep humans accountable for consequential decisions (refunds, credit, hiring); test for bias across languages and customer groups; follow emerging regulation (India's DPDP Act"
+   }
+  ]
+ },
+ "data-science/lessons/genai-10-customising-models-prompting-vs-rag-vs-fine-tuning-lora-dist.html": {
+  "title": "Customising Models: Prompting vs RAG vs Fine-Tuning, LoRA, Distillation and Open-Weight Models · GenAI & Agents Lesson 10 · Data Science & AI Handbook",
+  "sections": [
+   {
+    "heading": "The customisation ladder",
+    "level": "h2",
+    "text": "Climb only as far as you need: each step costs more to build and maintain."
+   },
+   {
+    "heading": "Preparing fine-tuning data",
+    "level": "h2",
+    "text": "Fine-tuning datasets are examples of the exact behaviour you want, usually in chat format (JSONL: one conversation per line)."
+   },
+   {
+    "heading": "Full fine-tuning vs LoRA",
+    "level": "h2",
+    "text": "Full fine-tuning updates every weight: billions of parameters, lots of GPU memory."
+   },
+   {
+    "heading": "Distillation: big teacher, small student",
+    "level": "h2",
+    "text": "Use a large model to label or generate high-quality training data, then fine-tune a small, cheap model on it."
+   },
+   {
+    "heading": "Open-weight models",
+    "level": "h2",
+    "text": "Run locally with Ollama (ollama run llama3.2, then an OpenAI-compatible API at localhost:11434), LM Studio or llama.cpp; serve at scale with vLLM, TGI or SGLang."
+   },
+   {
+    "heading": "API vs self-hosting",
+    "level": "h2",
+    "text": "Small hosted models are often cheaper than self-hosting until volumes are very large; self-hosting wins on strict data residency, offline/edge needs, or very high steady volume."
+   },
+   {
+    "heading": "Summary",
+    "level": "h2",
+    "text": "Climb the ladder: prompt → examples → RAG → tools → fine-tuning; use RAG for knowledge and fine-tuning for behaviour."
+   },
+   {
+    "heading": "Practise more online",
+    "level": "h2",
+    "text": "Free, trusted places to test yourself on this topic."
+   }
+  ]
+ },
+ "pm-toolkit.html": {
+  "title": "AI PM Toolkit",
+  "sections": [
+   {
+    "heading": "What do you need to do?",
+    "level": "h2",
+    "text": "13 PM capabilities. Start with the work in front of you."
+   },
+   {
+    "heading": "Customer problem discovery",
+    "level": "h3",
+    "text": "Frame the real customer problem before building."
+   },
+   {
+    "heading": "PRD and specification writing",
+    "level": "h3",
+    "text": "Draft a complete product requirements document."
+   },
+   {
+    "heading": "Opportunity sizing and prioritization",
+    "level": "h3",
+    "text": "Estimate the market and rank opportunities."
+   },
+   {
+    "heading": "Metrics and North Star",
+    "level": "h3",
+    "text": "Define the North Star, inputs and guardrails."
+   },
+   {
+    "heading": "Roadmap and strategy",
+    "level": "h3",
+    "text": "Turn goals into a Now / Next / Later roadmap."
+   },
+   {
+    "heading": "Have questions about the course unanswered?",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Talk to a counsellor",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "You're booked in!",
+    "level": "h3",
+    "text": "We'll call you at your preferred time. You can also message us on WhatsApp any time."
+   },
+   {
+    "heading": "Not sure if this is for you?",
+    "level": "h2",
+    "text": "Find out by connecting 1:1 with our team and ask any questions you have."
+   }
+  ]
+ },
+ "ai-product-strategy.html": {
+  "title": "AI Product Strategy: free PDF, basic to advanced",
+  "sections": [
+   {
+    "heading": "AI Product Strategy",
+    "level": "h2",
+    "text": "Decide where AI creates real value: AI-first vs AI-added products, moats and data flywheels, build vs buy vs partner, model choice, opportunity assessment and AI roadmaps."
+   },
+   {
+    "heading": "In one line",
+    "level": "h2",
+    "text": "AI product strategy is deciding which problems AI should solve for your users and business, how you'll win (data, distribution, workflow, trust), and what to build, buy or partner for, before writing a single PRD."
+   },
+   {
+    "heading": "The 13 classes (click a class to read it in full)",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Where AI creates value",
+    "level": "h3",
+    "text": "Separate real AI opportunities from hype."
+   },
+   {
+    "heading": "Moats and data flywheels",
+    "level": "h3",
+    "text": "Understand what makes an AI product hard to copy."
+   },
+   {
+    "heading": "Build vs buy vs partner, and choosing models",
+    "level": "h3",
+    "text": "Make sourcing and model decisions with clear trade-offs."
+   },
+   {
+    "heading": "Assessing and prioritising AI opportunities",
+    "level": "h3",
+    "text": "Score AI ideas on value, feasibility and risk."
+   },
+   {
+    "heading": "Market and competitor analysis for AI products",
+    "level": "h3",
+    "text": "Understand the landscape before choosing where to play."
+   },
+   {
+    "heading": "The business case: cost modelling, ROI and pilots",
+    "level": "h3",
+    "text": "Show leaders the numbers for an AI feature."
+   },
+   {
+    "heading": "The AI operating model: teams, skills and governance",
+    "level": "h3",
+    "text": "Organise people so AI products ship safely and learn fast."
+   }
+  ]
+ },
+ "ai-engineer.html": {
+  "title": "AI Engineer: The Complete Path: free PDF, basic to advanced",
+  "sections": [
+   {
+    "heading": "AI Engineer: The Complete Path",
+    "level": "h2",
+    "text": "Everything an AI engineer goes through, from first day to production: the role, Python and software foundations, ML basics, LLM engineering, RAG, agents and MCP, fine-tuning, evals, LLMOps and deployment, data pipelines,"
+   },
+   {
+    "heading": "In one line",
+    "level": "h2",
+    "text": "An AI engineer builds, ships and runs AI-powered software: calling and customising models, connecting them to data and tools, testing quality, deploying reliably, keeping cost, safety and security under control, and improving the system with real usage."
+   },
+   {
+    "heading": "The 12 classes (click a class to read it in full)",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "The AI engineer role and the lifecycle",
+    "level": "h3",
+    "text": "Know what the job is, how it differs from neighbouring roles, and the lifecycle you'll work in."
+   },
+   {
+    "heading": "Foundations: Python, software engineering, Git, APIs, Linux",
+    "level": "h3",
+    "text": "Build the engineering base that every AI system sits on."
+   },
+   {
+    "heading": "Math, statistics and machine-learning essentials",
+    "level": "h3",
+    "text": "Know enough ML to choose methods, read metrics and debug models."
+   },
+   {
+    "heading": "LLM engineering: model APIs, prompts, structured output, cost and latency",
+    "level": "h3",
+    "text": "Build reliable features on top of model APIs."
+   },
+   {
+    "heading": "RAG, embeddings and vector databases",
+    "level": "h3",
+    "text": "Build search and question-answering over private data, and measure it."
+   },
+   {
+    "heading": "Agents, tool use and MCP",
+    "level": "h3",
+    "text": "Build agents that call tools, with control and observability."
+   },
+   {
+    "heading": "Customising models: fine-tuning, distillation and open-source models",
+    "level": "h3",
+    "text": "Decide when to fine-tune, and how, and when not to."
+   }
+  ]
+ },
+ "prd-writer.html": {
+  "title": "AI PRD Writer",
+  "sections": [
+   {
+    "heading": "Have questions about the course unanswered?",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Talk to a counsellor",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "You're booked in!",
+    "level": "h3",
+    "text": "We'll call you at your preferred time. You can also message us on WhatsApp any time."
+   },
+   {
+    "heading": "Not sure if this is for you?",
+    "level": "h2",
+    "text": "Find out by connecting 1:1 with our team and ask any questions you have."
+   }
+  ]
+ },
+ "prd-library.html": {
+  "title": "PRD library: template, examples and 120 PRD ideas",
+  "sections": [
+   {
+    "heading": "The PRD template, section by section",
+    "level": "h2",
+    "text": "What each section should answer, with a worked example (SplitKaro, a UPI bill-split app)."
+   },
+   {
+    "heading": "How to frame a PRD like top PMs",
+    "level": "h2",
+    "text": "Use this order of thinking before you write a single requirement."
+   },
+   {
+    "heading": "120 PRD ideas across 15 industries",
+    "level": "h2",
+    "text": "Practise framing PRDs for interviews and portfolios."
+   },
+   {
+    "heading": "UPI bill-split for friends",
+    "level": "h3",
+    "text": "Groups lose track of shared spends; settle up in one tap through UPI"
+   },
+   {
+    "heading": "Credit-score coach",
+    "level": "h3",
+    "text": "First-time borrowers don't know why their CIBIL score is low; give a personalised 90-day plan"
+   },
+   {
+    "heading": "SIP nudges for Gen Z",
+    "level": "h3",
+    "text": "Young earners start SIPs but stop after 3 months; smart reminders and goal tracking"
+   },
+   {
+    "heading": "Merchant QR loan",
+    "level": "h3",
+    "text": "Small shops need working capital; offer instant loans based on QR collections"
+   },
+   {
+    "heading": "Expense auto-categoriser",
+    "level": "h3",
+    "text": "People can't see where salary goes; read SMS/UPI and auto-tag spends"
+   },
+   {
+    "heading": "Gold savings round-up",
+    "level": "h3",
+    "text": "Round up each UPI spend and invest the change in digital gold"
+   },
+   {
+    "heading": "Family finance dashboard",
+    "level": "h3",
+    "text": "Parents manage many accounts and policies; one shared view for the family"
+   }
+  ]
+ },
+ "questions.html": {
+  "title": "Top 100 interview questions",
+  "sections": [
+   {
+    "heading": "Have questions about the course unanswered?",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Talk to a counsellor",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "You're booked in!",
+    "level": "h3",
+    "text": "We'll call you at your preferred time. You can also message us on WhatsApp any time."
+   },
+   {
+    "heading": "Not sure if this is for you?",
+    "level": "h2",
+    "text": "Find out by connecting 1:1 with our team and ask any questions you have."
+   }
+  ]
+ },
+ "tests.html": {
+  "title": "Practice tests",
+  "sections": [
+   {
+    "heading": "Have questions about the course unanswered?",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Talk to a counsellor",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "You're booked in!",
+    "level": "h3",
+    "text": "We'll call you at your preferred time. You can also message us on WhatsApp any time."
+   },
+   {
+    "heading": "Not sure if this is for you?",
+    "level": "h2",
+    "text": "Find out by connecting 1:1 with our team and ask any questions you have."
+   }
+  ]
+ },
+ "ai-pm-industry-research.html": {
+  "title": "AI Product Management: industry research and skills",
+  "sections": [
+   {
+    "heading": "Institutional courses",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Skills employers name most",
+    "level": "h2",
+    "text": "Counts are records (out of 38 with stated requirements) whose summary names the skill."
+   },
+   {
+    "heading": "Release management (gap closed)",
+    "level": "h2",
+    "text": "Listed in the course outline, not taught anywhere on the site before this page."
+   },
+   {
+    "heading": "Interview guide: questions and model answers",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "1. Product sense and strategy",
+    "level": "h3",
+    "text": "Maps to: roadmap and strategy, customer research, vision to launch (J01, J05, J13, J15, J16)."
+   },
+   {
+    "heading": "2. AI and ML fundamentals for PMs",
+    "level": "h3",
+    "text": "Maps to: ML / AI model lifecycle, AI tool proficiency, shipping 0-to-1 AI products (J01, J13, J43, J44)."
+   },
+   {
+    "heading": "3. Agents and agentic products",
+    "level": "h3",
+    "text": "Maps to: agent frameworks (LangChain, LangGraph, AutoGen, CrewAI, n8n) named in J39, J42, J45; API agents (J08)."
+   },
+   {
+    "heading": "4. Evaluation, experimentation and metrics",
+    "level": "h3",
+    "text": "Maps to: SQL (6 records), experimentation (5), analytics dashboards (3), statistics (2) in the skill matrix."
+   },
+   {
+    "heading": "5. Execution, stakeholders and requirements",
+    "level": "h3",
+    "text": "Maps to: requirements and user stories, cross-functional work, Agile, Jira (J05, J15, J24, J25, J36, J37)."
+   },
+   {
+    "heading": "6. Responsible AI, risk and domain",
+    "level": "h3",
+    "text": "Maps to: regulatory knowledge, payments/banking domain, safety-focused roles (J12, J17, J18, J20, J21)."
+   }
+  ]
+ },
+ "practice.html": {
+  "title": "Practice with AI",
+  "sections": [
+   {
+    "heading": "Have questions about the course unanswered?",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Talk to a counsellor",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "You're booked in!",
+    "level": "h3",
+    "text": "We'll call you at your preferred time. You can also message us on WhatsApp any time."
+   },
+   {
+    "heading": "Not sure if this is for you?",
+    "level": "h2",
+    "text": "Find out by connecting 1:1 with our team and ask any questions you have."
+   }
+  ]
+ },
+ "speaking-coach.html": {
+  "title": "AI Speaking Coach",
+  "sections": [
+   {
+    "heading": "Learn and practise English speaking",
+    "level": "h2",
+    "text": "Practise a little every day: 10 minutes of shadowing, one free speech, and one interview answer, then read your AI feedback."
+   },
+   {
+    "heading": "How to shadow (5 steps)",
+    "level": "h3",
+    "text": "Pick a short clip (BBC Learning English, TED, a news anchor)."
+   },
+   {
+    "heading": "Have questions about the course unanswered?",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Talk to a counsellor",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "You're booked in!",
+    "level": "h3",
+    "text": "We'll call you at your preferred time. You can also message us on WhatsApp any time."
+   },
+   {
+    "heading": "Not sure if this is for you?",
+    "level": "h2",
+    "text": "Find out by connecting 1:1 with our team and ask any questions you have."
+   }
+  ]
+ },
+ "ai-skills-map.html": {
+  "title": "AI Skills Map: every AI skill and where to learn it",
+  "sections": [
+   {
+    "heading": "Learn these first, in this order",
+    "level": "h2",
+    "text": "Seven skills that make you effective with AI at work, each linked to its SkillNavora course."
+   },
+   {
+    "heading": "The full AI skills catalogue (79 capabilities)",
+    "level": "h2",
+    "text": "Every capability, and where to learn it on SkillNavora."
+   },
+   {
+    "heading": "What AI-era job descriptions ask for",
+    "level": "h2",
+    "text": "Skills that commonly appear in job postings for these roles, and where to learn each."
+   },
+   {
+    "heading": "AI Product Manager",
+    "level": "h3",
+    "text": "Define AI product strategy, use cases and success metrics"
+   },
+   {
+    "heading": "GenAI / AI Automation Specialist",
+    "level": "h3",
+    "text": "Build workflows with n8n, Make, Zapier and LLM APIs"
+   },
+   {
+    "heading": "Business Analyst (AI-era)",
+    "level": "h3",
+    "text": "Requirements: BRD, FRD, user stories, acceptance criteria"
+   },
+   {
+    "heading": "Have questions about the course unanswered?",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "Talk to a counsellor",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "You're booked in!",
+    "level": "h3",
+    "text": "We'll call you at your preferred time. You can also message us on WhatsApp any time."
+   },
+   {
+    "heading": "Not sure if this is for you?",
+    "level": "h2",
+    "text": "Find out by connecting 1:1 with our team and ask any questions you have."
+   }
+  ]
+ },
+ "ai-models-guide.html": {
+  "title": "AI Models and Platforms: the complete guide",
+  "sections": [
+   {
+    "heading": "Contents",
+    "level": "h2",
+    "text": "Read this first: what is verified and what is not"
+   },
+   {
+    "heading": "Read this first: what is verified and what is not",
+    "level": "h2",
+    "text": "Product lineups change every few months. Model names, plan names and limits in this guide are the names known when it was written."
+   },
+   {
+    "heading": "Chapter 1: How large language models work",
+    "level": "h2",
+    "text": ""
+   },
+   {
+    "heading": "1.1 What a large language model is [Fact]",
+    "level": "h3",
+    "text": "A large language model (LLM) is a program trained on very large amounts of text to predict the next piece of text."
+   },
+   {
+    "heading": "1.2 Training and inference [Fact]",
+    "level": "h3",
+    "text": "Training is the one-off, expensive process that sets the parameters from data."
+   },
+   {
+    "heading": "1.3 Tokens [Fact]",
+    "level": "h3",
+    "text": "A token is a piece of text the model reads or writes: a whole word, part of a word, a number fragment or punctuation."
+   },
+   {
+    "heading": "1.4 Context window and context [Fact]",
+    "level": "h3",
+    "text": "The context is everything the model can see when it answers: your message, the earlier conversation, any uploaded documents, and any hidden instructions the product adds."
+   },
+   {
+    "heading": "1.5 Parameters, weights and model size [Fact]",
+    "level": "h3",
+    "text": "Parameters are the learned values inside the model."
+   },
+   {
+    "heading": "1.6 Reasoning models [Fact]",
+    "level": "h3",
+    "text": "Some models spend extra output on working through a problem before they give the final answer."
+   },
+   {
+    "heading": "1.7 Multimodal models [Fact]",
+    "level": "h3",
+    "text": "A multimodal model accepts more than text: images, documents, sometimes audio and video, and sometimes produces images."
+   }
+  ]
+ }
+}

@@ -264,7 +264,7 @@ def build_page(artifact=False):
     views.append(f'<div class="view" id="v-tools"><div class="kicker">Stack</div><h1>Tool stack</h1><p>Recommendation only. Check each official site for current features and prices.</p><table><thead><tr><th>Category</th><th>Primary (beginner)</th><th>Alternative</th></tr></thead><tbody>{tools}</tbody></table></div>')
     gl = "".join(f"<tr><td><b>{E(t)}</b></td><td>{E(m)}</td><td>Subject {n}</td></tr>" for t, m, n in sorted(D.GLOSSARY, key=lambda g: g[0].lower()))
     views.append(f'<div class="view gl" id="v-glossary"><div class="kicker">Reference</div><h1>Glossary</h1><input id="gl-q" type="search" placeholder="Search terms (for example: token, cosine, MCP)"><table><thead><tr><th>Term</th><th>Meaning</th><th>Introduced</th></tr></thead><tbody id="glossary-body">{gl}</tbody></table></div>')
-    pdfs = [("AI-Master-Course-Handbook.pdf", "Full handbook", "All 26 subjects, diagrams, pointers, glossary (93 pages)")]
+    pdfs = [("AI-Master-Course-Handbook.pdf", "Full handbook", "All 26 subjects, diagrams, pointers, glossary")]
     pdfs += [(name, f"Week {n} PDF", C.WEEKS[n - 1]["title"]) for n, name in BK.WEEK_FILES.items()]
     pdfs += [("AI-Master-Course-Interview-Bank.pdf", "Interview bank PDF", "Technical and AI PM questions with answers"), ("AI-Master-Course-PM-Toolkit.pdf", "PM toolkit PDF", "PRD, metrics, release gate and PM subjects")]
     dl = "".join(f'<a href="handbook/{E(f)}" download><b>{E(t)}</b><small>{E(d)}</small></a>' for f, t, d in pdfs)

@@ -165,6 +165,7 @@ def subject_html(s):
         h.append('<h3>4. Practical implementation</h3><p>Work through the steps above and keep the result in your portfolio repository.</p>')
         h.append('<h3>5. Code explained</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in s["explain"]) + "</ul>")
     h.append('<h3>5b. Deep dive</h3>' + "".join(f"<p>{E(x)}</p>" for x in D.DEEP.get(s["n"], [])))
+    h.append(site_block(s))
     h.append(f'<h3>6. Testing</h3><p>{E(s["test"])}</p>')
     h.append('<h3>7. Troubleshooting</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in s["troubleshoot"]) + "</ul>")
     h.append('<h3>8. AI Product Manager perspective</h3><ul>' + "".join(f"<li>{E(x)}</li>" for x in s["pm"]) + "</ul>")
@@ -174,6 +175,35 @@ def subject_html(s):
     h.append('<h3>11. Pointers</h3><h4>On SkillNavora (free)</h4><ul>' + "".join(f'<li>{E(l)}: <span class="small">{E(u)}</span></li>' for l, u in site) + '</ul>'
              + '<h4>Official documentation (check the live page before use)</h4><ul>' + "".join(f'<li>{E(l)}: <span class="small">{E(u)}</span></li>' for l, u in D.OFFICIAL.get(s["n"], [])) + '</ul>')
     return "\n".join(h)
+
+
+SITE = None
+
+
+def site_block(s):
+    """What the SkillNavora pages already teach for this subject (from site_extract.json)."""
+    global SITE
+    if SITE is None:
+        import json as _j
+        path = os.path.join(HERE, "site_extract.json")
+        SITE = _j.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
+    pages = []
+    for _, u in C.COVERAGE[s["n"]][1]:
+        f = u.split("#")[0]
+        if f in SITE and f not in [x for x, _ in pages]:
+            pages.append((f, SITE[f]))
+    if not pages:
+        return ""
+    out = ['<h3>5c. What the SkillNavora pages already teach</h3>',
+           '<p class="small">Extracted from the pages on this website. Open the link to read the full lesson.</p>']
+    for f, info in pages[:3]:
+        secs = [x for x in info.get("sections", []) if x.get("text")][:5]
+        title = info.get("title") or f
+        out.append(f'<h4>{E(title)}</h4><p class="small"><a href="https://www.skillnavora.in/{E(f)}">https://www.skillnavora.in/{E(f)}</a>'
+                   + (f' · {info["pages"]} pages' if info.get("pages") else "") + '</p>')
+        if secs:
+            out.append("<ul>" + "".join(f"<li><b>{E(x['heading'])}:</b> {E(x['text'])}</li>" for x in secs) + "</ul>")
+    return "\n".join(out)
 
 
 def links_extra(s):
