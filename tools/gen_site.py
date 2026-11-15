@@ -100,7 +100,7 @@ MODALS_HTML = f'''<div class="modal" id="m-counsel" role="dialog" aria-modal="tr
     <h2>Have questions about the course unanswered?</h2>
     <div class="kicker" style="color:#cfe0ff">Our recommendation</div>
     <p class="mside-sub">Talk to the founder</p>
-    <div class="mperson"><div class="ring"><img src="{{r}}assets/varun.jpg" alt="Varun Kumar" width="150" height="150"></div>
+    <div class="mperson">
       <div class="pcard"><div class="pt">Free 1:1 · 15 minutes · No sales pitch</div><div class="pb"><b>Varun Kumar</b><span>Founder, SkillNavora · Product Manager</span></div></div></div>
   </div>
   <div class="mform">
@@ -423,7 +423,6 @@ home = f"""<div class="hero split"><div class="wrap"><div>
 {MENTORS_S}
 {REVIEWS_S}
 <section><div class="wrap founder">
-  <img src="assets/varun.jpg" alt="Varun Kumar, founder of SkillNavora" width="200" height="200">
   <div><div class="kicker">Founder</div><h2 class="sec-h" style="margin-bottom:4px">Varun Kumar</h2><p class="meta">Product manager and founder of SkillNavora</p>
     <blockquote>“SkillNavora exists to help you learn by doing: real problems, real feedback and the AI tools teams use today.”</blockquote>
     <a class="btn btn-line btn-sm" data-wa="Hi Varun, I'd like to know more about SkillNavora." href="#">Message Varun</a></div>
@@ -518,7 +517,7 @@ page("programs.html", "Programs · SkillNavora", "Compare SkillNavora's AI-First
 
 # ================================================================ PROGRAM PAGES
 INSTRUCTOR_S = """<section id="instructor"><div class="wrap"><div class="kicker">Your instructor</div><h2 class="sec-h">Learn from a practising product leader</h2>
-  <div class="inst card"><img src="../assets/varun.jpg" alt="Varun Kumar" width="168" height="168" loading="lazy">
+  <div class="inst card">
     <div><h3>Varun Kumar</h3><p class="meta" style="margin:2px 0 12px">Founder and lead instructor, SkillNavora · Product manager</p>
     <p>Varun designed this program around the way product teams work today: real problems, honest feedback and the AI tools PMs use every day. He wrote the 620-page SkillNavora PM Master Handbook that every learner gets, and personally reviews capstone projects.</p>
     <div class="inst-acts"><a class="btn btn-line btn-sm" href="https://www.linkedin.com/in/" data-li target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn btn-line btn-sm" href="../resources.html">Read the PM Handbook</a></div></div></div>
@@ -978,7 +977,7 @@ about = uhero("About Us", 'About <span class="g">SkillNavora</span>', "An all-in
   <div class="card" style="padding:22px"><h3 style="margin:0 0 10px">What you will find here</h3><ul class="checks"><li>Three flagship programs: AI-First PM, AI-First Data Engineer, GenAI Launchpad</li><li>Other programs: SFMC, digital marketing, content creation, Forward Deployed Engineer</li><li>Free handbooks, tool tutorials, practice tests and interview questions</li><li>Job board, referrals and portfolio support</li></ul></div>
 </div></section>
 <section id="team" class="tint"><div class="wrap"><div class="kicker">SkillNavora team</div><h2 class="sec-h">Meet our founder</h2>
-  <div class="card founder" style="padding:24px;margin-top:20px"><img src="assets/varun.jpg" alt="Varun Kumar" width="160" height="160" loading="lazy">
+  <div class="card founder" style="padding:24px;margin-top:20px">
     <div><h3 style="margin:0">Varun Kumar</h3><p class="meta" style="margin:4px 0 12px"><b>Founder &amp; CEO, SkillNavora</b> · Gurgaon, India</p>
     <p style="margin:0 0 10px">Varun works in Product at American Express (Amex) and brings more than a decade of experience building products and leading cross-functional teams. He founded SkillNavora to give learners the practical, AI-first training he wishes he had had: real frameworks, real case studies and the tools modern product and data teams use every day.</p>
     <p style="margin:0">He wrote the SkillNavora PM Master Handbook and designs the curriculum for every program, and he mentors learners on product thinking, interviews and career moves into product and AI roles.</p>
