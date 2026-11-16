@@ -43,7 +43,7 @@
 </div></header>
 <main>
 <style>
-.cf-wrap{max-width:820px}
+.cf-wrap{max-width:820px;margin-left:auto;margin-right:auto;padding-left:16px;padding-right:16px}
 .cf-sec{margin-top:34px}.cf-sec h2{font-size:24px;margin:6px 0 10px}
 .cf-sec h3{font-size:18px;margin:18px 0 6px}
 .cf-box{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface);margin-top:12px}
@@ -53,6 +53,7 @@
 .cf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:14px}
 .cf-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--surface);display:flex;flex-direction:column;gap:6px;min-width:0}
 .cf-card b{font-size:16px}.cf-card span{color:var(--mu);font-size:14px;line-height:1.5}
+.cf-fig{margin:16px 0;text-align:center}.cf-fig img{max-width:100%;height:auto;border-radius:14px}
 pre.cf-code{background:var(--surface-2,#f4f5f8);border-radius:10px;padding:12px;overflow-x:auto;font-size:13px}
 </style>
 <section style="padding-top:28px"><div class="wrap cf-wrap">
@@ -60,6 +61,7 @@ pre.cf-code{background:var(--surface-2,#f4f5f8);border-radius:10px;padding:12px;
   <h1 class="sec-h" style="margin:6px 0 10px">Use Claude-style coding agents for free</h1>
   <p class="meta">Coding agents such as Claude Code read your project, write code and run commands in your terminal. The agent is a tool; the model behind it does the thinking. This guide shows how to pair the tool with free or open-source models, what each option is good for, and where the limits and risks are.</p>
   <div class="cf-warn"><b>Read this first.</b> There is no unlimited, free access to the paid Claude models. Free tiers have daily or monthly limits, change often, and sometimes stop. Some providers forbid certain ways of connecting accounts. Check each provider's current terms, limits and billing page before you rely on it, and never trust a label in a menu over the usage or billing log.</div>
+  <figure class="cf-fig"><img src="assets/cf/agent-engine.svg" alt="Diagram: a coding agent (the body) can use a local model, a free cloud model or a router as its engine" loading="lazy"><figcaption class="meta">The agent is the body; the model is the engine. You can swap the engine without changing how you work.</figcaption></figure>
   <p class="meta">This guide is original and written for SkillNavora. It was inspired by a free public walkthrough video on the same topic (<a href="https://www.youtube.com/watch?v=HsgsYdV1XoQ" target="_blank" rel="noopener">watch it on YouTube</a>). Its prompts and code are not copied here.</p>
 </div></section>
 
@@ -73,6 +75,7 @@ pre.cf-code{background:var(--surface-2,#f4f5f8);border-radius:10px;padding:12px;
     <div class="cf-card"><b>5. Kilo Code in VS Code (daily driver)</b><span>An agent inside the free VS Code editor, with free models and your own provider keys.</span></div>
     <div class="cf-card"><b>6. Google Anti-Gravity</b><span>A free AI coding tool that can run commands for you. Useful for setup, but read every permission it asks for.</span></div>
   </div>
+  <figure class="cf-fig"><img src="assets/cf/setups.svg" alt="Comparison table of setups by privacy, cost, offline use and daily limits" loading="lazy"><figcaption class="meta">A quick comparison. Check current terms and limits before you rely on any option.</figcaption></figure>
 </div></section>
 
 <section class="cf-sec"><div class="wrap cf-wrap">
@@ -86,6 +89,7 @@ pre.cf-code{background:var(--surface-2,#f4f5f8);border-radius:10px;padding:12px;
       <li>Check your hardware before choosing a bigger model: a graphics card with more memory and more RAM runs larger models. Ask an AI assistant to recommend a model for your hardware, then confirm the model is still current.</li>
     </ol>
   </div>
+  <figure class="cf-fig"><img src="assets/cf/local-offline.svg" alt="Laptop running a model with Wi-Fi switched off" loading="lazy"><figcaption class="meta">Once a model is on your laptop, it runs without internet.</figcaption></figure>
   <p class="meta"><b>Good for:</b> private code, offline work, unlimited use within your hardware. <b>Limit:</b> smaller models are less capable than the best hosted models.</p>
 </div></section>
 
@@ -120,6 +124,7 @@ pre.cf-code{background:var(--surface-2,#f4f5f8);border-radius:10px;padding:12px;
   <h2>5. Omni Route: one router, several providers</h2>
   <p class="meta">A router such as Omni Route sends each request to one of several providers, and moves to the next when one is out of quota. It can save you from hitting a single limit in the middle of a task.</p>
   <div class="cf-warn"><b>Check terms before you connect anything.</b> Some free services do not allow their accounts to be used through third-party routers. Connect only the providers whose terms allow it, and use your own keys.</div>
+  <figure class="cf-fig"><img src="assets/cf/fallback.svg" alt="Router sending a request to provider 1 (quota used up) and then provider 2 (answers)" loading="lazy"><figcaption class="meta">When one provider is out of quota, the router moves to the next.</figcaption></figure>
   <p class="meta">Keep the router's own key in a password manager. Review what each connected provider receives, because routing means your prompts can reach more than one company.</p>
 </div></section>
 
@@ -141,6 +146,7 @@ pre.cf-code{background:var(--surface-2,#f4f5f8);border-radius:10px;padding:12px;
 
 <section class="cf-sec"><div class="wrap cf-wrap">
   <h2>Rules that protect you</h2>
+  <figure class="cf-fig"><img src="assets/cf/safety.svg" alt="Six safety rules for free AI coding setups" loading="lazy"></figure>
   <div class="cf-box">
     <ul class="cf-steps">
       <li><b>Nothing is unlimited.</b> Plan for daily caps, and keep a paid option ready for deadlines.</li>
