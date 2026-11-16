@@ -1,5 +1,6 @@
 import re
 import make_money_page as _mm
+import claude_free_page as _cf
 import trading_page as _tp
 import guide_site as _gs
 #!/usr/bin/env python3
@@ -1445,7 +1446,8 @@ MF_BODY = uhero("Upskill for free", "Master <span class=\"g\">Freelancing</span>
 <section style="padding-top:8px"><div class="wrap"><div class="kicker">How to start</div><h2 class="sec-h">Six steps from zero to your first client</h2>
 <ol class="meta" style="max-width:74ch;line-height:1.7"><li>Pick one profession and learn its foundations.</li><li>Build three small samples, each with a short description of the problem it solves.</li><li>Create a simple portfolio page that shows the samples.</li><li>Set a clear starting price and a written scope for each service.</li><li>Pitch on marketplaces and LinkedIn with a specific offer, not a general profile.</li><li>Ask every client for a review or testimonial with their permission.</li></ol>
 <p class="meta" style="max-width:74ch">Freelancing and part-time options are listed on the <a href="jobs.html#freelance">Job board</a>. Learning roadmaps are learning plans, not guaranteed jobs or incomes.</p></div></section>"""
-page("master-freelancing.html", "Master Freelancing · SkillNavora", "Learn a skill, build a portfolio, find clients and earn: the SkillNavora Master Freelancing academy, department by department.", MF_BODY + _mm.section_html() + _tp.section_html(), "master-freelancing.html")
+page("master-freelancing.html", "Master Freelancing · SkillNavora", "Learn a skill, build a portfolio, find clients and earn: the SkillNavora Master Freelancing academy, department by department.", MF_BODY + _mm.section_html() + _cf.section_html() + _tp.section_html(), "master-freelancing.html")
+page("claude-free-setups.html", "Free Claude and AI coding setups: Ollama, OpenRouter, OpenCode and more · SkillNavora", "Run coding agents with free or open-source models: Ollama on your laptop, OpenRouter in the cloud, OpenCode, Omni Route, Kilo Code and Anti-Gravity, with the limits and safety rules.", _cf.BODY, "master-freelancing.html")
 page("trading-terminal-handbook.html", "Personal Trading & Analytics Terminal: handbook · SkillNavora", "Master Freelancing chapter on algorithmic trading systems: architecture, security, option Greeks, a 9/21 EMA strategy with a friction-adjusted backtest, guarded execution and regulatory checks. Not a proof that any strategy works.", _tp.body(), "master-freelancing.html")
 import apis_lesson as _apis
 page("apis-for-pms.html", "APIs for Product Managers: requests, methods, status codes and JSON · SkillNavora",
