@@ -412,3 +412,10 @@ window.SNphone = (function () {
     return { ok: true, value: "+" + code + " " + d };
   };
 })();
+
+/* Scrollable tab bars: a mouse wheel moves them sideways, so every tab can be reached on a computer */
+document.addEventListener("wheel", e => {
+  const bar = e.target.closest && e.target.closest(".tabs");
+  if (!bar || bar.scrollWidth <= bar.clientWidth || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+  bar.scrollLeft += e.deltaY; e.preventDefault();
+}, { passive: false });

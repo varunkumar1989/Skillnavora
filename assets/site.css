@@ -1697,3 +1697,8 @@ body:has(.modal.open) .wa,body:has(.modal.open) #askai-tab,body:has(.modal.open)
 /* Founder block without a photo: one centred column */
 .founder:not(:has(img)){grid-template-columns:1fr;justify-items:center;text-align:center;max-width:720px;margin:0 auto}
 .founder:not(:has(img)) blockquote{margin-left:auto;margin-right:auto;max-width:34ch}
+
+/* Tab bars that scroll sideways (admin, teaching, LMS): show a visible scrollbar and a fade at the end */
+.tabs{scrollbar-width:thin;scrollbar-color:var(--line,#d9dfeb) transparent;-webkit-overflow-scrolling:touch;padding-bottom:4px;position:relative}
+.tabs::-webkit-scrollbar{height:6px}
+.tabs::-webkit-scrollbar-thumb{background:var(--line,#c9cfdb);border-radius:6px}
