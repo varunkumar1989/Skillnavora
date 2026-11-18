@@ -1747,3 +1747,7 @@ print("card titles linked (pages, cards):", cardlinks.run())
 import legacy_links
 print("legacy links rewritten:", legacy_links.run(OUT))
 print("artifact links moved into the members library:", _mb.run(OUT))
+
+# Final SEO pass over every page from every generator: sitemap, descriptions, share images, course data
+import seo_post
+print("SEO:", seo_post.run(OUT))
