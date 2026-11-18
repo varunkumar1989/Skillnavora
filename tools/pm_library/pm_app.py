@@ -30,7 +30,7 @@ const groupOf = k => GROUPS.find(g => g[0] === k)[1];
 const V = {
   overview() {
     const n = D.modules.reduce((a, m) => a + m.docs.length, 0) + D.libraries.length + D.extra.length;
-    return `<h2>What is in the library</h2><div class="box def">The Product Management Master Handbook by Varun Kumar: 12 Product Core modules, an 11-module AI Tools Lab and the 8-chapter Business AI Stack, with detailed PDFs and class slides for the core modules, five libraries and the complete handbook. ${n} PDFs in total.</div>
+    return `<h2>What is in the library</h2><div class="box def">The Product Management Master Handbook: 12 Product Core modules, an 11-module AI Tools Lab and the 8-chapter Business AI Stack, with detailed PDFs and class slides for the core modules, five libraries and the complete handbook. ${n} PDFs in total.</div>
     <div class="grid">${card("core","Modules 1–12","Product Core","Chapter, detailed PDF, class slides and interactive handbook for each module.")}
     ${card("ai","Modules 13–23","AI Tools Lab","Claude, Claude Code, Lovable, Replit, Figma, Notion, automation, chatbots and voice agents.")}
     ${card("biz","Modules 24–31","Business AI Stack","Dashboards, CRM, WhatsApp, deployment, Jira, digital marketing and lead generation.")}

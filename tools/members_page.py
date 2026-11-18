@@ -9,7 +9,7 @@ E = lambda s: html.escape(str(s), quote=True)
 
 # (group, artifact id, name, what it is)
 ARTIFACTS = [
-    ("PM handbooks", "51eByvQUgCYBHLAYmyGzVJ", "Product Management Master Handbook", "The complete interactive PM handbook by Varun Kumar."),
+    ("PM handbooks", "51eByvQUgCYBHLAYmyGzVJ", "Product Management Master Handbook", "The complete interactive PM handbook."),
     ("PM handbooks", "XmhTL4Yv72bgmSFFuR2hzz", "PM handbook library", "All 68 PM handbook PDFs in one place."),
     ("PM handbooks", "MS8ypMH8oBvKv1yUh1cvnz", "Module 1: Product Thinking", "Interactive handbook for module 1."),
     ("PM handbooks", "DkwwfdWHRvKZLsdLcEbMpn", "Module 2: Strategy", "Interactive handbook for module 2."),

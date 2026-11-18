@@ -58,7 +58,7 @@ def job_portal_items():
 
 OTHER_MAIN = [x for x in OTHER_PROGRAMS if x[0] in OTHER_MAIN_KEYS]
 ABOUT = [("about.html", "About SkillNavora", "Our story, mission and team", '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'),
-         ("about.html#team", "SkillNavora team", "Meet our founder and mentors", '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'),
+         ("about.html#team", "SkillNavora team", "Meet our team and mentors", '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>'),
          ("about.html#why-us", "Why us", "What makes SkillNavora different", '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/>'),
          ("reviews.html", "Reviews", "What learners say", '<path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>'),
          ("mentor.html", "Become a mentor", "Guide learners, run sessions and mock interviews", '<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>'),
@@ -100,9 +100,9 @@ MODALS_HTML = f'''<div class="modal" id="m-counsel" role="dialog" aria-modal="tr
   <div class="mside">
     <h2>Have questions about the course unanswered?</h2>
     <div class="kicker" style="color:#cfe0ff">Our recommendation</div>
-    <p class="mside-sub">Talk to the founder</p>
+    <p class="mside-sub">Talk to our team</p>
     <div class="mperson">
-      <div class="pcard"><div class="pt">Free 1:1 · 15 minutes · No sales pitch</div><div class="pb"><b>Varun Kumar</b><span>Founder, SkillNavora · Product Manager</span></div></div></div>
+      <div class="pcard"><div class="pt">Free 1:1 · 15 minutes · No sales pitch</div><div class="pb"><b>SkillNavora team</b><span>Programmes, fees and career questions</span></div></div></div>
   </div>
   <div class="mform">
     <div class="mhead"><h2 id="mc-h">Talk to a counsellor</h2><button class="mclose" type="button" data-close aria-label="Close">×</button></div>
@@ -334,7 +334,7 @@ FREE_TRACKS = [("AI for Product Managers", "LLMs, RAG, vibe coding and agentic A
                ("Lovable and AI app builders", "Turn an idea into a working prototype without writing code.", "2 modules", "No-code"),
                ("Automation with Zapier, Make and n8n", "Automate repetitive work and connect your tools with AI.", "1 module", "Automation"),
                ("Chatbots and voice agents", "Build WhatsApp, Slack, web chatbots and voice agents for businesses.", "2 modules", "AI Agents")]
-FREE_COURSES_S = sec("Free AI courses", "Start learning AI for free", "Self-paced courses from the SkillNavora PM Master Handbook by Varun Kumar. Free for everyone, no login needed.",
+FREE_COURSES_S = sec("Free AI courses", "Start learning AI for free", "Self-paced courses from the SkillNavora PM Master Handbook. Free for everyone, no login needed.",
   '<div class="grid g3">' + "".join(f'<a class="card fcourse" href="resources.html"><span class="ftag">{E(t)}</span><h3>{E(n)}</h3><p>{E(d)}</p><div class="fmeta"><span>Free</span><span>{E(m)}</span><span>Self-paced</span></div><span class="go">Start free →</span></a>' for n, d, m, t in FREE_TRACKS) + '</div>', sid="free-courses")
 WORKSHOPS = [("AI tools every PM should know", "A live tour of the AI tools product teams use, with real examples.", "90 min"),
              ("Build a website with Claude Code", "Go from idea to a live website in one session, step by step.", "2 hours"),
@@ -423,11 +423,6 @@ home = f"""<div class="hero split"><div class="wrap"><div>
 {sec("Upskill for free", "Practise every day, for free", "Sharpen your skills between classes, or try SkillNavora before you enrol.", f'<div class="grid g4">{up_cards}</div>')}
 {MENTORS_S}
 {REVIEWS_S}
-<section><div class="wrap founder">
-  <div><div class="kicker">Founder</div><h2 class="sec-h" style="margin-bottom:4px">Varun Kumar</h2><p class="meta">Product manager and founder of SkillNavora</p>
-    <blockquote>“SkillNavora exists to help you learn by doing: real problems, real feedback and the AI tools teams use today.”</blockquote>
-    <a class="btn btn-line btn-sm" data-wa="Hi Varun, I'd like to know more about SkillNavora." href="#">Message Varun</a></div>
-</div></section>
 {sec("FAQs", "Got questions? We have answers.", "Everything you need to know before joining SkillNavora.", FAQ_BLOCK, cls="tint", center=True, sid="faqs")}
 {band("Not sure which program fits you?", "Book a free 1:1 counselling session. We'll look at your background and goals and suggest the right path.", '<a class="btn btn-primary" data-counsel href="#counselling">Book free counselling</a><a class="btn btn-ghost" data-wa="Hi SkillNavora!" href="#">Chat on WhatsApp</a>')}
 """
@@ -490,7 +485,7 @@ HB_LIBROWS = "".join(f'<a class="hb-row" href="handbook/{f}.pdf" target="_blank"
 CLASSROWS = '<a class="hb-row" href="classes/week-06-effective-communication.html" target="_blank" rel="noopener"><span class="hb-n">6</span><span>Week 6 · Effective Communication as a PM<em>67-slide class deck: frameworks, templates, case study, assignment and interview prep</em></span><small>Slides ↗</small></a><a class="hb-row" href="classes/week-06-effective-communication.pdf" target="_blank" rel="noopener"><span class="hb-n">6</span><span>Week 6 · Effective Communication as a PM<em>Same deck as a PDF to download</em></span><small>PDF ↗</small></a>'
 HB_PANEL = f'''    <div class="panel" id="p-handbook" hidden>
       <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Product Management Master Handbook</h2>
-        <p class="meta" style="margin:0 0 14px">23 modules, 620+ pages: the 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep. Created by Varun Kumar.</p>
+        <p class="meta" style="margin:0 0 14px">23 modules, 620+ pages: the 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep. Created by SkillNavora.</p>
         <div class="hb-acts"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 25 MB) ↗</a></div></div></div>
       <h3 class="h3s hb-h">Product Core modules</h3><div class="hb-list">{_hb_mods(HB_CORE)}</div>
       <h3 class="h3s hb-h">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div><h3 class="h3s hb-h">Business AI Stack (chapters 24 to 31)</h3><div class="hb-list">{_hb_mods(HB_BIZ)}</div><h3 class="h3s hb-h">Complete AI tool guides (15)</h3><div class="hb-list">{"".join(f'<a class="hb-row" href="handbook/Guide-{n}-{f}.pdf" target="_blank" rel="noopener"><span class="hb-n">{int(n)}</span><span>{E(t)}</span><small>PDF ↗</small></a>' for n, f, t in HB_GUIDES)}</div><p class="meta"><a href="handbook/Complete-AI-Tools-Guides.pdf" target="_blank" rel="noopener">Complete AI tool guides (one PDF, 30 pages) ↗</a></p><p class="meta"><a href="handbook/Business-AI-Stack-Handbook.pdf" target="_blank" rel="noopener">Complete Business AI Stack handbook (PDF) ↗</a></p>
@@ -517,12 +512,11 @@ allp = f"""<div class="hero"><div class="wrap">
 page("programs.html", "Programs · SkillNavora", "Compare SkillNavora's AI-First Product Management, AI-First Data Engineer and GenAI Launchpad programs.", allp, "programs.html", sticky=True)
 
 # ================================================================ PROGRAM PAGES
-INSTRUCTOR_S = """<section id="instructor"><div class="wrap"><div class="kicker">Your instructor</div><h2 class="sec-h">Learn from a practising product leader</h2>
-  <div class="inst card">
-    <div><h3>Varun Kumar</h3><p class="meta" style="margin:2px 0 12px">Founder and lead instructor, SkillNavora · Product manager</p>
-    <p>Varun designed this program around the way product teams work today: real problems, honest feedback and the AI tools PMs use every day. He wrote the 620-page SkillNavora PM Master Handbook that every learner gets, and personally reviews capstone projects.</p>
-    <div class="inst-acts"><a class="btn btn-line btn-sm" href="https://www.linkedin.com/in/" data-li target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn btn-line btn-sm" href="../resources.html">Read the PM Handbook</a></div></div></div>
-  <p class="meta" style="margin-top:14px">Guest mentors and speakers are announced for each cohort.</p></div></section>"""
+INSTRUCTOR_S = """<section id="instructor"><div class="wrap"><div class="kicker">Who teaches</div><h2 class="sec-h">Learn from practising professionals</h2>
+  <div class="inst card"><div><h3>Instructors and mentors</h3><p class="meta" style="margin:2px 0 12px">Announced for each cohort</p>
+    <p>Classes are taught by people who do this work every day, with honest feedback on your assignments and the AI tools teams use now. The instructors and guest mentors for each cohort are introduced before it starts.</p>
+    <div class="inst-acts"><a class="btn btn-line btn-sm" href="../contact.html">Ask about the next cohort</a></div></div></div>
+</div></section>"""
 TOOLS_SUB = {"ai-pm": "Hands-on with the tools product teams use every day, from Jira and Figma to Claude and Claude Code.",
              "ai-de": "Hands-on with the tools data engineering teams use every day, from SQL, Python and Airflow to Spark, Snowflake and AI assistants.",
              "genai-launchpad": "Hands-on with the AI tools professionals use every day, with no coding needed."}
@@ -589,7 +583,7 @@ for cid, path, name, short, _ in PROGRAMS:
     import json as _j
     _ld = _j.dumps({"@context": "https://schema.org", "@type": "Course", "name": name, "description": short,
                     "provider": {"@type": "Organization", "name": "SkillNavora", "sameAs": DOMAIN},
-                    "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Online", "instructor": {"@type": "Person", "name": "Varun Kumar"}}})
+                    "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Online"}})
     body = f"""<script type="application/ld+json">{_ld}</script><div class="hero split prog"><div class="wrap"><div>
   <a class="pill" href="../programs.html"><i></i><b>SkillNavora program</b></a>
   <h1 id="p-name">{E(name)}</h1>
@@ -710,7 +704,7 @@ FREE = [("Anthropic Academy", "Free courses on Claude, Claude Code, the API and 
         ("Make Academy", "Free automation courses with badges", "https://academy.make.com"),
         ("Google Analytics Academy", "Free analytics fundamentals", "https://skillshop.withgoogle.com")]
 
-CASES = [('Klook_UX_Evaluation_Redesign.pdf', 'Klook UX Evaluation Redesign'), ('Noon_UAE_UX_Heuristic_Evaluation.pdf', 'Noon UAE UX Heuristic Evaluation'), ('Nykaa_UX_Analysis_Final_PPT.pdf', 'Nykaa UX Analysis Final PPT'), ('Nykaa_User_Journey_Detailed.pdf', 'Nykaa User Journey Detailed'), ('OYO_UX_Evaluation_v3_10_Pages.pdf', 'OYO UX Evaluation v3 10 Pages'), ('OYO_UX_Evaluation_v3_Detailed_Report.pdf', 'OYO UX Evaluation v3 Detailed Report'), ('SkillOS_Detailed_PDF.pdf', 'SkillOS Detailed PDF'), ('SkillOS_PS_Presentation_Detailed.pdf', 'SkillOS PS Presentation Detailed'), ('Slack_Channel_Creation_UX_7_Pages.pdf', 'Slack Channel Creation UX 7 Pages'), ('Slack_UX_Detailed_Report_37_Pages.pdf', 'Slack UX Detailed Report 37 Pages'), ('Uber_Find_My_Ride_Case_Study_5_Page.pdf', 'Uber Find My Ride Case Study 5 Page'), ('Zepto_AOV_Varun_10_Slides.pdf', 'Zepto AOV Varun 10 Slides'), ('Zepto_AOV_Varun_Kumar_5_Slides.pdf', 'Zepto AOV Varun Kumar 5 Slides'), ('Zepto_AOV_Varun_detailed_16_slide.pdf', 'Zepto AOV Varun detailed 16 slide'), ('Zomato_UX_Deck_10_Pages.pdf', 'Zomato UX Deck 10 Pages'), ('Zomato_UX_Deck_19_Pages.pdf', 'Zomato UX Deck 19 Pages')]
+CASES = [('Klook_UX_Evaluation_Redesign.pdf', 'Klook UX Evaluation Redesign'), ('Noon_UAE_UX_Heuristic_Evaluation.pdf', 'Noon UAE UX Heuristic Evaluation'), ('Nykaa_UX_Analysis_Final_PPT.pdf', 'Nykaa UX Analysis Final PPT'), ('Nykaa_User_Journey_Detailed.pdf', 'Nykaa User Journey Detailed'), ('OYO_UX_Evaluation_v3_10_Pages.pdf', 'OYO UX Evaluation v3 10 Pages'), ('OYO_UX_Evaluation_v3_Detailed_Report.pdf', 'OYO UX Evaluation v3 Detailed Report'), ('SkillOS_Detailed_PDF.pdf', 'SkillOS Detailed PDF'), ('SkillOS_PS_Presentation_Detailed.pdf', 'SkillOS PS Presentation Detailed'), ('Slack_Channel_Creation_UX_7_Pages.pdf', 'Slack Channel Creation UX 7 Pages'), ('Slack_UX_Detailed_Report_37_Pages.pdf', 'Slack UX Detailed Report 37 Pages'), ('Uber_Find_My_Ride_Case_Study_5_Page.pdf', 'Uber Find My Ride Case Study 5 Page'), ('Zepto_AOV_Varun_10_Slides.pdf', 'Zepto AOV 10 Slides'), ('Zepto_AOV_Varun_Kumar_5_Slides.pdf', 'Zepto AOV 5 Slides'), ('Zepto_AOV_Varun_detailed_16_slide.pdf', 'Zepto AOV detailed 16 slide'), ('Zomato_UX_Deck_10_Pages.pdf', 'Zomato UX Deck 10 Pages'), ('Zomato_UX_Deck_19_Pages.pdf', 'Zomato UX Deck 19 Pages')]
 def _pages(f):
     m = re.search(r"(\d+)[ _](Pages?|Slides?|Page)", f, re.I); return (m.group(1) + " " + ("slides" if "lide" in m.group(2) else "pages")) if m else "PDF"
 INTERVIEW_LINKS = [("NextLeap", "PM interview question bank", "Product design, strategy, metrics, RCA and more, by topic.", "https://nextleap.app/interview-preparation/product-management/questions"),
@@ -724,7 +718,7 @@ RES_PANEL = f'''    <div class="panel" id="p-resources" hidden>
       <div class="hb-hero"><div><div class="kicker">Free for everyone</div><h2 class="h2s" style="margin:4px 0 6px">Resources &amp; AI tools</h2>
         <p class="meta" style="margin:0">Every AI and product tool with its official website, the complete PM Master Handbook, interview practice, the PM frameworks cheat sheet, a PRD template and hand-picked free courses.</p></div></div>
       <h3 class="h3s hb-h">AI and product tools</h3><div class="tgroups" id="res-tools"></div>
-      <h3 class="h3s hb-h">PM Master Handbook by Varun Kumar</h3><p class="meta" style="margin:-4px 0 12px">23 modules and 620+ pages: 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep.</p>
+      <h3 class="h3s hb-h">PM Master Handbook</h3><p class="meta" style="margin:-4px 0 12px">23 modules and 620+ pages: 12 Product Core modules, an 11-class AI Tools Lab, frameworks, case studies, projects and interview prep.</p>
       <div class="hb-acts" style="margin-bottom:14px"><a class="btn btn-primary btn-sm" href="{HB_ART}" target="_blank" rel="noopener">Open the interactive handbook ↗</a><a class="btn btn-line btn-sm" href="handbook/Complete-PM-Master-Handbook.pdf" target="_blank" rel="noopener">Complete handbook PDF (620+ pages, 25 MB) ↗</a></div>
       <h3 class="h3s hb-h" style="font-size:16px">Product Core modules</h3><div class="hb-list">{_hb_mods(HB_CORE)}</div>
       <h3 class="h3s hb-h" style="font-size:16px">AI Tools Lab</h3><div class="hb-list">{_hb_mods(HB_AI)}</div><h3 class="h3s hb-h" style="font-size:16px">Business AI Stack (chapters 24 to 31)</h3><div class="hb-list">{_hb_mods(HB_BIZ)}</div><h3 class="h3s hb-h">Complete AI tool guides (15)</h3><div class="hb-list">{"".join(f'<a class="hb-row" href="handbook/Guide-{n}-{f}.pdf" target="_blank" rel="noopener"><span class="hb-n">{int(n)}</span><span>{E(t)}</span><small>PDF ↗</small></a>' for n, f, t in HB_GUIDES)}</div><p class="meta"><a href="handbook/Complete-AI-Tools-Guides.pdf" target="_blank" rel="noopener">Complete AI tool guides (one PDF, 30 pages) ↗</a></p>
@@ -743,9 +737,9 @@ import sys as _sys
 _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import restabs
 _pm = RES_PANEL
-_pm = _pm[_pm.index('<h3 class="h3s hb-h">PM Master Handbook by Varun Kumar</h3>'):_pm.rindex('</div>')]
+_pm = _pm[_pm.index('<h3 class="h3s hb-h">PM Master Handbook</h3>'):_pm.rindex('</div>')]
 _pm = _pm.replace('<div class="tgroups" id="res-tools"></div>', '<div class="tgroups" data-res-tools="ai-pm"></div>')
-_pm = _pm.replace('PM Master Handbook by Varun Kumar</h3>', 'PM Master Handbook by Varun Kumar</h3>')
+_pm = _pm.replace('PM Master Handbook</h3>', 'PM Master Handbook</h3>')
 _hero = ('<div class="hb-hero"><div><div class="kicker">AI-First Product Management</div><h2 class="h2s" style="margin:4px 0 6px">Resources for Product Managers</h2>'
          '<p class="meta" style="margin:0">The PM Master Handbook, AI and product tools with their official websites, interview practice, a frameworks cheat sheet, a PRD template and free courses.</p>'
          '<div class="hb-acts" style="margin-top:12px"><a class="btn btn-primary btn-sm" href="https://claude.ai/artifact/XmhTL4Yv72bgmSFFuR2hzz" target="_blank" rel="noopener" data-nogate>Open the PM handbook library: all 68 PDFs ↗</a>'
@@ -977,12 +971,10 @@ about = uhero("About Us", 'About <span class="g">SkillNavora</span>', "An all-in
     <p class="sub">SkillNavora started with a simple observation: most courses teach yesterday's job. Product managers, analysts and engineers now work with AI assistants, agents and automation every day, and learners need practical, honest training for that world. We combine live classes with free, detailed handbooks so anyone can learn at their own pace and come back to the material for years.</p></div>
   <div class="card" style="padding:22px"><h3 style="margin:0 0 10px">What you will find here</h3><ul class="checks"><li>Three flagship programs: AI-First PM, AI-First Data Engineer, GenAI Launchpad</li><li>Other programs: SFMC, digital marketing, content creation, Forward Deployed Engineer</li><li>Free handbooks, tool tutorials, practice tests and interview questions</li><li>Job board, referrals and portfolio support</li></ul></div>
 </div></section>
-<section id="team" class="tint"><div class="wrap"><div class="kicker">SkillNavora team</div><h2 class="sec-h">Meet our founder</h2>
-  <div class="card founder" style="padding:24px;margin-top:20px">
-    <div><h3 style="margin:0">Varun Kumar</h3><p class="meta" style="margin:4px 0 12px"><b>Founder &amp; CEO, SkillNavora</b> · Gurgaon, India</p>
-    <p style="margin:0 0 10px">Varun works in Product at American Express (Amex) and brings more than a decade of experience building products and leading cross-functional teams. He founded SkillNavora to give learners the practical, AI-first training he wishes he had had: real frameworks, real case studies and the tools modern product and data teams use every day.</p>
-    <p style="margin:0">He wrote the SkillNavora PM Master Handbook and designs the curriculum for every program, and he mentors learners on product thinking, interviews and career moves into product and AI roles.</p>
-    <div class="acts" style="margin-top:14px"><a class="btn btn-line btn-sm" href="https://www.linkedin.com/in/varun-pm01" target="_blank" rel="noopener">LinkedIn ↗</a></div></div></div>
+<section id="team" class="tint"><div class="wrap"><div class="kicker">SkillNavora team</div><h2 class="sec-h">Our team</h2>
+  <div class="card founder" style="padding:24px;margin-top:20px"><div><h3 style="margin:0">Built by practitioners</h3><p class="meta" style="margin:4px 0 12px">Product, data and AI professionals</p>
+    <p style="margin:0">SkillNavora is built by people who work in product, data and AI. The handbooks and curriculum come from that work, and the instructors and mentors for each cohort are introduced before it starts.</p>
+    <div class="acts" style="margin-top:14px"><a class="btn btn-line btn-sm" href="contact.html">Contact the team</a></div></div></div>
 </div></section>
 <section id="why-us"><div class="wrap"><div class="kicker">Why us</div><h2 class="sec-h">Why learners choose SkillNavora</h2>
   <div class="why-grid" style="margin-top:22px">{''.join(f'<div class="why-card"><div class="n">{i:02d}</div><h3>{E(t)}</h3><p class="meta" style="margin:0">{E(d)}</p></div>' for i, (t, d) in enumerate(WHY_US, 1))}</div>
@@ -994,7 +986,7 @@ about = uhero("About Us", 'About <span class="g">SkillNavora</span>', "An all-in
   <a class="card tool" href="blogs.html"><h3>Blog →</h3><p>Guides on becoming a PM, AI tools, case studies and data careers.</p></a>
   <a class="card tool" href="contact.html"><h3>Contact us →</h3><p>WhatsApp, call or email the team about programs, fees and batches.</p></a>
 </div></div></section>"""
-page("about.html", "About Us · SkillNavora", "About SkillNavora: our mission, founder and CEO Varun Kumar, and why learners choose our AI-first programs in product management, data science and generative AI.", about, "about.html")
+page("about.html", "About Us · SkillNavora", "About SkillNavora: our mission, team and why learners choose our AI-first programs in product management, data science and generative AI.", about, "about.html")
 page("contact.html", "Contact us · SkillNavora", "Contact SkillNavora on WhatsApp, phone or email about programs, fees and schedules.", contact, "contact.html")
 
 # ================================================================ AUTH + LMS + ADMIN
@@ -1486,7 +1478,7 @@ import json as _json
 POSTS = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "blogposts.json")))
 os.makedirs(os.path.join(OUT, "blog"), exist_ok=True)
 def _post_card(p):
-    return f"""<a class="card post" href="blog/{p['slug']}.html"><span class="ftag">{E(p.get('tag', 'Product management'))}</span><h3>{E(p['title'])}</h3><p>{E(p['desc'])}</p><div class="fmeta"><span>Varun Kumar</span><span>{p['mins']} min read</span></div><span class="go">Read article →</span></a>"""
+    return f"""<a class="card post" href="blog/{p['slug']}.html"><span class="ftag">{E(p.get('tag', 'Product management'))}</span><h3>{E(p['title'])}</h3><p>{E(p['desc'])}</p><div class="fmeta"><span>SkillNavora team</span><span>{p['mins']} min read</span></div><span class="go">Read article →</span></a>"""
 _sections = {}
 for _p in POSTS:
     _sections.setdefault(_p.get('section', 'Product management guides'), []).append(_p)
@@ -1498,7 +1490,7 @@ for i, p in enumerate(POSTS):
     nxt = POSTS[(i + 1) % len(POSTS)]
     body = f"""<div class="hero"><div class="wrap" style="max-width:820px">
   <a class="pill" href="../blogs.html"><i></i><b>Blogs</b></a><h1 style="font-size:clamp(32px,4.6vw,48px);max-width:22ch">{E(p['title'])}</h1>
-  <p class="lead">By Varun Kumar · {p['mins']} min read</p></div></div>
+  <p class="lead">By the SkillNavora team · {p['mins']} min read</p></div></div>
 <section style="padding-top:44px"><div class="wrap"><article class="article prose" style="max-width:760px;margin:0 auto">{p['body']}
 <div class="card" style="margin-top:40px;padding:24px"><div class="kicker">Next article</div><h3 style="margin:6px 0 10px"><a href="{nxt['slug']}.html" style="color:inherit">{E(nxt['title'])} →</a></h3><a class="btn btn-primary btn-sm" href="../programs.html">Explore programs</a></div>
 </article></div></section>"""
@@ -1747,6 +1739,10 @@ print("card titles linked (pages, cards):", cardlinks.run())
 import legacy_links
 print("legacy links rewritten:", legacy_links.run(OUT))
 print("artifact links moved into the members library:", _mb.run(OUT))
+
+# Founder profile removed from every page for now (owner request), before the SEO pass reads the pages
+import no_founder
+print("founder profile removed:", no_founder.run(OUT))
 
 # Final SEO pass over every page from every generator: sitemap, descriptions, share images, course data
 import seo_post

@@ -123,7 +123,6 @@ contact = [
  ["WhatsApp", "+" + s["whatsapp"], f"https://wa.me/{s['whatsapp']}"],
  ["Email", s["email"], "mailto:" + s["email"]],
  ["Phone", "+" + s["phone"], ""],
- ["Founder on LinkedIn", "Varun Kumar", s["founderLinkedin"]],
  ["SkillNavora LinkedIn", "", s["linkedin"]],
  ["Instagram", "", s["instagram"]],
  ["YouTube", "", s["youtube"]],

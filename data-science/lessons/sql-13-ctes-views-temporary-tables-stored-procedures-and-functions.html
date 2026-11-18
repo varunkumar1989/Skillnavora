@@ -204,7 +204,7 @@ region_avg <span class="hl-k">AS</span> (                                <span c
 <p>In SQL Server, the default limit is 100 recursions, so a year-long calendar needs <code>OPTION (MAXRECURSION 400)</code> after the final SELECT (use <code>0</code> for no limit, with care).</p>
 <h3 id="hierarchies-org-chart">Hierarchies: org chart</h3>
 <div class="code"><div class="code-h"><span>SQL</span><button class="copy" type="button">Copy</button></div><pre><code class="sql"><span class="hl-k">CREATE</span> <span class="hl-k">TABLE</span> org (emp_id <span class="hl-k">INT</span>, name <span class="hl-k">VARCHAR</span>(<span class="hl-n">20</span>), manager_id <span class="hl-k">INT</span>);
-<span class="hl-k">INSERT</span> <span class="hl-k">INTO</span> org <span class="hl-k">VALUES</span> (<span class="hl-n">1</span>,<span class="hl-s">&#x27;Varun&#x27;</span>,<span class="hl-k">NULL</span>), (<span class="hl-n">2</span>,<span class="hl-s">&#x27;Asha&#x27;</span>,<span class="hl-n">1</span>), (<span class="hl-n">3</span>,<span class="hl-s">&#x27;Ravi&#x27;</span>,<span class="hl-n">1</span>), (<span class="hl-n">4</span>,<span class="hl-s">&#x27;Meera&#x27;</span>,<span class="hl-n">2</span>), (<span class="hl-n">5</span>,<span class="hl-s">&#x27;Kabir&#x27;</span>,<span class="hl-n">2</span>), (<span class="hl-n">6</span>,<span class="hl-s">&#x27;Zoya&#x27;</span>,<span class="hl-n">4</span>), (<span class="hl-n">7</span>,<span class="hl-s">&#x27;Farhan&#x27;</span>,<span class="hl-n">3</span>);
+<span class="hl-k">INSERT</span> <span class="hl-k">INTO</span> org <span class="hl-k">VALUES</span> (<span class="hl-n">1</span>,<span class="hl-s">&#x27;Vikram&#x27;</span>,<span class="hl-k">NULL</span>), (<span class="hl-n">2</span>,<span class="hl-s">&#x27;Asha&#x27;</span>,<span class="hl-n">1</span>), (<span class="hl-n">3</span>,<span class="hl-s">&#x27;Ravi&#x27;</span>,<span class="hl-n">1</span>), (<span class="hl-n">4</span>,<span class="hl-s">&#x27;Meera&#x27;</span>,<span class="hl-n">2</span>), (<span class="hl-n">5</span>,<span class="hl-s">&#x27;Kabir&#x27;</span>,<span class="hl-n">2</span>), (<span class="hl-n">6</span>,<span class="hl-s">&#x27;Zoya&#x27;</span>,<span class="hl-n">4</span>), (<span class="hl-n">7</span>,<span class="hl-s">&#x27;Farhan&#x27;</span>,<span class="hl-n">3</span>);
 
 <span class="hl-k">WITH</span> tree <span class="hl-k">AS</span> (
     <span class="hl-k">SELECT</span> emp_id, name, manager_id, <span class="hl-n">0</span> <span class="hl-k">AS</span> level, <span class="hl-f">CAST</span>(name <span class="hl-k">AS</span> <span class="hl-k">VARCHAR</span>(<span class="hl-n">200</span>)) <span class="hl-k">AS</span> path
@@ -228,38 +228,38 @@ region_avg <span class="hl-k">AS</span> (                                <span c
   <tbody>
     <tr>
       <td>0</td>
-      <td>Varun</td>
-      <td>Varun</td>
+      <td>Vikram</td>
+      <td>Vikram</td>
     </tr>
     <tr>
       <td>1</td>
       <td>Asha</td>
-      <td>Varun &gt; Asha</td>
+      <td>Vikram &gt; Asha</td>
     </tr>
     <tr>
       <td>2</td>
       <td>Kabir</td>
-      <td>Varun &gt; Asha &gt; Kabir</td>
+      <td>Vikram &gt; Asha &gt; Kabir</td>
     </tr>
     <tr>
       <td>2</td>
       <td>Meera</td>
-      <td>Varun &gt; Asha &gt; Meera</td>
+      <td>Vikram &gt; Asha &gt; Meera</td>
     </tr>
     <tr>
       <td>3</td>
       <td>Zoya</td>
-      <td>Varun &gt; Asha &gt; Meera &gt; Zoya</td>
+      <td>Vikram &gt; Asha &gt; Meera &gt; Zoya</td>
     </tr>
     <tr>
       <td>1</td>
       <td>Ravi</td>
-      <td>Varun &gt; Ravi</td>
+      <td>Vikram &gt; Ravi</td>
     </tr>
     <tr>
       <td>2</td>
       <td>Farhan</td>
-      <td>Varun &gt; Ravi &gt; Farhan</td>
+      <td>Vikram &gt; Ravi &gt; Farhan</td>
     </tr>
   </tbody>
 </table></div></div><div class="shape">7 rows × 3 columns</div></div>
@@ -606,5 +606,5 @@ A CTE that references itself, for hierarchies (org charts, categories), series g
 Use parameterised <code>sp_executesql</code> and QUOTENAME for identifiers; never concatenate raw user input.</p></div></div>
 <section class="practice"><h2 id="practice-more">Practise more online</h2><p>Free, trusted places to test yourself on this topic. Links open the original site in a new tab.</p><ul><li><a target="_blank" rel="noopener" href="https://www.w3schools.com/sql/default.asp">W3Schools SQL tutorial ↗</a></li><li><a target="_blank" rel="noopener" href="https://www.w3schools.com/sql/sql_exercises.asp">W3Schools SQL exercises ↗</a></li><li><a target="_blank" rel="noopener" href="https://www.w3schools.com/quiztest/quiztest.asp?qtest=SQL">W3Schools SQL quiz ↗</a></li><li><a target="_blank" rel="noopener" href="https://sqlbolt.com/">SQLBolt interactive lessons ↗</a></li><li><a target="_blank" rel="noopener" href="https://leetcode.com/studyplan/top-sql-50/">LeetCode SQL 50 study plan ↗</a></li><li><a target="_blank" rel="noopener" href="https://www.hackerrank.com/domains/sql">HackerRank SQL practice ↗</a></li><li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/sql/t-sql/language-reference">T-SQL reference (Microsoft Learn) ↗</a></li></ul></section>
 <div class="pn"><a class="prev" href="sql-12-window-functions-ii-running-totals-lead-lag-and-frames.html"><small>← Previous</small><b>Window Functions II: Running Totals, LEAD, LAG &amp; Frames</b></a><a class="next" href="sql-14-transactions-indexes-performance-and-security.html"><small>Next →</small><b>Transactions, Indexes, Performance &amp; Security</b></a></div></article></main><nav class="toc"><div class="toc-in"><b>On this page</b><a href="#cte-a-named-readable-subquery">CTE: a named, readable subquery</a><a href="#recursive-ctes">Recursive CTEs</a><a href="#views">Views</a><a href="#temporary-tables-and-table-variables">Temporary tables and table variables</a><a href="#stored-procedures">Stored procedures</a><a href="#user-defined-functions-udfs">User-defined functions (UDFs)</a><a href="#triggers-awareness">Triggers (awareness)</a><a href="#summary">Summary</a><a href="#practice-more">Practise more online</a></div></nav></div>
-<footer class="foot"><div>© 2026 SkillNavora · Data Science & AI Handbook by Varun Kumar · Version 2026.10 (October 2026)</div><div>Original teaching material. Practice datasets are fictional. Product names belong to their owners.</div></footer>
+<footer class="foot"><div>© 2026 SkillNavora · Data Science & AI Handbook · Version 2026.10 (October 2026)</div><div>Original teaching material. Practice datasets are fictional. Product names belong to their owners.</div></footer>
 <script src="../assets/search-index.js?v=v14"></script><script src="../assets/course.js?v=v14"></script><script src="../assets/gate.js?v=v14" defer></script><script src="../../assets/studio.js?v=87eaf40a" defer></script></body></html>

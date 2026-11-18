@@ -56,7 +56,7 @@ def ds_tab(cfg):
     ds_art = cfg.get("ds_artifact") or ""
     acts = (btn("Open the handbook ↗", DS_SITE, True) + btn("All SkillNavora handbooks →", "handbooks/index.html", gate=False, new=False) + (btn("Interactive DSA handbook ↗", art) if art else "") + (btn("Interactive Data Science handbook ↗", ds_art) if ds_art else "") +
             btn("Complete handbook PDFs ↗", DS_SITE + "index.html#downloads") + btn("GitHub ↗", DS_REPO, gate=False))
-    out = [hero("AI-First Data Engineer · free for registered learners", "Data Science & AI Handbook by Varun Kumar",
+    out = [hero("AI-First Data Engineer · free for registered learners", "Data Science & AI Handbook",
                 f"{n_les or 100}+ class-wise lessons in Excel, SQL, Power BI, Tableau, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson." if tracks else
                 "Class-wise lessons in Excel, SQL, Power BI, Tableau, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson.", acts)]
     out.append(f'<div data-res-tools="ai-de"></div>' if False else "")
@@ -282,7 +282,7 @@ def course_card():
         + '</div>'
         for n, t, st, lst, acts in ch) + upcoming
     return ('<h3 class="h3s hb-h" style="margin-top:22px">The Complete Digital Marketing Course</h3>'
-            '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By Varun, for SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 to 7 are ready now. Each lesson link opens the right page of its PDF.</p>'
+            '<p class="meta" style="margin:-4px 0 12px;max-width:72ch">By SkillNavora. The full course has 19 chapters, written in simple English. Chapters 1 to 7 are ready now. Each lesson link opens the right page of its PDF.</p>'
             '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))">' + cards + '</div>')
 
 

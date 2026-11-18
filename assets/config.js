@@ -13,7 +13,7 @@ const SITE = {
   whatsapp: "919211315006",
   address: "",                    // e.g. "Bengaluru, Karnataka, India" (shown in the footer)
   linkedin: "https://www.linkedin.com/company/skillnavora",
-  founderLinkedin: "https://www.linkedin.com/in/varun-pm01",   // instructor section
+  founderLinkedin: "",   // instructor LinkedIn; empty = use the company page
   instagram: "https://www.instagram.com/skillnavora/",
   instagramDM: "https://ig.me/m/skillnavora",   // opens a direct message to the Instagram account (AI Studio and chat fallback)
   youtube: "https://www.youtube.com/@SkillNavora",
@@ -221,7 +221,7 @@ const COURSES = [
 /* ---- Stats band under the "What makes us different" section.
    show: false keeps it hidden. Only switch it on with numbers you can prove:
    India's consumer protection rules (CCPA) penalise misleading placement claims.
-   note: short source line shown under the numbers, e.g. "Placements of learners mentored by Varun Kumar since 2019". */
+   note: short source line shown under the numbers, e.g. "Placements of learners mentored since 2019". */
 const STATS = {
   show: false,
   items: [

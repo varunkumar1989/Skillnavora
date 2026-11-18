@@ -34,7 +34,7 @@ FOOT = ('<div style="font-size:7.5pt;width:100%;padding:0 15mm;color:#6b6788;dis
 def cover(kicker, title, sub):
     return (f'<section class="cover"><div><img src="{LOGO}" alt="SkillNavora"></div><div><div class="kick">{E(kicker)}</div>'
             f'<h1 style="font-size:27pt;margin-top:8pt">{E(title)}</h1><div class="sub">{E(sub)}</div><div class="tag">{E(TAG)}</div></div>'
-            '<div class="note">Varun Kumar · SkillNavora · skillnavora.in<br>Edition: November 2026. Practice labs marked "account" need a provisioned Marketing Cloud account. Other labs use sample files or paper.</div></section>')
+            '<div class="note">SkillNavora · skillnavora.in<br>Edition: November 2026. Practice labs marked "account" need a provisioned Marketing Cloud account. Other labs use sample files or paper.</div></section>')
 
 
 def topic(t, module_no):

@@ -82,7 +82,7 @@ def cover(kick, title, sub):
     return (f'<section class="cover"><div><img src="{LOGO_URI}" alt="SkillNavora"></div>'
             f'<div><div class="kick">{E(kick)}</div><h1>{E(title)}</h1><div class="sub">{E(sub)}</div>'
             f'<div class="tag">{E(TAGLINE)}</div></div>'
-            f'<div class="by">Varun Kumar · SkillNavora · skillnavora.in<br><span class="note">Edition: November 2026. '
+            f'<div class="by">SkillNavora · skillnavora.in<br><span class="note">Edition: November 2026. '
             'Links point to official documentation where available; check them for the latest versions. Financial figures are hypothetical examples, not advice.</span></div></section>')
 
 

@@ -17,7 +17,7 @@ PM_OUT = os.path.join(ROOT, "handbook", "pm-extras"); COURSE_OUT = os.path.join(
 def cover(kicker, title, sub, tag):
     return (f'<section class="cover"><div><img src="{LOGO}" alt="SkillNavora" style="height:14mm"></div><div><div class="kick">{E(kicker)}</div>'
             f'<h1 style="font-size:27pt;margin-top:8pt">{E(title)}</h1><div class="sub">{E(sub)}</div><div class="tag">{E(tag)}</div></div>'
-            '<div class="note">Varun Kumar · SkillNavora · skillnavora.in<br>Edition: November 2026. Links point to official sites; check them before you share.</div></section>')
+            '<div class="note">SkillNavora · skillnavora.in<br>Edition: November 2026. Links point to official sites; check them before you share.</div></section>')
 
 def glossary_body():
     letters = {}
