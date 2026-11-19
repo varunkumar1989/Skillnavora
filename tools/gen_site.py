@@ -764,7 +764,10 @@ tt = uhero("Upskill for free · Resources & AI tools", 'Tool <span class="g">tut
 <section style="padding-top:28px"><div class="wrap">{_tt_html}</div></section>"""
 _tt_banner = '<section style="padding:24px 0 0"><div class="wrap"><div class="card" style="border:2px solid var(--brand,#6C4CF5);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between"><div style="max-width:720px"><div class="kicker">New · step-by-step course</div><b style="font-size:18px">AI Builder Tools: Claude, Claude Code, ChatGPT &amp; Codex, Gemini, Lovable</b><p class="meta" style="margin:4px 0 0">What each tool can do and how: create a website, add pages, connect tools and other websites, publish on your own domain.</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-primary" href="ai-builder-tools.html">Open the course</a><a class="btn btn-line" href="ai-academy-interactive.html#builder-tools">Interactive</a><a class="btn btn-line" href="handbook/AI_Builder_Tools.pdf">PDF</a></div></div></div></section>'
 _tt_i = tt.find('</div></div>') + len('</div></div>') if tt.startswith('<div class="hero"') else 0
-page("tools.html", "Tool tutorials · SkillNavora", "Free tutorials for every AI, product, design, automation and data tool in SkillNavora programs, including complete Figma and n8n tutorials.", tt[:_tt_i] + _tt_banner + _mm.section_html() + tt[_tt_i:], "tools.html")
+import aiguides_page as _agp
+page("tools.html", "Tool tutorials · SkillNavora", "Free tutorials for every AI, product, design, automation and data tool in SkillNavora programs, including complete Claude, ChatGPT, Git and GitHub guides.", tt[:_tt_i] + _tt_banner + _agp.hub_card() + _mm.section_html() + tt[_tt_i:], "tools.html")
+for _p, _t, _d, _b, _a in _agp.pages():
+    page(_p, _t, _d, _b, _a)
 import practice
 _pt_html, _pt_n = practice.tests_page()
 page("tests.html", "Practice tests · SkillNavora", "Free practice tests for product management, data science, SQL, Excel, Python, Power BI, GenAI, agents and more, with hints and solutions.",
