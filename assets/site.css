@@ -279,7 +279,7 @@ textarea{min-height:110px;resize:vertical}
 
 /* ---------- Footer ---------- */
 footer{background:#07100f;color:#a9a6c0;padding:56px 0 28px;font-size:14.5px}
-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08)}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.2fr;gap:28px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08)}
 @media (max-width:860px){footer .cols{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){footer .cols{grid-template-columns:1fr}}
 footer h4{color:#f4f2ff;font:700 16px var(--display);margin:0 0 14px;padding-bottom:12px;position:relative}
@@ -1702,3 +1702,5 @@ body:has(.modal.open) .wa,body:has(.modal.open) #askai-tab,body:has(.modal.open)
 .tabs{scrollbar-width:thin;scrollbar-color:var(--line,#d9dfeb) transparent;-webkit-overflow-scrolling:touch;padding-bottom:4px;position:relative}
 .tabs::-webkit-scrollbar{height:6px}
 .tabs::-webkit-scrollbar-thumb{background:var(--line,#c9cfdb);border-radius:6px}
+/* Footer on phones: brand full width, then two short columns side by side (Programs | Upskill, Company | Contact) */
+@media (max-width:520px){footer .cols{grid-template-columns:1fr 1fr;column-gap:18px;row-gap:28px}footer .cols>div:first-child{grid-column:1/-1}footer .cols li a{overflow-wrap:anywhere}}
