@@ -17,8 +17,8 @@
       return;
     }
     const hits = index
-      .filter(it => { const hay = (it.t + " " + it.d).toLowerCase(); return words.every(w => hay.includes(w)); })
-      .map(it => ({ it, score: words.reduce((n, w) => n + (it.t.toLowerCase().includes(w) ? 2 : 0), 0) }))
+      .filter(it => { const hay = (it.t + " " + it.d + " " + (it.k || "")).toLowerCase(); return words.every(w => hay.includes(w)); })
+      .map(it => ({ it, score: words.reduce((n, w) => n + (it.t.toLowerCase().includes(w) ? 3 : 0) + ((it.k || "").toLowerCase().includes(w) ? 1 : 0), 0) }))
       .sort((a, b) => b.score - a.score || a.it.t.localeCompare(b.it.t))
       .map(x => x.it);
     count.textContent = hits.length ? hits.length + (hits.length === 1 ? " page found" : " pages found") : "No pages match. Try a shorter word, or ask us on WhatsApp.";

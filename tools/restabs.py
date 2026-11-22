@@ -383,7 +383,7 @@ def topic_tabs(gid, kicker, title, intro, tabs):
         for i, (k, lbl, kick, head, body, b) in enumerate(tabs))
     css = ('<style>.tt{margin:30px 0 8px}.tt-bar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}'
            '.tt-bar button{font:600 14px var(--body);padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}'
-           '.tt-bar button[aria-selected=true]{background:var(--brand);border-color:var(--brand);color:#fff}'
+           '.tt-bar button[aria-selected=true]{background:var(--brand);border-color:var(--brand);color:var(--on-brand,#fff)}'
            '.tt-bar button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}'
            '.tt-panel{margin-top:14px;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}'
            '.tt-panel p{margin:0 0 10px;line-height:1.65;max-width:75ch}.tt-panel ul{margin:0 0 10px 20px;line-height:1.65;max-width:75ch}</style>')

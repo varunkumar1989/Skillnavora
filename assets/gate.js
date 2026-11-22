@@ -218,7 +218,7 @@
     if (has() || el.classList.contains("sn-locked")) return;
     const label = el.getAttribute("data-gate-lock") || "this page";
     if (!document.getElementById("sn-lock-css")) { const st = document.createElement("style"); st.id = "sn-lock-css";
-      st.textContent = ".sn-locked{filter:blur(7px);pointer-events:none;user-select:none;max-height:75vh;overflow:hidden}.sn-lockbar{position:sticky;top:90px;z-index:60;max-width:560px;margin:24px auto -140px;background:var(--surface,#fff);color:var(--ink,#17142E);border:2px solid var(--brand,#6C4CF5);border-radius:16px;padding:18px 20px;text-align:center;box-shadow:0 18px 50px rgba(30,20,80,.25)}.sn-lockbar p{margin:6px 0 12px;color:var(--mu,#55607a)}"; document.head.appendChild(st); }
+      st.textContent = ".sn-locked{filter:blur(7px);pointer-events:none;user-select:none;max-height:75vh;overflow:hidden}.sn-lockbar{position:sticky;top:90px;z-index:60;max-width:560px;margin:24px auto -140px;background:#fff;color:#17142E;border:2px solid var(--brand,#6C4CF5);border-radius:16px;padding:18px 20px;text-align:center;box-shadow:0 18px 50px rgba(30,20,80,.25)}.sn-lockbar p{margin:6px 0 12px;color:#4a5270}"; document.head.appendChild(st); }
     el.classList.add("sn-locked");
     const bar = document.createElement("div"); bar.className = "sn-lockbar"; bar.setAttribute("data-nogate", "");
     bar.innerHTML = "<b style=\"font-size:18px\">Free access: enter your details to read the classes</b><p>Tell us a little about you once. Then every class, tab and PDF opens.</p><button type=\"button\" class=\"btn btn-primary\">Unlock free access</button>";
