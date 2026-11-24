@@ -4,7 +4,6 @@ import json, os, html
 E = html.escape
 import learnsites
 DS_SITE = "/data-science/"      # where the built Data Science & AI handbook is hosted
-DS_REPO = "https://github.com/varunkumar1989/data-science-and-ai"
 CATALOG = "/home/user/data-science-and-ai/course/catalog.json"
 if not os.path.exists(CATALOG):  # no source checkout (e.g. a fresh clone): use the published copy in this repo
     CATALOG = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data-science", "catalog.json")
@@ -55,7 +54,7 @@ def ds_tab(cfg):
     art = cfg.get("dsa_artifact") or ""
     ds_art = cfg.get("ds_artifact") or ""
     acts = (btn("Open the handbook ↗", DS_SITE, True) + btn("All SkillNavora handbooks →", "handbooks/index.html", gate=False, new=False) + (btn("Interactive DSA handbook ↗", art) if art else "") + (btn("Interactive Data Science handbook ↗", ds_art) if ds_art else "") +
-            btn("Complete handbook PDFs ↗", DS_SITE + "index.html#downloads") + btn("GitHub ↗", DS_REPO, gate=False))
+            btn("Complete handbook PDFs ↗", DS_SITE + "index.html#downloads"))
     out = [hero("AI-First Data Engineer · free for registered learners", "Data Science & AI Handbook",
                 f"{n_les or 100}+ class-wise lessons in Excel, SQL, Power BI, Tableau, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson." if tracks else
                 "Class-wise lessons in Excel, SQL, Power BI, Tableau, AI for data analysis, Python, DSA, statistics and machine learning, with real outputs, diagrams, quizzes, practice datasets and a PDF for every lesson.", acts)]

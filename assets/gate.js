@@ -70,7 +70,7 @@
   };
 
   // The owner's GitHub repositories: admins open them; everyone else sends an access request for the owner to approve.
-  const OWNER_GH = /^https?:\/\/(www\.)?github\.com\/varunkumar1989\//i;
+  const OWNER_GH = /(?!)/;  // owner GitHub links are no longer shown on the site, so nothing matches
   const ghAdmin = () => { try { const a = JSON.parse(localStorage.getItem("sn_admin") || "null"); return !!a && Date.now() - a.t < 30 * 864e5; } catch { return false; } };
   let ghBox;
   const ghRequest = repo => {

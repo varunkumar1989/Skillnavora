@@ -44,7 +44,7 @@ def hub_card():
         f'<small style="color:var(--mu)">{len(g["lessons"])} lessons · checked {g["checked"]}</small><b style="display:block;font-size:17px;margin:4px 0">{g["title"]}</b>'
         f'<small style="color:var(--mu)">{g["subtitle"]}</small></a>'
         for g in R.guides())
-    return ('<section style="padding:24px 0 0"><div class="wrap"><div class="kicker">New · complete guides</div>'
+    return ('<section id="complete-guides" style="padding:24px 0 0;scroll-margin-top:90px"><div class="wrap"><div class="kicker">New · complete guides</div>'
             '<h2 style="margin:4px 0 6px">Claude, ChatGPT, and Git &amp; GitHub: complete guides</h2>'
             '<p class="meta" style="margin:0 0 14px;max-width:70ch">Step-by-step lessons on memory, skills, connectors, plugins, Projects, plugins for ChatGPT, Codex, Git and GitHub, checked against official documentation in November 2026. Each guide has a PDF and an interactive version.</p>'
             f'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">{cards}</div></div></section>')
