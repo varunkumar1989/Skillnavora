@@ -90,7 +90,7 @@ add("Overview", "about skillnavora,what is skillnavora,who are you,what do you o
     f"{cfg['SITE']['name']} runs live, AI-first programmes in product management, data engineering and generative AI, with recordings, hands-on projects, capstones, mock tests and career guidance (not job placement). Several free resources are also available: lessons, PDFs, practice tests and free workshops.", BASE)
 add("Instructors", "instructor,instructors,teacher,teachers,trainer,faculty,mentor,mentors,who teaches,who will teach",
     "Who teaches the programmes and who are the mentors?",
-    "Live classes are taught by instructors, and you can ask them questions during live classes, in 1:1 mentorship, and through the learning system. The AI-First Product Management programme includes a monthly 1:1 counselling session with a CEO or Head of Product.", f"{BASE}/programs.html",
+    "Live classes are taught by instructors, and you can ask them questions during live classes, in 1:1 mentorship, and through the learning system. Mentors are announced for each cohort.", f"{BASE}/programs.html",
     "CONFIRM: owner to confirm the instructor and mentor line-up before listing names")
 
 add("Certificate", "certificate,certificates,certification,completion,diploma,proof of completion", "Do I get a certificate?",

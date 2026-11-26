@@ -70,7 +70,7 @@ UPSKILL = [("", "Practice & test yourself", "", ""),
            ("quiz.html", "Quiz zone", "Test yourself with quick quizzes", '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>'),
            ("challenges.html", "Challenges", "Solve real product and AI problems", '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>'),
            ("practice.html", "Practice with AI", "Mock interview questions with AI feedback", '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.5 8.5 0 1 1 21 11.5z"/>'),
-           ("events.html", "Events", "Free live sessions, workshops and masterclasses", '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'),
+           # ("events.html", "Events", ...) is hidden until events are scheduled; add it back here when the events page has dates.
            ("", "Resources & AI tools", "", ""),
            ("resources.html", "Resources & AI tools", "All handbooks, PDFs, AI tools and useful links in four tabs", '<path d="M3 7h18M3 12h18M3 17h18"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="17" r="1"/>'),
            ("tools.html", "Tool tutorials", "Every tool in our programs: free tutorial, official site and our lesson", '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>'),
@@ -207,8 +207,8 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
                    ("resources.html", "All free resources", "Tools, context engineering, evals, LLMs and RAG", _RI),
                    ("members.html", "Members library", "Interactive handbooks for members (access needed)", _LOCK_IC),
                    ("handbooks/index.html", "Handbooks & PDFs", "Open to approved Members library members", _BOOK_IC)])
-               + item("practice-hub.html", "Interview Preparation", "Interview questions, practice tests and quizzes", _PR_IC)
-               + item(*U["events.html"]))
+               + item("practice-hub.html", "Interview Preparation", "Interview questions, practice tests and quizzes", _PR_IC))
+    # Events is left out of the menu until events are scheduled (add + item(...) back here then).
     on = lambda group: " on" if active in group else ""
     head = f"""<!doctype html>
 <html lang="en">
@@ -260,7 +260,7 @@ def page(path, title, desc, body, active=None, scripts="", noindex=False, attrs=
       <p>AI-first programs in product management, data engineering and generative AI, with live classes, an LMS and career support.</p>
       <div class="follow"><h4>Follow us</h4><div id="social" class="soc"></div></div></div>
     <div><h4>Programs</h4><ul>{''.join(f'<li><a href="{r}{p}" data-course-name="{cid}">{E(n)}</a></li>' for cid, p, n, *_ in PROGRAMS)}<li><a href="{r}programs.html">All programs and FAQs</a></li></ul></div>
-    <div><h4>Upskill for free</h4><ul><li><a href="{r}handbooks/index.html">SkillNavora Handbooks</a></li><li><a href="{r}resources.html">Resources &amp; AI tools</a></li><li><a href="{r}tests.html">Practice tests</a></li><li><a href="{r}questions.html">Top 100 questions</a></li><li><a href="{r}events.html">Events</a></li><li><a href="{r}blogs.html">Blogs</a></li></ul></div>
+    <div><h4>Upskill for free</h4><ul><li><a href="{r}handbooks/index.html">SkillNavora Handbooks</a></li><li><a href="{r}resources.html">Resources &amp; AI tools</a></li><li><a href="{r}tests.html">Practice tests</a></li><li><a href="{r}questions.html">Top 100 questions</a></li><li><a href="{r}ai.html">AI Studio</a></li><li><a href="{r}blogs.html">Blogs</a></li></ul></div>
     <div><h4>Company</h4><ul><li><a href="{r}jobs.html">Job board</a></li><li><a href="{r}hire.html">Hire from us</a></li><li><a href="{r}business.html">For business</a></li><li><a href="{r}mentor.html">Become a mentor</a></li><li><a href="{r}careers.html">Careers at SkillNavora</a></li><li><a href="{r}refer.html">Refer &amp; earn</a></li></ul></div>
     <div><h4>Contact us</h4><ul id="fcontact"></ul><ul style="margin-top:14px"><li><a href="{r}login.html">Member login</a></li><li><a href="{r}privacy.html">Privacy policy</a></li><li><a href="{r}terms.html">Terms and conditions</a></li><li><a href="{r}refund.html">Cancellation and refund policy</a></li></ul></div>
   </div>
@@ -345,9 +345,9 @@ WORKSHOPS_S = sec("Free live workshops", "Learn live, for free", "Short, hands-o
   '<div class="grid g3">' + "".join(f'<div class="card wshop"><span class="live">● Live online</span><h3>{E(n)}</h3><p>{E(d)}</p><div class="fmeta"><span>Free</span><span>{E(dur)}</span></div><div class="wacts"><a class="btn btn-primary btn-sm" href="events.html">See dates</a><a class="btn btn-line btn-sm" data-wa="Hi SkillNavora, please notify me about the free workshop: {E(n)}" href="#">Notify me</a></div></div>' for n, d, dur in WORKSHOPS) + '</div>', cls="tint", sid="workshops")
 
 OFFERS_S = """<section id="offers" class="offers-s"><div class="wrap"><div class="offers">
-  <div class="disc"><div class="kicker">Scholarships</div><h2 class="sec-h">Scholarships <span class="g">up to 100%</span></h2><p class="meta" style="margin:-4px 0 0">Talk to a counsellor to check what you're eligible for.</p>
+  <div class="disc"><div class="kicker">Scholarships</div><h2 class="sec-h">Scholarships for <span class="g">eligible candidates</span></h2><p class="meta" style="margin:-4px 0 0">Talk to a counsellor to check what you're eligible for.</p>
     <div class="dgrid2" id="offer-list"></div><p class="meta" id="offer-note" style="margin:14px 0 0"></p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><a class="btn btn-primary btn-sm" data-counsel href="#counselling">Check my eligibility →</a><a class="btn btn-line btn-sm" data-wa="Hi SkillNavora, I'd like to know about the scholarship (up to 100%)." href="#">Ask on WhatsApp</a></div></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><a class="btn btn-primary btn-sm" data-counsel href="#counselling">Check my eligibility →</a><a class="btn btn-line btn-sm" data-wa="Hi SkillNavora, I'd like to know about the scholarship." href="#">Ask on WhatsApp</a></div></div>
 </div></div></section>"""
 SKILLS_MARQUEE = ["Product strategy", "Product discovery", "Prioritisation", "Product analytics", "SQL", "Experimentation", "Generative AI", "Prompt engineering", "PRD writing", "Stakeholder management", "Roadmapping", "Data storytelling", "Customer research", "Metrics and OKRs", "AI tools", "Go-to-market"]
 COMPANIES = SKILLS_MARQUEE
@@ -382,10 +382,10 @@ up_cards = "".join(f'<a class="card tool" href="{p}"><div class="ico{" g" if i %
 home = f"""<div class="hero split"><div class="wrap"><div>
   <a class="pill" id="announce" href="programs.html" hidden><i></i><b></b> →</a>
   <h1>Become a confident, <span class="g">skilled</span> AI&#8209;first professional</h1>
-  <p class="lead">Live, hands-on programs in product management, data engineering and generative AI. Work on 25+ real-world case studies, build your own AI product, and get career guidance until you're ready to apply.</p>
-  <div class="acts"><a class="btn btn-primary" data-enroll="ai-pm" href="apply.html">Apply now →</a><a class="btn btn-ghost" data-counsel href="#counselling">Join a free counselling session</a></div>
-  <div class="hl"><span>25+ real-world case studies</span><span>Capstone and mock tests</span><span>Monthly 1:1 with a CEO or Head of Product</span><span>Career guidance</span></div>
-  <div class="quick"><span>Quick links →</span><a href="#programs">Programs</a><a href="#who">Who it's for</a><a href="#why">Why us</a><a href="#tools">Tools</a><a href="#jobready">Career guidance</a><a href="#faqs">FAQs</a></div>
+  <p class="lead">Live, hands-on programs in product management, data engineering and generative AI. Work on real-world case studies, build your own AI product, and get career guidance until you're ready to apply.</p>
+  <div class="acts"><a class="btn btn-primary" data-counsel href="#counselling">Book a free counselling session →</a><a class="btn btn-ghost" data-enroll="ai-pm" href="apply.html">Apply now</a></div>
+  <div class="hl"><span>Real-world case studies</span><span>Capstone and mock tests</span><span>1:1 mentoring</span><span>Career guidance</span></div>
+  <div class="quick"><span>Quick links →</span><a href="#programs">Programs</a><a href="#who">Who it's for</a><a href="#why">Why us</a><a href="#placement">Career support</a><a href="#faqs">FAQs</a></div>
   </div>
   <div class="hero-form card" id="lead">
     <h3>Book a free live class and counselling session</h3>
@@ -407,29 +407,20 @@ home = f"""<div class="hero split"><div class="wrap"><div>
     <div id="lead-done" class="done-box" hidden><div class="big">🎉</div><h3>You're in!</h3><p class="meta">We'll call you soon to schedule your free live class and counselling session.</p><a class="btn btn-line btn-sm" data-wa="Hi SkillNavora, I just booked a free session." href="#">Message us on WhatsApp</a></div>
   </div>
 </div></div>
-{LEARN_S}
-{MARQUEE_S}
 {sec("Programs", "Our flagship programs", "Choose your track. Every program includes live classes, case studies, assignments with feedback, a capstone and career support.", '<div class="courses" id="courses"></div>', sid="programs")}
-{OFFERS_S.replace("{R}", "")}
 {sec("Your learning journey", "How you'll learn at SkillNavora", "A clear, guided path from your first counselling call to your first PM interview.", STEPS)}
 {AUD("tint").replace('<section', '<section id="who"', 1)}
 {MOAT_S().replace('<section', '<section id="why"', 1)}
 {STATS_S}
-{CMP_S("tint")}
-{TOOLS_S().replace('<section', '<section id="tools"', 1)}
 {PLACE_S}
-{REFER_S}
-{JA_S("tint").replace('<section', '<section id="jobready"', 1)}
-{FREE_COURSES_S}
-{WORKSHOPS_S}
-{sec("Upskill for free", "Practise every day, for free", "Sharpen your skills between classes, or try SkillNavora before you enrol.", f'<div class="grid g4">{up_cards}</div>')}
+{sec("Upskill for free", "Start learning for free", "Free handbooks, AI courses, practice tests and interview questions. Try SkillNavora before you enrol.", f'<div class="grid g4">{up_cards}</div><p class="meta" style="margin:14px 0 0"><a href="ai-academy.html">Free AI courses</a> · <a href="handbooks/index.html">Handbooks</a> · <a href="tools.html">Tool tutorials</a> · <a href="tools.html#complete-guides">Claude, ChatGPT and Git guides</a></p>')}
 {MENTORS_S}
 {REVIEWS_S}
 {sec("FAQs", "Got questions? We have answers.", "Everything you need to know before joining SkillNavora.", FAQ_BLOCK, cls="tint", center=True, sid="faqs")}
 {band("Not sure which program fits you?", "Book a free 1:1 counselling session. We'll look at your background and goals and suggest the right path.", '<a class="btn btn-primary" data-counsel href="#counselling">Book free counselling</a><a class="btn btn-ghost" data-wa="Hi SkillNavora!" href="#">Chat on WhatsApp</a>')}
 """
 page("index.html", "SkillNavora · AI-first programs in product, data engineering and GenAI",
-     "Live AI-first programs in product management, data engineering and generative AI: 25+ real-world case studies, capstone, mock tests, career guidance and monthly 1:1s with a CEO or Head of Product.", home, "index.html", sticky=True)
+     "Live AI-first programs in product management, data engineering and generative AI: real-world case studies, a capstone, mock tests, 1:1 mentoring and career guidance.", home, "index.html", sticky=True)
 
 HB_CORE = [("01","Fundamentals","Fundamentals of Product Management"),("02","Strategy","Product Strategy and Strategic Thinking"),("03","Discovery","Problem Discovery and Market Research"),("04","Prioritization","Problem Framing and Prioritization"),("05","UX-Design","UX and Design Collaboration"),("06","Communication","Effective Communication and Stakeholder Management"),("07","Analytics","Product Analytics and Metrics"),("08","Growth","Product Launch, Growth, and Monetization"),("09","Tech-System-Design","Tech 101 and System Design for PMs"),("10","LLM-RAG","LLMs, RAGs, and AI Foundations"),("11","Vibe-Coding","Vibe Coding for Product Managers"),("12","Agentic-AI","Agentic AI and AI Systems")]
 HB_AI = [("13","AI-Tools-Landscape","AI Tools Landscape and Your Starter Stack"),("14","Claude-Daily-Work","Claude for Daily PM Work"),("15","Claude-Code","Claude Code: Basic to Advanced"),("16","Lovable","Lovable: Basic to Advanced"),("17","Replit-and-App-Builders","Replit and Other AI App Builders"),("18","Figma","Figma and AI Design Tools"),("19","Notion-and-PRD-Tools","Notion, PRD Tools and AI Documentation"),("20","Automation","Automation with Zapier, Make and n8n"),("21","Business-Chatbots","AI Chatbots for Business"),("22","Voice-Agents","Voice Agents for Businesses"),("23","Learning-Paths","Learning Paths, Courses and Communities")]
@@ -555,7 +546,6 @@ _UP_COMMON = [
     ("quiz.html", "Quiz zone", "Quick quizzes with explanations"),
     ("challenges.html", "Challenges", "Solve real product and AI problems"),
     ("practice.html", "Practice with AI", "Mock interview questions with AI feedback"),
-    ("events.html", "Events", "Free live sessions, workshops and masterclasses"),
 ]
 _UP_PROG = {
     "ai-pm": ("What we teach", "Product discovery, metrics, prioritisation, AI product strategy, PRDs and launch. Every topic is taught with a real product case.",
@@ -999,7 +989,7 @@ login = f"""<div class="auth-page"><div class="auth-split">
   <div class="auth-side">
     <a class="logo" href="index.html" aria-label="SkillNavora home"><img class="lg lg-light" src="assets/skillnavora-lockup.png" alt="SkillNavora" height="36"><img class="lg lg-dark" src="assets/skillnavora-lockup-dark.png" alt="" height="36"></a>
     <div><h2>Welcome back ✨</h2><p>Live, AI-first programs to accelerate your career in product, data engineering and GenAI.</p>
-    <ul class="checks"><li>25+ real-world case studies</li><li>Recordings, pre-reads and assignments in one place</li><li>Monthly 1:1 with a CEO or Head of Product</li></ul></div>
+    <ul class="checks"><li>Real-world case studies</li><li>Recordings, pre-reads and assignments in one place</li><li>1:1 mentoring and mock interviews</li></ul></div>
     <a class="side-link" href="programs.html">Explore programs →</a>
   </div>
   <div class="auth-card">

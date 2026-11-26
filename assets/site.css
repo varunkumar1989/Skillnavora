@@ -1704,3 +1704,10 @@ body:has(.modal.open) .wa,body:has(.modal.open) #askai-tab,body:has(.modal.open)
 .tabs::-webkit-scrollbar-thumb{background:var(--line,#c9cfdb);border-radius:6px}
 /* Footer on phones: brand full width, then two short columns side by side (Programs | Upskill, Company | Contact) */
 @media (max-width:520px){footer .cols{grid-template-columns:1fr 1fr;column-gap:18px;row-gap:28px}footer .cols>div:first-child{grid-column:1/-1}footer .cols li a{overflow-wrap:anywhere}}
+/* Fee strip on learning pages of paid programmes */
+.feestrip{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;margin:0 0 16px;padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);font-size:15px}
+.feestrip a{font-weight:700;margin-left:auto}
+@media (max-width:560px){.feestrip a{margin-left:0}}
+/* Fewer floating buttons: the phone number and Refer & earn are in the footer and menus; on phones AI Studio is in the Upskill menu */
+.callfab,.refab{display:none!important}
+@media (max-width:760px){#askai-tab{display:none!important}}

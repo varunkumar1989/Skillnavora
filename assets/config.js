@@ -27,7 +27,7 @@ const SITE = {
   // Free key from web3forms.com so form submissions also reach your inbox by email.
   web3formsKey: "",
   // Small banner above the home page headline. "" hides it.
-  announcement: "Inaugural cohort · Scholarships up to 100% for eligible candidates",
+  announcement: "Inaugural cohort · Scholarships for eligible candidates",
   announcementLink: "program/ai-product-management.html",
   // Show the "Not sure if this is for you?" pop-up after this many minutes on the site. 0 turns it off.
   popupMinutes: 5,
@@ -40,7 +40,7 @@ const TOPBAR = {
   text: "Learn AI-first Product Management. Inaugural cohort enrolling now",
   cta: "Apply now",
   link: "apply.html?program=ai-pm",
-  tag: "Scholarships up to 100%"
+  tag: "Scholarships available"
 };
 
 /* ---- Student and admin logins (Supabase) ------------------------------
@@ -74,22 +74,22 @@ const COURSES = [
     id: "ai-pm",
     page: "program/ai-product-management.html",
     name: "AI-First Product Management",
-    short: "Learn the skills, tools and AI workflows to solve real product problems, build a portfolio with 25+ case studies and crack your next PM interview.",
+    short: "Learn the skills, tools and AI workflows to solve real product problems, build a portfolio with real-world case studies and crack your next PM interview.",
     tagline: "The end-to-end program to become a confident, skilled AI product manager",
     badge: "Flagship",
     cohort: "Inaugural cohort", start: "", deadline: "",
-    fee: "$999", feeINR: "₹99,999", feeWas: "$2,000", feeWasINR: "₹1,74,000", feeNote: "Includes live classes, 25+ case studies, capstone, mock tests, 1:1 mentorship and career guidance.",
+    fee: "$999", feeINR: "₹99,999", feeWas: "", feeWasINR: "", feeNote: "Includes live classes, real-world case studies, capstone, mock tests, 1:1 mentorship and career guidance.",
     earlyBird: "",
     pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "8–10 hours a week",
-    highlights: ["25+ real-world case studies", "Capstone project", "Mock tests and interviews", "Monthly 1:1 with a CEO or Head of Product"],
+    highlights: ["Real-world case studies", "Capstone project", "Mock tests and interviews", "1:1 mentoring and mock interviews"],
     outcomes: ["Run discovery and turn research into clear problem statements",
                "Prioritise, write PRDs and user stories, and align stakeholders",
                "Plan sprints and ship with Jira, Confluence and Asana",
                "Define metrics, read funnels, write SQL and run A/B tests",
                "Design and ship AI features: LLMs, RAG, agents, evals and guardrails",
                "Build and launch your own website and AI prototype with Claude Code, Figma and Lovable",
-               "Build a portfolio of 25+ case studies and a capstone",
+               "Build a portfolio of real-world case studies and a capstone",
                "Crack PM interviews with mock tests and 1:1 mock interviews"],
     curriculum: [
       { title: "Product thinking and the PM role", topics: ["What PMs do and how they decide", "Product life cycle and delivery approaches (Agile, Scrum, Kanban)", "Outcomes over output", "Types of PM roles: B2C, B2B SaaS, platform, growth, AI PM"] },
@@ -117,9 +117,9 @@ const COURSES = [
       { title: "Web automation: webhooks, triggers and Playwright MCP", topics: ["Webhooks: receive events securely (signatures, idempotency, retries)", "Triggers: schedules (cron), events, polling and manual", "Browser automation with Playwright; Playwright MCP with Claude", "Other platforms: Selenium, Puppeteer, Browser Use, Stagehand, Apify, n8n, Zapier, Make, RPA"] },
       { title: "Advanced AI product management", topics: ["AI product strategy: moats, data flywheels, build vs buy vs partner", "Designing AI experiences (AI UX) and pricing AI products", "ML products for PMs, AI governance and responsible AI", "Platform & API product management, product operations, multimodal AI"] },
       { title: "Capstone, mock tests and interview preparation", topics: ["Capstone: build and pitch your own AI product", "Weekly mock tests", "Product sense, metrics, strategy, RCA and behavioural rounds", "1:1 mock interviews with feedback"] },
-      { title: "Career guidance", topics: ["Resume and LinkedIn makeover", "Portfolio of 25+ case studies", "Job-search strategy", "Offer negotiation and salary discussions"] }
+      { title: "Career guidance", topics: ["Resume and LinkedIn makeover", "Portfolio of real-world case studies", "Job-search strategy", "Offer negotiation and salary discussions"] }
     ],
-    projects: ["25+ real-world case studies across fintech, e-commerce, SaaS and consumer apps", "AI feature PRD with metrics and guardrails", "Eval plan and golden dataset for an AI feature", "Your own product website, built with Claude Code and launched live", "Clickable Figma prototype tested with real users", "End-to-end capstone product"],
+    projects: ["Real-world case studies across fintech, e-commerce, SaaS and consumer apps", "AI feature PRD with metrics and guardrails", "Eval plan and golden dataset for an AI feature", "Your own product website, built with Claude Code and launched live", "Clickable Figma prototype tested with real users", "End-to-end capstone product"],
     toolGroups: [
       { name: "Product and delivery", tools: ["Jira", "Confluence", "Asana", "Notion", "Linear", "Trello", "ClickUp", "Productboard", "Aha!"] },
       { name: "Design and collaboration", tools: ["Figma", "FigJam", "Miro", "Balsamiq", "Whimsical", "Slack", "Loom"] },
@@ -137,7 +137,7 @@ const COURSES = [
     short: "Learn SQL, Python, data modelling, pipelines, Spark, Airflow and the cloud, then build the data and AI pipelines that power modern products.",
     tagline: "Build reliable data pipelines and the data foundation for AI",
     badge: "Flagship",
-    cohort: "", start: "", deadline: "", fee: "$899", feeINR: "₹89,999", feeWas: "$1,500", feeWasINR: "₹1,30,000", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and career guidance.", earlyBird: "", pay: "",
+    cohort: "", start: "", deadline: "", fee: "$899", feeINR: "₹89,999", feeWas: "", feeWasINR: "", feeNote: "Includes live classes, real-world projects, capstone, mock interviews and career guidance.", earlyBird: "", pay: "",
     duration: "16 weeks", format: "Live online classes with recordings", effort: "10–12 hours a week",
     highlights: ["Real-world projects", "Capstone project", "Mock interviews", "Career guidance"],
     outcomes: ["Write advanced SQL and production-quality Python for data", "Design data models and warehouses (star schema, lakehouse)",
@@ -177,7 +177,7 @@ const COURSES = [
     short: "A beginner-friendly program to use generative AI at work: prompting, AI assistants, no-code apps, automations, chatbots and voice agents.",
     tagline: "Go from AI-curious to AI-confident, with no coding needed",
     badge: "Beginner friendly",
-    cohort: "", start: "", deadline: "", fee: "$799", feeINR: "₹79,999", feeWas: "$1,000", feeWasINR: "₹87,000", feeNote: "Includes live classes, hands-on projects, a capstone and demo day.", earlyBird: "", pay: "",
+    cohort: "", start: "", deadline: "", fee: "$799", feeINR: "₹79,999", feeWas: "", feeWasINR: "", feeNote: "Includes live classes, hands-on projects, a capstone and demo day.", earlyBird: "", pay: "",
     duration: "8 weeks", format: "Live online classes with recordings", effort: "5–6 hours a week",
     highlights: ["Hands-on projects", "No coding needed", "Capstone and demo day", "Certificate"],
     outcomes: ["Write prompts that get reliable results", "Use Claude daily for writing, research and analysis",
@@ -243,8 +243,8 @@ const AUDIENCE = [
 
 /* ---- What makes SkillNavora different (the moat) ---- */
 const MOAT = [
-  { title: "Monthly 1:1 with a CEO or Head of Product", text: "Every month, a 1:1 counselling session with a CEO or Head of Product to review your progress, portfolio and career plan." },
-  { title: "25+ real-world case studies", text: "Work on real problems from fintech, e-commerce, SaaS and consumer apps, so you graduate with a portfolio, not just a certificate." },
+  { title: "1:1 mentoring from industry practitioners", text: "Regular 1:1 sessions to review your progress, portfolio and career plan. Mentors are announced for each cohort." },
+  { title: "Real-world case studies", text: "Work on real problems from fintech, e-commerce, SaaS and consumer apps, so you graduate with a portfolio, not just a certificate." },
   { title: "Build and launch your own product", text: "Use Claude, Claude Code, Figma and Lovable to build and launch a real website and AI prototype that recruiters can try." },
   { title: "Interview-ready, not just course-complete", text: "Capstone, weekly mock tests, 1:1 mock interviews and career guidance until you're ready to apply." }
 ];
@@ -253,7 +253,7 @@ const MOAT = [
 const COMPARE = [
   { what: "Curriculum depth", sub: "What you'll actually learn", others: "Basics, interview prep and a few AI tools", us: "Real depth in every track: AI product management, data engineering (SQL, Airflow, Spark, cloud) and generative AI, all hands-on with Claude and Claude Code" },
   { what: "Hands-on projects", sub: "A portfolio you can show", others: "Often one capstone", us: "Real-world case studies and projects in every module, plus a capstone you can demo: a live product, a data platform or an AI automation" },
-  { what: "Leadership access", sub: "Who guides your career", others: "Program mentors only", us: "Monthly 1:1 counselling with an industry leader to review your progress, portfolio and career plan" },
+  { what: "Leadership access", sub: "Who guides your career", others: "Program mentors only", us: "1:1 guidance from industry practitioners on your progress, portfolio and career plan (mentors announced for each cohort)" },
   { what: "1:1 mentorship", sub: "Personal guidance and feedback", others: "Limited, or extra cost", us: "1:1 mentorship, assignment feedback and mock interviews included" },
   { what: "AI skills", sub: "Future-proof for every role", others: "Mostly concepts", us: "Hands-on AI in every program: prompting, AI assistants, RAG, agents, AI data pipelines and automation" },
   { what: "Interview preparation", sub: "Getting the offer", others: "A few sessions", us: "Role-specific mock tests, 1:1 mock interviews and question banks for PM, data engineering and AI roles" },
@@ -263,7 +263,7 @@ const COMPARE = [
 
 /* ---- Career guidance and interview preparation ---- */
 const JOB_ASSIST = {
-  program: ["Resume and LinkedIn makeover with 1:1 reviews", "Portfolio of 25+ case studies, capstone and your live product", "Job-search strategy: target roles, companies and outreach", "Offer evaluation and salary negotiation guidance"],
+  program: ["Resume and LinkedIn makeover with 1:1 reviews", "Portfolio of real-world case studies, capstone and your live product", "Job-search strategy: target roles, companies and outreach", "Offer evaluation and salary negotiation guidance"],
   interview: ["Weekly mock tests on product sense, metrics and strategy", "1:1 mock interviews with detailed feedback", "Question bank: product design, RCA, guesstimates, metrics, behavioural", "AI PM and system design rounds for PMs", "Practice with AI between sessions"]
 };
 
@@ -276,21 +276,21 @@ const MENTORS = [
 /* ---- Career support cards ---- */
 const SUPPORT = [
   { title: "Resume optimisation", text: "1:1 resume and LinkedIn reviews that show the right transferable skills." },
-  { title: "Build your portfolio", text: "25+ real-world case studies, a capstone and your own live product." },
+  { title: "Build your portfolio", text: "Real-world case studies, a capstone and your own live product." },
   { title: "Intensive interview prep", text: "Weekly mock tests, a question bank and 1:1 mock interviews." },
   { title: "Career guidance", text: "Job-search strategy and offer guidance when you're ready to apply." }
 ];
 
 /* ---- FAQs. category: Program, Schedule, Fees or Career ---- */
 const FAQS = [
-  { c: "Program", q: "How is the program delivered?", a: "Through live online classes with instructors, 25+ hands-on case studies, assignments and a capstone. All classes are recorded and added to your LMS." },
+  { c: "Program", q: "How is the program delivered?", a: "Through live online classes with instructors, hands-on case studies, assignments and a capstone. All classes are recorded and added to your LMS." },
   { c: "Program", q: "What if I can't attend a live session? Do I get recordings?", a: "Yes. Every live session is recorded and available in your LMS, so you can catch up any time." },
   { c: "Program", q: "Can I do this alongside a full-time job?", a: "Yes. Classes are scheduled for working professionals, and recordings let you learn at your own pace." },
   { c: "Program", q: "I'm a student or fresher. Can this program help me?", a: "Yes. The program starts from the fundamentals and helps you build a portfolio that shows what you can do." },
   { c: "Program", q: "Which tools will I learn?", a: "Delivery tools like Jira, Confluence, Asana and Notion; design tools like Figma and Miro; analytics like Mixpanel, Amplitude, GA4 and SQL; and AI tools including Claude, Claude Code, ChatGPT, Gemini, Lovable and n8n." },
-  { c: "Program", q: "Can I ask instructors and mentors questions directly?", a: "Yes, during live classes, in 1:1 mentorship, and through the LMS. You also get a monthly 1:1 session with a CEO or Head of Product." },
+  { c: "Program", q: "Can I ask instructors and mentors questions directly?", a: "Yes, during live classes, in 1:1 mentorship, and through the LMS." },
   { c: "Schedule", q: "What are the timings and schedule?", a: "Live classes run on weekends. Exact timings are shared before each cohort starts; talk to a counsellor for the current schedule." },
-  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is $999, AI-First Data Engineer is $899 and GenAI Launchpad is $799. Eligible candidates can get a scholarship of up to 100%. Talk to a counsellor for payment options." },
+  { c: "Fees", q: "What are the fees?", a: "AI-First Product Management is ₹99,999 (about $999), AI-First Data Engineer is ₹89,999 (about $899) and GenAI Launchpad is ₹79,999 (about $799). Scholarships are available for eligible candidates. Talk to a counsellor for payment options." },
   { c: "Career", q: "Do you help with jobs?", a: "We offer career guidance, not job placement: resume and LinkedIn reviews, portfolio feedback and intensive interview preparation. We do not guarantee a job or interviews." },
   { c: "Career", q: "Will I get a certificate?", a: "Yes, you get a certificate when you complete the program and capstone." },
   { c: "Career", q: "I have more questions. Where can I ask?", a: "Ask our AI assistant, message us on WhatsApp, or book a free counselling session." }

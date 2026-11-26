@@ -12,6 +12,9 @@ from html import escape as E
 # (slug, title, short name, group, content ids, tools ids, kicker)
 # content ids: element ids whose content is shown in Programme Content. tools ids: element ids whose
 # external links move to Learning Tools & Links (in addition to external link grids found in content).
+# Learning pages that belong to a paid programme show its fee and next cohort (filled by assets/site.js from config.js).
+FEE_COURSE = {"programme-pm": "ai-pm", "programme-pm2": "ai-pm", "programme-data": "ai-de", "programme-genai": "genai-launchpad"}
+
 TOPICS = [
     ("programme-pm", "AI Product Management", "AI Product Management", "Foundations and product",
      ["sec-pm"], ["learn-pm"], "Product management"),
@@ -151,6 +154,7 @@ def build(page, uhero, out, source=None):
                 '<button role="tab" data-pt="tools" aria-selected="false">Learning Tools &amp; Links</button></div>')
         body = (uhero(f"Learning platform · {E(group)}", E(title), f"Everything for {E(short)} in one place: the programme content, related programmes, and tools and learning links.")
                 + '<section style="padding-top:24px"><div class="wrap"><a class="btn btn-line btn-sm" href="learning-platform.html" style="margin:0 0 14px;display:inline-block">← All programmes</a>'
+                + (f'<div class="feestrip" data-fee-course="{FEE_COURSE[slug]}" hidden></div>' if slug in FEE_COURSE else '')
                 + '<div id="pt-back" hidden style="margin:0 0 12px"><button type="button" class="btn btn-line btn-sm" id="pt-back-btn">← Back to the previous tab</button></div>' + tabs
                 + f'<div class="ppanel" id="pp-content" role="tabpanel">{d["content"]}</div>'
                 + f'<div class="ppanel" id="pp-other" role="tabpanel" hidden><h2 class="sec-h">Other programmes</h2><p class="meta" style="margin:0 0 14px">Related programmes you can study next. Each one opens on its own page.</p>{other_cards}<p><a class="btn btn-line btn-sm" href="learning-platform.html">All programmes</a> <a class="btn btn-line btn-sm" href="tools-and-resources.html">Tools &amp; learning resources</a></p></div>'
