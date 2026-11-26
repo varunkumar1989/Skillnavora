@@ -162,7 +162,7 @@
     af.course.innerHTML = C.map(c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join("");
     if (C.some(c => c.id === q.get("program"))) af.course.value = q.get("program");
     const paint = () => { const c = C.find(x => x.id === af.course.value) || C[0];
-      $("apply-sub").textContent = "Take the first step towards becoming a confident, job-ready professional in " + c.name + ".";
+      $("apply-sub").textContent = "Take the first step towards becoming a confident, interview-ready professional in " + c.name + ".";
       $("apply-ticks").innerHTML = [c.duration ? c.duration + " program" : "", "Live classes", ...(c.highlights || []).slice(0, 2)].filter(Boolean).map(t => `<span>${esc(t)}</span>`).join(""); };
     af.course.addEventListener("change", paint); paint();
     af.addEventListener("submit", async e => {

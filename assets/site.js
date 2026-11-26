@@ -120,7 +120,7 @@
     const eb = typeof OFFERS !== "undefined" && c.earlyBird && OFFERS.earlyBirdEnds;
     if (eb && left(eb)) return `Early-bird ends in <span class="cd" data-deadline="${esc(eb)}">${left(eb)}</span>`;
     if (c.start) return `Next cohort starts <b>${esc(c.start)}</b>`;
-    return "Enrolments opening soon";
+    return "Applications open · start date announced soon";
   }
   setInterval(() => document.querySelectorAll("[data-deadline]").forEach(el => { el.textContent = left(el.dataset.deadline) || "closed"; }), 1000);
 
@@ -210,8 +210,8 @@
   if (P) {
     const set = (id, h) => { const el = $(id); if (el) el.innerHTML = h; };
     set("p-name", esc(P.name)); set("p-tagline", esc(P.tagline));
-    set("p-fine", P.deadline && left(P.deadline) ? `⚡ Enrolment closes in <b data-deadline="${esc(P.deadline)}">${left(P.deadline)}</b>` : P.start ? `⚡ ${P.cohort ? esc(P.cohort) + " · " : ""}Live classes start <b>${esc(P.start)}</b>` : "⚡ Enrolments opening soon. Talk to a counsellor to reserve your seat.");
-    set("p-facts", [["Duration", P.duration], ["Format", P.format], ["Time needed", P.effort], ["Next cohort", P.start || "Opening soon"]].map(([k, v]) => `<div class="fact"><small>${k}</small><b>${esc(v || "—")}</b></div>`).join(""));
+    set("p-fine", P.deadline && left(P.deadline) ? `⚡ Enrolment closes in <b data-deadline="${esc(P.deadline)}">${left(P.deadline)}</b>` : P.start ? `⚡ ${P.cohort ? esc(P.cohort) + " · " : ""}Live classes start <b>${esc(P.start)}</b>` : "⚡ Applications are open. Talk to a counsellor to reserve your seat.");
+    set("p-facts", [["Duration", P.duration], ["Format", P.format], ["Time needed", P.effort], ["Next cohort", P.start || "Dates announced soon"]].map(([k, v]) => `<div class="fact"><small>${k}</small><b>${esc(v || "—")}</b></div>`).join(""));
     set("p-outcomes", (P.outcomes || []).map(x => `<li>${esc(x)}</li>`).join(""));
     set("p-curriculum", (P.curriculum || []).map((m, i) => `<details class="mod"${i === 0 ? " open" : ""}><summary><span class="n">${String(i + 1).padStart(2, "0")}</span><span>${esc(m.title)}</span></summary><ul>${(m.topics || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul></details>`).join(""));
     set("p-projects", (P.projects || []).map((x, i) => `<div class="card"><div class="ico${i % 2 ? " g" : ""}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div><h3>${esc(x)}</h3></div>`).join(""));

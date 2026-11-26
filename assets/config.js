@@ -37,7 +37,7 @@ const SITE = {
 
 /* ---- Top announcement bar (all public pages). text "" hides it. ---- */
 const TOPBAR = {
-  text: "Learn AI-first Product Management. Inaugural cohort enrolling now",
+  text: "Learn AI-first Product Management. Applications open for the inaugural cohort",
   cta: "Apply now",
   link: "apply.html?program=ai-pm",
   tag: "Scholarships available"
