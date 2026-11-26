@@ -1,5 +1,14 @@
 [
  {
+  "slug": "what-is-a-north-star-metric",
+  "title": "What is a North Star metric? A simple guide for product managers",
+  "desc": "What a North Star metric is, how to pick one, and how it links to the metrics your team tracks every day.",
+  "mins": "4",
+  "section": "Product management guides",
+  "tag": "Product management",
+  "body": "<p>A North Star metric is the single number that best shows the value your product gives customers. When that number grows, your product is working. When it stalls, something needs attention.</p>\n<p>Teams use it to stop arguing about which dashboard matters. Everyone can see the one number they are trying to move, and every other metric is judged by whether it helps move that number.</p>\n<h2>What makes a good North Star metric</h2>\n<ul>\n<li>It reflects value a customer receives, not just activity. Logins are activity. Completed orders or songs listened to are value.</li>\n<li>It can be influenced by the team, so the people working on the product can act on it.</li>\n<li>It is easy to explain to someone outside the team.</li>\n<li>It predicts long-term growth, not just this week's numbers.</li>\n</ul>\n<h2>An example</h2>\n<p>For a food delivery app, the North Star might be <b>successful deliveries per week</b>. Downloads and sign-ups matter, but a delivery means a customer got food they wanted, and that drives repeat orders.</p>\n<h2>How to choose one</h2>\n<ol>\n<li>List the value your customer gets from the product in one sentence.</li>\n<li>Turn that sentence into a count or a rate you can measure.</li>\n<li>Check that a better number really means a better customer outcome.</li>\n<li>Break it into input metrics the team controls, such as onboarding completion or repeat visits.</li>\n</ol>\n<h2>A common mistake</h2>\n<p>Choosing revenue as the North Star. Revenue matters, but it often rises for reasons that do not help customers, and it can fall while the product is improving. Pick the value that comes before the money.</p>\n<h2>Learn it properly</h2>\n<p>The SkillNavora PM Master Handbook covers this in Module 7 (Product Analytics and Metrics), in the section on <a href=\"../handbooks/pm/m07.html#m07-the-north-star-metric-and-metric-trees\">the North Star metric and metric trees</a>.</p>"
+ },
+ {
   "slug": "ai-tools-every-pm-should-learn",
   "title": "11 AI tools every product manager should learn",
   "desc": "The AI tools PMs use for research, writing, prototyping and automation, what each is best for, and the order to learn them in.",
